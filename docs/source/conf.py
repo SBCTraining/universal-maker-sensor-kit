@@ -34,7 +34,7 @@ html_context = {
     "display_github": True, # Integrate GitHub
     "github_user": "sunfounder", # Username
     "github_repo": "universal-maker-sensor-kit", # Repo name
-    "github_version": "docs-ja", # Version
+    "github_version": "docs-de", # Version
     "conf_py_path": "/docs/source/", # Path in the checkout to the docs root
 }
 
