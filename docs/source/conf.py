@@ -33,11 +33,19 @@ html_theme_options = {
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
-extensions = [
-    'sphinx.ext.autosectionlabel',
-    'sphinx_copybutton',
-    'sphinx_rtd_theme'
-]
+html_theme_options = {
+    'flyout_display': 'attached',
+    'version_selector': False,
+    'language_selector': False,
+}
+
+html_context = {
+    "display_github": True, # Integrate GitHub
+    "github_user": "sunfounder", # Username
+    "github_repo": "universal-maker-sensor-kit", # Repo name
+    "github_version": "docs-de", # Version
+    "conf_py_path": "/docs/source/", # Path in the checkout to the docs root
+}
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
