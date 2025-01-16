@@ -25,15 +25,6 @@ author = 'www.sunfounder.com'
 
 # -- sphinx_rtd_theme Theme options -----------------------------------------------------
 html_theme_options = {
-    'flyout_display': 'attached'
-}
-
-# -- General configuration ---------------------------------------------------
-
-# Add any Sphinx extension module names here, as strings. They can be
-# extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
-# ones.
-html_theme_options = {
     'flyout_display': 'attached',
     'version_selector': False,
     'language_selector': False,
@@ -43,9 +34,20 @@ html_context = {
     "display_github": True, # Integrate GitHub
     "github_user": "sunfounder", # Username
     "github_repo": "universal-maker-sensor-kit", # Repo name
-    "github_version": "docs-de", # Version
+    "github_version": "docs-ja", # Version
     "conf_py_path": "/docs/source/", # Path in the checkout to the docs root
 }
+
+# -- General configuration ---------------------------------------------------
+
+# Add any Sphinx extension module names here, as strings. They can be
+# extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
+# ones.
+extensions = [
+    'sphinx.ext.autosectionlabel',
+    'sphinx_copybutton',
+    'sphinx_rtd_theme'
+]
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
