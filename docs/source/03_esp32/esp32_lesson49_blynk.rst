@@ -232,7 +232,7 @@ Lastly, don't forget to save your template.
 
     .. raw:: html
 
-        <iframe src=https://create.arduino.cc/editor/sunfounder01/987fb2fd-47e9-4a73-9020-6b2111eadd9c/preview?embed style="height:510px;width:100%;margin:10px 0" frameborder=0></iframe>
+        <iframe src="https://app.arduino.cc/sketches/ddb3006a-befa-46c4-bc71-9e32bcfbe31d?view-mode=embed" style="height:510px;width:100%;margin:10px 0" frameborder=0></iframe>
         
 
 #. Replace the placeholders for ``BLYNK_TEMPLATE_ID``, ``BLYNK_TEMPLATE_NAME``, and ``BLYNK_AUTH_TOKEN`` with your own unique IDs.
