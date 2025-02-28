@@ -1,23 +1,21 @@
-.. note::
+.. note:: 
+    Bonjour et bienvenue dans la communauté des passionnés de SunFounder Raspberry Pi, Arduino et ESP32 sur Facebook ! Explorez plus profondément les univers de Raspberry Pi, Arduino et ESP32 avec d'autres passionnés.
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    **Pourquoi rejoindre ?**
 
-    **Why Join?**
+    - **Support d'expert** : Résolvez les problèmes après-vente et les défis techniques avec l'aide de notre communauté et de notre équipe.
+    - **Apprendre et partager** : Échangez des astuces et des tutoriels pour améliorer vos compétences.
+    - **Aperçus exclusifs** : Obtenez un accès anticipé aux annonces de nouveaux produits et aux aperçus.
+    - **Réductions spéciales** : Profitez de réductions exclusives sur nos produits les plus récents.
+    - **Promotions festives et cadeaux** : Participez à des cadeaux et promotions festives.
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    👉 Prêts à explorer et créer avec nous ? Cliquez sur [|link_sf_facebook|] et rejoignez-nous aujourd'hui !
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
-
-Download the Code
+Télécharger le code
 ========================
 
-Download the relevant code from the link below.
+Téléchargez le code pertinent via le lien ci-dessous.
 
-* :download:`SunFounder Universal Maker Sensor Kit Code <https://codeload.github.com/sunfounder/universal-maker-sensor-kit/zip/refs/heads/main>`
+* :download:`Code du kit de capteurs pour créateurs universels SunFounder <https://codeload.github.com/sunfounder/universal-maker-sensor-kit/zip/refs/heads/main>`
 
-* Or check out the code at `SunFounder Universal Maker Sensor Kit - GitHub <https://github.com/sunfounder/universal-maker-sensor-kit>`_
-
+* Ou consultez le code sur `Kit de capteurs pour créateurs universels SunFounder - GitHub <https://github.com/sunfounder/universal-maker-sensor-kit>`

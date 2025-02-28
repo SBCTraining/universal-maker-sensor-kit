@@ -1,50 +1,50 @@
-.. note::
+.. note:: 
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    Bonjour et bienvenue dans la communauté des passionnés de SunFounder Raspberry Pi, Arduino et ESP32 sur Facebook ! Plongez plus profondément dans les mondes de Raspberry Pi, Arduino et ESP32 avec d'autres passionnés.
 
-    **Why Join?**
+    **Pourquoi nous rejoindre ?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Support d’experts** : Résolvez vos problèmes après-vente et vos défis techniques grâce à l’aide de notre communauté et de notre équipe.
+    - **Apprendre et partager** : Échangez des astuces et des tutoriels pour améliorer vos compétences.
+    - **Aperçus exclusifs** : Accédez en avant-première aux annonces de nouveaux produits et aperçus exclusifs.
+    - **Réductions spéciales** : Profitez de réductions exclusives sur nos produits les plus récents.
+    - **Promotions festives et concours** : Participez à des concours et des promotions pendant les fêtes.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 Prêt à explorer et créer avec nous ? Cliquez sur [|link_sf_facebook|] et rejoignez-nous dès aujourd'hui !
 
 .. _pico_lesson15_raindrop:
 
-Lesson 15: Raindrop Detection Module
-=======================================
+Leçon 15 : Module de Détection de Gouttes de Pluie
+=====================================================
 
-In this lesson, you'll learn how to use the Raspberry Pi Pico W to detect raindrops using a raindrop sensor connected to pin 16. The script continuously monitors for any indication of raindrops and prints "Raindrop detected!" when one is detected; otherwise, it displays "Monitoring..." as it waits for raindrops. This session offers hands-on experience in handling digital inputs with the Raspberry Pi Pico W and understanding environmental sensing in MicroPython, making it ideal for beginners in electronics and programming.
+Dans cette leçon, vous apprendrez à utiliser le Raspberry Pi Pico W pour détecter des gouttes de pluie à l’aide d’un capteur de pluie connecté à la broche 16. Le script surveille en continu la présence de gouttes de pluie et affiche "Goutte de pluie détectée !" lorsqu’une goutte est détectée ; sinon, il affiche "Surveillance en cours..." en attendant les gouttes de pluie. Cette session offre une expérience pratique dans la gestion des entrées numériques avec le Raspberry Pi Pico W et la compréhension de la détection environnementale en MicroPython, idéale pour les débutants en électronique et en programmation.
 
-Required Components
+Composants Requis
 --------------------------
 
-In this project, we need the following components. 
+Dans ce projet, nous avons besoin des composants suivants.
 
-It's definitely convenient to buy a whole kit, here's the link: 
+Il est sans doute plus pratique d'acheter un kit complet, voici le lien :
 
 .. list-table::
     :widths: 20 20 20
     :header-rows: 1
 
-    *   - Name	
-        - ITEMS IN THIS KIT
-        - LINK
+    *   - Nom	
+        - Éléments dans ce kit
+        - Lien
     *   - Universal Maker Sensor Kit
         - 94
         - |link_umsk|
 
-You can also buy them separately from the links below.
+Vous pouvez également les acheter séparément via les liens ci-dessous.
 
 .. list-table::
     :widths: 30 20
     :header-rows: 1
 
-    *   - Component Introduction
-        - Purchase Link
+    *   - Introduction des composants
+        - Lien d'achat
 
     *   - Raspberry Pi Pico W
         - \-
@@ -54,7 +54,7 @@ You can also buy them separately from the links below.
         - |link_breadboard_buy|
 
 
-Wiring
+Câblage
 ---------------------------
 
 .. image:: img/Lesson_15_raindrop_detection_module_bb.png
@@ -69,33 +69,33 @@ Code
    from machine import Pin
    import time
    
-   # Initialize raindrop sensor connected to pin 16 as input
+   # Initialiser le capteur de gouttes de pluie connecté à la broche 16 en mode entrée
    raindrop_sensor = Pin(16, Pin.IN)
    
    while True:
-       # Check the Raindrop sensor value
+       # Vérifier la valeur du capteur de gouttes de pluie
        if raindrop_sensor.value() == 0:  
-           print("Raindrop detected!")  # Raindrop detected
+           print("Raindrop detected!")  # Goutte de pluie détectée
        else:
-           print("Monitoring...")  # No raindrop detected
-   
-       time.sleep(0.1)  # Short delay of 0.1 seconds to reduce CPU usage
+           print("Monitoring...")  # Pas de goutte de pluie détectée
+       
+       time.sleep(0.1)  # Court délai de 0.1 seconde pour réduire l'utilisation du processeur
 
-Code Analysis
+Analyse du Code
 ---------------------------
 
-#. Initializing the Raindrop Sensor:
+1. Initialisation du capteur de gouttes de pluie :
 
-   The raindrop sensor is initialized using the ``Pin`` class from the ``machine`` module, set to pin 16 in input mode. This allows the Raspberry Pi Pico W to read the sensor output.
+   Le capteur de gouttes de pluie est initialisé à l'aide de la classe ``Pin`` du module ``machine``, configuré pour la broche 16 en mode entrée. Cela permet au Raspberry Pi Pico W de lire la sortie du capteur.
 
    .. code-block:: python
    
        from machine import Pin
        raindrop_sensor = Pin(16, Pin.IN)
 
-#. Continuous Monitoring Loop:
+2. Boucle de surveillance continue :
 
-   A continuous while loop is used to monitor the sensor. Inside the loop, the sensor value is checked. If the value is 0, it indicates raindrops are detected and prints "Raindrop detected!" Otherwise, it prints "Monitoring..." to indicate the absence of raindrops.
+   Une boucle ``while`` continue est utilisée pour surveiller le capteur. À l'intérieur de la boucle, la valeur du capteur est vérifiée. Si la valeur est 0, cela indique que des gouttes de pluie ont été détectées et affiche "Goutte de pluie détectée !". Sinon, il affiche "Surveillance en cours..." pour indiquer l'absence de gouttes de pluie.
 
    .. code-block:: python
    
@@ -105,9 +105,9 @@ Code Analysis
            else:
                print("Monitoring...")
 
-#. Introducing a Delay:
+3. Introduction d'un délai :
 
-   To reduce CPU usage, a delay of 0.1 seconds is introduced in each iteration of the loop using ``time.sleep(0.1)``. This prevents the loop from executing too rapidly.
+   Pour réduire l'utilisation du processeur, un délai de 0,1 seconde est introduit à chaque itération de la boucle avec ``time.sleep(0.1)``, afin d'éviter que la boucle ne s'exécute trop rapidement.
 
    .. code-block:: python
    

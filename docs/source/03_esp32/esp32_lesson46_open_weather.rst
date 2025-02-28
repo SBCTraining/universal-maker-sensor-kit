@@ -1,130 +1,129 @@
 .. note::
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    Bonjour, bienvenue dans la communauté des passionnés de SunFounder Raspberry Pi, Arduino et ESP32 sur Facebook ! Plongez plus profondément dans l'univers des Raspberry Pi, Arduino et ESP32 avec d'autres passionnés.
 
-    **Why Join?**
+    **Pourquoi nous rejoindre ?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Support d'experts** : Résolvez les problèmes post-vente et les défis techniques avec l'aide de notre communauté et de notre équipe.
+    - **Apprendre & Partager** : Échangez des astuces et des tutoriels pour améliorer vos compétences.
+    - **Aperçus exclusifs** : Obtenez un accès anticipé aux annonces de nouveaux produits et aux avant-premières.
+    - **Réductions spéciales** : Profitez de réductions exclusives sur nos produits les plus récents.
+    - **Promotions festives et cadeaux** : Participez à des tirages au sort et à des promotions de fêtes.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 Prêt à explorer et créer avec nous ? Cliquez sur [|link_sf_facebook|] et rejoignez-nous aujourd'hui !
 
 .. _esp32_iot_owm:
 
 
 
-Lesson 46: Real-time Weather From @OpenWeatherMap
-====================================================
+Leçon 46 : Météo en temps réel depuis @OpenWeatherMap
+==========================================================
 
-The IoT Open Weather Display project utilizes the ESP32 board and an I2C LCD1602 module to create a weather information display that retrieves data from the OpenWeatherMap API. 
+Le projet d'affichage météorologique IoT utilise la carte ESP32 et un module LCD1602 I2C pour créer un affichage d'informations météorologiques qui récupère des données via l'API OpenWeatherMap.
 
-This project serves as an excellent introduction to working with APIs, Wi-Fi connectivity, and data display on an LCD module using the ESP32 board. With the IoT Open Weather Display, you can conveniently access real-time weather updates at a glance, making it an ideal solution for home or office environments.
+Ce projet constitue une excellente introduction au travail avec les API, la connectivité Wi-Fi et l'affichage de données sur un module LCD en utilisant la carte ESP32. Avec l'affichage météorologique IoT, vous pouvez facilement accéder aux mises à jour météorologiques en temps réel d'un coup d'œil, ce qui en fait une solution idéale pour les environnements domestiques ou de bureau.
 
-**Required Components**
+**Composants nécessaires**
 
-In this project, we need the following components. 
+Pour ce projet, nous avons besoin des composants suivants.
 
-It's definitely convenient to buy a whole kit, here's the link: 
+Il est certainement pratique d'acheter un kit complet, voici le lien :
 
 .. list-table::
     :widths: 20 20 20
     :header-rows: 1
 
-    *   - Name	
-        - ITEMS IN THIS KIT
-        - LINK
-    *   - Universal Maker Sensor Kit
+    *   - Nom
+        - ÉLÉMENTS DE CE KIT
+        - LIEN
+    *   - Kit Universel de Capteurs pour Makers
         - 94
         - |link_umsk|
 
-You can also buy them separately from the links below.
+Vous pouvez également les acheter séparément via les liens ci-dessous.
 
 .. list-table::
     :widths: 30 20
     :header-rows: 1
 
-    *   - COMPONENT INTRODUCTION
-        - PURCHASE LINK
+    *   - INTRODUCTION DES COMPOSANTS
+        - LIEN D'ACHAT
 
-    *   - ESP32 & Development Board (:ref:`cpn_esp32_wroom_32e`)
+    *   - ESP32 & Carte de développement (:ref:`cpn_esp32_wroom_32e`)
         - |link_esp32_camera_pro_kit_buy|
     *   - :ref:`cpn_i2c_lcd1602`
         - |link_i2clcd1602_buy|
 
-**Get OpenWeather API keys**
+**Obtenez les clés API OpenWeather**
 
-|link_openweather| is an online service, owned by OpenWeather Ltd, that provides global weather data via API, including current weather data, forecasts, nowcasts and historical weather data for any geographical location.
+|link_openweather| est un service en ligne, propriété de OpenWeather Ltd, qui fournit des données météorologiques mondiales via une API, y compris des données météorologiques actuelles, des prévisions, des nowcasts et des données météorologiques historiques pour tout emplacement géographique.
 
-#. Visit |link_openweather| to log in/create an account.
+#. Visitez |link_openweather| pour vous connecter/créer un compte.
 
     .. image:: img/OWM-1.png
 
-#. Click into the API page from the navigation bar.
+#. Cliquez sur la page API depuis la barre de navigation.
 
     .. image:: img/OWM-2.png
 
-#. Find **Current Weather Data** and click Subscribe.
+#. Trouvez **Données météorologiques actuelles** et cliquez sur S'abonner.
 
     .. image:: img/OWM-3.png
 
-#. Under **Current weather and forecasts collection** , subscribe to the appropriate service. In our project, Free is good enough.
+#. Sous **Collection de météo actuelle et de prévisions**, abonnez-vous au service approprié. Pour notre projet, la version gratuite est suffisante.
 
     .. image:: img/OWM-4.png
 
-#. Copy the Key from the **API keys** page.
+#. Copiez la clé depuis la page **Clés API**.
 
     .. image:: img/OWM-5.png
 
 
-**Complete Your Device**
+**Complétez votre dispositif**
 
-#. Build the circuit.
+#. Construisez le circuit.
 
     .. image:: img/Lesson_26_LCD1602_esp32_bb.png
         :width: 800
 
-#. Open the code.
+#. Ouvrez le code.
 
-    * Open the ``Lesson_46_OpenWeatherMap.ino`` file located in the ``universal-maker-sensor-kit\esp32\Lesson_46_OpenWeatherMap`` directory, or copy the code into the Arduino IDE.
-    * After selecting the board (ESP32 Dev Module) and the appropriate port, click the **Upload** button.
+    * Ouvrez le fichier ``Lesson_46_OpenWeatherMap.ino`` situé dans le répertoire ``universal-maker-sensor-kit\esp32\Lesson_46_OpenWeatherMap``, ou copiez le code dans l'IDE Arduino.
+    * Après avoir sélectionné la carte (ESP32 Dev Module) et le port approprié, cliquez sur le bouton **Télécharger**.
     * :ref:`unknown_com_port`
-    * The ``LiquidCrystal I2C``  and ``Arduino_JSON`` libraries are used here, you can install them from the **Library Manager**.
+    * Les bibliothèques ``LiquidCrystal I2C`` et ``Arduino_JSON`` sont utilisées ici, vous pouvez les installer depuis le **Gestionnaire de bibliothèques**.
 
     .. raw:: html
 
         <iframe src=https://create.arduino.cc/editor/sunfounder01/5e262afa-97ca-45ba-807b-adf7650b30e8/preview?embed style="height:510px;width:100%;margin:10px 0" frameborder=0></iframe>
          
 
-#. Locate the following lines and modify them with your ``<SSID>`` and ``<PASSWORD>``.
+#. Localisez les lignes suivantes et modifiez-les avec votre ``<SSID>`` et ``<PASSWORD>``.
 
 
     .. code-block::  Arduino
 
-        // Replace the next variables with your SSID/Password combination
+        // Remplacez les variables suivantes par votre combinaison SSID/Mot de passe
         const char* ssid = "<SSID>";
         const char* password = "<PASSWORD>";
 
-#. Fill in the API keys you copied earlier into ``openWeatherMapApiKey``.
+#. Remplissez les clés API que vous avez copiées plus tôt dans ``openWeatherMapApiKey``.
 
     .. code-block::  Arduino
 
-        // Your Domain name with URL path or IP address with path
+        // Votre nom de domaine avec chemin URL ou adresse IP avec chemin
         String openWeatherMapApiKey = "<openWeatherMapApiKey>";
 
-#. Replace with your country code and city.
+#. Remplacez par votre code pays et ville.
 
     .. code-block::  Arduino
 
-        // Replace with your country code and city
-        // Fine the country code by https://openweathermap.org/find
+        // Remplacez par votre code pays et ville
+        // Trouvez le code pays sur https://openweathermap.org/find
         String city = "<CITY>";
         String countryCode = "<COUNTRY CODE>";
 
-#. After the code runs, you will see the time and weather information of your location on the I2C LCD1602.
+#. Une fois le code exécuté, vous verrez les informations météorologiques et l'heure de votre emplacement sur l'I2C LCD1602.
 
 .. note::
-   When the code is running, if the screen is blank, you can turn the potentiometer on the back of the module to increase the contrast.
-
+   Lorsque le code fonctionne, si l'écran est vide, vous pouvez tourner le potentiomètre à l'arrière du module pour augmenter le contraste.

@@ -1,58 +1,58 @@
 .. note::
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    Bonjour, bienvenue dans la communauté des passionnés de SunFounder Raspberry Pi, Arduino & ESP32 sur Facebook ! Plongez plus profondément dans l'univers du Raspberry Pi, Arduino, et ESP32 avec d'autres passionnés.
 
-    **Why Join?**
+    **Pourquoi rejoindre ?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Support d'expert** : Résolvez les problèmes post-vente et les défis techniques avec l'aide de notre communauté et de notre équipe.
+    - **Apprendre et partager** : Échangez des astuces et des tutoriels pour améliorer vos compétences.
+    - **Aperçus exclusifs** : Obtenez un accès anticipé aux annonces de nouveaux produits et aux avant-premières.
+    - **Réductions spéciales** : Profitez de réductions exclusives sur nos nouveaux produits.
+    - **Promotions festives et cadeaux** : Participez à des tirages au sort et promotions de fêtes.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 Prêts à explorer et à créer avec nous ? Cliquez sur [|link_sf_facebook|] et rejoignez-nous aujourd'hui !
 
 .. _uno_lesson16_ds1306:
 
-Lesson 16: Real Time Clock Module (DS1302)
+Leçon 16 : Module Horloge Temps Réel (DS1302)
 ==================================================
 
-In this lesson, you will learn how to set up and use a Real Time Clock (RTC) module with an Arduino. We'll cover initializing the RTC DS1302 module, displaying the current date and time on the serial monitor, and ensuring accurate timekeeping. This session is ideal for those interested in time-based operations in embedded systems, offering hands-on experience with managing date and time settings, using RTC libraries, and troubleshooting common issues. This project is suitable for intermediate learners familiar with Arduino basics.
+Dans cette leçon, vous apprendrez à configurer et utiliser un module d'horloge temps réel (RTC) avec un Arduino. Nous aborderons l'initialisation du module RTC DS1302, l'affichage de la date et de l'heure actuelles sur le moniteur série, et assurerons une tenue de l'heure précise. Cette session est idéale pour ceux qui s'intéressent aux opérations basées sur le temps dans les systèmes embarqués, offrant une expérience pratique de la gestion des paramètres de date et d'heure, de l'utilisation des bibliothèques RTC, et du dépannage des problèmes courants. Ce projet convient aux apprenants intermédiaires familiers avec les bases de l'Arduino.
 
-Required Components
+Composants nécessaires
 --------------------------
 
-In this project, we need the following components. 
+Pour ce projet, nous avons besoin des composants suivants.
 
-It's definitely convenient to buy a whole kit, here's the link: 
+Il est définitivement pratique d'acheter un kit complet, voici le lien :
 
 .. list-table::
     :widths: 20 20 20
     :header-rows: 1
 
-    *   - Name	
-        - ITEMS IN THIS KIT
-        - LINK
-    *   - Universal Maker Sensor Kit
+    *   - Nom	
+        - ÉLÉMENTS DE CE KIT
+        - LIEN
+    *   - Kit capteur universel pour bricoleurs
         - 94
         - |link_umsk|
 
-You can also buy them separately from the links below.
+Vous pouvez également les acheter séparément via les liens ci-dessous.
 
 .. list-table::
     :widths: 30 20
     :header-rows: 1
 
-    *   - Component Introduction
-        - Purchase Link
+    *   - Introduction au composant
+        - Lien d'achat
 
-    *   - Arduino UNO R3 or R4
+    *   - Arduino UNO R3 ou R4
         - |link_Uno_R3_buy|
     *   - :ref:`cpn_rtc_ds1302`
         - |link_ds1302_module_buy|
         
 
-Wiring
+Câblage
 ---------------------------
 
 .. image:: img/Lesson_16_DS1302_module_circuit_uno_bb.png
@@ -63,30 +63,30 @@ Code
 ---------------------------
 
 .. note:: 
-   To install the library, use the Arduino Library Manager and search for **"Rtc by Makuna"** and install it. 
+   Pour installer la bibliothèque, utilisez le gestionnaire de bibliothèques Arduino et recherchez **"Rtc by Makuna"** puis installez-la.
 
 .. raw:: html
 
     <iframe src=https://create.arduino.cc/editor/sunfounder01/9b509afa-545f-4fb6-b8f0-0d87b7cf4992/preview?embed style="height:510px;width:100%;margin:10px 0" frameborder=0></iframe>
 
-Code Analysis
+Analyse du code
 ---------------------------
 
-#. Initialization and library inclusion
+1. Inclusion des bibliothèques et initialisation des variables globales :
 
    .. note:: 
-      To install the library, use the Arduino Library Manager and search for **"Rtc by Makuna"** and install it. 
+      Pour installer la bibliothèque, utilisez le gestionnaire de bibliothèques Arduino et recherchez **"Rtc by Makuna"** puis installez-la.
 
-   Here, necessary libraries are included for the DS1302 RTC module.
+   Ici, les bibliothèques nécessaires sont incluses pour le module DS1302 RTC.
 
    .. code-block:: arduino
 
       #include <ThreeWire.h>
       #include <RtcDS1302.h>
 
-#. Define pins and create RTC instance
+2. Définir les broches et créer une instance RTC :
 
-   Pins for communication are defined and an instance of the RTC is created.
+   Les broches de communication sont définies et une instance de l'RTC est créée.
 
    .. code-block:: arduino
 
@@ -98,9 +98,9 @@ Code Analysis
       RtcDS1302<ThreeWire> Rtc(myWire);
 
 
-#. ``setup()`` function
+3. Fonction ``setup()`` :
 
-   This function initializes the serial communication and sets up the RTC module. Various checks are made to ensure the RTC is running correctly.
+   Cette fonction initialise la communication série et configure le module RTC. Différentes vérifications sont effectuées pour s'assurer que l'RTC fonctionne correctement.
 
    .. code-block:: arduino
 
@@ -148,9 +148,9 @@ Code Analysis
       }
 
 
-#. ``loop()`` function
+4. Fonction ``loop()`` :
 
-   This function periodically fetches the current date and time from the RTC and prints it on the serial monitor. It also checks if the RTC is still maintaining a valid date and time.
+   Cette fonction récupère périodiquement la date et l'heure actuelles de l'RTC et les imprime sur le moniteur série. Elle vérifie également si l'RTC maintient toujours une date et une heure valides.
 
    .. code-block:: arduino
 
@@ -166,13 +166,13 @@ Code Analysis
           Serial.println("RTC lost confidence in the DateTime!");
         }
       
-        delay(5000);  // five seconds
+        delay(5000);  // cinq secondes
       }
 
 
-#. Date and time printing function
+5. Fonction d'impression de la date et de l'heure :
 
-   A helper function that takes a ``RtcDateTime`` object and prints the formatted date and time to the serial monitor.
+   Une fonction d'aide qui prend un objet ``RtcDateTime`` et imprime la date et l'heure formatées sur le moniteur série.
 
    .. code-block:: arduino
 

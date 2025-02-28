@@ -1,61 +1,61 @@
 .. note::
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    Bonjour, bienvenue dans la communauté des passionnés de SunFounder Raspberry Pi, Arduino et ESP32 sur Facebook ! Plongez plus profondément dans l'univers du Raspberry Pi, de l'Arduino et de l'ESP32 avec d'autres amateurs.
 
-    **Why Join?**
+    **Pourquoi rejoindre ?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Support d'experts** : Résolvez les problèmes après-vente et les défis techniques avec l'aide de notre communauté et de notre équipe.
+    - **Apprendre & Partager** : Échangez des conseils et des tutoriels pour améliorer vos compétences.
+    - **Aperçus exclusifs** : Obtenez un accès anticipé aux annonces de nouveaux produits et aux aperçus.
+    - **Réductions spéciales** : Profitez de réductions exclusives sur nos nouveaux produits.
+    - **Promotions festives et cadeaux** : Participez à des tirages au sort et des promotions de fêtes.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 Prêt à explorer et créer avec nous ? Cliquez sur [|link_sf_facebook|] et rejoignez-nous aujourd'hui !
 
 .. _esp32_motion_triggered_relay:
 
-Lesson 38: Motion triggered relay
-==================================
+Leçon 38 : Relais déclenché par mouvement
+=========================================
 
-This project aims to control a relay-operated light using a passive infrared (PIR) sensor. 
-When the PIR sensor detects motion, the relay is activated, turning the light on. 
-The light remains on for 5 seconds after the last detected motion.
+Ce projet vise à contrôler une lumière actionnée par un relais en utilisant un capteur infrarouge passif (PIR).
+Lorsque le capteur PIR détecte un mouvement, le relais est activé, allumant ainsi la lumière.
+La lumière reste allumée pendant 5 secondes après le dernier mouvement détecté.
 
 .. warning::
 
-    As a demonstration, we are using a relay to control an RGB LED module. 
-    However, in real-life scenarios, this may not be the most practical approach.
+    À titre de démonstration, nous utilisons un relais pour contrôler un module LED RGB.
+    Cependant, dans des scénarios réels, cela peut ne pas être l'approche la plus pratique.
     
-    **While you can connect the relay to other appliances in actual applications, extreme caution is required when dealing with HIGH AC voltage. Improper or incorrect use can lead to severe injury or even death. Therefore, it is intended for people who are familiar with and knowledgeable about HIGH AC voltage. Always prioritize safety.**
+    **Bien que vous puissiez connecter le relais à d'autres appareils dans des applications réelles, une extrême prudence est requise lors de la manipulation de haute tension AC. Une utilisation inappropriée ou incorrecte peut entraîner de graves blessures ou même la mort. Par conséquent, cela est destiné aux personnes qui sont familières et compétentes en matière de haute tension AC. La sécurité doit toujours être une priorité.**
 
-Required Components
---------------------------
+Composants requis
+--------------------
 
-In this project, we need the following components. 
+Pour ce projet, nous avons besoin des composants suivants.
 
-It's definitely convenient to buy a whole kit, here's the link: 
+Il est définitivement pratique d'acheter un kit complet, voici le lien :
 
 .. list-table::
     :widths: 20 20 20
     :header-rows: 1
 
-    *   - Name	
-        - ITEMS IN THIS KIT
-        - LINK
-    *   - Universal Maker Sensor Kit
+    *   - Nom	
+        - ARTICLES DANS CE KIT
+        - LIEN
+    *   - Kit de capteurs universels pour créateurs
         - 94
         - |link_umsk|
 
-You can also buy them separately from the links below.
+Vous pouvez également les acheter séparément via les liens ci-dessous.
 
 .. list-table::
     :widths: 30 20
     :header-rows: 1
 
-    *   - Component Introduction
-        - Purchase Link
+    *   - Introduction au composant
+        - Lien d'achat
 
-    *   - ESP32 & Development Board (:ref:`cpn_esp32_wroom_32e`)
+    *   - ESP32 & Carte de développement (:ref:`cpn_esp32_wroom_32e`)
         - |link_esp32_camera_pro_kit_buy|
     *   - :ref:`cpn_pir_motion`
         - \-
@@ -67,79 +67,78 @@ You can also buy them separately from the links below.
         - |link_breadboard_buy|
         
 
-Wiring
----------------------------
+Câblage
+---------
 
 .. image:: img/Lesson_38_Motion_triggered_relay_esp32_bb.png
     :width: 100%
 
 
 Code
----------------------------
+------
 
 .. raw:: html
 
     <iframe src=https://create.arduino.cc/editor/sunfounder01/5a29dc43-f362-434e-9e5a-f32dcd41b952/preview?embed style="height:510px;width:100%;margin:10px 0" frameborder=0></iframe>
 
 
-Code Analysis
----------------------------
+Analyse du code
+------------------
 
-The project revolves around the PIR motion sensor's capability to detect motion. When motion is detected, a signal is sent to the Arduino, triggering the relay module, which in turn activates a light. The light stays on for a specified duration (in this case, 5 seconds) after the last detected motion, ensuring the area remains illuminated for a short period even if motion ceases.
+Le projet s'articule autour de la capacité du capteur de mouvement PIR à détecter des mouvements. Lorsqu'un mouvement est détecté, un signal est envoyé à l'Arduino, déclenchant le module de relais, qui à son tour active une lumière. La lumière reste allumée pendant une durée spécifiée (dans ce cas, 5 secondes) après le dernier mouvement détecté, garantissant que la zone reste éclairée pendant une courte période même si le mouvement cesse.
 
-1. **Initial setup and variable declarations**
+1. **Configuration initiale et déclarations de variables**
 
-    This segment defines constants and variables that will be used throughout the code. We set up the relay and PIR pins and a delay constant for motion. We also have a variable to keep track of the last detected motion time and a flag to monitor if motion is detected.
+    Ce segment définit les constantes et les variables qui seront utilisées tout au long du code. Nous configurons les broches du relais et du PIR ainsi qu'une constante de délai pour le mouvement. Nous avons également une variable pour suivre le dernier temps de mouvement détecté et un drapeau pour surveiller si un mouvement est détecté.
 
     .. code-block:: arduino
    
-        // Define the pin number for the relay
+        // Définir le numéro de broche pour le relais
         const int relayPin = 19;
 
-        // Define the pin number for the PIR sensor
+        // Définir le numéro de broche pour le capteur PIR
         const int pirPin = 18;
 
-        // Motion delay threshold in milliseconds
+        // Seuil de délai de mouvement en millisecondes
         const unsigned long MOTION_DELAY = 5000;
 
-        unsigned long lastMotionTime = 0;  // Timestamp of the last motion detection
-        bool motionDetected = false;       // Flag to track if motion is detected
+        unsigned long lastMotionTime = 0;  // Horodatage du dernier mouvement détecté
+        bool motionDetected = false;       // Indicateur pour suivre si un mouvement est détecté
         
    
 
-2. **Configuration of pins in setup() function**
+2. **Configuration des broches dans la fonction setup()**
 
-    In the ``setup()`` function, we configure the pin modes for both the relay and PIR sensor. We also initialize the relay to be off at the start.
+    Dans la fonction ``setup()``, nous configurons les modes des broches pour le relais et le capteur PIR. Nous initialisons également le relais pour qu'il soit éteint au départ.
 
     .. code-block:: arduino
     
         void setup() {
-            pinMode(relayPin, OUTPUT);    // Set relayPin as an output pin
-            pinMode(pirPin, INPUT);       // Set the PIR pin as an input
-            digitalWrite(relayPin, LOW);  // Turn off the relay initially
+            pinMode(relayPin, OUTPUT);    // Régler relayPin comme une broche de sortie
+            pinMode(pirPin, INPUT);       // Régler la broche PIR comme une entrée
+            digitalWrite(relayPin, LOW);  // Éteindre initialement le relais
         }
 
-3. **Main logic in loop() function**
+3. **Logique principale dans la fonction loop()**
 
-    The ``loop()`` function contains the primary logic. When the PIR sensor detects motion, it sends a ``HIGH`` signal, turning on the relay and updating the ``lastMotionTime``. If there's no motion for the specified delay (5 seconds in this case), the relay is turned off.
+    La fonction ``loop()`` contient la logique principale. Lorsque le capteur PIR détecte un mouvement, il envoie un signal ``HIGH``, activant le relais et mettant à jour le ``lastMotionTime``. Si aucun mouvement n'est détecté pendant le délai spécifié (5 secondes dans ce cas), le relais est éteint.
     
-    This approach ensures that even if motion is sporadic or brief, the light remains on for at least 5 seconds after the last detected motion, providing a consistent illumination duration.
+    Cette approche garantit que même si le mouvement est sporadique ou bref, la lumière reste allumée pendant au moins 5 secondes après le dernier mouvement détecté, fournissant une durée d'éclairage constante.
 
     .. code-block:: arduino
     
         void loop() {
             if (digitalRead(pirPin) == HIGH) {
-                lastMotionTime = millis();     // Update the last motion time
-                digitalWrite(relayPin, HIGH);  // Turn on the relay (and hence the light)
+                lastMotionTime = millis();     // Mettre à jour le dernier temps de mouvement
+                digitalWrite(relayPin, HIGH);  // Allumer le relais (et donc la lumière)
                 motionDetected = true;
             }
     
-            // If motion was detected earlier and 5 seconds have elapsed, turn off the relay
+            // Si un mouvement a été détecté plus tôt et que 5 secondes se sont écoulées, éteindre le relais
             if (motionDetected && (millis() - lastMotionTime >= MOTION_DELAY)) {
-                digitalWrite(relayPin, LOW);  // Turn off the relay
+                digitalWrite(relayPin, LOW);  // Éteindre le relais
                 motionDetected = false;
             }
         }
     
-   
    

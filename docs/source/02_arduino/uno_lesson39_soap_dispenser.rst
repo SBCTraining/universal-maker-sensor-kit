@@ -1,52 +1,52 @@
 .. note::
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    Bonjour, bienvenue dans la communauté des passionnés de SunFounder Raspberry Pi & Arduino & ESP32 sur Facebook ! Explorez plus en profondeur les univers du Raspberry Pi, Arduino et ESP32 avec d'autres passionnés.
 
-    **Why Join?**
+    **Pourquoi rejoindre ?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Support d'experts** : Résolvez les problèmes post-vente et les défis techniques avec l'aide de notre communauté et de notre équipe.
+    - **Apprendre & Partager** : Échangez des conseils et des tutoriels pour améliorer vos compétences.
+    - **Aperçus exclusifs** : Bénéficiez d'un accès anticipé aux annonces de nouveaux produits et aux avant-premières.
+    - **Réductions spéciales** : Profitez de réductions exclusives sur nos nouveaux produits.
+    - **Promotions festives et cadeaux** : Participez à des tirages au sort et à des promotions de fêtes.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 Prêt à explorer et à créer avec nous ? Cliquez sur [|link_sf_facebook|] et rejoignez-nous aujourd'hui !
 
 .. _uno_lesson39_soap_dispenser:
 
-Lesson 39: Automatic soap dispenser
+Leçon 39 : Distributeur automatique de savon
 =====================================
 
-The Automatic Soap Dispenser project uses an Arduino Uno board along with an infrared obstacle avoidance sensor and a water pump. The sensor detects the presence of an object such as a hand, which activates the water pump to dispense soap.
+Le projet de Distributeur Automatique de Savon utilise une carte Arduino Uno ainsi qu'un capteur infrarouge de détection d'obstacles et une pompe à eau. Le capteur détecte la présence d'un objet tel qu'une main, ce qui active la pompe à eau pour distribuer le savon.
 
-Required Components
+Composants requis
 --------------------------
 
-In this project, we need the following components. 
+Pour ce projet, nous avons besoin des composants suivants.
 
-It's definitely convenient to buy a whole kit, here's the link: 
+Il est définitivement pratique d'acheter un kit complet, voici le lien :
 
 .. list-table::
     :widths: 20 20 20
     :header-rows: 1
 
-    *   - Name	
-        - ITEMS IN THIS KIT
-        - LINK
-    *   - Universal Maker Sensor Kit
+    *   - Nom	
+        - ARTICLES DANS CE KIT
+        - LIEN
+    *   - Kit de capteurs universel pour créateurs
         - 94
         - |link_umsk|
 
-You can also buy them separately from the links below.
+Vous pouvez également les acheter séparément via les liens ci-dessous.
 
 .. list-table::
     :widths: 30 20
     :header-rows: 1
 
-    *   - Component Introduction
-        - Purchase Link
+    *   - Introduction du composant
+        - Lien d'achat
 
-    *   - Arduino UNO R3 or R4
+    *   - Arduino UNO R3 ou R4
         - |link_Uno_R3_buy|
     *   - :ref:`cpn_ir_obstacle`
         - |link_obstacle_avoidance_module_buy|
@@ -60,7 +60,7 @@ You can also buy them separately from the links below.
         - |link_breadboard_buy|
         
 
-Wiring
+Câblage
 ---------------------------
 
 .. image:: img/Lesson_39_Automatic_soap_dispenser_uno_bb.png
@@ -74,14 +74,14 @@ Code
 
     <iframe src=https://create.arduino.cc/editor/sunfounder01/47ef3a59-afe1-40a8-9b36-1ff5db59af15/preview?embed style="height:510px;width:100%;margin:10px 0" frameborder=0></iframe>
 
-Code Analysis
+Analyse du code
 ---------------------------
 
-The main idea behind this project is to create a hands-free soap dispensing system. The infrared obstacle avoidance sensor detects when an object (like a hand) is close. Upon detecting an object, the sensor sends a signal to the Arduino, which in turn triggers the water pump to dispense soap. The pump stays active for a brief period, dispensing soap, then turns off.
+L'idée principale derrière ce projet est de créer un système de distribution de savon sans contact. Le capteur infrarouge de détection d'obstacles détecte lorsqu'un objet (comme une main) est proche. En détectant un objet, le capteur envoie un signal à l'Arduino, qui à son tour active la pompe à eau pour distribuer le savon. La pompe reste active pendant une courte période, distribue le savon, puis s'éteint.
 
-#. **Defining the pins for the sensor and the pump**
+#. **Définition des broches pour le capteur et la pompe**
 
-   In this code snippet, we define the Arduino pins that connect to the sensor and pump. We define pin 7 as the sensor pin and we will use the variable ``sensorValue`` to store the data read from this sensor. For the water pump, we use two pins, 9 and 10.
+   Dans ce fragment de code, nous définissons les broches Arduino qui se connectent au capteur et à la pompe. Nous définissons la broche 7 comme la broche du capteur et nous utiliserons la variable ``sensorValue`` pour stocker les données lues de ce capteur. Pour la pompe à eau, nous utilisons deux broches, 9 et 10.
    
    .. code-block:: arduino
    
@@ -90,9 +90,9 @@ The main idea behind this project is to create a hands-free soap dispensing syst
       const int pump1A = 9;
       const int pump1B = 10;
 
-#. **Setting up the sensor and pump**
+#. **Configuration du capteur et de la pompe**
 
-   In the ``setup()`` function, we define the modes for the pins we're using. The sensor pin is set to ``INPUT`` as it will be used to receive data from the sensor. The pump pins are set to ``OUTPUT`` as they will send commands to the pump. We ensure that the pin ``pump1B`` starts in a ``LOW`` state (off), and we start the serial communication with a baud rate of 9600.
+   Dans la fonction ``setup()``, nous définissons les modes pour les broches que nous utilisons. La broche du capteur est réglée sur ``INPUT`` car elle sera utilisée pour recevoir des données du capteur. Les broches de la pompe sont réglées sur ``OUTPUT`` car elles enverront des commandes à la pompe. Nous nous assurons que la broche ``pump1B`` commence en état ``LOW`` (éteint), et nous commençons la communication série à un débit de 9600 bauds.
 
    .. code-block:: arduino
    
@@ -104,13 +104,13 @@ The main idea behind this project is to create a hands-free soap dispensing syst
         Serial.begin(9600);
       }
 
-#. **Continuously checking the sensor and controlling the pump**
+#. **Vérification continue du capteur et contrôle de la pompe**
 
-   In the ``loop()`` function, the Arduino constantly reads the value from the sensor using ``digitalRead()`` and assigns it to ``sensorValue()``. It then prints this value to the serial monitor for debugging purposes. If the sensor detects an object, ``sensorValue()`` will be 0. When this happens, ``pump1A`` is set to ``HIGH``, activating the pump, and a delay of 700 milliseconds allows the pump to dispense soap. The pump is then deactivated by setting ``pump1A`` to ``LOW``, and a 1-second delay gives the user time to move their hand away before the cycle repeats.
+   Dans la fonction ``loop()``, l'Arduino lit en continu la valeur du capteur en utilisant ``digitalRead()`` et l'attribue à ``sensorValue()``. Il imprime ensuite cette valeur sur le moniteur série à des fins de débogage. Si le capteur détecte un objet, ``sensorValue()`` sera 0. Lorsque cela se produit, ``pump1A`` est réglé sur ``HIGH``, activant la pompe, et un délai de 700 millisecondes permet à la pompe de distribuer du savon. La pompe est ensuite désactivée en réglant ``pump1A`` sur ``LOW``, et un délai d'une seconde donne le temps à l'utilisateur de retirer sa main avant que le cycle ne se répète.
 
    .. note:: 
    
-      If the sensor is not working properly, adjust the IR transmitter and receiver to make them parallel. Additionally, you can adjust the detection range using the built-in potentiometer.
+      Si le capteur ne fonctionne pas correctement, ajustez l'émetteur IR et le récepteur pour les rendre parallèles. De plus, vous pouvez ajuster la portée de détection à l'aide du potentiomètre intégré.
 
    .. code-block:: arduino
    

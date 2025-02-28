@@ -1,60 +1,59 @@
 .. note::
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    Bonjour, bienvenue dans la communauté des passionnés de SunFounder Raspberry Pi, Arduino et ESP32 sur Facebook ! Plongez plus profondément dans l'univers de Raspberry Pi, Arduino et ESP32 aux côtés d'autres passionnés.
 
-    **Why Join?**
+    **Pourquoi rejoindre ?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Support d'experts** : Obtenez de l'aide pour résoudre les problèmes post-vente et les défis techniques grâce à notre communauté et notre équipe.
+    - **Apprendre & Partager** : Échangez des astuces et des tutoriels pour enrichir vos compétences.
+    - **Aperçus exclusifs** : Accédez en avant-première aux annonces de nouveaux produits et aux coulisses de leur développement.
+    - **Réductions spéciales** : Profitez de promotions exclusives sur nos dernières nouveautés.
+    - **Promotions festives et cadeaux** : Participez à des jeux concours et à des offres spéciales pour les fêtes.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 Prêt à explorer et à créer avec nous ? Cliquez sur [|link_sf_facebook|] et rejoignez-nous dès aujourd'hui !
 
 .. _esp32_lesson05_mpu6050:
 
-Lesson 05: Gyroscope & Accelerometer Module (MPU6050)
+Leçon 05 : Module Gyroscope & Accéléromètre (MPU6050)
 ==========================================================
 
-In this lesson, you will learn how to connect the MPU6050 accelerometer and gyroscope sensor to an ESP32 Development Board. We will go through setting up the Adafruit_MPU6050 library, initializing the sensor, and configuring its accelerometer and gyro ranges. You'll also learn how to read acceleration, rotation, and temperature data from the sensor and display these values on the serial monitor. This project is ideal for those interested in exploring motion tracking and orientation sensing in their projects, providing a practical experience in working with advanced sensors on the Arduino-compatible ESP32 platform.
+Dans cette leçon, vous apprendrez à connecter le capteur accéléromètre et gyroscope MPU6050 à une carte de développement ESP32. Nous verrons comment configurer la bibliothèque Adafruit_MPU6050, initialiser le capteur et régler les plages de l’accéléromètre et du gyroscope. Vous découvrirez également comment lire les données d’accélération, de rotation et de température, puis les afficher sur le moniteur série. Ce projet est idéal pour ceux qui souhaitent explorer le suivi des mouvements et la détection d’orientation, offrant une expérience pratique avec des capteurs avancés sur la plateforme ESP32 compatible Arduino.
 
-Required Components
+Composants requis
 --------------------------
 
-In this project, we need the following components. 
+Pour ce projet, nous avons besoin des composants suivants.
 
-It's definitely convenient to buy a whole kit, here's the link: 
+Il est certainement pratique d'acheter un kit complet, voici le lien :
 
 .. list-table::
     :widths: 20 20 20
     :header-rows: 1
 
-    *   - Name	
-        - ITEMS IN THIS KIT
-        - LINK
-    *   - Universal Maker Sensor Kit
+    *   - Nom
+        - ÉLÉMENTS DANS CE KIT
+        - LIEN
+    *   - Kit Capteurs Universel pour Makers
         - 94
         - |link_umsk|
 
-You can also buy them separately from the links below.
+Vous pouvez également les acheter séparément via les liens ci-dessous.
 
 .. list-table::
     :widths: 30 10
     :header-rows: 1
 
-    *   - Component Introduction
-        - Purchase Link
+    *   - Introduction des composants
+        - Lien d'achat
 
-    *   - ESP32 & Development Board (:ref:`cpn_esp32_wroom_32e`)
+    *   - ESP32 & Carte de développement (:ref:`cpn_esp32_wroom_32e`)
         - |link_esp32_camera_pro_kit_buy|
     *   - :ref:`cpn_mpu6050`
         - |link_mpu6050_buy|
     *   - :ref:`cpn_breadboard`
         - |link_breadboard_buy|
 
-
-Wiring
+Câblage
 ---------------------------
 
 .. image:: img/Lesson_05_MPU6050_esp32_bb.png
@@ -65,19 +64,19 @@ Code
 ---------------------------
 
 .. note:: 
-    To install the library, use the Arduino Library Manager and search for **"Adafruit MPU6050"** and install it. 
+    Pour installer la bibliothèque, utilisez le Gestionnaire de Bibliothèques Arduino et recherchez **"Adafruit MPU6050"**, puis installez-la. 
 
 .. raw:: html
 
     <iframe src=https://create.arduino.cc/editor/sunfounder01/9464e05b-2cab-4185-bf6d-983e907dd279/preview?embed style="height:510px;width:100%;margin:10px 0" frameborder=0></iframe>
 
-Code Analysis
+Analyse du code
 ---------------------------
 
-1. The code starts by including the necessary libraries and creating an object for the MPU6050 sensor. This code uses the Adafruit_MPU6050 library, Adafruit_Sensor library, and Wire library. The ``Adafruit_MPU6050`` library is used to interact with the MPU6050 sensor and retrieve acceleration, rotation, and temperature data. The ``Adafruit_Sensor`` library provides a common interface for various types of sensors. The ``Wire`` library is used for I2C communication, which is necessary to communicate with the MPU6050 sensor.
+1. Le code commence par inclure les bibliothèques nécessaires et par créer un objet pour le capteur MPU6050. Il utilise la bibliothèque ``Adafruit_MPU6050`` pour interagir avec le capteur et récupérer les données d’accélération, de rotation et de température. La bibliothèque ``Adafruit_Sensor`` fournit une interface commune pour différents types de capteurs. La bibliothèque ``Wire`` est utilisée pour la communication I2C, nécessaire à l’échange de données avec le MPU6050.
 
    .. note:: 
-       To install the library, use the Arduino Library Manager and search for **"Adafruit MPU6050"** and install it. 
+       Pour installer la bibliothèque, utilisez le Gestionnaire de Bibliothèques Arduino et recherchez **"Adafruit MPU6050"**, puis installez-la. 
    
    .. code-block:: arduino
    
@@ -86,15 +85,15 @@ Code Analysis
       #include <Wire.h>
       Adafruit_MPU6050 mpu;
    
-2. The ``setup()`` function initializes the serial communication and checks if the sensor is detected. If the sensor is not found, the Arduino enters an infinite loop with a "Failed to find MPU6050 chip" message. If found, the accelerometer range, gyro range, and filter bandwidth are set, and a delay is added for stability.
+2. La fonction ``setup()`` initialise la communication série et vérifie si le capteur est détecté. Si le capteur n'est pas trouvé, l’ESP32 entre dans une boucle infinie en affichant un message d’erreur. Si le capteur est détecté, les plages de l’accéléromètre et du gyroscope sont définies, ainsi que la bande passante du filtre, avec un délai pour la stabilisation.
 
    .. code-block:: arduino
    
       void setup(void) {
-        // Initialize the serial communication
+        // Initialisation de la communication série
         Serial.begin(9600);
    
-        // Check if the MPU6050 sensor is detected
+        // Vérification de la présence du capteur MPU6050
         if (!mpu.begin()) {
           Serial.println("Failed to find MPU6050 chip");
           while (1) {
@@ -103,31 +102,31 @@ Code Analysis
         }
         Serial.println("MPU6050 Found!");
    
-        // set accelerometer range to +-8G
+        // Définir la plage de l’accéléromètre à ±8G
         mpu.setAccelerometerRange(MPU6050_RANGE_8_G);
    
-        // set gyro range to +- 500 deg/s
+        // Définir la plage du gyroscope à ±500 degrés/s
         mpu.setGyroRange(MPU6050_RANGE_500_DEG);
    
-        // set filter bandwidth to 21 Hz
+        // Définir la bande passante du filtre à 21 Hz
         mpu.setFilterBandwidth(MPU6050_BAND_21_HZ);
    
-        // Add a delay for stability
+        // Ajouter un délai pour stabilisation
         delay(100);
       }
 
-3. In the ``loop()`` function, the program creates events to store the sensor readings and then retrieves the readings. The acceleration, rotation, and temperature values are then printed to the serial monitor.
+3. Dans la fonction ``loop()``, le programme crée des événements pour stocker les relevés du capteur, puis récupère ces données. Les valeurs d’accélération, de rotation et de température sont ensuite affichées sur le moniteur série.
 
    .. code-block:: arduino
    
       void loop() {
-        // Get new sensor events with the readings
+        // Obtenir les nouvelles mesures du capteur
         sensors_event_t a, g, temp;
         mpu.getEvent(&a, &g, &temp);
    
-        // Print out the acceleration, rotation, and temperature readings
+        // Afficher les valeurs d’accélération, de rotation et de température
         // ...
-   
-        // Add a delay to avoid flooding the serial monitor
+
+        // Ajouter un délai pour éviter de saturer le moniteur série
         delay(1000);
       }

@@ -1,20 +1,20 @@
 .. note::
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    Bonjour et bienvenue dans la communauté des passionnés de SunFounder Raspberry Pi, Arduino et ESP32 sur Facebook ! Plongez plus profondément dans l'univers du Raspberry Pi, de l'Arduino et du ESP32 avec d'autres passionnés.
 
-    **Why Join?**
+    **Pourquoi rejoindre ?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Support d'experts** : Résolvez les problèmes après-vente et les défis techniques avec l'aide de notre communauté et de notre équipe.
+    - **Apprendre & Partager** : Échangez des conseils et des tutoriels pour améliorer vos compétences.
+    - **Aperçus exclusifs** : Obtenez un accès anticipé aux annonces de nouveaux produits et aux aperçus exclusifs.
+    - **Réductions spéciales** : Profitez de réductions exclusives sur nos nouveaux produits.
+    - **Promotions festives et cadeaux** : Participez à des tirages au sort et à des promotions festives.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 Prêts à explorer et à créer avec nous ? Cliquez sur [|link_sf_facebook|] et rejoignez-nous aujourd'hui !
 
 .. _cpn_traffic:
 
-Traffic Light Module
+Module Feu Tricolore
 ==========================
 
 .. image:: img/29_traffic_light.png
@@ -25,13 +25,13 @@ Traffic Light Module
     
     <br/>
 
-The traffic light module is a small device that can display red, yellow and green lights, just like a real traffic light. It can be used to make a traffic light system model or to learn how to control LEDs with Arduino. It is featured with its small size, simple wiring, targeted, and custom installation. It can be connected PWM pin to control the brightness of the LED.
+Le module de feu tricolore est un petit dispositif capable d'afficher les lumières rouge, jaune et verte, tout comme un vrai feu de circulation. Il peut être utilisé pour créer un modèle de système de feux de circulation ou pour apprendre à contrôler des LED avec Arduino. Il se distingue par sa petite taille, son câblage simple, sa ciblage et son installation personnalisable. Il peut être connecté à une broche PWM pour contrôler la luminosité de la LED.
 
-Principle
+Principe
 ---------------------------
-The traffic light module can be controlled in two primary ways. The more straightforward method involves using digital inputs from the Arduino, where a HIGH or LOW signal directly turns the corresponding LED on or off. Alternatively, PWM (pulse-width modulation) can be used, especially when varying the brightness of the LED is desired. PWM is a technique where the duty cycle of a digital signal is changed to modulate the brightness of the LED. A duty cycle represents the percentage of time that a signal remains on during a specific period. For instance, a 50% duty cycle implies the signal is active for half the duration and inactive for the remainder. Adjusting the duty cycle allows for the LED's brightness modulation.
+Le module de feu tricolore peut être contrôlé de deux manières principales. La méthode la plus simple consiste à utiliser des entrées numériques de l'Arduino, où un signal HAUT ou BAS active directement la LED correspondante. Alternativement, la modulation de largeur d'impulsion (PWM) peut être utilisée, notamment lorsque l'on souhaite varier la luminosité de la LED. La PWM est une technique où le cycle de service d'un signal numérique est modifié pour moduler la luminosité de la LED. Le cycle de service représente le pourcentage de temps pendant lequel un signal reste actif sur une période donnée. Par exemple, un cycle de service de 50 % signifie que le signal est actif pendant la moitié de la durée et inactif pour le reste. Ajuster le cycle de service permet de moduler la luminosité de la LED.
 
-Schematic diagram
+Schéma
 ---------------------------
 
 .. image:: img/29_traffic_light_schematic.png
@@ -42,7 +42,7 @@ Schematic diagram
 
    <br/>
 
-Example
+Exemple
 ---------------------------
 * :ref:`uno_lesson29_traffic_light_module` (Arduino UNO)
 * :ref:`esp32_lesson29_traffic_light_module` (ESP32)

@@ -1,50 +1,50 @@
-.. note::
+.. note:: 
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    Bonjour et bienvenue dans la communauté des passionnés de SunFounder Raspberry Pi, Arduino et ESP32 sur Facebook ! Explorez davantage le Raspberry Pi, Arduino et ESP32 avec d'autres passionnés.
 
-    **Why Join?**
+    **Pourquoi nous rejoindre ?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Support d’experts** : Résolvez vos problèmes après-vente et vos défis techniques avec l'aide de notre communauté et de notre équipe.
+    - **Apprendre et partager** : Échangez des astuces et des tutoriels pour améliorer vos compétences.
+    - **Aperçus exclusifs** : Accédez en avant-première aux annonces de nouveaux produits et aperçus.
+    - **Réductions spéciales** : Profitez de réductions exclusives sur nos derniers produits.
+    - **Promotions festives et concours** : Participez à des concours et promotions pendant les fêtes.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 Prêt à explorer et créer avec nous ? Cliquez sur [|link_sf_facebook|] et rejoignez-nous dès aujourd'hui !
 
 .. _pico_lesson20_bmp280:
 
-Lesson 20: Temperature, Humidity & Pressure Sensor (BMP280)
+Leçon 20 : Capteur de Température, Humidité et Pression (BMP280)
 ====================================================================
 
-In this lesson, you'll learn how to connect the BMP280 temperature, humidity, and pressure sensor to the Raspberry Pi Pico W using MicroPython. You'll get practical experience in setting up I2C communication, configuring the BMP280 sensor for weather monitoring, and obtaining temperature and pressure data. By the end of this tutorial, you'll be able to view real-time environmental data on your console.
+Dans cette leçon, vous apprendrez à connecter le capteur BMP280 de température, d'humidité et de pression au Raspberry Pi Pico W en utilisant MicroPython. Vous acquerrez une expérience pratique sur la mise en place de la communication I2C, la configuration du capteur BMP280 pour la surveillance météorologique et l'obtention des données de température et de pression. À la fin de ce tutoriel, vous serez en mesure d'afficher des données environnementales en temps réel sur votre console.
 
-Required Components
+Composants Requis
 --------------------------
 
-In this project, we need the following components. 
+Dans ce projet, nous avons besoin des composants suivants.
 
-It's definitely convenient to buy a whole kit, here's the link: 
+Il est définitivement plus pratique d'acheter un kit complet, voici le lien :
 
 .. list-table::
     :widths: 20 20 20
     :header-rows: 1
 
-    *   - Name	
-        - ITEMS IN THIS KIT
-        - LINK
+    *   - Nom	
+        - Éléments dans ce kit
+        - Lien
     *   - Universal Maker Sensor Kit
         - 94
         - |link_umsk|
 
-You can also buy them separately from the links below.
+Vous pouvez également les acheter séparément via les liens ci-dessous.
 
 .. list-table::
     :widths: 30 10
     :header-rows: 1
 
-    *   - Component Introduction
-        - Purchase Link
+    *   - Introduction des composants
+        - Lien d'achat
 
     *   - Raspberry Pi Pico W
         - \-
@@ -54,7 +54,7 @@ You can also buy them separately from the links below.
         - |link_breadboard_buy|
 
 
-Wiring
+Câblage
 ---------------------------
 
 .. image:: img/Lesson_20_bmp280_bb.png
@@ -66,11 +66,11 @@ Code
 
 .. note::
 
-    * Open the ``20_bmp280_module.py`` file under the path of ``universal-maker-sensor-kit-main/pico/Lesson_20_BMP280_Module`` or copy this code into Thonny, then click "Run Current Script" or simply press F5 to run it. For detailed tutorials, please refer to :ref:`open_run_code_py`. 
+    * Ouvrez le fichier ``20_bmp280_module.py`` situé dans le dossier ``universal-maker-sensor-kit-main/pico/Lesson_20_BMP280_Module`` ou copiez ce code dans Thonny, puis cliquez sur "Run Current Script" ou appuyez simplement sur F5 pour l'exécuter. Pour des tutoriels détaillés, veuillez consulter :ref:`open_run_code_py`.
 
-    * Here you need to use the ``bmp280.py``, please check if it has been uploaded to Pico W, for a detailed tutorial refer to :ref:`add_libraries_py`.
+    * Vous devez également utiliser le fichier ``bmp280.py``, veuillez vérifier s'il a bien été téléchargé sur le Pico W. Pour un tutoriel détaillé, consultez :ref:`add_libraries_py`.
 
-    * Don't forget to click on the "MicroPython (Raspberry Pi Pico)" interpreter in the bottom right corner. 
+    * N'oubliez pas de sélectionner l'interpréteur "MicroPython (Raspberry Pi Pico)" dans le coin inférieur droit.
 
 .. code-block:: python
 
@@ -78,33 +78,33 @@ Code
    import bmp280
    import time
    
-   # Initialize I2C communication
+   # Initialiser la communication I2C
    i2c = I2C(0, sda=Pin(20), scl=Pin(21), freq=100000)
    
-   # Configure BMP280 sensor
+   # Configurer le capteur BMP280
    bmp = bmp280.BMP280(i2c)
    bmp.oversample(bmp280.BMP280_OS_HIGH)
    
    while True:
-       # Set sensor to weather monitoring mode
+       # Configurer le capteur en mode de surveillance météorologique
        bmp.use_case(bmp280.BMP280_CASE_WEATHER)
    
-       # Print temperature and pressure data
+       # Afficher les données de température et de pression
        print("tempC: {}".format(bmp.temperature))
        print("pressure: {}Pa".format(bmp.pressure))
    
-       # Read data every second
+       # Lire les données toutes les secondes
        time.sleep_ms(1000)
 
 
-Code Analysis
+Analyse du Code
 ---------------------------
 
-#. **Importing Libraries and Initializing I2C Communication**:
+1. **Importation des Bibliothèques et Initialisation de la Communication I2C** :
 
-   This code segment imports necessary libraries and initializes I2C communication. The ``machine`` module is used to interact with the hardware components like I2C and pins. The ``bmp280`` library is imported to interact with the BMP280 sensor.
+   Ce segment de code importe les bibliothèques nécessaires et initialise la communication I2C. Le module ``machine`` est utilisé pour interagir avec les composants matériels comme l'I2C et les broches. La bibliothèque ``bmp280`` est importée pour interagir avec le capteur BMP280.
 
-   For more information about the ``bmp280`` library, please visit |link_micropython_bmp280_driver|.
+   Pour plus d'informations sur la bibliothèque ``bmp280``, veuillez consulter |link_micropython_bmp280_driver|.
 
    .. code-block:: python
 
@@ -112,32 +112,32 @@ Code Analysis
       import bmp280
       import time
 
-      # Initialize I2C communication
+      # Initialiser la communication I2C
       i2c = I2C(0, sda=Pin(20), scl=Pin(21), freq=100000)
 
-#. **Configuring the BMP280 Sensor**:
+2. **Configuration du Capteur BMP280** :
 
-   Here, the BMP280 sensor is configured. An object ``bmp`` is created to interact with the sensor. The oversampling setting is adjusted for higher accuracy.
+   Ici, le capteur BMP280 est configuré. Un objet ``bmp`` est créé pour interagir avec le capteur. Le paramètre d'oversampling est ajusté pour obtenir une plus grande précision.
 
    .. code-block:: python
 
-      # Configure BMP280 sensor
+      # Configurer le capteur BMP280
       bmp = bmp280.BMP280(i2c)
       bmp.oversample(bmp280.BMP280_OS_HIGH)
 
-#. **Reading and Displaying Sensor Data in a Loop**:
+3. **Lecture et Affichage des Données du Capteur dans une Boucle** :
 
-   The sensor is continuously read in an infinite loop. Each iteration sets the sensor to weather monitoring mode, reads the temperature and pressure, and prints them. The ``time.sleep_ms(1000)`` ensures the loop runs once every second.
+   Le capteur est continuellement lu dans une boucle infinie. À chaque itération, le capteur est configuré en mode de surveillance météorologique, la température et la pression sont lues et affichées. La fonction ``time.sleep_ms(1000)`` garantit que la boucle s'exécute une fois par seconde.
 
    .. code-block:: python
 
       while True:
-          # Set sensor to weather monitoring mode
+          # Configurer le capteur en mode de surveillance météorologique
           bmp.use_case(bmp280.BMP280_CASE_WEATHER)
 
-          # Print temperature and pressure data
+          # Afficher les données de température et de pression
           print("tempC: {}".format(bmp.temperature))
           print("pressure: {}Pa".format(bmp.pressure))
 
-          # Read data every second
+          # Lire les données toutes les secondes
           time.sleep_ms(1000)

@@ -1,83 +1,87 @@
 .. note::
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    Bonjour, bienvenue dans la communauté des passionnés de SunFounder Raspberry Pi, Arduino et ESP32 sur Facebook ! Plongez dans l’univers du Raspberry Pi, d’Arduino et de l’ESP32 avec d’autres passionnés.
 
-    **Why Join?**
+    **Pourquoi nous rejoindre ?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Support d’experts** : Résolvez vos problèmes après-vente et relevez des défis techniques avec l’aide de notre communauté et de notre équipe.
+    - **Apprendre & Partager** : Échangez des astuces et des tutoriels pour améliorer vos compétences.
+    - **Aperçus exclusifs** : Accédez en avant-première aux annonces et aperçus des nouveaux produits.
+    - **Réductions spéciales** : Profitez d’offres exclusives sur nos derniers produits.
+    - **Promotions festives et cadeaux** : Participez à des concours et événements promotionnels spéciaux.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 Prêt à explorer et à créer avec nous ? Cliquez sur [|link_sf_facebook|] et rejoignez-nous dès aujourd’hui !
 
 .. _uno_lesson28_rgb_module:
 
-Lesson 28: RGB LED Module
-==================================
+Leçon 28 : Module LED RGB
+============================
 
-In this lesson, you will learn how to control an RGB LED with Arduino. We'll cover setting up the LED and then delve into displaying primary colors and creating a vibrant rainbow spectrum. This hands-on project is ideal for beginners, providing practical experience with output operations and color mixing in the Arduino environment.
+Dans cette leçon, vous apprendrez à contrôler une LED RGB avec Arduino. Nous verrons comment configurer la LED, afficher les couleurs primaires et créer un spectre arc-en-ciel dynamique. Ce projet pratique est idéal pour les débutants, offrant une expérience concrète sur la gestion des sorties et le mélange des couleurs dans l’environnement Arduino.
 
-Required Components
---------------------------
+Composants nécessaires
+-------------------------
 
-In this project, we need the following components. 
+Pour ce projet, nous avons besoin des composants suivants.
 
-It's definitely convenient to buy a whole kit, here's the link: 
+Il est plus pratique d’acheter un kit complet, voici le lien :
 
 .. list-table::
     :widths: 20 20 20
     :header-rows: 1
 
-    *   - Name	
-        - ITEMS IN THIS KIT
-        - LINK
-    *   - Universal Maker Sensor Kit
+    *   - Nom	
+        - ARTICLES DANS CE KIT
+        - LIEN
+    *   - Kit capteur universel pour bricoleurs
         - 94
         - |link_umsk|
 
-You can also buy them separately from the links below.
+Vous pouvez également les acheter séparément via les liens ci-dessous.
 
 .. list-table::
     :widths: 30 20
     :header-rows: 1
 
-    *   - Component Introduction
-        - Purchase Link
+    *   - Introduction du composant
+        - Lien d'achat
 
-    *   - Arduino UNO R3 or R4
+    *   - Arduino UNO R3 ou R4
         - |link_Uno_R3_buy|
     *   - :ref:`cpn_rgb`
         - \-
 
 
-Wiring
----------------------------
+Câblage
+-----------
 
 .. image:: img/Lesson_28_rgb_module_circuit_uno_bb.png
     :width: 100%
 
 
 Code
----------------------------
+-------
 
 .. raw:: html
 
     <iframe src=https://create.arduino.cc/editor/sunfounder01/69d51b96-ad16-4c16-aa97-6dab559929d3/preview?embed style="height:510px;width:100%;margin:10px 0" frameborder=0></iframe>
 
-Code Analysis
----------------------------
+Analyse du code
+------------------
 
-1. The first segment of the code declares and initializes the pins to which each color channel of the RGB LED module is connected.
+1. Déclaration et initialisation des broches :
+
+   La première section du code définit les broches auxquelles chaque canal de couleur de la LED RGB est connecté.
 
    .. code-block:: arduino
        
-      const int rledPin = 9;  // pin connected to the red color channel
-      const int gledPin = 10;   // pin connected to the green color channel
-      const int bledPin = 11;  // pin connected to the blue color channel
+      const int rledPin = 9;  // Broche connectée au canal rouge
+      const int gledPin = 10; // Broche connectée au canal vert
+      const int bledPin = 11; // Broche connectée au canal bleu
 
-2. The ``setup()`` function initializes these pins as OUTPUT. This means we are sending signals OUT from these pins to the RGB LED module.
+2. Initialisation dans la fonction ``setup()`` :
+
+   La fonction ``setup()`` définit ces broches comme des sorties. Cela signifie que nous enverrons des signaux VERS la LED RGB.
 
    .. code-block:: arduino
    
@@ -87,24 +91,28 @@ Code Analysis
         pinMode(bledPin, OUTPUT);
       }
 
-3. In the ``loop()`` function, the ``setColor()`` function is called with different parameters to display different colors. The ``delay()`` function is used after setting each color to pause for 1000 milliseconds (or 1 second) before moving on to the next color.
+3. Affichage des couleurs dans la boucle ``loop()`` :
+
+   La fonction ``loop()`` appelle ``setColor()`` avec différents paramètres pour afficher plusieurs couleurs. La fonction ``delay()`` permet de maintenir chaque couleur pendant 1000 millisecondes (1 seconde) avant de passer à la suivante.
 
    .. code-block:: arduino
    
       void loop() {
-        setColor(255, 0, 0);  // Set RGB LED color to red
+        setColor(255, 0, 0);  // Définit la LED RGB en rouge
         delay(1000);
-        setColor(0, 255, 0);  // Set RGB LED color to green
+        setColor(0, 255, 0);  // Définit la LED RGB en vert
         delay(1000);
-        // The rest of the color sequence...
+        // Suite des couleurs...
       }
 
-4. The ``setColor()`` function uses the ``analogWrite()`` function to adjust the brightness of each color channel on the RGB LED module. The ``analogWrite()`` function employs Pulse Width Modulation (PWM) to simulate varying voltage outputs. By controlling the PWM duty cycle (the percentage of time a signal is HIGH within a fixed period), the brightness of each color channel can be controlled, allowing the mixing of various colors.
+4. Fonction ``setColor()`` et gestion de la luminosité :
+
+   La fonction ``setColor()`` utilise ``analogWrite()`` pour ajuster l’intensité lumineuse de chaque canal de couleur de la LED RGB. La modulation de largeur d’impulsion (PWM) permet de simuler des tensions variables et ainsi de mélanger différentes couleurs.
 
    .. code-block:: arduino
 
       void setColor(int R, int G, int B) {
-        analogWrite(rledPin, R);  // Use PWM to control the brightness of the red color channel
-        analogWrite(gledPin, G);  // Use PWM to control the brightness of the green color channel
-        analogWrite(bledPin, B);  // Use PWM to control the brightness of the blue color channel
+        analogWrite(rledPin, R);  // Contrôle l'intensité du rouge
+        analogWrite(gledPin, G);  // Contrôle l'intensité du vert
+        analogWrite(bledPin, B);  // Contrôle l'intensité du bleu
       }

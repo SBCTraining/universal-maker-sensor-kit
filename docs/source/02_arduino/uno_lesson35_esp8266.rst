@@ -1,43 +1,43 @@
-.. note::
+.. note:: 
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    Bonjour, bienvenue dans la communauté SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts sur Facebook ! Plongez dans l’univers de Raspberry Pi, Arduino et ESP32 avec d’autres passionnés.
 
-    **Why Join?**
+    **Pourquoi nous rejoindre ?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Support d’experts** : Résolvez vos problèmes après-vente et relevez des défis techniques avec l’aide de notre communauté et de notre équipe.
+    - **Apprendre et partager** : Échangez des conseils et tutoriels pour perfectionner vos compétences.
+    - **Aperçus exclusifs** : Accédez en avant-première aux annonces de nouveaux produits et aux présentations exclusives.
+    - **Réductions spéciales** : Profitez de remises exclusives sur nos derniers produits.
+    - **Promotions festives et cadeaux** : Participez à des tirages au sort et des offres spéciales lors des événements festifs.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 Prêt à explorer et créer avec nous ? Cliquez sur [|link_sf_facebook|] et rejoignez-nous dès aujourd’hui !
 
 .. _esp8266_start:
 
 .. _uno_lesson35_esp8266:
 
-Lesson 35: Get Started with ESP8266 Module
+Leçon 35 : Premiers pas avec le module ESP8266
 ===================================================
 
-The ESP8266 module that comes with the kit is already pre-burned with AT firmware, but you still need to modify its configuration by following the steps below.
+Le module ESP8266 fourni dans le kit est déjà préchargé avec le firmware AT, mais vous devez encore modifier sa configuration en suivant les étapes ci-dessous.
 
 
-1. Build the circuit.
+1. Construire le circuit.
 
    .. note::
-      To ensure the ESP8266 gets a stable voltage, please connect it to an external power source like the 9V battery that comes with the kit, by hooking it up to the Uno board.
+      Pour garantir une tension stable à l’ESP8266, connectez-le à une source d’alimentation externe, comme la batterie 9V fournie dans le kit, en le reliant à la carte Uno.
 
    .. image:: img/Lesson_35_esp01_wiring_r3.png
        :width: 800
 
-2. Open the ``.ino`` file under the path of ``universal-maker-sensor-kit\arduino_uno\Lesson_35_ESP8266``. Or copy this code into Arduino IDE. And upload the code.
+2. Ouvrez le fichier ``.ino`` situé sous le chemin ``universal-maker-sensor-kit\arduino_uno\Lesson_35_ESP8266`` ou copiez ce code dans l’IDE Arduino, puis téléchargez-le sur la carte.
 
-   The code establishes a software serial communication using Arduino's SoftwareSerial library, allowing the Arduino to communicate with the ESP8266 module through its digital pins 2 and 3 (as Rx and Tx). It checks for data transfer between them, forwarding received messages from one to the other at a baud rate of 115200. **With this code, you can use the Arduino's serial monitor to send AT firmware commands to the ESP8266 module and receive its responses.**
+   Ce code établit une communication série logicielle via la bibliothèque SoftwareSerial d’Arduino, permettant à l’Arduino de communiquer avec le module ESP8266 via ses broches numériques 2 et 3 (Rx et Tx). Il vérifie le transfert de données entre eux et transmet les messages reçus à un débit de 115200 bauds. **Avec ce code, vous pouvez utiliser le moniteur série d’Arduino pour envoyer des commandes AT au module ESP8266 et recevoir ses réponses.**
 
    .. code-block:: Arduino
 
        #include <SoftwareSerial.h>
-       SoftwareSerial espSerial(2, 3); //Rx,Tx
+       SoftwareSerial espSerial(2, 3); //Rx, Tx
 
        void setup() {
            // put your setup code here, to run once:
@@ -54,24 +54,23 @@ The ESP8266 module that comes with the kit is already pre-burned with AT firmwar
            }
        }
 
-
-3. Click the magnifying glass icon (Serial Monitor) in the upper right corner and set the baud rate to **115200**. (You may have some printed information like me, or you may not, it doesn’t matter, just go to the next step.)
+3. Cliquez sur l’icône en forme de loupe (Moniteur Série) en haut à droite et réglez le débit en bauds sur **115200**. (Vous pouvez voir des informations s’afficher ou non, ce n’est pas un problème, passez simplement à l’étape suivante.)
 
    .. image:: img/Lesson_35_esp01_configurie_1.png
 
    .. warning::
-        
-        * If ``ready`` doesn't appear, you can try to reset the ESP8266 module(connect RST to GND) and re-open the Serial Monitor.
 
-        * In addition, if the result is ``OK``, you may need to re-burn the firmware, please refer to :ref:`burn_firmware` for details. If you still can't solve it, please take a screenshot of the serial monitor and send it to service@sunfounder.com, we will help you solve the problem as soon as possible.
+        * Si ``ready`` n’apparaît pas, essayez de réinitialiser le module ESP8266 (connectez RST à GND) et rouvrez le moniteur série.
 
-4. Click on **NEWLINE DROPDOWN BOX**, select ``both NL & CR`` in the drop down option, enter ``AT``, if it returns OK, it means ESP8266 has successfully established connection with R4 board.
+        * De plus, si le résultat est ``OK``, vous devrez peut-être recharger le firmware. Veuillez consulter :ref:`burn_firmware` pour plus de détails. Si le problème persiste, prenez une capture d’écran du moniteur série et envoyez-la à service@sunfounder.com. Nous vous aiderons à résoudre le problème dès que possible.
+
+4. Cliquez sur **NEWLINE DROPDOWN BOX**, sélectionnez ``both NL & CR`` dans le menu déroulant, entrez ``AT``. Si ``OK`` s’affiche en retour, cela signifie que l’ESP8266 est bien connecté à la carte R4.
 
    .. image:: img/Lesson_35_esp01_configurie_2.png
 
    .. image:: img/Lesson_35_esp01_configurie_3.png
 
-5. Enter ``AT+CWMODE=3`` and the managed mode will be changed to **Station and AP** coexistence.
+5. Saisissez ``AT+CWMODE=3`` pour passer le mode de gestion en **coexistence Station et AP**.
 
    .. image:: img/Lesson_35_esp01_configurie_4.png
 
@@ -79,7 +78,6 @@ The ESP8266 module that comes with the kit is already pre-burned with AT firmwar
 
 ..    .. image:: img/esp01_configurie_5.png
 
-
-**Reference**
+**Référence**
 
 * |link_esp8266_at|

@@ -1,50 +1,50 @@
-.. note::
+.. note:: 
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    Bonjour et bienvenue dans la communauté des passionnés de Raspberry Pi, Arduino et ESP32 de SunFounder sur Facebook ! Plongez dans l'univers du Raspberry Pi, Arduino et ESP32 avec d'autres passionnés.
 
-    **Why Join?**
+    **Pourquoi nous rejoindre ?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Support d'experts** : Résolvez vos problèmes après-vente et vos défis techniques avec l'aide de notre communauté et de notre équipe.
+    - **Apprendre & partager** : Échangez des astuces et des tutoriels pour améliorer vos compétences.
+    - **Aperçus exclusifs** : Accédez en avant-première aux annonces de nouveaux produits et à des aperçus exclusifs.
+    - **Réductions spéciales** : Profitez de réductions exclusives sur nos produits les plus récents.
+    - **Promotions festives et concours** : Participez à nos concours et promotions spéciales pendant les fêtes.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 Prêt à explorer et créer avec nous ? Cliquez sur [|link_sf_facebook|] et rejoignez-nous dès aujourd'hui !
 
 .. _pi_lesson07_speed:
 
-Lesson 07: Infrared Speed Sensor Module
-==========================================
+Leçon 07 : Module de capteur de vitesse infrarouge
+======================================================
 
-In this lesson, you will learn how to measure rotational speed using a Raspberry Pi and a simple sensor. We'll connect a digital input sensor to GPIO pin 17 and use Python to monitor its state changes. The focus will be on calculating revolutions per second by counting the sensor activations over a specific time period. You'll write a Python function to accurately capture this data and convert it into a measurable speed. This hands-on project is a straightforward yet practical introduction to real-world data collection and analysis with Raspberry Pi, ideal for beginners interested in applied Python programming and hardware interaction.
+Dans cette leçon, vous apprendrez à mesurer la vitesse de rotation à l'aide d'un Raspberry Pi et d'un capteur simple. Nous connecterons un capteur d'entrée numérique à la broche GPIO 17 et utiliserons Python pour surveiller ses changements d'état. L'objectif sera de calculer les révolutions par seconde (RPS) en comptant les activations du capteur sur une période de temps donnée. Vous écrirez une fonction Python pour capturer ces données de manière précise et les convertir en une vitesse mesurable. Ce projet pratique est une introduction simple mais utile à la collecte et à l'analyse de données réelles avec Raspberry Pi, idéale pour les débutants intéressés par la programmation Python appliquée et l'interaction avec le matériel.
 
-Required Components
+Composants nécessaires
 --------------------------
 
-In this project, we need the following components. 
+Pour ce projet, nous avons besoin des composants suivants. 
 
-It's definitely convenient to buy a whole kit, here's the link: 
+Il est très pratique d'acheter un kit complet, voici le lien : 
 
 .. list-table::
     :widths: 20 20 20
     :header-rows: 1
 
-    *   - Name	
-        - ITEMS IN THIS KIT
-        - LINK
-    *   - Universal Maker Sensor Kit
+    *   - Nom	
+        - ARTICLES DANS CE KIT
+        - Lien
+    *   - Kit de capteurs Universal Maker
         - 94
         - |link_umsk|
 
-You can also buy them separately from the links below.
+Vous pouvez aussi les acheter séparément via les liens ci-dessous.
 
 .. list-table::
     :widths: 30 20
     :header-rows: 1
 
-    *   - Component Introduction
-        - Purchase Link
+    *   - Introduction des composants
+        - Lien d'achat
 
     *   - Raspberry Pi 5
         - \-
@@ -56,7 +56,7 @@ You can also buy them separately from the links below.
         - |link_breadboard_buy|
 
 
-Wiring
+Câblage
 ---------------------------
 
 .. image:: img/Lesson_07_Speed_Pi_bb.png
@@ -71,8 +71,8 @@ Code
    from gpiozero import DigitalInputDevice
    from time import time
 
-   # Initialize the sensor
-   sensor = DigitalInputDevice(17)  # Assuming the sensor is connected to GPIO17
+   # Initialiser le capteur
+   sensor = DigitalInputDevice(17)  # Supposons que le capteur soit connecté à GPIO17
 
    def calculate_rps(sample_time=1, steps_per_revolution=20):
        """
@@ -90,56 +90,55 @@ Code
        while time() < end_time:
            current_state = sensor.is_active
            if current_state and not last_state:
-               # Detect a transition from inactive to active state
+               # Détecter une transition de l'état inactif à l'état actif
                steps += 1
            last_state = current_state
 
-       # Calculate RPS
+       # Calculer les RPS
        rps = steps / steps_per_revolution
        return rps
 
-   # Example usage
+   # Exemple d'utilisation
    print("Measuring RPS...")
 
    try:
        while True:
-           rps = calculate_rps()  # Default sampling for 1 second
+           rps = calculate_rps()  # Échantillonnage par défaut pendant 1 seconde
            print(f"RPS: {rps}")
    except KeyboardInterrupt:
-       # Safely exit the program when a keyboard interrupt is detected
+       # Quitter proprement le programme lorsqu'une interruption clavier est détectée
        pass
 
 
 
-Code Analysis
+Analyse du code
 ---------------------------
 
-
-#. Importing Libraries
+#. Importation des bibliothèques
    
-   The script starts by importing ``DigitalInputDevice`` from gpiozero for sensor interaction and ``time`` for time management.
+   Le script commence par importer ``DigitalInputDevice`` de gpiozero pour interagir avec le capteur et ``time`` pour la gestion du temps.
 
    .. code-block:: python
 
       from gpiozero import DigitalInputDevice
       from time import time
 
-#. Initializing the Sensor
+#. Initialisation du capteur
    
-   A ``DigitalInputDevice`` object named ``sensor`` is created, connected to GPIO pin 17. This setup assumes that the digital sensor is connected to GPIO17.
+   Un objet ``DigitalInputDevice`` nommé ``sensor`` est créé, connecté à la broche GPIO 17. Cette configuration suppose que le capteur numérique est connecté à la broche GPIO17.
 
    .. code-block:: python
 
       sensor = DigitalInputDevice(17)
 
-#. Defining the ``calculate_rps`` Function
+#. Définition de la fonction ``calculate_rps``
    
-   - This function calculates the Revolutions Per Second (RPS) of a rotating object.
-   - ``sample_time`` is the duration in seconds for which the sensor's output is sampled.
-   - ``steps_per_revolution`` represents the number of sensor activations per complete revolution.
-   - The function uses a while loop to count the number of steps (sensor activations) within the sample time.
-   - It detects transitions from inactive to active states and increments the ``steps`` count accordingly.
-   - RPS is calculated as the number of steps divided by ``steps_per_revolution``.
+   - Cette fonction calcule les révolutions par seconde (RPS) d'un objet en rotation.
+   - ``sample_time`` est la durée en secondes pendant laquelle la sortie du capteur est échantillonnée.
+   - ``steps_per_revolution`` représente le nombre d'activations du capteur par révolution complète.
+   - La fonction utilise une boucle while pour compter le nombre d'étapes (activations du capteur) pendant la période d'échantillonnage.
+   - Elle détecte les transitions d'un état inactif à un état actif et incrémente le compteur ``steps`` en conséquence.
+   - Les RPS sont calculés comme étant le nombre d'étapes divisé par ``steps_per_revolution``.
 
    .. raw:: html
 
@@ -163,26 +162,26 @@ Code Analysis
           while time() < end_time:
               current_state = sensor.is_active
               if current_state and not last_state:
-                  # Detect a transition from inactive to active state
+                  # Détecter une transition de l'état inactif à l'état actif
                   steps += 1
               last_state = current_state
       
-          # Calculate RPS
+          # Calculer les RPS
           rps = steps / steps_per_revolution
           return rps
 
-#. Running the Main Loop
+#. Exécution de la boucle principale
    
-   - The script then enters a continuous loop where it calls ``calculate_rps`` to calculate and print the RPS.
-   - The loop runs indefinitely until a keyboard interrupt (Ctrl+C) is detected.
-   - A ``try-except`` block is used to handle the interrupt gracefully, allowing for a safe exit.
+   - Le script entre ensuite dans une boucle continue où il appelle ``calculate_rps`` pour calculer et afficher les RPS.
+   - La boucle tourne indéfiniment jusqu'à ce qu'une interruption clavier (Ctrl+C) soit détectée.
+   - Un bloc ``try-except`` est utilisé pour gérer l'interruption de manière propre, permettant une sortie sécurisée.
 
    .. code-block:: python
 
       try:
           while True:
-              rps = calculate_rps()  # Default sampling for 1 second
-              print(f"RPS: {rps}")
+              rps = calculate_rps()  # Échantillonnage par défaut pendant 1 seconde
+              print(f"RPS : {rps}")
       except KeyboardInterrupt:
           pass
 

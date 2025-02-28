@@ -1,59 +1,59 @@
 .. note::
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    Bonjour, bienvenue dans la communauté des passionnés de SunFounder Raspberry Pi, Arduino et ESP32 sur Facebook ! Plongez dans l’univers du Raspberry Pi, d’Arduino et de l’ESP32 avec d’autres passionnés.
 
-    **Why Join?**
+    **Pourquoi nous rejoindre ?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Support d’experts** : Résolvez vos problèmes après-vente et relevez des défis techniques avec l’aide de notre communauté et de notre équipe.
+    - **Apprendre & Partager** : Échangez des astuces et des tutoriels pour améliorer vos compétences.
+    - **Aperçus exclusifs** : Accédez en avant-première aux annonces et aperçus des nouveaux produits.
+    - **Réductions spéciales** : Profitez d’offres exclusives sur nos derniers produits.
+    - **Promotions festives et cadeaux** : Participez à des concours et événements promotionnels spéciaux.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 Prêt à explorer et à créer avec nous ? Cliquez sur [|link_sf_facebook|] et rejoignez-nous dès aujourd’hui !
 
 .. _uno_lesson25_water_level:
 
-Lesson 25: Water Level Sensor Module
-=========================================
+Leçon 25 : Module Capteur de Niveau d’Eau
+=============================================
 
-In this lesson, you will learn how to measure water levels using Arduino. We'll look at how a water level sensor can produce different voltage levels based on the water height and how the Arduino reads these voltage levels. This project is ideal for beginners as it provides practical experience with analog sensors and introduces basic concepts of processing sensor data on the Arduino platform.
+Dans cette leçon, vous apprendrez à mesurer le niveau d’eau avec un Arduino. Nous verrons comment un capteur de niveau d’eau génère différentes tensions en fonction de la hauteur de l’eau et comment l’Arduino interprète ces valeurs. Ce projet est idéal pour les débutants, offrant une expérience pratique avec des capteurs analogiques et introduisant les bases du traitement des données sur la plateforme Arduino.
 
-Required Components
+Composants nécessaires
 --------------------------
 
-In this project, we need the following components. 
+Pour ce projet, nous avons besoin des composants suivants.
 
-It's definitely convenient to buy a whole kit, here's the link: 
+Il est plus pratique d’acheter un kit complet, voici le lien :
 
 .. list-table::
     :widths: 20 20 20
     :header-rows: 1
 
-    *   - Name	
-        - ITEMS IN THIS KIT
-        - LINK
-    *   - Universal Maker Sensor Kit
+    *   - Nom	
+        - ARTICLES DANS CE KIT
+        - LIEN
+    *   - Kit capteur universel pour bricoleurs
         - 94
         - |link_umsk|
 
-You can also buy them separately from the links below.
+Vous pouvez également les acheter séparément via les liens ci-dessous.
 
 .. list-table::
     :widths: 30 20
     :header-rows: 1
 
-    *   - Component Introduction
-        - Purchase Link
+    *   - Introduction du composant
+        - Lien d'achat
 
-    *   - Arduino UNO R3 or R4
+    *   - Arduino UNO R3 ou R4
         - |link_Uno_R3_buy|
     *   - :ref:`cpn_water_level`
         - \-
 
 
 
-Wiring
+Câblage
 ---------------------------
 
 .. image:: img/Lesson_25_Water_level_uno_bb.png
@@ -67,34 +67,34 @@ Code
 
     <iframe src=https://create.arduino.cc/editor/sunfounder01/268011b0-8c0c-42b0-8d21-253a37de0dc8/preview?embed style="height:510px;width:100%;margin:10px 0" frameborder=0></iframe>
 
-Code Analysis
+Analyse du code
 ---------------------------
 
-#. **Initializing the Sensor Pin**:
+#. **Initialisation de la broche du capteur** :
 
-   Before using the water level sensor, it's pin number is defined using a constant variable. This makes the code more readable and easier to modify.
+   Avant d’utiliser le capteur de niveau d’eau, nous définissons le numéro de la broche sous forme de constante. Cela rend le code plus lisible et plus facile à modifier.
 
    .. code-block:: arduino
 
       const int sensorPin = A0;
 
-#. **Setting Up Serial Communication**:
+#. **Configuration de la communication série** :
 
-   In the ``setup()`` function, the baud rate for serial communication is set. This is crucial for the Arduino to communicate with the computer's serial monitor.
+   Dans la fonction ``setup()``, nous définissons le débit de transmission pour la communication série. Ceci est essentiel pour permettre à l’Arduino de communiquer avec le moniteur série de l’ordinateur.
 
    .. code-block:: arduino
 
       void setup() {
-        Serial.begin(9600);  // Start serial communication at 9600 baud rate
+        Serial.begin(9600);  // Démarrer la communication série à 9600 bauds
       }
 
-#. **Reading Sensor Data and Outputting to Serial Monitor**:
+#. **Lecture des données du capteur et affichage sur le moniteur série** :
 
-   The ``loop()`` function continuously reads the sensor's analog value using ``analogRead()`` and outputs it to the serial monitor using ``Serial.println()``. The ``delay(100)`` function makes the Arduino wait for 100 milliseconds before repeating the loop, controlling the rate of data reading and transmission.
+   La fonction ``loop()`` lit en continu la valeur analogique du capteur avec ``analogRead()`` et l’affiche sur le moniteur série à l’aide de ``Serial.println()``. La fonction ``delay(100)`` permet à l’Arduino d’attendre 100 millisecondes avant de relancer la boucle, contrôlant ainsi la fréquence de lecture et de transmission des données.
 
    .. code-block:: arduino
-    
+
       void loop() {
-        Serial.println(analogRead(sensorPin));  // Read the analog value of the sensor and print it to the serial monitor
-        delay(100);                             // Wait for 100 milliseconds
+        Serial.println(analogRead(sensorPin));  // Lire la valeur analogique du capteur et l'afficher sur le moniteur série
+        delay(100);                             // Attendre 100 millisecondes
       }

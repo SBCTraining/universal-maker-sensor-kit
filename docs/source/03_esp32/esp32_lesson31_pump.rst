@@ -1,52 +1,52 @@
-.. note::
+.. note:: 
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    Bonjour, bienvenue dans la communauté des passionnés de SunFounder pour Raspberry Pi, Arduino et ESP32 sur Facebook ! Plongez plus profondément dans l'univers de Raspberry Pi, Arduino et ESP32 avec d'autres passionnés.
 
-    **Why Join?**
+    **Pourquoi rejoindre ?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Support d'experts** : Résolvez les problèmes post-vente et les défis techniques avec l'aide de notre communauté et de notre équipe.
+    - **Apprendre & partager** : Échangez des astuces et des tutoriels pour améliorer vos compétences.
+    - **Aperçus exclusifs** : Obtenez un accès anticipé aux annonces de nouveaux produits et aux aperçus.
+    - **Réductions spéciales** : Profitez de réductions exclusives sur nos produits les plus récents.
+    - **Promotions festives et cadeaux** : Participez à des cadeaux et promotions pendant les fêtes.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 Prêt à explorer et créer avec nous ? Cliquez sur [|link_sf_facebook|] et rejoignez-nous aujourd'hui !
 
 .. _esp32_lesson31_pump:
 
-Lesson 31: Centrifugal Pump
-==================================
+Leçon 31 : Pompe centrifuge
+=============================
 
-In this lesson, you'll learn how to control a centrifugal pump with an ESP32 Development Board and an L9110 motor control board. We'll cover setting up and using two pins to operate the motor, causing the pump to spin in one direction for 5 seconds before shutting off. This project provides hands-on experience in managing motor operations and understanding digital signals in microcontroller programming, making it ideal for beginners in electronics and programming.
+Dans cette leçon, vous apprendrez à contrôler une pompe centrifuge avec une carte de développement ESP32 et une carte de contrôle moteur L9110. Nous aborderons la configuration et l'utilisation de deux broches pour faire fonctionner le moteur, provoquant la rotation de la pompe dans un sens pendant 5 secondes avant de l'éteindre. Ce projet offre une expérience pratique de la gestion des opérations moteur et de la compréhension des signaux numériques en programmation de microcontrôleurs, ce qui est idéal pour les débutants en électronique et en programmation.
 
-Required Components
---------------------------
+Composants nécessaires
+----------------------
 
-In this project, we need the following components. 
+Pour ce projet, nous avons besoin des composants suivants. 
 
-It's definitely convenient to buy a whole kit, here's the link: 
+Il est très pratique d'acheter un kit complet, voici le lien : 
 
 .. list-table::
     :widths: 20 20 20
     :header-rows: 1
 
-    *   - Name	
-        - ITEMS IN THIS KIT
-        - LINK
-    *   - Universal Maker Sensor Kit
+    *   - Nom    
+        - COMPOSANTS DANS CE KIT
+        - Lien
+    *   - Kit de capteurs Universal Maker
         - 94
         - |link_umsk|
 
-You can also buy them separately from the links below.
+Vous pouvez également les acheter séparément via les liens ci-dessous.
 
 .. list-table::
     :widths: 30 20
     :header-rows: 1
 
-    *   - Component Introduction
-        - Purchase Link
+    *   - Description du composant
+        - Lien d'achat
 
-    *   - ESP32 & Development Board (:ref:`cpn_esp32_wroom_32e`)
+    *   - ESP32 & Carte de développement (:ref:`cpn_esp32_wroom_32e`)
         - |link_esp32_camera_pro_kit_buy|
     *   - :ref:`cpn_pump`
         - \-
@@ -56,35 +56,35 @@ You can also buy them separately from the links below.
         - |link_breadboard_buy|
 
 
-Wiring
----------------------------
+Câblage
+---------
 
 .. image:: img/Lesson_31_Pump_esp32_bb.png
     :width: 100%
 
 
 Code
----------------------------
+-------
 
 .. raw:: html
 
     <iframe src=https://create.arduino.cc/editor/sunfounder01/b1b98b14-d067-4cba-8c3f-a04a8ad5e0c7/preview?embed style="height:510px;width:100%;margin:10px 0" frameborder=0></iframe>
 
-Code Analysis
----------------------------
+Analyse du code
+-----------------
 
-1. Two pins are defined for controlling the motor, specifically ``motorB_1A`` and ``motorB_2A``. These pins will connect to the L9110 motor control board to control the direction and speed of the motor.
+1. Deux broches sont définies pour contrôler le moteur, spécifiquement ``motorB_1A`` et ``motorB_2A``. Ces broches se connectent à la carte de contrôle moteur L9110 pour contrôler la direction et la vitesse du moteur.
   
    .. code-block:: arduino
    
       const int motorB_1A = 26;
       const int motorB_2A = 25;
 
-2. Configuring the pins and controlling the motor:
+2. Configuration des broches et contrôle du moteur :
 
-   - The ``setup()`` function initializes the pins as ``OUTPUT`` which means they can send signals to the motor control board.
+   - La fonction ``setup()`` initialise les broches comme ``OUTPUT``, ce qui signifie qu'elles peuvent envoyer des signaux à la carte de contrôle moteur.
 
-   - The ``analogWrite()`` function is used to set the motor speed. Here, setting one pin to ``HIGH`` and the other to ``LOW`` makes the pump spin in one direction. After a 5-second delay, both pins are set to 0, turning off the motor.
+   - La fonction ``analogWrite()`` est utilisée pour régler la vitesse du moteur. Ici, régler une broche sur ``HIGH`` et l'autre sur ``LOW`` fait tourner la pompe dans un sens. Après un délai de 5 secondes, les deux broches sont mises à 0, éteignant le moteur.
 
    .. raw:: html
 
@@ -93,11 +93,11 @@ Code Analysis
    .. code-block:: arduino
    
       void setup() {
-         pinMode(motorB_1A, OUTPUT);  // set pump pin 1 as output
-         pinMode(motorB_2A, OUTPUT);  // set pump pin 2 as output
+         pinMode(motorB_1A, OUTPUT);  // définir la broche 1 de la pompe comme sortie
+         pinMode(motorB_2A, OUTPUT);  // définir la broche 2 de la pompe comme sortie
          analogWrite(motorB_1A, HIGH); 
          analogWrite(motorB_2A, LOW);
-         delay(5000);// wait for 5 seconds
-         analogWrite(motorB_1A, 0);  // turn off the pump
+         delay(5000);// attendre 5 secondes
+         analogWrite(motorB_1A, 0);  // éteindre la pompe
          analogWrite(motorB_2A, 0);
       }

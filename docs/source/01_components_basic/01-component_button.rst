@@ -1,20 +1,19 @@
-.. note::
+.. note:: 
+    Bonjour et bienvenue dans la communauté des passionnés de Raspberry Pi, Arduino et ESP32 de SunFounder sur Facebook ! Plongez plus profondément dans l'univers des Raspberry Pi, Arduino et ESP32 avec d'autres passionnés.
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    **Pourquoi rejoindre ?**
 
-    **Why Join?**
+    - **Support d'experts** : Résolvez les problèmes post-vente et les défis techniques avec l'aide de notre communauté et de notre équipe.
+    - **Apprendre et partager** : Échangez des astuces et des tutoriels pour améliorer vos compétences.
+    - **Aperçus exclusifs** : Accédez en avant-première aux annonces de nouveaux produits et aux coups d'œil exclusifs.
+    - **Réductions spéciales** : Profitez de réductions exclusives sur nos nouveaux produits.
+    - **Promotions festives et cadeaux** : Participez à des cadeaux et des promotions de vacances.
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
-
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 Prêt à explorer et à créer avec nous ? Cliquez sur [|link_sf_facebook|] et rejoignez-nous aujourd'hui !
 
 .. _cpn_button:
 
-Button Module
+Module Bouton
 ==========================
 
 .. image:: img/01_button.png
@@ -27,19 +26,19 @@ Button Module
 
 .. _btn_intro:
 
-The button module is an electronic device that detects the state of a button.They are usually used as switches to connect or break circuits.Buttons are used in many scenarios, such as doorbells, desk lamps, remote controls, elevators, fire alarms, etc.
+Le module bouton est un dispositif électronique qui détecte l'état d'un bouton. Ils sont généralement utilisés comme interrupteurs pour connecter ou interrompre des circuits. Les boutons sont utilisés dans de nombreux scénarios, tels que les sonnettes, les lampes de bureau, les télécommandes, les ascenseurs, les alarmes incendie, etc.
 
-Principle
+Principe
 ---------------------------
-The button module works on the principle of a switch. A switch is an electrical component that can be used to open or close a circuit. 
+Le module bouton fonctionne sur le principe d'un interrupteur. Un interrupteur est un composant électrique qui peut être utilisé pour ouvrir ou fermer un circuit.
 
-The following is the internal structure of a button. The symbol on the right below is usually used to represent a button in circuits.
+Voici la structure interne d'un bouton. Le symbole ci-dessous à droite est habituellement utilisé pour représenter un bouton dans les circuits.
 
 .. image:: img/01_button_2.png
     :width: 400
     :align: center
 
-Since the pin 1 is connected to pin 2, and pin 3 to pin 4, when the button is pressed, the 4 pins are connected, thus closing the circuit.
+Étant donné que la broche 1 est connectée à la broche 2, et la broche 3 à la broche 4, lorsque le bouton est pressé, les 4 broches sont connectées, fermant ainsi le circuit.
 
 .. image:: img/01_button_3.png
     :width: 700
@@ -47,7 +46,7 @@ Since the pin 1 is connected to pin 2, and pin 3 to pin 4, when the button is pr
 
 .. _cpn_button_sch:
 
-Schematic diagram
+Schéma
 ---------------------------
 
 .. image:: img/01_button_module_schematic.png
@@ -58,8 +57,7 @@ Schematic diagram
 
    <br/>
 
-
-Example
+Exemple
 ---------------------------
 * :ref:`uno_lesson01_button` (Arduino UNO)
 * :ref:`eps32_lesson01_button` (ESP32)

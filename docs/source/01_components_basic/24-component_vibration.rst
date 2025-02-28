@@ -1,39 +1,39 @@
 .. note::
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    Bonjour et bienvenue dans la communauté des passionnés de SunFounder Raspberry Pi, Arduino et ESP32 sur Facebook ! Plongez plus profondément dans les univers du Raspberry Pi, de l'Arduino et de l'ESP32 avec d'autres passionnés.
 
-    **Why Join?**
+    **Pourquoi rejoindre ?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Support d'experts** : Résolvez les problèmes après-vente et les défis techniques avec l'aide de notre communauté et de notre équipe.
+    - **Apprendre & Partager** : Échangez des conseils et des tutoriels pour améliorer vos compétences.
+    - **Aperçus exclusifs** : Obtenez un accès en avant-première aux annonces de nouveaux produits et aux aperçus exclusifs.
+    - **Réductions spéciales** : Profitez de réductions exclusives sur nos produits les plus récents.
+    - **Promotions festives et cadeaux** : Participez à des tirages au sort et des promotions de fêtes.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 Prêts à explorer et à créer avec nous ? Cliquez sur [|link_sf_facebook|] et rejoignez-nous aujourd'hui !
 
 .. _cpn_vibration:
 
-Vibration Sensor Module (SW-420)
-=====================================
+Module Capteur de Vibration (SW-420)
+======================================
 
 .. image:: img/24_sw420_vibration_module.png
     :width: 400
     :align: center
 
-The SW-420 vibration sensor is a module that detects vibrations or shocks on a surface. It can be used for various purposes, such as detecting door knocks, machine malfunctions, car collisions, or alarm systems. It operates within a voltage range of 3.3 V to 5 V and has three peripherals: two LEDs (one for power status and the other for sensor output) and a potentiometer that can be used to control the vibration threshold point.
+Le capteur de vibration SW-420 est un module qui détecte les vibrations ou les chocs sur une surface. Il peut être utilisé à diverses fins, telles que la détection de coups à la porte, les dysfonctionnements de machines, les collisions de voitures, ou les systèmes d'alarme. Il fonctionne dans une plage de tension de 3,3 V à 5 V et possède trois périphériques : deux LED (une pour l'état de l'alimentation et l'autre pour la sortie du capteur) et un potentiomètre qui peut être utilisé pour contrôler le point de seuil de vibration.
 
-Pinout
+Brochage
+----------------------------
+* **VCC** : C'est l'entrée d'alimentation positive du contrôle principal.
+* **GND** : Connexion à la terre.
+* **DO** : Sortie numérique. En fonctionnement normal, le capteur émet un signal logique bas. Lorsqu'une vibration est détectée, le capteur émet un signal logique haut.
+
+Principe
 ---------------------------
-* **VCC**: This is the positive power supply input from the main control. 
-* **GND**: Ground connection.
-* **DO**: Digital output. During normal operation, the sensor outputs a Logic Low signal. When vibration is detected, the sensor outputs a Logic High signal.
+Le module capteur de vibration SW-420 comprend un interrupteur de vibration SW-420 et un comparateur de tension LM393. Un interrupteur de vibration SW-420 est un dispositif qui contient un ressort et une tige à l'intérieur d'un tube. Lorsque l'interrupteur est exposé à une vibration, le ressort touche la tige et ferme le circuit. Le capteur de vibration dans le module détecte ces oscillations et les convertit en signaux électriques. Le circuit comparateur LM393 compare ensuite ces signaux à une tension de référence définie par le potentiomètre. Si l'amplitude du signal dépasse cette tension de référence, la sortie du comparateur passe à haut (1), sinon elle reste à bas (0).
 
-Principle
----------------------------
-SW-420 vibration sensor module consists of a SW-420 vibration switch and an LM393 voltage comparator. A SW-420 vibration switch is a device that has a spring and a rod inside a tube. When the switch is exposed to a vibration, the spring touches the rod and closes the circuit. The vibration sensor in the module detects these oscillations and converts them into electrical signals. The LM393 comparator chip then compares these signals with a reference voltage set by the potentiometer. If the amplitude of the signal exceeds this reference voltage, the output of the comparator goes high (1), otherwise it goes low (0).
-
-Schematic diagram
+Schéma
 ---------------------------
 
 .. image:: img/24_sw420_vibration_module_schematic.png
@@ -44,7 +44,7 @@ Schematic diagram
 
    <br/>
 
-Example
+Exemple
 ---------------------------
 * :ref:`uno_lesson24_vibration_sensor` (Arduino UNO)
 * :ref:`esp32_lesson24_vibration_sensor` (ESP32)

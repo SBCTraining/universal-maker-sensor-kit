@@ -1,52 +1,52 @@
 .. note::
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    Bonjour, bienvenue dans la communauté des passionnés de SunFounder Raspberry Pi, Arduino et ESP32 sur Facebook ! Plongez plus profondément dans l'univers de Raspberry Pi, Arduino et ESP32 aux côtés d'autres passionnés.
 
-    **Why Join?**
+    **Pourquoi rejoindre ?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Support d'experts** : Obtenez de l'aide pour résoudre les problèmes post-vente et les défis techniques grâce à notre communauté et notre équipe.
+    - **Apprendre & Partager** : Échangez des astuces et des tutoriels pour enrichir vos compétences.
+    - **Aperçus exclusifs** : Accédez en avant-première aux annonces de nouveaux produits et aux coulisses de leur développement.
+    - **Réductions spéciales** : Profitez de promotions exclusives sur nos dernières nouveautés.
+    - **Promotions festives et cadeaux** : Participez à des jeux concours et à des offres spéciales pour les fêtes.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 Prêt à explorer et à créer avec nous ? Cliquez sur [|link_sf_facebook|] et rejoignez-nous dès aujourd'hui !
 
 .. _esp32_lesson04_mq2:
 
-Lesson 04: Gas Sensor Module (MQ-2)
+Leçon 04 : Module Capteur de Gaz (MQ-2)
 ============================================
 
-In this lesson, you will learn how to measure gas concentrations using an MQ-2 sensor with an ESP32 Development Board. We'll cover reading the analog output of the gas sensor and displaying it on the serial monitor. This project is ideal for beginners in electronics, providing hands-on experience with sensors and microcontrollers while teaching about analog signal processing and serial communication.
+Dans cette leçon, vous apprendrez à mesurer la concentration de gaz à l'aide d'un capteur MQ-2 avec une carte de développement ESP32. Nous verrons comment lire la sortie analogique du capteur de gaz et afficher ces valeurs sur le moniteur série. Ce projet est idéal pour les débutants en électronique, car il offre une expérience pratique avec les capteurs et les microcontrôleurs tout en enseignant le traitement des signaux analogiques et la communication série.
 
-Required Components
+Composants requis
 --------------------------
 
-In this project, we need the following components. 
+Pour ce projet, nous avons besoin des composants suivants.
 
-It's definitely convenient to buy a whole kit, here's the link: 
+Il est certainement pratique d'acheter un kit complet, voici le lien :
 
 .. list-table::
     :widths: 20 20 20
     :header-rows: 1
 
-    *   - Name	
-        - ITEMS IN THIS KIT
-        - LINK
-    *   - Universal Maker Sensor Kit
+    *   - Nom
+        - ÉLÉMENTS DANS CE KIT
+        - LIEN
+    *   - Kit Capteurs Universel pour Makers
         - 94
         - |link_umsk|
 
-You can also buy them separately from the links below.
+Vous pouvez également les acheter séparément via les liens ci-dessous.
 
 .. list-table::
     :widths: 30 10
     :header-rows: 1
 
-    *   - Component Introduction
-        - Purchase Link
+    *   - Introduction des composants
+        - Lien d'achat
 
-    *   - ESP32 & Development Board (:ref:`cpn_esp32_wroom_32e`)
+    *   - ESP32 & Carte de développement (:ref:`cpn_esp32_wroom_32e`)
         - |link_esp32_camera_pro_kit_buy|
     *   - :ref:`cpn_gas`
         - |link_mq2_gas_sensor_module_buy|
@@ -55,7 +55,7 @@ You can also buy them separately from the links below.
 
 
 
-Wiring
+Câblage
 ---------------------------
 
 .. image:: img/Lesson_04_MQ2_Module_esp32_bb.png
@@ -69,35 +69,35 @@ Code
 
     <iframe src=https://create.arduino.cc/editor/sunfounder01/79ef2209-7e92-4a53-81f2-1ba01214af31/preview?embed style="height:510px;width:100%;margin:10px 0" frameborder=0></iframe>
 
-Code Analysis
+Analyse du code
 ---------------------------
 
-1. The first line of code is a constant integer declaration for the gas sensor pin. We use the pin 25 to read the output from the gas sensor.
+1. La première ligne de code déclare une constante entière pour la broche du capteur de gaz. Nous utilisons la broche 25 pour lire la sortie du capteur de gaz.
 
    .. code-block:: arduino
    
       const int sensorPin = 25;
 
-2. The ``setup()`` function is where we initialize our serial communication at a baud rate of 9600. This is necessary to print the readings from the gas sensor to the serial monitor.
+2. La fonction ``setup()`` initialise la communication série à un débit de 9600 bauds. Cette configuration est essentielle pour afficher les valeurs relevées par le capteur sur le moniteur série.
 
    .. code-block:: arduino
    
       void setup() {
-        Serial.begin(9600);  // Start serial communication at 9600 baud rate
+        Serial.begin(9600);  // Démarrer la communication série à 9600 bauds
       }
 
-3. The ``loop()`` function is where we continuously read the analog value from the gas sensor and print it to the serial monitor. We use the ``analogRead()`` function to read the analog value from the sensor. We then wait for 50 milliseconds before the next reading. This delay gives some breathing space for the serial monitor to process the data.
+3. La fonction ``loop()`` lit en continu la valeur analogique du capteur de gaz et l'affiche sur le moniteur série. Nous utilisons la fonction ``analogRead()`` pour récupérer cette valeur, puis nous ajoutons une pause de 50 millisecondes avant la prochaine lecture. Cette pause permet au moniteur série de traiter les données sans surcharge.
 
    .. note:: 
    
-     MQ2 is a heating-driven sensor that usually requires preheating before use. During the preheating period, the sensor typically reads high and gradually decreases until it stabilizes.
+     Le capteur MQ-2 est un capteur chauffé qui nécessite généralement une période de préchauffage avant utilisation. Pendant cette période, les valeurs relevées sont souvent élevées et diminuent progressivement jusqu'à se stabiliser.
 
    .. code-block:: arduino
    
       void loop() {
         Serial.print("Analog output: ");
-        Serial.println(analogRead(sensorPin));  // Read the analog value of the gas sensor and print it to the serial monitor
-        delay(50);                             // Wait for 50 milliseconds
+        Serial.println(analogRead(sensorPin));  // Lire la valeur analogique du capteur et l'afficher sur le moniteur série
+        delay(50);                             // Pause de 50 millisecondes
       }
 
 

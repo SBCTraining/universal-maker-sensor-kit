@@ -1,21 +1,20 @@
-.. note::
+.. note:: 
+    Bonjour, bienvenue dans la communauté des passionnés de Raspberry Pi, Arduino et ESP32 de SunFounder sur Facebook ! Plongez plus profondément dans l'univers du Raspberry Pi, de l'Arduino et de l'ESP32 avec d'autres passionnés.
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    **Pourquoi rejoindre ?**
 
-    **Why Join?**
+    - **Support d'experts** : Résolvez les problèmes post-vente et les défis techniques avec l'aide de notre communauté et de notre équipe.
+    - **Apprendre et partager** : Échangez des astuces et des tutoriels pour améliorer vos compétences.
+    - **Aperçus exclusifs** : Obtenez un accès anticipé aux annonces de nouveaux produits et aux avant-premières.
+    - **Réductions spéciales** : Profitez de réductions exclusives sur nos produits les plus récents.
+    - **Promotions festives et cadeaux** : Participez à des tirages au sort et des promotions de fêtes.
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
-
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 Prêts à explorer et à créer avec nous ? Cliquez sur [|link_sf_facebook|] et rejoignez-nous aujourd'hui !
 
 .. _cpn_flame:
 
-Flame Sensor Module
-==========================
+Module Capteur de Flamme
+============================
 
 .. image:: img/03_flame_module.png
     :width: 400
@@ -26,33 +25,32 @@ Flame Sensor Module
    <br/>
 
 .. tip::
-   Keep a specific distance between the sensor and the flame to prevent damage from high temperatures. 
+   Gardez une distance spécifique entre le capteur et la flamme pour éviter les dommages dus aux hautes températures.
 
 .. note::
-   **Notice**: Due to a production error, some of the flame sensors included in our kits may be the 3-pin version, which lacks the AO (Analog Output). This version is suitable for most projects and does not impact general usage. If you still require the 4-pin version, please contact our customer service at service@sunfounder.com. We will provide a free replacement to meet your needs.
+   **Avis** : En raison d'une erreur de production, certains des capteurs de flamme inclus dans nos kits peuvent être la version à 3 broches, qui manque de la sortie analogique (AO). Cette version convient à la plupart des projets et n'affecte pas l'utilisation générale. Si vous avez besoin de la version à 4 broches, veuillez contacter notre service clientèle à service@sunfounder.com. Nous fournirons un remplacement gratuit pour répondre à vos besoins.
 
-The Flame sensor is a sensor that can detect the presence of fire or flames. The flame sensor works based on infrared radiation. The IR photodiode will detect the IR radiation from any hot body. This value is then compared with a set value. Once the radiation reaches the threshold value, the sensor will change its output accordingly. It is widely used in fire detection systems in homes and industries.
+Le capteur de flamme est un capteur capable de détecter la présence de feu ou de flammes. Le capteur de flamme fonctionne sur la base du rayonnement infrarouge. Le photodiode IR détectera le rayonnement IR de tout corps chaud. Cette valeur est ensuite comparée à une valeur de référence. Une fois que le rayonnement atteint la valeur seuil, le capteur change sa sortie en conséquence. Il est largement utilisé dans les systèmes de détection d'incendie dans les maisons et les industries.
 
-The Flame sensor works on the principle of infrared (IR) detection. The sensor has an IR receiver that detects the IR radiation emitted by flames. When fire burns it emits a small amount of Infra-red light, this light will be received by the Photodiode (IR receiver) on the sensor module. Then we use an Op-Amp to check for a change in voltage across the IR Receiver, so that if a fire is detected the output pin (DO) will give 0V(LOW), and if the is no fire the output pin will be 5V(HIGH).
+Le capteur de flamme fonctionne sur le principe de la détection infrarouge (IR). Le capteur dispose d'un récepteur IR qui détecte le rayonnement IR émis par les flammes. Lorsqu'un feu brûle, il émet une petite quantité de lumière infrarouge, cette lumière est reçue par le photodiode (récepteur IR) sur le module du capteur. Ensuite, nous utilisons un amplificateur opérationnel pour vérifier un changement de tension à travers le récepteur IR, de sorte que si un feu est détecté, la broche de sortie (DO) donnera 0V(LOW), et si il n'y a pas de feu, la broche de sortie sera à 5V(HIGH).
 
-
-Specification
+Spécifications
 ---------------------------
-* Supply Voltage: 3.3V - 5V
-* PCB Size: 31 x 14mm
-* Output Signal Type: DO and AO
-* Detection Angle: 60 degrees
+* Tension d'alimentation : 3,3V - 5V
+* Taille du PCB : 31 x 14mm
+* Type de signal de sortie : DO et AO
+* Angle de détection : 60 degrés
 
 
-Pinout
+Brochage
 ---------------------------
-* **VCC**: This is the positive power supply input from the main control. 
-* **GND**: Ground connection.
-* **DO**: Digital output. It indicates the presence of a flame. When the infrared radiation exceeds the threshold value (set by the potentiometer), DO becomes LOW; otherwise, it remains HIGH.
-* **AO**: Analog output. It generates an output voltage that is inversely proportional to the intensity of infrared radiation (flame size). Therefore, higher infrared radiation will result in a lower voltage, while lower infrared radiation will result in a higher voltage.
+* **VCC** : C'est l'entrée d'alimentation positive provenant du contrôle principal.
+* **GND** : Connexion à la terre.
+* **DO** : Sortie numérique. Elle indique la présence d'une flamme. Lorsque le rayonnement infrarouge dépasse la valeur seuil (réglée par le potentiomètre), DO devient LOW ; sinon, il reste HIGH.
+* **AO** : Sortie analogique. Elle génère une tension de sortie qui est inversement proportionnelle à l'intensité du rayonnement infrarouge (taille de la flamme). Ainsi, un rayonnement infrarouge plus élevé entraînera une tension plus basse, tandis qu'un rayonnement infrarouge plus faible entraînera une tension plus élevée.
 
 
-Schematic diagram
+Schéma
 ---------------------------
 
 .. image:: img/03_flame_module_schematic.png
@@ -63,8 +61,7 @@ Schematic diagram
 
    <br/>
 
-
-Example
+Exemple
 ---------------------------
 * :ref:`uno_lesson03_flame` (Arduino UNO)
 * :ref:`esp32_lesson03_flame` (ESP32)

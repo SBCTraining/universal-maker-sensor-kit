@@ -1,46 +1,45 @@
+.. note:: 
 
-.. note::
+    Bonjour et bienvenue dans la communauté des passionnés de SunFounder Raspberry Pi, Arduino, et ESP32 sur Facebook ! Plongez plus profondément dans l'univers du Raspberry Pi, Arduino et ESP32 avec d'autres passionnés.
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    **Pourquoi rejoindre ?**
 
-    **Why Join?**
+    - **Support d'experts** : Résolvez les problèmes après-vente et les défis techniques avec l'aide de notre communauté et de notre équipe.
+    - **Apprendre et partager** : Échangez des conseils et des tutoriels pour améliorer vos compétences.
+    - **Aperçus exclusifs** : Obtenez un accès anticipé aux annonces de nouveaux produits et aux avant-premières.
+    - **Réductions spéciales** : Profitez de réductions exclusives sur nos produits les plus récents.
+    - **Promotions festives et cadeaux** : Participez à des tirages au sort et à des promotions de fêtes.
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
-
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 Prêts à explorer et créer avec nous ? Cliquez sur [|link_sf_facebook|] et rejoignez-nous aujourd'hui !
 
 .. _add_libraries_py:
 
-Upload the Libraries to Pico
-===================================
+Télécharger les bibliothèques sur Pico
+=========================================
 
-In some projects, you will need additional libraries. So here we upload these libraries to Raspberry Pi Pico W first, and then we can run the code directly later.
+Dans certains projets, vous aurez besoin de bibliothèques supplémentaires. Nous allons donc d'abord télécharger ces bibliothèques sur Raspberry Pi Pico W, puis nous pourrons exécuter le code directement par la suite.
 
-#. Download the relevant code from the link below.
+#. Téléchargez le code pertinent depuis le lien ci-dessous.
 
-   * :download:`SunFounder Universal Maker Sensor Kit <https://codeload.github.com/sunfounder/universal-maker-sensor-kit/zip/refs/heads/main>`
+   * :download:`Kit de capteurs universels SunFounder <https://codeload.github.com/sunfounder/universal-maker-sensor-kit/zip/refs/heads/main>`
 
 
-#. Open Thonny IDE and plug the Pico into your computer with a micro USB cable and click on the "MicroPython (Raspberry Pi Pico).COMXX" interpreter in the bottom right corner.
+#. Ouvrez l'IDE Thonny et branchez le Pico sur votre ordinateur avec un câble micro USB, puis cliquez sur l'interpréteur "MicroPython (Raspberry Pi Pico).COMXX" en bas à droite.
 
    .. image:: img/sec_inter.png
 
-#. In the top navigation bar, click **View** -> **Files**.
+#. Dans la barre de navigation supérieure, cliquez sur **Vue** -> **Fichiers**.
 
    .. image:: img/th_files.png
 
-#. Switch the path to the folder where you downloaded the `code package <https://codeload.github.com/sunfounder/universal-maker-sensor-kit/zip/refs/heads/main>`_ before, and then go to the ``universal-maker-sensor-kit-main/pico/libs`` folder.
+#. Changez le chemin d'accès au dossier où vous avez téléchargé le `paquet de code <https://codeload.github.com/sunfounder/universal-maker-sensor-kit/zip/refs/heads/main>`_ auparavant, puis allez dans le dossier ``universal-maker-sensor-kit-main/pico/libs``.
 
    .. image:: img/th_path.png
 
-#. Select all the files or folders in the "libs/" folder (by holding down Shift and clicking on the first and last file in the folder), then right-click and select **Upload to /**, it will take a while to upload.
+#. Sélectionnez tous les fichiers ou dossiers dans le dossier "libs/" (en maintenant la touche Shift enfoncée et en cliquant sur le premier et le dernier fichier du dossier), puis faites un clic droit et sélectionnez **Télécharger vers /**, cela prendra un peu de temps pour télécharger.
 
    .. image:: img/th_upload.png
 
-#. Now you will see the files you just uploaded inside your drive ``Raspberry Pi Pico``.
+#. Vous verrez maintenant les fichiers que vous venez de télécharger dans votre lecteur ``Raspberry Pi Pico``.
 
    .. image:: img/th_done.png

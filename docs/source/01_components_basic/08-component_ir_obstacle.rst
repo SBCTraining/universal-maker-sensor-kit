@@ -1,21 +1,21 @@
 .. note::
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    Bonjour et bienvenue dans la communauté Facebook des passionnés de Raspberry Pi, Arduino et ESP32 de SunFounder! Approfondissez votre connaissance des Raspberry Pi, Arduino et ESP32 avec d'autres passionnés.
 
-    **Why Join?**
+    **Pourquoi rejoindre ?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Support d'experts** : Résolvez les problèmes après-vente et les défis techniques avec l'aide de notre communauté et de notre équipe.
+    - **Apprendre & Partager** : Échangez des conseils et des tutoriels pour améliorer vos compétences.
+    - **Aperçus exclusifs** : Obtenez un accès anticipé aux annonces de nouveaux produits et aux avant-premières.
+    - **Réductions spéciales** : Profitez de réductions exclusives sur nos produits les plus récents.
+    - **Promotions festives et cadeaux** : Participez à des tirages au sort et des promotions spéciales.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 Prêt à explorer et créer avec nous ? Cliquez sur [|link_sf_facebook|] et rejoignez-nous aujourd'hui !
 
 .. _cpn_ir_obstacle:
 
-IR Obstacle Avoidance Sensor Module
-=====================================
+Module Capteur de Détection d'Obstacles Infrarouge
+=======================================================
 
 .. image:: img/08_IR_obstacle_module.png
     :width: 400
@@ -25,25 +25,25 @@ IR Obstacle Avoidance Sensor Module
 
    <br/>
 
-This module can adapt to ambient light and includes a pair of infrared emitting and receiving tubes. The emitting tube sends out infrared at a specific frequency, and when the detection direction encounters an obstacle (reflective surface), the receiving tube picks up the reflected infrared. After being processed by the comparator circuit, the green indicator light will turn on, and simultaneously, the signal output interface will produce a digital signal (a low level signal). The detection distance can be adjusted using a potentiometer knob.
+Ce module s'adapte à la lumière ambiante et comprend une paire de tubes émettant et recevant des infrarouges. Le tube émetteur diffuse des infrarouges à une fréquence spécifique, et lorsque la direction de détection rencontre un obstacle (surface réfléchissante), le tube récepteur capte les infrarouges réfléchis. Après traitement par le circuit comparateur, le voyant vert s'allume et, simultanément, l'interface de sortie de signal produit un signal numérique (un signal de bas niveau). La distance de détection peut être ajustée à l'aide d'un bouton de potentiomètre.
 
-Specification
+Spécifications
 ---------------------------
-* Supply Voltage: 3.3V - 5V
-* PCB Size: 32 x 14mm
-* Output Signal Type: Digital Output
-* Detection Angle: 35°
-* Detection distance: 2～30cm
+* Tension d'alimentation : 3.3V - 5V
+* Taille du PCB : 32 x 14mm
+* Type de signal de sortie : Sortie numérique
+* Angle de détection : 35°
+* Distance de détection : 2～30cm
 
-Pinout
+Brochage
 ---------------------------
-* **VCC**: This is the positive power supply input from the main control. 
-* **GND**: Ground connection.
-* **OUT**: Digital output. Outputs high level when there is no obstacle, and outputs low level when an obstacle is detected. The detection distance of obstacles can be adjusted by the potentiometer on the module.
+* **VCC** : Ceci est l'entrée d'alimentation positive provenant du contrôle principal.
+* **GND** : Connexion à la terre.
+* **OUT** : Sortie numérique. Émet un niveau haut en l'absence d'obstacle, et un niveau bas lors de la détection d'un obstacle. La distance de détection des obstacles peut être ajustée par le potentiomètre sur le module.
 
-Principle
+Principe
 ---------------------------
-An obstacle avoidance sensor mainly consists of an infrared transmitter, an infrared receiver and a potentiometer. According to the reflecting character of an object, if there is no obstacle, the emitted infrared ray will weaken with the distance it spreads and finally disappear. If there is an obstacle, when the infrared ray encounters it, the ray will be reflected back to the infrared receiver. Then the infrared receiver detects this signal and confirms an obstacle in front. The detection range can be adjusted by the built-in potentiometer.
+Un capteur d'évitement d'obstacles se compose principalement d'un émetteur infrarouge, d'un récepteur infrarouge et d'un potentiomètre. Selon le caractère réfléchissant d'un objet, si aucun obstacle n'est présent, le rayon infrarouge émis s'affaiblit avec la distance et finit par disparaître. S'il y a un obstacle, lorsque le rayon infrarouge le rencontre, le rayon est réfléchi vers le récepteur infrarouge. Le récepteur infrarouge détecte alors ce signal et confirme la présence d'un obstacle devant. La portée de détection peut être ajustée par le potentiomètre intégré.
 
 .. image:: img/08_IR_obstacle_module_1.png
     :width: 600
@@ -53,7 +53,7 @@ An obstacle avoidance sensor mainly consists of an infrared transmitter, an infr
 
    <br/>
 
-Schematic diagram
+Schéma
 ---------------------------
 
 .. image:: img/08_ir_obstacle_module_schematic.png
@@ -64,7 +64,7 @@ Schematic diagram
 
    <br/>
 
-Example
+Exemple
 ---------------------------
 * :ref:`uno_lesson08_ir_obstacle_avoidance` (Arduino UNO)
 * :ref:`esp32_lesson08_ir_obstacle_avoidance` (ESP32)

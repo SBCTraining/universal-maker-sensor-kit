@@ -1,114 +1,114 @@
-.. note::
+.. note:: 
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    Bonjour, bienvenue dans la communauté des passionnés de Raspberry Pi, Arduino et ESP32 de SunFounder sur Facebook ! Plongez plus profondément dans le monde de Raspberry Pi, Arduino et ESP32 avec d'autres passionnés.
 
-    **Why Join?**
+    **Pourquoi nous rejoindre ?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Support d'experts** : Résolvez les problèmes après-vente et les défis techniques avec l'aide de notre communauté et de notre équipe.
+    - **Apprendre & Partager** : Échangez des astuces et des tutoriels pour améliorer vos compétences.
+    - **Aperçus exclusifs** : Accédez en avant-première aux nouvelles annonces de produits et aux aperçus.
+    - **Réductions spéciales** : Profitez de réductions exclusives sur nos produits les plus récents.
+    - **Promotions festives et cadeaux** : Participez à des concours et promotions pendant les fêtes.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 Prêt à explorer et à créer avec nous ? Cliquez sur [|link_sf_facebook|] et rejoignez-nous dès aujourd'hui !
 
 .. _esp32_adafruit_io:
 
-Lesson 48: Temperature and Humidity Monitoring with Adafruit IO
-===========================================================================
+Leçon 48 : Surveillance de la température et de l'humidité avec Adafruit IO
+===============================================================================
 
-In this project, we will guide you on how to use a popular IoT platform. There are many free (or low-cost) platforms available online for programming enthusiasts. Some examples are Adafruit IO, Blynk, Arduino Cloud, ThingSpeak, and so on. The usage of these platforms is quite similar. Here, we will be focusing on Adafruit IO.
+Dans ce projet, nous vous guiderons pour utiliser une plateforme IoT populaire. Il existe de nombreuses plateformes gratuites (ou à faible coût) disponibles en ligne pour les passionnés de programmation. Quelques exemples incluent Adafruit IO, Blynk, Arduino Cloud, ThingSpeak, etc. Leur utilisation est assez similaire. Ici, nous nous concentrerons sur Adafruit IO.
 
-We will write an Arduino program that uses the DHT11 sensor to send temperature and humidity readings to Adafruit IO's dashboard. You can also control an LED on the circuit through a switch on the dashboard.
+Nous allons écrire un programme Arduino qui utilise le capteur DHT11 pour envoyer les relevés de température et d'humidité vers le tableau de bord d'Adafruit IO. Vous pourrez également contrôler une LED sur le circuit via un interrupteur sur le tableau de bord.
 
-**Required Components**
+**Composants nécessaires**
 
-In this project, we need the following components. 
+Dans ce projet, nous avons besoin des composants suivants.
 
-It's definitely convenient to buy a whole kit, here's the link: 
+Il est certainement pratique d'acheter un kit complet, voici le lien :
 
 .. list-table::
     :widths: 20 20 20
     :header-rows: 1
 
-    *   - Name	
-        - ITEMS IN THIS KIT
-        - LINK
-    *   - Universal Maker Sensor Kit
+    *   - Nom    
+        - COMPOSANTS DU KIT
+        - Lien
+    *   - Kit de capteurs Universal Maker
         - 94
         - |link_umsk|
 
-You can also buy them separately from the links below.
+Vous pouvez également les acheter séparément via les liens ci-dessous.
 
 .. list-table::
     :widths: 30 20
     :header-rows: 1
 
-    *   - COMPONENT INTRODUCTION
-        - PURCHASE LINK
+    *   - DESCRIPTION DES COMPOSANTS
+        - LIEN D'ACHAT
 
-    *   - ESP32 & Development Board (:ref:`cpn_esp32_wroom_32e`)
+    *   - ESP32 & Carte de développement (:ref:`cpn_esp32_wroom_32e`)
         - |link_esp32_camera_pro_kit_buy|
     *   - :ref:`cpn_rgb`
         - \-
     *   - :ref:`cpn_dht11`
         - |link_dht11_humiture_buy|
 
-**Setting up the Dashboard**
+**Configuration du tableau de bord**
 
-#. Visit |link_adafruit_io|, then click on **Start for free** to create a free account.
+#. Rendez-vous sur |link_adafruit_io|, puis cliquez sur **Commencer gratuitement** pour créer un compte gratuit.
 
    .. image:: img/sp230516_102503.png
 
-#. Fill out the form to create an account.
+#. Remplissez le formulaire pour créer un compte.
 
    .. image:: img/sp230516_102629.png
 
-#. After creating an Adafruit account, you'll need to reopen Adafruit io. Click on the **Dashboards**, then click on **New Dashboard**.
+#. Après avoir créé un compte Adafruit, vous devrez rouvrir Adafruit IO. Cliquez sur **Tableaux de bord**, puis sur **Nouveau tableau de bord**.
 
    .. image:: img/sp230516_103347.png
 
-#. Create a **New Dashboard**.
+#. Créez un **Nouveau tableau de bord**.
 
    .. image:: img/sp230516_103744.png
 
-#. Enter the newly created **Dashboard** and create a new block.
+#. Entrez dans le **tableau de bord** nouvellement créé et créez un nouveau bloc.
 
    .. image:: img/sp230516_104234.png
 
-#. Create 1 **Toggle** block.
+#. Créez un bloc **Toggle**.
 
    .. image:: img/sp230516_105727.png
 
-#. Next, you'll need to create a new feed here. This toggle will be used to control the LED, and we'll name this feed "LED".
+#. Ensuite, vous devrez créer un nouveau flux ici. Ce bouton bascule sera utilisé pour contrôler la LED, et nous nommerons ce flux "LED".
 
    .. image:: img/sp230516_105641.png
 
-#. Check the **LED** feed, then move to the next step.
+#. Cochez le flux **LED**, puis passez à l'étape suivante.
 
    .. image:: img/sp230516_105925.png
 
-#. Complete the block settings (mainly Block Title, On Text, and Off Text), then click on the **Create block** button at the bottom right to finish.
+#. Complétez les paramètres du bloc (principalement le titre du bloc, le texte "on" et le texte "off"), puis cliquez sur le bouton **Créer le bloc** en bas à droite pour terminer.
 
    .. image:: img/sp230516_110124.png
 
-#. We also need to create two **Text Blocks** next. They will be used to display temperature and humidity. So, create two feeds named **temperature** and **humidity**.
+#. Nous devons également créer deux **blocs de texte**. Ils seront utilisés pour afficher la température et l'humidité. Créez donc deux flux nommés **temperature** et **humidity**.
 
    .. image:: img/sp230516_110657.png
 
-#. After creation, your Dashboard should look something like this:
+#. Après la création, votre tableau de bord devrait ressembler à ceci :
 
    .. image:: img/sp230516_111134.png
 
-#. You can adjust the layout by using the **Edit Layout** option on the Dashboard.
+#. Vous pouvez ajuster la mise en page en utilisant l'option **Modifier la mise en page** du tableau de bord.
 
    .. image:: img/sp230516_111240.png
 
-#. Click on **API KEY**, and you will see your username and **API KEY** displayed. Note these down as you'll need them for your code.
+#. Cliquez sur **API KEY**, et vous verrez votre nom d'utilisateur et **API KEY** affichés. Notez-les car vous en aurez besoin pour votre code.
 
    .. image:: img/sp230516_111641.png
 
-**Running the Code**
+**Exécution du code**
 
 .. |dht11_module| image:: img/Lesson_19_dht11_module.png 
    :width: 100px
@@ -122,10 +122,10 @@ You can also buy them separately from the links below.
 .. |dht11_module_withLED_circuit| image:: img/Lesson_48_iot_adafruitio_new_bb.png
    :width: 500px
 
-#. Build the circuit. 
+#. Construisez le circuit.
 
    .. note:: 
-      The kit may contain different versions of the DHT11 module. Please confirm the wiring method according to the module you have.
+      Le kit peut contenir différentes versions du module DHT11. Veuillez confirmer la méthode de câblage selon le module que vous possédez.
    
    .. csv-table:: 
       :header: "module", "diagram"
@@ -134,42 +134,42 @@ You can also buy them separately from the links below.
       |dht11_module|, |dht11_module_circuit|
       |dht11_module_withLED|, |dht11_module_withLED_circuit|
 
-#. Then, connect ESP32 to the computer using the USB cable.
+#. Ensuite, connectez l'ESP32 à l'ordinateur à l'aide du câble USB.
 
-#. Open the code.
+#. Ouvrez le code.
 
-   * Open the ``Lesson_48_Adafruit_IO.ino`` file located in the ``universal-maker-sensor-kit\esp32\Lesson_48_Adafruit_IO`` directory, or copy the code into the Arduino IDE.
-   * After selecting the board (ESP32 Dev Module) and the appropriate port, click the **Upload** button.
+   * Ouvrez le fichier ``Lesson_48_Adafruit_IO.ino`` situé dans le répertoire ``universal-maker-sensor-kit\esp32\Lesson_48_Adafruit_IO`` ou copiez le code dans l'IDE Arduino.
+   * Après avoir sélectionné la carte (ESP32 Dev Module) et le port approprié, cliquez sur le bouton **Téléverser**.
    * :ref:`unknown_com_port`
-   * The ``Adafruit_MQTT Library`` and ``DHT sensor library`` are used here, you can install them from the **Library Manager**.
+   * La bibliothèque ``Adafruit_MQTT Library`` et la bibliothèque ``DHT sensor library`` sont utilisées ici, vous pouvez les installer depuis le **Gestionnaire de bibliothèques**.
 
    .. raw:: html
 
        <iframe src=https://create.arduino.cc/editor/sunfounder01/987fb2fd-47e9-4a73-9020-6b2111eadd9c/preview?embed style="height:510px;width:100%;margin:10px 0" frameborder=0></iframe>
 
 
-#. Find the following lines and replace ``<SSID>`` and ``<PASSWORD>`` with the specific details of your WiFi network.
+#. Trouvez les lignes suivantes et remplacez ``<SSID>`` et ``<PASSWORD>`` par les détails spécifiques de votre réseau WiFi.
 
    .. code-block::  Arduino
 
-       /************************* WiFi Access Point *********************************/
+       /************************* Point d'accès WiFi *********************************/
 
        #define WLAN_SSID "<SSID>"
        #define WLAN_PASS "<PASSWORD>"
 
-#. Then replace ``<YOUR_ADAFRUIT_IO_USERNAME>`` with your Adafruit IO username and ``<YOUR_ADAFRUIT_IO_KEY>`` with the **API KEY** you just copied.
+#. Remplacez ensuite ``<YOUR_ADAFRUIT_IO_USERNAME>`` par votre nom d'utilisateur Adafruit IO et ``<YOUR_ADAFRUIT_IO_KEY>`` par la **clé API** que vous venez de copier.
 
    .. code-block::  Arduino
 
-       // Adafruit IO Account Configuration
-       // (to obtain these values, visit https://io.adafruit.com and click on Active Key)
+       // Configuration du compte Adafruit IO
+       // (pour obtenir ces valeurs, visitez https://io.adafruit.com et cliquez sur Clé active)
        #define AIO_USERNAME "<YOUR_ADAFRUIT_IO_USERNAME>"
        #define AIO_KEY      "<YOUR_ADAFRUIT_IO_KEY>"
 
-#. After selecting the correct board (ESP32 Dev Module) and port, click the **Upload** button.
+#. Après avoir sélectionné la carte correcte (ESP32 Dev Module) et le port, cliquez sur le bouton **Téléverser**.
 
-#. Once the code is successfully uploaded, you will observe the following message in the serial monitor, indicating successful communication with Adafruit IO.
-    
+#. Une fois le code téléchargé avec succès, vous verrez le message suivant dans le moniteur série, indiquant une communication réussie avec Adafruit IO.
+
    .. code-block::
 
        Adafruit IO MQTTS (SSL/TLS) Example
@@ -182,6 +182,6 @@ You can also buy them separately from the links below.
        Temperature: 27.10
        Humidity: 61.00
 
-#. Navigate back to Adafruit IO. Now you can observe the temperature and humidity readings on the dashboard, or utilize the LED toggle switch to control the on/off state of the external LED connected to the circuit.
+#. Retournez sur Adafruit IO. Vous pourrez désormais observer les relevés de température et d'humidité sur le tableau de bord, ou utiliser l'interrupteur de bascule de la LED pour contrôler l'état allumé/éteint de la LED externe connectée au circuit.
 
    .. image:: img/sp230516_143220.png

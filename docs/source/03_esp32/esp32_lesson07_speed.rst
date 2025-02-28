@@ -1,52 +1,52 @@
 .. note::
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    Bonjour, bienvenue dans la communauté des passionnés de SunFounder Raspberry Pi, Arduino et ESP32 sur Facebook ! Plongez plus profondément dans l'univers de Raspberry Pi, Arduino et ESP32 aux côtés d'autres passionnés.
 
-    **Why Join?**
+    **Pourquoi rejoindre ?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Support d'experts** : Obtenez de l'aide pour résoudre les problèmes post-vente et les défis techniques grâce à notre communauté et notre équipe.
+    - **Apprendre & Partager** : Échangez des astuces et des tutoriels pour enrichir vos compétences.
+    - **Aperçus exclusifs** : Accédez en avant-première aux annonces de nouveaux produits et aux coulisses de leur développement.
+    - **Réductions spéciales** : Profitez de promotions exclusives sur nos dernières nouveautés.
+    - **Promotions festives et cadeaux** : Participez à des jeux concours et à des offres spéciales pour les fêtes.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 Prêt à explorer et à créer avec nous ? Cliquez sur [|link_sf_facebook|] et rejoignez-nous dès aujourd'hui !
 
 .. _esp32_lesson07_speed:
 
-Lesson 07: Infrared Speed Sensor Module
-==========================================
+Leçon 07 : Module Capteur de Vitesse Infrarouge
+=====================================================
 
-In this lesson, you'll learn how to use an ESP32 Development Board with a Speed Sensor Module to detect obstructions. We'll see how the sensor sends a high signal when there's an obstruction and a low signal when the path is clear. This project is ideal for those looking to grasp sensor integration and basic input/output operations in a practical setting using the ESP32 platform.
+Dans cette leçon, vous apprendrez à utiliser une carte de développement ESP32 avec un module capteur de vitesse pour détecter les obstacles. Nous verrons comment le capteur envoie un signal haut lorsqu'un obstacle est détecté et un signal bas lorsque le passage est dégagé. Ce projet est idéal pour ceux qui souhaitent comprendre l'intégration des capteurs et les opérations d'entrée/sortie de base dans un environnement pratique utilisant la plateforme ESP32.
 
-Required Components
---------------------------
+Composants requis
+----------------------------
 
-In this project, we need the following components. 
+Pour ce projet, nous avons besoin des composants suivants.
 
-It's definitely convenient to buy a whole kit, here's the link: 
+Il est certainement pratique d'acheter un kit complet, voici le lien :
 
 .. list-table::
     :widths: 20 20 20
     :header-rows: 1
 
-    *   - Name	
-        - ITEMS IN THIS KIT
-        - LINK
-    *   - Universal Maker Sensor Kit
+    *   - Nom
+        - ÉLÉMENTS DANS CE KIT
+        - LIEN
+    *   - Kit Capteurs Universel pour Makers
         - 94
         - |link_umsk|
 
-You can also buy them separately from the links below.
+Vous pouvez également les acheter séparément via les liens ci-dessous.
 
 .. list-table::
     :widths: 30 20
     :header-rows: 1
 
-    *   - Component Introduction
-        - Purchase Link
+    *   - Introduction des composants
+        - Lien d'achat
 
-    *   - ESP32 & Development Board (:ref:`cpn_esp32_wroom_32e`)
+    *   - ESP32 & Carte de développement (:ref:`cpn_esp32_wroom_32e`)
         - |link_esp32_camera_pro_kit_buy|
     *   - :ref:`cpn_breadboard`
         - |link_breadboard_buy|
@@ -54,7 +54,7 @@ You can also buy them separately from the links below.
         - |link_speed_sensor_module_buy|
 
 
-Wiring
+Câblage
 ---------------------------
 
 .. image:: img/Lesson_07_Speed_esp32_bb.png
@@ -68,20 +68,20 @@ Code
 
     <iframe src=https://create.arduino.cc/editor/sunfounder01/bdf494c6-c0b1-4dbd-89bc-ce671db41bbb/preview?embed style="height:510px;width:100%;margin:10px 0" frameborder=0></iframe>
 
-Code Analysis
+Analyse du code
 ---------------------------
 
-#. Define the sensor pin
+#. Définition de la broche du capteur
 
-   The sensor pin is declared as a constant integer and is assigned pin number 25 of the ESP32.
+   La broche du capteur est déclarée comme une constante entière et assignée à la broche 25 de l'ESP32.
 
    .. code-block:: arduino
 
       const int sensorPin = 25;
 
-#. Setup function
+#. Fonction d'initialisation (setup)
 
-   This function initializes the serial communication at 9600 baud rate and sets the sensorPin as an input.
+   Cette fonction initialise la communication série à un débit de 9600 bauds et configure la broche du capteur comme une entrée.
 
    .. code-block:: arduino
     
@@ -90,11 +90,11 @@ Code Analysis
         pinMode(sensorPin, INPUT);
       }
 
-#. Loop function
+#. Fonction de boucle (loop)
 
-   The loop function continuously checks the sensor pin's status.
-   If the sensor pin reads HIGH, it prints "Obstruction detected" to the Serial Monitor.
-   If the sensor pin is LOW, it prints "Unobstructed".
+   La fonction ``loop()`` vérifie en continu l'état de la broche du capteur.
+   Si la lecture de la broche du capteur est HIGH, le message "Obstacle détecté" est affiché sur le moniteur série.
+   Si la lecture est LOW, le message "Pas d'obstacle" est affiché.
 
    .. code-block:: arduino
 
@@ -106,9 +106,9 @@ Code Analysis
         }
       }
 
-#. More
+#. Complément d'information
 
-   If an encoder is mounted on the motor, the rotational speed of the motor can be calculated by counting the number of times an obstruction passes the sensor within a specific period.
+   Si un encodeur est monté sur le moteur, la vitesse de rotation du moteur peut être calculée en comptant le nombre de fois où un obstacle passe devant le capteur sur une période donnée.
 
    .. image:: img/Lesson_07_Encoder_Disk.png
       :align: center

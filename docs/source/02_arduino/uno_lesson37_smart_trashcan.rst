@@ -1,53 +1,52 @@
 .. note::
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    Bonjour et bienvenue dans la communauté des passionnés de Raspberry Pi, Arduino et ESP32 sur Facebook de SunFounder ! Plongez plus profondément dans l'univers du Raspberry Pi, Arduino et ESP32 avec d'autres enthousiastes.
 
-    **Why Join?**
+    **Pourquoi rejoindre ?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Support d'experts** : Résolvez les problèmes après-vente et les défis techniques avec l'aide de notre communauté et de notre équipe.
+    - **Apprendre & Partager** : Échangez des astuces et des tutoriels pour améliorer vos compétences.
+    - **Aperçus exclusifs** : Accédez en avant-première aux annonces de nouveaux produits et aux aperçus.
+    - **Réductions spéciales** : Profitez de remises exclusives sur nos nouveaux produits.
+    - **Promotions festives et cadeaux** : Participez à des cadeaux et promotions de fêtes.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 Prêt à explorer et à créer avec nous ? Cliquez sur [|link_sf_facebook|] et rejoignez-nous aujourd'hui !
 
 .. _uno_lesson37_trashcan:
 
-Lesson 37: Smart trashcan
-==================================
+Leçon 37 : Poubelle intelligente
+====================================
 
-This project revolves around the concept of a smart trash can. The primary aim is to have the trash can's lid automatically open when an object approaches within a set distance (20cm in this case). The functionality is achieved by using an ultrasonic distance sensor paired with a servo motor. The distance between the object and the sensor is continually measured. If the object is close enough, the servo motor is triggered to open the lid. 
+Ce projet est centré autour du concept d'une poubelle intelligente. L'objectif principal est que le couvercle de la poubelle s'ouvre automatiquement lorsqu'un objet s'approche à une distance définie (20 cm dans ce cas). Cette fonctionnalité est rendue possible grâce à l'utilisation d'un capteur de distance ultrasonique associé à un moteur servo. La distance entre l'objet et le capteur est mesurée en continu. Si l'objet est suffisamment proche, le moteur servo est activé pour ouvrir le couvercle.
 
-
-Required Components
+Composants requis
 --------------------------
 
-In this project, we need the following components. 
+Pour ce projet, nous avons besoin des composants suivants.
 
-It's definitely convenient to buy a whole kit, here's the link: 
+Il est certainement pratique d'acheter un kit complet, voici le lien :
 
 .. list-table::
     :widths: 20 20 20
     :header-rows: 1
 
-    *   - Name	
-        - ITEMS IN THIS KIT
-        - LINK
-    *   - Universal Maker Sensor Kit
+    *   - Nom	
+        - ARTICLES DANS CE KIT
+        - LIEN
+    *   - Kit de capteurs universel pour bricoleurs
         - 94
         - |link_umsk|
 
-You can also buy them separately from the links below.
+Vous pouvez également les acheter séparément via les liens ci-dessous.
 
 .. list-table::
     :widths: 30 20
     :header-rows: 1
 
-    *   - Component Introduction
-        - Purchase Link
+    *   - Introduction du composant
+        - Lien d'achat
 
-    *   - Arduino UNO R3 or R4
+    *   - Arduino UNO R3 ou R4
         - |link_Uno_R3_buy|
     *   - :ref:`cpn_ultrasonic`
         - |link_ultrasonic_buy|
@@ -55,14 +54,13 @@ You can also buy them separately from the links below.
         - |link_servo_buy|
     *   - :ref:`cpn_breadboard`
         - |link_breadboard_buy|
-        
 
-Wiring
+
+Câblage
 ---------------------------
 
 .. image:: img/Lesson_37_smart_trashcan_uno_bb.png
     :width: 100%
-
 
 Code
 ---------------------------
@@ -71,14 +69,14 @@ Code
 
     <iframe src=https://create.arduino.cc/editor/sunfounder01/f9aacc6c-809f-4fd2-9246-23bb4bdf78a2/preview?embed style="height:510px;width:100%;margin:10px 0" frameborder=0></iframe>
 
-Code Analysis
+Analyse du code
 ---------------------------
 
-The project is based on real-time monitoring of the distance between an object and a trash can. An ultrasonic sensor continuously measures this distance, and if an object approaches within 20cm, the trash can interprets it as an intention to dispose of waste and automatically opens its lid. This automation adds smartness and convenience to a regular trash can.
+Le projet repose sur la surveillance en temps réel de la distance entre un objet et une poubelle. Un capteur ultrasonique mesure continuellement cette distance, et si un objet s'approche à moins de 20 cm, la poubelle interprète cela comme une intention de jeter des déchets et ouvre automatiquement son couvercle. Cette automatisation ajoute de l'intelligence et de la commodité à une poubelle ordinaire.
 
-#. Initial Setup and Variable Declaration
+#. Configuration initiale et déclaration de variables
 
-   Here, we're including the ``Servo`` library and defining the constants and variables we'll use. The pins for the servo and the ultrasonic sensor are declared. We also have an array ``averDist`` to hold the three distance measurements.
+   Ici, nous incluons la bibliothèque ``Servo`` et définissons les constantes et variables que nous utiliserons. Les broches pour le servo et le capteur ultrasonique sont déclarées. Nous avons également un tableau ``averDist`` pour conserver les trois mesures de distance.
 
    .. code-block:: arduino
        
@@ -93,9 +91,9 @@ The project is based on real-time monitoring of the distance between an object a
       long averDist[3];
       const int distanceThreshold = 20;
 
-#. ``setup()`` Function
+#. Fonction ``setup()``
 
-   The ``setup()`` function initializes serial communication, configures the ultrasonic sensor's pins, and sets the initial position of the servo to the closed position.
+   La fonction ``setup()`` initialise la communication série, configure les broches du capteur ultrasonique, et positionne initialement le servo en position fermée.
 
    .. code-block:: arduino
    
@@ -108,11 +106,11 @@ The project is based on real-time monitoring of the distance between an object a
         delay(100);
       }
 
-   
 
-#. ``loop()`` Function
 
-   The ``loop()`` function is responsible for continuously measuring the distance, computing its average, and then making a decision whether to open or close the trash can's lid based on this averaged distance.
+#. Fonction ``loop()``
+
+   La fonction ``loop()`` est responsable de mesurer continuellement la distance, de calculer sa moyenne, puis de prendre une décision quant à l'ouverture ou la fermeture du couvercle de la poubelle basée sur cette distance moyenne.
 
    .. code-block:: arduino
    
@@ -132,14 +130,14 @@ The project is based on real-time monitoring of the distance between an object a
           delay(1000);
         }
       }
-   
-   
 
-#. Distance Reading Function
 
-   This function, ``readDistance()``, is what actually interacts with the ultrasonic sensor. It sends a pulse and waits for an echo. The time taken for the echo is then used to calculate the distance between the sensor and any object in front of it.
 
-   You can refer to the :ref:`cpn_ultrasonic_principle` of the ultrasonic sensor.
+#. Fonction de lecture de distance
+
+   Cette fonction, ``readDistance()``, est celle qui interagit réellement avec le capteur ultrasonique. Elle envoie une impulsion et attend un écho. Le temps pris pour l'écho est ensuite utilisé pour calculer la distance entre le capteur et tout objet devant lui.
+
+   Vous pouvez vous référer au :ref:`cpn_ultrasonic_principle` du capteur ultrasonique.
 
    .. code-block:: arduino
    

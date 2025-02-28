@@ -1,50 +1,49 @@
 .. note::
+    Bonjour et bienvenue dans la communauté des passionnés de SunFounder pour Raspberry Pi, Arduino et ESP32 sur Facebook ! Plongez plus profondément dans les univers de Raspberry Pi, Arduino et ESP32 avec d'autres passionnés.
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    **Pourquoi rejoindre ?**
 
-    **Why Join?**
+    - **Support d'experts** : Résolvez les problèmes post-vente et les défis techniques avec l'aide de notre communauté et de notre équipe.
+    - **Apprendre et partager** : Échangez des conseils et des tutoriels pour améliorer vos compétences.
+    - **Aperçus exclusifs** : Obtenez un accès anticipé aux annonces de nouveaux produits et aux aperçus exclusifs.
+    - **Réductions spéciales** : Profitez de réductions exclusives sur nos produits les plus récents.
+    - **Promotions festives et cadeaux** : Participez à des cadeaux et promotions de fêtes.
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
-
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 Prêts à explorer et créer avec nous ? Cliquez sur [|link_sf_facebook|] et rejoignez-nous dès aujourd'hui !
 
 .. _pi_lesson30_relay_module:
 
-Lesson 30: Relay Module
+Leçon 30 : Module de relais
 ==================================
 
-In this lesson, you will learn how to control a relay module using a Raspberry Pi. You'll learn how to write a simple Python script to turn the relay on and off at one-second intervals. This project is a practical introduction to using GPIO pins for controlling external devices, providing a basic understanding of how relays work in electronic circuits. It's a straightforward and informative exercise, well-suited for beginners starting with Raspberry Pi and hardware control.
+Dans cette leçon, vous apprendrez à contrôler un module de relais à l'aide d'un Raspberry Pi. Vous apprendrez à écrire un script Python simple pour activer et désactiver le relais à des intervalles d'une seconde. Ce projet constitue une introduction pratique à l'utilisation des broches GPIO pour contrôler des appareils externes, fournissant une compréhension de base du fonctionnement des relais dans les circuits électroniques. C'est un exercice direct et informatif, particulièrement adapté aux débutants qui commencent avec le Raspberry Pi et le contrôle matériel.
 
-Required Components
---------------------------
+Composants nécessaires
+----------------------
 
-In this project, we need the following components. 
+Pour ce projet, nous aurons besoin des composants suivants.
 
-It's definitely convenient to buy a whole kit, here's the link: 
+Il est certainement pratique d'acheter un kit complet, voici le lien :
 
 .. list-table::
     :widths: 20 20 20
     :header-rows: 1
 
-    *   - Name	
-        - ITEMS IN THIS KIT
-        - LINK
-    *   - Universal Maker Sensor Kit
+    *   - Nom	
+        - ÉLÉMENTS DE CE KIT
+        - LIEN
+    *   - Kit universel de capteurs pour créateurs
         - 94
         - |link_umsk|
 
-You can also buy them separately from the links below.
+Vous pouvez également les acheter séparément via les liens ci-dessous.
 
 .. list-table::
     :widths: 30 20
     :header-rows: 1
 
-    *   - Component Introduction
-        - Purchase Link
+    *   - Présentation des composants
+        - Lien d'achat
 
     *   - Raspberry Pi 5
         - \-
@@ -56,80 +55,80 @@ You can also buy them separately from the links below.
         - |link_breadboard_buy|
 
 
-Wiring
----------------------------
+Câblage
+--------
 
 .. image:: img/Lesson_30_Relay_Pi_bb.png
     :width: 100%
 
 
 Code
----------------------------
+--------
 
 .. code-block:: python
 
    from gpiozero import OutputDevice
    from time import sleep
 
-   # Replace with your GPIO pin number
-   relay_pin = 17  # Example using GPIO17
+   # Remplacez par votre numéro de broche GPIO
+   relay_pin = 17  # Exemple utilisant GPIO17
 
-   # Initialize relay object
+   # Initialisation de l'objet relais
    relay = OutputDevice(relay_pin)
 
    try:
       while True:
-         # Turn on the relay
+         # Activer le relais
          relay.on()
-         sleep(1)  # Relay remains on for 1 second
+         sleep(1)  # Le relais reste activé pendant 1 seconde
 
-         # Turn off the relay
+         # Désactiver le relais
          relay.off()
-         sleep(1)  # Relay remains off for 1 second
+         sleep(1)  # Le relais reste désactivé pendant 1 seconde
 
    except KeyboardInterrupt:
-      # Capture Ctrl+C and safely close the program
+      # Capture de Ctrl+C et fermeture sécurisée du programme
       relay.off()
       print("Program interrupted by user")
 
 
-Code Analysis
+Analyse du code
 ---------------------------
 
-#. Import Libraries
+1. **Importation des bibliothèques**
    
-   Import the ``gpiozero`` library for GPIO control and the ``time`` library for delays.
+   Importation de la bibliothèque ``gpiozero`` pour le contrôle des GPIO et de la bibliothèque ``time`` pour les délais.
 
    .. code-block:: python
 
       from gpiozero import OutputDevice
       from time import sleep
 
-#. Initialize the Relay
+2. **Initialisation du relais**
    
-   Define the GPIO pin connected to the relay and initialize an ``OutputDevice`` object with that pin.
+   Définition de la broche GPIO connectée au relais et initialisation d'un objet ``OutputDevice`` avec cette broche.
 
    .. code-block:: python
 
-      relay_pin = 17  # Example using GPIO17
+      relay_pin = 17  # Exemple utilisant GPIO17
       relay = OutputDevice(relay_pin)
 
-#. Relay Control in a Loop
+3. **Contrôle du relais en boucle**
    
-   The ``while True:`` loop continuously toggles the relay. ``relay.on()`` and ``relay.off()`` are used to control the relay, and ``sleep(1)`` creates a one-second delay between each state.
+   La boucle ``while True:`` bascule continuellement le relais. Les méthodes ``relay.on()`` et ``relay.off()`` sont utilisées pour contrôler le relais, et ``sleep(1)`` crée un délai d'une seconde entre chaque état.
 
    .. code-block:: python
 
       try:
           while True:
               relay.on()
-              sleep(1)  # Relay remains on for 1 second
+              sleep(1)  # Le relais reste activé pendant 1 seconde
               relay.off()
-              sleep(1)  # Relay remains off for 1 second
+              sleep(1)  # Le relais reste désactivé pendant 1 seconde
 
-#. Exception Handling
+4. **Gestion des exceptions**
    
-   The ``except`` block captures a ``KeyboardInterrupt`` (Ctrl+C). It ensures the relay is turned off and the program exits safely.
+   Le bloc ``except`` capture un ``KeyboardInterrupt`` (Ctrl+C). Il garantit que le relais est éteint et que le programme se termine en toute sécurité.
 
    .. code-block:: python
 

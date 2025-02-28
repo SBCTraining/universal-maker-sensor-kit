@@ -1,54 +1,53 @@
-
 .. note::
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    Bonjour, bienvenue dans la communauté des passionnés de SunFounder Raspberry Pi & Arduino & ESP32 sur Facebook ! Plongez plus profondément dans l'univers du Raspberry Pi, Arduino et ESP32 avec d'autres passionnés.
 
-    **Why Join?**
+    **Pourquoi rejoindre ?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Support d'experts** : Résolvez les problèmes post-vente et les défis techniques avec l'aide de notre communauté et de notre équipe.
+    - **Apprendre & Partager** : Échangez des astuces et des tutoriels pour améliorer vos compétences.
+    - **Aperçus exclusifs** : Obtenez un accès anticipé aux annonces de nouveaux produits et aux avant-premières.
+    - **Réductions spéciales** : Profitez de réductions exclusives sur nos nouveaux produits.
+    - **Promotions festives et cadeaux** : Participez à des tirages au sort et à des promotions de fêtes.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 Prêt à explorer et à créer avec nous ? Cliquez sur [|link_sf_facebook|] et rejoignez-nous aujourd'hui !
 
 .. _uno_lesson47_bluetooth_traffic_light:
 
-Lesson 47: Bluetooth Traffic Light
+Leçon 47 : Feu de circulation Bluetooth
 =============================================================
 
-This project is designed to control a traffic light (Red, Yellow, Green LEDs) using Bluetooth communication. The user can send a character ('R', 'Y', or 'G') from a Bluetooth device. When the Arduino receives one of these characters, it lights up the corresponding LED, while ensuring the other two LEDs are turned off.
+Ce projet est conçu pour contrôler un feu de circulation (LEDs Rouge, Jaune, Vert) via une communication Bluetooth. L'utilisateur peut envoyer un caractère ('R', 'Y' ou 'G') depuis un dispositif Bluetooth. Lorsque l'Arduino reçoit l'un de ces caractères, il allume la LED correspondante, tout en s'assurant que les deux autres LEDs sont éteintes.
 
 
-Required Components
+Composants requis
 --------------------------
 
-In this project, we need the following components. 
+Pour ce projet, nous avons besoin des composants suivants.
 
-It's definitely convenient to buy a whole kit, here's the link: 
+Il est définitivement pratique d'acheter un kit complet, voici le lien :
 
 .. list-table::
     :widths: 20 20 20
     :header-rows: 1
 
-    *   - Name	
-        - ITEMS IN THIS KIT
-        - LINK
-    *   - Universal Maker Sensor Kit
+    *   - Nom	
+        - ARTICLES DANS CE KIT
+        - LIEN
+    *   - Kit de capteurs universel pour créateurs
         - 94
         - |link_umsk|
 
-You can also buy them separately from the links below.
+Vous pouvez également les acheter séparément via les liens ci-dessous.
 
 .. list-table::
     :widths: 30 20
     :header-rows: 1
 
-    *   - Component Introduction
-        - Purchase Link
+    *   - Introduction du composant
+        - Lien d'achat
 
-    *   - Arduino UNO R3 or R4
+    *   - Arduino UNO R3 ou R4
         - |link_Uno_R3_buy|
     *   - :ref:`cpn_breadboard`
         - |link_breadboard_buy|
@@ -58,7 +57,7 @@ You can also buy them separately from the links below.
         - \-
 
 
-Wiring
+Câblage
 ---------------------------
 
 .. image:: img/Lesson_47_Bluetooth_traffic_light_uno_bb.png
@@ -73,45 +72,45 @@ Code
    <iframe src=https://create.arduino.cc/editor/sunfounder01/5b9bd574-c807-4370-8e09-61f5f5a60b42/preview?embed style="height:510px;width:100%;margin:10px 0" frameborder=0></iframe>
 
 
-App and Bluetooth module Connection
------------------------------------------------
-We can use an app called "Serial Bluetooth Terminal" to send messages from the Bluetooth module to Arduino.
+Connexion entre l'application et le module Bluetooth
+-------------------------------------------------------------
+Nous pouvons utiliser une application appelée "Serial Bluetooth Terminal" pour envoyer des messages depuis le module Bluetooth vers Arduino.
 
-a. **Install Serial Bluetooth Terminal**
+a. **Installer Serial Bluetooth Terminal**
 
-   Go to Google Play to download and install |link_serial_bluetooth_terminal| .
+   Rendez-vous sur Google Play pour télécharger et installer |link_serial_bluetooth_terminal|.
 
 
-b. **Connect Bluetooth**
+b. **Connecter Bluetooth**
 
-   Initially, turn on **Bluetooth** on your smartphone.
+   Initialement, activez **Bluetooth** sur votre smartphone.
    
       .. image:: img/09-app_1_shadow.png
          :width: 60%
          :align: center
    
-   Navigate to the **Bluetooth settings** on your smartphone and look for names like **JDY-31-SPP**.
+   Accédez aux **paramètres Bluetooth** de votre smartphone et recherchez des noms tels que **JDY-31-SPP**.
    
       .. image:: img/09-app_2_shadow.png
          :width: 60%
          :align: center
    
-   After clicking it, agree to the **Pair** request in the pop-up window. If prompted for a pairing code, please enter "1234".
+   Après avoir cliqué dessus, acceptez la demande de **jumelage** dans la fenêtre pop-up. Si un code de jumelage est demandé, saisissez "1234".
    
       .. image:: img/09-app_3_shadow.png
          :width: 60%
          :align: center
    
 
-c. **Communicate with Bluetooth module**
+c. **Communiquer avec le module Bluetooth**
 
-   Open the Serial Bluetooth Terminal. Connect to "JDY-31-SPP".
+   Ouvrez le Serial Bluetooth Terminal. Connectez-vous à "JDY-31-SPP".
 
    .. image:: img/00-bluetooth_serial_4_shadow.png 
 
-d. **Send command**
+d. **Envoyer une commande**
 
-   Use the Serial Bluetooth Terminal app to send commands to Arduino via Bluetooth. Send R to turn on the red light, Y for yellow, and G for green.
+   Utilisez l'application Serial Bluetooth Terminal pour envoyer des commandes à Arduino via Bluetooth. Envoyez R pour allumer la lumière rouge, Y pour la jaune, et G pour la verte.
 
    .. image:: img/16-R_shadow.png 
       :width: 85%
@@ -128,34 +127,34 @@ d. **Send command**
 
 
 
-Code Analysis
+Analyse du code
 ---------------------------
 
 
-#. Initialization and Bluetooth setup
+#. Initialisation et configuration Bluetooth
 
    .. code-block:: arduino
 
-      // Set up Bluetooth module communication
+      // Configuration de la communication avec le module Bluetooth
       #include <SoftwareSerial.h>
       const int bluetoothTx = 3;
       const int bluetoothRx = 4;
       SoftwareSerial bleSerial(bluetoothTx, bluetoothRx);
    
-   We begin by including the SoftwareSerial library to help us with Bluetooth communication. The Bluetooth module's TX and RX pins are then defined and associated with pins 3 and 4 on the Arduino. Finally, we initialize the ``bleSerial`` object for Bluetooth communication.
+   Nous commençons par inclure la bibliothèque SoftwareSerial pour nous aider avec la communication Bluetooth. Les broches TX et RX du module Bluetooth sont ensuite définies et associées aux broches 3 et 4 de l'Arduino. Enfin, nous initialisons l'objet ``bleSerial`` pour la communication Bluetooth.
 
-#. LED Pin Definitions
+#. Définitions des broches LED
 
    .. code-block:: arduino
 
-      // Pin numbers for each LED
-      const int rledPin = 10;  //red
-      const int yledPin = 11;  //yellow
-      const int gledPin = 12;  //green
+      // Numéros des broches pour chaque LED
+      const int rledPin = 10;  //rouge
+      const int yledPin = 11;  //jaune
+      const int gledPin = 12;  //vert
 
-   Here, we're defining which Arduino pins our LEDs are connected to. The red LED is on pin 10, yellow on 11, and green on 12.
+   Ici, nous définissons quelles broches Arduino nos LEDs sont connectées. La LED rouge est sur la broche 10, la jaune sur 11 et la verte sur 12.
 
-#. setup() Function
+#. Fonction setup()
 
    .. code-block:: arduino
 
@@ -168,9 +167,9 @@ Code Analysis
          bleSerial.begin(9600);
       }
 
-   In the ``setup()`` function, we set the LED pins as ``OUTPUT``. We also start serial communication for both the Bluetooth module and the default serial (connected to the computer) at a baud rate of 9600.
+   Dans la fonction ``setup()``, nous définissons les broches des LED comme ``OUTPUT``. Nous démarrons également la communication série pour le module Bluetooth et le série par défaut (connecté à l'ordinateur) à un débit de 9600.
 
-#. Main loop() for Bluetooth Communication
+#. Boucle principale pour la communication Bluetooth
 
    .. code-block:: arduino
 
@@ -189,9 +188,9 @@ Code Analysis
          }
       }
 
-   Inside our main ``loop()``, we continuously check if data is available from the Bluetooth module. If we receive data, we read the character and display it in the serial monitor. Depending on the character received (R, Y, or G), we toggle the respective LED using the ``toggleLights()`` function.
+   À l'intérieur de notre boucle principale ``loop()``, nous vérifions en continu si des données sont disponibles depuis le module Bluetooth. Si nous recevons des données, nous lisons le caractère et l'affichons dans le moniteur série. Selon le caractère reçu (R, Y ou G), nous activons la LED respective en utilisant la fonction ``toggleLights()``.
 
-#. Toggle Lights Function
+#. Fonction Toggle Lights
 
    .. code-block:: arduino
 
@@ -203,4 +202,4 @@ Code Analysis
          digitalWrite(targetLight, HIGH);
       }
 
-   This function, ``toggleLights()``, turns off all the LEDs first. After ensuring they are all off, it turns on the specified target LED. This ensures that only one LED is on at a time.
+   Cette fonction, ``toggleLights()``, éteint d'abord toutes les LEDs. Après s'être assuré qu'elles sont toutes éteintes, elle allume la LED cible spécifiée. Cela garantit qu'une seule LED est allumée à la fois.

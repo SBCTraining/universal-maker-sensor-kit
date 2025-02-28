@@ -1,52 +1,52 @@
-.. note::
+.. note:: 
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    Bonjour, bienvenue dans la communauté des passionnés de SunFounder pour Raspberry Pi, Arduino et ESP32 sur Facebook ! Plongez plus profondément dans l'univers de Raspberry Pi, Arduino et ESP32 avec d'autres passionnés.
 
-    **Why Join?**
+    **Pourquoi rejoindre ?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Support d'experts** : Résolvez les problèmes après-vente et les défis techniques avec l'aide de notre communauté et de notre équipe.
+    - **Apprendre & partager** : Échangez des astuces et des tutoriels pour améliorer vos compétences.
+    - **Aperçus exclusifs** : Obtenez un accès anticipé aux annonces de nouveaux produits et aux aperçus.
+    - **Réductions spéciales** : Profitez de réductions exclusives sur nos produits les plus récents.
+    - **Promotions festives et cadeaux** : Participez à des cadeaux et promotions pendant les fêtes.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 Prêt à explorer et créer avec nous ? Cliquez sur [|link_sf_facebook|] et rejoignez-nous aujourd'hui !
 
 .. _esp32_lesson30_relay_module:
 
-Lesson 30: Relay Module
-==================================
+Leçon 30 : Module de relais
+=============================
 
-In this lesson, you'll learn how to use an ESP32 Development Board to control a one-channel relay module. We'll cover turning the relay on and off in a loop, with a 3-second delay between each state change. This project provides hands-on experience with digital output operations in embedded systems, making it ideal for beginners entering the realm of ESP32 and relay modules.
+Dans cette leçon, vous apprendrez à utiliser une carte de développement ESP32 pour contrôler un module de relais à un canal. Nous aborderons comment activer et désactiver le relais dans une boucle, avec un délai de 3 secondes entre chaque changement d'état. Ce projet offre une expérience pratique des opérations de sortie numérique dans les systèmes embarqués, ce qui le rend idéal pour les débutants qui entrent dans le domaine de l'ESP32 et des modules de relais.
 
-Required Components
---------------------------
+Composants nécessaires
+------------------------
 
-In this project, we need the following components. 
+Pour ce projet, nous avons besoin des composants suivants. 
 
-It's definitely convenient to buy a whole kit, here's the link: 
+Il est très pratique d'acheter un kit complet, voici le lien : 
 
 .. list-table::
     :widths: 20 20 20
     :header-rows: 1
 
-    *   - Name	
-        - ITEMS IN THIS KIT
-        - LINK
-    *   - Universal Maker Sensor Kit
+    *   - Nom    
+        - COMPOSANTS DANS CE KIT
+        - Lien
+    *   - Kit de capteurs Universal Maker
         - 94
         - |link_umsk|
 
-You can also buy them separately from the links below.
+Vous pouvez également les acheter séparément via les liens ci-dessous.
 
 .. list-table::
     :widths: 30 20
     :header-rows: 1
 
-    *   - Component Introduction
-        - Purchase Link
+    *   - Description du composant
+        - Lien d'achat
 
-    *   - ESP32 & Development Board (:ref:`cpn_esp32_wroom_32e`)
+    *   - ESP32 & Carte de développement (:ref:`cpn_esp32_wroom_32e`)
         - |link_esp32_camera_pro_kit_buy|
     *   - :ref:`cpn_breadboard`
         - |link_breadboard_buy|
@@ -56,26 +56,26 @@ You can also buy them separately from the links below.
         - \-
 
 
-Wiring
----------------------------
+Câblage
+---------
 
 .. image:: img/Lesson_30_Relay_esp32_bb.png
     :width: 100%
 
 
 Code
----------------------------
+------
 
 .. raw:: html
 
     <iframe src=https://create.arduino.cc/editor/sunfounder01/a0035890-76ca-4a85-9f21-9df01717d906/preview?embed style="height:510px;width:100%;margin:10px 0" frameborder=0></iframe>
 
-Code Analysis
----------------------------
+Analyse du code
+------------------
 
-#. Setting up the relay pin:
+#. Configuration de la broche du relais :
 
-   - The relay module is connected to pin 25 of the ESP32 Development Board. This pin is defined as ``relayPin`` for ease of reference in the code.
+   - Le module de relais est connecté à la broche 25 de la carte de développement ESP32. Cette broche est définie comme ``relayPin`` pour faciliter la référence dans le code.
 
    .. raw:: html
 
@@ -85,9 +85,9 @@ Code Analysis
     
       const int relayPin = 25;
 
-#. Configuring the relay pin as an output:
+#. Configuration de la broche du relais en sortie :
 
-   - In the ``setup()`` function, the relay pin is set as an OUTPUT using the ``pinMode()`` function. This means the Arduino will send signals (either HIGH or LOW) to this pin.
+   - Dans la fonction ``setup()``, la broche du relais est définie comme une sortie avec la fonction ``pinMode()``. Cela signifie que l'Arduino enverra des signaux (soit HAUT soit BAS) à cette broche.
 
    .. raw:: html
 
@@ -99,11 +99,11 @@ Code Analysis
         pinMode(relayPin, OUTPUT);
       }
 
-#. Toggling the relay ON and OFF:
+#. Basculer le relais ON et OFF :
 
-   - In the ``loop()`` function, the relay is first set to the OFF state using ``digitalWrite(relayPin, LOW)``. It remains in this state for 3 seconds (``delay(3000)``).
-   - Then, the relay is set to the ON state using ``digitalWrite(relayPin, HIGH)``. Again, it remains in this state for 3 seconds.
-   - This cycle repeats indefinitely.
+   - Dans la fonction ``loop()``, le relais est d'abord mis en état OFF en utilisant ``digitalWrite(relayPin, LOW)``. Il reste dans cet état pendant 3 secondes (``delay(3000)``).
+   - Ensuite, le relais est mis en état ON en utilisant ``digitalWrite(relayPin, HIGH)``. Encore une fois, il reste dans cet état pendant 3 secondes.
+   - Ce cycle se répète indéfiniment.
 
    .. raw:: html
 

@@ -1,50 +1,48 @@
-.. note::
+    Bonjour, bienvenue dans la communauté des passionnés de Raspberry Pi, Arduino et ESP32 de SunFounder sur Facebook ! Approfondissez vos connaissances sur Raspberry Pi, Arduino et ESP32 avec d'autres passionnés.
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    **Pourquoi rejoindre ?**
 
-    **Why Join?**
+    - **Support d'experts** : Résolvez les problèmes après-vente et les défis techniques avec l'aide de notre communauté et de notre équipe.
+    - **Apprendre et partager** : Échangez des astuces et des tutoriels pour améliorer vos compétences.
+    - **Aperçus exclusifs** : Obtenez un accès anticipé aux annonces de nouveaux produits et aux aperçus.
+    - **Réductions spéciales** : Profitez de réductions exclusives sur nos nouveaux produits.
+    - **Promotions festives et cadeaux** : Participez à des cadeaux et promotions festives.
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
-
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 Prêts à explorer et créer avec nous ? Cliquez sur [|link_sf_facebook|] et rejoignez-nous aujourd'hui !
 
 .. _pi_lesson19_dht11:
 
-Lesson 19: Temperature and Humidity Sensor Module (DHT11)
+Leçon 19 : Module de capteur de température et d'humidité (DHT11)
 ====================================================================
 
-In this lesson, you will learn how to connect and read data from a DHT11 temperature and humidity sensor using a Raspberry Pi. You will learn how to set up the sensor, read temperature in both Celsius and Fahrenheit, and obtain humidity readings. This project introduces you to working with external sensors, handling real-time data, and basic exception handling in Python. 
+Dans cette leçon, vous apprendrez à connecter et lire les données d'un capteur de température et d'humidité DHT11 à l'aide d'un Raspberry Pi. Vous apprendrez à configurer le capteur, lire la température en Celsius et en Fahrenheit, et obtenir les mesures d'humidité. Ce projet vous initie à l'utilisation de capteurs externes, à la gestion des données en temps réel et aux bases de la gestion des exceptions en Python.
 
-Required Components
---------------------------
+Composants nécessaires
+-------------------------
 
-In this project, we need the following components. 
+Pour ce projet, nous aurons besoin des composants suivants.
 
-It's definitely convenient to buy a whole kit, here's the link: 
+Il est certainement pratique d'acheter un kit complet, voici le lien :
 
 .. list-table::
     :widths: 20 20 20
     :header-rows: 1
 
-    *   - Name	
-        - ITEMS IN THIS KIT
-        - LINK
-    *   - Universal Maker Sensor Kit
+    *   - Nom	
+        - ÉLÉMENTS DE CE KIT
+        - LIEN
+    *   - Kit universel de capteurs pour créateurs
         - 94
         - |link_umsk|
 
-You can also buy them separately from the links below.
+Vous pouvez également les acheter séparément via les liens ci-dessous.
 
 .. list-table::
     :widths: 30 10
     :header-rows: 1
 
-    *   - Component Introduction
-        - Purchase Link
+    *   - Présentation des composants
+        - Lien d'achat
 
     *   - Raspberry Pi 5
         - \-
@@ -54,11 +52,11 @@ You can also buy them separately from the links below.
         - |link_breadboard_buy|
 
 
-Wiring
----------------------------
+Câblage
+---------
 
 .. note:: 
-   The kit may contain different versions of the DHT11 module. Please confirm the wiring method according to the module you have.0
+   Le kit peut contenir différentes versions du module DHT11. Veuillez confirmer la méthode de câblage selon le module que vous avez.
 
 .. image:: img/Lesson_19_dht11_module_pi_bb_bb.png
     :width: 100%
@@ -67,36 +65,36 @@ Wiring
     :width: 100%
 
 
-Install Library
----------------------------
+Installation de la bibliothèque
+----------------------------------
 
 .. note::
-    The adafruit-circuitpython-dht library relies on Blinka, so please ensure that Blinka has been installed. To install libraries, refer to :ref:`install_blinka`.
+    La bibliothèque adafruit-circuitpython-dht dépend de Blinka, veuillez donc vous assurer que Blinka est installé. Pour installer les bibliothèques, reportez-vous à :ref:`install_blinka`.
 
-Before installing the library, please make sure that the virtual Python environment is activated:
+Avant d'installer la bibliothèque, veuillez vous assurer que l'environnement Python virtuel est activé :
 
 .. code-block:: bash
 
    source ~/env/bin/activate
 
-Install adafruit-circuitpython-dht library:
+Installez la bibliothèque adafruit-circuitpython-dht :
 
 .. code-block:: bash
 
    pip install adafruit-circuitpython-dht
 
 Code
----------------------------
+------
 
 .. note::
-   - Please ensure that you have installed the Python library required for running the code according to the "Install Library" steps.
-   - Before running the code, please make sure that you have activated the virtual Python environment with blinka installed. You can activate the virtual environment using a command like this:
+   - Assurez-vous d'avoir installé la bibliothèque Python nécessaire pour exécuter le code conformément aux étapes "Installation de la bibliothèque".
+   - Avant d'exécuter le code, assurez-vous que l'environnement Python virtuel avec Blinka installé est activé. Vous pouvez activer l'environnement virtuel en utilisant une commande comme celle-ci :
 
      .. code-block:: bash
   
         source ~/env/bin/activate
 
-   - Find the code for this lesson in ``universal-maker-sensor-kit-main/pi/`` directory, or directly copy and paste the code below. Execute the code by running the following commands in terminal:
+   - Trouvez le code pour cette leçon dans le répertoire ``universal-maker-sensor-kit-main/pi/``, ou copiez et collez directement le code ci-dessous. Exécutez le code en exécutant les commandes suivantes dans le terminal :
 
      .. code-block:: bash
   
@@ -109,12 +107,12 @@ Code
    import board
    import adafruit_dht
    
-   # Initial the dht device, with data pin connected to:
+   # Initialiser le dispositif dht, avec la broche de données connectée à :
    dhtDevice = adafruit_dht.DHT11(board.D17)
    
    while True:
        try:
-           # Print the values to the serial port
+           # Imprimer les valeurs sur le port série
            temperature_c = dhtDevice.temperature
            temperature_f = temperature_c * (9 / 5) + 32
            humidity = dhtDevice.humidity
@@ -125,7 +123,7 @@ Code
            )
    
        except RuntimeError as error:
-           # Errors happen fairly often, DHT's are hard to read, just keep going
+           # Les erreurs sont assez fréquentes, les DHT sont difficiles à lire, continuez simplement
            print(error.args[0])
            time.sleep(2.0)
            continue
@@ -135,13 +133,12 @@ Code
    
        time.sleep(2.0)
 
+Analyse du code
+---------------
 
-Code Analysis
----------------------------
+#. Importation des bibliothèques :
 
-#. Importing Libraries:
-
-   The code begins by importing necessary libraries. ``time`` for handling delays, ``board`` for accessing Raspberry Pi GPIO pins, and ``adafruit_dht`` for interacting with the DHT11 sensor. For more detail about the ``adafruit_dht`` library, please refer to |Adafruit_CircuitPython_DHT|.
+   Le code commence par importer les bibliothèques nécessaires. ``time`` pour gérer les délais, ``board`` pour accéder aux broches GPIO du Raspberry Pi, et ``adafruit_dht`` pour interagir avec le capteur DHT11. Pour plus de détails sur la bibliothèque ``adafruit_dht``, veuillez vous référer à |Adafruit_CircuitPython_DHT|.
 
    .. code-block:: python
     
@@ -149,43 +146,43 @@ Code Analysis
       import board
       import adafruit_dht
 
-#. Initializing the Sensor:
+#. Initialisation du capteur :
 
-   The DHT11 sensor is initialized with the data pin connected to GPIO 17 of the Raspberry Pi. This setup is crucial for the sensor to communicate with the Raspberry Pi.
+   Le capteur DHT11 est initialisé avec la broche de données connectée au GPIO 17 du Raspberry Pi. Cette configuration est essentielle pour la communication du capteur avec le Raspberry Pi.
 
    .. code-block:: python
 
       dhtDevice = adafruit_dht.DHT11(board.D17)
 
-#. Reading Sensor Data in a Loop:
+#. Lecture des données du capteur en boucle :
 
-   The ``while True`` loop allows the program to continuously check the sensor for new data. 
+   La boucle ``while True`` permet au programme de vérifier continuellement le capteur pour de nouvelles données.
 
    .. code-block:: python
 
       while True:
 
-#. Try-Except Blocks:
+#. Blocs try-except :
 
-   Within the loop, a try-except block is used to handle potential runtime errors. Reading from DHT sensors can often result in errors due to timing issues or sensor quirks.
+   À l'intérieur de la boucle, un bloc try-except est utilisé pour gérer les erreurs potentielles d'exécution. Lire les données des capteurs DHT peut souvent entraîner des erreurs dues à des problèmes de temporisation ou à des particularités du capteur.
 
    .. code-block:: python
 
       try:
-          # Sensor data reading code here
+          # Code de lecture des données du capteur ici
       except RuntimeError as error:
-          # Handling common sensor reading errors
+          # Gestion des erreurs de lecture courantes
           print(error.args[0])
           time.sleep(2.0)
           continue
       except Exception as error:
-          # Handling other exceptions and exiting
+          # Gestion des autres exceptions et sortie
           dhtDevice.exit()
           raise error
 
-#. Reading and Printing Sensor Data:
+#. Lecture et affichage des données du capteur :
 
-   The temperature and humidity are read from the sensor and converted into human-readable formats. The temperature is also converted from Celsius to Fahrenheit.
+   La température et l'humidité sont lues à partir du capteur et converties en formats lisibles par l'homme. La température est également convertie de Celsius en Fahrenheit.
 
    .. code-block:: python
 
@@ -194,9 +191,9 @@ Code Analysis
       humidity = dhtDevice.humidity
       print("Temp: {:.1f} F / {:.1f} C    Humidity: {}% ".format(temperature_f, temperature_c, humidity))
 
-#. Handling Read Errors:
+#. Gestion des erreurs de lecture :
 
-   The DHT11 sensor can often return errors, so the code uses a try-except block to handle these. If an error occurs, the program waits for 2 seconds before attempting to read from the sensor again.
+   Le capteur DHT11 peut souvent renvoyer des erreurs, donc le code utilise un bloc try-except pour les gérer. Si une erreur se produit, le programme attend 2 secondes avant de tenter de lire à nouveau les données du capteur.
 
    .. code-block:: python
 
@@ -205,9 +202,9 @@ Code Analysis
           time.sleep(2.0)
           continue
 
-#. General Exception Handling:
+#. Gestion générale des exceptions :
 
-   Any other exceptions that might occur are handled by safely exiting the sensor and re-raising the error. This ensures the program doesn't continue in an unstable state.
+   Toutes les autres exceptions qui pourraient survenir sont gérées en sortant en toute sécurité du capteur et en relançant l'erreur. Cela garantit que le programme ne continue pas dans un état instable.
 
    .. code-block:: python
 
@@ -215,9 +212,9 @@ Code Analysis
           dhtDevice.exit()
           raise error
 
-#. Delay Between Readings:
+#. Délai entre les lectures :
 
-   A 2-second delay is added at the end of the loop to avoid constant polling of the sensor, which can lead to erroneous readings.
+   Un délai de 2 secondes est ajouté à la fin de la boucle pour éviter une interrogation constante du capteur, ce qui peut conduire à des lectures erronées.
 
    .. code-block:: python
 

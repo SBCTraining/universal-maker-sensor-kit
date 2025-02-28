@@ -1,52 +1,52 @@
-.. note::
+.. note:: 
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    Bonjour, bienvenue dans la communauté des passionnés de Raspberry Pi, Arduino et ESP32 sur Facebook ! Explorez davantage Raspberry Pi, Arduino et ESP32 avec d'autres passionnés.
 
-    **Why Join?**
+    **Pourquoi rejoindre ?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Support d'experts** : Résolvez vos problèmes après-vente et défis techniques avec l'aide de notre communauté et de notre équipe.
+    - **Apprendre & partager** : Échangez des astuces et des tutoriels pour améliorer vos compétences.
+    - **Aperçus exclusifs** : Accédez en avant-première aux annonces de nouveaux produits et aux aperçus.
+    - **Réductions spéciales** : Profitez de réductions exclusives sur nos produits les plus récents.
+    - **Promotions et concours festifs** : Participez à des concours et promotions pendant les fêtes.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 Prêt à explorer et créer avec nous ? Cliquez sur [|link_sf_facebook|] et rejoignez-nous aujourd'hui !
 
 .. _esp32_lesson24_vibration_sensor:
 
-Lesson 24: Vibration Sensor Module (SW-420)
-==============================================
+Leçon 24 : Module de capteur de vibration (SW-420)
+=====================================================
 
-In this lesson, you'll learn how to detect vibrations using an ESP32 Development Board and a Vibration Sensor (SW-420). We'll cover reading digital output from the sensor and using conditional statements to display messages on the serial monitor. When the sensor detects vibration, it will display "Detected vibration..."; otherwise, it will output "...". This project provides a practical way to grasp digital inputs and serial communication, making it ideal for electronics and programming beginners.
+Dans cette leçon, vous apprendrez à détecter des vibrations à l'aide d'une carte de développement ESP32 et d'un capteur de vibration (SW-420). Nous aborderons la lecture de la sortie numérique du capteur et l'utilisation de structures conditionnelles pour afficher des messages sur le moniteur série. Lorsque le capteur détecte une vibration, le message "Vibration détectée..." sera affiché ; sinon, il affichera "...". Ce projet constitue une méthode pratique pour comprendre les entrées numériques et la communication série, idéal pour les débutants en électronique et en programmation.
 
-Required Components
---------------------------
+Composants nécessaires
+----------------------
 
-In this project, we need the following components. 
+Pour ce projet, nous avons besoin des composants suivants.
 
-It's definitely convenient to buy a whole kit, here's the link: 
+Il est vraiment pratique d'acheter un kit complet, voici le lien : 
 
 .. list-table::
     :widths: 20 20 20
     :header-rows: 1
 
-    *   - Name	
-        - ITEMS IN THIS KIT
-        - LINK
-    *   - Universal Maker Sensor Kit
+    *   - Nom    
+        - COMPOSANTS DANS CE KIT
+        - Lien
+    *   - Kit de capteurs Universal Maker
         - 94
         - |link_umsk|
 
-You can also buy them separately from the links below.
+Vous pouvez aussi les acheter séparément via les liens ci-dessous.
 
 .. list-table::
     :widths: 30 20
     :header-rows: 1
 
-    *   - Component Introduction
-        - Purchase Link
+    *   - Description du composant
+        - Lien d'achat
 
-    *   - ESP32 & Development Board (:ref:`cpn_esp32_wroom_32e`)
+    *   - ESP32 & Carte de développement (:ref:`cpn_esp32_wroom_32e`)
         - |link_esp32_camera_pro_kit_buy|
     *   - :ref:`cpn_vibration`
         - |link_sw420_vibration_module_buy|
@@ -54,49 +54,49 @@ You can also buy them separately from the links below.
         - |link_breadboard_buy|
 
 
-Wiring
----------------------------
+Câblage
+----------
 
 .. image:: img/Lesson_24_Vibration_Sensor_Module_esp32_bb.png
     :width: 100%
 
 
 Code
----------------------------
+-------
 
 .. raw:: html
 
     <iframe src=https://create.arduino.cc/editor/sunfounder01/a64a9f69-b056-4b41-993e-3f77101091e0/preview?embed style="height:510px;width:100%;margin:10px 0" frameborder=0></iframe>
 
-Code Analysis
----------------------------
+Analyse du code
+------------------
 
-1. The first line of code is a constant integer declaration for the vibration sensor pin. We use digital pin 25 to read the output from the vibration sensor.
+1. La première ligne du code est une déclaration d'entier constant pour la broche du capteur de vibration. Nous utilisons la broche numérique 25 pour lire la sortie du capteur de vibration.
 
    .. code-block:: arduino
    
       const int sensorPin = 25;
 
-2. In the ``setup()`` function, we initialize the serial communication at a baud rate of 9600 to print readings from the vibration sensor to the serial monitor. We also set the vibration sensor pin as an input.
+2. Dans la fonction ``setup()``, nous initialisons la communication série à un débit de 9600 pour afficher les lectures du capteur de vibration sur le moniteur série. Nous définissons également la broche du capteur de vibration comme entrée.
 
    .. code-block:: arduino
    
       void setup() {
-        Serial.begin(9600);         // Start serial communication at 9600 baud rate
-        pinMode(sensorPin, INPUT);  // Set the sensorPin as an input pin
+        Serial.begin(9600);         // Démarre la communication série à un débit de 9600
+        pinMode(sensorPin, INPUT);  // Définit la broche sensorPin comme une entrée
       }
 
-3. The ``loop()`` function is where we continuously check for any vibrations detected by the sensor. If the sensor detects a vibration, it prints "Detected vibration..." to the serial monitor. If no vibration is detected, it prints "...". The loop repeats every 100 milliseconds.
+3. La fonction ``loop()`` est celle où nous vérifions en continu la détection de vibrations par le capteur. Si le capteur détecte une vibration, il affiche "Vibration détectée..." sur le moniteur série. Si aucune vibration n'est détectée, il affiche "...". La boucle se répète toutes les 100 millisecondes.
 
    .. code-block:: arduino
    
       void loop() {
-        if (digitalRead(sensorPin)) {               // Check if there is any vibration detected by the sensor
-          Serial.println("Detected vibration...");  // Print "Detected vibration..." if vibration detected
+        if (digitalRead(sensorPin)) {               // Vérifie si une vibration est détectée par le capteur
+          Serial.println("Detected vibration...");  // Affiche "Vibration détectée..." si une vibration est détectée
         } 
         else {
-          Serial.println("...");  // Print "..." otherwise
+          Serial.println("...");  // Affiche "..." sinon
         }
-        // Add a delay to avoid flooding the serial monitor
+        // Ajoute un délai pour éviter d'encombrer le moniteur série
         delay(100);
       }

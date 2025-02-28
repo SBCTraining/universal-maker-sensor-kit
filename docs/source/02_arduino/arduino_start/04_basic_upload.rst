@@ -1,76 +1,76 @@
 .. note::
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    Bonjour, bienvenue dans la communauté des passionnés de SunFounder pour Raspberry Pi, Arduino et ESP32 sur Facebook ! Explorez plus profondément les univers de Raspberry Pi, Arduino et ESP32 avec d'autres amateurs.
 
-    **Why Join?**
+    **Pourquoi rejoindre ?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Support d'experts** : Résolvez les problèmes après-vente et les défis techniques avec l'aide de notre communauté et de notre équipe.
+    - **Apprendre & Partager** : Échangez des astuces et des tutoriels pour renforcer vos compétences.
+    - **Aperçus exclusifs** : Obtenez un accès anticipé aux annonces de nouveaux produits et aux aperçus exclusifs.
+    - **Réductions spéciales** : Profitez de réductions exclusives sur nos nouveaux produits.
+    - **Promotions festives et cadeaux** : Participez à des concours et des promotions festives.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 Prêt à explorer et à créer avec nous ? Cliquez sur [|link_sf_facebook|] et rejoignez-nous dès aujourd'hui !
 
-How to upload Sketch to the Board?
+Comment téléverser un sketch sur la carte ?
 =============================================
 
-In this section, you will learn how to upload the sketch created previously to the Arduino board, as well as learn about some considerations.
+Dans cette section, vous apprendrez comment téléverser le sketch créé précédemment sur la carte Arduino, ainsi que quelques considérations importantes.
 
-**1. Choose Board and port**
+**1. Choisissez la carte et le port**
 
-Arduino development boards usually come with a USB cable. You can use it to connect the board to your computer.
+Les cartes de développement Arduino sont généralement accompagnées d'un câble USB. Utilisez-le pour connecter la carte à votre ordinateur.
 
-Select the correct **Board** and **Port** in the Arduino IDE. Normally, Arduino boards are recognized automatically by the computer and assigned a port, so you can select it here.
+Sélectionnez la **Carte** et le **Port** appropriés dans l'IDE Arduino. Normalement, les cartes Arduino sont automatiquement reconnues par l'ordinateur et se voient attribuer un port, que vous pouvez sélectionner ici.
 
     .. image:: img/board_port.png
         :width: 90%
 
 
-If your board is already plugged in, but not recognized, check if the **INSTALLED** logo appears in the **Arduino AVR Boards** section of the **Boards Manager**, if not, please scroll down a bit and click on **INSTALL**.
+Si votre carte est déjà branchée mais non reconnue, vérifiez si le logo **INSTALLÉ** apparaît dans la section **Cartes Arduino AVR** du **Gestionnaire de cartes**, sinon, veuillez défiler un peu et cliquer sur **INSTALL**.
 
     .. image:: img/upload1.png
         :width: 90%
 
-Specifically, for UNO R4, search **"UNO R4"** in **Boards Manager** and check if the corresponding library is installed.
+Spécifiquement, pour UNO R4, recherchez **"UNO R4"** dans le **Gestionnaire de cartes** et vérifiez si la bibliothèque correspondante est installée.
 
     .. image:: img/install_uno_r4_lib.png
         :width: 90%
 
-Reopening the Arduino IDE and re-plugging the Arduino board will fix most of the problems. You can also click **Tools** -> **Board** or **Port** to select them.
+Redémarrer l'IDE Arduino et reconnecter la carte Arduino résoudra la plupart des problèmes. Vous pouvez également cliquer sur **Outils** -> **Carte** ou **Port** pour les sélectionner.
 
 
-**2. Verify the Sketch**
+**2. Vérifiez le Sketch**
 
-After clicking the Verify button, the sketch will be compiled to see if there are any errors.
+Après avoir cliqué sur le bouton Vérifier, le sketch sera compilé pour voir s'il y a des erreurs.
 
     .. image:: img/sp221014_174532.png
         :width: 90%
 
-You can use it to find mistakes if you delete some characters or type a few letters by mistake. From the message bar, you can see where and what type of errors occurred. 
+Vous pouvez utiliser cette fonction pour trouver des erreurs si vous avez supprimé des caractères ou tapé quelques lettres par erreur. Depuis la barre de messages, vous pouvez voir où et quel type d'erreurs se sont produites.
 
     .. image:: img/sp221014_175307.png
         :width: 90%
 
-If there are no errors, you will see a message like the one below.
+S'il n'y a pas d'erreurs, vous verrez un message comme celui ci-dessous.
 
     .. image:: img/sp221014_175512.png
         :width: 90%
 
 
-**3. Upload sketch**
+**3. Téléversez le sketch**
 
-After completing the above steps, click the **Upload** button to upload this sketch to the board.
+Après avoir complété les étapes ci-dessus, cliquez sur le bouton **Téléverser** pour téléverser ce sketch sur la carte.
 
     .. image:: img/sp221014_175614.png
         :width: 90%
 
-If successful, you will be able to see the following prompt.
+Si le téléversement est réussi, vous pourrez voir l'invite suivante.
 
     .. image:: img/sp221014_175654.png
         :width: 90%
 
-At the same time, the on-board LED blink.
+En même temps, la LED embarquée clignotera.
 
 .. image:: img/1_led.jpg
     :width: 400
@@ -80,8 +80,5 @@ At the same time, the on-board LED blink.
     
     <br/>
 
-The Arduino board will automatically run the sketch after power is applied after the sketch is uploaded. The running program can be overwritten by uploading a new sketch.
-
-
-
+La carte Arduino exécutera automatiquement le sketch après que l'alimentation soit appliquée après le téléversement. Le programme en cours peut être remplacé en téléversant un nouveau sketch.
 

@@ -1,51 +1,51 @@
-.. note::
+.. note:: 
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    Bonjour et bienvenue dans la communauté des passionnés de Raspberry Pi, Arduino et ESP32 de SunFounder sur Facebook ! Explorez plus en profondeur le Raspberry Pi, Arduino et ESP32 avec d'autres passionnés.
 
-    **Why Join?**
+    **Pourquoi nous rejoindre ?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Support d'experts** : Résolvez vos problèmes après-vente et défis techniques grâce à l'aide de notre communauté et de notre équipe.
+    - **Apprendre et partager** : Échangez des astuces et des tutoriels pour améliorer vos compétences.
+    - **Aperçus exclusifs** : Accédez en avant-première aux annonces de nouveaux produits et aperçus.
+    - **Réductions spéciales** : Profitez de réductions exclusives sur nos produits les plus récents.
+    - **Promotions festives et concours** : Participez à des concours et promotions lors des fêtes.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 Prêt à explorer et créer avec nous ? Cliquez sur [|link_sf_facebook|] et rejoignez-nous dès aujourd'hui !
 
 .. _pi_lesson03_flame:
 
-Lesson 03: Flame Sensor Module
-==================================
+Leçon 03 : Module de capteur de flamme
+=========================================
+
+Dans cette leçon, vous apprendrez à utiliser un capteur de flamme avec le Raspberry Pi pour la détection de feu. Nous vous montrerons comment connecter le capteur de flamme à la broche GPIO17 et écrire un script Python pour lire ses sorties. Vous apprendrez à identifier quand le capteur détecte une flamme, ce qui est indiqué par un changement d'état du capteur. Ce projet pratique vous initie aux bases de l'interface des capteurs et de la programmation en Python sur Raspberry Pi, adapté aux débutants intéressés par des projets liés à la sécurité.
 
 
-In this lesson, you will learn to use a flame sensor with Raspberry Pi for fire detection. We'll show you how to connect the flame sensor to GPIO17 and write a Python script to read its output. You'll learn to identify when the sensor detects a flame, indicated by a change in the sensor's state. This practical project introduces you to the basics of sensor interfacing and Python coding on the Raspberry Pi, suitable for beginners interested in building safety-related projects.
+Composants nécessaires
+---------------------------
 
-Required Components
---------------------------
+Pour ce projet, nous avons besoin des composants suivants.
 
-In this project, we need the following components. 
-
-It's definitely convenient to buy a whole kit, here's the link: 
+Il est certainement pratique d'acheter un kit complet, voici le lien :
 
 .. list-table::
     :widths: 20 20 20
     :header-rows: 1
 
-    *   - Name	
-        - ITEMS IN THIS KIT
-        - LINK
-    *   - Universal Maker Sensor Kit
+    *   - Nom
+        - ARTICLES DANS CE KIT
+        - Lien
+    *   - Kit de capteurs Universal Maker
         - 94
         - |link_umsk|
 
-You can also buy them separately from the links below.
+Vous pouvez aussi les acheter séparément via les liens ci-dessous.
 
 .. list-table::
     :widths: 30 20
     :header-rows: 1
 
-    *   - Component Introduction
-        - Purchase Link
+    *   - Introduction des composants
+        - Lien d'achat
 
     *   - Raspberry Pi 5
         - \-
@@ -55,7 +55,7 @@ You can also buy them separately from the links below.
         - |link_breadboard_buy|
 
 
-Wiring
+Câblage
 ---------------------------
 
 .. image:: img/Lesson_03_flame_module_Pi_bb.png
@@ -70,48 +70,48 @@ Code
    from gpiozero import InputDevice
    import time
 
-   # Connect the digital output of the flame sensor to GPIO17 on the Raspberry Pi
+   # Connecter la sortie numérique du capteur de flamme à la broche GPIO17 du Raspberry Pi
    flame_sensor = InputDevice(17)
 
-   # Continuous loop to read from the sensor
+   # Boucle continue pour lire les données du capteur
    while True:
-       # Check if the sensor is active (no flame detected)
+       # Vérifier si le capteur est actif (pas de flamme détectée)
        if flame_sensor.is_active:
            print("No flame detected.")
        else:
-           # When the sensor is inactive (flame detected)
+           # Lorsque le capteur est inactif (flamme détectée)
            print("Flame detected!")
-       # Wait for 1 second before reading the sensor again
+       # Attendre 1 seconde avant de lire à nouveau le capteur
        time.sleep(1)
 
 
-Code Analysis
+Analyse du code
 ---------------------------
 
-#. Importing Libraries
-   
-   The script starts by importing the necessary classes from the gpiozero library and the time module from Python's standard library.
+#. Importation des bibliothèques
+
+   Le script commence par importer les classes nécessaires de la bibliothèque gpiozero ainsi que le module time de la bibliothèque standard de Python.
 
    .. code-block:: python
 
       from gpiozero import InputDevice
       import time
 
-#. Initializing the Flame Sensor
-   
-   An ``InputDevice`` object named ``flame_sensor`` is created, representing the flame sensor connected to GPIO pin 17 of the Raspberry Pi. This setup assumes that the digital output of the flame sensor is connected to GPIO17.
+#. Initialisation du capteur de flamme
+
+   Un objet ``InputDevice`` nommé ``flame_sensor`` est créé, représentant le capteur de flamme connecté à la broche GPIO17 du Raspberry Pi. Cette configuration suppose que la sortie numérique du capteur de flamme est connectée à GPIO17.
 
    .. code-block:: python
 
       flame_sensor = InputDevice(17)
 
-#. Continuous Reading Loop
-   
-   - The script uses a ``while True:`` loop to continuously read the sensor's data. This loop will run indefinitely.
-   - Inside the loop, an ``if`` statement checks the state of the flame sensor using the ``is_active`` property.
-   - If ``flame_sensor.is_active`` is ``True``, it indicates no flame is detected, and "No flame detected." is printed.
-   - If ``flame_sensor.is_active`` is ``False``, it indicates a flame is detected, and "Flame detected!" is printed.
-   - The ``time.sleep(1)`` command pauses the loop for 1 second between each sensor reading, preventing the script from overloading the CPU.
+#. Boucle de lecture continue
+
+   - Le script utilise une boucle ``while True:`` pour lire en continu les données du capteur. Cette boucle s'exécutera indéfiniment.
+   - À l'intérieur de la boucle, une instruction ``if`` vérifie l'état du capteur de flamme en utilisant la propriété ``is_active``.
+   - Si ``flame_sensor.is_active`` est ``True``, cela signifie qu'aucune flamme n'est détectée et le message "Aucune flamme détectée." est affiché.
+   - Si ``flame_sensor.is_active`` est ``False``, cela signifie qu'une flamme est détectée, et le message "Flamme détectée !" est affiché.
+   - La commande ``time.sleep(1)`` met la boucle en pause pendant 1 seconde entre chaque lecture du capteur, ce qui permet d'éviter une surcharge du processeur.
 
    .. raw:: html
 

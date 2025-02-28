@@ -1,52 +1,52 @@
 .. note::
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    Bonjour, bienvenue dans la communauté des passionnés de SunFounder Raspberry Pi, Arduino et ESP32 sur Facebook ! Plongez plus profondément dans l'univers de Raspberry Pi, Arduino et ESP32 aux côtés d'autres passionnés.
 
-    **Why Join?**
+    **Pourquoi rejoindre ?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Support d'experts** : Obtenez de l'aide pour résoudre les problèmes post-vente et les défis techniques grâce à notre communauté et notre équipe.
+    - **Apprendre & Partager** : Échangez des astuces et des tutoriels pour enrichir vos compétences.
+    - **Aperçus exclusifs** : Accédez en avant-première aux annonces de nouveaux produits et aux coulisses de leur développement.
+    - **Réductions spéciales** : Profitez de promotions exclusives sur nos dernières nouveautés.
+    - **Promotions festives et cadeaux** : Participez à des jeux concours et à des offres spéciales pour les fêtes.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 Prêt à explorer et à créer avec nous ? Cliquez sur [|link_sf_facebook|] et rejoignez-nous dès aujourd'hui !
 
 .. _esp32_lesson09_joystick:
 
-Lesson 09: Joystick Module
+Leçon 09 : Module Joystick
 ==================================
 
-In this lesson, you will learn how to read values from a joystick module using the ESP32 Development Board. We'll cover measuring the X and Y axis movements of the joystick and interpreting the switch position. By integrating these inputs with the ESP32, you'll gain insights into handling analog and digital signals. This project is perfect for beginners, providing hands-on experience in reading and processing data from interactive hardware components.
+Dans cette leçon, vous apprendrez à lire les valeurs d'un module joystick en utilisant une carte de développement ESP32. Nous verrons comment mesurer les mouvements des axes X et Y du joystick et interpréter la position du bouton poussoir (switch). En intégrant ces entrées avec l'ESP32, vous découvrirez comment gérer les signaux analogiques et numériques. Ce projet est idéal pour les débutants, offrant une expérience pratique sur la lecture et le traitement des données issues de composants matériels interactifs.
 
-Required Components
+Composants requis
 --------------------------
 
-In this project, we need the following components. 
+Pour ce projet, nous avons besoin des composants suivants.
 
-It's definitely convenient to buy a whole kit, here's the link: 
+Il est certainement pratique d'acheter un kit complet, voici le lien :
 
 .. list-table::
     :widths: 20 20 20
     :header-rows: 1
 
-    *   - Name	
-        - ITEMS IN THIS KIT
-        - LINK
-    *   - Universal Maker Sensor Kit
+    *   - Nom
+        - ÉLÉMENTS DANS CE KIT
+        - LIEN
+    *   - Kit Capteurs Universel pour Makers
         - 94
         - |link_umsk|
 
-You can also buy them separately from the links below.
+Vous pouvez également les acheter séparément via les liens ci-dessous.
 
 .. list-table::
     :widths: 30 20
     :header-rows: 1
 
-    *   - Component Introduction
-        - Purchase Link
+    *   - Introduction des composants
+        - Lien d'achat
 
-    *   - ESP32 & Development Board (:ref:`cpn_esp32_wroom_32e`)
+    *   - ESP32 & Carte de développement (:ref:`cpn_esp32_wroom_32e`)
         - |link_esp32_camera_pro_kit_buy|
     *   - :ref:`cpn_joystick`
         - |link_joystick_buy|
@@ -54,7 +54,7 @@ You can also buy them separately from the links below.
         - |link_breadboard_buy|
 
 
-Wiring
+Câblage
 ---------------------------
 
 .. image:: img/Lesson_09_Jostick_Module_esp32_bb.png
@@ -68,20 +68,20 @@ Code
 
     <iframe src=https://create.arduino.cc/editor/sunfounder01/6a9f54fb-a117-48f2-bca0-fd43bdd45b51/preview?embed style="height:510px;width:100%;margin:10px 0" frameborder=0></iframe>
 
-Code Analysis
+Analyse du code
 ---------------------------
 
-#. Pin Definitions:
+#. Définition des broches :
    
    .. code-block:: arduino
    
-      const int xPin = 27;  //the VRX attach to
-      const int yPin = 26;  //the VRY attach to
-      const int swPin = 25;  //the SW attach to
+      const int xPin = 27;  // Broche connectée à VRX
+      const int yPin = 26;  // Broche connectée à VRY
+      const int swPin = 25;  // Broche connectée à SW
 
-   Constants for the joystick pins are defined. ``xPin`` and ``yPin`` are analog pins for the joystick's X and Y axes. ``swPin`` is a digital pin for the joystick's switch.
+   Les broches du joystick sont définies comme des constantes. ``xPin`` et ``yPin`` sont des broches analogiques permettant de mesurer les déplacements du joystick sur les axes X et Y. ``swPin`` est une broche numérique détectant l'état du bouton poussoir.
 
-#. Setup Function:
+#. Fonction d'initialisation (setup) :
 
    .. code-block:: arduino
    
@@ -90,20 +90,21 @@ Code Analysis
         Serial.begin(9600);
       }
 
-   Initializes ``swPin`` as an input with a pull-up resistor, essential for the switch's functionality. Starts serial communication at 9600 baud.
+   Configure ``swPin`` en entrée avec une résistance de pull-up intégrée, essentielle pour détecter l'appui sur le bouton du joystick. Initialise la communication série à un débit de 9600 bauds pour afficher les valeurs sur le moniteur série.
 
-#. Main Loop:
+#. Fonction principale (loop) :
 
    .. code-block:: arduino
    
       void loop() {
         Serial.print("X: ");
-        Serial.print(analogRead(xPin));  // print the value of VRX
+        Serial.print(analogRead(xPin));  // Lire et afficher la valeur de VRX
         Serial.print("|Y: ");
-        Serial.print(analogRead(yPin));  // print the value of VRY
+        Serial.print(analogRead(yPin));  // Lire et afficher la valeur de VRY
         Serial.print("|Z: ");
-        Serial.println(digitalRead(swPin));  // print the value of SW
+        Serial.println(digitalRead(swPin));  // Lire et afficher l'état du bouton poussoir SW
         delay(50);
       }
 
-   Continuously reads and prints the values from the joystick's axes and switch to the Serial Monitor, with a delay of 50 ms between readings.
+   Cette boucle lit en continu les valeurs des axes X et Y ainsi que l'état du bouton poussoir du joystick.  
+   Les valeurs sont affichées sur le moniteur série avec un délai de 50 ms entre chaque lecture pour une meilleure lisibilité.

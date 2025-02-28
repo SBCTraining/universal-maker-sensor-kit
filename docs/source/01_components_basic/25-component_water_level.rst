@@ -1,20 +1,20 @@
 .. note::
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    Bonjour et bienvenue dans la communauté des passionnés de SunFounder Raspberry Pi, Arduino et ESP32 sur Facebook ! Plongez plus profondément dans les univers du Raspberry Pi, de l'Arduino et de l'ESP32 avec d'autres passionnés.
 
-    **Why Join?**
+    **Pourquoi rejoindre ?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Support d'experts** : Résolvez les problèmes après-vente et les défis techniques avec l'aide de notre communauté et de notre équipe.
+    - **Apprendre & Partager** : Échangez des astuces et des tutoriels pour améliorer vos compétences.
+    - **Aperçus exclusifs** : Bénéficiez d'un accès en avant-première aux annonces de nouveaux produits et aux avant-premières.
+    - **Réductions spéciales** : Profitez de réductions exclusives sur nos nouveaux produits.
+    - **Promotions festives et cadeaux** : Participez à des tirages au sort et des promotions festives.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 Prêts à explorer et à créer avec nous ? Cliquez sur [|link_sf_facebook|] et rejoignez-nous aujourd'hui !
 
 .. _cpn_water_level:
 
-Water Level Sensor Module
+Module Capteur de Niveau d'Eau
 =====================================
 
 .. image:: img/25_water_leve_module.png
@@ -25,22 +25,22 @@ Water Level Sensor Module
 
    <br/>
 
-The water level sensor is an affordable, user-friendly device that is compact and lightweight. It uses exposed parallel wire traces to measure the size of water droplets or volume, thus determining the water level. This sensor effortlessly converts water levels into analog signals, which can be readily utilized by program functions for triggering water level alarms. Its low power consumption and high sensitivity are also notable features.
+Le capteur de niveau d'eau est un dispositif abordable et convivial, compact et léger. Il utilise des traces de fils parallèles exposés pour mesurer la taille des gouttes d'eau ou le volume, permettant ainsi de déterminer le niveau d'eau. Ce capteur convertit sans effort les niveaux d'eau en signaux analogiques, qui peuvent être facilement utilisés par les fonctions de programmation pour déclencher des alarmes de niveau d'eau. Sa faible consommation d'énergie et sa grande sensibilité sont également des caractéristiques remarquables.
 
-Specification
+Spécifications
 ---------------------------
-* Supply Voltage: 3.3V or 5V
-* PCB size: 22 x 60mm
-* Working temperature range: 10℃ - 30℃
-* Working humidity range: 10% - 90%
+* Tension d'alimentation : 3,3V ou 5V
+* Taille du PCB : 22 x 60mm
+* Plage de température de fonctionnement : 10℃ - 30℃
+* Plage d'humidité de fonctionnement : 10% - 90%
 
-Pinout
+Brochage
 ---------------------------
-* **V**: This is the positive power supply input from the main control. 
-* **G**: Ground connection.
-* **A**: Analog output. The higher the water level, the greater the output voltage.
+* **V** : C'est l'entrée d'alimentation positive du contrôle principal.
+* **G** : Connexion à la terre.
+* **A** : Sortie analogique. Plus le niveau d'eau est élevé, plus la tension de sortie est grande.
 
-Schematic diagram
+Schéma
 ---------------------------
 
 .. image:: img/25_water_leve_module_schematic.png
@@ -51,7 +51,7 @@ Schematic diagram
 
    <br/>
 
-Example
+Exemple
 ---------------------------
 * :ref:`uno_lesson25_water_level` (Arduino UNO)
 * :ref:`esp32_lesson25_water_level` (ESP32)

@@ -1,50 +1,50 @@
-.. note::
+.. note:: 
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    Bonjour et bienvenue dans la communauté des passionnés de SunFounder Raspberry Pi, Arduino et ESP32 sur Facebook ! Explorez plus profondément le Raspberry Pi, Arduino et ESP32 avec d'autres passionnés.
 
-    **Why Join?**
+    **Pourquoi nous rejoindre ?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Support d'experts** : Résolvez vos problèmes après-vente et défis techniques grâce à l'aide de notre communauté et de notre équipe.
+    - **Apprendre et partager** : Échangez des astuces et des tutoriels pour améliorer vos compétences.
+    - **Aperçus exclusifs** : Accédez en avant-première aux annonces de nouveaux produits et aperçus.
+    - **Réductions spéciales** : Profitez de réductions exclusives sur nos derniers produits.
+    - **Promotions festives et concours** : Participez à des concours et promotions lors des fêtes.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 Prêt à explorer et créer avec nous ? Cliquez sur [|link_sf_facebook|] et rejoignez-nous dès aujourd'hui !
 
 .. _pico_lesson21_vl53l0x:
 
-Lesson 21: Time of Flight Micro-LIDAR Distance Sensor (VL53L0X)
-====================================================================
+Leçon 21 : Capteur de Distance Micro-LIDAR Time of Flight (VL53L0X)
+=======================================================================
 
-In this lesson, you'll learn how to use the Raspberry Pi Pico W for measuring distances with the VL53L0X Time of Flight Micro-LIDAR Distance Sensor. We'll walk you through setting up I2C communication between the Raspberry Pi Pico W and the sensor, and then we'll explore configuring the sensor's settings for optimal performance. You will also learn how to adjust the measurement timing budget and VCSEL pulse periods to improve accuracy and range.
+Dans cette leçon, vous apprendrez à utiliser le Raspberry Pi Pico W pour mesurer des distances avec le capteur de distance micro-LIDAR Time of Flight VL53L0X. Nous vous guiderons dans la mise en place de la communication I2C entre le Raspberry Pi Pico W et le capteur, puis nous explorerons la configuration des paramètres du capteur pour une performance optimale. Vous apprendrez également à ajuster le timing de mesure et les périodes de pulsation VCSEL pour améliorer la précision et la portée.
 
-Required Components
+Composants Requis
 --------------------------
 
-In this project, we need the following components. 
+Dans ce projet, nous avons besoin des composants suivants.
 
-It's definitely convenient to buy a whole kit, here's the link: 
+Il est définitivement plus pratique d'acheter un kit complet, voici le lien :
 
 .. list-table::
     :widths: 20 20 20
     :header-rows: 1
 
-    *   - Name	
-        - ITEMS IN THIS KIT
-        - LINK
+    *   - Nom	
+        - Éléments dans ce kit
+        - Lien
     *   - Universal Maker Sensor Kit
         - 94
         - |link_umsk|
 
-You can also buy them separately from the links below.
+Vous pouvez également les acheter séparément via les liens ci-dessous.
 
 .. list-table::
     :widths: 30 10
     :header-rows: 1
 
-    *   - Component Introduction
-        - Purchase Link
+    *   - Introduction des composants
+        - Lien d'achat
 
     *   - Raspberry Pi Pico W
         - \-
@@ -54,7 +54,7 @@ You can also buy them separately from the links below.
         - |link_breadboard_buy|
 
 
-Wiring
+Câblage
 ---------------------------
 
 .. image:: img/Lesson_21_vl53l0x_bb.png
@@ -66,11 +66,11 @@ Code
 
 .. note::
 
-    * Open the ``21_vl53l0x_module.py`` file under the path of ``universal-maker-sensor-kit-main/pico/Lesson_21_VL53L0X_Module`` or copy this code into Thonny, then click "Run Current Script" or simply press F5 to run it. For detailed tutorials, please refer to :ref:`open_run_code_py`. 
+    * Ouvrez le fichier ``21_vl53l0x_module.py`` situé dans le chemin ``universal-maker-sensor-kit-main/pico/Lesson_21_VL53L0X_Module`` ou copiez ce code dans Thonny, puis cliquez sur "Run Current Script" ou appuyez simplement sur F5 pour l'exécuter. Pour des tutoriels détaillés, veuillez consulter :ref:`open_run_code_py`.
 
-    * Here you need to use the ``vl53l0x.py``, please check if it has been uploaded to Pico W, for a detailed tutorial refer to :ref:`add_libraries_py`.
+    * Vous devez également utiliser le fichier ``vl53l0x.py``, veuillez vérifier s'il a bien été téléchargé sur le Pico W. Pour un tutoriel détaillé, consultez :ref:`add_libraries_py`.
 
-    * Don't forget to click on the "MicroPython (Raspberry Pi Pico)" interpreter in the bottom right corner. 
+    * N'oubliez pas de sélectionner l'interpréteur "MicroPython (Raspberry Pi Pico)" dans le coin inférieur droit.
 
 .. code-block:: python
 
@@ -87,22 +87,22 @@ Code
    
    print(i2c.scan())
    
-   # print("creating vl53lox object")
-   # Create a VL53L0X object
+   # print("Création de l'objet vl53lox")
+   # Créer un objet VL53L0X
    tof = VL53L0X(i2c)
    
-   # Pre: 12 to 18 (initialized to 14 by default)
-   # Final: 8 to 14 (initialized to 10 by default)
+   # Pré : 12 à 18 (initialisé à 14 par défaut)
+   # Final : 8 à 14 (initialisé à 10 par défaut)
    
-   # the measuting_timing_budget is a value in ms, the longer the budget, the more accurate the reading.
+   # Le "measurement_timing_budget" est une valeur en ms. Plus le budget est long, plus la lecture est précise.
    budget = tof.measurement_timing_budget_us
    print("Budget was:", budget)
    tof.set_measurement_timing_budget(40000)
    
-   # Sets the VCSEL (vertical cavity surface emitting laser) pulse period for the
-   # given period type (VL53L0X::VcselPeriodPreRange or VL53L0X::VcselPeriodFinalRange)
-   # to the given value (in PCLKs). Longer periods increase the potential range of the sensor.
-   # Valid values are (even numbers only):
+   # Définit la période de pulsation VCSEL (Vertical Cavity Surface Emitting Laser) pour le
+   # type de période donné (VL53L0X::VcselPeriodPreRange ou VL53L0X::VcselPeriodFinalRange)
+   # à la valeur spécifiée (en PCLKs). Des périodes plus longues augmentent la portée du capteur.
+   # Les valeurs valides sont (seulement des nombres pairs) :
    
    # tof.set_Vcsel_pulse_period(tof.vcsel_period_type[0], 18)
    tof.set_Vcsel_pulse_period(tof.vcsel_period_type[0], 12)
@@ -111,20 +111,20 @@ Code
    tof.set_Vcsel_pulse_period(tof.vcsel_period_type[1], 8)
    
    while True:
-       # Start ranging
+       # Démarrer la mesure de distance
        print(tof.ping() - 50, "mm")
    
-       time.sleep_ms(100)  # Short delay of 0.1 seconds to reduce CPU usage
+       time.sleep_ms(100)  # Petite pause de 0,1 seconde pour réduire l'utilisation du processeur
 
 
-Code Analysis
+Analyse du Code
 ---------------------------
 
-#. **Setting up the I2C Interface**:
+1. **Configuration de l'Interface I2C** :
 
-   The code begins by importing necessary modules and initializing the I2C communication. The ``machine`` module is used to set up I2C with the correct pins of the Raspberry Pi Pico W.
+   Le code commence par l'importation des modules nécessaires et l'initialisation de la communication I2C. Le module ``machine`` est utilisé pour configurer l'I2C avec les bonnes broches du Raspberry Pi Pico W.
 
-   For more information about the ``vl53l0x`` library, please visit |link_micropython_vl53l0x_driver|.
+   Pour plus d'informations sur la bibliothèque ``vl53l0x``, veuillez consulter |link_micropython_vl53l0x_driver|.
 
    .. code-block:: python
 
@@ -139,17 +139,17 @@ Code Analysis
       i2c = I2C(id=id, sda=sda, scl=scl)
       print(i2c.scan())
 
-#. **Creating VL53L0X Object**:
+2. **Création de l'Objet VL53L0X** :
 
-   An object of ``VL53L0X`` class is created. This object will be used to interact with the VL53L0X sensor.
+   Un objet de la classe ``VL53L0X`` est créé. Cet objet sera utilisé pour interagir avec le capteur VL53L0X.
 
    .. code-block:: python
 
       tof = VL53L0X(i2c)
 
-#. **Configuring Measurement Timing Budget**:
+3. **Configuration du Timing de Mesure** :
 
-   The measurement timing budget is set up. This determines how long the sensor takes to perform a measurement. A longer timing budget allows for more accurate readings.
+   Le "timing budget" de la mesure est configuré. Cela détermine le temps que le capteur met pour effectuer une mesure. Un budget de temps plus long permet des lectures plus précises.
 
    .. code-block:: python
 
@@ -157,18 +157,18 @@ Code Analysis
       print("Budget was:", budget)
       tof.set_measurement_timing_budget(40000)
 
-#. **Setting VCSEL Pulse Periods**:
+4. **Réglage des Périodes de Pulsation VCSEL** :
 
-   Here, the pulse periods for the VCSEL (Vertical Cavity Surface Emitting Laser) are set. This affects the range and accuracy of the sensor.
+   Ici, les périodes de pulsation pour le VCSEL (Vertical Cavity Surface Emitting Laser) sont réglées. Cela affecte la portée et la précision du capteur.
 
    .. code-block:: python
 
       tof.set_Vcsel_pulse_period(tof.vcsel_period_type[0], 12)
       tof.set_Vcsel_pulse_period(tof.vcsel_period_type[1], 8)
 
-#. **Continuous Measurement Loop**:
+5. **Boucle de Mesure Continue** :
 
-   The sensor continuously measures the distance and prints it. The ``ping()`` method of ``VL53L0X`` class is used to get the distance in millimeters. A small delay is added to reduce CPU usage.
+   Le capteur mesure en continu la distance et l'affiche. La méthode ``ping()`` de la classe ``VL53L0X`` est utilisée pour obtenir la distance en millimètres. Une petite pause est ajoutée pour réduire l'utilisation du processeur.
 
    .. code-block:: python
 

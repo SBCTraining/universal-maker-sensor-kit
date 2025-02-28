@@ -1,50 +1,50 @@
-.. note::
+.. note:: 
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    Bonjour et bienvenue dans la communauté des passionnés de Raspberry Pi, Arduino et ESP32 de SunFounder sur Facebook ! Explorez plus en profondeur le Raspberry Pi, l'Arduino et l'ESP32 avec d'autres passionnés.
 
-    **Why Join?**
+    **Pourquoi nous rejoindre ?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Support d'experts** : Résolvez vos problèmes après-vente et défis techniques avec l'aide de notre communauté et de notre équipe.
+    - **Apprendre & partager** : Échangez des astuces et des tutoriels pour améliorer vos compétences.
+    - **Aperçus exclusifs** : Profitez d'un accès anticipé aux annonces de nouveaux produits et aux aperçus exclusifs.
+    - **Réductions spéciales** : Bénéficiez de réductions exclusives sur nos produits les plus récents.
+    - **Promotions festives et concours** : Participez à des concours et promotions pendant les fêtes.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 Prêt à explorer et créer avec nous ? Cliquez sur [|link_sf_facebook|] et rejoignez-nous dès aujourd'hui !
 
 .. _pi_lesson12_pir_motion:
 
-Lesson 12: PIR Motion Module (HC-SR501)
-============================================
+Leçon 12 : Module PIR de détection de mouvement (HC-SR501)
+============================================================
 
-In this lesson, you will learn how to set up and use a motion sensor with the Raspberry Pi. We'll walk you through connecting a digital motion sensor to GPIO pin 17. You'll write a Python script to continually check the sensor's state, printing a message when motion is detected and another when the area is clear. This hands-on tutorial is focused on practical skills in electronic circuitry and Python programming, making it perfect for beginners who want to explore real-world applications of the Raspberry Pi in monitoring and automation projects.
+Dans cette leçon, vous apprendrez à configurer et à utiliser un capteur de mouvement avec le Raspberry Pi. Nous vous guiderons pour connecter un capteur de mouvement numérique au pin GPIO 17. Vous écrirez un script Python pour vérifier en continu l'état du capteur, en affichant un message lorsqu'un mouvement est détecté et un autre lorsque la zone est dégagée. Ce tutoriel pratique est axé sur les compétences en électronique et en programmation Python, parfait pour les débutants souhaitant explorer les applications réelles du Raspberry Pi dans des projets de surveillance et d'automatisation.
 
-Required Components
---------------------------
+Composants nécessaires
+---------------------------
 
-In this project, we need the following components. 
+Pour ce projet, nous avons besoin des composants suivants.
 
-It's definitely convenient to buy a whole kit, here's the link: 
+Il est vraiment pratique d'acheter un kit complet, voici le lien :
 
 .. list-table::
     :widths: 20 20 20
     :header-rows: 1
 
-    *   - Name	
-        - ITEMS IN THIS KIT
-        - LINK
-    *   - Universal Maker Sensor Kit
+    *   - Nom	
+        - ARTICLES DANS CE KIT
+        - Lien
+    *   - Kit de capteurs Universal Maker
         - 94
         - |link_umsk|
 
-You can also buy them separately from the links below.
+Vous pouvez également les acheter séparément via les liens ci-dessous.
 
 .. list-table::
     :widths: 30 20
     :header-rows: 1
 
-    *   - Component Introduction
-        - Purchase Link
+    *   - Introduction des composants
+        - Lien d'achat
 
     *   - Raspberry Pi 5
         - \-
@@ -54,7 +54,7 @@ You can also buy them separately from the links below.
         - |link_breadboard_buy|
 
 
-Wiring
+Câblage
 ---------------------------
 
 .. image:: img/Lesson_12_pir_module_Pi_bb.png
@@ -69,47 +69,47 @@ Code
    from gpiozero import DigitalInputDevice
    from time import sleep
 
-   # Initialize the motion sensor as a digital input device on GPIO pin 17
+   # Initialiser le capteur de mouvement en tant qu'entrée numérique sur le pin GPIO 17
    motion_sensor = DigitalInputDevice(17)
 
-   # Continuously monitor the state of the motion sensor
+   # Surveillance continue de l'état du capteur de mouvement
    while True:
        if motion_sensor.is_active:
            print("Somebody here!")
        else:
            print("Monitoring...")
 
-       # Wait for 0.5 seconds before the next sensor check
+       # Attendre 0.5 secondes avant la prochaine vérification du capteur
        sleep(0.5)
 
 
-Code Analysis
+Analyse du code
 ---------------------------
 
-#. Importing Libraries
-   
-   The script starts by importing the ``DigitalInputDevice`` class from the gpiozero library for interfacing with the motion sensor, and the ``sleep`` function from the time module to introduce delays.
+#. Importation des bibliothèques
+
+   Le script commence par importer la classe ``DigitalInputDevice`` de la bibliothèque gpiozero pour l'interfaçage avec le capteur de mouvement, et la fonction ``sleep`` du module time pour introduire des délais.
 
    .. code-block:: python
 
       from gpiozero import DigitalInputDevice
       from time import sleep
 
-#. Initializing the Motion Sensor
-   
-   A ``DigitalInputDevice`` object named ``motion_sensor`` is created, connected to GPIO pin 17. This assumes that the motion sensor is connected to this GPIO pin on the Raspberry Pi.
+#. Initialisation du capteur de mouvement
+
+   Un objet ``DigitalInputDevice`` nommé ``motion_sensor`` est créé et connecté au pin GPIO 17. Cela suppose que le capteur de mouvement est connecté à ce pin GPIO sur le Raspberry Pi.
 
    .. code-block:: python
 
       motion_sensor = DigitalInputDevice(17)
 
-#. Implementing Continuous Monitoring Loop
-   
-   - The script employs a ``while True:`` loop for continuous monitoring.
-   - Inside the loop, an ``if`` statement checks the ``is_active`` property of the ``motion_sensor``. 
-   - If ``is_active`` is ``True``, it suggests that motion is detected, and "Somebody here!" is printed.
-   - If ``is_active`` is ``False``, suggesting no motion is detected, "Monitoring..." is printed.
-   - The ``sleep(0.5)`` function is used to pause the loop for 0.5 seconds between each sensor check, reducing the processing demand and controlling the frequency of sensor polling.
+#. Mise en place d'une boucle de surveillance continue
+
+   - Le script utilise une boucle ``while True:`` pour effectuer une surveillance continue.
+   - À l'intérieur de la boucle, une instruction ``if`` vérifie la propriété ``is_active`` du ``motion_sensor``.
+   - Si ``is_active`` est ``True``, cela signifie qu'un mouvement est détecté et "Quelqu'un est là !" est affiché.
+   - Si ``is_active`` est ``False``, cela signifie qu'aucun mouvement n'est détecté et "Surveillance..." est affiché.
+   - La fonction ``sleep(0.5)`` est utilisée pour faire une pause de 0,5 secondes entre chaque vérification du capteur, réduisant ainsi la demande de traitement et régulant la fréquence des sondages du capteur.
 
    .. raw:: html
 

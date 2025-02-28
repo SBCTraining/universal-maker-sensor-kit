@@ -1,50 +1,50 @@
-.. note::
+.. note:: 
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    Bonjour et bienvenue dans la communauté des passionnés de SunFounder Raspberry Pi, Arduino et ESP32 sur Facebook ! Explorez plus en profondeur le Raspberry Pi, Arduino et ESP32 avec d'autres passionnés.
 
-    **Why Join?**
+    **Pourquoi nous rejoindre ?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Support d’experts** : Résolvez les problèmes après-vente et les défis techniques avec l'aide de notre communauté et de notre équipe.
+    - **Apprendre et partager** : Échangez des astuces et des tutoriels pour perfectionner vos compétences.
+    - **Aperçus exclusifs** : Accédez en avant-première aux annonces de nouveaux produits et aperçus exclusifs.
+    - **Réductions spéciales** : Profitez de réductions exclusives sur nos nouveaux produits.
+    - **Promotions festives et concours** : Participez à des concours et promotions lors des fêtes.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 Prêt à explorer et à créer avec nous ? Cliquez sur [|link_sf_facebook|] et rejoignez-nous dès aujourd'hui !
 
 .. _pico_lesson13_potentiometer:
 
-Lesson 13: Potentiometer Module
-==================================
+Leçon 13 : Module de Potentiomètre
+====================================
 
-In this lesson, you'll learn how to use a potentiometer with the Raspberry Pi Pico W to measure analog values. The potentiometer, which is a variable resistor, lets you adjust the voltage that the Raspberry Pi Pico W reads on one of its analog input pins. By turning the knob of the potentiometer, you'll observe changes in the input value. This project offers a basic grasp of analog inputs and their application in electronic projects, making it an ideal entry point for beginners in electronics and MicroPython programming.
+Dans cette leçon, vous apprendrez à utiliser un potentiomètre avec le Raspberry Pi Pico W pour mesurer des valeurs analogiques. Le potentiomètre, qui est une résistance variable, vous permet de régler la tension lue par le Raspberry Pi Pico W sur l'une de ses broches d'entrée analogiques. En tournant le bouton du potentiomètre, vous observerez les variations de la valeur d'entrée. Ce projet offre une introduction aux entrées analogiques et à leur application dans des projets électroniques, ce qui en fait un excellent point de départ pour les débutants en électronique et en programmation MicroPython.
 
-Required Components
---------------------------
+Composants Requis
+-----------------------------
 
-In this project, we need the following components. 
+Dans ce projet, nous avons besoin des composants suivants.
 
-It's definitely convenient to buy a whole kit, here's the link: 
+Il est définitivement plus pratique d'acheter un kit complet, voici le lien :
 
 .. list-table::
     :widths: 20 20 20
     :header-rows: 1
 
-    *   - Name	
-        - ITEMS IN THIS KIT
-        - LINK
+    *   - Nom	
+        - Éléments dans ce kit
+        - Lien
     *   - Universal Maker Sensor Kit
         - 94
         - |link_umsk|
 
-You can also buy them separately from the links below.
+Vous pouvez également les acheter séparément via les liens ci-dessous.
 
 .. list-table::
     :widths: 30 20
     :header-rows: 1
 
-    *   - Component Introduction
-        - Purchase Link
+    *   - Introduction des composants
+        - Lien d'achat
 
     *   - Raspberry Pi Pico W
         - \-
@@ -54,7 +54,7 @@ You can also buy them separately from the links below.
         - |link_breadboard_buy|
 
 
-Wiring
+Câblage
 ---------------------------
 
 .. image:: img/Lesson_13_potentiometer_module_bb.png
@@ -66,51 +66,52 @@ Code
 
 .. code-block:: python
 
-   import machine  # Hardware control library
-   import time  # Time control library
+   import machine  # Bibliothèque de contrôle matériel
+   import time     # Bibliothèque de gestion du temps
    
-   potentiometer = machine.ADC(26)  # Initialize ADC on pin 26
+   potentiometer = machine.ADC(26)  # Initialiser l'ADC sur la broche 26
    
    while True:
-       value = potentiometer.read_u16()  # Read analog value
-       print(value)  # Print the value
+       value = potentiometer.read_u16()  # Lire la valeur analogique
+       print(value)                      # Afficher la valeur
    
-       time.sleep_ms(200)  # Delay of 200 ms between reads
+       time.sleep_ms(200)                # Délai de 200 ms entre les lectures
 
 
-Code Analysis
+Analyse du Code
 ---------------------------
 
-#. Import Libraries
+1. Importation des bibliothèques
 
-   First, the necessary libraries are imported. ``machine`` is for hardware control, and ``time`` is for managing delays.
-
-   .. code-block:: python
-
-      import machine  # Hardware control library
-      import time     # Time control library
-
-#. Initialize ADC (Analog to Digital Converter)
-
-   The photoresistor is connected to pin 26 of the Pico W. This pin is initialized as an ADC pin to read analog values.
+   Tout d'abord, les bibliothèques nécessaires sont importées. ``machine`` est utilisée pour le contrôle matériel, et ``time`` permet de gérer les délais.
 
    .. code-block:: python
 
-      potentiometer = machine.ADC(26)  # Initialize ADC on pin 26
+      import machine  # Bibliothèque de contrôle matériel
+      import time     # Bibliothèque de gestion du temps
 
-#. Reading and Printing the Analog Value
-   The code enters an infinite loop (``while True:``) where it continually reads the analog value from the photoresistor using ``potentiometer.read_u16()`` and prints it.
+2. Initialisation de l'ADC (Convertisseur Analogique-Numérique)
+
+   Le potentiomètre est connecté à la broche 26 du Pico W. Cette broche est initialisée comme une broche ADC pour lire des valeurs analogiques.
+
+   .. code-block:: python
+
+      potentiometer = machine.ADC(26)  # Initialiser l'ADC sur la broche 26
+
+3. Lecture et affichage de la valeur analogique
+
+   Le code entre dans une boucle infinie (``while True:``) où il lit en continu la valeur analogique du potentiomètre en utilisant ``potentiometer.read_u16()`` et l'affiche.
 
    .. code-block:: python
 
       while True:
-          value = potentiometer.read_u16()  # Read analog value
-          print(value)                      # Print the value
+          value = potentiometer.read_u16()  # Lire la valeur analogique
+          print(value)                      # Afficher la valeur
 
-#. Adding a Delay
+4. Ajout d'un délai
 
-   To prevent the loop from running too fast, a delay of 200 milliseconds is introduced using ``time.sleep_ms(200)``. This gives a readable output and reduces processor load.
+   Pour éviter que la boucle ne fonctionne trop rapidement, un délai de 200 millisecondes est ajouté avec ``time.sleep_ms(200)``, ce qui permet d'avoir une sortie lisible et de réduire la charge du processeur.
 
    .. code-block:: python
 
-      time.sleep_ms(200)                # Delay of 200 ms between reads
+      time.sleep_ms(200)                # Délai de 200 ms entre les lectures

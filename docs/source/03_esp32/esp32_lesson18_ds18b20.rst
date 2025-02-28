@@ -1,52 +1,52 @@
 .. note::
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    Bonjour, bienvenue dans la communauté des passionnés de SunFounder Raspberry Pi, Arduino et ESP32 sur Facebook ! Plongez dans l’univers de Raspberry Pi, Arduino et ESP32 avec d’autres passionnés.
 
-    **Why Join?**
+    **Pourquoi rejoindre ?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Support d'experts** : Résolvez les problèmes après-vente et relevez les défis techniques grâce à l’aide de notre communauté et de notre équipe.
+    - **Apprendre & Partager** : Échangez des conseils et des tutoriels pour améliorer vos compétences.
+    - **Aperçus exclusifs** : Bénéficiez d’un accès anticipé aux annonces de nouveaux produits et à des démonstrations exclusives.
+    - **Réductions spéciales** : Profitez de remises exclusives sur nos dernières nouveautés.
+    - **Promotions festives et cadeaux** : Participez à des jeux concours et à des offres promotionnelles spéciales pour les fêtes.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 Prêt à explorer et créer avec nous ? Cliquez sur [|link_sf_facebook|] et rejoignez-nous dès aujourd’hui !
 
 .. _esp32_lesson18_ds18b20:
 
-Lesson 18: Temperature Sensor Module (DS18B20)
-================================================
+Leçon 18 : Module Capteur de Température (DS18B20)
+====================================================
 
-In this lesson, you will learn how to read temperature data from a DS18B20 temperature sensor module using an ESP32 Development Board. We’ll use the DallasTemperature library to interface with the sensor and display temperature readings in both Celsius and Fahrenheit units on the Serial Monitor. 
+Dans cette leçon, vous apprendrez à lire les données de température d’un capteur DS18B20 à l’aide d’une carte de développement ESP32. Nous utiliserons la bibliothèque DallasTemperature pour interagir avec le capteur et afficher les relevés de température en unités Celsius et Fahrenheit sur le moniteur série.
 
-Required Components
+Composants requis
 --------------------------
 
-In this project, we need the following components. 
+Dans ce projet, nous avons besoin des composants suivants.
 
-It's definitely convenient to buy a whole kit, here's the link: 
+Il est plus pratique d’acheter un kit complet, voici le lien :
 
 .. list-table::
     :widths: 20 20 20
     :header-rows: 1
 
-    *   - Name	
-        - ITEMS IN THIS KIT
-        - LINK
-    *   - Universal Maker Sensor Kit
+    *   - Nom
+        - ÉLÉMENTS DANS CE KIT
+        - LIEN
+    *   - Kit Capteurs Universel pour Makers
         - 94
         - |link_umsk|
 
-You can also buy them separately from the links below.
+Vous pouvez également les acheter séparément via les liens ci-dessous.
 
 .. list-table::
     :widths: 30 20
     :header-rows: 1
 
-    *   - Component Introduction
-        - Purchase Link
+    *   - Présentation du composant
+        - Lien d’achat
 
-    *   - ESP32 & Development Board (:ref:`cpn_esp32_wroom_32e`)
+    *   - ESP32 & Carte de développement (:ref:`cpn_esp32_wroom_32e`)
         - |link_esp32_camera_pro_kit_buy|
     *   - :ref:`cpn_ds18b20`
         - \-
@@ -54,7 +54,7 @@ You can also buy them separately from the links below.
         - |link_breadboard_buy|
 
 
-Wiring
+Câblage
 ---------------------------
 
 .. image:: img/Lesson_18_DS18B20_Module_esp32_bb.png
@@ -65,59 +65,59 @@ Code
 ---------------------------
 
 .. note:: 
-   To install the library, use the Arduino Library Manager and search for **"DallasTemperature"** and install it. 
+   Pour installer la bibliothèque, utilisez le gestionnaire de bibliothèques Arduino et recherchez **"DallasTemperature"**, puis installez-la.
 
 .. raw:: html
 
     <iframe src=https://create.arduino.cc/editor/sunfounder01/08628842-3743-431f-871e-51b51ae1851f/preview?embed style="height:510px;width:100%;margin:10px 0" frameborder=0></iframe>
 
-Code Analysis
+Analyse du code
 ---------------------------
 
-#. Library inclusion
+#. **Inclusion des bibliothèques**
 
-   The inclusion of the OneWire and DallasTemperature libraries allows communication with the DS18B20 sensor.
+   L’inclusion des bibliothèques OneWire et DallasTemperature permet la communication avec le capteur DS18B20.
 
    .. note:: 
-      To install the library, use the Arduino Library Manager and search for **"DallasTemperature"** and install it. 
+      Pour installer la bibliothèque, utilisez le gestionnaire de bibliothèques Arduino et recherchez **"DallasTemperature"**, puis installez-la.
 
    .. code-block:: arduino
 
       #include <OneWire.h>
       #include <DallasTemperature.h>
 
-#. Defining the sensor data pin
+#. Définition de la broche du capteur
 
-   The DS18B20 is connected to digital pin 25 of the Arduino.
+   Le capteur DS18B20 est connecté à la broche numérique 25 de l’ESP32.
 
    .. code-block:: arduino
 
       #define ONE_WIRE_BUS 25
 
-#. Initializing the sensor
+#. Initialisation du capteur
 
-   The OneWire instance and DallasTemperature object are created and initialized.
+   Une instance OneWire et un objet DallasTemperature sont créés et initialisés.
 
    .. code-block:: arduino
 
       OneWire oneWire(ONE_WIRE_BUS);	
       DallasTemperature sensors(&oneWire);
 
-#. Setup function
+#. Fonction setup()
 
-   The ``setup()`` function initializes the sensor and sets up serial communication.
+   La fonction ``setup()`` initialise le capteur et configure la communication série.
 
    .. code-block:: arduino
 
       void setup(void)
       {
-         sensors.begin();	// Start up the library
+         sensors.begin();	// Démarrer la bibliothèque
          Serial.begin(9600);
       }
 
-#. Main loop
+#. Boucle principale
 
-   In the ``loop()`` function, the program requests temperature readings and prints them in both Celsius and Fahrenheit.
+   Dans la fonction ``loop()``, le programme demande les relevés de température et les affiche en Celsius et Fahrenheit.
 
    .. code-block:: arduino
 

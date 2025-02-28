@@ -1,50 +1,50 @@
-.. note::
+.. note:: 
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    Bonjour et bienvenue dans la communauté des passionnés de Raspberry Pi, Arduino et ESP32 de SunFounder sur Facebook ! Explorez plus en profondeur le Raspberry Pi, Arduino et ESP32 avec d'autres passionnés.
 
-    **Why Join?**
+    **Pourquoi nous rejoindre ?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Support d'experts** : Résolvez vos problèmes après-vente et défis techniques grâce à l'aide de notre communauté et de notre équipe.
+    - **Apprendre et partager** : Échangez des astuces et des tutoriels pour améliorer vos compétences.
+    - **Aperçus exclusifs** : Accédez en avant-première aux annonces de nouveaux produits et aperçus.
+    - **Réductions spéciales** : Profitez de réductions exclusives sur nos produits les plus récents.
+    - **Promotions festives et concours** : Participez à des concours et promotions lors des fêtes.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 Prêt à explorer et créer avec nous ? Cliquez sur [|link_sf_facebook|] et rejoignez-nous dès aujourd'hui !
 
 .. _pi_lesson04_mq2:
 
-Lesson 04: Gas Sensor Module (MQ-2)
+Leçon 04 : Module de capteur de gaz (MQ-2)
 ============================================
 
-In this lesson, you will learn to use the MQ2 gas sensor with Raspberry Pi for gas detection. The course covers connecting the MQ2 sensor to the GPIO17 pin and programming the Raspberry Pi in Python to read the sensor output. You'll understand how to detect gas presence, with a low signal from the sensor indicating the detection of gas. This project offers a practical introduction to sensor usage and Python scripting on the Raspberry Pi, ideal for beginners interested in environmental monitoring and safety applications.
+Dans cette leçon, vous apprendrez à utiliser le capteur de gaz MQ2 avec le Raspberry Pi pour la détection de gaz. Le cours couvre la connexion du capteur MQ2 à la broche GPIO17 et la programmation du Raspberry Pi en Python pour lire la sortie du capteur. Vous apprendrez à détecter la présence de gaz, un signal faible du capteur indiquant la détection de gaz. Ce projet constitue une introduction pratique à l'utilisation des capteurs et à la programmation en Python sur le Raspberry Pi, idéal pour les débutants intéressés par la surveillance environnementale et les applications de sécurité.
 
-Required Components
+Composants nécessaires
 --------------------------
 
-In this project, we need the following components. 
+Pour ce projet, nous avons besoin des composants suivants.
 
-It's definitely convenient to buy a whole kit, here's the link: 
+Il est certainement pratique d'acheter un kit complet, voici le lien :
 
 .. list-table::
     :widths: 20 20 20
     :header-rows: 1
 
-    *   - Name	
-        - ITEMS IN THIS KIT
-        - LINK
-    *   - Universal Maker Sensor Kit
+    *   - Nom
+        - ARTICLES DANS CE KIT
+        - Lien
+    *   - Kit de capteurs Universal Maker
         - 94
         - |link_umsk|
 
-You can also buy them separately from the links below.
+Vous pouvez aussi les acheter séparément via les liens ci-dessous.
 
 .. list-table::
     :widths: 30 20
     :header-rows: 1
 
-    *   - Component Introduction
-        - Purchase Link
+    *   - Introduction des composants
+        - Lien d'achat
 
     *   - Raspberry Pi 5
         - \-
@@ -54,7 +54,7 @@ You can also buy them separately from the links below.
         - |link_breadboard_buy|
 
 
-Wiring
+Câblage
 ---------------------------
 
 .. image:: img/Lesson_04_mq2_sensor_Pi_bb.png
@@ -69,41 +69,41 @@ Code
    from gpiozero import DigitalInputDevice
    import time
  
-   # Initialize MQ2 sensor on GPIO17
+   # Initialiser le capteur MQ2 sur GPIO17
    mq2 = DigitalInputDevice(17)
  
    while True:
-      # Detect gas presence (LOW signal indicates gas)
+      # Détecter la présence de gaz (un signal bas indique la présence de gaz)
       if mq2.value == 0:
          print("Gas detected!")
       else:
          print("No gas detected.")
  
-      # Delay between readings
+      # Délai entre les lectures
       time.sleep(1)
- 
 
-Code Analysis
+
+Analyse du code
 ---------------------------
 
-#. Importing Libraries
+#. Importation des bibliothèques
 
    .. code-block:: python
-      
+       
       from gpiozero import DigitalInputDevice
       import time
 
-   This section imports necessary libraries. ``gpiozero`` is used for interacting with the GPIO pins of the Raspberry Pi, and ``time`` is used for handling time-related tasks such as delays.
+   Cette section importe les bibliothèques nécessaires. ``gpiozero`` est utilisée pour interagir avec les broches GPIO du Raspberry Pi, et ``time`` est utilisée pour gérer les tâches liées au temps, comme les délais.
 
-#. Initializing the MQ2 Sensor
+#. Initialisation du capteur MQ2
 
    .. code-block:: python
 
       mq2 = DigitalInputDevice(17)
 
-   Here, the MQ2 sensor is initialized as a digital input device on GPIO pin 17 of the Raspberry Pi. The ``DigitalInputDevice`` class from gpiozero is used for this purpose.
+   Ici, le capteur MQ2 est initialisé en tant que dispositif d'entrée numérique sur la broche GPIO17 du Raspberry Pi. La classe ``DigitalInputDevice`` de gpiozero est utilisée à cet effet.
 
-#. Infinite Loop for Sensor Reading
+#. Boucle infinie de lecture du capteur
 
    .. code-block:: python
 
@@ -114,11 +114,11 @@ Code Analysis
             print("No gas detected.")
          time.sleep(1)
 
-   In this segment:
+   Dans cette section :
 
    .. note::
-      The DO pin on the MQ-2 sensor module indicates the presence of combustible gases. When the gas concentration exceeds the threshold value (as set by the potentiometer on the module), D0 becomes LOW; otherwise, it remains HIGH.
+      La broche DO du module de capteur MQ-2 indique la présence de gaz combustibles. Lorsque la concentration de gaz dépasse la valeur de seuil (réglée à l'aide du potentiomètre du module), la sortie D0 devient basse (LOW) ; sinon, elle reste haute (HIGH).
    
-   - An infinite loop is created using ``while True``. This loop will continue to run until the program is manually stopped.
-   - Inside the loop, the value of the MQ2 sensor is checked using ``mq2.value``. If the value is 0, it indicates the presence of gas, and "Gas detected!" is printed. Otherwise, "No gas detected." is printed.
-   - ``time.sleep(1)`` creates a delay of 1 second between each reading, reducing the frequency of the sensor checks and the output messages.
+   - Une boucle infinie est créée à l'aide de ``while True``. Cette boucle continuera de tourner jusqu'à ce que le programme soit arrêté manuellement.
+   - À l'intérieur de la boucle, la valeur du capteur MQ2 est vérifiée à l'aide de ``mq2.value``. Si la valeur est 0, cela indique la présence de gaz, et le message "Gaz détecté !" est affiché. Sinon, le message "Aucun gaz détecté." est affiché.
+   - La commande ``time.sleep(1)`` crée un délai de 1 seconde entre chaque lecture, ce qui réduit la fréquence des vérifications du capteur et des messages de sortie.

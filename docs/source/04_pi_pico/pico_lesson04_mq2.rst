@@ -1,50 +1,50 @@
-.. note::
+.. note:: 
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    Bonjour et bienvenue dans la communauté des passionnés de SunFounder Raspberry Pi, Arduino et ESP32 sur Facebook ! Plongez dans l’univers du Raspberry Pi, d’Arduino et d’ESP32 avec d’autres passionnés.
 
-    **Why Join?**
+    **Pourquoi nous rejoindre ?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Support d’experts** : Résolvez les problèmes après-vente et relevez des défis techniques avec l’aide de notre communauté et de notre équipe.
+    - **Apprendre et partager** : Échangez des conseils et des tutoriels pour améliorer vos compétences.
+    - **Aperçus exclusifs** : Accédez en avant-première aux annonces de nouveaux produits.
+    - **Réductions spéciales** : Profitez de remises exclusives sur nos nouveaux produits.
+    - **Promotions festives et cadeaux** : Participez à des concours et promotions spéciales.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 Prêt à explorer et créer avec nous ? Cliquez sur [|link_sf_facebook|] et rejoignez-nous dès aujourd’hui !
 
 .. _pico_lesson04_mq2:
 
-Lesson 04: Gas Sensor Module (MQ-2)
+Leçon 04 : Module Capteur de Gaz (MQ-2)
 ============================================
 
-In this lesson, you'll learn how to use the Raspberry Pi Pico W to read data from a gas sensor module (MQ-2) using MicroPython. We'll guide you through setting up an ADC on GPIO pin 26 to process analog signals from the MQ-2 sensor. You'll gain practical experience in continuously monitoring and printing sensor data to understand the presence of gases in the environment.
+Dans cette leçon, vous apprendrez à utiliser le Raspberry Pi Pico W pour lire les données d’un capteur de gaz MQ-2 en utilisant MicroPython. Nous vous guiderons dans la configuration d’un ADC sur la broche GPIO 26 pour traiter les signaux analogiques du capteur MQ-2. Vous acquerrez une expérience pratique en surveillant et en affichant en continu les données du capteur afin de comprendre la présence de gaz dans l’environnement.
 
-Required Components
+Composants Requis
 --------------------------
 
-In this project, we need the following components. 
+Pour ce projet, nous avons besoin des composants suivants.
 
-It's definitely convenient to buy a whole kit, here's the link: 
+Il est plus pratique d’acheter un kit complet, voici le lien : 
 
 .. list-table::
     :widths: 20 20 20
     :header-rows: 1
 
-    *   - Name	
-        - ITEMS IN THIS KIT
-        - LINK
+    *   - Nom	
+        - Éléments dans ce kit
+        - Lien
     *   - Universal Maker Sensor Kit
         - 94
         - |link_umsk|
 
-You can also buy them separately from the links below.
+Vous pouvez également les acheter séparément via les liens ci-dessous.
 
 .. list-table::
     :widths: 30 20
     :header-rows: 1
 
-    *   - Component Introduction
-        - Purchase Link
+    *   - Introduction des Composants
+        - Lien d'achat
 
     *   - Raspberry Pi Pico W
         - \-
@@ -54,7 +54,7 @@ You can also buy them separately from the links below.
         - |link_breadboard_buy|
 
 
-Wiring
+Câblage
 ---------------------------
 
 .. image:: img/Lesson_04_mq2_sensor_circuit_bb.png
@@ -69,48 +69,48 @@ Code
    import machine
    import utime
    
-   # Initialize an ADC object on GPIO pin 26.
-   # This is typically used for reading analog signals.
+   # Initialisation d'un objet ADC sur la broche GPIO 26.
+   # Utilisé pour lire des signaux analogiques.
    mq2_AO = machine.ADC(26)
    
-   # Continuously read and print sensor data.
+   # Lecture continue et affichage des données du capteur.
    while True:
-       value = mq2_AO.read_u16()  # Read and convert analog value to 16-bit integer
-       print("AO:", value)  # Print the analog value
+       value = mq2_AO.read_u16()  # Lire et convertir la valeur analogique en entier 16 bits
+       print("AO:", value)  # Afficher la valeur analogique
    
-       utime.sleep_ms(200)  # Wait for 200 milliseconds before the next read
+       utime.sleep_ms(200)  # Attendre 200 millisecondes avant la prochaine lecture
 
-Code Analysis
+Analyse du Code
 ---------------------------
 
-#. Importing Libraries:
+#. Importation des Bibliothèques :
 
-   The code begins by importing necessary libraries: ``machine`` for hardware interactions, and ``utime`` for handling time-related tasks.
+   Le code commence par importer les bibliothèques nécessaires : ``machine`` pour les interactions matérielles, et ``utime`` pour la gestion des temporisations.
 
    .. code-block:: python
 
       import machine
       import utime
 
-#. Initializing the MQ-2 Sensor:
+#. Initialisation du Capteur MQ-2 :
 
-   An ADC object is created on GPIO pin 26 to read analog signals from the MQ-2 sensor. The MQ-2 sensor outputs an analog signal which varies with the concentration of gas in the air.
+   Un objet ADC est créé sur la broche GPIO 26 pour lire les signaux analogiques du capteur MQ-2. Ce dernier produit un signal analogique variant en fonction de la concentration de gaz dans l'air.
 
    .. code-block:: python
 
       mq2_AO = machine.ADC(26)
 
-#. Reading Sensor Data in a Loop:
+#. Lecture des Données du Capteur en Boucle :
 
-   The main loop of the program continuously reads the analog value from the sensor. The ``read_u16`` method is used to read the analog value and convert it to a 16-bit integer. This value is then printed out. The loop includes a delay (``utime.sleep_ms(200)``) to wait for 200 milliseconds before reading the sensor value again. This delay is crucial to prevent overwhelming the sensor and the microcontroller with rapid readings.
+   La boucle principale du programme lit en continu la valeur analogique du capteur. La méthode ``read_u16`` est utilisée pour récupérer cette valeur et la convertir en un entier 16 bits. Cette valeur est ensuite affichée. Une temporisation (``utime.sleep_ms(200)``) est ajoutée pour attendre 200 millisecondes avant la prochaine lecture. Cette pause est essentielle pour éviter une surcharge du capteur et du microcontrôleur avec des lectures trop rapides.
 
    .. note:: 
    
-     MQ2 is a heating-driven sensor that usually requires preheating before use. During the preheating period, the sensor typically reads high and gradually decreases until it stabilizes.
+     Le MQ-2 est un capteur à chauffage qui nécessite généralement un préchauffage avant utilisation. Pendant cette période, la lecture du capteur est souvent élevée et diminue progressivement jusqu'à se stabiliser.
 
    .. code-block:: python
 
       while True:
-          value = mq2_AO.read_u16()  # Read and convert analog value to 16-bit integer
-          print("AO:", value)  # Print the analog value
-          utime.sleep_ms(200)  # Wait for 200 milliseconds before the next read
+          value = mq2_AO.read_u16()  # Lire et convertir la valeur analogique en entier 16 bits
+          print("AO:", value)  # Afficher la valeur analogique
+          utime.sleep_ms(200)  # Attendre 200 millisecondes avant la prochaine lecture

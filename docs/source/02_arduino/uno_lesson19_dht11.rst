@@ -1,62 +1,62 @@
 .. note::
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    Bonjour et bienvenue dans la communauté des passionnés de SunFounder Raspberry Pi, Arduino et ESP32 sur Facebook ! Explorez plus en profondeur les univers du Raspberry Pi, de l'Arduino et de l'ESP32 avec d'autres passionnés.
 
-    **Why Join?**
+    **Pourquoi nous rejoindre ?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Support d'expert** : Résolvez les problèmes post-vente et les défis techniques avec l'aide de notre communauté et de notre équipe.
+    - **Apprendre et partager** : Échangez des astuces et des tutoriels pour améliorer vos compétences.
+    - **Aperçus exclusifs** : Obtenez un accès anticipé aux annonces de nouveaux produits et aux avant-premières.
+    - **Réductions spéciales** : Bénéficiez de réductions exclusives sur nos nouveaux produits.
+    - **Promotions festives et cadeaux** : Participez à des tirages au sort et des promotions festives.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 Prêt à explorer et créer avec nous ? Cliquez sur [|link_sf_facebook|] et rejoignez-nous aujourd'hui !
 
 .. _uno_lesson19_dht11:
 
-Lesson 19: Temperature and Humidity Sensor Module (DHT11)
+Leçon 19 : Module de capteur de température et d'humidité (DHT11)
 ====================================================================
 
-In this lesson, you'll learn how to measure temperature and humidity, as well as calculate the heat index using a DHT11 sensor with an Arduino Uno. We'll cover reading and interpreting data from the DHT11 sensor, and displaying these values along with the heat index in both Celsius and Fahrenheit on the serial monitor. This project is perfect for Arduino beginners, providing hands-on experience with sensors and data handling in a simple yet engaging way.
+Dans cette leçon, vous apprendrez à mesurer la température et l'humidité, ainsi qu'à calculer l'indice de chaleur en utilisant un capteur DHT11 avec un Arduino Uno. Nous aborderons la lecture et l'interprétation des données du capteur DHT11 et l'affichage de ces valeurs ainsi que de l'indice de chaleur en Celsius et en Fahrenheit sur le moniteur série. Ce projet est parfait pour les débutants sur Arduino, offrant une expérience pratique avec les capteurs et la gestion des données de manière simple mais captivante.
 
-Required Components
---------------------------
+Composants nécessaires
+----------------------------
 
-In this project, we need the following components. 
+Pour ce projet, nous avons besoin des composants suivants.
 
-It's definitely convenient to buy a whole kit, here's the link: 
+Il est vraiment pratique d'acheter un kit complet, voici le lien :
 
 .. list-table::
     :widths: 20 20 20
     :header-rows: 1
 
-    *   - Name	
-        - ITEMS IN THIS KIT
-        - LINK
-    *   - Universal Maker Sensor Kit
+    *   - Nom	
+        - ARTICLES DE CE KIT
+        - LIEN
+    *   - Kit capteur universel pour bricoleurs
         - 94
         - |link_umsk|
 
-You can also buy them separately from the links below.
+Vous pouvez également les acheter séparément via les liens ci-dessous.
 
 .. list-table::
     :widths: 30 10
     :header-rows: 1
 
-    *   - Component Introduction
-        - Purchase Link
+    *   - Introduction du composant
+        - Lien d'achat
 
-    *   - Arduino UNO R3 or R4
+    *   - Arduino UNO R3 ou R4
         - |link_Uno_R3_buy|
     *   - :ref:`cpn_dht11`
         - |link_dht11_humiture_buy|
 
 
-Wiring
+Câblage
 ---------------------------
 
 .. note:: 
-   The kit may contain different versions of the DHT11 module. Please confirm the wiring method according to the module you have.
+   Le kit peut contenir différentes versions du module DHT11. Veuillez confirmer la méthode de câblage selon le module que vous avez.
 
 .. csv-table:: 
    :header: "module", "diagram"
@@ -82,50 +82,51 @@ Code
 ---------------------------
 
 .. note:: 
-   To install the library, use the Arduino Library Manager and search for **"DHT sensor library"** and install it. 
+   Pour installer la bibliothèque, utilisez le gestionnaire de bibliothèques Arduino et recherchez **"bibliothèque de capteurs DHT"** et installez-la.
 
 .. raw:: html
 
     <iframe src=https://create.arduino.cc/editor/sunfounder01/ca143284-4649-4f76-a6f0-d6b8f3cb4c73/preview?embed style="height:510px;width:100%;margin:10px 0" frameborder=0></iframe>
 
-Code Analysis
+Analyse du code
 ---------------------------
 
-#. Inclusion of necessary libraries and definition of constants.
-   This part of the code includes the DHT sensor library and defines the pin number and sensor type used in this project.
+1. Inclusion des bibliothèques nécessaires et définition des constantes.
+   Cette partie du code inclut la bibliothèque du capteur DHT et définit le numéro de pin et le type de capteur utilisés dans ce projet.
 
    .. note:: 
-      To install the library, use the Arduino Library Manager and search for **"DHT sensor library"** and install it. 
+      Pour installer la bibliothèque, utilisez le gestionnaire de bibliothèques Arduino et recherchez **"DHT sensor library"** et installez-la.
 
    .. code-block:: arduino
     
       #include <DHT.h>
-      #define DHTPIN 2       // Define the pin used to connect the sensor
-      #define DHTTYPE DHT11  // Define the sensor type
+      #define DHTPIN 2       // Définir le pin utilisé pour connecter le capteur
+      #define DHTTYPE DHT11  // Définir le type de capteur
 
-#. Creation of DHT object.
-   Here we create a DHT object using the defined pin number and sensor type.
+2. Création d'un objet DHT.
+   Ici, nous créons un objet DHT en utilisant le numéro de pin défini et le type de capteur.
 
    .. code-block:: arduino
 
-      DHT dht(DHTPIN, DHTTYPE);  // Create a DHT object
+      DHT dht(DHTPIN, DHTTYPE);  // Créer un objet DHT
 
-#. This function is executed once when the Arduino starts. We initialize the serial communication and the DHT sensor in this function.
+3. **Fonction setup.**
+   Cette fonction est exécutée une fois lorsque l'Arduino démarre. Nous initialisons la communication série et le capteur DHT dans cette fonction.
 
    .. code-block:: arduino
 
       void setup() {
         Serial.begin(9600);
         Serial.println(F("DHT11 test!"));
-        dht.begin();  // Initialize the DHT sensor
+        dht.begin();  // Initialiser le capteur DHT
       }
 
-#. Main loop.
-   The ``loop()`` function runs continuously after the setup function. Here, we read the humidity and temperature values, calculate the heat index, and print these values to the serial monitor.  If the sensor read fails (returns NaN), it prints an error message.
+4. Boucle principale.
+   La fonction ``loop()`` fonctionne continuellement après la fonction setup. Ici, nous lisons les valeurs d'humidité et de température, calculons l'indice de chaleur, et affichons ces valeurs sur le moniteur série. Si la lecture du capteur échoue (retourne NaN), elle affiche un message d'erreur.
 
    .. note::
     
-      The |link_heat_index| is a way to measure how hot it feels outside by combining the air temperature and the humidity. It is also called the "felt air temperature" or "apparent temperature".
+      L'|link_heat_index| est une façon de mesurer la sensation de chaleur à l'extérieur en combinant la température de l'air et l'humidité. Elle est également appelée "température ressentie" ou "température apparente".
 
    .. code-block:: arduino
 

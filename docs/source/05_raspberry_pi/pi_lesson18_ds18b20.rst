@@ -1,50 +1,48 @@
-.. note::
+    Bonjour et bienvenue dans la communauté Facebook des passionnés de Raspberry Pi, Arduino et ESP32 de SunFounder ! Plongez plus profondément dans l'univers du Raspberry Pi, Arduino et ESP32 avec d'autres passionnés.
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    **Pourquoi rejoindre ?**
 
-    **Why Join?**
+    - **Support d'experts** : Résolvez les problèmes après-vente et les défis techniques avec l'aide de notre communauté et de notre équipe.
+    - **Apprendre et partager** : Échangez des astuces et des tutoriels pour améliorer vos compétences.
+    - **Aperçus exclusifs** : Accédez en avant-première aux annonces de nouveaux produits et aux aperçus.
+    - **Réductions spéciales** : Profitez de réductions exclusives sur nos nouveaux produits.
+    - **Promotions festives et cadeaux** : Participez à des cadeaux et promotions de vacances.
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
-
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 Prêt à explorer et créer avec nous ? Cliquez sur [|link_sf_facebook|] et rejoignez-nous aujourd'hui !
 
 .. _pi_lesson18_ds18b20:
 
-Lesson 18: Temperature Sensor Module (DS18B20)
-================================================
+Leçon 18 : Module de capteur de température (DS18B20)
+=======================================================
 
-In this lesson, you will learn how to use a Raspberry Pi to read temperature data from a DS18B20 temperature sensor. You will understand how to locate the sensor's device file, read and parse its raw data, and convert this data into Celsius and Fahrenheit readings. 
+Dans cette leçon, vous apprendrez à utiliser un Raspberry Pi pour lire les données de température d'un capteur de température DS18B20. Vous comprendrez comment localiser le fichier de périphérique du capteur, lire et analyser ses données brutes, et convertir ces données en lectures Celsius et Fahrenheit.
 
-Required Components
---------------------------
+Composants nécessaires
+----------------------
 
-In this project, we need the following components. 
+Pour ce projet, nous aurons besoin des composants suivants.
 
-It's definitely convenient to buy a whole kit, here's the link: 
+Il est certainement pratique d'acheter un kit complet, voici le lien :
 
 .. list-table::
     :widths: 20 20 20
     :header-rows: 1
 
-    *   - Name	
-        - ITEMS IN THIS KIT
-        - LINK
-    *   - Universal Maker Sensor Kit
+    *   - Nom	
+        - ÉLÉMENTS DE CE KIT
+        - LIEN
+    *   - Kit de capteurs universel pour créateurs
         - 94
         - |link_umsk|
 
-You can also buy them separately from the links below.
+Vous pouvez également les acheter séparément via les liens ci-dessous.
 
 .. list-table::
     :widths: 30 20
     :header-rows: 1
 
-    *   - Component Introduction
-        - Purchase Link
+    *   - Introduction des composants
+        - Lien d'achat
 
     *   - Raspberry Pi 5
         - \-
@@ -54,36 +52,36 @@ You can also buy them separately from the links below.
         - |link_breadboard_buy|
 
 
-Wiring
----------------------------
+Câblage
+----------
 
 .. image:: img/Lesson_18_DS18B20_pi_bb.png
     :width: 100%
 
 
 Code
----------------------------
+--------
 
 .. note::
-   The DS18B20 module communicates with the Raspberry Pi using the onewire protocol. Before running the code, you need to enable the onewire function of the Raspberry Pi. You can refer to this tutorial: :ref:`pi_enable_1wire`. 
+   Le module DS18B20 communique avec le Raspberry Pi en utilisant le protocole onewire. Avant de lancer le code, vous devez activer la fonction onewire du Raspberry Pi. Vous pouvez vous référer à ce tutoriel : :ref:`pi_enable_1wire`.
 
 .. code-block:: python
 
    import glob
    import time
    
-   # Path to the directory containing device files for 1-wire devices
+   # Chemin vers le répertoire contenant les fichiers de périphérique pour les dispositifs 1-wire
    base_dir = "/sys/bus/w1/devices/"
    
-   # Finds the first device folder that starts with "28", specific to DS18B20
+   # Trouve le premier dossier de périphérique qui commence par "28", spécifique au DS18B20
    device_folder = glob.glob(base_dir + "28*")[0]
    
-   # Device file containing the temperature data
+   # Fichier de périphérique contenant les données de température
    device_file = device_folder + "/w1_slave"
    
    
    def read_temp_raw():
-       # Reads raw temperature data from the sensor
+       # Lit les données brutes de température du capteur
        f = open(device_file, "r")
        lines = f.readlines()
        f.close()
@@ -91,49 +89,49 @@ Code
    
    
    def read_temp():
-       # Parses the raw temperature data and converts it to Celsius and Fahrenheit
+       # Analyse les données brutes de température et les convertit en Celsius et Fahrenheit
        lines = read_temp_raw()
-       # Waits for a valid temperature reading
+       # Attend une lecture de température valide
        while lines[0].strip()[-3:] != "YES":
            time.sleep(0.2)
            lines = read_temp_raw()
        equals_pos = lines[1].find("t=")
        if equals_pos != -1:
            temp_string = lines[1][equals_pos + 2 :]
-           temp_c = float(temp_string) / 1000.0  # Convert to Celsius
-           temp_f = temp_c * 9.0 / 5.0 + 32.0  # Convert to Fahrenheit
+           temp_c = float(temp_string) / 1000.0  # Convertit en Celsius
+           temp_f = temp_c * 9.0 / 5.0 + 32.0  # Convertit en Fahrenheit
            return temp_c, temp_f
    
    
    try:
-       # Main loop to continuously read and print temperature
+       # Boucle principale pour lire et afficher continuellement la température
        while True:
            temp_c, temp_f = read_temp()
            formatted_output = f"Temperature: {temp_c:.2f}°C / {temp_f:.2f}°F"
            print(formatted_output)
-           time.sleep(1)  # Wait for 1 second between readings
+           time.sleep(1)  # Attente de 1 seconde entre les lectures
    except KeyboardInterrupt:
-       # Gracefully exit the program on CTRL+C
+       # Sortie du programme en douceur sur CTRL+C
        print("Exit")
 
 
 
 
-Code Analysis
----------------------------
+Analyse du code
+-------------------
 
-#. Importing Necessary Libraries
+#. Importation des bibliothèques nécessaires
 
-   The ``glob`` library is used to search for the temperature sensor's device folder. The ``time`` library is used for implementing delays in the program.
+   La bibliothèque ``glob`` est utilisée pour rechercher le dossier de périphérique du capteur de température. La bibliothèque ``time`` est utilisée pour implémenter des délais dans le programme.
 
    .. code-block:: python
 
       import glob
       import time
 
-#. Locating the Temperature Sensor Device File
+#. Localisation du fichier de périphérique du capteur de température
 
-   The code searches for the directory of the DS18B20 sensor by looking for a folder name starting with "28". The device file ``w1_slave`` contains the temperature data.
+   Le code recherche le répertoire du capteur DS18B20 en cherchant un nom de dossier commençant par "28". Le fichier de périphérique ``w1_slave`` contient les données de température.
 
    .. code-block:: python
 
@@ -141,9 +139,9 @@ Code Analysis
       device_folder = glob.glob(base_dir + "28*")[0]
       device_file = device_folder + "/w1_slave"
 
-#. Reading Raw Temperature Data
+#. Lecture des données brutes de température
 
-   This function opens the device file and reads its content. It returns the raw temperature data as a list of strings.
+   Cette fonction ouvre le fichier de périphérique et lit son contenu. Elle renvoie les données brutes de température sous forme de liste de chaînes.
 
    .. code-block:: python
 
@@ -153,9 +151,9 @@ Code Analysis
           f.close()
           return lines
 
-#. Parsing and Converting Temperature Data
+#. Analyse et conversion des données de température
 
-   The ``read_temp`` function calls ``read_temp_raw`` to get the raw data. It waits for a valid temperature reading and then extracts, parses, and converts the temperature to Celsius and Fahrenheit.
+   La fonction ``read_temp`` appelle ``read_temp_raw`` pour obtenir les données brutes. Elle attend une lecture de température valide puis extrait, analyse et convertit la température en Celsius et en Fahrenheit.
 
    .. code-block:: python
 
@@ -171,9 +169,9 @@ Code Analysis
               temp_f = temp_c * 9.0 / 5.0 + 32.0
               return temp_c, temp_f
 
-#. Main Program Loop and Graceful Exit
+#. Boucle principale du programme et sortie en douceur
 
-   The ``try`` block contains an infinite loop to continuously read and display the temperature. The ``except`` block catches a KeyboardInterrupt to exit the program gracefully.
+   Le bloc ``try`` contient une boucle infinie pour lire et afficher continuellement la température. Le bloc ``except`` intercepte un KeyboardInterrupt pour quitter le programme en douceur.
 
    .. code-block:: python
 

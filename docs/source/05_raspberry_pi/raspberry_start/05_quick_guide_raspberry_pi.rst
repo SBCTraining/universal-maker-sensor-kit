@@ -1,31 +1,30 @@
-.. note::
+.. note:: 
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    Bonjour et bienvenue dans la communauté des passionnés de Raspberry Pi, Arduino et ESP32 de SunFounder sur Facebook ! Explorez plus en profondeur le Raspberry Pi, Arduino et ESP32 avec d'autres passionnés.
 
-    **Why Join?**
+    **Pourquoi nous rejoindre ?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Support d'experts** : Résolvez vos problèmes après-vente et défis techniques grâce à l'aide de notre communauté et de notre équipe.
+    - **Apprendre et partager** : Échangez des astuces et des tutoriels pour améliorer vos compétences.
+    - **Aperçus exclusifs** : Accédez en avant-première aux annonces de nouveaux produits et aperçus.
+    - **Réductions spéciales** : Profitez de réductions exclusives sur nos produits les plus récents.
+    - **Promotions festives et concours** : Participez à des concours et promotions lors des fêtes.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 Prêt à explorer et créer avec nous ? Cliquez sur [|link_sf_facebook|] et rejoignez-nous dès aujourd'hui !
 
-How to download and run the Code
-=================================
+Comment télécharger et exécuter le code
+=========================================
 
-Downloading Code to Your Raspberry Pi
--------------------------------------
+Téléchargement du code sur votre Raspberry Pi
+------------------------------------------------
 
-Before downloading the code, please be aware that the example code has been tested **ONLY** on the latest version of **Raspberry Pi OS**. We offer two download methods:
+Avant de télécharger le code, veuillez noter que le code d'exemple a été testé **UNIQUEMENT** sur la dernière version de **Raspberry Pi OS**. Nous proposons deux méthodes de téléchargement :
 
-If you're not accessing your Raspberry Pi with a direct screen connection, consider utilizing remote access options. For detailed guidance, refer to the instructions in :ref:`no_screen`.
+Si vous n'accédez pas à votre Raspberry Pi via un écran direct, envisagez d'utiliser les options d'accès à distance. Pour des instructions détaillées, consultez les informations dans :ref:`no_screen`.
 
+**Méthode 1 : Utilisation de Git Clone (recommandée)**
 
-**Method 1: Using Git Clone (Recommended)**
-
-1. Log into your Raspberry Pi, open Terminal, and navigate to the home directory (``~``). (You can also access the terminal using SSH.)
+1. Connectez-vous à votre Raspberry Pi, ouvrez le Terminal et accédez au répertoire principal (``~``). (Vous pouvez également accéder au terminal via SSH.)
 
    .. code-block:: bash
 
@@ -36,9 +35,9 @@ If you're not accessing your Raspberry Pi with a direct screen connection, consi
 
    .. note::
 
-      Use the ``cd`` command to change directories. Here, ``~/`` denotes the home directory.
+      Utilisez la commande ``cd`` pour changer de répertoire. Ici, ``~/`` désigne le répertoire principal.
 
-2. Clone the GitHub repository.
+2. Clonez le dépôt GitHub.
 
    .. code-block:: bash
 
@@ -51,62 +50,62 @@ If you're not accessing your Raspberry Pi with a direct screen connection, consi
 
       <br/><br/>
 
-3. Use File Manager to access the downloaded code files.
+3. Utilisez le gestionnaire de fichiers pour accéder aux fichiers du code téléchargé.
 
    .. image:: img/quick_guide_03.png
        :width: 100%
 
-**Method 2: Downloading Code Directly from GitHub**
+**Méthode 2 : Télécharger le code directement depuis GitHub**
 
-1. Open a web browser and go to https://github.com/sunfounder/universal-maker-sensor-kit, then click on the download button.
+1. Ouvrez un navigateur web et allez sur https://github.com/sunfounder/universal-maker-sensor-kit, puis cliquez sur le bouton de téléchargement.
 
    .. image:: img/quick_guide_04.png
 
-2. Once downloaded, locate the code file in ``File Manager > Downloads`` and unzip it into the ``/home/pi`` directory.
+2. Une fois le téléchargement terminé, localisez le fichier du code dans ``File Manager > Downloads`` et décompressez-le dans le répertoire ``/home/pi``.
 
    .. image:: img/quick_guide_05.png
 
-3. Navigate to the ``/home/pi`` directory to access the extracted code files.
+3. Allez dans le répertoire ``/home/pi`` pour accéder aux fichiers extraits du code.
 
    .. image:: img/quick_guide_06.png
 
 
-Opening and Running Code
-------------------------
+Ouverture et exécution du code
+--------------------------------
 
-You can find the code for each project in its respective code section. Alternatively, you can locate the code in the provided code directory. For instance, in ``universal-maker-sensor-kit/raspberry_pi/``, you will find Lesson 1's code named ``01_button_module.py``.
+Vous pouvez trouver le code pour chaque projet dans la section de code correspondante. Sinon, vous pouvez localiser le code dans le répertoire fourni. Par exemple, dans ``universal-maker-sensor-kit/raspberry_pi/``, vous trouverez le code de la Leçon 1 nommé ``01_button_module.py``.
 
-There are two ways to run Python code below：
+Il existe deux manières d'exécuter un code Python ci-dessous :
 
-**Method 1: Using Geany**
+**Méthode 1 : Utilisation de Geany**
 
-1. Open the code file by double-clicking on it.
+1. Ouvrez le fichier du code en double-cliquant dessus.
 
    .. image:: img/quick_guide_07.png
 
-   Alternatively, right-click the file and select **Open With...**.
+   Alternativement, faites un clic droit sur le fichier et sélectionnez **Ouvrir avec...**.
 
    .. image:: img/quick_guide_08.png
 
-   Choose **Programming > Geany Programmer's Editor** and click **OK**.
+   Choisissez **Programmation > Geany Programmer's Editor** et cliquez sur **OK**.
 
    .. image:: img/quick_guide_09.png
 
-   The code will be displayed for editing or review.
+   Le code sera affiché pour être modifié ou consulté.
 
    .. image:: img/quick_guide_10.png
 
-2. Click **Run** in the window and the following contents will appear.
-   
+2. Cliquez sur **Exécuter** dans la fenêtre et le contenu suivant apparaîtra.
+
    .. image:: img/quick_guide_11.png
 
-3. To stop it from running, just click the X button in the top right corner to close it and you'll return to the code. Alternatively, you can terminate the program by typing ctrl+c.
-   
+3. Pour arrêter l'exécution, cliquez simplement sur le bouton X en haut à droite pour fermer la fenêtre et vous reviendrez au code. Vous pouvez aussi arrêter le programme en appuyant sur ctrl+c.
+
    .. image:: img/quick_guide_12.png
 
-**Method 2: Using Terminal**
+**Méthode 2 : Utilisation du Terminal**
 
-1. Log into your Raspberry Pi, open Terminal, and navigate to the home directory (``~``). (You can also access the terminal using SSH.)
+1. Connectez-vous à votre Raspberry Pi, ouvrez le Terminal, et accédez au répertoire principal (``~``). (Vous pouvez également accéder au terminal via SSH.)
 
    .. code-block::
 
@@ -115,9 +114,9 @@ There are two ways to run Python code below：
    .. image:: img/quick_guide_13.png
 
    .. note::
-       Use the ``cd`` command to navigate to the experiment's code directory.
+       Utilisez la commande ``cd`` pour accéder au répertoire du code de l'expérience.
 
-2. Execute the code:
+2. Exécutez le code :
 
    .. code-block::
 
@@ -125,12 +124,11 @@ There are two ways to run Python code below：
 
    .. image:: img/quick_guide_14.png
 
-
-3. Upon running the code, the output will indicate whether the Button is pressed or not.
+3. Lors de l'exécution du code, la sortie indiquera si le bouton est appuyé ou non.
 
    .. image:: img/quick_guide_15.png
 
-4. To edit the ``Lesson_01_Button_Module/01_button_module.py`` file, stop the code by pressing ``Ctrl + C``. Then, open the file with:
+4. Pour éditer le fichier ``Lesson_01_Button_Module/01_button_module.py``, arrêtez le code en appuyant sur ``Ctrl + C``. Ensuite, ouvrez le fichier avec :
 
    .. code-block::
 
@@ -138,11 +136,10 @@ There are two ways to run Python code below：
 
    .. image:: img/quick_guide_16.png
 
-
-5. ``nano`` is a text editor. This command opens ``nano Lesson_01_Button_Module/01_button_module.py`` for editing.
+5. ``nano`` est un éditeur de texte. Cette commande ouvre ``nano Lesson_01_Button_Module/01_button_module.py`` pour modification.
 
    .. image:: img/quick_guide_17.png
 
-6. To exit nano, press ``Ctrl+X``. If you've made changes, a prompt will ask whether to save them. Respond with ``Y`` (yes) to save or ``N`` (no) to discard. Press ``Enter`` to confirm and exit. Reopen the file with ``nano Lesson_01_Button_Module/nano 01_button_module.py`` to view your changes.
+6. Pour quitter nano, appuyez sur ``Ctrl+X``. Si vous avez effectué des modifications, une invite vous demandera si vous souhaitez les enregistrer. Répondez ``Y`` (oui) pour enregistrer ou ``N`` (non) pour annuler. Appuyez sur ``Entrée`` pour confirmer et quitter. Rouvrez le fichier avec ``nano Lesson_01_Button_Module/nano 01_button_module.py`` pour voir vos modifications.
 
    .. image:: img/quick_guide_18.png

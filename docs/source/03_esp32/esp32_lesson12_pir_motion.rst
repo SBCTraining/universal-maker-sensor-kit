@@ -1,52 +1,52 @@
 .. note::
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    Bonjour, bienvenue dans la communauté des passionnés de SunFounder Raspberry Pi, Arduino et ESP32 sur Facebook ! Plongez plus profondément dans l'univers de Raspberry Pi, Arduino et ESP32 aux côtés d'autres passionnés.
 
-    **Why Join?**
+    **Pourquoi rejoindre ?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Support d'experts** : Obtenez de l'aide pour résoudre les problèmes post-vente et les défis techniques grâce à notre communauté et notre équipe.
+    - **Apprendre & Partager** : Échangez des astuces et des tutoriels pour enrichir vos compétences.
+    - **Aperçus exclusifs** : Accédez en avant-première aux annonces de nouveaux produits et aux coulisses de leur développement.
+    - **Réductions spéciales** : Profitez de promotions exclusives sur nos dernières nouveautés.
+    - **Promotions festives et cadeaux** : Participez à des jeux concours et à des offres spéciales pour les fêtes.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 Prêt à explorer et à créer avec nous ? Cliquez sur [|link_sf_facebook|] et rejoignez-nous dès aujourd'hui !
 
 .. _esp32_lesson12_pir_motion:
 
-Lesson 12: PIR Motion Module (HC-SR501)
-============================================
+Leçon 12 : Module Détecteur de Mouvement PIR (HC-SR501)
+===========================================================
 
-In this lesson, you will learn how to use a PIR (Passive Infrared) motion sensor with an ESP32 Development Board. You'll learn how to read digital inputs from the sensor to detect motion and output a corresponding message to the serial monitor. We'll cover the setup and programming required for the ESP32 board to respond when the sensor detects someone's presence by displaying "Somebody here!"
+Dans cette leçon, vous apprendrez à utiliser un capteur de mouvement PIR (Passive Infrared) avec une carte de développement ESP32. Vous découvrirez comment lire des entrées numériques provenant du capteur pour détecter un mouvement et afficher un message correspondant sur le moniteur série. Nous verrons comment configurer et programmer l'ESP32 afin qu'il réagisse lorsqu'une présence est détectée en affichant "Quelqu'un est ici !".
 
-Required Components
---------------------------
+Composants requis
+---------------------------
 
-In this project, we need the following components. 
+Pour ce projet, nous avons besoin des composants suivants.
 
-It's definitely convenient to buy a whole kit, here's the link: 
+Il est certainement pratique d'acheter un kit complet, voici le lien :
 
 .. list-table::
     :widths: 20 20 20
     :header-rows: 1
 
-    *   - Name	
-        - ITEMS IN THIS KIT
-        - LINK
-    *   - Universal Maker Sensor Kit
+    *   - Nom
+        - ÉLÉMENTS DANS CE KIT
+        - LIEN
+    *   - Kit Capteurs Universel pour Makers
         - 94
         - |link_umsk|
 
-You can also buy them separately from the links below.
+Vous pouvez également les acheter séparément via les liens ci-dessous.
 
 .. list-table::
     :widths: 30 20
     :header-rows: 1
 
-    *   - Component Introduction
-        - Purchase Link
+    *   - Introduction des composants
+        - Lien d'achat
 
-    *   - ESP32 & Development Board (:ref:`cpn_esp32_wroom_32e`)
+    *   - ESP32 & Carte de développement (:ref:`cpn_esp32_wroom_32e`)
         - |link_esp32_camera_pro_kit_buy|
     *   - :ref:`cpn_pir_motion`
         - \-
@@ -54,7 +54,7 @@ You can also buy them separately from the links below.
         - |link_breadboard_buy|
 
 
-Wiring
+Câblage
 ---------------------------
 
 .. image:: img/Lesson_12_PIR_Module_esp32_bb.png
@@ -68,17 +68,17 @@ Code
 
     <iframe src=https://create.arduino.cc/editor/sunfounder01/62dbb20a-775e-415b-9032-1db0f0506faf/preview?embed style="height:510px;width:100%;margin:10px 0" frameborder=0></iframe>
 
-Code Analysis
+Analyse du code
 ---------------------------
 
-1. Setting up the PIR Sensor Pin. The pin for the PIR sensor is defined as pin 25. 
+1. Configuration de la broche du capteur PIR. La broche du capteur PIR est définie comme étant la broche 25.
 
    .. code-block:: arduino
 
       const int pirPin = 25;
       int state = 0;
 
-2. Initializing the PIR Sensor. In the ``setup()`` function, the PIR sensor pin is set as an input. This allows the Arduino to read the state of the PIR sensor.
+2. Initialisation du capteur PIR. Dans la fonction ``setup()``, la broche du capteur PIR est configurée en entrée. Cela permet à l’Arduino de lire l’état du capteur PIR.
 
    .. code-block:: arduino
 
@@ -87,7 +87,7 @@ Code Analysis
         Serial.begin(9600);
       }
 
-3. Reading from the PIR Sensor and Displaying the Results. In the ``loop()`` function, the state of the PIR sensor is continuously read. 
+3. Lecture des données du capteur PIR et affichage des résultats. Dans la fonction ``loop()``, l’état du capteur PIR est lu en continu.
 
    .. code-block:: arduino
 
@@ -101,4 +101,4 @@ Code Analysis
         }
       }
 
-   If the state is ``HIGH``, meaning motion is detected, a message "Somebody here!" is printed to the serial monitor. Otherwise, "Monitoring..." is printed.
+   Si l’état est ``HIGH``, indiquant qu’un mouvement est détecté, le message "Quelqu'un est ici !" est affiché sur le moniteur série. Sinon, "Surveillance en cours..." est affiché.

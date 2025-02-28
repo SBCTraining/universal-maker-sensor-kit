@@ -1,20 +1,19 @@
-.. note::
+.. note:: 
+    Bonjour, bienvenue dans la communauté des passionnés de Raspberry Pi, Arduino et ESP32 de SunFounder sur Facebook ! Plongez plus profondément dans l'univers du Raspberry Pi, de l'Arduino et de l'ESP32 avec d'autres passionnés.
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    **Pourquoi rejoindre ?**
 
-    **Why Join?**
+    - **Support d'experts** : Résolvez les problèmes post-vente et les défis techniques avec l'aide de notre communauté et de notre équipe.
+    - **Apprendre et partager** : Échangez des astuces et des tutoriels pour améliorer vos compétences.
+    - **Aperçus exclusifs** : Obtenez un accès anticipé aux annonces de nouveaux produits et aux avant-premières.
+    - **Réductions spéciales** : Profitez de réductions exclusives sur nos produits les plus récents.
+    - **Promotions festives et cadeaux** : Participez à des tirages au sort et des promotions de fêtes.
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
-
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 Prêts à explorer et à créer avec nous ? Cliquez sur [|link_sf_facebook|] et rejoignez-nous aujourd'hui !
 
 .. _cpn_gas:
 
-Gas/Smoke Sensor Module (MQ2) 
+Module Capteur de Gaz/Fumée (MQ2)
 =====================================
 
 .. image:: img/04_mq2_gas_module.png
@@ -22,41 +21,40 @@ Gas/Smoke Sensor Module (MQ2)
     :align: center
 
 .. tip::
-   MQ2 is a heating-driven sensor that usually requires preheating before use. During the preheating period, the sensor typically reads high and gradually decreases until it stabilizes.
+   Le MQ2 est un capteur chauffé qui nécessite généralement un préchauffage avant utilisation. Pendant la période de préchauffage, le capteur lit généralement des valeurs élevées qui diminuent progressivement jusqu'à stabilisation.
 
-The MQ-2 sensor is a versatile gas sensor capable of detecting a wide range of gases including alcohol, carbon monoxide, hydrogen, isobutene, liquefied petroleum gas, methane, propane, and smoke. It is popular among beginners due to its low cost and easy-to-use features.
+Le capteur MQ-2 est un capteur de gaz polyvalent capable de détecter une large gamme de gaz, y compris l'alcool, le monoxyde de carbone, l'hydrogène, l'isobutène, le gaz de pétrole liquéfié, le méthane, le propane et la fumée. Il est populaire parmi les débutants en raison de son faible coût et de sa facilité d'utilisation.
 
-Principle
+Principe
 ---------------------------
-The MQ-2 sensor works on the principle of resistance changes in the presence of different gases. When the target gas comes in contact with the heated MOS(Metal Oxide Semiconductor) material, it undergoes oxidation or reduction reactions that change the resistance of the MOS material. **It is noteworthy that the MQ2 gas sensor is capable of detecting multiple gases, but lacks the ability to differentiate between them.** This is a common characteristic of most gas sensors. 
+Le capteur MQ-2 fonctionne sur le principe de changement de résistance en présence de différents gaz. Lorsque le gaz cible entre en contact avec le matériau MOS (Semi-conducteur d'Oxyde Métallique) chauffé, il subit des réactions d'oxydation ou de réduction qui changent la résistance du matériau MOS. **Il est notable que le capteur de gaz MQ2 est capable de détecter plusieurs gaz, mais ne peut pas les différencier.** Ceci est une caractéristique commune à la plupart des capteurs de gaz.
 
-The sensor has a built-in potentiometer that allows you to adjust the sensor digital output (D0) threshold. When the concentration of gas in the air exceeds a certain threshold value, the resistance of the sensor changes. This change in resistance is then converted into an electrical signal that can be read by an Arduino board.
+Le capteur dispose d'un potentiomètre intégré qui vous permet d'ajuster le seuil de sortie numérique (D0) du capteur. Lorsque la concentration de gaz dans l'air dépasse une certaine valeur seuil, la résistance du capteur change. Ce changement de résistance est ensuite converti en un signal électrique qui peut être lu par une carte Arduino.
 
-Calibrating the MQ2 Gas Sensor
+Calibrage du capteur de gaz MQ2
 ----------------------------------
-Because the MQ2 is a heater-driven sensor, the calibration of the sensor may drift if it is left in storage for an extended period of time.
-When first used after a long period of storage (a month or more), the sensor must be fully warmed up for 24-48 hours to ensure maximum accuracy.
-If the sensor has recently been used, it will only take 5-10 minutes to fully warm up. During the warm-up period, the sensor typically reads high and gradually decreases until it stabilizes.
+Comme le MQ2 est un capteur chauffé, l'étalonnage du capteur peut dériver s'il est laissé en stockage pendant une période prolongée.
+Lors de la première utilisation après une longue période de stockage (un mois ou plus), le capteur doit être complètement réchauffé pendant 24 à 48 heures pour assurer une précision maximale.
+Si le capteur a été utilisé récemment, il ne faudra que 5 à 10 minutes pour se réchauffer complètement. Pendant la période de chauffage, le capteur lit généralement des valeurs élevées qui diminuent progressivement jusqu'à stabilisation.
 
-Specification
+Spécifications
 ---------------------------
-* Model: MQ2
-* Supply Voltage: 5V
-* PCB Size: 32 x 20mm
-* Output Signal Type: DO and AO
-* Detection Concentration: 300 to 10000ppm
-* Preheat Duration: Over 24 hours (first time)
-* Detect Gas: LPG, Alcohol, Propane, Hydrogen, CO and even methane
+* Modèle : MQ2
+* Tension d'alimentation : 5V
+* Taille du PCB : 32 x 20mm
+* Type de signal de sortie : DO et AO
+* Concentration de détection : de 300 à 10000 ppm
+* Durée de préchauffage : Plus de 24 heures (première fois)
+* Gaz détectés : GPL, alcool, propane, hydrogène, CO et même méthane
 
-Pinout
+Brochage
 ---------------------------
-* **VCC**: This is the positive power supply input from the main control. 
-* **GND**: Ground connection.
-* **DO**: Digital output. It indicates the presence of combustible gases. When the gas concentration exceeds the threshold value (as set by the potentiometer), D0 becomes LOW; otherwise, it is HIGH.
-* **AO**: Analog output. It produces an analog output voltage proportional to gas concentration, so a higher concentration results in a higher voltage and a lower concentration results in a lower voltage.
+* **VCC** : C'est l'entrée d'alimentation positive provenant du contrôle principal.
+* **GND** : Connexion à la terre.
+* **DO** : Sortie numérique. Elle indique la présence de gaz combustibles. Lorsque la concentration de gaz dépasse la valeur seuil (réglée par le potentiomètre), D0 devient LOW ; sinon, elle est HIGH.
+* **AO** : Sortie analogique. Elle produit une tension de sortie analogique proportionnelle à la concentration de gaz, donc une concentration plus élevée résulte en une tension plus élevée et une concentration plus faible en une tension plus basse.
 
-
-Example
+Exemple
 ---------------------------
 * :ref:`uno_lesson04_mq2` (Arduino UNO)
 * :ref:`esp32_lesson04_mq2` (ESP32)

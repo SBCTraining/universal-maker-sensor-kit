@@ -1,54 +1,53 @@
-
 .. note::
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    Bonjour, bienvenue dans la communauté des passionnés de SunFounder Raspberry Pi, Arduino et ESP32 sur Facebook ! Plongez plus profondément dans l'univers Raspberry Pi, Arduino et ESP32 avec d'autres enthousiastes.
 
-    **Why Join?**
+    **Pourquoi rejoindre ?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Support d'experts** : Résolvez les problèmes post-vente et les défis techniques avec l'aide de notre communauté et de notre équipe.
+    - **Apprendre & Partager** : Échangez des astuces et des tutoriels pour renforcer vos compétences.
+    - **Aperçus exclusifs** : Accédez en avant-première aux annonces de nouveaux produits et aux avant-premières.
+    - **Réductions spéciales** : Profitez de réductions exclusives sur nos produits les plus récents.
+    - **Promotions festives et cadeaux** : Participez à des cadeaux et des promotions festives.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 Prêt à explorer et à créer avec nous ? Cliquez sur [|link_sf_facebook|] et rejoignez-nous aujourd'hui !
 
 .. _uno_lesson53_direction_indicator:
 
-Lesson 53: Direction Indicator
-===========================================
+Leçon 53 : Indicateur de direction
+=====================================
 
-This Arduino project initializes an OLED display and reads input from a joystick connected to analog pins A0 and A1. It continuously monitors the joystick's position to determine its tilt direction and displays an appropriate arrow (up, down, left, or right) or a circle (if the joystick is centered) on the OLED display.
+Ce projet Arduino initialise un affichage OLED et lit les entrées d'un joystick connecté aux broches analogiques A0 et A1. Il surveille continuellement la position du joystick pour déterminer sa direction d'inclinaison et affiche une flèche appropriée (haut, bas, gauche ou droite) ou un cercle (si le joystick est centré) sur l'affichage OLED.
 
 
-Required Components
---------------------------
+Composants requis
+-------------------
 
-In this project, we need the following components. 
+Pour ce projet, nous avons besoin des composants suivants.
 
-It's definitely convenient to buy a whole kit, here's the link: 
+Il est certainement pratique d'acheter un kit complet, voici le lien :
 
 .. list-table::
     :widths: 20 20 20
     :header-rows: 1
 
-    *   - Name	
-        - ITEMS IN THIS KIT
-        - LINK
-    *   - Universal Maker Sensor Kit
+    *   - Nom	
+        - ÉLÉMENTS DE CE KIT
+        - LIEN
+    *   - Kit Capteurs Universel pour Makers
         - 94
         - |link_umsk|
 
-You can also buy them separately from the links below.
+Vous pouvez également les acheter séparément via les liens ci-dessous.
 
 .. list-table::
     :widths: 30 20
     :header-rows: 1
 
-    *   - Component Introduction
-        - Purchase Link
+    *   - Introduction des composants
+        - Lien d'achat
 
-    *   - Arduino UNO R3 or R4
+    *   - Arduino UNO R3 ou R4
         - |link_Uno_R3_buy|
     *   - :ref:`cpn_joystick`
         - |link_joystick_buy|
@@ -56,66 +55,66 @@ You can also buy them separately from the links below.
         - \-
     *   - :ref:`cpn_breadboard`
         - |link_breadboard_buy|
-        
 
-Wiring
----------------------------
+
+Câblage
+-----------
 
 .. image:: img/Lesson_53_Direction_indicatorr_uno_bb.png
     :width: 100%
 
 Code
----------------------------
+-------
 
-.. note:: 
-   To install the library, use the Arduino Library Manager and search for **"Adafruit SSD1306"** and **"Adafruit GFX"** and install it. 
+.. note::
+   Pour installer la bibliothèque, utilisez le gestionnaire de bibliothèques Arduino et recherchez **"Adafruit SSD1306"** et **"Adafruit GFX"** et installez-les.
 
 .. raw:: html
 
     <iframe src="https://app.arduino.cc/sketches/c926f784-c6ac-4d4d-864c-d55aee9595b4?view-mode=embed" style="height:510px;width:100%;margin:10px 0" frameborder=0></iframe>
 
 
-Code Analysis
----------------------------
+Analyse du code
+---------------
 
-#. Including necessary libraries
+#. Inclusion des bibliothèques nécessaires
 
-   The project uses three libraries: ``Wire.h`` for I2C communication, ``Adafruit_GFX.h`` for graphics primitives, and ``Adafruit_SSD1306.h`` for OLED display control.
- 
+   Le projet utilise trois bibliothèques : ``Wire.h`` pour la communication I2C, ``Adafruit_GFX.h`` pour les primitives graphiques, et ``Adafruit_SSD1306.h`` pour le contrôle de l'affichage OLED.
+
    .. code-block:: arduino
- 
+
       #include <Wire.h>
       #include <Adafruit_GFX.h>
       #include <Adafruit_SSD1306.h>
 
-#. Defining constants and creating an OLED display object
+#. Définition des constantes et création d'un objet d'affichage OLED
 
-   Constants for the OLED display dimensions and address are defined. The OLED display object is created with these parameters.
- 
+   Les constantes pour les dimensions et l'adresse de l'affichage OLED sont définies. L'objet d'affichage OLED est créé avec ces paramètres.
+
    .. code-block:: arduino
-     
-      #define SCREEN_WIDTH 128  // OLED display width, in pixels
-      #define SCREEN_HEIGHT 64  // OLED display height, in pixels
-      #define OLED_RESET -1  // Reset pin # (or -1 if sharing Arduino reset pin)
+
+      #define SCREEN_WIDTH 128  // Largeur de l'affichage OLED, en pixels
+      #define SCREEN_HEIGHT 64  // Hauteur de l'affichage OLED, en pixels
+      #define OLED_RESET -1  // Pin de réinitialisation (ou -1 si partage du pin de réinitialisation de l'Arduino)
       #define SCREEN_ADDRESS 0x3C
       Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, OLED_RESET);
 
-#. Pin definitions and threshold for the joystick
+#. Définition des broches et seuil pour le joystick
 
-   The analog pins A0 and A1 are used for the joystick, and a threshold is defined to determine if the joystick is centered.
- 
-   .. code-block:: arduino
- 
-      const int xPin = A0;  // the VRX attach to
-      const int yPin = A1;  // the VRY attach to
-      const int threshold = 50;  // threshold to consider joystick in the center
- 
-#. Setup function: initializing serial communication and the OLED display
+   Les broches analogiques A0 et A1 sont utilisées pour le joystick, et un seuil est défini pour déterminer si le joystick est centré.
 
-   Serial communication is initialized for debugging, and the OLED display is initialized and cleared.
- 
    .. code-block:: arduino
- 
+
+      const int xPin = A0;  // la VRX se connecte ici
+      const int yPin = A1;  // la VRY se connecte ici
+      const int threshold = 50;  // seuil pour considérer le joystick centré
+
+#. Fonction de configuration : initialisation de la communication série et de l'affichage OLED
+
+   La communication série est initialisée pour le débogage, et l'affichage OLED est initialisé et nettoyé.
+
+   .. code-block:: arduino
+
       void setup() {
         Serial.begin(9600);
         if (!display.begin(SSD1306_SWITCHCAPVCC, SCREEN_ADDRESS)) {
@@ -124,20 +123,20 @@ Code Analysis
         }
         display.clearDisplay();
       }
- 
-#. Main loop: reading joystick values, determining direction, and displaying shapes
 
-   The main loop reads the joystick values, determines the direction based on these values, and displays the corresponding shape on the OLED display.
+#. Boucle principale : lecture des valeurs du joystick, détermination de la direction et affichage des formes
+
+   La boucle principale lit les valeurs du joystick, détermine la direction en fonction de ces valeurs et affiche la forme correspondante sur l'affichage OLED.
 
    .. image:: img/Lesson_53_Code_Analysis.png
     :width: 85%
 
    .. raw:: html
-   
+
        <br/><br/>
- 
+
    .. code-block:: arduino
- 
+
       void loop() {
         display.clearDisplay();
         int xValue = analogRead(xPin);
@@ -146,13 +145,13 @@ Code Analysis
         Serial.print(xValue);
         Serial.print("|Y: ");
         Serial.println(-yValue);
-  
+
         float yLine1 = line1(xValue);
         float yLine2 = line2(xValue);
-  
+
         int relX = xValue - 512;
         int relY = -yValue - 512;
-  
+
         if (abs(relX) < threshold && abs(relY) < threshold) {
           drawCircle();
         } else if (yValue > yLine1 && yValue > yLine2) {
@@ -164,50 +163,50 @@ Code Analysis
         } else if (yValue > yLine1 && yValue < yLine2) {
           drawLeftArrow();
         }
-  
+
         display.display();
         delay(80);
       }
- 
-#. Helper functions: calculating lines and drawing shapes
 
-   These functions help in calculating lines used for direction determination and drawing shapes on the OLED display.
- 
+#. Fonctions d'aide : calcul des lignes et dessin des formes
+
+   Ces fonctions aident à calculer les lignes utilisées pour la détermination de la direction et à dessiner des formes sur l'affichage OLED.
+
    .. code-block:: arduino
- 
+
       float line1(float x) {
         return x - 1023;
       }
-  
+
       float line2(float x) {
         return -x;
       }
-  
+
       void drawUpArrow() {
         display.fillTriangle(49, 30, 64, 15, 79, 30, WHITE);
         display.fillRect(59, 30, 10, 20, WHITE);
       }
-  
+
       void drawDownArrow() {
         display.fillTriangle(49, 36, 64, 51, 79, 36, WHITE);
         display.fillRect(59, 16, 10, 20, WHITE);
       }
-  
+
       void drawRightArrow() {
         display.fillTriangle(70, 15, 85, 30, 70, 45, WHITE);
         display.fillRect(50, 25, 20, 10, WHITE);
       }
-  
+
       void drawLeftArrow() {
         display.fillTriangle(60, 15, 45, 30, 60, 45, WHITE);
         display.fillRect(60, 25, 20, 10, WHITE);
       }
-  
+
       void drawCircle() {
         display.fillCircle(64, 32, 10, WHITE);
         display.fillCircle(64, 32, 8, BLACK);
       }
-  
-**Reference**
+
+**Référence**
 
 - |link_adafruit_gfx_graphics_library|

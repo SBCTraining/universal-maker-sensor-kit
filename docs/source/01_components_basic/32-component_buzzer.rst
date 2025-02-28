@@ -1,20 +1,20 @@
 .. note::
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    Bonjour, bienvenue dans la communauté des passionnés de SunFounder Raspberry Pi, Arduino et ESP32 sur Facebook ! Explorez plus en profondeur Raspberry Pi, Arduino et ESP32 avec d'autres enthousiastes.
 
-    **Why Join?**
+    **Pourquoi rejoindre ?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Support d'experts** : Résolvez les problèmes après-vente et les défis techniques avec l'aide de notre communauté et de notre équipe.
+    - **Apprendre & Partager** : Échangez des astuces et des tutoriels pour améliorer vos compétences.
+    - **Aperçus exclusifs** : Obtenez un accès anticipé aux annonces de nouveaux produits et aux aperçus exclusifs.
+    - **Réductions spéciales** : Profitez de réductions exclusives sur nos nouveaux produits.
+    - **Promotions festives et cadeaux** : Participez à des tirages au sort et des promotions festives.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 Prêts à explorer et créer avec nous ? Cliquez sur [|link_sf_facebook|] et rejoignez-nous aujourd'hui !
 
 .. _cpn_buzzer:
 
-Passive Buzzer Module
+Module de Buzzer Passif
 ==========================
 
 .. image:: img/32_passive_buzzer_module.png
@@ -25,15 +25,15 @@ Passive Buzzer Module
     
     <br/>
 
-The passive buzzer is a device that generates sound when an electrical signal is applied to it. It is called passive because it does not have an internal oscillator to generate sound on its own. Instead, it relies on an external signal from a microcontroller like Arduino to produce sound. The passive buzzer module is a small electronic component that contains a passive buzzer and some additional circuitry that makes it easier to use with Arduino.
+Le buzzer passif est un dispositif qui produit un son lorsqu'un signal électrique lui est appliqué. Il est qualifié de passif car il ne possède pas d'oscillateur interne pour générer du son par lui-même. Au lieu de cela, il dépend d'un signal externe provenant d'un microcontrôleur comme Arduino pour produire du son. Le module de buzzer passif est un petit composant électronique qui contient un buzzer passif et quelques circuits supplémentaires qui facilitent son utilisation avec Arduino.
 
-Pinout
+Brochage
 ---------------------------
-* **VCC**: This is the positive power supply input from the main control. 
-* **GND**: Ground connection.
-* **I/O**: Through this pin, you can send control signals to control the tone and frequency of the buzzer.
+* **VCC** : C'est l'entrée d'alimentation positive du contrôle principal. 
+* **GND** : Connexion à la terre.
+* **I/O** : À travers cette broche, vous pouvez envoyer des signaux de contrôle pour réguler le ton et la fréquence du buzzer.
 
-Schematic diagram
+Schéma
 ---------------------------
 
 .. image:: img/32_passive_buzzer_module_schematic.png
@@ -44,7 +44,7 @@ Schematic diagram
 
    <br/>
 
-Example
+Exemple
 ---------------------------
 * :ref:`uno_lesson32_passive_buzzer` (Arduino UNO)
 * :ref:`esp32_lesson32_passive_buzzer` (ESP32)

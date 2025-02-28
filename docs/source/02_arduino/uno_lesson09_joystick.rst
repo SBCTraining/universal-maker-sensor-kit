@@ -1,58 +1,58 @@
 .. note::
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    Bonjour, bienvenue dans la communauté des passionnés de SunFounder Raspberry Pi, Arduino et ESP32 sur Facebook ! Plongez plus profondément dans l'univers de Raspberry Pi, Arduino et ESP32 avec d'autres passionnés.
 
-    **Why Join?**
+    **Pourquoi rejoindre ?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Support d'expert** : Résolvez les problèmes après-vente et les défis techniques avec l'aide de notre communauté et de notre équipe.
+    - **Apprendre et partager** : Échangez des astuces et des tutoriels pour améliorer vos compétences.
+    - **Aperçus exclusifs** : Obtenez un accès anticipé aux annonces de nouveaux produits et aux aperçus exclusifs.
+    - **Réductions spéciales** : Profitez de réductions exclusives sur nos nouveaux produits.
+    - **Promotions festives et cadeaux** : Participez à des cadeaux et promotions de fêtes.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 Prêts à explorer et à créer avec nous ? Cliquez sur [|link_sf_facebook|] et rejoignez-nous aujourd'hui !
 
 .. _uno_lesson09_joystick:
 
-Lesson 09: Joystick Module
+Leçon 09 : Module Joystick
 ==================================
 
-In this lesson, you will learn how to read values from a joystick module using an Arduino Uno. We will explore connecting the joystick's X and Y axes to the Arduino and how to display their values on the serial monitor. Additionally, we'll cover the usage of a switch button on the joystick. This project is perfect for beginners, offering hands-on experience with analog and digital inputs on the Arduino platform.
+Dans cette leçon, vous apprendrez à lire les valeurs d'un module joystick à l'aide d'un Arduino Uno. Nous explorerons comment connecter les axes X et Y du joystick à l'Arduino et comment afficher leurs valeurs sur le moniteur série. De plus, nous couvrirons l'utilisation d'un bouton interrupteur sur le joystick. Ce projet est parfait pour les débutants, offrant une expérience pratique avec les entrées analogiques et numériques sur la plateforme Arduino.
 
-Required Components
+Composants nécessaires
 --------------------------
 
-In this project, we need the following components. 
+Pour ce projet, nous avons besoin des composants suivants.
 
-It's definitely convenient to buy a whole kit, here's the link: 
+Il est définitivement pratique d'acheter un kit complet, voici le lien :
 
 .. list-table::
     :widths: 20 20 20
     :header-rows: 1
 
-    *   - Name	
-        - ITEMS IN THIS KIT
-        - LINK
-    *   - Universal Maker Sensor Kit
+    *   - Nom	
+        - ÉLÉMENTS DE CE KIT
+        - LIEN
+    *   - Kit capteur universel pour bricoleurs
         - 94
         - |link_umsk|
 
-You can also buy them separately from the links below.
+Vous pouvez également les acheter séparément via les liens ci-dessous.
 
 .. list-table::
     :widths: 30 20
     :header-rows: 1
 
-    *   - Component Introduction
-        - Purchase Link
+    *   - Introduction au composant
+        - Lien d'achat
 
-    *   - Arduino UNO R3 or R4
+    *   - Arduino UNO R3 ou R4
         - |link_Uno_R3_buy|
     *   - :ref:`cpn_joystick`
         - |link_joystick_buy|
 
 
-Wiring
+Câblage
 ---------------------------
 
 .. image:: img/Lesson_09_joystick_module_uno_bb.png
@@ -66,20 +66,20 @@ Code
 
     <iframe src=https://create.arduino.cc/editor/sunfounder01/82313b82-4ac8-407c-9b65-3e7d548e6520/preview?embed style="height:510px;width:100%;margin:10px 0" frameborder=0></iframe>
 
-Code Analysis
+Analyse du code
 ---------------------------
 
-#. Pin Definitions:
-   
+#. Définitions des broches :
+
    .. code-block:: arduino
    
-      const int xPin = A0;  //the VRX attach to
-      const int yPin = A1;  //the VRY attach to
-      const int swPin = 8;  //the SW attach to
+      const int xPin = A0;  // VRX connecté à
+      const int yPin = A1;  // VRY connecté à
+      const int swPin = 8;  // SW connecté à
 
-   Constants for the joystick pins are defined. ``xPin`` and ``yPin`` are analog pins for the joystick's X and Y axes. ``swPin`` is a digital pin for the joystick's switch.
+   Les constantes pour les broches du joystick sont définies. ``xPin`` et ``yPin`` sont des broches analogiques pour les axes X et Y du joystick. ``swPin`` est une broche numérique pour l'interrupteur du joystick.
 
-#. Setup Function:
+#. Fonction de configuration :
 
    .. code-block:: arduino
    
@@ -88,20 +88,20 @@ Code Analysis
         Serial.begin(9600);
       }
 
-   Initializes ``swPin`` as an input with a pull-up resistor, essential for the switch's functionality. Starts serial communication at 9600 baud.
+   Initialise ``swPin`` en tant qu'entrée avec une résistance de rappel, essentielle pour la fonctionnalité de l'interrupteur. Démarre la communication série à 9600 bauds.
 
-#. Main Loop:
+#. Boucle principale :
 
    .. code-block:: arduino
    
       void loop() {
         Serial.print("X: ");
-        Serial.print(analogRead(xPin));  // print the value of VRX
+        Serial.print(analogRead(xPin));  // imprime la valeur de VRX
         Serial.print("|Y: ");
-        Serial.print(analogRead(yPin));  // print the value of VRY
+        Serial.print(analogRead(yPin));  // imprime la valeur de VRY
         Serial.print("|Z: ");
-        Serial.println(digitalRead(swPin));  // print the value of SW
+        Serial.println(digitalRead(swPin));  // imprime la valeur de SW
         delay(50);
       }
 
-   Continuously reads and prints the values from the joystick's axes and switch to the Serial Monitor, with a delay of 50 ms between readings.
+   Lit et imprime en continu les valeurs des axes et de l'interrupteur du joystick sur le moniteur série, avec un délai de 50 ms entre les lectures.

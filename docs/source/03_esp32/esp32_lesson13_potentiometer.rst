@@ -1,52 +1,52 @@
 .. note::
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    Bonjour, bienvenue dans la communauté des passionnés de SunFounder Raspberry Pi, Arduino et ESP32 sur Facebook ! Plongez plus profondément dans l’univers de Raspberry Pi, Arduino et ESP32 aux côtés d’autres passionnés.
 
-    **Why Join?**
+    **Pourquoi rejoindre ?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Support d'experts** : Résolvez les problèmes post-vente et relevez les défis techniques avec l'aide de notre communauté et de notre équipe.
+    - **Apprendre & Partager** : Échangez des conseils et des tutoriels pour améliorer vos compétences.
+    - **Aperçus exclusifs** : Accédez en avant-première aux annonces de nouveaux produits et à des avant-goûts exclusifs.
+    - **Réductions spéciales** : Bénéficiez de remises exclusives sur nos dernières nouveautés.
+    - **Promotions festives et cadeaux** : Participez à des jeux concours et à des promotions spéciales pour les fêtes.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 Prêt à explorer et à créer avec nous ? Cliquez sur [|link_sf_facebook|] et rejoignez-nous dès aujourd'hui !
 
 .. _esp32_lesson13_potentiometer:
 
-Lesson 13: Potentiometer Module
+Leçon 13 : Module Potentiomètre
 ==================================
 
-In this lesson, you'll learn how to read the analog value of a potentiometer with the ESP32 development board. We'll connect a potentiometer module to pin 25 and observe the changing analog values (0-4095) in the serial monitor. This project provides hands-on experience in understanding analog inputs and serial communication, making it an excellent exercise for beginners to explore the capabilities of the ESP32 board.
+Dans cette leçon, vous apprendrez à lire la valeur analogique d’un potentiomètre à l’aide de la carte de développement ESP32. Nous connecterons un module potentiomètre à la broche 25 et observerons les variations des valeurs analogiques (0-4095) sur le moniteur série. Ce projet offre une expérience pratique pour comprendre les entrées analogiques et la communication série, ce qui en fait un excellent exercice pour les débutants souhaitant explorer les capacités de l'ESP32.
 
-Required Components
+Composants requis
 --------------------------
 
-In this project, we need the following components. 
+Dans ce projet, nous avons besoin des composants suivants.
 
-It's definitely convenient to buy a whole kit, here's the link: 
+Il est certainement plus pratique d'acheter un kit complet, voici le lien :
 
 .. list-table::
     :widths: 20 20 20
     :header-rows: 1
 
-    *   - Name	
-        - ITEMS IN THIS KIT
-        - LINK
-    *   - Universal Maker Sensor Kit
+    *   - Nom
+        - ÉLÉMENTS DANS CE KIT
+        - LIEN
+    *   - Kit Capteurs Universel pour Makers
         - 94
         - |link_umsk|
 
-You can also buy them separately from the links below.
+Vous pouvez également les acheter séparément via les liens ci-dessous.
 
 .. list-table::
     :widths: 30 20
     :header-rows: 1
 
-    *   - Component Introduction
-        - Purchase Link
+    *   - Présentation du composant
+        - Lien d'achat
 
-    *   - ESP32 & Development Board (:ref:`cpn_esp32_wroom_32e`)
+    *   - ESP32 & Carte de développement (:ref:`cpn_esp32_wroom_32e`)
         - |link_esp32_camera_pro_kit_buy|
     *   - :ref:`cpn_potentiometer`
         - |link_potentiometer_sensor_module_buy|
@@ -54,7 +54,7 @@ You can also buy them separately from the links below.
         - |link_breadboard_buy|
 
 
-Wiring
+Câblage
 ---------------------------
 
 .. image:: img/Lesson_13_Potentiometer_Module_esp32_bb.png
@@ -68,16 +68,16 @@ Code
 
     <iframe src=https://create.arduino.cc/editor/sunfounder01/80644221-74b4-4df5-804e-236fdc4ab30e/preview?embed style="height:510px;width:100%;margin:10px 0" frameborder=0></iframe>
 
-Code Analysis
+Analyse du code
 ---------------------------
 
-#. This line of code defines the pin number to which the potentiometer is connected on the ESP32 Development Board.
+#. Cette ligne de code définit le numéro de broche auquel le potentiomètre est connecté sur la carte ESP32.
 
    .. code-block:: arduino
 
       const int sensorPin = 25;
 
-#. The ``setup()`` function is a special function in Arduino that is executed only once when the ESP32 Development Board is powered on or reset. In this project, the ``Serial.begin(9600)`` command initiates serial communication at a baud rate of 9600.
+#. La fonction ``setup()`` est une fonction spéciale d'Arduino qui s'exécute une seule fois lorsque l'ESP32 est mis sous tension ou réinitialisé. Dans ce projet, la commande ``Serial.begin(9600)`` initialise la communication série à un débit de 9600 bauds.
 
    .. code-block:: arduino
 
@@ -85,7 +85,7 @@ Code Analysis
         Serial.begin(9600);  
       }
 
-#. The ``loop()`` function is the main function where the program runs repeatedly. In this function, the ``analogRead()`` function reads the analog value from the potentiometer and prints it to the serial monitor using ``Serial.println()``. The ``delay(50)`` command makes the program wait for 50 milliseconds before taking the next reading.
+#. La fonction ``loop()`` est la fonction principale où le programme s'exécute en continu. Dans cette fonction, ``analogRead()`` lit la valeur analogique du potentiomètre et l'affiche sur le moniteur série via ``Serial.println()``. La commande ``delay(50)`` suspend l'exécution du programme pendant 50 millisecondes avant d’effectuer une nouvelle lecture.
 
    .. code-block:: arduino
 

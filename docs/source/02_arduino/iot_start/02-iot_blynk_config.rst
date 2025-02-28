@@ -1,22 +1,22 @@
 .. note::
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    Bonjour, bienvenue dans la communauté des passionnés de SunFounder Raspberry Pi, Arduino et ESP32 sur Facebook ! Plongez plus profondément dans l'univers de Raspberry Pi, Arduino et ESP32 avec d'autres passionnés.
 
-    **Why Join?**
+    **Pourquoi rejoindre ?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Support d'expert** : Résolvez les problèmes après-vente et les défis techniques avec l'aide de notre communauté et de notre équipe.
+    - **Apprendre et partager** : Échangez des astuces et des tutoriels pour améliorer vos compétences.
+    - **Aperçus exclusifs** : Obtenez un accès anticipé aux annonces de nouveaux produits et aux aperçus exclusifs.
+    - **Réductions spéciales** : Profitez de réductions exclusives sur nos nouveaux produits.
+    - **Promotions festives et cadeaux** : Participez à des cadeaux et promotions de fêtes.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 Prêts à explorer et à créer avec nous ? Cliquez sur [|link_sf_facebook|] et rejoignez-nous aujourd'hui !
 
-1.2 Configuring the Blynk
-==========================
+1.2 Configuration de Blynk
+============================
 
 
-#. Go to the `BLYNK <https://blynk.io/>`_ and click **START FREE**. 
+#. Rendez-vous sur `BLYNK <https://blynk.io/>`_ et cliquez sur **START FREE**. 
 
    .. image:: img/sp220607_142551.png
         :width: 90%
@@ -25,7 +25,7 @@
 
       <br/><br/>
 
-#. Fill in your email address to register an account.
+#. Entrez votre adresse email pour vous inscrire.
 
    .. image:: img/sp220607_142807.png
         :width: 70%
@@ -35,7 +35,7 @@
 
       <br/>
 
-#. Go to your email address to complete your account registration.
+#. Consultez votre adresse email pour compléter votre inscription.
 
    .. image:: img/sp220607_142936.png
     :width: 90%
@@ -44,7 +44,7 @@
 
       <br/><br/>
 
-#. Afterwards, **Blynk Tour** will appear and you can read it to learn the basic information about the Blynk.
+#. Ensuite, une **Blynk Tour** apparaîtra et vous pourrez la lire pour apprendre les informations de base sur Blynk.
 
    .. image:: img/sp220607_143244.png
     :width: 90%
@@ -53,7 +53,7 @@
 
       <br/><br/>
 
-#. Next, we need to create a template and device with this **Quick Start**, click **Let's go**.
+#. Ensuite, nous devons créer un modèle et un appareil avec ce **Quick Start**, cliquez sur **Let's go**.
 
    .. image:: img/sp220607_143608.png
     :width: 90%
@@ -62,7 +62,7 @@
 
       <br/><br/>  
 
-#. Select the hardware and connection type.
+#. Sélectionnez le matériel et le type de connexion.
 
    .. image:: img/sp20220614173218.png
     :width: 90%
@@ -71,7 +71,7 @@
 
       <br/><br/>
 
-#. Here you are told which IDE you need to prepare, we recommend the **Arduino IDE**.
+#. Ici, on vous indique quel IDE vous devez préparer, nous recommandons l'**Arduino IDE**.
 
    .. image:: img/sp20220614173454.png
     :width: 90%
@@ -80,7 +80,7 @@
 
       <br/><br/>
 
-#. Here is the library you need to add, but the recommended library here is a bit problematic, we need to add other libraries manually (we will mention it later). Click **Next** here, and a new template and device will be created.
+#. Voici la bibliothèque que vous devez ajouter, mais la bibliothèque recommandée ici est un peu problématique, nous devons ajouter d'autres bibliothèques manuellement (nous en parlerons plus tard). Cliquez sur **Next** ici, et un nouveau modèle et appareil seront créés.
 
    .. image:: img/sp20220614173629.png
     :width: 90%
@@ -89,7 +89,7 @@
 
       <br/><br/>
 
-#. The next steps are to upload the relevant code and connect your board to Blynk, but since there is a problem with the library provided earlier, you need to add other libraries again. So click **Cancel** here to stop **Quick Start**.
+#. Les étapes suivantes consistent à télécharger le code pertinent et à connecter votre carte à Blynk, mais comme il y a un problème avec la bibliothèque fournie précédemment, vous devez ajouter d'autres bibliothèques à nouveau. Donc, cliquez sur **Cancel** ici pour arrêter **Quick Start**.
 
    .. image:: img/sp20220614174006.png
     :width: 90%
@@ -98,7 +98,7 @@
 
       <br/><br/>
 
-#. Click the **Search** button and you will see the new device you just created.
+#. Cliquez sur le bouton **Search** et vous verrez le nouvel appareil que vous venez de créer.
 
    .. image:: img/sp20220614174410.png
     :width: 90%
@@ -107,7 +107,7 @@
 
       <br/><br/>
 
-#. Go to this **Quickstart Device** and click **Device Info**, you will see ``TEMPLATE_ID``, ``DEVICE_NAME``, and ``AUTH_TOKEN`` on the **Device info** page, and you will need to copy them later.
+#. Allez à ce **Quickstart Device** et cliquez sur **Device Info**, vous verrez ``TEMPLATE_ID``, ``DEVICE_NAME``, et ``AUTH_TOKEN`` sur la page **Device info**, et vous devrez les copier plus tard.
 
    .. image:: img/sp20220614174721.png
     :width: 90%

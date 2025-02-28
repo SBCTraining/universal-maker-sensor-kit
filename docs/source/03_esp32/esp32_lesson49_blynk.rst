@@ -1,154 +1,153 @@
 
 
-.. note::
+.. note:: 
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    Bonjour, bienvenue dans la communauté des passionnés de Raspberry Pi, Arduino et ESP32 de SunFounder sur Facebook ! Plongez plus profondément dans l'univers de Raspberry Pi, Arduino et ESP32 avec d'autres passionnés.
 
-    **Why Join?**
+    **Pourquoi nous rejoindre ?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Support d'experts** : Résolvez les problèmes après-vente et les défis techniques avec l'aide de notre communauté et de notre équipe.
+    - **Apprendre & Partager** : Échangez des astuces et des tutoriels pour améliorer vos compétences.
+    - **Aperçus exclusifs** : Accédez en avant-première aux nouvelles annonces de produits et aux aperçus.
+    - **Réductions spéciales** : Profitez de réductions exclusives sur nos produits les plus récents.
+    - **Promotions festives et cadeaux** : Participez à des concours et des promotions pendant les fêtes.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 Prêt à explorer et à créer avec nous ? Cliquez sur [|link_sf_facebook|] et rejoignez-nous dès aujourd'hui !
 
 .. _esp32_iot_intrusion_alert_system:
 
-Lesson 49: Blynk-based Intrusion Notification System
-=============================================================
+Leçon 49 : Système de notification d'intrusion basé sur Blynk
+=================================================================
 
-This project demonstrate a simple home intrusion detection system using a PIR motion sensor (HC-SR501).
-When the system is set to "Away" mode through the Blynk app, the PIR sensor monitors for motion.
-Any detected movement triggers a notification on the Blynk app, alerting the user of potential intrusion.
+Ce projet montre comment créer un système simple de détection d'intrusion domestique en utilisant un capteur de mouvement PIR (HC-SR501).
+Lorsque le système est mis en mode "Away" via l'application Blynk, le capteur PIR surveille les mouvements.
+Tout mouvement détecté déclenche une notification sur l'application Blynk, alertant l'utilisateur d'une possible intrusion.
 
-**Required Components**
+**Composants nécessaires**
 
-In this project, we need the following components. 
+Dans ce projet, vous aurez besoin des composants suivants.
 
-It's definitely convenient to buy a whole kit, here's the link: 
+Il est certainement pratique d'acheter un kit complet, voici le lien :
 
 .. list-table::
     :widths: 20 20 20
     :header-rows: 1
 
-    *   - Name	
-        - ITEMS IN THIS KIT
-        - LINK
-    *   - Universal Maker Sensor Kit
+    *   - Nom    
+        - COMPOSANTS DANS CE KIT
+        - Lien
+    *   - Kit de capteurs Universal Maker
         - 94
         - |link_umsk|
 
-You can also buy them separately from the links below.
+Vous pouvez également les acheter séparément via les liens ci-dessous.
 
 .. list-table::
     :widths: 30 20
     :header-rows: 1
 
-    *   - COMPONENT INTRODUCTION
-        - PURCHASE LINK
+    *   - DESCRIPTION DU COMPOSANT
+        - LIEN D'ACHAT
 
-    *   - ESP32 & Development Board (:ref:`cpn_esp32_wroom_32e`)
+    *   - ESP32 & Carte de développement (:ref:`cpn_esp32_wroom_32e`)
         - |link_esp32_camera_pro_kit_buy|
     *   - :ref:`cpn_pir_motion`
         - \-
 
-
-1. Circuit Assembly
---------------------
+1. Assemblage du circuit
+--------------------------
 
 .. image:: img/Lesson_12_PIR_Module_esp32_bb.png
     :width: 100%
     :align: center
 
-2. Blynk Configuration
-----------------------
+2. Configuration de Blynk
+----------------------------
 
-**2.1 Initializing Blynk**
+**2.1 Initialisation de Blynk**
 
-#. Navigate to the |link_blynk| and select **START FREE**. 
+#. Rendez-vous sur |link_blynk| et sélectionnez **START FREE**. 
 
    .. image:: img/09_blynk_access.png
         :width: 90%
 
-#. Enter your email to initiate the registration process.
+#. Entrez votre adresse e-mail pour commencer le processus d'inscription.
 
    .. image:: img/09_blynk_sign_in.png
         :width: 70%
         :align: center
 
-#. Confirm your registration through your email.
+#. Confirmez votre inscription via votre e-mail.
 
     .. image:: img/09_blynk_password.png
         :width: 90%
 
-#. After confirmation, **Blynk Tour** will appear. It is recommended to select "Skip". If **Quick Start** also appears, consider skipping it as well.
-   
+#. Après confirmation, un **Blynk Tour** apparaîtra. Il est recommandé de sélectionner "Skip". Si l'option **Quick Start** apparaît également, vous pouvez aussi la sauter.
+
     .. image:: img/09_blynk_tour.png
         :width: 90%
 
-**2.2 Template Creation**
+**2.2 Création du modèle**
 
-#. First, create a template in Blynk. Follow the subsequent instructions to create the **Intrusion Alert System** template.
+#. Commencez par créer un modèle dans Blynk. Suivez les étapes ci-dessous pour créer le modèle **Intrusion Alert System**.
 
     .. image:: img/09_create_template_1_shadow.png
         :width: 700
         :align: center
 
-#. Assign a name to the template, select **ESP32** Hardware, and select **Connection Type** as **WiFi**, then select **Done**.
+#. Attribuez un nom au modèle, sélectionnez le matériel **ESP32**, puis choisissez **WiFi** comme type de connexion, et enfin cliquez sur **Done**.
 
     .. image:: img/09_create_template_2_shadow.png
         :width: 700
         :align: center
 
-**2.3 Datastream Generation**
+**2.3 Génération de flux de données**
 
-Open the template you just set up, let's create two datastreams.
+Ouvrez le modèle que vous venez de configurer, nous allons créer deux flux de données.
 
-#. Click **New Datastream**.
+#. Cliquez sur **New Datastream**.
 
     .. image:: img/09_blynk_new_datastream.png
         :width: 700
         :align: center
 
-#. In the popup, choose **Virtual Pin**.
+#. Dans la fenêtre contextuelle, choisissez **Virtual Pin**.
 
     .. image:: img/09_blynk_datastream_virtual.png
         :width: 700
         :align: center
 
-#. Name the **Virtual Pin V0** as **AwayMode**. Set the **DATA TYPE** as **Integer** with **MIN** and **MAX** values as **0** and **1**.
+#. Nommez le **Virtual Pin V0** **AwayMode**. Définissez le **DATA TYPE** sur **Integer** avec les valeurs **MIN** et **MAX** égales respectivement à **0** et **1**.
 
     .. image:: img/09_create_template_shadow.png
         :width: 700
         :align: center
 
-#. Similarly, create another **Virtual Pin** datastream. Name it **Current Status** and set the **DATA TYPE** to **String**.
+#. De manière similaire, créez un autre flux **Virtual Pin**. Nommez-le **Current Status** et définissez le **DATA TYPE** sur **String**.
 
     .. image:: img/09_datastream_1_shadow.png
         :width: 700
         :align: center
 
-**2.4 Setting Up an Event**
+**2.4 Configuration d'un événement**
 
-Next, we'll set up an event that sends an email notification if an intrusion is detected.
+Ensuite, nous allons configurer un événement qui envoie une notification par e-mail lorsqu'une intrusion est détectée.
 
-#. Click **Add New Event**.
+#. Cliquez sur **Add New Event**.
 
     .. image:: img/09_blynk_event_add.png
 
-#. Define the event's name and its specific code. For **TYPE**, choose **Warning** and write a short description for the email to be sent when the event happens. You can also adjust how often you get notified.
+#. Définissez le nom de l'événement et son code spécifique. Pour **TYPE**, choisissez **Warning** et écrivez une courte description pour l'e-mail qui sera envoyé lorsque l'événement se produira. Vous pouvez également ajuster la fréquence des notifications.
 
     .. note::
-        
-        Make sure the **EVENT CODE** is set as ``intrusion_detected``. This is predefined in the code, so any changes would mean you need to adjust the code as well.
+
+        Assurez-vous que le **EVENT CODE** soit défini sur ``intrusion_detected`` . Ce code est prédéfini dans le code, donc toute modification de ce code entraînera un besoin d'ajustement dans le programme.
 
     .. image:: img/09_event_1_shadow.png
         :width: 700
         :align: center
 
-#. Go to the **Notifications** section to turn on notifications and set up email details.
+#. Allez dans la section **Notifications** pour activer les notifications et configurer les détails de l'e-mail.
 
     .. image:: img/09_event_2_shadow.png
         :width: 80%
@@ -156,86 +155,86 @@ Next, we'll set up an event that sends an email notification if an intrusion is 
 
 .. raw:: html
     
-    <br/> 
+    <br/>
 
-**2.5  Fine-Tuning the Web Dashboard**
+**2.5 Optimisation du tableau de bord Web**
 
-Making sure the **Web Dashboard** interacts perfectly with the Intrusion Alert System is vital.
+Il est crucial de s'assurer que le **Tableau de bord Web** interagit parfaitement avec le Système d'alerte d'intrusion.
 
-#. Simply drag and place both the **Switch widget** and the **Label widget** onto the **Web Dashboard**.
+#. Glissez simplement le **widget Interrupteur** et le **widget Étiquette** sur le **Tableau de bord Web**.
 
     .. image:: img/09_web_dashboard_1_shadow.png
         :width: 100%
         :align: center
 
-#. When you hover over a widget, three icons will appear. Use the settings icon to adjust the widget's properties.
+#. Lorsque vous survolez un widget, trois icônes apparaîtront. Utilisez l'icône des paramètres pour ajuster les propriétés du widget.
 
     .. image:: img/09_blynk_dashboard_set.png
         :width: 100%
         :align: center
 
-#. In the **Switch widget** settings, select **Datastream** as **AwayMode(V0)**. Set **ONLABEL** and **OFFLABEL** to display **"away"** and **"home"**, respectively.
+#. Dans les paramètres du **widget Interrupteur**, sélectionnez **Flux de données** comme **AwayMode(V0)**. Définissez **ONLABEL** et **OFFLABEL** pour afficher respectivement **"absent"** et **"présent"**.
 
     .. image:: img/09_web_dashboard_2_shadow.png
         :width: 100%
         :align: center
 
-#. In the **Label widget** settings, select **Datastream** as **Current Status(V1)**.
+#. Dans les paramètres du **widget Étiquette**, sélectionnez **Flux de données** comme **Current Status(V1)**.
 
     .. image:: img/09_web_dashboard_3_shadow.png
         :width: 100%
         :align: center
 
-**2.6 Saving the Template**
+**2.6 Sauvegarde du modèle**
 
-Lastly, don't forget to save your template.
+Enfin, n'oubliez pas de sauvegarder votre modèle.
 
     .. image:: img/09_save_template_shadow.png
         :width: 100%
         :align: center
 
-**2.7 Making a Device**
+**2.7 Création d'un appareil**
 
-#. It's time to create a new device.
+#. Il est temps de créer un nouvel appareil.
 
     .. image:: img/09_blynk_device_new.png
         :width: 700
         :align: center
 
-#. Click on **From template** to start with a new setup.
+#. Cliquez sur **From template** pour commencer avec une nouvelle configuration.
 
     .. image:: img/09_blynk_device_template.png
         :width: 700
         :align: center
 
-#. Then, pick the **Intrusion Alert System** template and click on **Create**.
+#. Ensuite, choisissez le modèle **Système d'alerte d'intrusion** et cliquez sur **Créer**.
 
     .. image:: img/09_blynk_device_template2.png
         :width: 700
         :align: center
 
-#. Here, you'll see the ``Template ID``, ``Device Name``, and ``AuthToken``. You need to copy these into your code so the ESP32 can work with Blynk.
+#. Ici, vous verrez l'``ID du modèle``, le ``Nom de l'appareil`` et le ``AuthToken``. Vous devez copier ces informations dans votre code pour que l'ESP32 puisse fonctionner avec Blynk.
 
     .. image:: img/09_blynk_device_code.png
         :width: 700
         :align: center
 
-3. Code Execution
+3. Exécution du code
 -----------------------------
-#. Before running the code, make sure to install the ``Blynk`` library from the **Library Manager** on the Arduino IDE.
+#. Avant d'exécuter le code, assurez-vous d'installer la bibliothèque ``Blynk`` depuis le **Gestionnaire de bibliothèques** de l'IDE Arduino.
 
     .. image:: img/09_blynk_add_library.png
         :width: 700
         :align: center
 
-#. Open the ``Lesson_49_Blynk_based_intrusion_system.ino`` file, which is located in the ``universal-maker-sensor-kit\esp32\Lesson_49_Blynk_based_intrusion_system`` directory. You can also copy its content into the Arduino IDE.
+#. Ouvrez le fichier ``Lesson_49_Blynk_based_intrusion_system.ino``, qui se trouve dans le répertoire ``universal-maker-sensor-kit\esp32\Lesson_49_Blynk_based_intrusion_system``. Vous pouvez également copier son contenu dans l'IDE Arduino.
 
     .. raw:: html
 
-        <iframe src=https://create.arduino.cc/editor/sunfounder01/987fb2fd-47e9-4a73-9020-6b2111eadd9c/preview?embed style="height:510px;width:100%;margin:10px 0" frameborder=0></iframe>
+        <iframe src="https://app.arduino.cc/sketches/ddb3006a-befa-46c4-bc71-9e32bcfbe31d?view-mode=embed" style="height:510px;width:100%;margin:10px 0" frameborder=0></iframe>
         
 
-#. Replace the placeholders for ``BLYNK_TEMPLATE_ID``, ``BLYNK_TEMPLATE_NAME``, and ``BLYNK_AUTH_TOKEN`` with your own unique IDs.
+#. Remplacez les espaces réservés pour ``BLYNK_TEMPLATE_ID``, ``BLYNK_TEMPLATE_NAME``, et ``BLYNK_AUTH_TOKEN`` par vos propres identifiants uniques.
 
     .. code-block:: arduino
     
@@ -243,36 +242,36 @@ Lastly, don't forget to save your template.
         #define BLYNK_TEMPLATE_NAME "Intrusion Alert System"
         #define BLYNK_AUTH_TOKEN "xxxxxxxxxxxxx"
 
-#. You also need to enter your WiFi network's ``ssid`` and ``password``.
+#. Vous devez également entrer le ``ssid`` et le ``mot de passe`` de votre réseau WiFi.
 
    .. code-block:: arduino
 
         char ssid[] = "your_ssid";
         char pass[] = "your_password";
 
-#. Choose the correct board (**ESP32 Dev Module**) and port, then click the **Upload** button.
+#. Choisissez la carte correcte (**Module ESP32 Dev**) et le port, puis cliquez sur le bouton **Téléverser**.
 
-#. Open the Serial monitor (set baud rate to 115200) and wait for a successful connection message.
+#. Ouvrez le moniteur série (réglez le débit en bauds sur 115200) et attendez un message de connexion réussie.
 
     .. image:: img/09_blynk_upload_code.png
         :align: center
 
-#. After a successful connection, activating the switch in Blynk will start the PIR module's surveillance. When motion is detected (state of 1), it will say, "Somebody here!" and send an alert to your email.
+#. Après une connexion réussie, l'activation de l'interrupteur dans Blynk démarrera la surveillance du module PIR. Lorsque le mouvement est détecté (état de 1), il dira, "Quelqu'un est là !" et enverra une alerte par e-mail.
 
     .. image:: img/09_blynk_code_alarm.png
         :width: 700
         :align: center
 
-4. Code explanation
+4. Explication du code
 -----------------------------
 
-#. **Configuration & Libraries**
+#. **Configuration & Bibliothèques**
 
-   Here, you set up the Blynk constants and credentials. You also include the necessary libraries for the ESP32 and Blynk.
+   Ici, vous configurez les constantes et les identifiants Blynk. Vous incluez également les bibliothèques nécessaires pour l'ESP32 et Blynk.
 
     .. code-block:: arduino
 
-        /* Comment this out to disable prints and save space */
+        /* Commentez ceci pour désactiver les impressions et économiser de l'espace */
         #define BLYNK_PRINT Serial
 
         #define BLYNK_TEMPLATE_ID "xxxxxxxxxxx"
@@ -283,18 +282,18 @@ Lastly, don't forget to save your template.
         #include <WiFiClient.h>
         #include <BlynkSimpleEsp32.h>
 
-#. **WiFi Setup**
+#. **Configuration WiFi**
 
-   Enter your WiFi credentials.
+   Entrez vos identifiants WiFi.
 
    .. code-block:: arduino
 
         char ssid[] = "your_ssid";
         char pass[] = "your_password";
 
-#. **PIR Sensor Configuration**
+#. **Configuration du capteur PIR**
 
-   Set the pin where the PIR sensor is connected and initialize the state variables.
+   Définissez la broche à laquelle le capteur PIR est connecté et initialisez les variables d'état.
 
    .. code-block:: arduino
 
@@ -303,11 +302,11 @@ Lastly, don't forget to save your template.
       int awayHomeMode = 0;
       BlynkTimer timer;
 
-#. **setup() Function**
+#. **Fonction setup()**
 
-   This function initializes the PIR sensor as an input, sets up serial communication, connects to WiFi, and configures Blynk.
+   Cette fonction initialise le capteur PIR en tant qu'entrée, configure la communication série, se connecte au WiFi et configure Blynk.
 
-   - We use ``timer.setInterval(1000L, myTimerEvent)`` to set the timer interval in ``setup()``, here we set to execute the ``myTimerEvent()`` function every **1000ms**. You can modify the first parameter of ``timer.setInterval(1000L, myTimerEvent)`` to change the interval between ``myTimerEvent`` executions.
+   - Nous utilisons ``timer.setInterval(1000L, myTimerEvent)`` pour définir l'intervalle de temps dans ``setup()``, ici nous réglons pour exécuter la fonction ``myTimerEvent()`` toutes les **1000 ms**. Vous pouvez modifier le premier paramètre de ``timer.setInterval(1000L, myTimerEvent)`` pour changer l'intervalle entre les exécutions de ``myTimerEvent``.
 
    .. raw:: html
     
@@ -317,18 +316,18 @@ Lastly, don't forget to save your template.
 
         void setup() {
 
-            pinMode(sensorPin, INPUT);  // Set PIR sensor pin as input
-            Serial.begin(115200);           // Start serial communication at 115200 baud rate for debugging
+            pinMode(sensorPin, INPUT);  // Définir la broche du capteur PIR comme entrée
+            Serial.begin(115200);       // Commencer la communication série à 115200 bauds pour le débogage
             
-            // Configure Blynk and connect to WiFi
+            // Configurer Blynk et se connecter au WiFi
             Blynk.begin(BLYNK_AUTH_TOKEN, ssid, pass);
             
-            timer.setInterval(1000L, myTimerEvent);  // Setup a function to be called every second
+            timer.setInterval(1000L, myTimerEvent);  // Configurer une fonction à appeler toutes les secondes
         }
 
-#. **loop() Function**
+#. **Fonction loop()**
 
-   The loop function continuously runs Blynk and the Blynk timer functions.
+   La fonction loop exécute en continu Blynk et les fonctions du timer Blynk.
 
    .. code-block:: arduino
 
@@ -337,13 +336,13 @@ Lastly, don't forget to save your template.
            timer.run();
         }
 
-#. **Blynk App Interaction**
+#. **Interaction avec l'application Blynk**
 
-   These functions are called when the device connects to Blynk and when there's a change in the state of the virtual pin V0 on the Blynk app.
+   Ces fonctions sont appelées lorsque l'appareil se connecte à Blynk et lorsqu'il y a un changement d'état du pin virtuel V0 sur l'application Blynk.
 
-   - Every time the device connects to the Blynk server, or reconnects due to poor network conditions, the ``BLYNK_CONNECTED()`` function is called. The ``Blynk.syncVirtual()`` command request a single Virtual Pin value. The specified Virtual Pin will perform ``BLYNK_WRITE()`` call. 
+   - Chaque fois que l'appareil se connecte au serveur Blynk, ou se reconnecte en raison de conditions de réseau médiocres, la fonction ``BLYNK_CONNECTED()`` est appelée. La commande ``Blynk.syncVirtual()`` demande la valeur d'un Pin Virtuel unique. Le Pin Virtuel spécifié effectuera l'appel ``BLYNK_WRITE()``.
 
-   - Whenever the value of a virtual pin on the BLYNK server changes, it will trigger ``BLYNK_WRITE()``.
+   - Chaque fois que la valeur d'un pin virtuel sur le serveur BLYNK change, cela déclenchera ``BLYNK_WRITE()``.
 
    .. raw:: html
     
@@ -351,24 +350,24 @@ Lastly, don't forget to save your template.
 
    .. code-block:: arduino
       
-        // This function is called every time the device is connected to the Blynk.Cloud
+        // Cette fonction est appelée chaque fois que l'appareil est connecté à Blynk.Cloud
         BLYNK_CONNECTED() {
             Blynk.syncVirtual(V0);
         }
       
-        // This function is called every time the Virtual Pin 0 state changes
+        // Cette fonction est appelée chaque fois que l'état du Pin Virtuel 0 change
         BLYNK_WRITE(V0) {
             awayHomeMode = param.asInt();
-            // additional logic
+            // logique supplémentaire
         }
 
-#. **Data Handling**
+#. **Gestion des données**
 
-   Every second, the ``myTimerEvent()`` function calls ``sendData()``. If the away mode is enabled on Blynk, it checks the PIR sensor and sends a notification to Blynk if motion is detected.
+   Chaque seconde, la fonction ``myTimerEvent()`` appelle ``sendData()``. Si le mode absent est activé sur Blynk, elle vérifie le capteur PIR et envoie une notification à Blynk si un mouvement est détecté.
 
-   - We use ``Blynk.virtualWrite(V1, "Somebody in your house! Please check!");`` to change the text of a label.
+   - Nous utilisons ``Blynk.virtualWrite(V1, "Quelqu'un dans votre maison ! Veuillez vérifier !");`` pour changer le texte d'une étiquette.
 
-   - Use ``Blynk.logEvent("intrusion_detected");`` to log event to Blynk.
+   - Utilisez ``Blynk.logEvent("intrusion_detected");`` pour enregistrer l'événement sur Blynk.
 
    .. raw:: html
     
@@ -382,12 +381,12 @@ Lastly, don't forget to save your template.
 
         void sendData() {
            if (awayHomeMode == 1) {
-              state = digitalRead(sensorPin);  // Read the state of the PIR sensor
+              state = digitalRead(sensorPin);  // Lire l'état du capteur PIR
 
               Serial.print("state:");
               Serial.println(state);
 
-              // If the sensor detects movement, send an alert to the Blynk app
+              // Si le capteur détecte un mouvement, envoyer une alerte à l'application Blynk
               if (state == HIGH) {
                 Serial.println("Somebody here!");
                 Blynk.virtualWrite(V1, "Somebody in your house! Please check!");
@@ -396,7 +395,7 @@ Lastly, don't forget to save your template.
            }
         }
 
-**Reference**
+**Référence**
 
 - |link_blynk_doc|
 - |link_blynk_quickstart| 

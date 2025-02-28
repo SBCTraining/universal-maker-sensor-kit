@@ -1,52 +1,52 @@
 .. note::
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    Bonjour, bienvenue dans la communauté des passionnés de SunFounder Raspberry Pi, Arduino et ESP32 sur Facebook ! Plongez dans l’univers de Raspberry Pi, Arduino et ESP32 avec d’autres passionnés.
 
-    **Why Join?**
+    **Pourquoi rejoindre ?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Support d'experts** : Résolvez les problèmes après-vente et relevez les défis techniques grâce à l’aide de notre communauté et de notre équipe.
+    - **Apprendre & Partager** : Échangez des conseils et des tutoriels pour améliorer vos compétences.
+    - **Aperçus exclusifs** : Bénéficiez d’un accès anticipé aux annonces de nouveaux produits et à des démonstrations exclusives.
+    - **Réductions spéciales** : Profitez de remises exclusives sur nos dernières nouveautés.
+    - **Promotions festives et cadeaux** : Participez à des jeux concours et à des offres promotionnelles spéciales pour les fêtes.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 Prêt à explorer et créer avec nous ? Cliquez sur [|link_sf_facebook|] et rejoignez-nous dès aujourd’hui !
 
 .. _esp32_lesson15_raindrop:
 
-Lesson 15: Raindrop Detection Module
-=======================================
+Leçon 15 : Module de détection de pluie
+===========================================
 
-In this lesson, you will learn how to use a raindrop detection sensor with an ESP32 Development Board. We'll cover reading digital signals from the sensor when it detects rainwater and displaying this information on the serial monitor. This project provides an engaging way to grasp digital input and output in microcontroller programming, making it ideal for beginners in electronics and coding with the ESP32 platform.
+Dans cette leçon, vous apprendrez à utiliser un capteur de détection de pluie avec une carte de développement ESP32. Nous verrons comment lire les signaux numériques du capteur lorsqu’il détecte de l’eau de pluie et comment afficher ces informations sur le moniteur série. Ce projet constitue une introduction ludique à la gestion des entrées et sorties numériques en programmation microcontrôleur, ce qui le rend idéal pour les débutants en électronique et en programmation sur la plateforme ESP32.
 
-Required Components
+Composants requis
 --------------------------
 
-In this project, we need the following components. 
+Dans ce projet, nous avons besoin des composants suivants.
 
-It's definitely convenient to buy a whole kit, here's the link: 
+Il est plus pratique d’acheter un kit complet, voici le lien :
 
 .. list-table::
     :widths: 20 20 20
     :header-rows: 1
 
-    *   - Name	
-        - ITEMS IN THIS KIT
-        - LINK
-    *   - Universal Maker Sensor Kit
+    *   - Nom
+        - ÉLÉMENTS DANS CE KIT
+        - LIEN
+    *   - Kit Capteurs Universel pour Makers
         - 94
         - |link_umsk|
 
-You can also buy them separately from the links below.
+Vous pouvez également les acheter séparément via les liens ci-dessous.
 
 .. list-table::
     :widths: 30 20
     :header-rows: 1
 
-    *   - Component Introduction
-        - Purchase Link
+    *   - Présentation du composant
+        - Lien d’achat
 
-    *   - ESP32 & Development Board (:ref:`cpn_esp32_wroom_32e`)
+    *   - ESP32 & Carte de développement (:ref:`cpn_esp32_wroom_32e`)
         - |link_esp32_camera_pro_kit_buy|
     *   - :ref:`cpn_raindrop`
         - |link_raindrop_sensor_module_buy|
@@ -54,7 +54,7 @@ You can also buy them separately from the links below.
         - |link_breadboard_buy|
 
 
-Wiring
+Câblage
 ---------------------------
 
 .. image:: img/Lesson_15_Raindrop_Detection_Module_esp32_bb.png
@@ -68,34 +68,34 @@ Code
 
     <iframe src=https://create.arduino.cc/editor/sunfounder01/5aff47ab-22c5-4500-bbe3-fefc55f6e40f/preview?embed style="height:510px;width:100%;margin:10px 0" frameborder=0></iframe>
 
-Code Analysis
+Analyse du code
 ---------------------------
 
-1. Defining sensor pin
+1. Définition de la broche du capteur
 
-   Here, a constant integer named ``sensorPin`` is defined and assigned the value 25. This corresponds to the digital pin on the ESP32 Development Board where the raindrops detection sensor is connected.
+   Ici, une constante entière nommée ``sensorPin`` est définie et assignée à la valeur 25. Cela correspond à la broche numérique de la carte ESP32 où le capteur de détection de pluie est connecté.
 
    .. code-block:: arduino
-   
+
        const int sensorPin = 25;
 
-2. Setting up the pin mode and initiating serial communication.
+2. Configuration de la broche et initialisation de la communication série.
 
-   In the ``setup()`` function, two essential steps are performed. Firstly, ``pinMode()`` is used to set the ``sensorPin`` as an input, enabling us to read digital values from the raindrops sensor. Secondly, serial communication is initialized with a baud rate of 9600.
+   Dans la fonction ``setup()``, deux étapes essentielles sont effectuées. Tout d’abord, ``pinMode()`` est utilisé pour configurer ``sensorPin`` en tant qu’entrée, permettant ainsi de lire les valeurs numériques du capteur de pluie. Ensuite, la communication série est initialisée avec un débit de 9600 bauds.
 
    .. code-block:: arduino
-   
+
        void setup() {
          pinMode(sensorPin, INPUT);
          Serial.begin(9600);
        }
 
-3. Reading the digital value and sending it to the serial monitor. 
+3. Lecture de la valeur numérique et affichage sur le moniteur série.
 
-   The ``loop()`` function reads the digital value from the raindrops sensor using ``digitalRead()``. This value (either HIGH or LOW) is printed to the Serial Monitor. When raindrops are detected, the serial monitor will display 0; when no raindrops are detected, it will display 1. The program then waits for 50 milliseconds before the next reading.
+   La fonction ``loop()`` lit en continu la valeur numérique du capteur de pluie à l’aide de ``digitalRead()``. Cette valeur (HIGH ou LOW) est affichée sur le moniteur série. Lorsque des gouttes de pluie sont détectées, le moniteur série affichera 0 ; en l’absence de pluie, il affichera 1. Le programme attend ensuite 50 millisecondes avant de refaire une lecture.
 
    .. code-block:: arduino
-   
+
        void loop() {
          Serial.println(digitalRead(sensorPin));
          delay(50);

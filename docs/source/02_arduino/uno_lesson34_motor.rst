@@ -1,52 +1,52 @@
-.. note::
+.. note:: 
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    Bonjour, bienvenue dans la communauté SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts sur Facebook ! Plongez plus profondément dans l’univers de Raspberry Pi, Arduino et ESP32 avec d’autres passionnés.
 
-    **Why Join?**
+    **Pourquoi nous rejoindre ?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Support d’experts** : Résolvez les problèmes après-vente et relevez des défis techniques avec l’aide de notre communauté et de notre équipe.
+    - **Apprendre et partager** : Échangez des conseils et des tutoriels pour perfectionner vos compétences.
+    - **Aperçus exclusifs** : Accédez en avant-première aux annonces de nouveaux produits et aux aperçus exclusifs.
+    - **Réductions spéciales** : Bénéficiez de remises exclusives sur nos nouveaux produits.
+    - **Promotions festives et cadeaux** : Participez à des tirages au sort et à des offres spéciales pour les fêtes.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 Prêt à explorer et à créer avec nous ? Cliquez sur [|link_sf_facebook|] et rejoignez-nous dès aujourd’hui !
 
 .. _uno_lesson34_motor:
 
-Lesson 34: TT Motor
+Leçon 34 : Moteur TT
 ==================================
 
-In this lesson, you will learn how to control a motor using an Arduino Uno R3 or R4 and an L9110 motor control board. We'll cover defining motor pins and setting their speed through programming. This tutorial will walk you through the process of connecting and controlling a motor, demonstrating the basic principles of motor operation and control in Arduino projects. Geared towards beginners, this lesson provides a hands-on approach to understanding output operations on the Arduino platform.
+Dans cette leçon, vous apprendrez à contrôler un moteur à l’aide d’un Arduino Uno R3 ou R4 et d’un module de commande moteur L9110. Nous verrons comment définir les broches du moteur et régler sa vitesse via un programme. Ce tutoriel vous guidera à travers le processus de connexion et de contrôle du moteur, tout en expliquant les principes fondamentaux du fonctionnement et du pilotage d’un moteur dans les projets Arduino. Conçue pour les débutants, cette leçon offre une approche pratique pour comprendre les sorties numériques sur la plateforme Arduino.
 
-Required Components
+Composants nécessaires
 --------------------------
 
-In this project, we need the following components. 
+Pour ce projet, nous avons besoin des composants suivants.
 
-It's definitely convenient to buy a whole kit, here's the link: 
+Il est bien plus pratique d’acheter un kit complet, voici le lien :
 
 .. list-table::
     :widths: 20 20 20
     :header-rows: 1
 
-    *   - Name	
-        - ITEMS IN THIS KIT
-        - LINK
-    *   - Universal Maker Sensor Kit
+    *   - Nom
+        - ÉLÉMENTS DANS CE KIT
+        - LIEN
+    *   - Kit de capteurs Universal Maker
         - 94
         - |link_umsk|
 
-You can also buy them separately from the links below.
+Vous pouvez également les acheter séparément via les liens ci-dessous.
 
 .. list-table::
     :widths: 30 20
     :header-rows: 1
 
-    *   - Component Introduction
-        - Purchase Link
+    *   - Introduction des composants
+        - Lien d'achat
 
-    *   - Arduino UNO R3 or R4
+    *   - Arduino UNO R3 ou R4
         - |link_Uno_R3_buy|
     *   - :ref:`cpn_ttmotor`
         - \-
@@ -54,12 +54,11 @@ You can also buy them separately from the links below.
         - \-
 
 
-Wiring
+Câblage
 ---------------------------
 
 .. image:: img/Lesson_34_tt_motor_uno_bb.png
     :width: 100%
-
 
 Code
 ---------------------------
@@ -68,30 +67,30 @@ Code
 
     <iframe src=https://create.arduino.cc/editor/sunfounder01/89894de5-2114-4056-a064-0c495c6de447/preview?embed style="height:510px;width:100%;margin:10px 0" frameborder=0></iframe>
 
-Code Analysis
+Analyse du code
 ---------------------------
 
-1. The first part of the code defines the motor control pins. These are connected to the L9110 motor control board.
+1. La première partie du code définit les broches de contrôle du moteur. Celles-ci sont connectées au module de commande moteur L9110.
 
    .. code-block:: arduino
-   
-      // Define the motor pins
+
+      // Définition des broches du moteur
       const int motorB_1A = 9;
       const int motorB_2A = 10;
 
-2. The ``setup()`` function initializes the motor control pins as output using the ``pinMode()`` function. Then it uses ``analogWrite()`` to set the speed of the motor. The value passed to ``analogWrite()`` can range from 0 (off) to 255 (full speed). A ``delay()`` function is then used to pause the code for 5000 milliseconds (or 5 seconds), after which the motor speed is set to 0 (off).
+2. La fonction ``setup()`` initialise les broches de contrôle du moteur en tant que sorties à l’aide de ``pinMode()``. Ensuite, ``analogWrite()`` est utilisé pour régler la vitesse du moteur. La valeur passée à ``analogWrite()`` peut varier de 0 (arrêt) à 255 (vitesse maximale). Une pause de 5000 millisecondes (5 secondes) est ajoutée grâce à la fonction ``delay()``, après quoi la vitesse du moteur est réglée sur 0 (arrêt).
 
    .. code-block:: arduino
-   
+
       void setup() {
-        pinMode(motorB_1A, OUTPUT);  // set motor pin 1 as output
-        pinMode(motorB_2A, OUTPUT);  // set motor pin 2 as output
-   
-        analogWrite(motorB_1A, 255);  // set motor speed (0-255)
+        pinMode(motorB_1A, OUTPUT);  // Définir la broche moteur 1 en sortie
+        pinMode(motorB_2A, OUTPUT);  // Définir la broche moteur 2 en sortie
+
+        analogWrite(motorB_1A, 255);  // Régler la vitesse du moteur (0-255)
         analogWrite(motorB_2A, 0);
-   
+
         delay(5000);
-   
+
         analogWrite(motorB_1A, 0);  
         analogWrite(motorB_2A, 0);
       }

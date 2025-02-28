@@ -1,50 +1,50 @@
-.. note::
+.. note:: 
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    Bonjour et bienvenue dans la communauté des passionnés de SunFounder Raspberry Pi, Arduino et ESP32 sur Facebook ! Explorez plus en profondeur le Raspberry Pi, Arduino et ESP32 avec d'autres passionnés.
 
-    **Why Join?**
+    **Pourquoi nous rejoindre ?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Support d’experts** : Résolvez les problèmes après-vente et les défis techniques avec l'aide de notre communauté et de notre équipe.
+    - **Apprendre et partager** : Échangez des astuces et des tutoriels pour perfectionner vos compétences.
+    - **Aperçus exclusifs** : Accédez en avant-première aux annonces de nouveaux produits et aperçus exclusifs.
+    - **Réductions spéciales** : Profitez de réductions exclusives sur nos nouveaux produits.
+    - **Promotions festives et concours** : Participez à des concours et promotions lors des fêtes.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 Prêt à explorer et à créer avec nous ? Cliquez sur [|link_sf_facebook|] et rejoignez-nous dès aujourd'hui !
 
 .. _pico_lesson14_max30102:
 
-Lesson 14: Pulse Oximeter and Heart Rate Sensor Module (MAX30102)
-====================================================================
+Leçon 14 : Module Oxymètre de Pouls et Capteur de Fréquence Cardiaque (MAX30102)
+===================================================================================
 
-In this lesson, you will learn how to use the Raspberry Pi Pico W to interface with the MAX30102 pulse oximeter and heart rate sensor. You will gain knowledge on setting up I2C communication, configuring the sensor, and reading raw data from the sensor. By observing changes in the data, you can obtain heartbeat information.
+Dans cette leçon, vous apprendrez à utiliser le Raspberry Pi Pico W pour interfacer avec l'oxymètre de pouls et le capteur de fréquence cardiaque MAX30102. Vous découvrirez comment configurer la communication I2C, configurer le capteur et lire les données brutes du capteur. En observant les changements dans les données, vous pourrez obtenir des informations sur la fréquence cardiaque.
 
-Required Components
+Composants Requis
 --------------------------
 
-In this project, we need the following components. 
+Dans ce projet, nous avons besoin des composants suivants.
 
-It's definitely convenient to buy a whole kit, here's the link: 
+Il est définitivement plus pratique d'acheter un kit complet, voici le lien :
 
 .. list-table::
     :widths: 20 20 20
     :header-rows: 1
 
-    *   - Name	
-        - ITEMS IN THIS KIT
-        - LINK
+    *   - Nom	
+        - Éléments dans ce kit
+        - Lien
     *   - Universal Maker Sensor Kit
         - 94
         - |link_umsk|
 
-You can also buy them separately from the links below.
+Vous pouvez également les acheter séparément via les liens ci-dessous.
 
 .. list-table::
     :widths: 30 10
     :header-rows: 1
 
-    *   - Component Introduction
-        - Purchase Link
+    *   - Introduction des composants
+        - Lien d'achat
 
     *   - Raspberry Pi Pico W
         - \-
@@ -54,7 +54,7 @@ You can also buy them separately from the links below.
         - |link_breadboard_buy|
 
 
-Wiring
+Câblage
 ---------------------------
 
 .. image:: img/Lesson_14_max30102_bb.png
@@ -66,11 +66,11 @@ Code
 
 .. note::
 
-    * Open the ``14_max30102_module.py`` file under the path of ``universal-maker-sensor-kit-main/pico/Lesson_14_MAX30102_Module`` or copy this code into Thonny, then click "Run Current Script" or simply press F5 to run it. For detailed tutorials, please refer to :ref:`open_run_code_py`. 
+    * Ouvrez le fichier ``14_max30102_module.py`` dans le répertoire ``universal-maker-sensor-kit-main/pico/Lesson_14_MAX30102_Module`` ou copiez ce code dans Thonny, puis cliquez sur "Exécuter le script actuel" ou appuyez simplement sur F5 pour l'exécuter. Pour des tutoriels détaillés, veuillez consulter :ref:`open_run_code_py`.
 
-    * Here you need to use the ``max30102`` folder, please check if it has been uploaded to Pico W, for a detailed tutorial refer to :ref:`add_libraries_py`.
+    * Vous devez utiliser le dossier ``max30102``, vérifiez s'il a bien été téléchargé sur le Pico W, pour un tutoriel détaillé, consultez :ref:`add_libraries_py`.
 
-    * Don't forget to click on the "MicroPython (Raspberry Pi Pico)" interpreter in the bottom right corner. 
+    * N'oubliez pas de sélectionner l'interpréteur "MicroPython (Raspberry Pi Pico)" dans le coin inférieur droit.
 
 .. code-block:: python
 
@@ -81,47 +81,47 @@ Code
    
    
    def main():
-       # I2C software instance
-       i2c = SoftI2C(sda=Pin(20),  # Here, use your I2C SDA pin
-                     scl=Pin(21),  # Here, use your I2C SCL pin
-                     freq=400000)  # Fast: 400kHz, slow: 100kHz
+       # Instance I2C logiciel
+       i2c = SoftI2C(sda=Pin(20),  # Utilisez ici votre broche SDA I2C
+                     scl=Pin(21),  # Utilisez ici votre broche SCL I2C
+                     freq=400000)  # Vitesse rapide : 400 kHz, lente : 100 kHz
    
-       # Sensor instance
-       sensor = MAX30102(i2c=i2c)  # An I2C instance is required
+       # Instance du capteur
+       sensor = MAX30102(i2c=i2c)  # Une instance I2C est nécessaire
    
-       # Scan I2C bus to ensure that the sensor is connected
+       # Scannez le bus I2C pour vérifier que le capteur est connecté
        if sensor.i2c_address not in i2c.scan():
            print("Sensor not found.")
            return
        elif not (sensor.check_part_id()):
-           # Check that the targeted sensor is compatible
+           # Vérifiez que le capteur ciblé est compatible
            print("I2C device ID not corresponding to MAX30102 or MAX30105.")
            return
        else:
            print("Sensor connected and recognized.")
    
-       # It's possible to set up the sensor at once with the setup_sensor() method.
-       # If no parameters are supplied, the default config is loaded:
-       # Led mode: 2 (RED + IR)
-       # ADC range: 16384
-       # Sample rate: 400 Hz
-       # Led power: maximum (50.0mA - Presence detection of ~12 inch)
-       # Averaged samples: 8
-       # pulse width: 411
+       # Il est possible de configurer le capteur en une seule fois avec la méthode setup_sensor().
+       # Si aucun paramètre n'est fourni, la configuration par défaut est chargée :
+       # Mode LED : 2 (ROUGE + IR)
+       # Plage ADC : 16384
+       # Taux d'échantillonnage : 400 Hz
+       # Puissance LED : maximum (50,0 mA - Détection de présence à environ 30 cm)
+       # Échantillons moyennés : 8
+       # Largeur d'impulsion : 411
        print("Setting up sensor with default configuration.", '\n')
        sensor.setup_sensor()
    
-       # It is also possible to tune the configuration parameters one by one.
-       # Set the sample rate to 400: 400 samples/s are collected by the sensor
+       # Il est également possible d'ajuster les paramètres de configuration un par un.
+       # Définir le taux d'échantillonnage à 400 : 400 échantillons/s sont collectés par le capteur
        sensor.set_sample_rate(400)
-       # Set the number of samples to be averaged per each reading
+       # Définir le nombre d'échantillons à moyenné par lecture
        sensor.set_fifo_average(8)
-       # Set LED brightness to a medium value
+       # Définir la luminosité des LED à une valeur moyenne
        sensor.set_active_leds_amplitude(MAX30105_PULSE_AMP_MEDIUM)
    
        sleep(1)
    
-       # The readTemperature() method allows to extract the die temperature in °C    
+       # La méthode readTemperature() permet d'extraire la température du capteur en °C    
        print("Reading temperature in °C.", '\n')
        print(sensor.read_temperature())
    
@@ -129,52 +129,49 @@ Code
        sleep(1)
    
        while True:
-           # The check() method has to be continuously polled, to check if
-           # there are new readings into the sensor's FIFO queue. When new
-           # readings are available, this function will put them into the storage.
+           # La méthode check() doit être interrogée en continu pour vérifier si
+           # de nouvelles lectures sont disponibles dans la file FIFO du capteur. Lorsque de nouvelles
+           # lectures sont disponibles, cette fonction les stocke.
            sensor.check()
    
-           # Check if the storage contains available samples
+           # Vérifiez si des échantillons sont disponibles dans la mémoire
            if sensor.available():
-               # Access the storage FIFO and gather the readings (integers)
+               # Accédez à la mémoire FIFO et récupérez les lectures (entiers)
                red_reading = sensor.pop_red_from_storage()
                ir_reading = sensor.pop_ir_from_storage()
    
-               # Print the acquired data (so that it can be plotted with a Serial Plotter)
-               print("red_reading",red_reading, "ir_reading", ir_reading)
+               # Affichez les données acquises (afin qu'elles puissent être tracées avec un Serial Plotter)
+               print("red_reading", red_reading, "ir_reading", ir_reading)
    
    if __name__ == '__main__':
        main()
 
-
-Code Analysis
+Analyse du Code
 ---------------------------
 
-#. Setting up I2C Interface
+1. Configuration de l'interface I2C
 
-   ``SoftI2C`` is initialized with SDA and SCL pins, and a frequency of 400kHz is set for the communication.
+   ``SoftI2C`` est initialisé avec les broches SDA et SCL, et une fréquence de 400 kHz est définie pour la communication.
 
    .. code-block:: python
 
       from machine import SoftI2C, Pin
       i2c = SoftI2C(sda=Pin(20), scl=Pin(21), freq=400000)
 
-#. Initializing the Sensor
+2. Initialisation du capteur
 
-   The MAX30102 sensor is initialized using the I2C interface.
-   A scan of the I2C bus is performed to ensure the sensor is connected and recognized.
+   Le capteur MAX30102 est initialisé à l'aide de l'interface I2C. Un scan du bus I2C est effectué pour vérifier que le capteur est connecté et reconnu.
 
-   For more information about the ``max30102`` library, please visit |link_micropython_max30102_driver|.
+   Pour plus d'informations sur la bibliothèque ``max30102``, veuillez consulter |link_micropython_max30102_driver|.
 
    .. code-block:: python
 
       from max30102 import MAX30102
       sensor = MAX30102(i2c=i2c)
 
-#. Sensor Configuration
+3. Configuration du capteur
 
-   The sensor is configured with default settings for LED mode, ADC range, sample rate, LED power, averaged samples, and pulse width.
-   Additional configurations like sample rate, FIFO average, and LED amplitude are set.
+   Le capteur est configuré avec des paramètres par défaut pour le mode LED, la plage ADC, le taux d'échantillonnage, la puissance LED, les échantillons moyennés et la largeur d'impulsion. D'autres configurations comme le taux d'échantillonnage, la moyenne FIFO et l'amplitude LED sont ensuite définies.
 
    .. code-block:: python
 
@@ -183,19 +180,20 @@ Code Analysis
       sensor.set_fifo_average(8)
       sensor.set_active_leds_amplitude(MAX30105_PULSE_AMP_MEDIUM)
 
-#. Reading Temperature
+4. Lecture de la température
 
-   The temperature of the sensor is read and printed.
+   La température du capteur est lue et affichée.
 
    .. code-block:: python
 
       print(sensor.read_temperature())
 
-#. Data Acquisition
+5. Acquisition des données
 
-   A loop is set up to continuously acquire data from the sensor.
-   The ``check()`` method is polled to see if new readings are available.
-   Red and IR readings are retrieved from the sensor's storage and printed.
+   Une boucle est configurée pour acquérir en continu les données du capteur. 
+   La méthode ``check()`` est interrogée pour vérifier si de nouvelles lectures 
+   sont disponibles. Les lectures de la lumière rouge et infrarouge sont récupérées 
+   de la mémoire du capteur et affichées.
 
    .. code-block:: python
 
@@ -206,7 +204,7 @@ Code Analysis
               ir_reading = sensor.pop_ir_from_storage()
               print("red_reading",red_reading, "ir_reading", ir_reading)
 
-   Open Plotter in Thonny to observe the heartbeat data.
+   Ouvrez le plotteur dans Thonny pour observer les données de fréquence cardiaque.
 
    .. image:: img/Lesson_14_max30102_plotter.png
       :width: 60%

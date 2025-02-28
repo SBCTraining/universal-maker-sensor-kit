@@ -1,58 +1,58 @@
 .. note::
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    Bonjour, bienvenue dans la communauté des passionnés de SunFounder Raspberry Pi & Arduino & ESP32 sur Facebook ! Plongez plus profondément dans l'univers du Raspberry Pi, de l'Arduino et de l'ESP32 avec d'autres passionnés.
 
-    **Why Join?**
+    **Pourquoi rejoindre ?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Support d'experts** : Résolvez les problèmes post-vente et les défis techniques avec l'aide de notre communauté et de notre équipe.
+    - **Apprendre & Partager** : Échangez des astuces et des tutoriels pour améliorer vos compétences.
+    - **Aperçus exclusifs** : Obtenez un accès anticipé aux annonces de nouveaux produits et aux avant-premières.
+    - **Réductions spéciales** : Profitez de réductions exclusives sur nos produits les plus récents.
+    - **Promotions festives et cadeaux** : Participez à des tirages au sort et à des promotions de fête.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 Prêt à explorer et à créer avec nous ? Cliquez sur [|link_sf_facebook|] et rejoignez-nous aujourd'hui !
 
 .. _uno_lesson21_vl53l0x:
 
-Lesson 21: Time of Flight Micro-LIDAR Distance Sensor (VL53L0X)
+Leçon 21 : Capteur de distance micro-LIDAR de vol (VL53L0X)
 ====================================================================
 
-In this lesson, you will learn how to use the VL53L0X Time of Flight Distance Sensor with an Arduino Uno. We'll cover the basics of connecting the sensor to measure distances in millimeters and displaying the readings on the serial monitor. This project provides hands-on experience with advanced sensors and their real-world applications, enhancing your Arduino skills.
+Dans cette leçon, vous apprendrez à utiliser le capteur de distance VL53L0X Time of Flight avec un Arduino Uno. Nous aborderons les bases du branchement du capteur pour mesurer des distances en millimètres et afficher les lectures sur le moniteur série. Ce projet offre une expérience pratique avec des capteurs avancés et leurs applications dans le monde réel, en améliorant vos compétences avec Arduino.
 
-Required Components
+Composants nécessaires
 --------------------------
 
-In this project, we need the following components. 
+Pour ce projet, nous avons besoin des composants suivants.
 
-It's definitely convenient to buy a whole kit, here's the link: 
+Il est vraiment pratique d'acheter un kit complet, voici le lien :
 
 .. list-table::
     :widths: 20 20 20
     :header-rows: 1
 
-    *   - Name	
-        - ITEMS IN THIS KIT
-        - LINK
-    *   - Universal Maker Sensor Kit
+    *   - Nom	
+        - ARTICLES DE CE KIT
+        - LIEN
+    *   - Kit capteur universel pour bricoleurs
         - 94
         - |link_umsk|
 
-You can also buy them separately from the links below.
+Vous pouvez également les acheter séparément via les liens ci-dessous.
 
 .. list-table::
     :widths: 30 10
     :header-rows: 1
 
-    *   - Component Introduction
-        - Purchase Link
+    *   - Introduction du composant
+        - Lien d'achat
 
-    *   - Arduino UNO R3 or R4
+    *   - Arduino UNO R3 ou R4
         - |link_Uno_R3_buy|
     *   - :ref:`cpn_VL53L0X`
         - |link_vl53l0x_module_buy|
 
 
-Wiring
+Câblage
 ---------------------------
 
 .. image:: img/Lesson_21_VL53L0X_module_circuit_uno_bb.png
@@ -63,26 +63,26 @@ Code
 ---------------------------
 
 .. note:: 
-   To install the library, use the Arduino Library Manager and search for **"Adafruit_VL53L0X"** and install it.
+   Pour installer la bibliothèque, utilisez le gestionnaire de bibliothèques Arduino et recherchez **"Adafruit_VL53L0X"** et installez-la.
 
 .. raw:: html
 
     <iframe src=https://create.arduino.cc/editor/sunfounder01/72c81822-13e0-4a33-8da0-acf3c966bf57/preview?embed style="height:510px;width:100%;margin:10px 0" frameborder=0></iframe>
 
-Code Analysis
+Analyse du code
 ---------------------------
 
-#. Including the necessary library and initializing the sensor object. We start by including the library for the VL53L0X sensor and creating an instance of the Adafruit_VL53L0X class.
+1. Inclusion des bibliothèques nécessaires et initialisation de l'objet capteur. Nous commençons par inclure la bibliothèque pour le capteur VL53L0X et créer une instance de la classe Adafruit_VL53L0X.
 
    .. note:: 
-      To install the library, use the Arduino Library Manager and search for **"Adafruit_VL53L0X"** and install it.  
+      Pour installer la bibliothèque, utilisez le gestionnaire de bibliothèques Arduino et recherchez **"Adafruit_VL53L0X"** et installez-la.
 
    .. code-block:: arduino
 
       #include <Adafruit_VL53L0X.h>
       Adafruit_VL53L0X lox = Adafruit_VL53L0X();
 
-#. Initialization in the ``setup()`` function. Here, we set up serial communication and initialize the distance sensor. If the sensor can't be initialized, the program halts.
+2. Initialisation dans la fonction ``setup()``. Ici, nous configurons la communication série et initialisons le capteur de distance. Si le capteur ne peut pas être initialisé, le programme s'arrête.
 
    .. code-block:: arduino
 
@@ -100,7 +100,7 @@ Code Analysis
         Serial.println(F("VL53L0X API Simple Ranging example\n\n"));
       }
 
-#. Capturing and displaying the measurements in the ``loop()`` function. Continuously, the Arduino captures a distance measurement using the ``rangingTest()`` method. If the measurement is valid, it's printed to the serial monitor.
+3. Capturer et afficher les mesures dans la fonction ``loop()``. Continuellement, l'Arduino capture une mesure de distance en utilisant la méthode ``rangingTest()``. Si la mesure est valide, elle est imprimée sur le moniteur série.
 
    .. code-block:: arduino
        

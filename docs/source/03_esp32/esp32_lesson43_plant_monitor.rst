@@ -1,57 +1,54 @@
-
 .. note::
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    Bonjour, bienvenue dans la communauté des passionnés de SunFounder Raspberry Pi, Arduino et ESP32 sur Facebook ! Plongez plus profondément dans l'univers du Raspberry Pi, de l'Arduino et de l'ESP32 avec d'autres amateurs.
 
-    **Why Join?**
+    **Pourquoi rejoindre ?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Support d'experts** : Résolvez les problèmes après-vente et les défis techniques avec l'aide de notre communauté et de notre équipe.
+    - **Apprendre & Partager** : Échangez des conseils et des tutoriels pour améliorer vos compétences.
+    - **Aperçus exclusifs** : Obtenez un accès anticipé aux annonces de nouveaux produits et aux aperçus.
+    - **Réductions spéciales** : Profitez de réductions exclusives sur nos nouveaux produits.
+    - **Promotions festives et cadeaux** : Participez à des tirages au sort et des promotions de fêtes.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 Prêt à explorer et créer avec nous ? Cliquez sur [|link_sf_facebook|] et rejoignez-nous aujourd'hui !
 
 .. _esp32_plant_monitor:
 
-Lesson 43: Plant Monitor
+Leçon 43 : Moniteur de plante
 =============================================================
 
+Ce projet automatise intelligemment l'arrosage des plantes en déclenchant une pompe à eau lorsque le niveau d'humidité du sol passe sous un seuil prédéfini.
+Il intègre également un affichage LCD qui présente la température, l'humidité,
+et les niveaux d'humidité du sol, offrant aux utilisateurs des informations précieuses sur les conditions environnementales de la plante.
 
-This project intelligently automates plant watering by triggering a water pump whenever the soil's 
-moisture level dips below a predetermined threshold. 
-It also features an LCD display that showcases the temperature, humidity, 
-and soil moisture levels, offering users valuable insights into the plant's environmental conditions.
+Composants requis
+--------------------
 
-Required Components
---------------------------
+Pour ce projet, nous avons besoin des composants suivants.
 
-In this project, we need the following components. 
-
-It's definitely convenient to buy a whole kit, here's the link: 
+Il est définitivement pratique d'acheter un kit complet, voici le lien :
 
 .. list-table::
     :widths: 20 20 20
     :header-rows: 1
 
-    *   - Name	
-        - ITEMS IN THIS KIT
-        - LINK
-    *   - Universal Maker Sensor Kit
+    *   - Nom	
+        - ARTICLES DANS CE KIT
+        - LIEN
+    *   - Kit de capteurs universels pour créateurs
         - 94
         - |link_umsk|
 
-You can also buy them separately from the links below.
+Vous pouvez également les acheter séparément via les liens ci-dessous.
 
 .. list-table::
     :widths: 30 20
     :header-rows: 1
 
-    *   - Component Introduction
-        - Purchase Link
+    *   - Introduction au composant
+        - Lien d'achat
 
-    *   - ESP32 & Development Board (:ref:`cpn_esp32_wroom_32e`)
+    *   - ESP32 & Carte de développement (:ref:`cpn_esp32_wroom_32e`)
         - |link_esp32_camera_pro_kit_buy|
     *   - :ref:`cpn_breadboard`
         - |link_breadboard_buy|
@@ -68,11 +65,11 @@ You can also buy them separately from the links below.
     *   - :ref:`cpn_dht11`
         - \-
 
-Wiring
----------------------------
+Câblage
+----------
 
 .. note:: 
-   The kit may contain different versions of the DHT11 module. Please confirm the wiring method according to the module you have.
+   Le kit peut contenir différentes versions du module DHT11. Veuillez confirmer la méthode de câblage selon le module que vous avez.
 
 .. image:: img/Lesson_43_Plant_monitor_esp32_bb.png
     :width: 100%
@@ -81,25 +78,25 @@ Wiring
     :width: 100%
 
 Code
----------------------------
+-------
 
 .. note:: 
-   To install the library, use the Arduino Library Manager and search for **"LiquidCrystal I2C"** and **"DHT sensor library"** and install it.  
+   Pour installer la bibliothèque, utilisez le Gestionnaire de bibliothèques Arduino et recherchez **"LiquidCrystal I2C"** et **"DHT sensor library"** et installez-les.
 
 .. raw:: html
 
     <iframe src=https://create.arduino.cc/editor/sunfounder01/c769b454-80f4-4516-83ce-9ff702d8627f/preview?embed style="height:510px;width:100%;margin:10px 0" frameborder=0></iframe>
     
 
-Code Analysis
----------------------------
+Analyse du code
+------------------
 
-The code is structured to seamlessly manage plant watering by monitoring environmental parameters:
+Le code est structuré pour gérer de manière fluide l'arrosage des plantes en surveillant les paramètres environnementaux :
 
-1. Library Inclusions and Constants/Variables:
+1. Inclusions de bibliothèques et déclaration de constantes/variables :
 
-    Incorporate ``Wire.h``, ``LiquidCrystal_I2C.h``, and ``DHT.h`` libraries for functionality.
-    Specify pin assignments and settings for the DHT11 sensor, soil moisture sensor, and water pump.
+    Intégrez les bibliothèques ``Wire.h``, ``LiquidCrystal_I2C.h``, et ``DHT.h`` pour la fonctionnalité.
+    Spécifiez les affectations de broches et les paramètres pour le capteur DHT11, le capteur d'humidité du sol et la pompe à eau.
 
     .. code-block:: arduino
 
@@ -107,64 +104,63 @@ The code is structured to seamlessly manage plant watering by monitoring environ
         #include <LiquidCrystal_I2C.h>
         #include <DHT.h>
 
-        #define DHTPIN 14              // Digital pin for DHT11 sensor
-        #define DHTTYPE DHT11         // DHT11 sensor type
-        #define SOIL_MOISTURE_PIN 35  // Analog pin for soil moisture sensor
-        #define WATER_PUMP_PIN 25      // Digital pin for water pump
+        #define DHTPIN 14              // Broche numérique pour le capteur DHT11
+        #define DHTTYPE DHT11         // Type de capteur DHT11
+        #define SOIL_MOISTURE_PIN 35  // Broche analogique pour le capteur d'humidité du sol
+        #define WATER_PUMP_PIN 25     // Broche numérique pour la pompe à eau
 
-
-        // Initialize sensor and LCD objects
+        // Initialiser les objets de capteur et LCD
         DHT dht(DHTPIN, DHTTYPE);
         LiquidCrystal_I2C lcd(0x27, 16, 2);
 
 
 
-2. ``setup()``:
+2. ``setup()`` :
 
-    Configure pin modes for the moisture sensor and pump.
-    Initially deactivate the pump.
-    Initialize and backlight the LCD.
-    Activate the DHT sensor.
+    Configurez les modes des broches pour le capteur d'humidité et la pompe.
+    Désactivez initialement la pompe.
+    Initialisez et activez le rétroéclairage de l'écran LCD.
+    Activez le capteur DHT.
 
     .. code-block:: arduino
 
         void setup() {
-            // Set pin modes
+            // Configurer les modes des broches
             pinMode(SOIL_MOISTURE_PIN, INPUT);
             pinMode(WATER_PUMP_PIN, OUTPUT);
 
-            // Initialize water pump as off
+            // Initialiser la pompe à eau comme éteinte
             digitalWrite(WATER_PUMP_PIN, LOW);
 
-            // Initialize LCD and backlight
+            // Initialiser l'écran LCD et le rétroéclairage
             lcd.init();
             lcd.backlight();
 
-            // Start DHT sensor
+            // Démarrer le capteur DHT
             dht.begin();
         }
 
 
 
 
-3. ``loop()``:
+3. ``loop()`` :
 
-    Measure humidity and temperature via the DHT sensor.
-    Gauge soil moisture through the soil moisture sensor.
-    Display the temperature and humidity on the LCD, then show soil moisture levels.
-    Assess soil moisture to decide on water pump activation; if soil moisture is under 500 (adjustable threshold), run the pump for 1 second.
+    Mesurez l'humidité et la température via le capteur DHT.
+    Évaluez l'humidité du sol à travers le capteur d'humidité du sol.
+    Affichez la température et l'humidité sur l'écran LCD, puis montrez les niveaux d'humidité du sol.
+    Évaluez l'humidité du sol pour décider de l'activation de la pompe à eau ; si l'humidité du sol est inférieure à 500 (seuil ajustable), faites fonctionner la pompe pendant 1 seconde.
 
     .. code-block:: arduino
 
         void loop() {
-            // Read humidity and temperature from DHT11
+            // Lire l'humidité et la température du DHT11
             float humidity = dht.readHumidity();
             float temperature = dht.readTemperature();
 
-            // Read soil moisture level
+            // Lire le niveau d'humidité du sol
             int soilMoisture = analogRead(SOIL_MOISTURE_PIN);
 
-            // Display temperature and humidity on LCD
+            // Afficher la température et l'humidité sur l'écran LCD
             lcd.clear();
             lcd.setCursor(0, 0);
             lcd.print("Temp: " + String(temperature) + "C");
@@ -173,20 +169,20 @@ The code is structured to seamlessly manage plant watering by monitoring environ
 
             delay(2000);
 
-            // Display soil moisture on LCD
+            // Afficher l'humidité du sol sur l'écran LCD
             lcd.clear();
             lcd.setCursor(0, 0);
             lcd.print("Soil Moisture: ");
             lcd.setCursor(0, 1);
             lcd.print(String(soilMoisture));
 
-            // Activate water pump if soil is dry
+            // Activer la pompe à eau si le sol est sec
             if (soilMoisture > 650) {
-                digitalWrite(WATER_PUMP_PIN, HIGH);  // Turn on water pump
-                delay(1000);                         // Pump water for 1 second
-                digitalWrite(WATER_PUMP_PIN, LOW);   // Turn off water pump
+                digitalWrite(WATER_PUMP_PIN, HIGH);  // Allumer la pompe à eau
+                delay(1000);                         // Pomper de l'eau pendant 1 seconde
+                digitalWrite(WATER_PUMP_PIN, LOW);   // Éteindre la pompe à eau
             }
 
-            delay(2000);  // Wait before next loop iteration
+            delay(2000);  // Attendre avant la prochaine itération de la boucle
         }
 

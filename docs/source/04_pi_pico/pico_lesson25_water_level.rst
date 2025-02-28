@@ -1,50 +1,50 @@
-.. note::
+.. note:: 
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    Bonjour et bienvenue dans la communauté des passionnés de SunFounder Raspberry Pi, Arduino et ESP32 sur Facebook ! Explorez plus en profondeur le Raspberry Pi, Arduino et ESP32 avec d'autres passionnés.
 
-    **Why Join?**
+    **Pourquoi nous rejoindre ?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Support d'experts** : Résolvez vos problèmes après-vente et défis techniques grâce à l'aide de notre communauté et de notre équipe.
+    - **Apprendre et partager** : Échangez des astuces et des tutoriels pour améliorer vos compétences.
+    - **Aperçus exclusifs** : Accédez en avant-première aux annonces de nouveaux produits et aperçus.
+    - **Réductions spéciales** : Profitez de réductions exclusives sur nos derniers produits.
+    - **Promotions festives et concours** : Participez à des concours et promotions lors des fêtes.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 Prêt à explorer et créer avec nous ? Cliquez sur [|link_sf_facebook|] et rejoignez-nous dès aujourd'hui !
 
 .. _pico_lesson25_water_level:
 
-Lesson 25: Water Level Sensor Module
-=========================================
+Leçon 25 : Module de Capteur de Niveau d'Eau
+===============================================
 
-In this lesson, you will learn how to use the Raspberry Pi Pico W to measure water levels with a water level sensor. You'll understand how to connect the sensor to the board, read its analog output using MicroPython, and interpret these readings to determine water levels. This practical session is aimed at developing your skills in sensor integration and data acquisition with the Raspberry Pi Pico W.
+Dans cette leçon, vous apprendrez à utiliser le Raspberry Pi Pico W pour mesurer le niveau d'eau à l'aide d'un capteur de niveau d'eau. Vous comprendrez comment connecter le capteur à la carte, lire sa sortie analogique en utilisant MicroPython, et interpréter ces lectures pour déterminer le niveau d'eau. Cette session pratique est destinée à développer vos compétences dans l'intégration de capteurs et l'acquisition de données avec le Raspberry Pi Pico W.
 
-Required Components
+Composants Requis
 --------------------------
 
-In this project, we need the following components. 
+Dans ce projet, nous avons besoin des composants suivants.
 
-It's definitely convenient to buy a whole kit, here's the link: 
+Il est définitivement plus pratique d'acheter un kit complet, voici le lien :
 
 .. list-table::
     :widths: 20 20 20
     :header-rows: 1
 
-    *   - Name	
-        - ITEMS IN THIS KIT
-        - LINK
+    *   - Nom	
+        - Éléments dans ce kit
+        - Lien
     *   - Universal Maker Sensor Kit
         - 94
         - |link_umsk|
 
-You can also buy them separately from the links below.
+Vous pouvez également les acheter séparément via les liens ci-dessous.
 
 .. list-table::
     :widths: 30 20
     :header-rows: 1
 
-    *   - Component Introduction
-        - Purchase Link
+    *   - Introduction des composants
+        - Lien d'achat
 
     *   - Raspberry Pi Pico W
         - \-
@@ -54,7 +54,7 @@ You can also buy them separately from the links below.
         - |link_breadboard_buy|
 
 
-Wiring
+Câblage
 ---------------------------
 
 .. image:: img/Lesson_25_Water_Level_Sensor_Module_bb.png
@@ -69,46 +69,46 @@ Code
    import machine
    import utime
    
-   # Initialize an ADC object on GPIO pin 26.
-   # This is typically used for reading analog signals.
+   # Initialiser un objet ADC sur la broche GPIO 26.
+   # Ceci est généralement utilisé pour lire des signaux analogiques.
    water_level_sensor = machine.ADC(26)
    
-   # Continuously read and print sensor data.
+   # Lire et afficher en continu les données du capteur.
    while True:
-       value = water_level_sensor.read_u16()  # Read and convert analog value to 16-bit integer
-       print("AO:", value)  # Print the analog value
+       value = water_level_sensor.read_u16()  # Lire et convertir la valeur analogique en un entier de 16 bits
+       print("AO:", value)  # Afficher la valeur analogique
    
-       utime.sleep_ms(200)  # Wait for 200 milliseconds before the next read
+       utime.sleep_ms(200)  # Attendre 200 millisecondes avant la prochaine lecture
 
-Code Analysis
+Analyse du Code
 ---------------------------
 
-#. Importing Libraries
+1. Importation des bibliothèques
 
-   Here, we import necessary libraries: ``machine`` for hardware interactions and ``utime`` for time-based functions.
+   Ici, nous importons les bibliothèques nécessaires : ``machine`` pour les interactions matérielles et ``utime`` pour les fonctions liées au temps.
 
    .. code-block:: python
 
       import machine
       import utime
 
-#. Initializing the Water Level Sensor
+2. Initialisation du Capteur de Niveau d'Eau
 
-   An ADC object is created on GPIO pin 26 to read analog signals from the water level sensor. ADC is crucial for converting the sensor's analog signals to digital format that the microcontroller can process.
+   Un objet ADC est créé sur la broche GPIO 26 pour lire les signaux analogiques du capteur de niveau d'eau. L'ADC est essentiel pour convertir les signaux analogiques du capteur en format numérique que le microcontrôleur peut traiter.
 
    .. code-block:: python
 
-      # Initialize an ADC object on GPIO pin 26.
+      # Initialiser un objet ADC sur la broche GPIO 26.
       water_level_sensor = machine.ADC(26)
 
-#. Reading and Printing Sensor Data
+3. Lecture et Affichage des Données du Capteur
 
-   The ``while True`` loop enables continuous reading of the sensor data. ``read_u16`` method converts the analog signal to a 16-bit integer. The value is printed, and the loop pauses for 200 milliseconds using ``utime.sleep_ms(200)`` to prevent rapid firing.
+   La boucle ``while True`` permet de lire en continu les données du capteur. La méthode ``read_u16`` convertit le signal analogique en un entier de 16 bits. La valeur est affichée, et la boucle fait une pause de 200 millisecondes grâce à ``utime.sleep_ms(200)`` pour éviter des lectures trop rapides.
 
    .. code-block:: python
 
       while True:
-          value = water_level_sensor.read_u16()  # Read and convert analog value to 16-bit integer
-          print("AO:", value)  # Print the analog value
+          value = water_level_sensor.read_u16()  # Lire et convertir la valeur analogique en un entier de 16 bits
+          print("AO:", value)  # Afficher la valeur analogique
 
-          utime.sleep_ms(200)  # Wait for 200 milliseconds before the next read
+          utime.sleep_ms(200)  # Attendre 200 millisecondes avant la prochaine lecture

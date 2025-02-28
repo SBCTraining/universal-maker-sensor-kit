@@ -1,56 +1,53 @@
 
 .. note::
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    Bonjour et bienvenue dans la communauté des passionnés de Raspberry Pi, Arduino et ESP32 sur Facebook, organisée par SunFounder! Plongez plus profondément dans l'univers des Raspberry Pi, Arduino et ESP32 avec d'autres passionnés.
 
-    **Why Join?**
+    **Pourquoi rejoindre ?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Support d'experts** : Résolvez les problèmes après-vente et les défis techniques avec l'aide de notre communauté et de notre équipe.
+    - **Apprendre & Partager** : Échangez des astuces et des tutoriels pour améliorer vos compétences.
+    - **Aperçus exclusifs** : Accédez en avant-première aux annonces de nouveaux produits et aux coulisses.
+    - **Réductions spéciales** : Profitez de réductions exclusives sur nos nouveaux produits.
+    - **Promotions festives et cadeaux** : Participez à des cadeaux et des promotions de fêtes.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 Prêt à explorer et créer avec nous ? Cliquez sur [|link_sf_facebook|] et rejoignez-nous aujourd'hui !
 
 .. _uno_lesson52_tilt_direction_indicator:
 
+Leçon 52 : Indicateur de direction de l'inclinaison
+=======================================================
 
+Ce projet Arduino utilise un capteur accéléromètre et gyroscope MPU6050 avec un affichage OLED. Le projet lit les données du capteur MPU6050 pour détecter la direction de l'inclinaison et affiche les flèches correspondantes (haut, bas, gauche ou droite) ou un cercle (s'il n'y a pas d'inclinaison significative) sur l'écran OLED en fonction de la direction de l'inclinaison.
 
-Lesson 52: Tilt Direction Indicator
-===========================================
+Composants requis
+--------------------
 
-This Arduino project uses an MPU6050 accelerometer and gyroscope sensor along with an OLED display. The project reads data from the MPU6050 sensor to detect the tilt direction and displays corresponding arrows (up, down, left, or right) or a circle (if there is no significant tilt) on the OLED screen based on the tilt direction.
+Pour ce projet, nous avons besoin des composants suivants.
 
-
-Required Components
---------------------------
-
-In this project, we need the following components. 
-
-It's definitely convenient to buy a whole kit, here's the link: 
+Il est certainement pratique d'acheter un kit complet, voici le lien :
 
 .. list-table::
     :widths: 20 20 20
     :header-rows: 1
 
-    *   - Name	
-        - ITEMS IN THIS KIT
-        - LINK
-    *   - Universal Maker Sensor Kit
+    *   - Nom	
+        - ÉLÉMENTS DE CE KIT
+        - LIEN
+    *   - Kit Capteurs Universel pour Makers
         - 94
         - |link_umsk|
 
-You can also buy them separately from the links below.
+Vous pouvez également les acheter séparément via les liens ci-dessous.
 
 .. list-table::
     :widths: 30 20
     :header-rows: 1
 
-    *   - Component Introduction
-        - Purchase Link
+    *   - Introduction des composants
+        - Lien d'achat
 
-    *   - Arduino UNO R3 or R4
+    *   - Arduino UNO R3 ou R4
         - |link_Uno_R3_buy|
     *   - :ref:`cpn_mpu6050`
         - |link_mpu6050_buy|
@@ -58,32 +55,32 @@ You can also buy them separately from the links below.
         - \-
     *   - :ref:`cpn_breadboard`
         - |link_breadboard_buy|
-        
 
-Wiring
----------------------------
+
+Câblage
+----------
 
 .. image:: img/Lesson_52_Tilt_direction_indicatorr_uno_bb.png
     :width: 100%
 
 
 Code
----------------------------
+------
 
 .. note:: 
-   To install the library, use the Arduino Library Manager and search for **"Adafruit SSD1306"** and **"Adafruit GFX"** and install it. 
+   Pour installer la bibliothèque, utilisez le gestionnaire de bibliothèques Arduino et recherchez **"Adafruit SSD1306"** et **"Adafruit GFX"** puis installez-les.
 
 .. raw:: html
 
     <iframe src="https://app.arduino.cc/sketches/ea5345ae-b849-424d-9b61-9a192695aef8?view-mode=embed" style="height:510px;width:100%;margin:10px 0" frameborder=0 /></iframe>
 
 
-Code Analysis
----------------------------
+Analyse du code
+--------------------
 
-#. Library inclusion and OLED display setup
+#. Inclusion des bibliothèques et configuration de l'affichage OLED
 
-   The project starts by including the necessary libraries to interface with the MPU6050 sensor and OLED display. The OLED display dimensions and I2C address are defined, followed by the creation of the display object.
+   Le projet commence par inclure les bibliothèques nécessaires pour interfacer avec le capteur MPU6050 et l'affichage OLED. Les dimensions de l'affichage OLED et l'adresse I2C sont définies, suivi de la création de l'objet d'affichage.
 
    .. code-block:: arduino
 
@@ -102,9 +99,9 @@ Code Analysis
 
        Adafruit_MPU6050 mpu;
 
-#. Setup function
+#. Fonction de configuration
 
-   In the setup function, the serial communication is initialized, and the MPU6050 sensor is initialized with specific settings for accelerometer and gyroscope ranges. The OLED display is also initialized and cleared.
+   Dans la fonction de configuration, la communication série est initialisée, et le capteur MPU6050 est initialisé avec des paramètres spécifiques pour les plages de l'accéléromètre et du gyroscope. L'affichage OLED est également initialisé et nettoyé.
 
    .. code-block:: arduino
 
@@ -125,18 +122,18 @@ Code Analysis
          if (!display.begin(SSD1306_SWITCHCAPVCC, SCREEN_ADDRESS)) {
            Serial.println(F("SSD1306 allocation failed"));
            for (;;)
-             ;  // Don't proceed, loop forever
+             ;  // Ne pas continuer, boucler indéfiniment
          }
          display.clearDisplay();
 
          delay(100);
        }
 
-#. Loop function
+#. Fonction de boucle
 
-   In the loop function, sensor data is continuously read, and the tilt direction is determined based on acceleration values. Depending on the tilt direction, different arrows or a circle are drawn on the OLED display.
+   Dans la fonction de boucle, les données du capteur sont lues en continu et la direction de l'inclinaison est déterminée à partir des valeurs d'accélération. Selon la direction de l'inclinaison, différentes flèches ou un cercle sont dessinés sur l'affichage OLED.
 
-   The code reads data from the MPU6050 sensor to detect the tilt direction and displays corresponding arrows (up, down, left, or right) or a circle (if there is no significant tilt) on the OLED screen based on the tilt direction.
+   Le code lit les données du capteur MPU6050 pour détecter la direction de l'inclinaison et affiche les flèches correspondantes (haut, bas, gauche ou droite) ou un cercle (s'il n'y a pas d'inclinaison significative) sur l'écran OLED en fonction de la direction de l'inclinaison.
 
    .. code-block:: arduino
 
@@ -170,9 +167,9 @@ Code Analysis
          delay(200);
        }
 
-#. Drawing functions
+#. Fonctions de dessin
 
-   Several helper functions are defined to draw different shapes on the OLED display. These functions use the ``Adafruit_GFX`` library to draw arrows and circles.
+   Plusieurs fonctions auxiliaires sont définies pour dessiner différentes formes sur l'affichage OLED. Ces fonctions utilisent la bibliothèque ``Adafruit_GFX`` pour dessiner des flèches et des cercles.
 
    .. code-block:: arduino
 
@@ -201,8 +198,7 @@ Code Analysis
          display.fillCircle(64, 32, 8, BLACK);
        }
 
-
-**Reference**
+**Référence**
 
 - |link_adafruit_gfx_graphics_library|
 

@@ -1,46 +1,46 @@
 .. note::
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    Bonjour, bienvenue dans la communauté des passionnés de SunFounder Raspberry Pi, Arduino et ESP32 sur Facebook ! Plongez plus profondément dans les univers du Raspberry Pi, de l'Arduino et de l'ESP32 avec d'autres passionnés.
 
-    **Why Join?**
+    **Pourquoi rejoindre ?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Support d'experts** : Résolvez les problèmes après-vente et les défis techniques avec l'aide de notre communauté et de notre équipe.
+    - **Apprendre & Partager** : Échangez des astuces et des tutoriels pour améliorer vos compétences.
+    - **Aperçus exclusifs** : Obtenez un accès anticipé aux annonces de nouveaux produits et aux avant-premières.
+    - **Réductions spéciales** : Profitez de réductions exclusives sur nos nouveaux produits.
+    - **Promotions festives et cadeaux** : Participez à des tirages au sort et des promotions de fêtes.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 Prêts à explorer et créer avec nous ? Cliquez sur [|link_sf_facebook|] et rejoignez-nous aujourd'hui !
 
 .. _cpn_raindrop:
 
-Raindrop Detection Module
-==========================
+Module de Détection de Pluie
+==============================
 
 .. image:: img/15_raindrop_detection_module.png
     :width: 400
     :align: center
 
-The Raindrop Detection Sensor Module is a weather sensor that detects rainfall presence and intensity. It includes a raindrop sensor board with printed tracks, usually paired with a comparator module. When raindrops hit the sensor board, they create a conductive path between tracks, changing the resistance. This change is then converted into an analog or digital signal to show the rainfall intensity.
+Le module de détection de pluie est un capteur météorologique qui détecte la présence et l'intensité des précipitations. Il comprend une carte de capteur de gouttes de pluie avec des pistes imprimées, généralement associée à un module comparateur. Lorsque des gouttes de pluie frappent la carte du capteur, elles créent un chemin conducteur entre les pistes, modifiant la résistance. Ce changement est ensuite converti en un signal analogique ou numérique pour indiquer l'intensité des précipitations.
 
-Specification
+Spécifications
 ---------------------------
-* Supply Voltage: 3.3V - 5V
-* PCB Size: 32 x 14mm
-* Output Signal Type: DO and AO
+* Tension d'alimentation : 3,3V - 5V
+* Taille du PCB : 32 x 14mm
+* Type de signal de sortie : DO et AO
 
-Pinout
+Brochage
 ---------------------------
-* **VCC**: This is the positive power supply input from the main control. 
-* **GND**: Ground connection.
-* **DO**: Digital output. Outputs a low level when raindrops are detected, and a high level when dry.
-* **AO**: Analog output. The more rainwater, the smaller the analog output value.
+* **VCC** : C'est l'entrée d'alimentation positive du contrôle principal.
+* **GND** : Connexion à la terre.
+* **DO** : Sortie numérique. Émet un niveau bas lors de la détection de gouttes de pluie, et un niveau haut lorsqu'il est sec.
+* **AO** : Sortie analogique. Plus il y a de pluie, plus la valeur analogique est petite.
 
-Principle
+Principe
 ---------------------------
-Raindrop sensor is basically a board on which nickel is coated in the form of lines. It works on the principal of resistance. When there is no rain drop on board. Resistance is high so we gets high voltage according to V=IR. When rain drop present it reduces the resistance because water is conductor of electricity and presence of water connects nickel lines in parallel so reduced resistance and reduced voltage drop across it. The more intense the rainfall the lower the resistance.
+Le capteur de pluie est essentiellement une carte sur laquelle du nickel est déposé sous forme de lignes. Il fonctionne sur le principe de la résistance. Lorsqu'il n'y a pas de goutte de pluie sur la carte, la résistance est élevée donc nous obtenons une haute tension selon V=IR. Lorsque des gouttes de pluie sont présentes, elles réduisent la résistance car l'eau est conductrice d'électricité et la présence d'eau connecte les lignes de nickel en parallèle, réduisant ainsi la résistance et la chute de tension à travers elle. Plus l'intensité de la pluie est forte, plus la résistance est faible.
 
-Schematic diagram
+Schéma
 ---------------------------
 
 .. image:: img/15_raindrop_detection_module_schematic.png
@@ -51,7 +51,7 @@ Schematic diagram
 
    <br/>
 
-Example
+Exemple
 ---------------------------
 * :ref:`uno_lesson15_raindrop` (Arduino UNO)
 * :ref:`esp32_lesson15_raindrop` (ESP32)

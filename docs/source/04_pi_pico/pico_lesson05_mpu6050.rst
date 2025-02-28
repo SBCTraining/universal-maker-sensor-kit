@@ -1,50 +1,50 @@
-.. note::
+.. note:: 
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    Bonjour et bienvenue dans la communauté des passionnés de SunFounder Raspberry Pi, Arduino et ESP32 sur Facebook ! Plongez dans l’univers du Raspberry Pi, d’Arduino et d’ESP32 avec d’autres passionnés.
 
-    **Why Join?**
+    **Pourquoi nous rejoindre ?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Support d’experts** : Résolvez les problèmes après-vente et relevez des défis techniques avec l’aide de notre communauté et de notre équipe.
+    - **Apprendre et partager** : Échangez des conseils et des tutoriels pour améliorer vos compétences.
+    - **Aperçus exclusifs** : Accédez en avant-première aux annonces de nouveaux produits.
+    - **Réductions spéciales** : Profitez de remises exclusives sur nos nouveaux produits.
+    - **Promotions festives et cadeaux** : Participez à des concours et promotions spéciales.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 Prêt à explorer et créer avec nous ? Cliquez sur [|link_sf_facebook|] et rejoignez-nous dès aujourd’hui !
 
 .. _pico_lesson05_mpu6050:
 
-Lesson 05: Gyroscope & Accelerometer Module (MPU6050)
+Leçon 05 : Module Gyroscope & Accéléromètre (MPU6050)
 ==========================================================
 
-In this lesson, you will learn how to use the Raspberry Pi Pico W with the MPU6050 module, which combines a gyroscope and accelerometer. You'll discover how to connect the MPU6050 to the Raspberry Pi Pico W and read its acceleration and gyroscopic data using MicroPython. The lesson will guide you through writing a script to continuously display the X, Y, and Z values of both the accelerometer and gyroscope. 
+Dans cette leçon, vous apprendrez à utiliser le Raspberry Pi Pico W avec le module MPU6050, qui combine un gyroscope et un accéléromètre. Vous découvrirez comment connecter le MPU6050 au Raspberry Pi Pico W et lire ses données d’accélération et de gyroscope en utilisant MicroPython. Cette leçon vous guidera dans l’écriture d’un script permettant d’afficher en continu les valeurs X, Y et Z de l’accéléromètre et du gyroscope.
 
-Required Components
+Composants Requis
 --------------------------
 
-In this project, we need the following components. 
+Pour ce projet, nous avons besoin des composants suivants.
 
-It's definitely convenient to buy a whole kit, here's the link: 
+Il est plus pratique d’acheter un kit complet, voici le lien :
 
 .. list-table::
     :widths: 20 20 20
     :header-rows: 1
 
-    *   - Name	
-        - ITEMS IN THIS KIT
-        - LINK
+    *   - Nom	
+        - Éléments dans ce kit
+        - Lien
     *   - Universal Maker Sensor Kit
         - 94
         - |link_umsk|
 
-You can also buy them separately from the links below.
+Vous pouvez également les acheter séparément via les liens ci-dessous.
 
 .. list-table::
     :widths: 30 20
     :header-rows: 1
 
-    *   - Component Introduction
-        - Purchase Link
+    *   - Introduction des Composants
+        - Lien d'achat
 
     *   - Raspberry Pi Pico W
         - \-
@@ -54,7 +54,7 @@ You can also buy them separately from the links below.
         - |link_breadboard_buy|
 
 
-Wiring
+Câblage
 ---------------------------
 
 .. image:: img/Lesson_05_mpu6050_circuit_bb.png
@@ -66,49 +66,49 @@ Code
 
 .. note::
 
-    * Open the ``05_mpu6050_module.py`` file under the path of ``universal-maker-sensor-kit-main/pico/Lesson_05_MPU6050_Module`` or copy this code into Thonny, then click "Run Current Script" or simply press F5 to run it. For detailed tutorials, please refer to :ref:`open_run_code_py`. 
+    * Ouvrez le fichier ``05_mpu6050_module.py`` sous le chemin ``universal-maker-sensor-kit-main/pico/Lesson_05_MPU6050_Module`` ou copiez ce code dans Thonny, puis cliquez sur "Exécuter le script actuel" ou appuyez simplement sur F5. Pour des tutoriels détaillés, veuillez consulter :ref:`open_run_code_py`. 
 
-    * Here you need to use the ``imu.py`` and ``vector3d.py``, please check if it has been uploaded to Pico W, for a detailed tutorial refer to :ref:`add_libraries_py`.
+    * Vous devez utiliser les fichiers ``imu.py`` et ``vector3d.py``, assurez-vous qu’ils sont bien téléchargés sur le Pico W. Pour un tutoriel détaillé, référez-vous à :ref:`add_libraries_py`.
 
-    * Don't forget to click on the "MicroPython (Raspberry Pi Pico)" interpreter in the bottom right corner. 
+    * N'oubliez pas de sélectionner l'interpréteur "MicroPython (Raspberry Pi Pico)" dans le coin inférieur droit. 
     
 
 .. code-block:: python
 
-   # Import libraries
+   # Importation des bibliothèques
    from imu import MPU6050
    from machine import I2C, Pin
    import time
    
-   # Initialize I2C for MPU6050
-   i2c = I2C(1, sda=Pin(20), scl=Pin(21), freq=400000)  # I2C bus 1, SDA pin 20, SCL pin 21, 400kHz
+   # Initialisation du bus I2C pour MPU6050
+   i2c = I2C(1, sda=Pin(20), scl=Pin(21), freq=400000)  # Bus I2C 1, SDA broche 20, SCL broche 21, 400 kHz
    
-   # Create MPU6050 object
+   # Création de l’objet MPU6050
    mpu = MPU6050(i2c)
    
-   # Main loop to read and print sensor data
+   # Boucle principale pour lire et afficher les données du capteur
    while True:
-       # Print accelerometer data (x, y, z)
+       # Affichage des données de l’accéléromètre (x, y, z)
        print("-" * 50)
        print("x: %s, y: %s, z: %s" % (mpu.accel.x, mpu.accel.y, mpu.accel.z))
        time.sleep(0.1)
    
-       # Print gyroscope data (x, y, z)
-       print("X: %s, Y: %s, Y: %s" % (mpu.gyro.x, mpu.gyro.y, mpu.gyro.z))
+       # Affichage des données du gyroscope (x, y, z)
+       print("X: %s, Y: %s, Z: %s" % (mpu.gyro.x, mpu.gyro.y, mpu.gyro.z))
        time.sleep(0.1)
    
-       # Delay between readings
+       # Pause entre les lectures
        time.sleep(0.5)
    
 
-Code Analysis
+Analyse du Code
 ---------------------------
 
-#. Importing Libraries and Initializing I2C
+#. Importation des Bibliothèques et Initialisation du Bus I2C
 
-   The code starts by importing necessary libraries. The ``imu`` library is used to read the values of the MPU6050 sensor, and ``machine`` allows controlling the hardware features of the Raspberry Pi Pico W. I2C is initialized using specific pins (SDA and SCL) for data communication.
+   Le code commence par l’importation des bibliothèques nécessaires. La bibliothèque ``imu`` est utilisée pour lire les valeurs du capteur MPU6050, et ``machine`` permet de contrôler les fonctionnalités matérielles du Raspberry Pi Pico W. L’I2C est initialisé en utilisant des broches spécifiques (SDA et SCL) pour la communication des données.
 
-   For more information about the ``imu`` library, please visit |link_imu|.
+   Pour plus d’informations sur la bibliothèque ``imu``, veuillez visiter |link_imu|.
 
    .. code-block:: python
 
@@ -118,17 +118,17 @@ Code Analysis
 
       i2c = I2C(1, sda=Pin(20), scl=Pin(21), freq=400000)
 
-#. Creating MPU6050 Object
+#. Création de l’Objet MPU6050
 
-   An object of the MPU6050 sensor is created by passing the initialized I2C. This object will be used to access sensor data.
+   Un objet MPU6050 est créé en utilisant l’I2C initialisé. Cet objet sera utilisé pour accéder aux données du capteur.
 
    .. code-block:: python
 
       mpu = MPU6050(i2c)
 
-#. Reading and Printing Sensor Data in a Loop
+#. Lecture et Affichage des Données du Capteur en Boucle
 
-   The code then enters an infinite loop where it continually reads and prints accelerometer and gyroscope data. ``time.sleep`` is used to create a delay between successive readings.
+   Le code entre ensuite dans une boucle infinie où il lit et affiche continuellement les données de l’accéléromètre et du gyroscope. La fonction ``time.sleep`` est utilisée pour insérer un délai entre chaque lecture.
 
    .. code-block:: python
 

@@ -1,21 +1,21 @@
 .. note::
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    Bonjour et bienvenue dans la communauté des passionnés de SunFounder Raspberry Pi, Arduino et ESP32 sur Facebook ! Approfondissez votre connaissance des Raspberry Pi, Arduino et ESP32 avec d'autres passionnés.
 
-    **Why Join?**
+    **Pourquoi rejoindre ?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Support d'experts** : Résolvez les problèmes après-vente et les défis techniques avec l'aide de notre communauté et de notre équipe.
+    - **Apprendre & Partager** : Échangez des astuces et des tutoriels pour améliorer vos compétences.
+    - **Aperçus exclusifs** : Obtenez un accès en avant-première aux annonces de nouveaux produits et aux coulisses.
+    - **Réductions spéciales** : Profitez de réductions exclusives sur nos produits les plus récents.
+    - **Promotions festives et cadeaux** : Participez à des tirages au sort et à des promotions festives.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 Prêts à explorer et créer avec nous ? Cliquez sur [|link_sf_facebook|] et rejoignez-nous aujourd'hui !
 
 .. _cpn_dht11:
 
-Temperature and Humidity Sensor Module (DHT11)
-================================================
+Module Capteur de Température et d'Humidité (DHT11)
+======================================================
 
 .. image:: img/19_dht11_module.png
     :width: 360
@@ -25,26 +25,26 @@ Temperature and Humidity Sensor Module (DHT11)
 
    <br/>
 
-The digital temperature and humidity sensor DHT11 is a composite sensor that contains a calibrated digital signal output of temperature and humidity. The technology of a dedicated digital modules collection and the temperature and humidity sensing technology are applied to ensure that the product has high reliability and excellent long-term stability.
+Le DHT11 est un capteur numérique de température et d'humidité qui intègre une sortie de signal numérique calibrée de température et d'humidité. La technologie des modules numériques dédiés et la technologie de détection de température et d'humidité sont appliquées pour assurer que le produit a une fiabilité élevée et une excellente stabilité à long terme.
 
-Specification
+Spécifications
 ---------------------------
-* Supply Voltage: 3.3V - 5V
-* Output Signal Type: Digital output
-* Temperature Measurement Range: 0-50℃ ± 2℃
-* Humidity Measurement Range: 20-90%RH ± 5%RH
-* Temperature Accuracy: ±2°C
-* Humidity Accuracy: ±5% RH
+* Tension d'alimentation : 3,3V - 5V
+* Type de signal de sortie : Sortie numérique
+* Plage de mesure de la température : 0-50℃ ± 2℃
+* Plage de mesure de l'humidité : 20-90%RH ± 5%RH
+* Précision de la température : ±2°C
+* Précision de l'humidité : ±5% RH
 
-Pinout
+Brochage
 ---------------------------
-* **VCC**: This is the positive power supply input from the main control. 
-* **GND**: Ground connection.
-* **S**: This pin is used for transmitting temperature and humidity data to the microcontroller using a single-wire bi-directional protocol.
+* **VCC** : C'est l'entrée d'alimentation positive du contrôle principal.
+* **GND** : Connexion à la terre.
+* **S** : Cette broche est utilisée pour transmettre les données de température et d'humidité au microcontrôleur via un protocole unifilaire bidirectionnel.
 
-Principle
+Principe
 ---------------------------
-Only three pins are available for use: VCC, GND, and DATA. The communication process begins with the DATA line sending start signals to DHT11, and DHT11 receives the signals and returns an answer signal. Then the host receives the answer signal and begins to receive 40-bit humidity and temperature data (8-bit humidity integer + 8-bit humidity decimal + 8-bit temperature integer + 8-bit temperature decimal + 8-bit checksum).
+Seules trois broches sont disponibles pour l'utilisation : VCC, GND et DATA. Le processus de communication commence par la ligne DATA envoyant des signaux de démarrage au DHT11, et le DHT11 reçoit les signaux et renvoie un signal de réponse. Ensuite, l'hôte reçoit le signal de réponse et commence à recevoir les données de température et d'humidité sur 40 bits (8 bits entier d'humidité + 8 bits décimal d'humidité + 8 bits entier de température + 8 bits décimal de température + 8 bits de somme de contrôle).
 
 .. image:: img/19_dht11_module_2.png
     :width: 300
@@ -54,7 +54,7 @@ Only three pins are available for use: VCC, GND, and DATA. The communication pro
     
     <br/>
 
-Schematic diagram
+Schéma
 ---------------------------
 
 .. csv-table:: 
@@ -72,8 +72,7 @@ Schematic diagram
 .. |dht11_module_withLED_schematic| image:: img/19_dht11_module_withLED_schematic.png
    :width: 360px
 
-
-Example
+Exemple
 ---------------------------
 * :ref:`uno_lesson19_dht11` (Arduino UNO)
 * :ref:`esp32_lesson19_dht11` (ESP32)

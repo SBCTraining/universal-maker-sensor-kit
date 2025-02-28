@@ -1,20 +1,20 @@
 .. note::
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    Bonjour et bienvenue dans la communauté des passionnés de SunFounder Raspberry Pi, Arduino et ESP32 sur Facebook ! Explorez plus en profondeur les univers du Raspberry Pi, de l'Arduino et de l'ESP32 avec d'autres passionnés.
 
-    **Why Join?**
+    **Pourquoi rejoindre ?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Support d'experts** : Résolvez les problèmes après-vente et les défis techniques avec l'aide de notre communauté et de notre équipe.
+    - **Apprendre & Partager** : Échangez des astuces et des tutoriels pour améliorer vos compétences.
+    - **Aperçus exclusifs** : Accédez en avant-première aux annonces de nouveaux produits et aux avant-premières.
+    - **Réductions spéciales** : Profitez de réductions exclusives sur nos produits les plus récents.
+    - **Promotions festives et cadeaux** : Participez à des tirages au sort et des promotions de fêtes.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 Prêts à explorer et à créer avec nous ? Cliquez sur [|link_sf_facebook|] et rejoignez-nous aujourd'hui !
 
 .. _cpn_VL53L0X:
 
-Time of Flight Micro-LIDAR Distance Sensor (VL53L0X)
+Capteur de Distance Micro-LIDAR à Temps de Vol (VL53L0X)
 ===============================================================
 
 .. image:: img/21_VL53L0X_module.png
@@ -25,26 +25,25 @@ Time of Flight Micro-LIDAR Distance Sensor (VL53L0X)
     
     <br/>
 
-The VL53L0X module is an advanced time-of-flight (ToF) ranging sensor that offers highly accurate distance measurement, regardless of the target's color and reflectance. Manufactured by STMicroelectronics, this sensor excels in measuring absolute distances up to 2 meters, making it well-suited for various applications in fields such as robotics, drones, and wearable devices.
+Le module VL53L0X est un capteur de portée avancé à temps de vol (ToF) qui offre une mesure de distance très précise, indépendamment de la couleur et de la réflectance de la cible. Fabriqué par STMicroelectronics, ce capteur est excellent pour mesurer des distances absolues jusqu'à 2 mètres, le rendant idéal pour diverses applications dans les domaines tels que la robotique, les drones et les appareils portables.
 
-Specification
+Spécifications
 ---------------------------
-* Supply Voltage: 3.3V or 5V
-* PCB Size: 11 x 25mm
-* Communication method: I2C
-* ToF ranging length: ≤2M
+* Tension d'alimentation : 3,3V ou 5V
+* Taille du PCB : 11 x 25mm
+* Méthode de communication : I2C
+* Longueur de portée ToF : ≤2M
 
-Pinout
+Brochage
 ---------------------------
-* **VIN**: This is the power pin. 
-* **GND**: Common ground for power and logic.
-* **SCL**: I2C clock pin, connect to your microcontrollers I2C clock line.
-* **SDA**: I2C data pin, connect to your microcontrollers I2C data line.
-* **GPIO1**: Programmable interrupt output. This output is not level-shifted.
-* **XSHUT**: This pin is an active-low shutdown input; Driving this pin low puts the sensor into hardware standby. This input is not level-shifted.
+* **VIN** : C'est la broche d'alimentation.
+* **GND** : Masse commune pour l'alimentation et la logique.
+* **SCL** : Broche d'horloge I2C, à connecter à la ligne d'horloge I2C de votre microcontrôleur.
+* **SDA** : Broche de données I2C, à connecter à la ligne de données I2C de votre microcontrôleur.
+* **GPIO1** : Sortie d'interruption programmable. Cette sortie n'est pas adaptée aux niveaux de tension.
+* **XSHUT** : Cette broche est une entrée de mise hors tension active à l'état bas ; son activation met le capteur en veille. Cette entrée n'est pas adaptée aux niveaux de tension.
 
-
-Example
+Exemple
 ---------------------------
 * :ref:`uno_lesson21_vl53l0x` (Arduino UNO)
 * :ref:`esp32_lesson21_vl53l0x` (ESP32)

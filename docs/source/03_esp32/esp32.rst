@@ -1,23 +1,23 @@
-.. note::
+.. note:: 
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    Bonjour, bienvenue dans la communauté des passionnés de SunFounder Raspberry Pi, Arduino et ESP32 sur Facebook ! Plongez plus profondément dans l'univers de Raspberry Pi, Arduino et ESP32 avec d'autres passionnés.
 
-    **Why Join?**
+    **Pourquoi rejoindre ?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Support d'experts** : Résolvez les problèmes post-vente et relevez des défis techniques avec l'aide de notre communauté et de notre équipe.
+    - **Apprendre & Partager** : Échangez des astuces et des tutoriels pour améliorer vos compétences.
+    - **Aperçus exclusifs** : Obtenez un accès anticipé aux annonces de nouveaux produits et aux aperçus.
+    - **Réductions spéciales** : Profitez de réductions exclusives sur nos produits les plus récents.
+    - **Promotions festives et cadeaux** : Participez à des tirages au sort et à des promotions de fête.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 Prêt à explorer et à créer avec nous ? Cliquez sur [|link_sf_facebook|] et rejoignez-nous dès aujourd'hui !
 
-For ESP32
+Pour les utilisateurs d'ESP32
 ==================================================
 
-ESP32 users, please refer to the following tutorial.
+Utilisateurs d'ESP32, veuillez vous référer au tutoriel suivant.
 
-The following tutorial is based on the :ref:`cpn_esp32_wroom_32e` development board, but it is also applicable to other ESP32 development boards.
+Ce tutoriel est basé sur la carte de développement :ref:`cpn_esp32_wroom_32e`, mais il est également applicable à d'autres cartes de développement ESP32.
 
 .. toctree::
     :maxdepth: 1
@@ -62,7 +62,7 @@ The following tutorial is based on the :ref:`cpn_esp32_wroom_32e` development bo
     esp32_lesson33_servo
     esp32_lesson34_motor
 
-**Fun Project**
+**Projets amusants**
 
 .. toctree::
     :maxdepth: 1
@@ -79,7 +79,7 @@ The following tutorial is based on the :ref:`cpn_esp32_wroom_32e` development bo
     esp32_lesson44_bluetooth 
     esp32_lesson45_bluetooth_led 
 
-**IoT Project**
+**Projets IoT**
 
 .. toctree::
     :maxdepth: 1

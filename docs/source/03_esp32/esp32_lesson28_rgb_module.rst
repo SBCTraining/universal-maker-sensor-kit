@@ -1,52 +1,52 @@
-.. note::
+.. note:: 
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    Bonjour, bienvenue dans la communauté des passionnés de SunFounder pour Raspberry Pi, Arduino et ESP32 sur Facebook ! Plongez plus profondément dans l'univers de Raspberry Pi, Arduino et ESP32 avec d'autres passionnés.
 
-    **Why Join?**
+    **Pourquoi rejoindre ?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Support d'experts** : Résolvez les problèmes après-vente et les défis techniques avec l'aide de notre communauté et de notre équipe.
+    - **Apprendre & partager** : Échangez des astuces et des tutoriels pour améliorer vos compétences.
+    - **Aperçus exclusifs** : Obtenez un accès anticipé aux annonces de nouveaux produits et aux aperçus.
+    - **Réductions spéciales** : Profitez de réductions exclusives sur nos produits les plus récents.
+    - **Promotions festives et cadeaux** : Participez à des cadeaux et promotions pendant les fêtes.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 Prêt à explorer et créer avec nous ? Cliquez sur [|link_sf_facebook|] et rejoignez-nous aujourd'hui !
 
 .. _esp32_lesson28_rgb_module:
 
-Lesson 28: RGB LED Module
-==================================
+Leçon 28 : Module LED RGB
+============================
 
-In this lesson, you will learn how to control an RGB LED using an ESP32 Development Board. We'll cover using different color channels to display primary colors and creating a sequence of rainbow colors. This project is ideal for beginners in electronics and programming, providing hands-on experience with output operations and color mixing using the ESP32 and RGB LED module.
+Dans cette leçon, vous apprendrez à contrôler une LED RGB à l'aide d'une carte de développement ESP32. Nous aborderons l'utilisation des différents canaux de couleur pour afficher les couleurs primaires et créer une séquence de couleurs arc-en-ciel. Ce projet est idéal pour les débutants en électronique et en programmation, offrant une expérience pratique des opérations de sortie et du mélange de couleurs avec l'ESP32 et le module LED RGB.
 
-Required Components
---------------------------
+Composants nécessaires
+-------------------------
 
-In this project, we need the following components. 
+Pour ce projet, nous avons besoin des composants suivants. 
 
-It's definitely convenient to buy a whole kit, here's the link: 
+Il est très pratique d'acheter un kit complet, voici le lien : 
 
 .. list-table::
     :widths: 20 20 20
     :header-rows: 1
 
-    *   - Name	
-        - ITEMS IN THIS KIT
-        - LINK
-    *   - Universal Maker Sensor Kit
+    *   - Nom    
+        - COMPOSANTS DANS CE KIT
+        - Lien
+    *   - Kit de capteurs Universal Maker
         - 94
         - |link_umsk|
 
-You can also buy them separately from the links below.
+Vous pouvez également les acheter séparément via les liens ci-dessous.
 
 .. list-table::
     :widths: 30 20
     :header-rows: 1
 
-    *   - Component Introduction
-        - Purchase Link
+    *   - Description du composant
+        - Lien d'achat
 
-    *   - ESP32 & Development Board (:ref:`cpn_esp32_wroom_32e`)
+    *   - ESP32 & Carte de développement (:ref:`cpn_esp32_wroom_32e`)
         - |link_esp32_camera_pro_kit_buy|
     *   - :ref:`cpn_rgb`
         - \-
@@ -54,32 +54,32 @@ You can also buy them separately from the links below.
         - |link_breadboard_buy|
 
 
-Wiring
----------------------------
+Câblage
+-----------
 
 .. image:: img/Lesson_28_RGB_LED_Module_esp32_bb.png
     :width: 100%
 
 
 Code
----------------------------
+------
 
 .. raw:: html
 
     <iframe src=https://create.arduino.cc/editor/sunfounder01/a8796969-0aed-4037-8080-f62059cc2db5/preview?embed style="height:510px;width:100%;margin:10px 0" frameborder=0></iframe>
 
-Code Analysis
----------------------------
+Analyse du code
+-----------------
 
-1. The first segment of the code declares and initializes the pins to which each color channel of the RGB LED module is connected.
+1. La première partie du code déclare et initialise les broches auxquelles chaque canal de couleur du module LED RGB est connecté.
 
    .. code-block:: arduino
        
-      const int rledPin = 25;  // pin connected to the red color channel
-      const int gledPin = 26;   // pin connected to the green color channel
-      const int bledPin = 27;  // pin connected to the blue color channel
+      const int rledPin = 25;  // broche connectée au canal de couleur rouge
+      const int gledPin = 26;   // broche connectée au canal de couleur verte
+      const int bledPin = 27;  // broche connectée au canal de couleur bleue
 
-2. The ``setup()`` function initializes these pins as OUTPUT. This means we are sending signals OUT from these pins to the RGB LED module.
+2. La fonction ``setup()`` initialise ces broches en tant que SORTIE. Cela signifie que nous envoyons des signaux de ces broches vers le module LED RGB.
 
    .. code-block:: arduino
    
@@ -89,24 +89,24 @@ Code Analysis
         pinMode(bledPin, OUTPUT);
       }
 
-3. In the ``loop()`` function, the ``setColor()`` function is called with different parameters to display different colors. The ``delay()`` function is used after setting each color to pause for 1000 milliseconds (or 1 second) before moving on to the next color.
+3. Dans la fonction ``loop()``, la fonction ``setColor()`` est appelée avec différents paramètres pour afficher différentes couleurs. La fonction ``delay()`` est utilisée après avoir défini chaque couleur pour faire une pause de 1000 millisecondes (ou 1 seconde) avant de passer à la couleur suivante.
 
    .. code-block:: arduino
    
       void loop() {
-        setColor(255, 0, 0);  // Set RGB LED color to red
+        setColor(255, 0, 0);  // Définir la couleur de la LED RGB en rouge
         delay(1000);
-        setColor(0, 255, 0);  // Set RGB LED color to green
+        setColor(0, 255, 0);  // Définir la couleur de la LED RGB en vert
         delay(1000);
-        // The rest of the color sequence...
+        // La suite de la séquence de couleurs...
       }
 
-4. The ``setColor()`` function uses the ``analogWrite()`` function to adjust the brightness of each color channel on the RGB LED module. The ``analogWrite()`` function employs Pulse Width Modulation (PWM) to simulate varying voltage outputs. By controlling the PWM duty cycle (the percentage of time a signal is HIGH within a fixed period), the brightness of each color channel can be controlled, allowing the mixing of various colors.
+4. La fonction ``setColor()`` utilise la fonction ``analogWrite()`` pour ajuster la luminosité de chaque canal de couleur sur le module LED RGB. La fonction ``analogWrite()`` utilise la modulation de largeur d'impulsion (PWM) pour simuler différentes sorties de tension. En contrôlant le cycle de travail du PWM (le pourcentage de temps qu'un signal est HAUT pendant une période fixe), la luminosité de chaque canal de couleur peut être contrôlée, permettant le mélange de diverses couleurs.
 
    .. code-block:: arduino
 
       void setColor(int R, int G, int B) {
-        analogWrite(rledPin, R);  // Use PWM to control the brightness of the red color channel
-        analogWrite(gledPin, G);  // Use PWM to control the brightness of the green color channel
-        analogWrite(bledPin, B);  // Use PWM to control the brightness of the blue color channel
+        analogWrite(rledPin, R);  // Utiliser la PWM pour contrôler la luminosité du canal de couleur rouge
+        analogWrite(gledPin, G);  // Utiliser la PWM pour contrôler la luminosité du canal de couleur verte
+        analogWrite(bledPin, B);  // Utiliser la PWM pour contrôler la luminosité du canal de couleur bleue
       }

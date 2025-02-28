@@ -1,105 +1,106 @@
 .. note::
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    Bonjour, bienvenue dans la communauté des passionnés de SunFounder Raspberry Pi, Arduino et ESP32 sur Facebook ! Plongez dans l’univers du Raspberry Pi, d’Arduino et de l’ESP32 avec d’autres passionnés.
 
-    **Why Join?**
+    **Pourquoi nous rejoindre ?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Support d’experts** : Résolvez vos problèmes après-vente et relevez des défis techniques avec l’aide de notre communauté et de notre équipe.
+    - **Apprendre & Partager** : Échangez des astuces et des tutoriels pour améliorer vos compétences.
+    - **Aperçus exclusifs** : Accédez en avant-première aux annonces et aperçus des nouveaux produits.
+    - **Réductions spéciales** : Profitez d’offres exclusives sur nos derniers produits.
+    - **Promotions festives et cadeaux** : Participez à des concours et événements promotionnels spéciaux.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 Prêt à explorer et à créer avec nous ? Cliquez sur [|link_sf_facebook|] et rejoignez-nous dès aujourd’hui !
 
 .. _uno_lesson31_pump:
 
-Lesson 31: Centrifugal Pump
-==================================
+Leçon 31 : Pompe centrifuge
+==============================
 
-In this lesson, you'll learn how to control a centrifugal pump with an Arduino Uno R3 or R4 and an L9110 motor control board. You'll discover how to set up and program the Arduino to start the pump in one direction, run it for a specific duration, and then stop it. This hands-on experience is ideal for beginners and offers fundamental insight into managing motor operations and understanding output controls in Arduino projects.
+Dans cette leçon, vous apprendrez à contrôler une pompe centrifuge avec un Arduino Uno R3 ou R4 et une carte de contrôle moteur L9110. Vous découvrirez comment configurer et programmer l’Arduino pour démarrer la pompe dans une direction, la faire fonctionner pendant une durée spécifique, puis l’arrêter. Cette expérience pratique est idéale pour les débutants et offre une compréhension fondamentale de la gestion des moteurs et du contrôle des sorties dans les projets Arduino.
 
-Required Components
---------------------------
+Composants nécessaires
+-------------------------
 
-In this project, we need the following components. 
+Pour ce projet, nous avons besoin des composants suivants.
 
-It's definitely convenient to buy a whole kit, here's the link: 
+Il est plus pratique d’acheter un kit complet, voici le lien :
 
 .. list-table::
     :widths: 20 20 20
     :header-rows: 1
 
-    *   - Name	
-        - ITEMS IN THIS KIT
-        - LINK
-    *   - Universal Maker Sensor Kit
+    *   - Nom	
+        - ARTICLES DANS CE KIT
+        - LIEN
+    *   - Kit capteur universel pour bricoleurs
         - 94
         - |link_umsk|
 
-You can also buy them separately from the links below.
+Vous pouvez également les acheter séparément via les liens ci-dessous.
 
 .. list-table::
     :widths: 30 20
     :header-rows: 1
 
-    *   - Component Introduction
-        - Purchase Link
+    *   - Introduction du composant
+        - Lien d'achat
 
-    *   - Arduino UNO R3 or R4
+    *   - Arduino UNO R3 ou R4
         - |link_Uno_R3_buy|
     *   - :ref:`cpn_pump`
         - \-
     *   - :ref:`cpn_l9110`
         - \-
 
-* Arduino UNO R3 or R4
+* Arduino UNO R3 ou R4
 * :ref:`cpn_pump`
 * :ref:`cpn_l9110`
 
 
-Wiring
----------------------------
+Câblage
+----------
 
 .. image:: img/Lesson_31_pump_uno_bb.png
     :width: 100%
 
 
 Code
----------------------------
+-------
 
 .. raw:: html
 
     <iframe src=https://create.arduino.cc/editor/sunfounder01/f5fad7fa-4b2c-4630-a832-d3a5e077d9fa/preview?embed style="height:510px;width:100%;margin:10px 0" frameborder=0></iframe>
 
-Code Analysis
----------------------------
+Analyse du code
+----------------
 
-1. Two pins are defined for controlling the motor, specifically ``motorB_1A`` and ``motorB_2A``. These pins will connect to the L9110 motor control board to control the direction and speed of the motor.
+1. Définition des broches de contrôle du moteur :
+   
+   - Deux broches sont définies pour contrôler le moteur, spécifiquement ``motorB_1A`` et ``motorB_2A``. Ces broches seront connectées à la carte de contrôle moteur L9110 pour réguler la direction et la vitesse du moteur.
   
    .. code-block:: arduino
    
       const int motorB_1A = 9;
       const int motorB_2A = 10;
 
-2. Configuring the pins and controlling the motor:
+2. Configuration des broches et contrôle du moteur :
 
-   - The ``setup()`` function initializes the pins as ``OUTPUT`` which means they can send signals to the motor control board.
+   - La fonction ``setup()`` initialise les broches en tant que ``OUTPUT``, ce qui signifie qu’elles enverront des signaux à la carte de contrôle moteur.
 
-   - The ``analogWrite()`` function is used to set the motor speed. Here, setting one pin to ``HIGH`` and the other to ``LOW`` makes the pump spin in one direction. After a 5-second delay, both pins are set to 0, turning off the motor.
+   - La fonction ``analogWrite()`` est utilisée pour régler la vitesse du moteur. Ici, en mettant une broche à ``HIGH`` et l’autre à ``LOW``, la pompe tourne dans une direction. Après un délai de 5 secondes, les deux broches sont mises à 0, ce qui arrête le moteur.
 
-   .. raw:: html
+      .. raw:: html
 
-      <br/>
-   
+       <br/>
    .. code-block:: arduino
    
       void setup() {
-         pinMode(motorB_1A, OUTPUT);  // set pump pin 1 as output
-         pinMode(motorB_2A, OUTPUT);  // set pump pin 2 as output
+         pinMode(motorB_1A, OUTPUT);  // Définir la broche 1 de la pompe comme sortie
+         pinMode(motorB_2A, OUTPUT);  // Définir la broche 2 de la pompe comme sortie
          analogWrite(motorB_1A, HIGH); 
          analogWrite(motorB_2A, LOW);
-         delay(5000);// wait for 5 seconds
-         analogWrite(motorB_1A, 0);  // turn off the pump
+         delay(5000); // Attendre 5 secondes
+         analogWrite(motorB_1A, 0);  // Arrêter la pompe
          analogWrite(motorB_2A, 0);
       }

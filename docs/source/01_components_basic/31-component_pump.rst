@@ -1,20 +1,20 @@
 .. note::
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    Bonjour, bienvenue dans la communauté des passionnés de SunFounder Raspberry Pi, Arduino et ESP32 sur Facebook ! Plongez plus profondément dans l'univers de Raspberry Pi, Arduino et ESP32 avec d'autres passionnés.
 
-    **Why Join?**
+    **Pourquoi rejoindre ?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Support d'experts** : Résolvez les problèmes après-vente et les défis techniques avec l'aide de notre communauté et de notre équipe.
+    - **Apprendre & Partager** : Échangez des astuces et des tutoriels pour améliorer vos compétences.
+    - **Aperçus exclusifs** : Accédez en avant-première aux annonces de nouveaux produits et aux aperçus exclusifs.
+    - **Réductions spéciales** : Profitez de réductions exclusives sur nos nouveaux produits.
+    - **Promotions festives et cadeaux** : Participez à des tirages au sort et des promotions festives.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 Prêts à explorer et créer avec nous ? Cliquez sur [|link_sf_facebook|] et rejoignez-nous aujourd'hui !
 
 .. _cpn_pump:
 
-Centrifugal Pump
+Pompe centrifuge
 ==========================
 
 .. image:: img/31_pump.png
@@ -26,26 +26,25 @@ Centrifugal Pump
     <br/>
     
 
-A centrifugal pump is a device that can move liquids from one place to another by using a rotating impeller. It can be used to pump water, oil, chemicals, etc. A centrifugal pump has two main parts: a motor and a pump. The motor provides power to the pump and the pump converts the rotational energy into pressure and flow.
+Une pompe centrifuge est un dispositif permettant de déplacer des liquides d'un point à un autre à l'aide d'un rotor tournant. Elle peut être utilisée pour pomper de l'eau, de l'huile, des produits chimiques, etc. Une pompe centrifuge comporte deux parties principales : un moteur et une pompe. Le moteur fournit la puissance à la pompe qui transforme l'énergie rotationnelle en pression et en débit.
 
-Specification
+Spécification
 ---------------------------
 
-* **Voltage Scope**: DC 3 ~ 4.5V
-* **Operating Current**: 120 ~ 180mA
-* **Power**: 0.36 ~ 0.91W
-* **Max Water Head**: 0.35 ~ 0.55M
-* **Max Flow Rate**: 80 ~ 100 L/H
-* **Continuous Working Life**: 100 hours
-* **Water Fing Grade**: IP68
-* **Driving Mode**: DC, Magnetic Driving
-* **Material**: Engineering Plastic
-* **Outlet Outside Diameter**: 7.8 mm
-* **Outlet Inside Diameter**: 6.5 mm
-* It is a submersible pump and should be used that way. It tends to heat too much that there's a risk of overheating if you turn it on unsubmerged.
+* **Plage de tension** : CC 3 ~ 4,5V
+* **Courant de fonctionnement** : 120 ~ 180mA
+* **Puissance** : 0,36 ~ 0,91W
+* **Hauteur d'eau maximale** : 0,35 ~ 0,55M
+* **Débit maximal** : 80 ~ 100 L/H
+* **Durée de vie en fonctionnement continu** : 100 heures
+* **Indice de protection contre l'eau** : IP68
+* **Mode de conduite** : CC, entraînement magnétique
+* **Matériau** : Plastique technique
+* **Diamètre extérieur de la sortie** : 7,8 mm
+* **Diamètre intérieur de la sortie** : 6,5 mm
+* C'est une pompe submersible et doit être utilisée comme telle. Elle a tendance à surchauffer s'il y a un risque de surchauffe si vous la faites fonctionner sans immersion.
 
-
-Example
+Exemple
 ---------------------------
 * :ref:`uno_lesson31_pump` (Arduino UNO)
 * :ref:`esp32_lesson31_pump` (ESP32)

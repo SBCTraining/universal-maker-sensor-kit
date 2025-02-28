@@ -1,25 +1,25 @@
-.. note::
+.. note:: 
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    Bonjour, bienvenue dans la communauté des passionnés de SunFounder Raspberry Pi, Arduino et ESP32 sur Facebook ! Plongez plus profondément dans l'univers de Raspberry Pi, Arduino et ESP32 avec d'autres passionnés.
 
-    **Why Join?**
+    **Pourquoi rejoindre ?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Support d'experts** : Résolvez les problèmes après-vente et les défis techniques avec l'aide de notre communauté et de notre équipe.
+    - **Apprendre & Partager** : Échangez des astuces et des tutoriels pour améliorer vos compétences.
+    - **Aperçus exclusifs** : Obtenez un accès anticipé aux annonces de nouveaux produits et aux avant-premières.
+    - **Réductions spéciales** : Profitez de réductions exclusives sur nos nouveaux produits.
+    - **Promotions festives et cadeaux** : Participez à des tirages au sort et à des promotions festives.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 Prêts à explorer et à créer avec nous ? Cliquez sur [|link_sf_facebook|] et rejoignez-nous dès aujourd'hui !
 
 .. _py_syntax_while:
 
-While Loops
+Boucles While
 ====================
 
-The ``while`` statement is used to execute a program in a loop, that is, to execute a program in a loop under certain conditions to handle the same task that needs to be processed repeatedly. 
+L'instruction ``while`` est utilisée pour exécuter un programme en boucle, c'est-à-dire pour traiter à plusieurs reprises la même tâche sous certaines conditions.
 
-Its basic form is:
+Sa forme de base est :
 
 .. code-block:: python
 
@@ -27,15 +27,15 @@ Its basic form is:
         Body of while
 
 
-In the ``while`` loop, first check the ``test expression``. Only when ``test expression`` evaluates to ``True``, enter the body of the while. After one iteration, check the ``test expression`` again. This process continues until ``test expression`` evaluates to ``False``.
+Dans la boucle ``while``, on vérifie d'abord l'``expression_test``. On entre dans le corps du while seulement si l'``expression_test`` est évaluée à ``True``. Après une itération, on vérifie à nouveau l'``expression_test``. Ce processus continue jusqu'à ce que l'``expression_test`` soit évaluée à ``False``.
 
-In MicroPython, the body of the ``while`` loop is determined by indentation.
+En MicroPython, le corps de la boucle ``while`` est déterminé par l'indentation.
 
-The body starts with an indentation and ends with the first unindented line.
+Le corps commence par une indentation et se termine avec la première ligne non indentée.
 
-Python interprets any non-zero value as ``True``. None and 0 are interpreted as ``False``.
+Python interprète toute valeur non nulle comme ``True``. None et 0 sont interprétés comme ``False``.
 
-**while Loop Flowchart**
+**Schéma de la boucle while**
 
 .. image:: img/while_loop.png
 
@@ -61,13 +61,10 @@ Python interprets any non-zero value as ``True``. None and 0 are interpreted as 
 2
 1
 
-
-Break Statement
+Instruction Break
 --------------------
 
-With the break statement we can stop the loop even if the while condition is true:
-
-
+Avec l'instruction break, nous pouvons arrêter la boucle même si la condition du while est vraie :
 
 .. code-block:: python
 
@@ -86,11 +83,11 @@ With the break statement we can stop the loop even if the while condition is tru
 7
 6
 
-While Loop with Else
-----------------------
-Like the ``if`` loop, the ``while`` loop can also have an optional ``else`` block.
+Boucle While avec Else
+--------------------------
+Comme la boucle ``if``, la boucle ``while`` peut également avoir un bloc ``else`` optionnel.
 
-If the condition in the ``while`` loop is evaluated as ``False``, the ``else`` part is executed.
+Si la condition dans la boucle ``while`` est évaluée à ``False``, la partie ``else`` est exécutée.
 
 
 

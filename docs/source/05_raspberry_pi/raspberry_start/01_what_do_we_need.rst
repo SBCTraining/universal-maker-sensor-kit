@@ -1,73 +1,71 @@
-.. note::
+.. note:: 
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    Bonjour et bienvenue dans la communauté des passionnés de Raspberry Pi, Arduino et ESP32 de SunFounder sur Facebook ! Plongez plus profondément dans l'univers de Raspberry Pi, Arduino et ESP32 avec d'autres passionnés.
 
-    **Why Join?**
+    **Pourquoi nous rejoindre ?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Support d'experts** : Résolvez vos problèmes après-vente et vos défis techniques grâce à l'aide de notre communauté et de notre équipe.
+    - **Apprendre et partager** : Échangez des astuces et des tutoriels pour améliorer vos compétences.
+    - **Aperçus exclusifs** : Accédez en avant-première aux annonces de nouveaux produits et aux aperçus.
+    - **Réductions spéciales** : Profitez de réductions exclusives sur nos produits les plus récents.
+    - **Promotions festives et concours** : Participez à des concours et promotions pendant les fêtes.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 Prêt à explorer et créer avec nous ? Cliquez sur [|link_sf_facebook|] et rejoignez-nous dès aujourd'hui !
 
 .. _what_do_we_need:
 
-What Do We Need?
-================
+De quoi avons-nous besoin ?
+=============================
 
-Required Components
------------------------
+Composants nécessaires
+-------------------------
 
 **Raspberry Pi**
 
-The Raspberry Pi is a low cost, credit-card sized computer that plugs into a computer monitor or TV and used with a standard keyboard and mouse. It's a versatile device that allows people of all ages to explore computing and learn programming languages such as Scratch and Python.
+Le Raspberry Pi est un ordinateur à faible coût, de la taille d'une carte de crédit, qui se branche à un moniteur d'ordinateur ou à une télévision et s'utilise avec un clavier et une souris standards. C'est un dispositif polyvalent qui permet aux personnes de tous âges de découvrir l'informatique et d'apprendre des langages de programmation tels que Scratch et Python.
 
 .. image:: img/Raspberry-Pi-5-8G.jpg
     :width: 70%
     :align: center
 
 
-**Power Adapter**
+**Adaptateur secteur**
 
 .. https://www.tablesgenerator.com/text_tables
 
-+-----------------------------+--------------------------------------------+
-| Model                       | Recommended power supply (voltage/current) |
-+=============================+============================================+
-| Raspberry Pi 5              | 5V/5A, 5V/3A limits peripherals to 600mA   |
-+-----------------------------+--------------------------------------------+
-| Raspberry Pi 4 Model B      | 5V/3A                                      |
-+-----------------------------+--------------------------------------------+
-| Raspberry Pi 3 (all models) | 5V/2.5A                                    |
-+-----------------------------+--------------------------------------------+
++-----------------------------+-----------------------------------------------+
+| Modèle                      | Alimentation recommandée (tension/courant)    |
++=============================+===============================================+
+| Raspberry Pi 5              | 5V/5A, 5V/3A limite les périphériques à 600mA |
++-----------------------------+-----------------------------------------------+
+| Raspberry Pi 4 Modèle B     | 5V/3A                                         |
++-----------------------------+-----------------------------------------------+
+| Raspberry Pi 3 (tous modèles)| 5V/2.5A                                      |
++-----------------------------+-----------------------------------------------+
 
-**Micro SD Card**
+**Carte micro SD**
 
-Your Raspberry Pi needs an Micro SD card to store all its files and the Raspberry Pi OS. You will need a micro SD card with a capacity of at least 8 GB.
+Votre Raspberry Pi a besoin d'une carte micro SD pour stocker tous ses fichiers et le système d'exploitation Raspberry Pi OS. Il vous faut une carte micro SD d'une capacité d'au moins 8 Go.
 
-Optional Components
--------------------------
+Composants optionnels
+------------------------
 
-**Screen**
+**Écran**
 
-To access the Raspberry Pi's desktop environment, you can connect it to a TV or computer monitor. If the screen includes speakers, audio will be output through them.
+Pour accéder à l'environnement de bureau du Raspberry Pi, vous pouvez le connecter à un téléviseur ou à un moniteur d'ordinateur. Si l'écran dispose de haut-parleurs, l'audio sera émis par ceux-ci.
 
-**Mouse & Keyboard**
+**Souris et clavier**
 
-When you use a screen, a USB keyboard and a USB mouse are also needed.
+Lorsque vous utilisez un écran, un clavier USB et une souris USB sont également nécessaires.
 
 **HDMI**
 
-The Raspberry Pi has HDMI (or Micro HDMI) output ports, which are compatible with the HDMI ports of most modern TVs and computer monitors. If your screen only comes with a DVI or VGA port, you will need to use the corresponding adapter cable.
+Le Raspberry Pi possède des ports de sortie HDMI (ou Micro HDMI), compatibles avec les ports HDMI de la plupart des téléviseurs et moniteurs d'ordinateur modernes. Si votre écran ne possède qu'un port DVI ou VGA, vous devrez utiliser le câble adaptateur correspondant.
 
-**Case**
+**Boîtier**
 
-You can place the Raspberry Pi in a case to protect your device. On our official website, we offer related products for sale; you can view or purchase Raspberry Pi cases |link_buy_pi_case|.
+Vous pouvez placer votre Raspberry Pi dans un boîtier pour protéger votre appareil. Sur notre site officiel, nous proposons des produits liés à cela à la vente ; vous pouvez consulter ou acheter des boîtiers pour Raspberry Pi |link_buy_pi_case|.
 
-**Sound or Earphone**
+**Son ou casque**
 
-Most Raspberry Pi models come with a 3.5mm audio port, which can be used when your screen doesn't have built-in speakers or isn't in use. However, it’s important to note that the latest Raspberry Pi 5 doesn’t come with a 3.5mm audio port.
-
-
+La plupart des modèles Raspberry Pi disposent d'un port audio 3,5 mm, qui peut être utilisé lorsque votre écran n'a pas de haut-parleurs intégrés ou n'est pas utilisé. Cependant, il est important de noter que le dernier modèle, le Raspberry Pi 5, ne dispose pas de port audio 3,5 mm.

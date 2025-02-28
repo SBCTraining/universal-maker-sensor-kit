@@ -1,58 +1,58 @@
 .. note::
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    Bonjour, bienvenue dans la communauté des passionnés de SunFounder Raspberry Pi, Arduino et ESP32 sur Facebook ! Plongez plus profondément dans l'univers de Raspberry Pi, Arduino et ESP32 avec d'autres passionnés.
 
-    **Why Join?**
+    **Pourquoi rejoindre ?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Support d'expert** : Résolvez les problèmes post-vente et les défis techniques avec l'aide de notre communauté et de notre équipe.
+    - **Apprendre et partager** : Échangez des astuces et des tutoriels pour améliorer vos compétences.
+    - **Aperçus exclusifs** : Obtenez un accès anticipé aux annonces de nouveaux produits et aux aperçus exclusifs.
+    - **Réductions spéciales** : Profitez de réductions exclusives sur nos nouveaux produits.
+    - **Promotions festives et cadeaux** : Participez à des cadeaux et promotions de fêtes.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 Prêts à explorer et à créer avec nous ? Cliquez sur [|link_sf_facebook|] et rejoignez-nous aujourd'hui !
 
 .. _uno_lesson13_potentiometer:
 
-Lesson 13: Potentiometer Module
+Leçon 13 : Module Potentiomètre
 ==================================
 
-In this lesson, you'll learn how to read the analog value of a potentiometer with an Arduino Uno. We'll connect the potentiometer to pin A0 and use the Arduino to measure its value from 0 to 1023. This tutorial will walk you through setting up the circuit, writing code to read the sensor, and displaying the readings on the serial monitor. It's a great project for beginners, providing hands-on experience with analog input and serial communication on the Arduino platform.
+Dans cette leçon, vous apprendrez à lire la valeur analogique d'un potentiomètre avec un Arduino Uno. Nous connecterons le potentiomètre à la broche A0 et utiliserons l'Arduino pour mesurer sa valeur de 0 à 1023. Ce tutoriel vous guidera à travers la mise en place du circuit, la rédaction du code pour lire le capteur, et l'affichage des lectures sur le moniteur série. C'est un excellent projet pour les débutants, offrant une expérience pratique avec l'entrée analogique et la communication série sur la plateforme Arduino.
 
-Required Components
+Composants nécessaires
 --------------------------
 
-In this project, we need the following components. 
+Pour ce projet, nous avons besoin des composants suivants.
 
-It's definitely convenient to buy a whole kit, here's the link: 
+Il est définitivement pratique d'acheter un kit complet, voici le lien :
 
 .. list-table::
     :widths: 20 20 20
     :header-rows: 1
 
-    *   - Name	
-        - ITEMS IN THIS KIT
-        - LINK
-    *   - Universal Maker Sensor Kit
+    *   - Nom	
+        - ÉLÉMENTS DE CE KIT
+        - LIEN
+    *   - Kit capteur universel pour bricoleurs
         - 94
         - |link_umsk|
 
-You can also buy them separately from the links below.
+Vous pouvez également les acheter séparément via les liens ci-dessous.
 
 .. list-table::
     :widths: 30 20
     :header-rows: 1
 
-    *   - Component Introduction
-        - Purchase Link
+    *   - Introduction au composant
+        - Lien d'achat
 
-    *   - Arduino UNO R3 or R4
+    *   - Arduino UNO R3 ou R4
         - |link_Uno_R3_buy|
     *   - :ref:`cpn_potentiometer`
         - |link_potentiometer_sensor_module_buy|
 
 
-Wiring
+Câblage
 ---------------------------
 
 .. image:: img/Lesson_13_potentiometer_module_uno_bb.png
@@ -66,16 +66,16 @@ Code
 
     <iframe src=https://create.arduino.cc/editor/sunfounder01/ce0f8eac-f28f-4168-be2c-bcaabb1b4c78/preview?embed style="height:510px;width:100%;margin:10px 0" frameborder=0></iframe>
 
-Code Analysis
+Analyse du code
 ---------------------------
 
-#. This line of code defines the pin number to which the potentiometer is connected on the Arduino board.
+#. Cette ligne de code définit le numéro de la broche à laquelle le potentiomètre est connecté sur la carte Arduino.
 
    .. code-block:: arduino
 
       const int sensorPin = A0;
 
-#. The ``setup()`` function is a special function in Arduino that is executed only once when the Arduino is powered on or reset. In this project, the ``Serial.begin(9600)`` command initiates serial communication at a baud rate of 9600.
+#. La fonction ``setup()`` est une fonction spéciale dans Arduino qui est exécutée une seule fois lorsque l'Arduino est allumé ou réinitialisé. Dans ce projet, la commande ``Serial.begin(9600)`` initie la communication série à un débit de 9600 bauds.
 
    .. code-block:: arduino
 
@@ -83,7 +83,7 @@ Code Analysis
         Serial.begin(9600);  
       }
 
-#. The ``loop()`` function is the main function where the program runs repeatedly. In this function, the ``analogRead()`` function reads the analog value from the potentiometer and prints it to the serial monitor using ``Serial.println()``. The ``delay(50)`` command makes the program wait for 50 milliseconds before taking the next reading.
+#. La fonction ``loop()`` est la fonction principale où le programme s'exécute de manière répétée. Dans cette fonction, la fonction ``analogRead()`` lit la valeur analogique du potentiomètre et l'imprime sur le moniteur série en utilisant ``Serial.println()``. La commande ``delay(50)`` fait attendre le programme pendant 50 millisecondes avant de prendre la prochaine lecture.
 
    .. code-block:: arduino
 

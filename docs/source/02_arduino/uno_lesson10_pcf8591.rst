@@ -1,58 +1,58 @@
 .. note::
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    Bonjour, bienvenue dans la communauté des passionnés de SunFounder Raspberry Pi, Arduino et ESP32 sur Facebook ! Plongez plus profondément dans l'univers de Raspberry Pi, Arduino et ESP32 avec d'autres passionnés.
 
-    **Why Join?**
+    **Pourquoi rejoindre ?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Support d'expert** : Résolvez les problèmes après-vente et les défis techniques avec l'aide de notre communauté et de notre équipe.
+    - **Apprendre et partager** : Échangez des astuces et des tutoriels pour améliorer vos compétences.
+    - **Aperçus exclusifs** : Obtenez un accès anticipé aux annonces de nouveaux produits et aux aperçus exclusifs.
+    - **Réductions spéciales** : Profitez de réductions exclusives sur nos nouveaux produits.
+    - **Promotions festives et cadeaux** : Participez à des cadeaux et promotions de fêtes.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 Prêts à explorer et à créer avec nous ? Cliquez sur [|link_sf_facebook|] et rejoignez-nous aujourd'hui !
 
 .. _uno_lesson10_pcf8591:
 
-Lesson 10: PCF8591 ADC DAC Converter Module
-==============================================
+Leçon 10 : Module Convertisseur ADC DAC PCF8591
+==================================================
 
-In this lesson, you'll learn how to connect the Arduino Uno R4 (or R3) with a PCF8591 ADC DAC Converter Module. We'll cover reading analog values from input AIN0, sending these values to the DAC(AOUT), and displaying both the raw and voltage-converted readings on the serial monitor. The module’s potentiometer is connected to AIN0 using jumper caps, and the D2 LED on the module is connected to AOUT, so you can see that the brightness of D2 LED changes as you rotate the potentiometer.
+Dans cette leçon, vous apprendrez à connecter l'Arduino Uno R4 (ou R3) avec un module convertisseur ADC DAC PCF8591. Nous aborderons la lecture des valeurs analogiques à partir de l'entrée AIN0, l'envoi de ces valeurs au DAC (AOUT) et l'affichage à la fois des lectures brutes et des lectures converties en tension sur le moniteur série. Le potentiomètre du module est connecté à AIN0 à l'aide de cavaliers, et la LED D2 du module est connectée à AOUT, vous permettant de voir que la luminosité de la LED D2 change lorsque vous tournez le potentiomètre.
 
-Required Components
+Composants nécessaires
 --------------------------
 
-In this project, we need the following components. 
+Pour ce projet, nous avons besoin des composants suivants.
 
-It's definitely convenient to buy a whole kit, here's the link: 
+Il est définitivement pratique d'acheter un kit complet, voici le lien :
 
 .. list-table::
     :widths: 20 20 20
     :header-rows: 1
 
-    *   - Name	
-        - ITEMS IN THIS KIT
-        - LINK
-    *   - Universal Maker Sensor Kit
+    *   - Nom	
+        - ÉLÉMENTS DE CE KIT
+        - LIEN
+    *   - Kit capteur universel pour bricoleurs
         - 94
         - |link_umsk|
 
-You can also buy them separately from the links below.
+Vous pouvez également les acheter séparément via les liens ci-dessous.
 
 .. list-table::
     :widths: 30 20
     :header-rows: 1
 
-    *   - Component Introduction
-        - Purchase Link
+    *   - Introduction au composant
+        - Lien d'achat
 
-    *   - Arduino UNO R3 or R4
+    *   - Arduino UNO R3 ou R4
         - |link_Uno_R3_buy|
     *   - :ref:`cpn_pcf8591`
         - |link_pcf8591_module_buy|
 
 
-Wiring
+Câblage
 ---------------------------
 
 .. image:: img/Lesson_10_PCF8591_uno_bb.png
@@ -63,34 +63,34 @@ Code
 ---------------------------
 
 .. note:: 
-   To install the library, use the Arduino Library Manager and search for **"Adafruit PCF8591"** and install it.
+   Pour installer la bibliothèque, utilisez le gestionnaire de bibliothèques Arduino et recherchez **"Adafruit PCF8591"** et installez-la.
 
 .. raw:: html
 
     <iframe src=https://create.arduino.cc/editor/sunfounder01/217d04d3-2c19-44df-b66b-5c1582955260/preview?embed style="height:510px;width:100%;margin:10px 0" frameborder=0></iframe>
 
-Code Analysis
+Analyse du code
 ---------------------------
 
-#. **Including the Library and Defining Constants**
+#. **Inclusion de la bibliothèque et définition des constantes**
 
    .. note:: 
-      To install the library, use the Arduino Library Manager and search for **"Adafruit PCF8591"** and install it. 
+      Pour installer la bibliothèque, utilisez le gestionnaire de bibliothèques Arduino et recherchez **"Adafruit PCF8591"** et installez-la. 
 
    .. code-block:: arduino
 
-      // Include Adafruit PCF8591 library
+      // Inclure la bibliothèque Adafruit PCF8591
       #include <Adafruit_PCF8591.h>
-      // Define the reference voltage for ADC conversion
+      // Définir la tension de référence pour la conversion ADC
       #define ADC_REFERENCE_VOLTAGE 5.0
 
-   This section includes the Adafruit PCF8591 library, which provides functions for interacting with the PCF8591 module. The ADC reference voltage is set to 5.0 volts, which is the maximum voltage that the ADC can measure.
+   Cette section inclut la bibliothèque Adafruit PCF8591, qui fournit des fonctions pour interagir avec le module PCF8591. La tension de référence ADC est fixée à 5,0 volts, qui est la tension maximale que l'ADC peut mesurer.
 
-#. **Setting Up the PCF8591 Module**
+#. **Configuration du module PCF8591**
 
    .. code-block:: arduino
 
-      // Create an instance of the PCF8591 module
+      // Créer une instance du module PCF8591
       Adafruit_PCF8591 pcf = Adafruit_PCF8591();
       void setup() {
         Serial.begin(9600);
@@ -103,9 +103,9 @@ Code Analysis
         pcf.enableDAC(true);
       }
 
-   In the setup function, serial communication is started, and an instance of the PCF8591 module is created. The ``pcf.begin()`` function checks if the module is connected properly. If not, it prints an error message and halts the program. If the module is found, it enables the DAC.
+   Dans la fonction de configuration, la communication série est démarrée, et une instance du module PCF8591 est créée. La fonction ``pcf.begin()`` vérifie si le module est correctement connecté. Si ce n'est pas le cas, elle imprime un message d'erreur et arrête le programme. Si le module est trouvé, elle active le DAC.
 
-#. **Reading from ADC and Writing to DAC**
+#. **Lecture de l'ADC et écriture dans le DAC**
 
    .. code-block:: arduino
 
@@ -120,11 +120,11 @@ Code Analysis
         delay(500);
       }
 
-   The loop function continuously reads the analog value from AIN0 (analog input 0) of the PCF8591 module, then writes this value back to the DAC. It also prints the raw value and the voltage-converted value of AIN0 to the Serial Monitor.
+   La fonction de boucle lit en continu la valeur analogique de AIN0 (entrée analogique 0) du module PCF8591, puis écrit cette valeur de retour dans le DAC. Elle imprime également la valeur brute et la valeur convertie en tension de AIN0 sur le moniteur série.
 
-   Jumper caps link the module's potentiometer to AIN0, and the D2 LED is connected to AOUT; please refer to the PCF8591 module :ref:`schematic <cpn_pcf8591_sch>` for details. The brightness of the LED changes as the potentiometer is rotated.
+   Les cavaliers relient le potentiomètre du module à AIN0, et la LED D2 est connectée à AOUT ; veuillez vous référer au schéma du module PCF8591 :ref:`schematic <cpn_pcf8591_sch>` pour plus de détails. La luminosité de la LED change lorsque le potentiomètre est tourné.
 
-#. **Digital to Voltage Conversion Function**
+#. **Fonction de conversion numérique en tension**
 
    .. code-block:: arduino
 
@@ -132,4 +132,4 @@ Code Analysis
         return (((float)dac_value / ((1 << bits) - 1)) * logic_level);
       }
 
-   This function converts the digital value back to its corresponding voltage. It takes the digital value (``dac_value``), the number of bits of resolution (``bits``), and the logic level voltage (``logic_level``) as arguments. The formula used is a standard approach to convert a digital value to its equivalent voltage.
+   Cette fonction convertit la valeur numérique en sa tension correspondante. Elle prend la valeur numérique (``dac_value``), le nombre de bits de résolution (``bits``), et la tension de niveau logique (``logic_level``) en arguments. La formule utilisée est une approche standard pour convertir une valeur numérique en sa tension équivalente.

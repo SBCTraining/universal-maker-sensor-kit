@@ -1,39 +1,38 @@
-.. note::
+.. note:: 
+    Bonjour et bienvenue dans la communauté des passionnés de Raspberry Pi, Arduino et ESP32 de SunFounder sur Facebook ! Plongez plus profondément dans l'univers des Raspberry Pi, Arduino et ESP32 avec d'autres passionnés.
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    **Pourquoi rejoindre ?**
 
-    **Why Join?**
+    - **Support d'experts** : Résolvez les problèmes post-vente et les défis techniques avec l'aide de notre communauté et de notre équipe.
+    - **Apprendre et partager** : Échangez des astuces et des tutoriels pour améliorer vos compétences.
+    - **Aperçus exclusifs** : Accédez en avant-première aux annonces de nouveaux produits et aux coups d'œil exclusifs.
+    - **Réductions spéciales** : Profitez de réductions exclusives sur nos nouveaux produits.
+    - **Promotions festives et cadeaux** : Participez à des cadeaux et des promotions de vacances.
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    👉 Prêt à explorer et à créer avec nous ? Cliquez sur [|link_sf_facebook|] et rejoignez-nous aujourd'hui !
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
-
-Learn about the Components in Your Kit
+Découvrez les composants de votre kit
 ============================================
 
 
-After opening the package, please check whether the quantity of components is compliance with product description and whether all components are in good condition.
+Après avoir ouvert le paquet, veuillez vérifier si la quantité des composants est conforme à la description du produit et si tous les composants sont en bon état.
 
-* :download:`SunFounder Universal Maker Sensor Kit Components List </_static/pdf/sunfounder_universal_maker_sensor_components_list.pdf>`
+* :download:`Liste des composants du kit de capteurs universels de SunFounder </_static/pdf/sunfounder_universal_maker_sensor_components_list.pdf>`
 
 .. image:: img/universal-maker-sensor-kit-list.png
     :width: 100%
 
 
-The following is an introduction to each component, including its working principle and corresponding project. **Each component has a simple code example to help you get started quickly.**
+Voici une introduction à chaque composant, incluant son principe de fonctionnement et le projet correspondant. **Chaque composant est accompagné d'un exemple de code simple pour vous aider à démarrer rapidement.**
 
-**Basic**
+**Base**
 
 .. toctree::
     :maxdepth: 1
 
     38-component_breadboard
 
-**Sensor**
+**Capteur**
 
 .. toctree::
     :maxdepth: 1
@@ -64,8 +63,7 @@ The following is an introduction to each component, including its working princi
     24-component_vibration
     25-component_water_level
 
-
-**Display**
+**Affichage**
 
 .. toctree::
     :maxdepth: 1
@@ -75,7 +73,7 @@ The following is an introduction to each component, including its working princi
     28-component_rgb
     29-component_traffic
 
-**Actuator**
+**Actionneur**
 
 .. toctree::
     :maxdepth: 1
@@ -87,7 +85,7 @@ The following is an introduction to each component, including its working princi
     33-component_servo
     34-component_ttmotor
 
-**Wireless & IoT**
+**Sans fil & IoT**
 
 .. toctree::
     :maxdepth: 1
@@ -95,7 +93,7 @@ The following is an introduction to each component, including its working princi
     35-component_esp8266
     36-component_jdy31
 
-**Power**
+**Alimentation**
 
 .. toctree::
     :maxdepth: 1

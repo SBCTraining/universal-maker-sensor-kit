@@ -1,59 +1,59 @@
 .. note::
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    Bonjour, bienvenue dans la communauté des passionnés de SunFounder Raspberry Pi, Arduino et ESP32 sur Facebook ! Plongez au cœur de l'univers du Raspberry Pi, d'Arduino et de l'ESP32 avec d'autres passionnés.
 
-    **Why Join?**
+    **Pourquoi nous rejoindre ?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Support d'experts** : Résolvez les problèmes après-vente et relevez des défis techniques grâce à l'aide de notre communauté et de notre équipe.
+    - **Apprendre & Partager** : Échangez des astuces et des tutoriels pour améliorer vos compétences.
+    - **Aperçus exclusifs** : Accédez en avant-première aux annonces et aperçus des nouveaux produits.
+    - **Réductions spéciales** : Profitez de promotions exclusives sur nos derniers produits.
+    - **Promotions festives et cadeaux** : Participez à des tirages au sort et événements promotionnels spéciaux.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 Prêt à explorer et créer avec nous ? Cliquez sur [|link_sf_facebook|] et rejoignez-nous dès aujourd'hui !
 
 .. _uno_lesson24_vibration_sensor:
 
-Lesson 24: Vibration Sensor Module (SW-420)
-==============================================
+Leçon 24 : Module Capteur de Vibration (SW-420)
+=================================================
 
-In this lesson, you will learn how to detect vibrations using a vibration sensor with an Arduino Uno. We'll explore how the sensor signals the presence of vibrations to the Arduino, triggering it to display a message. This project is perfect for beginners to understand digital input processing and serial communication in Arduino. You'll gain hands-on experience in reading sensor data and implementing conditional logic in your sketches.
+Dans cette leçon, vous apprendrez à détecter des vibrations à l'aide d'un capteur de vibration et d'un Arduino Uno. Nous verrons comment le capteur signale la présence de vibrations à l'Arduino, qui déclenche alors l'affichage d'un message. Ce projet est idéal pour les débutants souhaitant comprendre le traitement des entrées numériques et la communication série avec Arduino. Vous acquerrez une expérience pratique en lisant des données de capteurs et en appliquant une logique conditionnelle dans vos croquis.
 
-Required Components
+Composants nécessaires
 --------------------------
 
-In this project, we need the following components. 
+Pour ce projet, nous avons besoin des composants suivants.
 
-It's definitely convenient to buy a whole kit, here's the link: 
+Il est plus pratique d'acheter un kit complet, voici le lien :
 
 .. list-table::
     :widths: 20 20 20
     :header-rows: 1
 
-    *   - Name	
-        - ITEMS IN THIS KIT
-        - LINK
-    *   - Universal Maker Sensor Kit
+    *   - Nom	
+        - ARTICLES DANS CE KIT
+        - LIEN
+    *   - Kit capteur universel pour bricoleurs
         - 94
         - |link_umsk|
 
-You can also buy them separately from the links below.
+Vous pouvez également les acheter séparément via les liens ci-dessous.
 
 .. list-table::
     :widths: 30 20
     :header-rows: 1
 
-    *   - Component Introduction
-        - Purchase Link
+    *   - Introduction du composant
+        - Lien d'achat
 
-    *   - Arduino UNO R3 or R4
+    *   - Arduino UNO R3 ou R4
         - |link_Uno_R3_buy|
     *   - :ref:`cpn_vibration`
         - |link_sw420_vibration_module_buy|
 
 
 
-Wiring
+Câblage
 ---------------------------
 
 .. image:: img/Lesson_24_vibration_module_circuit_uno_bb.png
@@ -67,35 +67,41 @@ Code
 
     <iframe src=https://create.arduino.cc/editor/sunfounder01/a04cb423-f55b-465a-bef3-100260eef067/preview?embed style="height:510px;width:100%;margin:10px 0" frameborder=0></iframe>
 
-Code Analysis
+Analyse du code
 ---------------------------
 
-1. The first line of code is a constant integer declaration for the vibration sensor pin. We use digital pin 7 to read the output from the vibration sensor.
+1. Déclaration de la broche du capteur de vibration
+
+   Cette ligne de code définit une constante ``sensorPin`` associée à la broche numérique 7, où le capteur de vibration est connecté.
 
    .. code-block:: arduino
-   
+
       const int sensorPin = 7;
 
-2. In the ``setup()`` function, we initialize the serial communication at a baud rate of 9600 to print readings from the vibration sensor to the serial monitor. We also set the vibration sensor pin as an input.
+2. Initialisation dans la fonction ``setup()``
+
+   La fonction ``setup()`` initialise la communication série avec un débit de 9600 bauds pour afficher les lectures du capteur de vibration sur le moniteur série. Elle configure également la broche du capteur en entrée.
 
    .. code-block:: arduino
-   
+
       void setup() {
-        Serial.begin(9600);         // Start serial communication at 9600 baud rate
-        pinMode(sensorPin, INPUT);  // Set the sensorPin as an input pin
+        Serial.begin(9600);         // Démarrer la communication série à 9600 bauds
+        pinMode(sensorPin, INPUT);  // Définir sensorPin en entrée
       }
 
-3. The ``loop()`` function is where we continuously check for any vibrations detected by the sensor. If the sensor detects a vibration, it prints "Detected vibration..." to the serial monitor. If no vibration is detected, it prints "...". The loop repeats every 100 milliseconds.
+3. Lecture des vibrations dans la fonction ``loop()``
+
+   La fonction ``loop()`` vérifie en continu si des vibrations sont détectées par le capteur. Si une vibration est détectée, le message "Vibration détectée..." s'affiche. Sinon, il affiche "…". La boucle se répète toutes les 100 millisecondes.
 
    .. code-block:: arduino
-   
+
       void loop() {
-        if (digitalRead(sensorPin)) {               // Check if there is any vibration detected by the sensor
-          Serial.println("Detected vibration...");  // Print "Detected vibration..." if vibration detected
+        if (digitalRead(sensorPin)) {               // Vérifier si une vibration est détectée
+          Serial.println("Detected vibration...");  // Afficher "Vibration détectée..." si le capteur détecte une vibration
         } 
         else {
-          Serial.println("...");  // Print "..." otherwise
+          Serial.println("...");  // Afficher "..." sinon
         }
-        // Add a delay to avoid flooding the serial monitor
+        // Ajouter un délai pour éviter de saturer le moniteur série
         delay(100);
       }

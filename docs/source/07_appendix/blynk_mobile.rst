@@ -1,41 +1,39 @@
 .. note::
+    Bonjour et bienvenue dans la Communauté des passionnés de SunFounder Raspberry Pi, Arduino et ESP32 sur Facebook ! Plongez plus profondément dans l'univers du Raspberry Pi, Arduino et ESP32 avec d'autres passionnés.
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    **Pourquoi rejoindre ?**
 
-    **Why Join?**
+    - **Support d'expert** : Résolvez les problèmes post-vente et les défis techniques avec l'aide de notre communauté et de notre équipe.
+    - **Apprendre et partager** : Échangez des astuces et des tutoriels pour améliorer vos compétences.
+    - **Aperçus exclusifs** : Accédez en avant-première aux nouvelles annonces de produits et aux aperçus.
+    - **Réductions spéciales** : Profitez de réductions exclusives sur nos produits les plus récents.
+    - **Promotions festives et cadeaux** : Participez à des tirages au sort et promotions saisonnières.
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
-
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 Prêts à explorer et à créer avec nous ? Cliquez sur [|link_sf_facebook|] et rejoignez-nous dès aujourd'hui !
 
 .. _blynk_mobile:
 
-How to use Blynk on mobile device?
-======================================
+Comment utiliser Blynk sur un appareil mobile ?
+==================================================
 
 .. note::
 
-    As datastreams can only be created in Blynk on the web, you will need to reference different projects to create datastreams on the web, then follow the tutorial below to create widgets in Blynk on your mobile device.
+    Comme les flux de données ne peuvent être créés que sur Blynk via le web, vous devrez vous référer à différents projets pour créer des flux de données sur le web, puis suivre le tutoriel ci-dessous pour créer des widgets dans Blynk sur votre appareil mobile.
 
-
-#. Open Google Play or APP Store on your mobile device and search for "Blynk IoT" (not Blynk(legacy)) to download.
-#. After opening the APP, login in, this account should be the same as the account used on the web client.
-#. Then go to **Dashboard** (if you don't have one, create one) and you will see that the **Dashboard** for mobile and web are independent of each other.
+#. Ouvrez Google Play ou l'APP Store sur votre appareil mobile et recherchez "Blynk IoT" (pas Blynk (legacy)) pour télécharger.
+#. Après avoir ouvert l'application, connectez-vous avec le même compte que celui utilisé sur le client web.
+#. Ensuite, allez au **Dashboard** (si vous n'en avez pas, créez-en un) et vous verrez que le **Tableau de bord** pour mobile et web sont indépendants l'un de l'autre.
 
    .. image:: img/new/APP_1_shadow.png
 
-#. Click **Edit** Icon.
-#. Click on the blank area. 
-#. Choose the same widget as on the web page, such as select a **Joystick** widget.
+#. Cliquez sur l'icône **Edit**.
+#. Cliquez sur une zone vide.
+#. Choisissez le même widget que sur la page web, par exemple sélectionnez un widget **Joystick**.
 
    .. image:: img/new/APP_2_shadow.png
 
-#. Now you will see a **Joystick** widget appear in the blank area, click on it.
-#. **Joystick** Settings will appear, select the **Xvalue** and **Yvalue** datastreams you just set in the web page. Note that each widget corresponds to a different datastream in each project.
-#. Go back to the **Dashboard** page and you can operate the **Joystick** when you want.
+#. Vous verrez maintenant un widget **Joystick** apparaître dans la zone vide, cliquez dessus.
+#. Les paramètres du **Joystick** apparaîtront, sélectionnez les flux de données **Xvalue** et **Yvalue** que vous avez définis sur la page web. Notez que chaque widget correspond à un flux de données différent dans chaque projet.
+#. Revenez à la page du **Dashboard** et vous pourrez utiliser le **Joystick** quand vous le souhaitez.
 
    .. image:: img/new/APP_3_shadow.png

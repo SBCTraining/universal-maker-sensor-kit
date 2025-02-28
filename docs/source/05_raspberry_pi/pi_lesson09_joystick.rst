@@ -1,53 +1,53 @@
-.. note::
+.. note:: 
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    Bonjour et bienvenue dans la communauté des passionnés de Raspberry Pi, Arduino et ESP32 de SunFounder sur Facebook ! Plongez plus profondément dans le Raspberry Pi, l'Arduino et l'ESP32 avec d'autres passionnés.
 
-    **Why Join?**
+    **Pourquoi nous rejoindre ?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Support d'experts** : Résolvez vos problèmes après-vente et vos défis techniques avec l'aide de notre communauté et de notre équipe.
+    - **Apprendre & partager** : Échangez des astuces et des tutoriels pour perfectionner vos compétences.
+    - **Aperçus exclusifs** : Bénéficiez d'un accès anticipé aux annonces de nouveaux produits et à des aperçus exclusifs.
+    - **Réductions spéciales** : Profitez de réductions exclusives sur nos produits les plus récents.
+    - **Promotions festives et concours** : Participez à nos concours et promotions pendant les fêtes.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 Prêt à explorer et à créer avec nous ? Cliquez sur [|link_sf_facebook|] et rejoignez-nous dès aujourd'hui !
 
 .. _pi_lesson09_joystick:
 
-Lesson 09: Joystick Module
-==================================
+Leçon 09 : Module Joystick
+============================
 
 .. note::
-   The Raspberry Pi does not have analog input capabilities, so it needs a module like the :ref:`cpn_pcf8591` to read analog signals for processing.
+   Le Raspberry Pi ne dispose pas de capacités d'entrée analogique, il nécessite donc un module comme le :ref:`cpn_pcf8591` pour lire les signaux analogiques à des fins de traitement.
 
-In this lesson, you will learn how to use a Raspberry Pi to interface with a joystick module using the PCF8591 ADC. You'll be able to read the X and Y positions of the joystick from its analog outputs and detect button presses. This setup demonstrates how to handle both analog and digital inputs on a Raspberry Pi. 
+Dans cette leçon, vous apprendrez à utiliser un Raspberry Pi pour interfacer avec un module joystick via le convertisseur analogique-numérique PCF8591. Vous serez capable de lire les positions X et Y du joystick depuis ses sorties analogiques et de détecter les pressions de boutons. Cette configuration montre comment gérer à la fois des entrées analogiques et numériques sur un Raspberry Pi.
 
-Required Components
+Composants nécessaires
 --------------------------
 
-In this project, we need the following components. 
+Pour ce projet, vous aurez besoin des composants suivants.
 
-It's definitely convenient to buy a whole kit, here's the link: 
+Il est pratique d'acheter un kit complet, voici le lien :
 
 .. list-table::
     :widths: 20 20 20
     :header-rows: 1
 
-    *   - Name	
-        - ITEMS IN THIS KIT
-        - LINK
-    *   - Universal Maker Sensor Kit
+    *   - Nom	
+        - ARTICLES DANS CE KIT
+        - Lien
+    *   - Kit de capteurs Universal Maker
         - 94
         - |link_umsk|
 
-You can also buy them separately from the links below.
+Vous pouvez également les acheter séparément via les liens ci-dessous.
 
 .. list-table::
     :widths: 30 20
     :header-rows: 1
 
-    *   - Component Introduction
-        - Purchase Link
+    *   - Introduction des composants
+        - Lien d'achat
 
     *   - Raspberry Pi 5
         - \-
@@ -57,11 +57,11 @@ You can also buy them separately from the links below.
         - |link_pcf8591_module_buy|
 
 
-Wiring
+Câblage
 ---------------------------
 
 .. note::
-   In this project, we utilized the AIN0 pin of the PCF8591 module, which is linked to a potentiometer on the module through a jumper cap. **To prevent data interference, please disconnect the jumper cap from the module.** For more details, please refer to the PCF8591 module :ref:`schematic <cpn_pcf8591_sch>`.
+   Dans ce projet, nous avons utilisé la broche AIN0 du module PCF8591, qui est reliée à un potentiomètre sur le module via un capuchon de connexion. **Pour éviter toute interférence de données, veuillez déconnecter le capuchon de connexion du module.** Pour plus de détails, consultez le :ref:`schematic <cpn_pcf8591_sch>`.
 
 .. image:: img/Lesson_09_Jostick_Module_pi_bb.png
     :width: 100%
@@ -72,72 +72,72 @@ Code
 
 .. code-block:: python
 
-   import PCF8591 as ADC  # Import ADC module for analog input
-   import time  # Import time module for creating delay
-   from gpiozero import Button  # Import Button for button input
+   import PCF8591 as ADC  # Importation du module ADC pour l'entrée analogique
+   import time  # Importation du module time pour créer des délais
+   from gpiozero import Button  # Importation de Button pour l'entrée de bouton
    
-   ADC.setup(0x48)  # Set up PCF8591 module at I2C address 0x48
+   ADC.setup(0x48)  # Configuration du module PCF8591 à l'adresse I2C 0x48
    
-   button = Button(17)  # Initialize button connected to GPIO 17
+   button = Button(17)  # Initialisation du bouton connecté à la GPIO 17
    
    try:
-       while True:  # Loop continuously
-           print("x:", ADC.read(0))  # Read analog value from channel AIN0
-           print("y:", ADC.read(1))  # Read analog value from channel AIN1
-           print("sw:", button.is_active)  # Check if button is pressed
-           time.sleep(0.2)  # Wait for 0.2 seconds before next loop
+       while True:  # Boucle continue
+           print("x:", ADC.read(0))  # Lecture de la valeur analogique depuis le canal AIN0
+           print("y:", ADC.read(1))  # Lecture de la valeur analogique depuis le canal AIN1
+           print("sw:", button.is_active)  # Vérification si le bouton est pressé
+           time.sleep(0.2)  # Pause de 0.2 secondes avant la prochaine boucle
    except KeyboardInterrupt:
-       print("Exit")  # End program on keyboard interrupt
+       print("Exit")  # Fin du programme lors d'une interruption clavier
 
 
 
-Code Analysis
+Analyse du code
 ---------------------------
 
-1. **Import Libraries**:
+1. **Importation des bibliothèques** :
 
-   The script starts with importing necessary libraries for the project.
-
-   .. code-block:: python
-
-      import PCF8591 as ADC  # Import ADC module for analog input
-      import time  # Import time module for creating delay
-      from gpiozero import Button  # Import Button for button input
-
-2. **Setup PCF8591 Module**:
-
-   The PCF8591 module is set up at I2C address 0x48 which allows the Raspberry Pi to communicate with it.
+   Le script commence par importer les bibliothèques nécessaires au projet.
 
    .. code-block:: python
 
-      ADC.setup(0x48)  # Set up PCF8591 module at I2C address 0x48
+      import PCF8591 as ADC  # Importation du module ADC pour l'entrée analogique
+      import time  # Importation du module time pour créer des délais
+      from gpiozero import Button  # Importation de Button pour l'entrée de bouton
 
-3. **Initialize Button**:
+2. **Configuration du module PCF8591** :
 
-   A button is initialized, connected to GPIO pin 17 on the Raspberry Pi.
+   Le module PCF8591 est configuré à l'adresse I2C 0x48, ce qui permet au Raspberry Pi de communiquer avec lui.
 
    .. code-block:: python
 
-      button = Button(17)  # Initialize button connected to GPIO 17
+      ADC.setup(0x48)  # Configuration du module PCF8591 à l'adresse I2C 0x48
 
-4. **Main Loop**:
+3. **Initialisation du bouton** :
 
-   The main part of the script is an infinite loop that continuously reads analog values from two channels of the PCF8591 (AIN0 and AIN1) and checks if the button is pressed. ``AIN0`` and ``AIN1`` are analog pins for the joystick’s X and Y axes.
+   Un bouton est initialisé, relié à la broche GPIO 17 du Raspberry Pi.
+
+   .. code-block:: python
+
+      button = Button(17)  # Initialisation du bouton connecté à la GPIO 17
+
+4. **Boucle principale** :
+
+   La principale partie du script est une boucle infinie qui lit en continu les valeurs analogiques de deux canaux du PCF8591 (AIN0 et AIN1) et vérifie si le bouton est pressé. ``AIN0`` et ``AIN1`` sont les broches analogiques pour les axes X et Y du joystick.
 
    .. code-block:: python
 
       try:
-          while True:  # Loop continuously
-              print("x:", ADC.read(0))  # Read analog value from channel AIN0
-              print("y:", ADC.read(1))  # Read analog value from channel AIN1
-              print("sw:", button.is_active)  # Check if button is pressed
-              time.sleep(0.2)  # Wait for 0.2 seconds before next loop
+          while True:  # Boucle continue
+              print("x:", ADC.read(0))  # Lecture de la valeur analogique depuis le canal AIN0
+              print("y:", ADC.read(1))  # Lecture de la valeur analogique depuis le canal AIN1
+              print("sw:", button.is_active)  # Vérification si le bouton est pressé
+              time.sleep(0.2)  # Pause de 0.2 secondes avant la prochaine boucle
 
-5. **Interrupt Handling**:
+5. **Gestion des interruptions** :
 
-   The script can be exited gracefully using a keyboard interrupt (CTRL+C), which is a common practice in Python for stopping an infinite loop.
+   Le script peut être quitté de manière élégante en utilisant une interruption clavier (CTRL+C), ce qui est une pratique courante en Python pour arrêter une boucle infinie.
 
    .. code-block:: python
 
       except KeyboardInterrupt:
-          print("Exit")  # End program on keyboard interrupt
+          print("Exit")  # Fin du programme lors d'une interruption clavier

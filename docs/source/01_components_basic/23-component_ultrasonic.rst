@@ -1,21 +1,21 @@
 .. note::
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    Bonjour et bienvenue dans la communauté des passionnés de SunFounder Raspberry Pi, Arduino et ESP32 sur Facebook ! Approfondissez votre compréhension des Raspberry Pi, Arduino et ESP32 avec d'autres passionnés.
 
-    **Why Join?**
+    **Pourquoi rejoindre ?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Support d'experts** : Résolvez les problèmes après-vente et les défis techniques avec l'aide de notre communauté et de notre équipe.
+    - **Apprendre & Partager** : Échangez des conseils et des tutoriels pour améliorer vos compétences.
+    - **Aperçus exclusifs** : Obtenez un accès en avant-première aux annonces de nouveaux produits et aux aperçus.
+    - **Réductions spéciales** : Profitez de réductions exclusives sur nos produits les plus récents.
+    - **Promotions festives et cadeaux** : Participez à des tirages au sort et des promotions festives.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 Prêts à explorer et à créer avec nous ? Cliquez sur [|link_sf_facebook|] et rejoignez-nous aujourd'hui !
 
 .. _cpn_ultrasonic:
 
-Ultrasonic Sensor Module (HC-SR04)
-=====================================
+Module de Capteur Ultrasonique (HC-SR04)
+===========================================
 
 .. image:: img/23_ultrasonic.png
     :width: 350
@@ -25,43 +25,40 @@ Ultrasonic Sensor Module (HC-SR04)
 
    <br/>
 
-The Ultrasonic Module(HC-SR04) is a sensor that can measure distances between 2cm and 400cm using ultrasonic waves. It is commonly used in robotics and automation projects to detect objects and measure distances. The module consists of an ultrasonic transmitter and receiver, which work together to send and receive ultrasonic waves.
-
+Le module ultrasonique HC-SR04 est un capteur qui peut mesurer des distances de 2 cm à 400 cm en utilisant des ondes ultrasoniques. Il est couramment utilisé dans les projets de robotique et d'automatisation pour détecter des objets et mesurer des distances. Le module est composé d'un émetteur et d'un récepteur ultrasoniques, qui travaillent ensemble pour envoyer et recevoir des ondes ultrasoniques.
 
 .. _cpn_ultrasonic_principle:
 
-Principle
----------------------------
-The module includes ultrasonic transmitters, receiver and control circuit. The basic principles are as follows:
+Principe
+----------------------------
+Le module comprend des émetteurs ultrasoniques, un récepteur et un circuit de contrôle. Les principes de base sont les suivants :
 
-#. Use an IO flip-flop to process a high level signal of at least 10us.
+1. Utilisez un basculeur IO pour traiter un signal de haut niveau d'au moins 10us.
 
-#. The module automatically sends eight 40khz and detects if there is a pulse signal return.
+2. Le module envoie automatiquement huit signaux de 40 kHz et détecte s'il y a un retour de signal d'impulsion.
 
-#. If the signal returns, passing the high level, the high output IO duration is the time from the transmission of the ultrasonic wave to the return of it. Here, test distance = (high time x sound speed (340 m / s) / 2.
+3. Si le signal revient, passant à haut niveau, la durée de sortie IO haute est le temps écoulé depuis l'émission de l'onde ultrasonique jusqu'à son retour. Ici, la distance testée = (temps haut x vitesse du son (340 m/s) / 2.
 
-The timing diagram is shown below. 
+Le diagramme de chronométrage est montré ci-dessous.
 
 .. image:: img/23_ultrasonic_principle.png
 
-You only need to supply a short 10us pulse for the trigger input to start the ranging, and then the module
-will send out an 8 cycle burst of ultrasound at 40 kHz and raise its
-echo. You can calculate the range through the time interval between
-sending trigger signal and receiving echo signal.
+Vous devez seulement fournir une impulsion courte de 10us pour l'entrée de 
+déclenchement pour commencer la mesure, puis le module émet une rafale de 
+8 cycles d'ultrasons à 40 kHz et augmente son écho. Vous pouvez calculer la 
+distance à travers l'intervalle de temps entre l'envoi du signal de déclenchement 
+et la réception du signal d'écho.
 
 .. note::
-    It is recommended to use measurement cycle over 60ms in order to prevent signal collisions of
-    trigger signal and the echo signal.
+    Il est recommandé d'utiliser un cycle de mesure supérieur à 60 ms afin de prévenir les collisions de signaux entre le signal de déclenchement et le signal d'écho.
+
+Formule : 
+    - us / 58 = centimètres 
+    - us / 148 = pouces
+    - distance = temps de haut niveau * vitesse du son (340m/s) / 2; 
 
 
-Formula: 
-    - us / 58 = centimeters 
-    - us / 148 = inch
-    - distance = high level time \* speed of sound (340m/s) / 2; 
-
-
-
-Example
+Exemple
 ---------------------------
 * :ref:`uno_lesson23_ultrasonic` (Arduino UNO)
 * :ref:`esp32_lesson23_ultrasonic` (ESP32)

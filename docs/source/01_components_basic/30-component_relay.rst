@@ -1,20 +1,20 @@
 .. note::
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    Bonjour, bienvenue dans la communauté des passionnés de SunFounder Raspberry Pi, Arduino et ESP32 sur Facebook ! Approfondissez vos connaissances et partagez votre passion pour le Raspberry Pi, Arduino, et ESP32 avec d'autres enthousiastes.
 
-    **Why Join?**
+    **Pourquoi rejoindre ?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Support d'experts** : Résolvez les problèmes post-vente et relevez les défis techniques avec l'aide de notre communauté et de notre équipe.
+    - **Apprendre & Partager** : Échangez des astuces et des tutoriels pour renforcer vos compétences.
+    - **Aperçus exclusifs** : Obtenez un accès anticipé aux annonces de nouveaux produits et aux avant-premières.
+    - **Réductions spéciales** : Profitez de réductions exclusives sur nos produits les plus récents.
+    - **Promotions festives et cadeaux** : Participez à des tirages au sort et des promotions de fêtes.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 Prêts à explorer et créer avec nous ? Cliquez sur [|link_sf_facebook|] et rejoignez-nous aujourd'hui !
 
 .. _cpn_relay:
 
-5V Relay Module
+Module Relais 5V
 ==========================
 
 .. image:: img/30_relay_module.png
@@ -25,35 +25,34 @@
     
     <br/>
 
-5V relay modules are devices that can switch high voltage or high current devices on and off using a 5V signal from Arduino. They can be used to control devices such as lights, fans, motors, solenoids, etc. 5V relay has three high voltage terminals (NC, C, and NO) which connect to the device you want to control. The other side has three low voltage pins (Ground, Vcc, and Signal) which connect to the Arduino.
+Les modules relais 5V sont des dispositifs capables de commuter des appareils à haute tension ou à fort courant on et off en utilisant un signal 5V d'Arduino. Ils peuvent être utilisés pour contrôler des dispositifs tels que des lumières, des ventilateurs, des moteurs, des solénoïdes, etc. Le relais 5V possède trois bornes à haute tension (NC, C et NO) qui se connectent à l'appareil que vous souhaitez contrôler. L'autre côté possède trois broches à basse tension (masse, Vcc et signal) qui se connectent à l'Arduino.
 
-
-Principle
+Principe
 ---------------------------
-A relay is a device which is used to provide connection between two or more points or devices in response to the input signal applied. In other words, relays provide isolation between the controller and devices, which may operate on either AC or DC. However, they receive signals from a microcontroller which works on DC hence requiring a relay to bridge the gap. Relay is extremely useful when you need to control a large amount of current or voltage with small electrical signal.
+Un relais est un dispositif utilisé pour établir une connexion entre deux points ou plus ou des dispositifs en réponse au signal d'entrée appliqué. En d'autres termes, les relais fournissent une isolation entre le contrôleur et les dispositifs, qui peuvent fonctionner soit en courant alternatif (CA) soit en courant continu (CC). Cependant, ils reçoivent des signaux d'un microcontrôleur qui fonctionne en CC, nécessitant ainsi un relais pour combler le fossé. Le relais est extrêmement utile lorsque vous avez besoin de contrôler une grande quantité de courant ou de tension avec un petit signal électrique.
 
-There are 5 parts in every relay:
+Voici les 5 parties de chaque relais :
 
 .. image:: img/30_relay_2.jpeg
     :width: 500
     :align: center
 
-Electromagnet - It consists of an iron core wounded by coil of wires. When electricity is passed through, it becomes magnetic. Therefore, it is called electromagnet.
+Électroaimant - Il comprend un noyau de fer enroulé par des bobines de fils. Lorsque l'électricité est passée à travers, il devient magnétique. Par conséquent, il est appelé électroaimant.
 
-Armature - The movable magnetic strip is known as armature. When current flows through them, the coil gets energized thus producing a magnetic field which is used to make or break the normally open (N/O) or normally close (N/C) points. And the armature can be moved with direct current (DC) as well as alternating current (AC).
+Armature - La bande magnétique mobile est connue sous le nom d'armature. Lorsque le courant traverse, la bobine est excitée produisant ainsi un champ magnétique utilisé pour faire ou briser les points normalement ouverts (NO) ou normalement fermés (NF). Et l'armature peut être déplacée avec un courant continu (CC) ainsi qu'avec un courant alternatif (CA).
 
-Spring - When no currents flow through the coil on the electromagnet, the spring pulls the armature away so the circuit cannot be completed.
+Ressort - Lorsqu'aucun courant ne traverse la bobine sur l'électroaimant, le ressort tire l'armature loin de sorte que le circuit ne peut pas être complété.
 
-Set of electrical contacts - There are two contact points:
+Ensemble de contacts électriques - Il y a deux points de contact :
 
-* Normally open - connected when the relay is activated, and disconnected when it is inactive.
-* Normally closed - not connected when the relay is activated, and connected when it is inactive.
+* Normalement ouvert - connecté lorsque le relais est activé, et déconnecté lorsqu'il est inactif.
+* Normalement fermé - non connecté lorsque le relais est activé, et connecté lorsqu'il est inactif.
 
-Molded frame - This is typically made of plastic and provides structural support and protection for the relay.
+Cadre moulé - Il est généralement fabriqué en plastique et fournit un support structurel et une protection pour le relais.
 
-The working principle of relay is simple. When power is supplied to the relay, currents start flowing through the control coil; as a result, the electromagnet starts energizing. Then the armature is attracted to the coil, pulling down the moving contact together thus connecting with the normally open contacts. So the circuit with the load is energized. Then breaking the circuit would be a similar case, as the moving contact will be pulled up to the normally closed contacts under the force of the spring. In this way, the switching on and off of the relay can control the state of a load circuit.
+Le principe de fonctionnement du relais est simple. Lorsque l'alimentation est fournie au relais, les courants commencent à circuler à travers la bobine de commande; en conséquence, l'électroaimant commence à s'exciter. Ensuite, l'armature est attirée vers la bobine, tirant vers le bas le contact mobile ainsi en se connectant avec les contacts normalement ouverts. Ainsi, le circuit avec la charge est alimenté. Puis, interrompre le circuit serait un cas similaire, car le contact mobile sera tiré vers les contacts normalement fermés sous l'effort du ressort. De cette manière, la commutation du relais peut contrôler l'état d'un circuit de charge.
 
-Schematic diagram
+Schéma
 ---------------------------
 
 .. image:: img/30_relay_module_schematic.png
@@ -64,12 +63,12 @@ Schematic diagram
 
    <br/>
 
-Example
+Exemple
 ---------------------------
 * :ref:`uno_lesson30_relay_module` (Arduino UNO)
 * :ref:`esp32_lesson30_relay_module` (ESP32)
 * :ref:`pico_lesson30_relay_module` (Raspberry Pi Pico)
 * :ref:`pi_lesson30_relay_module` (Raspberry Pi)
- 
+
 * :ref:`uno_lesson40_motion_triggered_relay` (Arduino UNO)
 * :ref:`esp32_motion_triggered_relay` (ESP32)

@@ -1,50 +1,50 @@
-.. note::
+.. note:: 
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    Bonjour et bienvenue dans la communauté des passionnés de SunFounder Raspberry Pi, Arduino et ESP32 sur Facebook ! Plongez plus profondément dans l'univers du Raspberry Pi, Arduino et ESP32 avec d'autres passionnés.
 
-    **Why Join?**
+    **Pourquoi nous rejoindre ?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Support d'experts** : Résolvez vos problèmes après-vente et défis techniques grâce à l'aide de notre communauté et de notre équipe.
+    - **Apprendre et partager** : Échangez des astuces et des tutoriels pour améliorer vos compétences.
+    - **Aperçus exclusifs** : Accédez en avant-première aux annonces de nouveaux produits et aux aperçus.
+    - **Réductions spéciales** : Profitez de réductions exclusives sur nos derniers produits.
+    - **Promotions festives et concours** : Participez à des concours et promotions pendant les fêtes.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 Prêt à explorer et créer avec nous ? Cliquez sur [|link_sf_facebook|] et rejoignez-nous dès aujourd'hui !
 
 .. _pico_lesson34_motor:
 
-Lesson 34: TT Motor
+Leçon 34 : Moteur TT
 ==================================
 
-In this lesson, you will learn how to operate a TT motor using the Raspberry Pi Pico W and an L9110 motor control board. We'll guide you through the process of configuring two PWM (Pulse Width Modulation) pins to control the motor. You'll set up the motor to run for 5 seconds and then turn off. This practical exercise offers a valuable opportunity to delve into motor control mechanisms and PWM signals, crucial in microcontroller programming. 
+Dans cette leçon, vous apprendrez à faire fonctionner un moteur TT en utilisant le Raspberry Pi Pico W et une carte de contrôle de moteur L9110. Nous vous guiderons tout au long du processus de configuration de deux broches PWM (modulation de largeur d'impulsion) pour contrôler le moteur. Vous configurerez le moteur pour qu'il fonctionne pendant 5 secondes, puis s'éteigne. Cet exercice pratique constitue une excellente occasion de découvrir les mécanismes de contrôle des moteurs et les signaux PWM, des éléments essentiels dans la programmation des microcontrôleurs.
 
-Required Components
+Composants Requis
 --------------------------
 
-In this project, we need the following components. 
+Dans ce projet, vous aurez besoin des composants suivants.
 
-It's definitely convenient to buy a whole kit, here's the link: 
+Il est certainement plus pratique d'acheter un kit complet, voici le lien :
 
 .. list-table::
     :widths: 20 20 20
     :header-rows: 1
 
-    *   - Name	
-        - ITEMS IN THIS KIT
-        - LINK
+    *   - Nom    
+        - Éléments dans ce kit
+        - Lien
     *   - Universal Maker Sensor Kit
         - 94
         - |link_umsk|
 
-You can also buy them separately from the links below.
+Vous pouvez également les acheter séparément via les liens ci-dessous.
 
 .. list-table::
     :widths: 30 20
     :header-rows: 1
 
-    *   - Component Introduction
-        - Purchase Link
+    *   - Introduction des composants
+        - Lien d'achat
 
     *   - Raspberry Pi Pico W
         - \-
@@ -56,7 +56,7 @@ You can also buy them separately from the links below.
         - |link_breadboard_buy|
 
 
-Wiring
+Câblage
 ---------------------------
 
 .. image:: img/Lesson_34_Motor_pico_bb.png
@@ -74,23 +74,23 @@ Code
    motor_a = PWM(Pin(26), freq=1000)
    motor_b = PWM(Pin(27), freq=1000)
    
-   # turn on motor
+   # Allumer le moteur
    motor_a.duty_u16(0)
-   motor_b.duty_u16(65535)  # speed(0-65535)
+   motor_b.duty_u16(65535)  # vitesse (0-65535)
    
    time.sleep(5)
    
-   # turn off motor
+   # Éteindre le moteur
    motor_a.duty_u16(0)
    motor_b.duty_u16(0)
 
-Code Analysis
+Analyse du Code
 ---------------------------
 
-#. Importing Libraries
+1. Importation des bibliothèques
 
-   - The ``machine`` module is imported to interact with the GPIO pins and PWM functionalities of the Raspberry Pi Pico W.
-   - The ``time`` module is used for creating delays in the code.
+   - Le module ``machine`` est importé pour interagir avec les broches GPIO et les fonctionnalités PWM du Raspberry Pi Pico W.
+   - Le module ``time`` est utilisé pour créer des délais dans le code.
 
    .. raw:: html
 
@@ -101,10 +101,10 @@ Code Analysis
       from machine import Pin, PWM
       import time
 
-#. Initializing PWM Objects
+2. Initialisation des objets PWM
 
-   - Two PWM objects, ``motor_a`` and ``motor_b``, are created. They correspond to GPIO pins 26 and 27, respectively.
-   - The frequency for PWM is set to 1000 Hz, a common frequency for motor control.
+   - Deux objets PWM, ``motor_a`` et ``motor_b``, sont créés. Ils correspondent respectivement aux broches GPIO 26 et 27.
+   - La fréquence PWM est définie sur 1000 Hz, une fréquence courante pour le contrôle des moteurs.
 
    .. raw:: html
 
@@ -115,10 +115,10 @@ Code Analysis
       motor_a = PWM(Pin(26), freq=1000)
       motor_b = PWM(Pin(27), freq=1000)
 
-#. Turning on the Motor
+3. Allumer le moteur
 
-   - ``motor_a.duty_u16(0)`` sets the duty cycle of ``motor_a`` pin to 0, while ``motor_b.duty_u16(65535)`` sets the duty cycle of ``motor_b`` pin to 65535, running the motor at full speed. For more details, please refer to :ref:`the working principle of L9110 <cpn_l9110_principle>`.
-   - The motor runs for 5 seconds, controlled by ``time.sleep(5)``.
+   - ``motor_a.duty_u16(0)`` définit le cycle de travail de la broche ``motor_a`` à 0, tandis que ``motor_b.duty_u16(65535)`` définit le cycle de travail de la broche ``motor_b`` à 65535, faisant tourner le moteur à pleine vitesse. Pour plus de détails, veuillez consulter :ref:`the working principle of L9110 <cpn_l9110_principle>`.
+   - Le moteur fonctionne pendant 5 secondes, contrôlé par ``time.sleep(5)``.
 
    .. raw:: html
 
@@ -126,17 +126,17 @@ Code Analysis
 
    .. code-block:: python
 
-      # turn on motor
+      # Allumer le moteur
       motor_a.duty_u16(0)
-      motor_b.duty_u16(65535)  # speed(0-65535)
+      motor_b.duty_u16(65535)  # vitesse (0-65535)
       time.sleep(5)
 
-#. Turning off the Motor
+4. Éteindre le moteur
 
-   Both ``motor_a`` and ``motor_b`` are set to a duty cycle of 0, stopping the motor.
+   Les deux broches ``motor_a`` et ``motor_b`` sont définies à un cycle de travail de 0, arrêtant ainsi le moteur.
 
    .. code-block:: python
 
-      # turn off motor
+      # Éteindre le moteur
       motor_a.duty_u16(0)
       motor_b.duty_u16(0)
