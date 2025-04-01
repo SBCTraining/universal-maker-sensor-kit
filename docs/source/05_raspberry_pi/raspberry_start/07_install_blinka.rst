@@ -93,7 +93,7 @@ Erstellen Sie eine neue Datei namens ``blinkatest.py`` mit nano oder Ihrem bevor
    print("Hello blinka!")
    
    # Try to great a Digital input
-   pin = digitalio.DigitalInOut(board.17)
+   pin = digitalio.DigitalInOut(board.D17)
    print("Digital IO ok!")
    
    # Try to create an I2C device
