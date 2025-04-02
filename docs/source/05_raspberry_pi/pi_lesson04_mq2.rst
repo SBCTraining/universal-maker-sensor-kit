@@ -47,7 +47,7 @@ Sie können sie auch einzeln über die unten stehenden Links kaufen.
         - Purchase Link
 
     *   - Raspberry Pi 5
-        - \-
+        - |link_rpi5_buy|
     *   - :ref:`cpn_gas`
         - |link_mq2_gas_sensor_module_buy|
     *   - :ref:`cpn_breadboard`

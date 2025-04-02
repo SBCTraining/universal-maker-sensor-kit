@@ -48,7 +48,7 @@ Sie können sie auch einzeln von den folgenden Links kaufen.
         - Purchase Link
 
     *   - Raspberry Pi Pico W
-        - \-
+        - |link_picow_buy|
     *   - :ref:`cpn_pump`
         - \-
     *   - :ref:`cpn_l9110`

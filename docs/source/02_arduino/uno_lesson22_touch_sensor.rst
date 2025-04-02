@@ -1,4 +1,4 @@
- .. _uno_lesson22_touch_sensor:.. note::
+ .. note::
 
    Hallo und willkommen in der SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasten-Gemeinschaft auf Facebook! Tauchen Sie tiefer ein in die Welt von Raspberry Pi, Arduino und ESP32 mit anderen Enthusiasten.
 
@@ -12,7 +12,7 @@
 
    👉 Sind Sie bereit, mit uns zu erkunden und zu erschaffen? Klicken Sie auf [|link_sf_facebook|] und treten Sie heute bei!
 
-
+.. _uno_lesson22_touch_sensor:
 
 Lektion 22: Berührungssensor-Modul
 ======================================

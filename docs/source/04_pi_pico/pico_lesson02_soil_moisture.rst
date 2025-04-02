@@ -48,7 +48,7 @@ Sie können sie auch separat von den folgenden Links kaufen.
         - Purchase Link
 
     *   - Raspberry Pi Pico W
-        - \-
+        - |link_picow_buy|
     *   - :ref:`cpn_soil`
         - |link_soil_moisture_buy|
     *   - :ref:`cpn_breadboard`

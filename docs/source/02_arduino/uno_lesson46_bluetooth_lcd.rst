@@ -12,6 +12,7 @@
 
    👉 Sind Sie bereit, mit uns zu erkunden und zu erschaffen? Klicken Sie auf [|link_sf_facebook|] und treten Sie heute bei!
 
+.. _uno_bluetooth_lcd:
 
 Lektion 46: Bluetooth LCD
 =============================================================
@@ -61,6 +62,7 @@ Verkabelung
 
 .. image:: img/Lesson_46_Bluetooth_lcd_uno_bb.png
     :width: 100%
+
 Code
 ---------------------------
 

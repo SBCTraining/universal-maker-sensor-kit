@@ -12,6 +12,8 @@
 
    👉 Sind Sie bereit, mit uns zu erkunden und zu erschaffen? Klicken Sie auf [|link_sf_facebook|] und treten Sie heute bei!
 
+.. _pico_lesson21_vl53l0x:
+
 Lesson 21: Time-of-Flight-Mikro-LIDAR-Entfernungssensor (VL53L0X)
 ====================================================================
 
@@ -45,7 +47,7 @@ Sie können sie auch separat über die folgenden Links kaufen.
         - Purchase Link
 
     *   - Raspberry Pi Pico W
-        - \-
+        - |link_picow_buy|
     *   - :ref:`cpn_VL53L0X`
         - |link_vl53l0x_module_buy|
     *   - :ref:`cpn_breadboard`

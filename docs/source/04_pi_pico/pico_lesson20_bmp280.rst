@@ -48,7 +48,7 @@ Du kannst sie auch separat über die folgenden Links kaufen.
         - Purchase Link
 
     *   - Raspberry Pi Pico W
-        - \-
+        - |link_picow_buy|
     *   - :ref:`cpn_bmp280`
         - |link_bmp280_module_buy|
     *   - :ref:`cpn_breadboard`

@@ -47,7 +47,7 @@ Du kannst sie auch separat über die untenstehenden Links kaufen.
         - Purchase Link
 
     *   - Raspberry Pi 5
-        - \-
+        - |link_rpi5_buy|
     *   - :ref:`cpn_servo`
         - |link_servo_buy|
 

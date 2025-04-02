@@ -47,7 +47,7 @@ Sie können sie auch einzeln über die untenstehenden Links kaufen.
         - Purchase Link
 
     *   - Raspberry Pi 5
-        - \-
+        - |link_rpi5_buy|
     *   - :ref:`cpn_ultrasonic`
         - |link_ultrasonic_buy|
     *   - :ref:`cpn_breadboard`

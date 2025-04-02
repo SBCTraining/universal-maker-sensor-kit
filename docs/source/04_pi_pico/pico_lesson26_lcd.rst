@@ -48,7 +48,7 @@ Sie können sie auch einzeln über die folgenden Links kaufen.
         - Purchase Link
 
     *   - Raspberry Pi Pico W
-        - \-
+        - |link_picow_buy|
     *   - :ref:`cpn_i2c_lcd1602`
         - |link_i2clcd1602_buy|
     *   - :ref:`cpn_breadboard`

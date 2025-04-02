@@ -47,7 +47,7 @@ Sie können sie auch separat über die untenstehenden Links kaufen.
         - Purchase Link
 
     *   - Raspberry Pi 5
-        - \-
+        - |link_rpi5_buy|
     *   - :ref:`cpn_rgb`
         - \-
     *   - :ref:`cpn_breadboard`

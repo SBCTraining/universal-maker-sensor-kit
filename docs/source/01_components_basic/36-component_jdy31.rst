@@ -1,4 +1,4 @@
- .. _cpn_jdy31:.. note::
+ .. note::
 
    Hallo und willkommen in der SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasten-Gemeinschaft auf Facebook! Tauchen Sie tiefer ein in die Welt von Raspberry Pi, Arduino und ESP32 mit anderen Enthusiasten.
 
@@ -12,8 +12,7 @@
 
    👉 Sind Sie bereit, mit uns zu erkunden und zu erschaffen? Klicken Sie auf [|link_sf_facebook|] und treten Sie heute bei!
 
- 
-
+.. _cpn_jdy31:
 
 JDY-31 Bluetooth-Modul
 =====================================

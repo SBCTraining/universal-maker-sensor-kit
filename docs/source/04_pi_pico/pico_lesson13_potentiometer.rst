@@ -47,7 +47,7 @@ Sie können sie auch separat über die unten stehenden Links kaufen.
         - Purchase Link
 
     *   - Raspberry Pi Pico W
-        - \-
+        - |link_picow_buy|
     *   - :ref:`cpn_potentiometer`
         - |link_potentiometer_sensor_module_buy|
     *   - :ref:`cpn_breadboard`

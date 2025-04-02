@@ -47,7 +47,7 @@ Sie können sie auch separat von den folgenden Links kaufen.
         - Purchase Link
 
     *   - Raspberry Pi Pico W
-        - \-
+        - |link_picow_buy|
     *   - :ref:`cpn_flame`
         - |link_flame_sensor_module_buy|
     *   - :ref:`cpn_breadboard`

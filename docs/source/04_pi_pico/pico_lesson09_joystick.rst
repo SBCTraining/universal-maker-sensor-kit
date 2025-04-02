@@ -47,7 +47,7 @@ Du kannst sie auch separat von den unten stehenden Links kaufen.
         - Purchase Link
 
     *   - Raspberry Pi Pico W
-        - \-
+        - |link_picow_buy|
     *   - :ref:`cpn_joystick`
         - |link_joystick_buy|
     *   - :ref:`cpn_breadboard`

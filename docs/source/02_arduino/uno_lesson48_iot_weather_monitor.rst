@@ -12,6 +12,8 @@
 
    👉 Sind Sie bereit, mit uns zu erkunden und zu erschaffen? Klicken Sie auf [|link_sf_facebook|] und treten Sie heute bei!
 
+.. _uno_iot_weather_monito:
+
 Lesson 48: Wetterüberwachung mit ThingSpeak
 =============================================================
 
@@ -76,7 +78,7 @@ Konfiguration von ThingSpeak
     <br/>  
 
 **1) Erstellung eines ThingSpeak-Kontos**
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Das erste, was Sie tun müssen, ist ein Konto bei ThingSpeak zu erstellen. Seit der Zusammenarbeit mit MATLAB können Sie Ihre MathWorks-Anmeldeinformationen verwenden, um sich bei |link_thingspeak| anzumelden.
 

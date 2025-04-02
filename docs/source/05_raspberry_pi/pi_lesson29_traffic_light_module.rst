@@ -47,7 +47,7 @@ Sie können sie auch separat über die unten stehenden Links kaufen.
         - Purchase Link
 
     *   - Raspberry Pi 5
-        - \-
+        - |link_rpi5_buy|
     *   - :ref:`cpn_traffic`
         - |link_traffic_light_module_buy|
     *   - :ref:`cpn_breadboard`

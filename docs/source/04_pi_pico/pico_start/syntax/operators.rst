@@ -26,7 +26,7 @@ Operatoren werden verwendet, um Operationen auf Variablen und Werten durchzufüh
 
 * :ref:`Identitätsoperatoren`
 
-* :ref:`Zugehörigkeitsoperatoren`
+* :ref:`Mitgliedschaftsoperatoren`
 
 * :ref:`Bitweise Operatoren`
 
@@ -92,7 +92,7 @@ Mit arithmetischen Operatoren können Sie einige gängige mathematische Operatio
 >>> 
 
 Zuweisungsoperatoren
----------------------
+---------------------------
 
 Zuweisungsoperatoren können verwendet werden, um Werte Variablen zuzuweisen.
 
@@ -221,6 +221,7 @@ Logische Operatoren werden verwendet, um bedingte Aussagen zu kombinieren.
 >>> %Run -c $EDITOR_CONTENT
 True
 >>> 
+
 Identitätsoperatoren
 ------------------------
 

@@ -47,7 +47,7 @@ Sie können sie auch einzeln über die untenstehenden Links kaufen.
         - Purchase Link
 
     *   - Raspberry Pi 5
-        - \-
+        - |link_rpi5_buy|
     *   - :ref:`cpn_VL53L0X`
         - |link_vl53l0x_module_buy|
     *   - :ref:`cpn_breadboard`

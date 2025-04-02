@@ -48,7 +48,7 @@ Sie können sie auch separat über die folgenden Links kaufen.
         - Purchase Link
 
     *   - Raspberry Pi Pico W
-        - \-
+        - |link_picow_buy|
     *   - :ref:`cpn_max30102`
         - |link_max30102_module_buy|
     *   - :ref:`cpn_breadboard`

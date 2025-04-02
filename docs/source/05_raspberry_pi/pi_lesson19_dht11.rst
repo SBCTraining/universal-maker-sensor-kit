@@ -47,7 +47,7 @@ Sie können sie auch einzeln über die untenstehenden Links kaufen.
         - Purchase Link
 
     *   - Raspberry Pi 5
-        - \-
+        - |link_rpi5_buy|
     *   - :ref:`cpn_dht11`
         - |link_dht11_humiture_buy|
     *   - :ref:`cpn_breadboard`

@@ -48,7 +48,7 @@ Sie können sie auch einzeln von den untenstehenden Links kaufen.
         - Purchase Link
 
     *   - Raspberry Pi Pico W
-        - \-
+        - |link_picow_buy|
     *   - :ref:`cpn_ultrasonic`
         - |link_ultrasonic_buy|
     *   - :ref:`cpn_breadboard`

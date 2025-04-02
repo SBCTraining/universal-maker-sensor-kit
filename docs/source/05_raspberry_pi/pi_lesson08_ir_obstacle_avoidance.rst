@@ -47,7 +47,7 @@ Sie können sie auch einzeln über die unten stehenden Links kaufen.
         - Purchase Link
 
     *   - Raspberry Pi 5
-        - \-
+        - |link_rpi5_buy|
     *   - :ref:`cpn_ir_obstacle`
         - |link_obstacle_avoidance_module_buy|
     *   - :ref:`cpn_breadboard`
