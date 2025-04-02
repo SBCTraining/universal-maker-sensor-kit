@@ -1,20 +1,20 @@
-.. note::
+.. note:: 
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    ¡Hola, bienvenido a la Comunidad de Entusiastas de SunFounder Raspberry Pi & Arduino & ESP32 en Facebook! Profundiza en Raspberry Pi, Arduino y ESP32 con otros entusiastas.
 
-    **Why Join?**
+    **¿Por qué unirse?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Soporte experto**: Resuelve problemas postventa y desafíos técnicos con la ayuda de nuestra comunidad y equipo.
+    - **Aprende y comparte**: Intercambia consejos y tutoriales para mejorar tus habilidades.
+    - **Vistas previas exclusivas**: Accede antes que nadie a nuevos anuncios de productos y avances.
+    - **Descuentos especiales**: Disfruta de descuentos exclusivos en nuestros productos más nuevos.
+    - **Promociones festivas y sorteos**: Participa en sorteos y promociones especiales.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 ¿Listo para explorar y crear con nosotros? Haz clic en [|link_sf_facebook|] y únete hoy mismo!
 
 .. _cpn_flame:
 
-Flame Sensor Module
+Módulo Sensor de Llama
 ==========================
 
 .. image:: img/03_flame_module.png
@@ -26,35 +26,34 @@ Flame Sensor Module
    <br/>
 
 .. tip::
-   Keep a specific distance between the sensor and the flame to prevent damage from high temperatures. 
+   Mantén una distancia adecuada entre el sensor y la llama para evitar daños por altas temperaturas.
 
 .. note::
-   **Notice**: Due to a production error, some of the flame sensors included in our kits may be the 3-pin version, which lacks the AO (Analog Output). This version is suitable for most projects and does not impact general usage. If you still require the 4-pin version, please contact our customer service at service@sunfounder.com. We will provide a free replacement to meet your needs.
+   **Aviso**: Debido a un error de producción, algunos de los sensores de llama incluidos en nuestros kits pueden ser la versión de 3 pines, la cual carece de la salida AO (Salida Analógica). Esta versión es adecuada para la mayoría de los proyectos y no afecta el uso general. Si necesitas la versión de 4 pines, por favor contacta con nuestro servicio de atención al cliente en service@sunfounder.com. Te proporcionaremos un reemplazo gratuito para satisfacer tus necesidades.
 
-The Flame sensor is a sensor that can detect the presence of fire or flames. The flame sensor works based on infrared radiation. The IR photodiode will detect the IR radiation from any hot body. This value is then compared with a set value. Once the radiation reaches the threshold value, the sensor will change its output accordingly. It is widely used in fire detection systems in homes and industries.
+El sensor de llama es un dispositivo que puede detectar la presencia de fuego o llamas. El sensor de llama funciona basándose en la radiación infrarroja. El fotodiodo IR detecta la radiación infrarroja de cualquier cuerpo caliente. Este valor se compara con un valor establecido. Una vez que la radiación alcanza el valor umbral, el sensor cambiará su salida en consecuencia. Se utiliza ampliamente en sistemas de detección de incendios en hogares e industrias.
 
-The Flame sensor works on the principle of infrared (IR) detection. The sensor has an IR receiver that detects the IR radiation emitted by flames. When fire burns it emits a small amount of Infra-red light, this light will be received by the Photodiode (IR receiver) on the sensor module. Then we use an Op-Amp to check for a change in voltage across the IR Receiver, so that if a fire is detected the output pin (DO) will give 0V(LOW), and if the is no fire the output pin will be 5V(HIGH).
+El sensor de llama trabaja con el principio de detección infrarroja (IR). El sensor tiene un receptor IR que detecta la radiación IR emitida por las llamas. Cuando el fuego arde, emite una pequeña cantidad de luz infrarroja, que será recibida por el fotodiodo (receptor IR) en el módulo del sensor. Luego, usamos un amplificador operativo (Op-Amp) para verificar el cambio de voltaje a través del receptor IR, de modo que si se detecta un incendio, el pin de salida (DO) dará 0V (BAJO), y si no hay fuego, el pin de salida dará 5V (ALTO).
 
 
-Specification
+Especificaciones
 ---------------------------
-* Supply Voltage: 3.3V - 5V
-* PCB Size: 31 x 14mm
-* Output Signal Type: DO and AO
-* Detection Angle: 60 degrees
+* Voltaje de suministro: 3.3V - 5V
+* Tamaño del PCB: 31 x 14mm
+* Tipo de señal de salida: DO y AO
+* Ángulo de detección: 60 grados
 
 
 Pinout
 ---------------------------
-* **VCC**: This is the positive power supply input from the main control. 
-* **GND**: Ground connection.
-* **DO**: Digital output. It indicates the presence of a flame. When the infrared radiation exceeds the threshold value (set by the potentiometer), DO becomes LOW; otherwise, it remains HIGH.
-* **AO**: Analog output. It generates an output voltage that is inversely proportional to the intensity of infrared radiation (flame size). Therefore, higher infrared radiation will result in a lower voltage, while lower infrared radiation will result in a higher voltage.
+* **VCC**: Entrada de alimentación positiva desde el control principal.
+* **GND**: Conexión a tierra.
+* **DO**: Salida digital. Indica la presencia de una llama. Cuando la radiación infrarroja supera el valor umbral (establecido por el potenciómetro), DO se vuelve BAJO; de lo contrario, permanece ALTO.
+* **AO**: Salida analógica. Genera un voltaje de salida que es inversamente proporcional a la intensidad de la radiación infrarroja (tamaño de la llama). Por lo tanto, una mayor radiación infrarroja resultará en un voltaje más bajo, mientras que una menor radiación infrarroja resultará en un voltaje más alto.
 
 
-Schematic diagram
+Diagrama esquemático
 ---------------------------
-
 .. image:: img/03_flame_module_schematic.png
     :width: 100%
     :align: center
@@ -64,7 +63,7 @@ Schematic diagram
    <br/>
 
 
-Example
+Ejemplo
 ---------------------------
 * :ref:`uno_lesson03_flame` (Arduino UNO)
 * :ref:`esp32_lesson03_flame` (ESP32)

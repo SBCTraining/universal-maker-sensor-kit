@@ -1,76 +1,76 @@
-.. note::
+.. note:: 
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    ¡Hola, bienvenido a la comunidad de entusiastas de SunFounder en Facebook sobre Raspberry Pi, Arduino y ESP32! Sumérgete más a fondo en Raspberry Pi, Arduino y ESP32 con otros aficionados.
 
-    **Why Join?**
+    **¿Por qué unirse?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Soporte de Expertos**: Resuelve problemas posventa y desafíos técnicos con ayuda de nuestra comunidad y equipo.
+    - **Aprender y Compartir**: Intercambia consejos y tutoriales para mejorar tus habilidades.
+    - **Previsualizaciones Exclusivas**: Obtén acceso anticipado a anuncios de nuevos productos y avances exclusivos.
+    - **Descuentos Especiales**: Disfruta de descuentos exclusivos en nuestros productos más nuevos.
+    - **Promociones Festivas y Sorteos**: Participa en sorteos y promociones festivas.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 ¿Listo para explorar y crear con nosotros? Haz clic en [|link_sf_facebook|] ¡y únete hoy!
 
-Install the ESP32 Board(Important)
-===========================================
+Instalación de la Placa ESP32 (Importante)
+==============================================
 
-To program the ESP32 microcontroller, we need to install the ESP32 board package in the Arduino IDE. Follow the step-by-step guide below:
+Para programar el microcontrolador ESP32, necesitamos instalar el paquete de la placa ESP32 en el IDE de Arduino. Sigue la guía paso a paso a continuación:
 
-**Install the ESP32 Board**
+**Instalar la Placa ESP32**
 
-#. Open the Arduino IDE. Go to **File** and select **Preferences** from the drop-down menu.
+#. Abre el IDE de Arduino. Ve a **Archivo** y selecciona **Preferencias** en el menú desplegable.
 
    .. image:: img/install_esp32_1.png
 
-#. In the Preferences window, locate the **Additional Board Manager URLs** field. Click on it to activate the text box.
+#. En la ventana de Preferencias, localiza el campo **URLs Adicionales para Gestores de Placas**. Haz clic en él para activar el cuadro de texto.
 
    .. image:: img/install_esp32_2.png
 
-#. Add the following URL to the **Additional Board Manager URLs** field: https://espressif.github.io/arduino-esp32/package_esp32_index.json. This URL points to the package index file for the ESP32 boards. Click the **OK** button to save the changes.
+#. Añade la siguiente URL al campo **URLs Adicionales para Gestores de Placas**: https://espressif.github.io/arduino-esp32/package_esp32_index.json. Esta URL apunta al archivo de índice del paquete para las placas ESP32. Haz clic en el botón **OK** para guardar los cambios.
 
    .. image:: img/install_esp32_3.png
 
-#. In the **Boards Manager** window, type **ESP32** in the search bar. Click the **Install** button to start the installation process. This will download and install the ESP32 board package.
+#. En la ventana **Gestor de Placas**, escribe **ESP32** en la barra de búsqueda. Haz clic en el botón **Instalar** para comenzar el proceso de instalación. Esto descargará e instalará el paquete de la placa ESP32.
 
    .. image:: img/install_esp32_4.png
 
-#. Congratulations! You have successfully installed the ESP32 board package in the Arduino IDE. 
+#. ¡Felicidades! Has instalado con éxito el paquete de la placa ESP32 en el IDE de Arduino. 
 
-**Upload the Code**
+**Subir el Código**
 
-#. Now, connect the ESP32 WROOM 32E to your computer using a Micro USB cable. 
+#. Ahora, conecta el ESP32 WROOM 32E a tu computadora usando un cable Micro USB. 
 
    .. image:: img/plugin_esp32.png
        :width: 80%
        :align: center
 
-#. Then select the correct board, **ESP32 Dev Module**, by clicking on **Tools** -> **Board** -> **esp32**.
+#. Luego selecciona la placa correcta, **ESP32 Dev Module**, haciendo clic en **Herramientas** -> **Placa** -> **esp32**.
 
    .. image:: img/install_esp32_5.png
       :width: 100%
 
-#. If your ESP32 is connected to the computer, you can choose the correct port by clicking on **Tools** -> **Port**.
+#. Si tu ESP32 está conectado a la computadora, puedes elegir el puerto correcto haciendo clic en **Herramientas** -> **Puerto**.
 
    .. image:: img/install_esp32_6.png
       :width: 100%
 
-#. Additionally, Arduino 2.0 introduced a new way to quickly select the board and port. For ESP32, it is usually not automatically recognized, so you need to click on **Select other board and port**.
+#. Además, Arduino 2.0 introdujo una nueva forma de seleccionar rápidamente la placa y el puerto. Para el ESP32, generalmente no se reconoce automáticamente, por lo que necesitas hacer clic en **Seleccionar otra placa y puerto**.
 
    .. image:: img/install_esp32_7.png
       :width: 80%
 
-#. In the search box, type **ESP32 Dev Module** and select it when it appears. Then, choose the correct port and click **OK**.
+#. En el cuadro de búsqueda, escribe **ESP32 Dev Module** y selecciónalo cuando aparezca. Luego, elige el puerto correcto y haz clic en **OK**.
 
    .. image:: img/install_esp32_8.png
       :width: 90%
 
-#. Afterward, you can select it through this quick access window. Note that during subsequent use, there may be times when ESP32 is not available in the quick access window, and you will need to repeat the above two steps.
+#. Posteriormente, puedes seleccionarlo a través de esta ventana de acceso rápido. Ten en cuenta que durante el uso posterior, puede haber ocasiones en las que el ESP32 no esté disponible en la ventana de acceso rápido, y necesitarás repetir los dos pasos anteriores.
 
    .. image:: img/install_esp32_9.png
       :width: 80%
 
-#. Both methods allow you to select the correct board and port, so choose the one that suits you best. Now, everything is ready to upload the code to the ESP32.
+#. Ambos métodos te permiten seleccionar la placa y el puerto correctos, así que elige el que más te convenga. Ahora, todo está listo para subir el código al ESP32.
 
 
 

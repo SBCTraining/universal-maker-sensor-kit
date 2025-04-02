@@ -1,58 +1,58 @@
 
-.. note::
+.. note:: 
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    Hola, ¡bienvenido a la comunidad de entusiastas de Raspberry Pi, Arduino y ESP32 de SunFounder en Facebook! Profundiza en Raspberry Pi, Arduino y ESP32 con otros aficionados.
 
-    **Why Join?**
+    **¿Por qué unirse?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Soporte de Expertos**: Resuelve problemas postventa y desafíos técnicos con ayuda de nuestra comunidad y equipo.
+    - **Aprender y Compartir**: Intercambia consejos y tutoriales para mejorar tus habilidades.
+    - **Previsualizaciones Exclusivas**: Accede antes que nadie a los anuncios de nuevos productos y avances.
+    - **Descuentos Especiales**: Disfruta de descuentos exclusivos en nuestros productos más nuevos.
+    - **Promociones Festivas y Sorteos**: Participa en sorteos y promociones festivas.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 ¿Listo para explorar y crear con nosotros? Haz clic en [|link_sf_facebook|] ¡y únete hoy!
 
 .. _uno_iot_vib_alert_system:
 
-Lesson 49: Vibration Alert System with IFTTT
+Lección 49: Sistema de Alerta por Vibración con IFTTT
 =====================================================
 
 
 
-This project sets up a vibration detection system using an Arduino board (Uno R4 or R3) with an ESP8266 module and a vibration sensor (SW-420). When a vibration is detected, the system sends an HTTP request to an IFTTT server, potentially triggering various actions such as sending a notification or an email.
+Este proyecto establece un sistema de detección de vibraciones utilizando una placa Arduino (Uno R4 o R3) con un módulo ESP8266 y un sensor de vibración (SW-420). Cuando se detecta una vibración, el sistema envía una solicitud HTTP a un servidor de IFTTT, lo que puede desencadenar varias acciones como enviar una notificación o un correo electrónico.
 
-To avoid excessive alerts within a short timeframe, the system has been programmed to send these HTTP requests at a minimum interval of 2 minutes (120000 milliseconds). This interval could be adjusted based on the user's needs.
+Para evitar alertas excesivas en un corto período de tiempo, el sistema ha sido programado para enviar estas solicitudes HTTP con un intervalo mínimo de 2 minutos (120000 milisegundos). Este intervalo podría ajustarse según las necesidades del usuario.
 
 
-Required Components
---------------------------
+Componentes Requeridos
+----------------------
 
-In this project, we need the following components. 
+En este proyecto, necesitamos los siguientes componentes.
 
-It's definitely convenient to buy a whole kit, here's the link: 
+Es definitivamente conveniente comprar un kit completo, aquí está el enlace:
 
 .. list-table::
     :widths: 20 20 20
     :header-rows: 1
 
-    *   - Name	
-        - ITEMS IN THIS KIT
-        - LINK
-    *   - Universal Maker Sensor Kit
+    *   - Nombre
+        - ARTÍCULOS EN ESTE KIT
+        - ENLACE
+    *   - Kit de Sensores Universal para Creadores
         - 94
         - |link_umsk|
 
-You can also buy them separately from the links below.
+También puedes comprarlos por separado en los enlaces a continuación.
 
 .. list-table::
     :widths: 30 20
     :header-rows: 1
 
-    *   - Component Introduction
-        - Purchase Link
+    *   - Introducción al Componente
+        - Enlace de Compra
 
-    *   - Arduino UNO R3 or R4
+    *   - Arduino UNO R3 o R4
         - |link_Uno_R3_buy|
     *   - :ref:`cpn_breadboard`
         - |link_breadboard_buy|
@@ -62,7 +62,7 @@ You can also buy them separately from the links below.
         - \-
 
 
-Wiring
+Cableado
 ---------------------------
 
 .. image:: img/Lesson_49_Iot_vibration_alert_system_uno_bb.png
@@ -70,39 +70,39 @@ Wiring
 
 
 
-Configure IFTTT
+Configurar IFTTT
 -----------------------------
 
-|link_ifttt| is a private commercial company founded in 2011 that runs online digital automation platforms which it offers as a service. Their platforms provide a visual interface for making cross-platform if statements to its users, which, as of 2020, numbered 18 million people. 
+|link_ifttt| es una empresa comercial privada fundada en 2011 que opera plataformas de automatización digital en línea que ofrece como servicio. Sus plataformas proporcionan una interfaz visual para realizar declaraciones if cruzadas a sus usuarios, que, a partir de 2020, eran 18 millones de personas.
 
 .. image:: img/04-ifttt_intro.png
     :width: 100%
 
-IFTTT stands for “If This Then That.” Basically, if certain conditions are met, then something else will happen. The “if this” part is called a trigger, and the “then that” part is called an action. It joins smart home devices, social media, delivery apps, and more so it can perform automated tasks.
+IFTTT significa "Si Esto Entonces Aquello". Básicamente, si se cumplen ciertas condiciones, entonces sucederá algo más. La parte de "si esto" se llama un disparador, y la parte de "entonces aquello" se llama una acción. Conecta dispositivos inteligentes para el hogar, redes sociales, aplicaciones de entrega y más para que pueda realizar tareas automatizadas.
 
 .. image:: img/04-ifttt_intro_2A.png
-    :width: 100% 
+    :width: 100%
 
-**1) Sign up IFTTT**
+**1) Registrarse en IFTTT**
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Type "https://ifttt.com" in your browser and click on the "Get started" button located at the center of the page. Fill out the form with your information to create an account.
+Escribe "https://ifttt.com" en tu navegador y haz clic en el botón "Comenzar" ubicado en el centro de la página. Completa el formulario con tu información para crear una cuenta.
 
 .. image:: img/04-ifttt_signup.png
     :width: 90%
     :align: center
 
-Click "Back" to exit quickstart, return to the IFTTT homepage, refresh the page and log in again.
+Haz clic en "Atrás" para salir de la introducción rápida, regresa a la página principal de IFTTT, actualiza la página e inicia sesión de nuevo.
 
 .. image:: img/04-ifttt_signup_2.png
     :width: 90%
     :align: center
 
 
-**2) Creating the Applet**
+**2) Crear el Applet**
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Click "Create" to start creating the Applet.
+Haz clic en "Crear" para empezar a crear el Applet.
 
 .. image:: img/04-ifttt_create_applet_1_shadow.png
     :width: 80%
@@ -110,29 +110,29 @@ Click "Create" to start creating the Applet.
 
 .. raw:: html
     
-    <br/>  
+    <br/>
 
-**If This trigger**
+**Si Este Disparador**
 
-Click "Add" next to "If This" to add a trigger.
+Haz clic en "Agregar" junto a "Si Este" para agregar un disparador.
 
 .. image:: img/04-ifttt_create_applet_2_shadow.png
     :width: 80%
     :align: center
 
-Search for "webhook" and click on "Webhooks".
+Busca "webhook" y haz clic en "Webhooks".
 
 .. image:: img/04-ifttt_create_applet_3_shadow.png
     :width: 80%
     :align: center
 
-Click on "Receive a web request" on the page shown in the following image.
+Haz clic en "Recibir una solicitud web" en la página mostrada en la siguiente imagen.
 
 .. image:: img/04-ifttt_create_applet_4_shadow.png
     :width: 80%
     :align: center
 
-Set the "Event Name" to "vibration_detected".
+Establece el "Nombre del Evento" a "vibration_detected".
 
 .. image:: img/04-ifttt_create_applet_5_shadow.png
     :width: 80%
@@ -140,37 +140,37 @@ Set the "Event Name" to "vibration_detected".
 
 .. raw:: html
     
-    <br/>  
+    <br/>
 
-**Then That action**
+**Luego Esa Acción**
 
-Click on "Add" next to "Then That" to add a action.
+Haz clic en "Agregar" junto a "Luego Esa" para agregar una acción.
 
 .. image:: img/04-ifttt_create_applet_6_shadow.png
     :width: 80%
     :align: center
 
-Search for "email" and click on "Email".
+Busca "correo electrónico" y haz clic en "Correo electrónico".
 
 .. image:: img/04-ifttt_create_applet_7_shadow.png
     :width: 80%
     :align: center
 
-Click on "Send me a email" on the page shown in the following image.
+Haz clic en "Envíame un correo electrónico" en la página mostrada en la siguiente imagen.
 
 .. image:: img/04-ifttt_create_applet_8_shadow.png
     :width: 80%
     :align: center
 
-Set the subject and content of the email to be sent when vibration is detected.
+Establece el asunto y el contenido del correo electrónico a enviar cuando se detecte vibración.
 
-As a reference, the subject is set to "[ESP-01] Detected vibration!!!", and the content is set to "Detected vibration, please confirm the situation promptly! {{OccurredAt}}". When sending an email, ``{{OccurredAt}}`` will be automatically replaced with the time when the event occurred.
+Como referencia, el asunto está configurado como "[ESP-01] ¡Vibración detectada!", y el contenido es "Se detectó vibración, ¡confirma la situación prontamente! {{OccurredAt}}". Cuando se envíe un correo electrónico, ``{{OccurredAt}}`` se reemplazará automáticamente con la hora en que ocurrió el evento.
 
 .. image:: img/04-ifttt_create_applet_9_shadow.png
     :width: 80%
     :align: center
 
-According to the following steps, complete the creation of the Applet.
+De acuerdo con los siguientes pasos, completa la creación del Applet.
 
 .. image:: img/04-ifttt_create_applet_10_shadow.png
     :width: 80%
@@ -186,29 +186,29 @@ According to the following steps, complete the creation of the Applet.
 
 .. raw:: html
     
-    <br/>  
+    <br/>
 
 
 
-Code
------------------------ 
+Código
+-----------------------
 
 
-#. Open the ``Lesson_49_Vibration_alert_system.ino`` file under the path of ``universal-maker-sensor-kit\arduino_uno\Lesson_49_Vibration_alert_system``, or copy this code into **Arduino IDE**.
+#. Abre el archivo ``Lesson_49_Vibration_alert_system.ino`` bajo la ruta de ``universal-maker-sensor-kit\arduino_uno\Lesson_49_Vibration_alert_system``, o copia este código en **Arduino IDE**.
 
    .. raw:: html
        
         <iframe src=https://create.arduino.cc/editor/sunfounder01/35a75e1c-6b2a-407d-9724-f83ad50a4a41/preview?embed style="height:510px;width:100%;margin:10px 0" frameborder=0></iframe>
 
 
-#. You need to enter the ``mySSID`` and ``myPWD`` of the WiFi you are using. 
+#. Necesitas ingresar el ``mySSID`` y ``myPWD`` del WiFi que estás usando.
 
    .. code-block:: arduino
 
-    String mySSID = "your_ssid";     // WiFi SSID
-    String myPWD = "your_password";  // WiFi Password
+    String mySSID = "your_ssid";     // SSID del WiFi
+    String myPWD = "your_password";  // Contraseña del WiFi
 
-#. You also need to modify the ``URL`` with both the event name you set and your  API key.
+#. También necesitas modificar el ``URL`` con el nombre del evento que configuraste y tu clave API.
 
    .. code-block:: arduino
     
@@ -222,7 +222,7 @@ Code
        :width: 80%
        :align: center
 
-   Here you can find **your unique API KEY that you must keep private**. Type in the event name as ``vibration_detected``. Your final URL will appear at the bottom of the webpage. Copy this URL.
+   Aquí puedes encontrar **tu CLAVE API única que debes mantener privada**. Escribe el nombre del evento como ``vibration_detected``. Tu URL final aparecerá al final de la página web. Copia esta URL.
 
    .. image:: img/04-ifttt_apikey_3_shadow.png
        :width: 80%
@@ -232,29 +232,29 @@ Code
        :width: 80%
        :align: center
 
-#. After selecting the correct board and port, click the **Upload** button.
+#. Después de seleccionar la placa y el puerto correctos, haz clic en el botón **Subir**.
 
-#. Open the Serial monitor(set baudrate to **9600**) and wait for a prompt such as a successful connection to appear.
+#. Abre el monitor Serial(configura la velocidad de transmisión en **9600**) y espera a que aparezca un aviso como una conexión exitosa.
 
    .. image:: img/04-ready_shadow.png
           :width: 95%
 
 
-Code Analysis
+Análisis del Código
 ---------------------------
 
-The ESP8266 module that comes with the kit is already pre-burned with AT firmware. Therefore, the ESP8266 module can be controlled through AT commands. In this project, we use software serial to enable communication between the Arduino Uno board and the ESP8266 module. The Arduino Uno board sends AT commands to the ESP8266 module for network connection and sending requests. You can refer to |link_esp8266_at|.
+El módulo ESP8266 que viene con el kit ya viene pregrabado con firmware AT. Por lo tanto, el módulo ESP8266 puede ser controlado a través de comandos AT. En este proyecto, usamos software serial para permitir la comunicación entre la placa Arduino Uno y el módulo ESP8266. La placa Arduino Uno envía comandos AT al módulo ESP8266 para la conexión a la red y el envío de solicitudes. Puedes referirte a |link_esp8266_at|.
 
-The Uno board reads sensor values and sends AT commands to the ESP8266 module. The ESP8266 module connects to a network and sends requests to IFTTT servers. 
+La placa Uno lee los valores del sensor y envía comandos AT al módulo ESP8266. El módulo ESP8266 se conecta a una red y envía solicitudes a los servidores de IFTTT.
 
-#. Include SoftwareSerial library for serial communication between Arduino and ESP8266
+#. Incluye la biblioteca SoftwareSerial para la comunicación serial entre Arduino y ESP8266
 
    .. code-block:: arduino
    
      #include <SoftwareSerial.h>      
      SoftwareSerial espSerial(2, 3);  
 
-#. Configure WiFi credentials and IFTTT server details
+#. Configura las credenciales de WiFi y los detalles del servidor IFTTT
 
    .. code-block:: arduino
    
@@ -264,7 +264,7 @@ The Uno board reads sensor values and sends AT commands to the ESP8266 module. T
      String myPORT = "80";
      String URL = "/trigger/xxx/with/key/xxxx";  
 
-#. Define variables for the vibration sensor and alert frequency control
+#. Define variables para el sensor de vibración y control de frecuencia de alerta
 
    .. code-block:: arduino
    
@@ -272,7 +272,7 @@ The Uno board reads sensor values and sends AT commands to the ESP8266 module. T
      const unsigned long postingInterval = 120000L;
      const int sensorPin = 7;
 
-#. In ``setup()``, initialize serial communication, ESP8266 module and connect to WiFi
+#. En ``setup()``, inicializa la comunicación serial, el módulo ESP8266 y conéctate a WiFi
 
    .. code-block:: arduino
    
@@ -280,17 +280,17 @@ The Uno board reads sensor values and sends AT commands to the ESP8266 module. T
         Serial.begin(9600);
         espSerial.begin(115200);
       
-        // Initialize the ESP8266 module
-        sendATCommand("AT+RST", 1000, DEBUG);   //Reset the ESP8266 module
-        sendATCommand("AT+CWMODE=1", 1000, DEBUG);  //Set the ESP mode as station mode
-        sendATCommand("AT+CWJAP=\"" + mySSID + "\",\"" + myPWD + "\"", 3000, DEBUG);  //Connect to WiFi network
+        // Inicializa el módulo ESP8266
+        sendATCommand("AT+RST", 1000, DEBUG);   //Reinicia el módulo ESP8266
+        sendATCommand("AT+CWMODE=1", 1000, DEBUG);  //Establece el modo ESP como modo estación
+        sendATCommand("AT+CWJAP=\"" + mySSID + "\",\"" + myPWD + "\"", 3000, DEBUG);  //Conéctate a la red WiFi
       
         while (!espSerial.find("OK")) {
-          //Wait for connection
+          //Espera la conexión
         }
       }
 
-#. In ``loop()``, detect vibration and send alert if time interval has passed
+#. En ``loop()``, detecta vibración y envía alerta si ha pasado el intervalo de tiempo
 
    .. code-block:: arduino
    
@@ -299,7 +299,7 @@ The Uno board reads sensor values and sends AT commands to the ESP8266 module. T
         if (digitalRead(sensorPin)) {
           if (lastAlertTime == 0 || millis() - lastAlertTime > postingInterval) {
             Serial.println("Detected vibration!!!");
-            sendAlert();  //Send an HTTP request to IFTTT server
+            sendAlert();  //Envía una solicitud HTTP al servidor IFTTT
           } else {
             Serial.print("Detected vibration!!! ");
             Serial.println("Since an email has been sent recently, no warning email will be sent this time to avoid bombarding your inbox.");
@@ -312,7 +312,7 @@ The Uno board reads sensor values and sends AT commands to the ESP8266 module. T
         delay(500);
       }
 
-#. sendAlert() constructs HTTP request and sends it via ESP8266
+#. sendAlert() construye la solicitud HTTP y la envía a través de ESP8266
 
    .. code-block:: arduino
    
@@ -328,30 +328,30 @@ The Uno board reads sensor values and sends AT commands to the ESP8266 module. T
       
      }  
 
-#. Handling AT Commands sendATCommand()
+#. Manejo de Comandos AT sendATCommand()
 
-   This function sends AT commands to the ESP8266 and collects responses. 
+   Esta función envía comandos AT al módulo ESP8266 y recopila respuestas.
    
    .. code-block:: arduino
    
       void sendATCommand(String command, const int timeout, boolean debug) {
-        // Print and send command
+        // Imprime y envía el comando
         Serial.print("AT Command ==> ");
         Serial.print(command);
         Serial.println();
-        espSerial.println(command);  // Send the AT command
+        espSerial.println(command);  // Envía el comando AT
       
-        // Get the response from the ESP8266 module
+        // Obtiene la respuesta del módulo ESP8266
         String response = "";
         long int time = millis();
-        while ((time + timeout) > millis()) {  // Wait for the response until the timeout
+        while ((time + timeout) > millis()) {  // Espera la respuesta hasta el tiempo de espera
           while (espSerial.available()) {
             char c = espSerial.read();
             response += c;
           }
         }
       
-        // Print response if debug mode is on
+        // Imprime la respuesta si el modo de depuración está activado
         if (debug) {
           Serial.println(response);
           Serial.println("--------------------------------------");
@@ -359,7 +359,7 @@ The Uno board reads sensor values and sends AT commands to the ESP8266 module. T
 
 
 
-**Reference**
+**Referencia**
 
 * |link_esp8266_at|
 * |link_ifttt_welcome|

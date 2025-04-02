@@ -1,29 +1,29 @@
-.. note::
+.. note:: 
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    ¡Hola, bienvenido a la comunidad de entusiastas de Raspberry Pi, Arduino y ESP32 de SunFounder en Facebook! Profundiza en Raspberry Pi, Arduino y ESP32 con otros entusiastas.
 
-    **Why Join?**
+    **¿Por qué unirse?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Soporte Experto**: Resuelve problemas post-venta y desafíos técnicos con la ayuda de nuestra comunidad y equipo.
+    - **Aprende y Comparte**: Intercambia consejos y tutoriales para mejorar tus habilidades.
+    - **Avances Exclusivos**: Obtén acceso anticipado a anuncios de nuevos productos y avances.
+    - **Descuentos Especiales**: Disfruta de descuentos exclusivos en nuestros productos más nuevos.
+    - **Promociones Festivas y Sorteos**: Participa en sorteos y promociones de temporada.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 ¿Listo para explorar y crear con nosotros? Haz clic en [|link_sf_facebook|] y únete hoy mismo!
 
 .. _raspberry_start:
 
-Getting Started with Raspberry Pi
+Introducción a Raspberry Pi
 ====================================
 
-In this chapter, we will learn how to get started with Raspberry Pi. The content covers installing the OS, setting up the Raspberry Pi network, and accessing the terminal.
+En este capítulo, aprenderemos cómo empezar con Raspberry Pi. El contenido cubre la instalación del sistema operativo, la configuración de la red de Raspberry Pi y el acceso al terminal.
 
 .. note::
 
-    You can also find the full tutorial for setting up the Raspberry Pi on the Raspberry Pi Foundation official website at: |link_set_up_pi|.
+    También puedes encontrar el tutorial completo para configurar el Raspberry Pi en el sitio web oficial de la Raspberry Pi Foundation en: |link_set_up_pi|.
 
-    Once your Raspberry Pi is set up, you can skip this part and move on to the next chapter.
+    Una vez que tu Raspberry Pi esté configurado, puedes saltarte esta parte y pasar al siguiente capítulo.
 
 .. toctree::
     :maxdepth: 1

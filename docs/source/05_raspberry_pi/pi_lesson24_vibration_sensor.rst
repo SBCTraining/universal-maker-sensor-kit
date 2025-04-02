@@ -1,67 +1,67 @@
-.. note::
+.. note:: 
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    ¡Hola, bienvenido a la Comunidad de Entusiastas de Raspberry Pi, Arduino y ESP32 de SunFounder en Facebook! Profundiza más en Raspberry Pi, Arduino y ESP32 con otros entusiastas.
 
-    **Why Join?**
+    **¿Por qué unirse?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Soporte experto**: Resuelve problemas postventa y desafíos técnicos con la ayuda de nuestra comunidad y equipo.
+    - **Aprende y comparte**: Intercambia consejos y tutoriales para mejorar tus habilidades.
+    - **Preestrenos exclusivos**: Accede anticipadamente a nuevos anuncios de productos y adelantos.
+    - **Descuentos especiales**: Disfruta de descuentos exclusivos en nuestros productos más nuevos.
+    - **Promociones festivas y sorteos**: Participa en sorteos y promociones especiales.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 ¿Listo para explorar y crear con nosotros? Haz clic en [|link_sf_facebook|] y únete hoy mismo!
 
 .. _pi_lesson24_vibration_sensor:
 
-Lesson 24: Vibration Sensor Module (SW-420)
-==============================================
+Lección 24: Módulo Sensor de Vibración (SW-420)
+==================================================
 
-In this lesson, you will learn how to use a vibration sensor with the Raspberry Pi. We'll help you connect the sensor to GPIO pin 17 and guide you through writing a simple Python script. This script will monitor the sensor and print a message whenever vibration is detected. This lesson is focused on giving beginners a hands-on experience in connecting a simple sensor to the Raspberry Pi and writing a straightforward script to interact with it. 
+En esta lección, aprenderás a utilizar un sensor de vibración con la Raspberry Pi. Te guiaremos para conectar el sensor al pin GPIO 17 y escribir un script sencillo en Python. Este script monitorizará el sensor e imprimirá un mensaje cada vez que se detecte una vibración. Esta lección está enfocada en dar una experiencia práctica a los principiantes para conectar un sensor simple a la Raspberry Pi y escribir un script básico para interactuar con él.
 
-Required Components
+Componentes Requeridos
 --------------------------
 
-In this project, we need the following components. 
+En este proyecto, necesitamos los siguientes componentes.
 
-It's definitely convenient to buy a whole kit, here's the link: 
+Es muy conveniente comprar un kit completo, aquí tienes el enlace:
 
 .. list-table::
     :widths: 20 20 20
     :header-rows: 1
 
-    *   - Name	
-        - ITEMS IN THIS KIT
-        - LINK
-    *   - Universal Maker Sensor Kit
+    *   - Nombre	
+        - ARTÍCULOS EN ESTE KIT
+        - ENLACE
+    *   - Kit de Sensores Universal Maker
         - 94
         - |link_umsk|
 
-You can also buy them separately from the links below.
+También puedes comprarlos por separado desde los enlaces a continuación.
 
 .. list-table::
     :widths: 30 20
     :header-rows: 1
 
-    *   - Component Introduction
-        - Purchase Link
+    *   - Introducción del Componente
+        - Enlace de compra
 
     *   - Raspberry Pi 5
-        - \-
+        - |link_rpi5_buy|
     *   - :ref:`cpn_vibration`
         - |link_sw420_vibration_module_buy|
     *   - :ref:`cpn_breadboard`
         - |link_breadboard_buy|
 
 
-Wiring
+Conexión
 ---------------------------
 
 .. image:: img/Lesson_24_vibration_sensor_Pi_bb.png
     :width: 100%
 
 
-Code
+Código
 ---------------------------
 
 .. code-block:: python
@@ -69,54 +69,54 @@ Code
    from gpiozero import InputDevice
    import time
    
-   # Connect the digital output of the vibration sensor to GPIO17 on the Raspberry Pi
+   # Conectar la salida digital del sensor de vibración al GPIO17 de la Raspberry Pi
    vibration_sensor = InputDevice(17)
    
-   # Continuous loop to read from the sensor
+   # Bucle continuo para leer del sensor
    while True:
-       # Check if the sensor is active (no vibration detected)
+       # Comprobar si el sensor está activo (no se detecta vibración)
        if vibration_sensor.is_active:
            print("Vibration detected!")
        else:
-           # When the sensor is inactive (vibration detected)
+           # Cuando el sensor está inactivo (vibración detectada)
            print("...")
-       # Wait for 1 second before reading the sensor again
+       # Esperar 1 segundo antes de leer el sensor nuevamente
        time.sleep(1)
 
 
-Code Analysis
+Análisis del Código
 ---------------------------
 
-#. **Importing Libraries**
+#. **Importación de Bibliotecas**
 
-   First, we import necessary libraries: ``gpiozero`` for interacting with the GPIO pins, and ``time`` for handling time-related functions.
+   El script comienza importando ``gpiozero`` de la librería gpiozero para interactuar con el sensor de vibración, y ``time`` desde el módulo time para el control de tiempo.
 
    .. code-block:: python
 
       from gpiozero import InputDevice
       import time
 
-#. **Setting Up the Vibration Sensor**
+#. **Configuración del Sensor de Vibración**
 
-   We initialize the vibration sensor by creating an instance of ``InputDevice`` from the ``gpiozero`` library. The vibration sensor is connected to GPIO pin 17 on the Raspberry Pi.
+   Inicializamos el sensor de vibración creando una instancia de ``InputDevice`` desde la librería ``gpiozero``. El sensor de vibración está conectado al pin GPIO 17 de la Raspberry Pi.
 
    .. code-block:: python
 
       vibration_sensor = InputDevice(17)
 
-#. **Continuous Monitoring Loop**
+#. **Bucle de Monitoreo Continuo**
 
-   A ``while True`` loop is used for continuous monitoring. This loop will run indefinitely until the program is manually stopped.
+   Se utiliza un bucle ``while True`` para monitorear continuamente el sensor. Este bucle se ejecutará indefinidamente hasta que el programa sea detenido manualmente.
 
    .. code-block:: python
 
       while True:
 
-#. **Sensor State Check and Output**
+#. **Comprobación del Estado del Sensor y Salida**
 
-   - Inside the loop, we use an ``if`` statement to check the state of the vibration sensor. If ``vibration_sensor.is_active`` is ``True``, it means no vibration is detected, and "Vibration detected!" is printed.
-   - If ``vibration_sensor.is_active`` is ``False``, indicating vibration, "..." is printed instead.
-   - This distinction is crucial for understanding how the sensor's output is interpreted in the code.
+   - Dentro del bucle, utilizamos una sentencia ``if`` para comprobar el estado del sensor de vibración. Si ``vibration_sensor.is_active`` es ``True``, significa que no se detecta vibración, y se imprime "¡Vibración detectada!".
+   - Si ``vibration_sensor.is_active`` es ``False``, indicando que se detectó una vibración, se imprime "..." en su lugar.
+   - Esta distinción es clave para entender cómo se interpreta la salida del sensor en el código.
 
    .. code-block:: python
 
@@ -125,9 +125,9 @@ Code Analysis
           else:
               print("...")
 
-#. **Delay**
+#. **Retraso**
 
-   Finally, ``time.sleep(1)`` adds a 1-second delay between each iteration of the loop. This delay is crucial to prevent the program from overloading the CPU and to make the output readable.
+   Finalmente, ``time.sleep(1)`` agrega un retraso de 1 segundo entre cada iteración del bucle. Este retraso es crucial para evitar la sobrecarga de la CPU y para hacer que la salida sea legible.
 
    .. code-block:: python
 

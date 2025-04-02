@@ -1,34 +1,34 @@
-.. note::
+.. note:: 
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    ¡Hola, bienvenido a la Comunidad de Entusiastas de Raspberry Pi, Arduino y ESP32 en Facebook! Profundiza más en Raspberry Pi, Arduino y ESP32 junto con otros entusiastas.
 
-    **Why Join?**
+    **¿Por qué unirte?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Soporte experto**: Resuelve problemas postventa y desafíos técnicos con la ayuda de nuestra comunidad y equipo.
+    - **Aprende y comparte**: Intercambia consejos y tutoriales para mejorar tus habilidades.
+    - **Previsualizaciones exclusivas**: Accede anticipadamente a anuncios de nuevos productos y vistas previas.
+    - **Descuentos especiales**: Disfruta de descuentos exclusivos en nuestros productos más recientes.
+    - **Promociones festivas y sorteos**: Participa en sorteos y promociones especiales durante las festividades.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 ¿Listo para explorar y crear con nosotros? Haz clic en [|link_sf_facebook|] y únete hoy!
 
-For Arduino Uno
+Para Arduino Uno
 ==================================================
 
-Arduino users, please refer to the following tutorial.
+Los usuarios de Arduino, por favor, consulten el siguiente tutorial.
 
-The following tutorial uses Arduino UNO R3 as example, but it also applies to Arduino UNO R4.
+El siguiente tutorial utiliza Arduino UNO R3 como ejemplo, pero también se aplica a Arduino UNO R4.
 
-**Arduino Config**
+**Configuración de Arduino**
 
-.. toctree::
+.. toctree:: 
     :maxdepth: 1
 
     arduino_start/00_get_start
 
-**Basic Project**
+**Proyecto básico**
 
-.. toctree::
+.. toctree:: 
     :maxdepth: 1
 
     uno_lesson01_button
@@ -68,39 +68,39 @@ The following tutorial uses Arduino UNO R3 as example, but it also applies to Ar
     uno_lesson35_esp8266
     uno_lesson36_bluetooth
 
-**Fun Project**
+**Proyecto divertido**
 
-.. toctree::
+.. toctree:: 
     :maxdepth: 1
 
-    uno_lesson37_smart_trashcan.rst 
-    uno_lesson38_gas_leak_alarm.rst 
-    uno_lesson39_soap_dispenser.rst 
-    uno_lesson40_motion_triggered_relay.rst 
-    uno_lesson41_heartrate_monitor.rst 
-    uno_lesson42_touch_toggle_light.rst 
-    uno_lesson43_pot_scale_value.rst 
-    uno_lesson44_digital_dice.rst 
-    uno_lesson45_plant_monitor.rst 
-    uno_lesson46_bluetooth_lcd.rst 
+    uno_lesson37_smart_trashcan.rst
+    uno_lesson38_gas_leak_alarm.rst
+    uno_lesson39_soap_dispenser.rst
+    uno_lesson40_motion_triggered_relay.rst
+    uno_lesson41_heartrate_monitor.rst
+    uno_lesson42_touch_toggle_light.rst
+    uno_lesson43_pot_scale_value.rst
+    uno_lesson44_digital_dice.rst
+    uno_lesson45_plant_monitor.rst
+    uno_lesson46_bluetooth_lcd.rst
     uno_lesson47_bluetooth_traffic_light.rst
     uno_lesson52_tilt_direction_indicator.rst
     uno_lesson53_direction_indicator
 
-**IoT Config**
+**Configuración de IoT**
 
-.. toctree::
+.. toctree:: 
     :maxdepth: 1
 
     iot_start/00-blynk_start
 
-**IoT Project**
+**Proyecto IoT**
 
 
-.. toctree::
+.. toctree:: 
     :maxdepth: 1
 
-    uno_lesson48_iot_weather_monitor.rst 
-    uno_lesson49_iot_vib_alert_system.rst 
-    uno_lesson50_iot_flame.rst 
+    uno_lesson48_iot_weather_monitor.rst
+    uno_lesson49_iot_vib_alert_system.rst
+    uno_lesson50_iot_flame.rst
     uno_lesson51_iot_intrusion_alert_system.rst

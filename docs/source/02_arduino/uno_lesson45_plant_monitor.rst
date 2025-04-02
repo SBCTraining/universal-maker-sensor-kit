@@ -1,56 +1,56 @@
+.. note:: 
 
-.. note::
-
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    ¡Hola, bienvenido a la comunidad de entusiastas de SunFounder Raspberry Pi & Arduino & ESP32 en Facebook! Profundiza en Raspberry Pi, Arduino y ESP32 con otros aficionados.
 
     **Why Join?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Expert Support**: Resuelve problemas posventa y desafíos técnicos con la ayuda de nuestra comunidad y equipo.
+    - **Learn & Share**: Intercambia consejos y tutoriales para mejorar tus habilidades.
+    - **Exclusive Previews**: Obtén acceso anticipado a anuncios de nuevos productos y avances exclusivos.
+    - **Special Discounts**: Disfruta de descuentos exclusivos en nuestros productos más recientes.
+    - **Festive Promotions and Giveaways**: Participa en sorteos y promociones festivas.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 ¿Listo para explorar y crear con nosotros? Haz clic en [|link_sf_facebook|] y únete hoy mismo!
 
 .. _uno_lesson45_plant_monitor:
 
-Lesson 45: Plant Monitor
+Lección 45: Monitor de Plantas
 =============================================================
 
 
-This project intelligently automates plant watering by triggering a water pump whenever the soil's moisture level dips below a predetermined threshold. 
-It also features an LCD display that showcases the temperature, humidity, 
-and soil moisture levels, offering users valuable insights into the plant's environmental conditions.
+Este proyecto automatiza inteligentemente el riego de plantas activando una bomba de agua siempre que el nivel de humedad del suelo caiga por debajo de un umbral predeterminado.
+También incluye una pantalla LCD que muestra la temperatura, humedad
+y los niveles de humedad del suelo, ofreciendo a los usuarios información valiosa sobre las condiciones ambientales de la planta.
 
-Required Components
+
+Componentes Necesarios
 --------------------------
 
-In this project, we need the following components. 
+Para este proyecto, necesitaremos los siguientes componentes.
 
-It's definitely convenient to buy a whole kit, here's the link: 
+Es definitivamente conveniente comprar un kit completo, aquí está el enlace:
 
 .. list-table::
     :widths: 20 20 20
     :header-rows: 1
 
-    *   - Name	
-        - ITEMS IN THIS KIT
-        - LINK
-    *   - Universal Maker Sensor Kit
+    *   - Nombre	
+        - ELEMENTOS EN ESTE KIT
+        - ENLACE
+    *   - Kit Universal de Sensores para Creadores
         - 94
         - |link_umsk|
 
-You can also buy them separately from the links below.
+También puedes comprarlos por separado en los siguientes enlaces.
 
 .. list-table::
     :widths: 30 20
     :header-rows: 1
 
-    *   - Component Introduction
-        - Purchase Link
+    *   - Introducción del Componente
+        - Enlace de Compra
 
-    *   - Arduino UNO R3 or R4
+    *   - Arduino UNO R3 o R4
         - |link_Uno_R3_buy|
     *   - :ref:`cpn_breadboard`
         - |link_breadboard_buy|
@@ -67,11 +67,11 @@ You can also buy them separately from the links below.
     *   - :ref:`cpn_dht11`
         - \-
 
-Wiring
+Cableado
 ---------------------------
 
 .. note:: 
-   The kit may contain different versions of the DHT11 module. Please confirm the wiring method according to the module you have.
+   El kit puede contener diferentes versiones del módulo DHT11. Por favor, confirma el método de cableado según el módulo que tengas.
 
 .. image:: img/Lesson_45_Plant_monitor_uno_bb.png
     :width: 100%
@@ -79,7 +79,7 @@ Wiring
 .. image:: img/Lesson_45_Plant_monitor_uno_new_bb.png
     :width: 100%
 
-Code
+Código
 ---------------------------
 
 .. raw:: html
@@ -88,31 +88,31 @@ Code
 
 
 
-Code Analysis
+Análisis del Código
 ---------------------------
 
 
 
-The code is structured to seamlessly manage plant watering by monitoring environmental parameters:
+El código está estructurado para gestionar sin problemas el riego de plantas mediante la monitorización de parámetros ambientales:
 
-1. Library Inclusions and Constants/Variables:
+1. Inclusiones de Bibliotecas y Constantes/Variables:
 
-   Incorporate ``Wire.h``, ``LiquidCrystal_I2C.h``, and ``DHT.h`` libraries for functionality.
-   Specify pin assignments and settings for the DHT11 sensor, soil moisture sensor, and water pump.
+   Incorpora las bibliotecas ``Wire.h``, ``LiquidCrystal_I2C.h``, y ``DHT.h`` para funcionalidad.
+   Especifica las asignaciones de pines y configuraciones para el sensor DHT11, sensor de humedad del suelo y bomba de agua.
 
 2. ``setup()``:
 
-   Configure pin modes for the moisture sensor and pump.
-   Initially deactivate the pump.
-   Initialize and backlight the LCD.
-   Activate the DHT sensor.
+   Configura los modos de los pines para el sensor de humedad y la bomba.
+   Desactiva inicialmente la bomba.
+   Inicia y activa la luz de fondo del LCD.
+   Activa el sensor DHT.
 
 3. ``loop()``:
 
-   Measure humidity and temperature via the DHT sensor.
-   Gauge soil moisture through the soil moisture sensor.
-   Display the temperature and humidity on the LCD, then show soil moisture levels.
-   Assess soil moisture to decide on water pump activation; if soil moisture is under 500 (adjustable threshold), run the pump for 1 second.
+   Mide la humedad y la temperatura a través del sensor DHT.
+   Evalúa la humedad del suelo mediante el sensor de humedad del suelo.
+   Muestra la temperatura y la humedad en el LCD, luego muestra los niveles de humedad del suelo.
+   Evalúa la humedad del suelo para decidir sobre la activación de la bomba de agua; si la humedad del suelo está por debajo de 500 (umbral ajustable), ejecuta la bomba durante 1 segundo.
 
 
 

@@ -1,50 +1,50 @@
-.. note::
+.. note:: 
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    ¡Hola, bienvenido a la Comunidad de Aficionados de SunFounder Raspberry Pi & Arduino & ESP32 en Facebook! Profundiza en Raspberry Pi, Arduino y ESP32 junto a otros entusiastas.
 
     **Why Join?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Soporte de Expertos**: Resuelve problemas posventa y desafíos técnicos con ayuda de nuestra comunidad y equipo.
+    - **Aprender y Compartir**: Intercambia consejos y tutoriales para potenciar tus habilidades.
+    - **Previsualizaciones Exclusivas**: Accede de manera anticipada a los anuncios de nuevos productos y avances exclusivos.
+    - **Descuentos Especiales**: Disfruta de descuentos exclusivos en nuestros productos más recientes.
+    - **Promociones Festivas y Sorteos**: Participa en sorteos y promociones de festividades.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 ¿Listo para explorar y crear con nosotros? Haz clic en [|link_sf_facebook|] y únete hoy.
 
 .. _pico_lesson10_pcf8591:
 
-Lesson 10: PCF8591 ADC DAC Converter Module
-==============================================
+Lección 10: Módulo Convertidor PCF8591 ADC DAC
+==================================================
 
-In this lesson, you'll learn how to connect the Raspberry Pi Pico W with the PCF8591 ADC DAC Converter Module using MicroPython. You'll establish an I2C connection, initialize the PCF8591 module, and read analog values from its channels. This hands-on session will deepen your grasp of analog-to-digital conversion and I2C communication on the Raspberry Pi Pico W. The module's potentiometer is connected to AIN0 using jumper caps, and the D2 LED on the module is connected to AOUT, so you can see that the brightness of D2 LED changes as you rotate the potentiometer.
+En esta lección, aprenderás a conectar el Raspberry Pi Pico W con el Módulo Convertidor PCF8591 ADC DAC usando MicroPython. Establecerás una conexión I2C, inicializarás el módulo PCF8591 y leerás valores analógicos de sus canales. Esta sesión práctica profundizará tu comprensión de la conversión analógico-digital y la comunicación I2C en el Raspberry Pi Pico W. El potenciómetro del módulo está conectado a AIN0 mediante puentes de conexión, y el LED D2 en el módulo está conectado a AOUT, lo que te permite ver cómo cambia la intensidad del LED D2 al girar el potenciómetro.
 
-Required Components
---------------------------
+Componentes Necesarios
+---------------------------
 
-In this project, we need the following components. 
+Para este proyecto, necesitaremos los siguientes componentes:
 
-It's definitely convenient to buy a whole kit, here's the link: 
+Es definitivamente conveniente comprar un kit completo, aquí está el enlace:
 
 .. list-table::
     :widths: 20 20 20
     :header-rows: 1
 
-    *   - Name	
-        - ITEMS IN THIS KIT
-        - LINK
-    *   - Universal Maker Sensor Kit
+    *   - Nombre	
+        - ARTÍCULOS EN ESTE KIT
+        - ENLACE
+    *   - Kit de Sensores Universal Maker
         - 94
         - |link_umsk|
 
-You can also buy them separately from the links below.
+También puedes comprarlos por separado en los enlaces a continuación.
 
 .. list-table::
     :widths: 30 20
     :header-rows: 1
 
-    *   - Component Introduction
-        - Purchase Link
+    *   - Introducción del Componente
+        - Enlace de Compra
 
     *   - Raspberry Pi Pico W
         - \-
@@ -54,23 +54,23 @@ You can also buy them separately from the links below.
         - |link_breadboard_buy|
 
 
-Wiring
+Cableado
 ---------------------------
 
 .. image:: img/Lesson_10_PCF8591_Module_bb.png
     :width: 100%
 
 
-Code
+Código
 ---------------------------
 
 .. note::
 
-    * Open the ``10_pcf8591_module.py`` file under the path of ``universal-maker-sensor-kit-main/pico/Lesson_10_PCF8591_Module`` or copy this code into Thonny, then click "Run Current Script" or simply press F5 to run it. For detailed tutorials, please refer to :ref:`open_run_code_py`. 
+    * Abre el archivo ``10_pcf8591_module.py`` en la ruta ``universal-maker-sensor-kit-main/pico/Lesson_10_PCF8591_Module`` o copia este código en Thonny, luego haz clic en "Ejecutar script actual" o simplemente presiona F5 para ejecutarlo. Para tutoriales detallados, por favor consulta :ref:`open_run_code_py`. 
 
-    * Here you need to use the ``PCF8591.py``, please check if it has been uploaded to Pico W, for a detailed tutorial refer to :ref:`add_libraries_py`.
+    * Aquí necesitarás usar el archivo ``PCF8591.py``, verifica si ha sido cargado en el Pico W, para un tutorial detallado consulta :ref:`add_libraries_py`.
 
-    * Don't forget to click on the "MicroPython (Raspberry Pi Pico)" interpreter in the bottom right corner. 
+    * No olvides hacer clic en el intérprete "MicroPython (Raspberry Pi Pico)" en la esquina inferior derecha. 
 
 .. code-block:: python
 
@@ -78,41 +78,41 @@ Code
    import time
    from PCF8591 import PCF8591
    
-   # Setup I2C connection on pins 20 (SDA) and 21 (SCL)
+   # Configura la conexión I2C en los pines 20 (SDA) y 21 (SCL)
    i2c = I2C(0, sda=Pin(20), scl=Pin(21))
    
-   # Initialize the PCF8591 module at address 0x48
-   pcf8591 = PCF8591(0x48, i2c)  # Adjust the address if needed
+   # Inicializa el módulo PCF8591 en la dirección 0x48
+   pcf8591 = PCF8591(0x48, i2c)  # Ajusta la dirección si es necesario
    
-   # Check if the PCF8591 module is connected
+   # Verifica si el módulo PCF8591 está conectado
    if pcf8591.begin():
        print("PCF8591 found")
    
-   # Main loop to read analog values
+   # Bucle principal para leer valores analógicos
    while True:
-       # Read and print the analog value from channel AIN0
+       # Lee e imprime el valor analógico del canal AIN0
        AIN0 = pcf8591.analog_read(PCF8591.AIN0)
-       print("AIN0 ", AIN0)  # PCF8591.CHANNEL_0 can also be used
-       # Additional channels can be read by uncommenting the following lines
+       print("AIN0 ", AIN0)  # También se puede usar PCF8591.CHANNEL_0
+       # Los canales adicionales se pueden leer descomentando las siguientes líneas
        # print("AIN1 ", pcf8591.analog_read(PCF8591.AIN1))
        # print("AIN2 ", pcf8591.analog_read(PCF8591.AIN2))
        # print("AIN3 ", pcf8591.analog_read(PCF8591.AIN3))
    
-       # Write the value back to AOUT. This will change the brightness of the D2 LED on the module.
+       # Escribe el valor de vuelta a AOUT. Esto cambiará el brillo del LED D2 en el módulo.
        pcf8591.analog_write(AIN0)
    
-       # Wait for 0.2 seconds before the next read
+       # Espera 0.2 segundos antes de la próxima lectura
        time.sleep(0.2)
 
 
-Code Analysis
+Análisis del Código
 ---------------------------
 
-#. Importing Libraries and Setting Up I2C
+#. Importación de Librerías y Configuración de I2C
 
-   - The ``machine`` module is imported to use I2C communication and ``Pin`` class.
-   - The ``time`` module is imported for adding delays in the program.
-   - The ``PCF8591`` library is imported for easy interaction with the PCF8591 module. For more information about the ``PCF8591`` library, please visit |link_PCF8591_micropython_library|.
+   - Se importa el módulo ``machine`` para utilizar la comunicación I2C y la clase ``Pin``.
+   - Se importa el módulo ``time`` para agregar retardos en el programa.
+   - Se importa la librería ``PCF8591`` para facilitar la interacción con el módulo PCF8591. Para más información sobre la librería ``PCF8591``, visita |link_PCF8591_micropython_library|.
 
    .. raw:: html
 
@@ -124,38 +124,38 @@ Code Analysis
       import time
       from PCF8591 import PCF8591
 
-#. Initializing I2C Connection
+#. Inicialización de la Conexión I2C
 
-   I2C communication is initialized using SDA (Serial Data) and SCL (Serial Clock) pins. The Raspberry Pi Pico W uses GPIO 20 and 21 for this purpose.
+   La comunicación I2C se inicializa usando los pines SDA (Datos Seriales) y SCL (Reloj Serial). El Raspberry Pi Pico W utiliza los GPIO 20 y 21 para este propósito.
 
    .. code-block:: python
 
       i2c = I2C(0, sda=Pin(20), scl=Pin(21))
 
-#. Initializing the PCF8591 Module
+#. Inicialización del Módulo PCF8591
 
-   The PCF8591 module is initialized with its I2C address (0x48). This address might need adjustment depending on the module's configuration.
+   El módulo PCF8591 se inicializa con su dirección I2C (0x48). Esta dirección podría necesitar ajustes dependiendo de la configuración del módulo.
 
    .. code-block:: python
 
-      pcf8591 = PCF8591(0x48, i2c)  # Adjust the address if needed
+      pcf8591 = PCF8591(0x48, i2c)  # Ajusta la dirección si es necesario
 
-#. Checking Connection
+#. Verificación de la Conexión
 
-   The program checks if the PCF8591 module is connected correctly.
+   El programa verifica si el módulo PCF8591 está conectado correctamente.
 
    .. code-block:: python
 
       if pcf8591.begin():
           print("PCF8591 found")
 
-#. Main Loop for Reading Analog Values
+#. Bucle Principal para la Lectura de Valores Analógicos
 
-   - The program enters an infinite loop, continuously reading the analog value from channel AIN0.
-   - The ``analog_read`` function is used to read the value from a specified channel.
-   - The ``analog_write`` function is used to write the value to AOUT. 
-   - Jumper caps link the module's potentiometer to AIN0, and the D2 LED is connected to AOUT. So the brightness of the LED changes as the potentiometer is rotated. Please refer to the PCF8591 module :ref:`schematic <cpn_pcf8591_sch>` for details. 
-   - A delay of 0.2 seconds is added between reads to stabilize the output.
+   - El programa entra en un bucle infinito, leyendo continuamente el valor analógico del canal AIN0.
+   - La función ``analog_read`` se utiliza para leer el valor de un canal especificado.
+   - La función ``analog_write`` se utiliza para escribir el valor en AOUT. 
+   - Los puentes de conexión enlazan el potenciómetro del módulo a AIN0, y el LED D2 está conectado a AOUT. Así, el brillo del LED cambia al girar el potenciómetro. Consulta el esquema del módulo PCF8591 :ref:`schematic <cpn_pcf8591_sch>` para más detalles. 
+   - Se añade un retardo de 0.2 segundos entre lecturas para estabilizar la salida.
 
    .. raw:: html
 
@@ -164,16 +164,16 @@ Code Analysis
    .. code-block:: python
 
       while True:
-          # Read and print the analog value from channel AIN0
+          # Lee e imprime el valor analógico del canal AIN0
           AIN0 = pcf8591.analog_read(PCF8591.AIN0)
-          print("AIN0 ", AIN0)  # PCF8591.CHANNEL_0 can also be used
-          # Additional channels can be read by uncommenting the following lines
+          print("AIN0 ", AIN0)  # También se puede usar PCF8591.CHANNEL_0
+          # Los canales adicionales se pueden leer descomentando las siguientes líneas
           # print("AIN1 ", pcf8591.analog_read(PCF8591.AIN1))
           # print("AIN2 ", pcf8591.analog_read(PCF8591.AIN2))
           # print("AIN3 ", pcf8591.analog_read(PCF8591.AIN3))
       
-          # Write the value back to AOUT. This will change the brightness of the D2 LED on the module.
+          # Escribe el valor de vuelta a AOUT. Esto cambiará el brillo del LED D2 en el módulo.
           pcf8591.analog_write(AIN0)
       
-          # Wait for 0.2 seconds before the next read
+          # Espera 0.2 segundos antes de la próxima lectura
           time.sleep(0.2)

@@ -1,123 +1,123 @@
-.. note::
+.. note:: 
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    ¡Hola, bienvenido a la comunidad de entusiastas de Raspberry Pi, Arduino y ESP32 de SunFounder en Facebook! Profundiza en Raspberry Pi, Arduino y ESP32 junto con otros entusiastas.
 
-    **Why Join?**
+    **¿Por qué unirse?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Soporte experto**: Resuelve problemas postventa y desafíos técnicos con la ayuda de nuestra comunidad y equipo.
+    - **Aprende y comparte**: Intercambia consejos y tutoriales para mejorar tus habilidades.
+    - **Avances exclusivos**: Obtén acceso anticipado a anuncios de nuevos productos y adelantos.
+    - **Descuentos especiales**: Disfruta de descuentos exclusivos en nuestros productos más nuevos.
+    - **Promociones festivas y sorteos**: Participa en sorteos y promociones de temporada.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 ¿Listo para explorar y crear con nosotros? Haz clic en [|link_sf_facebook|] y únete hoy mismo!
 
 .. _pi_lesson02_soil_moisture:
 
-Lesson 02: Capacitive Soil Moisture Module
-============================================
+Lección 02: Módulo de Humedad del Suelo Capacitivo
+=====================================================
 
 .. note::
-   The Raspberry Pi does not have analog input capabilities, so it needs a module like the :ref:`cpn_pcf8591` to read analog signals for processing.
+   La Raspberry Pi no tiene capacidades de entrada analógica, por lo que necesita un módulo como el :ref:`cpn_pcf8591` para leer señales analógicas y procesarlas.
 
-In this tutorial, we'll explore how to monitor soil moisture levels using a Raspberry Pi. You'll learn to set up a Capacitive Soil Moisture Sensor with the PCF8591 module for analog-to-digital conversion and use Python to continuously track the soil's moisture content. This project is a hands-on introduction to sensors, ADCs (analog-to-digital converters), and real-time data monitoring on the Raspberry Pi.
+En este tutorial, exploraremos cómo monitorear los niveles de humedad del suelo utilizando una Raspberry Pi. Aprenderás a configurar un sensor capacitivo de humedad del suelo con el módulo PCF8591 para la conversión analógica a digital y usar Python para rastrear continuamente el contenido de humedad del suelo. Este proyecto es una introducción práctica a los sensores, los ADC (convertidores analógicos a digitales) y el monitoreo de datos en tiempo real en la Raspberry Pi.
 
-Required Components
+Componentes necesarios
 --------------------------
 
-In this project, we need the following components. 
+Para este proyecto, necesitamos los siguientes componentes.
 
-It's definitely convenient to buy a whole kit, here's the link: 
+Es conveniente comprar un kit completo, aquí tienes el enlace:
 
 .. list-table::
     :widths: 20 20 20
     :header-rows: 1
 
-    *   - Name	
-        - ITEMS IN THIS KIT
-        - LINK
+    *   - Nombre	
+        - ARTÍCULOS EN ESTE KIT
+        - ENLACE
     *   - Universal Maker Sensor Kit
         - 94
         - |link_umsk|
 
-You can also buy them separately from the links below.
+También puedes comprarlos por separado en los enlaces a continuación.
 
 .. list-table::
     :widths: 30 20
     :header-rows: 1
 
-    *   - Component Introduction
-        - Purchase Link
+    *   - Introducción al componente
+        - Enlace de compra
 
     *   - Raspberry Pi 5
-        - \-
+        - |link_rpi5_buy|
     *   - :ref:`cpn_soil`
         - |link_soil_moisture_buy|
     *   - :ref:`cpn_pcf8591`
         - |link_pcf8591_module_buy|
 
 
-Wiring
+Conexiones
 ---------------------------
 
 .. image:: img/Lesson_02_Soil_Moisture_Module_pi_bb.png
     :width: 100%
 
 
-Code
+Código
 ---------------------------
 
-.. code-block:: Python
+.. code-block:: python
 
-   import PCF8591 as ADC  # Import PCF8591 module
-   import time  # Import time for delay
+   import PCF8591 as ADC  # Importar módulo PCF8591
+   import time  # Importar time para el retraso
    
-   ADC.setup(0x48)  # Initialize PCF8591 at address 0x48
+   ADC.setup(0x48)  # Inicializar PCF8591 en la dirección 0x48
    
    try:
-       while True:  # Continuously read and print moisture level
-           print(ADC.read(1))  # Read from Soil Moisture Sensor at AIN1
-           time.sleep(0.2)  # Delay of 0.2 seconds
+       while True:  # Leer y mostrar el nivel de humedad continuamente
+           print(ADC.read(1))  # Leer desde el Sensor de Humedad del Suelo en AIN1
+           time.sleep(0.2)  # Retraso de 0.2 segundos
    except KeyboardInterrupt:
-       print("Exit")  # Exit on CTRL+C
+       print("Exit")  # Salir al presionar CTRL+C
 
 
-Code Analysis
+Análisis del código
 ---------------------------
 
-1. **Import Libraries**:
+1. **Importar librerías**:
 
-   This section imports necessary Python libraries. The ``PCF8591`` library is used for interacting with the PCF8591 module, and ``time`` is for implementing delays in the code.
-
-   .. code-block:: python
-
-      import PCF8591 as ADC  # Import PCF8591 module
-      import time  # Import time for delay
-
-2. **Initialize PCF8591 Module**:
-
-   Here, the PCF8591 module is initialized. The address ``0x48`` is the I²C address of the PCF8591 module. This is necessary for the Raspberry Pi to communicate with the module.
+   Esta sección importa las librerías necesarias en Python. La librería ``PCF8591`` se utiliza para interactuar con el módulo PCF8591, y ``time`` se utiliza para implementar los retrasos en el código.
 
    .. code-block:: python
 
-      ADC.setup(0x48)  # Initialize PCF8591 at address 0x48
+      import PCF8591 as ADC  # Importar módulo PCF8591
+      import time  # Importar time para el retraso
 
-3. **Main Loop and Reading Data**:
+2. **Inicializar el módulo PCF8591**:
 
-   The ``try`` block includes a continuous loop that consistently reads data from the capacitive soil moisture module. The ``ADC.read(1)`` function captures the analog input from the sensor connected to channel 1 (AIN1) of the PCF8591 module. Incorporating a ``time.sleep(0.2)`` creates a 0.2-second pause between each reading. This not only helps in reducing CPU usage on the Raspberry Pi by avoiding excessive data processing demands, but also prevents the terminal from being overrun with rapidly scrolling information, making it easier to monitor and analyze the output.
+   Aquí, se inicializa el módulo PCF8591. La dirección ``0x48`` es la dirección I²C del módulo PCF8591. Esto es necesario para que la Raspberry Pi se comunique con el módulo.
+
+   .. code-block:: python
+
+      ADC.setup(0x48)  # Inicializar PCF8591 en la dirección 0x48
+
+3. **Bucle principal y lectura de datos**:
+
+   El bloque ``try`` incluye un bucle continuo que lee constantemente los datos del módulo capacitivo de humedad del suelo. La función ``ADC.read(1)`` captura la entrada analógica del sensor conectado al canal 1 (AIN1) del módulo PCF8591. El ``time.sleep(0.2)`` crea una pausa de 0.2 segundos entre cada lectura. Esto no solo ayuda a reducir el uso de la CPU en la Raspberry Pi evitando demandas excesivas de procesamiento de datos, sino que también evita que la terminal se sobrecargue con información que se desplaza rápidamente, lo que facilita el monitoreo y análisis de los resultados.
 
    .. code-block:: python
 
       try:
-          while True:  # Continuously read and print moisture level
-              print(ADC.read(1))  # Read from Soil Moisture Sensor at AIN1
-              time.sleep(0.2)  # Delay of 0.2 seconds
+          while True:  # Leer y mostrar el nivel de humedad continuamente
+              print(ADC.read(1))  # Leer desde el Sensor de Humedad del Suelo en AIN1
+              time.sleep(0.2)  # Retraso de 0.2 segundos
 
-4. **Handling Keyboard Interrupt**:
+4. **Manejo de la interrupción por teclado**:
 
-   The ``except`` block is designed to catch a KeyboardInterrupt (like pressing CTRL+C). When this interrupt occurs, the script prints "exit" and stops running. This is a common way to gracefully exit a continuously running script in Python.
+   El bloque ``except`` está diseñado para capturar una interrupción por teclado (como presionar CTRL+C). Cuando se produce esta interrupción, el script imprime "Salir" y deja de ejecutarse. Este es un método común para salir de manera ordenada de un script que se está ejecutando de manera continua en Python.
 
    .. code-block:: python
 
       except KeyboardInterrupt:
-          print("exit")  # Exit on CTRL+C
+          print("exit")  # Salir al presionar CTRL+C

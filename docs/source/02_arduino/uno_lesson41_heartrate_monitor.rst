@@ -1,52 +1,52 @@
-.. note::
+.. note:: 
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    ¡Hola, bienvenido a la comunidad de entusiastas de SunFounder Raspberry Pi & Arduino & ESP32 en Facebook! Profundiza en Raspberry Pi, Arduino y ESP32 con otros aficionados.
 
     **Why Join?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Expert Support**: Resuelve problemas posventa y desafíos técnicos con la ayuda de nuestra comunidad y equipo.
+    - **Learn & Share**: Intercambia consejos y tutoriales para mejorar tus habilidades.
+    - **Exclusive Previews**: Obtén acceso anticipado a anuncios de nuevos productos y avances exclusivos.
+    - **Special Discounts**: Disfruta de descuentos exclusivos en nuestros productos más recientes.
+    - **Festive Promotions and Giveaways**: Participa en sorteos y promociones festivas.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 ¿Listo para explorar y crear con nosotros? Haz clic en [|link_sf_facebook|] y únete hoy mismo!
 
 .. _uno_lesson41_heartrate_monitor:
 
-Lesson 41: Heart rate monitor
-==================================
+Lección 41: Monitor de ritmo cardíaco
+========================================
 
-This Arduino project aims to build a simple Heart Rate Monitor using a MAX30102 pulse oximeter sensor and an SSD1306 OLED Display. The code takes measurements of the heart rate by determining the time between heartbeats. By taking four measurements, it computes their average and presents the resultant average heart rate on an OLED screen. If the sensor doesn't detect a finger, it sends a prompt to the user to position their finger correctly on the sensor.
+Este proyecto de Arduino tiene como objetivo construir un Monitor de Ritmo Cardíaco simple utilizando un sensor de oxímetro de pulso MAX30102 y una pantalla OLED SSD1306. El código toma medidas del ritmo cardíaco determinando el tiempo entre latidos. Tomando cuatro mediciones, calcula su promedio y presenta el promedio resultante de la frecuencia cardíaca en una pantalla OLED. Si el sensor no detecta un dedo, envía un aviso al usuario para que coloque su dedo correctamente en el sensor.
 
-Required Components
+Componentes Necesarios
 --------------------------
 
-In this project, we need the following components. 
+Para este proyecto, necesitaremos los siguientes componentes.
 
-It's definitely convenient to buy a whole kit, here's the link: 
+Es definitivamente conveniente comprar un kit completo, aquí está el enlace:
 
 .. list-table::
     :widths: 20 20 20
     :header-rows: 1
 
-    *   - Name	
-        - ITEMS IN THIS KIT
-        - LINK
-    *   - Universal Maker Sensor Kit
+    *   - Nombre	
+        - ELEMENTOS EN ESTE KIT
+        - ENLACE
+    *   - Kit Universal de Sensores para Creadores
         - 94
         - |link_umsk|
 
-You can also buy them separately from the links below.
+También puedes comprarlos por separado en los siguientes enlaces.
 
 .. list-table::
     :widths: 30 20
     :header-rows: 1
 
-    *   - Component Introduction
-        - Purchase Link
+    *   - Introducción del Componente
+        - Enlace de Compra
 
-    *   - Arduino UNO R3 or R4
+    *   - Arduino UNO R3 o R4
         - |link_Uno_R3_buy|
     *   - :ref:`cpn_max30102`
         - |link_max30102_module_buy|
@@ -56,47 +56,47 @@ You can also buy them separately from the links below.
         - |link_breadboard_buy|
         
 
-Wiring
+Cableado
 ---------------------------
 
 .. image:: img/Lesson_41_Heart_rate_monitor_uno_bb.png
     :width: 100%
 
 
-Code
+Código
 ---------------------------
 
 .. note:: 
-   To install the library, open the Arduino Library Manager, search for **"SparkFun MAX3010x"** , **"Adafruit SSD1306"** , and **"Adafruit GFX"**, then install them.
+   Para instalar la biblioteca, abre el Administrador de Bibliotecas de Arduino, busca **"SparkFun MAX3010x"**, **"Adafruit SSD1306"**, y **"Adafruit GFX"**, e instálalas.
 
 .. raw:: html
 
     <iframe src=https://create.arduino.cc/editor/sunfounder01/0f574652-4575-46b9-88b7-2d30573bcb71/preview?embed style="height:510px;width:100%;margin:10px 0" frameborder=0></iframe>
 
-Code Analysis
+Análisis del Código
 ---------------------------
 
-The main principle behind this project is to capture the pulsation of blood flow through a finger using the MAX30102 sensor. As blood pumps through the body, it causes tiny changes in the volume of blood in the vessels of the fingertip. By shining light through the finger and measuring the amount of light that gets absorbed or reflected back, the sensor detects these minute volume changes. The time interval between subsequent pulses is then used to calculate the heart rate in beats per minute (BPM). This value is then averaged over four measurements and displayed on the OLED screen.
+El principio principal detrás de este proyecto es capturar la pulsación del flujo sanguíneo a través de un dedo utilizando el sensor MAX30102. A medida que la sangre bombea a través del cuerpo, causa pequeños cambios en el volumen de sangre en los vasos de la punta del dedo. Al iluminar el dedo y medir la cantidad de luz que se absorbe o se refleja de vuelta, el sensor detecta estos cambios de volumen minuto. El intervalo de tiempo entre pulsos subsiguientes se utiliza entonces para calcular la frecuencia cardíaca en latidos por minuto (BPM). Este valor se promedia luego sobre cuatro mediciones y se muestra en la pantalla OLED.
 
 
-1. **Library Inclusions and Initial Declarations**:
+1. **Inclusiones de Bibliotecas y Declaraciones Iniciales**:
 
-   The code begins by including necessary libraries for the OLED display, MAX30102 sensor, and heart rate calculation. Additionally, the configuration for the OLED display and the variables for heart rate calculation are declared.
+   El código comienza incluyendo las bibliotecas necesarias para la pantalla OLED, el sensor MAX30102 y el cálculo de la frecuencia cardíaca. Además, se declara la configuración para la pantalla OLED y las variables para el cálculo de la frecuencia cardíaca.
 
    .. note:: 
-      To install the library, open the Arduino Library Manager, search for **"SparkFun MAX3010x"** , **"Adafruit SSD1306"** , and **"Adafruit GFX"**, then install them.
+      Para instalar la biblioteca, abre el Administrador de Bibliotecas de Arduino, busca **"SparkFun MAX3010x"**, **"Adafruit SSD1306"**, y **"Adafruit GFX"**, y luego instálalas.
 
    .. code-block:: arduino
 
-      #include <Adafruit_GFX.h>  // OLED  libraries
+      #include <Adafruit_GFX.h>  // Bibliotecas OLED
       #include <Adafruit_SSD1306.h>
       #include <Wire.h>
-      #include "MAX30105.h"   // MAX3010x library
-      #include "heartRate.h"  // Heart rate  calculating algorithm
+      #include "MAX30105.h"   // Biblioteca MAX3010x
+      #include "heartRate.h"  // Algoritmo de cálculo de la frecuencia cardíaca
 
-      // ... Variables and OLED configuration
+      // ... Variables y configuración OLED
 
-   In this project, we've also whipped up a couple of bitmaps. The ``PROGMEM`` keyword denotes that the array is stored in the program memory of the Arduino microcontroller. Storing data in program memory(PROGMEM) instead of RAM can be helpful for large amounts of data, which would otherwise take up too much space in RAM.
+   En este proyecto, también hemos preparado un par de mapas de bits. La palabra clave ``PROGMEM`` denota que el array se almacena en la memoria del programa del microcontrolador Arduino. Almacenar datos en la memoria del programa (PROGMEM) en lugar de en RAM puede ser útil para grandes cantidades de datos, que de otro modo ocuparían demasiado espacio en RAM.
 
 
    .. code-block:: arduino
@@ -105,9 +105,9 @@ The main principle behind this project is to capture the pulsation of blood flow
 
       static const unsigned char PROGMEM beat2_bmp[] = {...}
 
-2. **Setup Function**:
+2. **Función de Configuración**:
 
-   Initializes I2C communication, starts serial communication, initializes the OLED display, and sets up the MAX30102 sensor.
+   Inicia la comunicación I2C, comienza la comunicación serial, inicializa la pantalla OLED y configura el sensor MAX30102.
 
    .. code-block:: arduino
 
@@ -115,39 +115,39 @@ The main principle behind this project is to capture the pulsation of blood flow
           Wire.setClock(400000);
           Serial.begin(9600);
           display.begin(SSD1306_SWITCHCAPVCC, SCREEN_ADDRESS);
-          // ... Rest of the setup code
+          // ... Resto del código de configuración
 
-3. **Main Loop**:
+3. **Bucle Principal**:
 
-   The core functionality resides here. The IR value is read from the sensor. If a finger is detected (IR value greater than 50,000), the program checks if a heartbeat is sensed. When a heartbeat is detected, the OLED screen displays the BPM and the time between heartbeats is used to calculate BPM. Otherwise, it prompts the user to place their finger on the sensor.
+   Aquí reside la funcionalidad principal. El valor IR se lee del sensor. Si se detecta un dedo (valor IR mayor que 50,000), el programa verifica si se ha detectado un latido. Cuando se detecta un latido, la pantalla OLED muestra los BPM y el tiempo entre latidos se utiliza para calcular los BPM. De lo contrario, se indica al usuario que coloque su dedo en el sensor.
    
-   We have also prepared two bitmaps with heartbeats, and by switching between these two bitmaps, we can achieve a dynamic visual effect.
+   También hemos preparado dos mapas de bits con latidos del corazón, y al alternar entre estos dos mapas de bits, podemos lograr un efecto visual dinámico.
 
    .. code-block:: arduino
 
       void loop() {
-        // Get IR value from sensor
+        // Obtener el valor IR del sensor
         long irValue = particleSensor.getIR();  
       
-        //If a finger is detected
+        //Si se detecta un dedo
         if (irValue > 50000) {
       
-          // Check if a beat is detected
+          // Verificar si se detecta un latido
           if (checkForBeat(irValue) == true) {
 
-            // Update OLED display
-            // Calculate the BPM
+            // Actualizar la pantalla OLED
+            // Calcular los BPM
       
-            // Calculate the average BPM
-            //Print the IR value, current BPM value, and average BPM value to the serial monitor
+            // Calcular el BPM promedio
+            //Imprimir el valor IR, el valor actual de BPM y el valor promedio de BPM al monitor serial
 
-            // Update OLED display
+            // Actualizar la pantalla OLED
             
           }
         }
         else {
-          // ... Prompt to place the finger on the sensor
+          // ... Indicar colocar el dedo en el sensor
         }
       }
       
-
+      

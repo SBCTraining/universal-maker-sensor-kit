@@ -1,50 +1,50 @@
-.. note::
+.. note:: 
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    ¡Hola, bienvenido a la Comunidad de Aficionados de SunFounder Raspberry Pi & Arduino & ESP32 en Facebook! Sumérgete más en Raspberry Pi, Arduino y ESP32 con otros entusiastas.
 
     **Why Join?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Soporte de Expertos**: Resuelve problemas posventa y desafíos técnicos con ayuda de nuestra comunidad y equipo.
+    - **Aprender y Compartir**: Intercambia consejos y tutoriales para mejorar tus habilidades.
+    - **Previsualizaciones Exclusivas**: Accede anticipadamente a los anuncios de nuevos productos y vistas previas exclusivas.
+    - **Descuentos Especiales**: Disfruta de descuentos exclusivos en nuestros productos más nuevos.
+    - **Promociones Festivas y Sorteos**: Participa en sorteos y promociones festivas.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 ¿Listo para explorar y crear con nosotros? Haz clic en [|link_sf_facebook|] y únete hoy.
 
 .. _pico_lesson12_pir_motion:
 
-Lesson 12: PIR Motion Module (HC-SR501)
-============================================
+Lección 12: Módulo de Movimiento PIR (HC-SR501)
+==================================================
 
-In this lesson, you'll learn how to connect a PIR Motion Sensor to the Raspberry Pi Pico W. You'll discover how to configure the sensor for motion detection and use basic MicroPython code to react to movement. By monitoring the PIR sensor, you'll gain experience in managing digital inputs and creating a simple security measure or automation trigger.
+En esta lección, aprenderás cómo conectar un Sensor de Movimiento PIR al Raspberry Pi Pico W. Descubrirás cómo configurar el sensor para la detección de movimiento y utilizar código básico de MicroPython para reaccionar ante el movimiento. Al monitorear el sensor PIR, ganarás experiencia en la gestión de entradas digitales y en la creación de una medida de seguridad simple o un disparador de automatización.
 
-Required Components
---------------------------
+Componentes Necesarios
+---------------------------
 
-In this project, we need the following components. 
+Para este proyecto, necesitaremos los siguientes componentes:
 
-It's definitely convenient to buy a whole kit, here's the link: 
+Es definitivamente conveniente comprar un kit completo, aquí está el enlace:
 
 .. list-table::
     :widths: 20 20 20
     :header-rows: 1
 
-    *   - Name	
-        - ITEMS IN THIS KIT
-        - LINK
-    *   - Universal Maker Sensor Kit
+    *   - Nombre	
+        - ÍTEMS EN ESTE KIT
+        - ENLACE
+    *   - Kit de Sensores Universal Maker
         - 94
         - |link_umsk|
 
-You can also buy them separately from the links below.
+También puedes comprarlos por separado en los siguientes enlaces.
 
 .. list-table::
     :widths: 30 20
     :header-rows: 1
 
-    *   - Component Introduction
-        - Purchase Link
+    *   - Introducción del Componente
+        - Enlace de Compra
 
     *   - Raspberry Pi Pico W
         - \-
@@ -54,14 +54,14 @@ You can also buy them separately from the links below.
         - |link_breadboard_buy|
 
 
-Wiring
+Cableado
 ---------------------------
 
 .. image:: img/Lesson_12_pir_module_bb.png
     :width: 100%
 
 
-Code
+Código
 ---------------------------
 
 .. code-block:: python
@@ -69,50 +69,50 @@ Code
    from machine import Pin
    import time
    
-   # Initialize PIR sensor connected to pin 16 as input
+   # Inicializa el sensor PIR conectado al pin 16 como entrada
    pir_sensor = Pin(16, Pin.IN)
    
    while True:
-       # Check the PIR sensor value
+       # Revisa el valor del sensor PIR
        if pir_sensor.value() == 0:  
-           print("Monitoring...")  # No motion detected
+           print("Monitoring...")  # No se detecta movimiento
        else:
-           print("Somebody here!")  # Motion detected
+           print("Somebody here!")  # Movimiento detectado
    
-       time.sleep(0.1)  # Short delay of 0.1 seconds to reduce CPU usage
+       time.sleep(0.1)  # Retardo corto de 0.1 segundos para reducir el uso de la CPU
 
-Code Analysis
+Análisis del Código
 ---------------------------
 
-#. Importing modules
+1. Importación de módulos
 
-   The ``machine`` module is imported to use the ``Pin`` class for GPIO pin control. The ``time`` module is imported for creating delays in the loop.
+   Se importa el módulo ``machine`` para usar la clase ``Pin`` para el control de pines GPIO. El módulo ``time`` se importa para crear retardos en el bucle.
 
    .. code-block:: python
 
       from machine import Pin
       import time
 
-#. Initializing the PIR sensor
+2. Inicialización del sensor PIR
 
-   The PIR sensor is connected to GPIO pin 16 of the Raspberry Pi Pico W. It is set as an input device because it sends data to the microcontroller.
+   El sensor PIR está conectado al pin GPIO 16 del Raspberry Pi Pico W. Se configura como un dispositivo de entrada porque envía datos al microcontrolador.
 
    .. code-block:: python
 
-      # Initialize PIR sensor connected to pin 16 as input
+      # Inicializa el sensor PIR conectado al pin 16 como entrada
       pir_sensor = Pin(16, Pin.IN)
 
-#. Main loop
+3. Bucle principal
 
-   The ``while True`` loop makes the code run continuously. Inside this loop, the PIR sensor's value is checked. If the value is ``0``, it means no motion is detected. Otherwise, motion is detected. A delay of 0.1 seconds is added to reduce CPU usage and prevent the code from running too fast.
+   El bucle ``while True`` hace que el código se ejecute continuamente. Dentro de este bucle, se verifica el valor del sensor PIR. Si el valor es ``0``, significa que no se detecta movimiento. De lo contrario, se detecta movimiento. Se agrega un retardo de 0.1 segundos para reducir el uso de la CPU y evitar que el código se ejecute demasiado rápido.
 
    .. code-block:: python
 
       while True:
-          # Check the PIR sensor value
+          # Revisa el valor del sensor PIR
           if pir_sensor.value() == 0:  
-              print("Monitoring...")  # No motion detected
+              print("Monitoring...")  # No se detecta movimiento
           else:
-              print("Somebody here!")  # Motion detected
+              print("Somebody here!")  # Movimiento detectado
 
-          time.sleep(0.1)  # Short delay of 0.1 seconds to reduce CPU usage
+          time.sleep(0.1)  # Retardo corto de 0.1 segundos para reducir el uso de la CPU

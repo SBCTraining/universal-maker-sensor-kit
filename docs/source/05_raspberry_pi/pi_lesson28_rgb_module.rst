@@ -1,67 +1,67 @@
-.. note::
+.. note:: 
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    ¡Hola, bienvenido a la Comunidad de Entusiastas de SunFounder Raspberry Pi, Arduino y ESP32 en Facebook! Profundiza más en Raspberry Pi, Arduino y ESP32 con otros entusiastas.
 
-    **Why Join?**
+    **¿Por qué unirte?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Soporte experto**: Resuelve problemas postventa y desafíos técnicos con la ayuda de nuestra comunidad y equipo.
+    - **Aprender y compartir**: Intercambia consejos y tutoriales para mejorar tus habilidades.
+    - **Preestrenos exclusivos**: Obtén acceso anticipado a nuevos anuncios de productos y adelantos.
+    - **Descuentos especiales**: Disfruta de descuentos exclusivos en nuestros productos más nuevos.
+    - **Promociones festivas y sorteos**: Participa en sorteos y promociones de temporada.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 ¿Listo para explorar y crear con nosotros? Haz clic en [|link_sf_facebook|] y únete hoy mismo!
 
 .. _pi_lesson28_rgb_module:
 
-Lesson 28: RGB Module
+Lección 28: Módulo de LED RGB
 ==================================
 
-In this lesson, you will learn how to control an RGB LED module with a Raspberry Pi. You'll learn how to use Python to change the LED's color to red, green, blue, and yellow, and then turn it off. This project is a straightforward introduction to working with RGB LEDs and GPIO interfacing, making it ideal for beginners starting with Raspberry Pi and Python programming.
+En esta lección, aprenderás cómo controlar un módulo de LED RGB con una Raspberry Pi. Aprenderás a usar Python para cambiar el color del LED a rojo, verde, azul y amarillo, y luego apagarlo. Este proyecto es una introducción sencilla al trabajo con LEDs RGB e interfaces GPIO, lo que lo convierte en un punto de partida ideal para principiantes que comienzan con Raspberry Pi y programación en Python.
 
-Required Components
+Componentes necesarios
 --------------------------
 
-In this project, we need the following components. 
+En este proyecto, necesitamos los siguientes componentes.
 
-It's definitely convenient to buy a whole kit, here's the link: 
+Es definitivamente conveniente comprar un kit completo, aquí tienes el enlace:
 
 .. list-table::
     :widths: 20 20 20
     :header-rows: 1
 
-    *   - Name	
-        - ITEMS IN THIS KIT
-        - LINK
-    *   - Universal Maker Sensor Kit
+    *   - Nombre  
+        - ELEMENTOS EN ESTE KIT  
+        - ENLACE
+    *   - Kit Sensor Universal Maker
         - 94
         - |link_umsk|
 
-You can also buy them separately from the links below.
+También puedes comprarlos por separado en los siguientes enlaces.
 
 .. list-table::
     :widths: 30 20
     :header-rows: 1
 
-    *   - Component Introduction
-        - Purchase Link
+    *   - Introducción del componente  
+        - Enlace de compra
 
     *   - Raspberry Pi 5
-        - \-
+        - |link_rpi5_buy|
     *   - :ref:`cpn_rgb`
         - \-
     *   - :ref:`cpn_breadboard`
         - |link_breadboard_buy|
 
 
-Wiring
+Cableado
 ---------------------------
 
 .. image:: img/Lesson_28_RGB_LED_Module_Pi_bb.png
     :width: 100%
 
 
-Code
+Código
 ---------------------------
 
 .. code-block:: python
@@ -70,41 +70,41 @@ Code
    from time import sleep  
    from colorzero import Color  
 
-   # GPIO pin assignments for the RGB LED
+   # Asignaciones de pines GPIO para el LED RGB
    red_pin = 22
    green_pin = 27
    blue_pin = 17
 
-   # Initialize the RGB LED with red, green, and blue components connected to their respective GPIO pins
+   # Inicializa el LED RGB con los componentes rojo, verde y azul conectados a los respectivos pines GPIO
    led = RGBLED(red=red_pin, green=green_pin, blue=blue_pin)
 
-   # Set the LED to red color (red: 100%, green: 0%, blue: 0%) and wait for 1 second
+   # Establece el LED al color rojo (rojo: 100%, verde: 0%, azul: 0%) y espera 1 segundo
    led.color = (1, 0, 0)
    sleep(1)
 
-   # Set the LED to green color (red: 0%, green: 100%, blue: 0%) and wait for 1 second
+   # Establece el LED al color verde (rojo: 0%, verde: 100%, azul: 0%) y espera 1 segundo
    led.color = (0, 1, 0)
    sleep(1)
 
-   # Set the LED to blue color (red: 0%, green: 0%, blue: 100%) and wait for 1 second
+   # Establece el LED al color azul (rojo: 0%, verde: 0%, azul: 100%) y espera 1 segundo
    led.color = (0, 0, 1)
    sleep(1)
 
-   # Set the LED to yellow color using the Color class and wait for 1 second
+   # Establece el LED al color amarillo usando la clase Color y espera 1 segundo
    led.color = Color('yellow')
    sleep(1)
 
-   # Turn the LED off
+   # Apaga el LED
    led.off()
 
 
 
-Code Analysis
+Análisis del código
 ---------------------------
 
-#. Importing Libraries
-   
-   The script starts with importing the ``RGBLED`` class from gpiozero for controlling the RGB LED and the ``sleep`` function from the time module for delays. It also imports the ``Color`` class from colorzero for color definitions.
+#. Importación de bibliotecas
+
+   El script comienza importando la clase ``RGBLED`` de la biblioteca gpiozero para controlar el LED RGB y la función ``sleep`` del módulo time para los retrasos. También importa la clase ``Color`` de colorzero para definir los colores.
 
    .. code-block:: python
 
@@ -112,10 +112,10 @@ Code Analysis
       from time import sleep  
       from colorzero import Color  
 
-#. Initializing the RGB LED
-   
-   - GPIO pins for each color component of the RGB LED are defined. 
-   - The RGB LED is initialized with its red, green, and blue components connected to GPIO pins 22, 27, and 17 respectively.
+#. Inicialización del LED RGB
+
+   - Se definen los pines GPIO para cada componente de color del LED RGB. 
+   - Se inicializa el LED RGB con sus componentes rojo, verde y azul conectados a los pines GPIO 22, 27 y 17, respectivamente.
 
    .. code-block:: python
 
@@ -124,10 +124,10 @@ Code Analysis
       blue_pin = 17
       led = RGBLED(red=red_pin, green=green_pin, blue=blue_pin)
 
-#. Setting LED Colors
-   
-   - The color of the LED is set to red, green, and blue in sequence, each followed by a 1-second pause. 
-   - Colors are represented by tuples (red, green, blue), where each value is between 0 and 1, indicating the intensity.
+#. Establecer colores del LED
+
+   - Se establece el color del LED a rojo, verde y azul en secuencia, cada uno seguido por una pausa de 1 segundo.
+   - Los colores se representan mediante tuplas (rojo, verde, azul), donde cada valor está entre 0 y 1, lo que indica la intensidad.
 
    .. code-block:: python
 
@@ -138,20 +138,20 @@ Code Analysis
       led.color = (0, 0, 1)
       sleep(1)
 
-#. Using the Color Class
-   
-   The script demonstrates how to use the ``Color`` class from colorzero to set the LED to a named color (``yellow``) and then waits for 1 second.
+#. Uso de la clase Color
 
-   In addition to using the pre-defined colors directly, you can also define colors in various ways. For more details, please refer to |link_gpiozero_color|.
+   El script demuestra cómo usar la clase ``Color`` de colorzero para configurar el LED a un color predefinido (``yellow``) y luego esperar 1 segundo.
+
+   Además de usar los colores predefinidos directamente, también puedes definir colores de varias maneras. Para más detalles, consulta |link_gpiozero_color|.
 
    .. code-block:: python
 
       led.color = Color('yellow')
       sleep(1)
 
-#. Turning the LED Off
-   
-   Finally, the script turns off the LED using ``led.off()``.
+#. Apagar el LED
+
+   Finalmente, el script apaga el LED utilizando ``led.off()``.
 
    .. code-block:: python
 

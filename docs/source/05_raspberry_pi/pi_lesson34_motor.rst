@@ -1,143 +1,143 @@
-.. note::
+.. note:: 
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    ¡Hola, bienvenido a la Comunidad de Entusiastas de SunFounder Raspberry Pi, Arduino y ESP32 en Facebook! Profundiza más en Raspberry Pi, Arduino y ESP32 junto a otros entusiastas.
 
-    **Why Join?**
+    **¿Por qué unirte?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Soporte experto**: Resuelve problemas postventa y desafíos técnicos con la ayuda de nuestra comunidad y equipo.
+    - **Aprender y compartir**: Intercambia consejos y tutoriales para mejorar tus habilidades.
+    - **Preestrenos exclusivos**: Obtén acceso anticipado a nuevos anuncios de productos y adelantos.
+    - **Descuentos especiales**: Disfruta de descuentos exclusivos en nuestros productos más nuevos.
+    - **Promociones festivas y sorteos**: Participa en sorteos y promociones de temporada.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 ¿Listo para explorar y crear con nosotros? Haz clic en [|link_sf_facebook|] y únete hoy mismo!
 
 .. _pi_lesson34_motor:
 
-Lesson 34: TT Motor
+Lección 34: Motor TT
 ==================================
 
-In this lesson, you will learn how to control the speed and direction of a motor using a Raspberry Pi. You'll learn how to program the Raspberry Pi to run the motor at different speeds and in both forward and backward directions. The project will involve setting the motor speed, running it for a specified duration, and then stopping it. This exercise is a practical introduction to motor control with the Raspberry Pi, offering a clear and straightforward experience in hardware control and Python programming, suitable for beginners.
+En esta lección, aprenderás a controlar la velocidad y la dirección de un motor utilizando una Raspberry Pi. Aprenderás a programar la Raspberry Pi para hacer funcionar el motor a diferentes velocidades y en ambas direcciones: adelante y atrás. El proyecto consistirá en establecer la velocidad del motor, hacerlo funcionar durante un período determinado y luego detenerlo. Este ejercicio es una introducción práctica al control de motores con la Raspberry Pi, ofreciendo una experiencia clara y sencilla en el control de hardware y programación en Python, adecuado para principiantes.
 
-Required Components
+Componentes necesarios
 --------------------------
 
-In this project, we need the following components. 
+En este proyecto, necesitamos los siguientes componentes. 
 
-It's definitely convenient to buy a whole kit, here's the link: 
+Es definitivamente conveniente comprar un kit completo, aquí tienes el enlace: 
 
 .. list-table::
     :widths: 20 20 20
     :header-rows: 1
 
-    *   - Name	
-        - ITEMS IN THIS KIT
-        - LINK
-    *   - Universal Maker Sensor Kit
+    *   - Nombre  
+        - ELEMENTOS EN ESTE KIT  
+        - ENLACE
+    *   - Kit Sensor Universal Maker
         - 94
         - |link_umsk|
 
-You can also buy them separately from the links below.
+También puedes comprarlos por separado en los siguientes enlaces.
 
 .. list-table::
     :widths: 30 20
     :header-rows: 1
 
-    *   - Component Introduction
-        - Purchase Link
+    *   - Introducción del componente  
+        - Enlace de compra
 
     *   - Raspberry Pi 5
-        - \-
+        - |link_rpi5_buy|
     *   - :ref:`cpn_ttmotor`
         - \-
     *   - :ref:`cpn_l9110`
         - \-
 
 
-Wiring
+Cableado
 ---------------------------
 
 .. image:: img/Lesson_34_Motor_Pi_bb.png
     :width: 100%
 
 
-Code
+Código
 ---------------------------
 
 .. code-block:: python
 
-   from gpiozero import Motor
-   from time import sleep
+   from gpiozero import Motor  
+   from time import sleep  
+   
+   # Definir los pines del motor
+   motor = Motor(forward=17, backward=27)  # Usando los números de pines GPIO de la Raspberry Pi
 
-   # Define motor pins
-   motor = Motor(forward=17, backward=27)  # Using Raspberry Pi GPIO pin numbers
+   # Hacer funcionar el motor hacia adelante a media velocidad
+   motor.forward(speed=0.5)  # Establecer la velocidad del motor, el rango es de 0 a 1
+   sleep(5)                  # Hacer funcionar el motor durante 5 segundos
 
-   # Run the motor forward at half speed
-   motor.forward(speed=0.5)  # Set motor speed, range is 0 to 1
-   sleep(5)                  # Run the motor for 5 seconds
+   # Aumentar la velocidad a máxima hacia adelante
+   motor.forward(speed=1)    # Establecer la velocidad del motor, el rango es de 0 a 1
+   sleep(5)                  # Hacer funcionar el motor durante 5 segundos
 
-   # Increase to full speed forward
-   motor.forward(speed=1)    # Set motor speed, range is 0 to 1
-   sleep(5)                  # Run the motor for 5 seconds
+   # Hacer funcionar el motor hacia atrás a máxima velocidad
+   motor.backward(speed=1)   # Establecer la velocidad del motor, el rango es de 0 a 1
+   sleep(5)                  # Hacer funcionar el motor durante 5 segundos
 
-   # Run the motor backward at full speed
-   motor.backward(speed=1)   # Set motor speed, range is 0 to 1
-   sleep(5)                  # Run the motor for 5 seconds
-
-   # Stop the motor
+   # Detener el motor
    motor.stop()
 
 
-Code Analysis
+Análisis del código
 ---------------------------
 
-#. Import Libraries
+#. Importar bibliotecas
    
-   Import the ``Motor`` class from ``gpiozero`` for motor control, and ``sleep`` from ``time`` for timing control.
+   Importar la clase ``Motor`` de ``gpiozero`` para controlar el motor y la función ``sleep`` de ``time`` para los retrasos.
 
    .. code-block:: python
 
-      from gpiozero import Motor
-      from time import sleep
+      from gpiozero import Motor  
+      from time import sleep  
 
-#. Define Motor Pins
+#. Definir los pines del motor
    
-   Create a ``Motor`` object to control a motor connected to GPIO pins 17 and 27 for forward and backward movements, respectively.
+   Crear un objeto ``Motor`` para controlar un motor conectado a los pines GPIO 17 y 27 para los movimientos hacia adelante y hacia atrás, respectivamente.
 
    .. code-block:: python
 
       motor = Motor(forward=17, backward=27)
 
-#. Run the Motor Forward at Half Speed
+#. Hacer funcionar el motor hacia adelante a media velocidad
    
-   The motor is run forward at half speed (``speed=0.5``) for 5 seconds. The speed range is between 0 (stopped) and 1 (full speed).
+   El motor se hace funcionar hacia adelante a media velocidad (``speed=0.5``) durante 5 segundos. El rango de velocidad está entre 0 (detenido) y 1 (velocidad máxima).
 
    .. code-block:: python
 
-      motor.forward(speed=0.5)
+      motor.forward(speed=0.5)  
       sleep(5)
 
-#. Increase to Full Speed Forward
+#. Aumentar la velocidad a máxima hacia adelante
    
-   Increase the motor speed to full speed (``speed=1``) in the forward direction, running for another 5 seconds.
+   Aumentar la velocidad del motor a máxima (``speed=1``) hacia adelante, funcionando durante otros 5 segundos.
 
    .. code-block:: python
 
-      motor.forward(speed=1)
+      motor.forward(speed=1)  
       sleep(5)
 
-#. Run the Motor Backward at Full Speed
+#. Hacer funcionar el motor hacia atrás a máxima velocidad
    
-   The motor is then run backward at full speed for 5 seconds.
+   El motor se hace funcionar hacia atrás a máxima velocidad durante 5 segundos.
 
    .. code-block:: python
 
-      motor.backward(speed=1)
+      motor.backward(speed=1)  
       sleep(5)
 
-#. Stop the Motor
+#. Detener el motor
    
-   Finally, stop the motor using the ``stop`` method.
+   Finalmente, detener el motor utilizando el método ``stop``.
 
    .. code-block:: python
 

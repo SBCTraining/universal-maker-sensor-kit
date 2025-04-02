@@ -1,52 +1,52 @@
-.. note::
+.. note:: 
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    ¡Hola, bienvenido a la comunidad de entusiastas de SunFounder en Facebook sobre Raspberry Pi, Arduino y ESP32! Sumérgete más a fondo en Raspberry Pi, Arduino y ESP32 con otros entusiastas.
 
-    **Why Join?**
+    **¿Por qué unirse?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Soporte de Expertos**: Resuelve problemas posventa y desafíos técnicos con ayuda de nuestra comunidad y equipo.
+    - **Aprender y Compartir**: Intercambia consejos y tutoriales para mejorar tus habilidades.
+    - **Previsualizaciones Exclusivas**: Obtén acceso anticipado a anuncios de nuevos productos y avances exclusivos.
+    - **Descuentos Especiales**: Disfruta de descuentos exclusivos en nuestros productos más nuevos.
+    - **Promociones Festivas y Sorteos**: Participa en sorteos y promociones festivas.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 ¿Listo para explorar y crear con nosotros? Haz clic en [|link_sf_facebook|] ¡y únete hoy!
 
 .. _esp32_lesson10_pcf8591:
 
-Lesson 10: PCF8591 ADC DAC Converter Module
-==============================================
+Lección 10: Módulo Convertidor ADC DAC PCF8591
+==============================================================
 
-In this lesson, you'll learn how to connect the ESP32 Development Board with a PCF8591 ADC DAC Converter Module. We'll cover reading analog values from input AIN0, sending these values to the DAC(AOUT), and displaying both the raw and voltage-converted readings on the serial monitor. The module's potentiometer is connected to AIN0 using jumper caps, and the D2 LED on the module is connected to AOUT, so you can see that the brightness of D2 LED changes as you rotate the potentiometer.
+En esta lección, aprenderás a conectar la Placa de Desarrollo ESP32 con un Módulo Convertidor ADC DAC PCF8591. Cubriremos la lectura de valores analógicos de la entrada AIN0, el envío de estos valores al DAC (AOUT) y la visualización de las lecturas tanto crudas como convertidas en voltaje en el monitor serial. El potenciómetro del módulo está conectado a AIN0 mediante capsulas de puente, y el LED D2 en el módulo está conectado a AOUT, por lo que podrás ver cómo cambia el brillo del LED D2 a medida que giras el potenciómetro.
 
-Required Components
+Componentes Requeridos
 --------------------------
 
-In this project, we need the following components. 
+En este proyecto, necesitamos los siguientes componentes.
 
-It's definitely convenient to buy a whole kit, here's the link: 
+Es definitivamente conveniente comprar un kit completo, aquí está el enlace:
 
 .. list-table::
     :widths: 20 20 20
     :header-rows: 1
 
-    *   - Name	
-        - ITEMS IN THIS KIT
-        - LINK
-    *   - Universal Maker Sensor Kit
+    *   - Nombre	
+        - ARTÍCULOS EN ESTE KIT
+        - ENLACE
+    *   - Kit Universal de Sensores para Creadores
         - 94
         - |link_umsk|
 
-You can also buy them separately from the links below.
+También puedes comprarlos por separado desde los siguientes enlaces.
 
 .. list-table::
     :widths: 30 20
     :header-rows: 1
 
-    *   - Component Introduction
-        - Purchase Link
+    *   - Introducción al Componente
+        - Enlace de Compra
 
-    *   - ESP32 & Development Board (:ref:`cpn_esp32_wroom_32e`)
+    *   - ESP32 & Placa de Desarrollo (:ref:`cpn_esp32_wroom_32e`)
         - |link_esp32_camera_pro_kit_buy|
     *   - :ref:`cpn_pcf8591`
         - |link_pcf8591_module_buy|
@@ -54,45 +54,45 @@ You can also buy them separately from the links below.
         - |link_breadboard_buy|
 
 
-Wiring
+Cableado
 ---------------------------
 
 .. image:: img/Lesson_10_PCF8591_Module_esp32_bb.png
     :width: 100%
 
 
-Code
+Código
 ---------------------------
 
 .. note:: 
-   To install the library, use the Arduino Library Manager and search for **"Adafruit PCF8591"** and install it. 
+   Para instalar la librería, usa el Administrador de Librerías de Arduino y busca **"Adafruit PCF8591"** e instálala.
 
 .. raw:: html
 
     <iframe src=https://create.arduino.cc/editor/sunfounder01/5f184da9-9ea5-4c8a-877e-a7a41abf8c15/preview?embed style="height:510px;width:100%;margin:10px 0" frameborder=0></iframe>
 
-Code Analysis
+Análisis del Código
 ---------------------------
 
-#. **Including the Library and Defining Constants**
+1. **Incluir la Librería y Definir Constantes**
 
    .. note:: 
-      To install the library, use the Arduino Library Manager and search for **"Adafruit PCF8591"** and install it. 
+      Para instalar la librería, usa el Administrador de Librerías de Arduino y busca **"Adafruit PCF8591"** e instálala. 
 
    .. code-block:: arduino
 
-      // Include Adafruit PCF8591 library
+      // Incluir la librería Adafruit PCF8591
       #include <Adafruit_PCF8591.h>
-      // Define the reference voltage for ADC conversion
+      // Definir el voltaje de referencia para la conversión ADC
       #define ADC_REFERENCE_VOLTAGE 3.3
 
-   This section includes the Adafruit PCF8591 library, which provides functions for interacting with the PCF8591 module. The ADC reference voltage is set to 3.3 volts, which is the maximum voltage that the ADC can measure.
+   Esta sección incluye la librería Adafruit PCF8591, que proporciona funciones para interactuar con el módulo PCF8591. El voltaje de referencia del ADC se establece en 3.3 voltios, que es el voltaje máximo que el ADC puede medir.
 
-#. **Setting Up the PCF8591 Module**
+2. **Configuración del Módulo PCF8591**
 
    .. code-block:: arduino
 
-      // Create an instance of the PCF8591 module
+      // Crear una instancia del módulo PCF8591
       Adafruit_PCF8591 pcf = Adafruit_PCF8591();
       void setup() {
         Serial.begin(9600);
@@ -105,9 +105,9 @@ Code Analysis
         pcf.enableDAC(true);
       }
 
-   In the setup function, serial communication is started, and an instance of the PCF8591 module is created. The ``pcf.begin()`` function checks if the module is connected properly. If not, it prints an error message and halts the program. If the module is found, it enables the DAC.
+   En la función de configuración, se inicia la comunicación serial y se crea una instancia del módulo PCF8591. La función ``pcf.begin()`` verifica si el módulo está conectado correctamente. Si no lo está, imprime un mensaje de error y detiene el programa. Si el módulo es encontrado, se habilita el DAC.
 
-#. **Reading from ADC and Writing to DAC**
+3. **Lectura del ADC y Escritura en el DAC**
 
    .. code-block:: arduino
 
@@ -122,11 +122,11 @@ Code Analysis
         delay(500);
       }
 
-   The loop function continuously reads the analog value from AIN0 (analog input 0) of the PCF8591 module, then writes this value back to the DAC. It also prints the raw value and the voltage-converted value of AIN0 to the Serial Monitor.
+   La función loop lee continuamente el valor analógico desde AIN0 (entrada analógica 0) del módulo PCF8591, luego escribe este valor de vuelta en el DAC. También imprime el valor crudo y el valor convertido en voltaje de AIN0 en el Monitor Serial.
 
-   Jumper caps link the module's potentiometer to AIN0, and the D2 LED is connected to AOUT; please refer to the PCF8591 module :ref:`schematic <cpn_pcf8591_sch>` for details. The brightness of the LED changes as the potentiometer is rotated.
+   Las capsulas de puente vinculan el potenciómetro del módulo a AIN0, y el LED D2 está conectado a AOUT; por favor, consulta el :ref:`schematic <cpn_pcf8591_sch>` para más detalles. El brillo del LED cambia a medida que se gira el potenciómetro.
 
-#. **Digital to Voltage Conversion Function**
+4. **Función de Conversión de Digital a Voltaje**
 
    .. code-block:: arduino
 
@@ -134,4 +134,4 @@ Code Analysis
         return (((float)dac_value / ((1 << bits) - 1)) * logic_level);
       }
 
-   This function converts the digital value back to its corresponding voltage. It takes the digital value (``dac_value``), the number of bits of resolution (``bits``), and the logic level voltage (``logic_level``) as arguments. The formula used is a standard approach to convert a digital value to its equivalent voltage.
+   Esta función convierte el valor digital de vuelta a su correspondiente voltaje. Toma el valor digital (``dac_value``), el número de bits de resolución (``bits``), y el voltaje de nivel lógico (``logic_level``) como parámetros. La fórmula utilizada es un enfoque estándar para convertir un valor digital a su voltaje equivalente.

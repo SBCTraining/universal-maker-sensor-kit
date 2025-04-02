@@ -1,52 +1,52 @@
-.. note::
+.. note:: 
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    ¡Hola, bienvenido a la comunidad de entusiastas de SunFounder Raspberry Pi & Arduino & ESP32 en Facebook! Profundiza en Raspberry Pi, Arduino y ESP32 con otros aficionados.
 
     **Why Join?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Expert Support**: Resuelve problemas posventa y desafíos técnicos con la ayuda de nuestra comunidad y equipo.
+    - **Learn & Share**: Intercambia consejos y tutoriales para mejorar tus habilidades.
+    - **Exclusive Previews**: Obtén acceso anticipado a anuncios de nuevos productos y avances exclusivos.
+    - **Special Discounts**: Disfruta de descuentos exclusivos en nuestros productos más recientes.
+    - **Festive Promotions and Giveaways**: Participa en sorteos y promociones festivas.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 ¿Listo para explorar y crear con nosotros? Haz clic en [|link_sf_facebook|] y únete hoy mismo!
 
 .. _uno_lesson34_motor:
 
-Lesson 34: TT Motor
+Lección 34: Motor TT
 ==================================
 
-In this lesson, you will learn how to control a motor using an Arduino Uno R3 or R4 and an L9110 motor control board. We'll cover defining motor pins and setting their speed through programming. This tutorial will walk you through the process of connecting and controlling a motor, demonstrating the basic principles of motor operation and control in Arduino projects. Geared towards beginners, this lesson provides a hands-on approach to understanding output operations on the Arduino platform.
+En esta lección, aprenderás a controlar un motor utilizando un Arduino Uno R3 o R4 y una placa de control de motor L9110. Cubriremos la definición de los pines del motor y la configuración de su velocidad mediante programación. Este tutorial te guiará a través del proceso de conexión y control de un motor, demostrando los principios básicos de la operación y control de motores en proyectos de Arduino. Orientada a principiantes, esta lección proporciona un enfoque práctico para comprender las operaciones de salida en la plataforma Arduino.
 
-Required Components
+Componentes Necesarios
 --------------------------
 
-In this project, we need the following components. 
+Para este proyecto, necesitaremos los siguientes componentes.
 
-It's definitely convenient to buy a whole kit, here's the link: 
+Es definitivamente conveniente comprar un kit completo, aquí está el enlace:
 
 .. list-table::
     :widths: 20 20 20
     :header-rows: 1
 
-    *   - Name	
-        - ITEMS IN THIS KIT
-        - LINK
-    *   - Universal Maker Sensor Kit
+    *   - Nombre	
+        - ELEMENTOS EN ESTE KIT
+        - ENLACE
+    *   - Kit Universal de Sensores para Creadores
         - 94
         - |link_umsk|
 
-You can also buy them separately from the links below.
+También puedes comprarlos por separado en los siguientes enlaces.
 
 .. list-table::
     :widths: 30 20
     :header-rows: 1
 
-    *   - Component Introduction
-        - Purchase Link
+    *   - Introducción del Componente
+        - Enlace de Compra
 
-    *   - Arduino UNO R3 or R4
+    *   - Arduino UNO R3 o R4
         - |link_Uno_R3_buy|
     *   - :ref:`cpn_ttmotor`
         - \-
@@ -54,40 +54,40 @@ You can also buy them separately from the links below.
         - \-
 
 
-Wiring
+Conexiones
 ---------------------------
 
 .. image:: img/Lesson_34_tt_motor_uno_bb.png
     :width: 100%
 
 
-Code
+Código
 ---------------------------
 
 .. raw:: html
 
     <iframe src=https://create.arduino.cc/editor/sunfounder01/89894de5-2114-4056-a064-0c495c6de447/preview?embed style="height:510px;width:100%;margin:10px 0" frameborder=0></iframe>
 
-Code Analysis
+Análisis del Código
 ---------------------------
 
-1. The first part of the code defines the motor control pins. These are connected to the L9110 motor control board.
+1. La primera parte del código define los pines de control del motor. Estos están conectados a la placa de control de motor L9110.
 
    .. code-block:: arduino
    
-      // Define the motor pins
+      // Definir los pines del motor
       const int motorB_1A = 9;
       const int motorB_2A = 10;
 
-2. The ``setup()`` function initializes the motor control pins as output using the ``pinMode()`` function. Then it uses ``analogWrite()`` to set the speed of the motor. The value passed to ``analogWrite()`` can range from 0 (off) to 255 (full speed). A ``delay()`` function is then used to pause the code for 5000 milliseconds (or 5 seconds), after which the motor speed is set to 0 (off).
+2. La función ``setup()`` inicializa los pines de control del motor como salida usando la función ``pinMode()``. Luego utiliza ``analogWrite()`` para establecer la velocidad del motor. El valor pasado a ``analogWrite()`` puede variar de 0 (apagado) a 255 (velocidad máxima). Una función ``delay()`` se utiliza luego para pausar el código durante 5000 milisegundos (o 5 segundos), después de lo cual la velocidad del motor se establece en 0 (apagado).
 
    .. code-block:: arduino
    
       void setup() {
-        pinMode(motorB_1A, OUTPUT);  // set motor pin 1 as output
-        pinMode(motorB_2A, OUTPUT);  // set motor pin 2 as output
+        pinMode(motorB_1A, OUTPUT);  // configurar el pin 1 del motor como salida
+        pinMode(motorB_2A, OUTPUT);  // configurar el pin 2 del motor como salida
    
-        analogWrite(motorB_1A, 255);  // set motor speed (0-255)
+        analogWrite(motorB_1A, 255);  // establecer la velocidad del motor (0-255)
         analogWrite(motorB_2A, 0);
    
         delay(5000);

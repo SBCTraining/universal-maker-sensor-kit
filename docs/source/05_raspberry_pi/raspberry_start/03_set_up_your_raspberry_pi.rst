@@ -1,84 +1,84 @@
-.. note::
+.. note:: 
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    ¡Hola, bienvenido a la comunidad de entusiastas de Raspberry Pi, Arduino y ESP32 de SunFounder en Facebook! Profundiza en Raspberry Pi, Arduino y ESP32 junto a otros entusiastas.
 
-    **Why Join?**
+    **¿Por qué unirse?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Soporte experto**: Resuelve problemas postventa y desafíos técnicos con la ayuda de nuestra comunidad y equipo.
+    - **Aprende y comparte**: Intercambia consejos y tutoriales para mejorar tus habilidades.
+    - **Avances exclusivos**: Obtén acceso anticipado a anuncios de nuevos productos y adelantos.
+    - **Descuentos especiales**: Disfruta de descuentos exclusivos en nuestros productos más nuevos.
+    - **Promociones festivas y sorteos**: Participa en sorteos y promociones de temporada.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 ¿Listo para explorar y crear con nosotros? Haz clic en [|link_sf_facebook|] y únete hoy mismo!
 
 .. _set_up_your_raspberry_pi:
 
-Set up Your Raspberry Pi
+Configura tu Raspberry Pi
 ============================
 
-If You Have a Screen
+Si Tienes una Pantalla
 -------------------------
 
-If you have a screen, it will be easy for you to operate on the Raspberry Pi.
+Si tienes una pantalla, te será fácil operar la Raspberry Pi.
 
-**Required Components**
+**Componentes Requeridos**
 
-* Any Raspberry Pi   
-* 1 * Power Adapter
-* 1 * Micro SD card
-* 1 * Screen Power Adapter
-* 1 * HDMI cable
-* 1 * Screen
-* 1 * Mouse
-* 1 * Keyboard
+* Cualquier modelo de Raspberry Pi   
+* 1 * Adaptador de corriente
+* 1 * Tarjeta microSD
+* 1 * Adaptador de corriente para la pantalla
+* 1 * Cable HDMI
+* 1 * Pantalla
+* 1 * Ratón
+* 1 * Teclado
 
-#. Insert the SD card you’ve set up with Raspberry Pi OS into the micro SD card slot on the underside of your Raspberry Pi.
+#. Inserta la tarjeta SD que has configurado con el sistema operativo Raspberry Pi en la ranura para microSD en la parte inferior de tu Raspberry Pi.
 
-#. Plug in the Mouse and Keyboard.
+#. Conecta el ratón y el teclado.
 
-#. Connect the screen to Raspberry Pi’s HDMI port and make sure your screen is plugged into a wall socket and switched on.
+#. Conecta la pantalla al puerto HDMI de la Raspberry Pi y asegúrate de que la pantalla esté conectada a una toma de corriente y encendida.
 
-   .. note::
+   .. note:: 
    
-      If you use a Raspberry Pi 4, you need to connect the screen to the HDMI0 (nearest the power in port).
+      Si usas una Raspberry Pi 4, debes conectar la pantalla al puerto HDMI0 (el más cercano al puerto de alimentación).
 
-#. Use the power adapter to power the Raspberry Pi. After a few seconds, the Raspberry Pi OS desktop will be displayed.
+#. Usa el adaptador de corriente para alimentar la Raspberry Pi. Después de unos segundos, aparecerá el escritorio de Raspberry Pi OS.
 
    .. image:: img/set_up_01.png
        :align: center
-   
+
    .. raw:: html
-   
+
        <br/>
 
-#. You can launch a web browser on your Raspberry Pi system and access this tutorial page. This makes it convenient to copy instructions and execute them in the Terminal.
+#. Puedes abrir un navegador web en tu sistema Raspberry Pi y acceder a esta página de tutoriales. Esto te facilita copiar las instrucciones y ejecutarlas en la terminal.
 
    .. image:: img/set_up_02.png
        :align: center
-   
+
 .. raw:: html
-   
+
    <br/>
 
 .. _no_screen:
 
-If You Have No Screen
---------------------------
+Si No Tienes una Pantalla
+----------------------------
 
-If you don't have a monitor, you can remotely log into your Raspberry Pi.
+Si no tienes un monitor, puedes acceder remotamente a tu Raspberry Pi.
 
-**Required Components**
+**Componentes Requeridos**
 
-* Any Raspberry Pi   
-* 1 * Power Adapter
-* 1 * Micro SD card
+* Cualquier modelo de Raspberry Pi   
+* 1 * Adaptador de corriente
+* 1 * Tarjeta microSD
 
-You can use the SSH command to access the Raspberry Pi's Bash shell, which is Linux's default interface. The shell lets you perform most tasks with simple commands on Unix/Linux systems.
+Puedes usar el comando SSH para acceder a la terminal de la Raspberry Pi, que es la interfaz predeterminada de Linux. La terminal te permite realizar la mayoría de las tareas con comandos simples en sistemas Unix/Linux.
 
-If you'd rather not use the command line for your Raspberry Pi, you can utilize the remote desktop feature to operate the Raspberry Pi's desktop environment without a dedicated screen.
+Si prefieres no usar la línea de comandos para tu Raspberry Pi, puedes utilizar la función de escritorio remoto para operar el entorno de escritorio de la Raspberry Pi sin necesidad de una pantalla dedicada.
 
-See below for detailed tutorials for each system.
+Consulta más abajo para ver tutoriales detallados para cada sistema.
 
 
 .. toctree::

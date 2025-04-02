@@ -1,20 +1,20 @@
-.. note::
+.. note:: 
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    ¡Hola, bienvenido a la Comunidad de Entusiastas de Raspberry Pi, Arduino y ESP32 en Facebook! Profundiza en Raspberry Pi, Arduino y ESP32 junto con otros entusiastas.
 
-    **Why Join?**
+    **¿Por qué unirse?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Soporte experto**: Resuelve problemas postventa y desafíos técnicos con la ayuda de nuestra comunidad y equipo.
+    - **Aprender y compartir**: Intercambia consejos y tutoriales para mejorar tus habilidades.
+    - **Vistazos exclusivos**: Obtén acceso anticipado a nuevos anuncios de productos y adelantos.
+    - **Descuentos especiales**: Disfruta de descuentos exclusivos en nuestros productos más nuevos.
+    - **Promociones festivas y sorteos**: Participa en sorteos y promociones especiales de temporada.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 ¿Listo para explorar y crear con nosotros? Haz clic en [|link_sf_facebook|] y únete hoy mismo.
 
 .. _cpn_VL53L0X:
 
-Time of Flight Micro-LIDAR Distance Sensor (VL53L0X)
+Sensor de distancia Micro-LIDAR Time of Flight (VL53L0X)
 ===============================================================
 
 .. image:: img/21_VL53L0X_module.png
@@ -25,26 +25,26 @@ Time of Flight Micro-LIDAR Distance Sensor (VL53L0X)
     
     <br/>
 
-The VL53L0X module is an advanced time-of-flight (ToF) ranging sensor that offers highly accurate distance measurement, regardless of the target's color and reflectance. Manufactured by STMicroelectronics, this sensor excels in measuring absolute distances up to 2 meters, making it well-suited for various applications in fields such as robotics, drones, and wearable devices.
+El módulo VL53L0X es un sensor avanzado de medición de distancia mediante el principio Time of Flight (ToF) que ofrece mediciones de distancia altamente precisas, independientemente del color o la reflectancia del objetivo. Fabricado por STMicroelectronics, este sensor destaca por medir distancias absolutas de hasta 2 metros, lo que lo hace ideal para aplicaciones en áreas como robótica, drones y dispositivos portátiles.
 
-Specification
+Especificaciones
 ---------------------------
-* Supply Voltage: 3.3V or 5V
-* PCB Size: 11 x 25mm
-* Communication method: I2C
-* ToF ranging length: ≤2M
+* Voltaje de suministro: 3.3V o 5V
+* Tamaño de PCB: 11 x 25 mm
+* Método de comunicación: I2C
+* Distancia de medición ToF: ≤2M
 
-Pinout
+Conexiones
 ---------------------------
-* **VIN**: This is the power pin. 
-* **GND**: Common ground for power and logic.
-* **SCL**: I2C clock pin, connect to your microcontrollers I2C clock line.
-* **SDA**: I2C data pin, connect to your microcontrollers I2C data line.
-* **GPIO1**: Programmable interrupt output. This output is not level-shifted.
-* **XSHUT**: This pin is an active-low shutdown input; Driving this pin low puts the sensor into hardware standby. This input is not level-shifted.
+* **VIN**: Este es el pin de alimentación.
+* **GND**: Tierra común para alimentación y lógica.
+* **SCL**: Pin de reloj I2C, conéctalo a la línea de reloj I2C de tu microcontrolador.
+* **SDA**: Pin de datos I2C, conéctalo a la línea de datos I2C de tu microcontrolador.
+* **GPIO1**: Salida de interrupción programable. Esta salida no está desplazada en nivel.
+* **XSHUT**: Este pin es una entrada de apagado activo bajo; al poner este pin en bajo, el sensor entra en modo de espera. Esta entrada no está desplazada en nivel.
 
 
-Example
+Ejemplo
 ---------------------------
 * :ref:`uno_lesson21_vl53l0x` (Arduino UNO)
 * :ref:`esp32_lesson21_vl53l0x` (ESP32)

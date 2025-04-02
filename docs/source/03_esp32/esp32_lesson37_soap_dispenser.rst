@@ -1,55 +1,56 @@
-.. note::
+.. note:: 
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    ¡Hola, bienvenido a la Comunidad de Entusiastas de Raspberry Pi, Arduino y ESP32 en Facebook! Profundiza en el mundo de Raspberry Pi, Arduino y ESP32 junto con otros entusiastas.
 
-    **Why Join?**
+    **¿Por qué unirte?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Soporte experto**: Resuelve problemas postventa y desafíos técnicos con la ayuda de nuestra comunidad y equipo.
+    - **Aprende y comparte**: Intercambia consejos y tutoriales para mejorar tus habilidades.
+    - **Vistas previas exclusivas**: Accede a nuevos anuncios de productos y avances antes que nadie.
+    - **Descuentos especiales**: Disfruta de descuentos exclusivos en nuestros productos más recientes.
+    - **Promociones festivas y sorteos**: Participa en sorteos y promociones de temporada.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 ¿Estás listo para explorar y crear con nosotros? Haz clic en [|link_sf_facebook|] y únete hoy mismo!
 
 .. _esp32_soap_dispenser:
 
-Lesson 37: Automatic soap dispenser
-=====================================
+Lección 37: Dispensador de jabón automático
+=============================================
 
-The Automatic Soap Dispenser project uses an Arduino Uno board along 
-with an infrared obstacle avoidance sensor and a water pump. 
-The sensor detects the presence of an object such as a hand, 
-which activates the water pump to dispense soap.
+El proyecto del dispensador automático de jabón simula un escenario de 
+detección de objetos usando una placa Arduino Uno junto con un sensor 
+infrarrojo de evitación de obstáculos y una bomba de agua. El sensor 
+detecta la presencia de un objeto, como una mano, lo que activa la bomba 
+de agua para dispensar jabón.
 
-Required Components
+Componentes necesarios
 --------------------------
 
-In this project, we need the following components. 
+En este proyecto necesitamos los siguientes componentes. 
 
-It's definitely convenient to buy a whole kit, here's the link: 
+Es muy conveniente comprar un kit completo, aquí tienes el enlace: 
 
 .. list-table::
     :widths: 20 20 20
     :header-rows: 1
 
-    *   - Name	
-        - ITEMS IN THIS KIT
-        - LINK
-    *   - Universal Maker Sensor Kit
+    *   - Nombre	
+        - ARTÍCULOS EN ESTE KIT
+        - ENLACE
+    *   - Kit de Sensor Universal Maker
         - 94
         - |link_umsk|
 
-You can also buy them separately from the links below.
+También puedes comprarlos por separado a través de los enlaces a continuación.
 
 .. list-table::
     :widths: 30 20
     :header-rows: 1
 
-    *   - Component Introduction
-        - Purchase Link
+    *   - Introducción al componente
+        - Enlace de compra
 
-    *   - ESP32 & Development Board (:ref:`cpn_esp32_wroom_32e`)
+    *   - ESP32 & Placa de Desarrollo (:ref:`cpn_esp32_wroom_32e`)
         - |link_esp32_camera_pro_kit_buy|
     *   - :ref:`cpn_ir_obstacle`
         - |link_obstacle_avoidance_module_buy|
@@ -63,73 +64,74 @@ You can also buy them separately from the links below.
         - |link_breadboard_buy|
         
 
-Wiring
+Conexiones
 ---------------------------
 
 .. image:: img/Lesson_37_Automatic_soap_dispenser_esp32_bb.png
     :width: 100%
 
 
-Code
+Código
 ---------------------------
 
 .. raw:: html
 
     <iframe src=https://create.arduino.cc/editor/sunfounder01/f1923f60-5b82-497b-915f-ecc7ad46fea4/preview?embed style="height:510px;width:100%;margin:10px 0" frameborder=0></iframe>
     
-Code Analysis
+Análisis del código
 ---------------------------
 
-The main idea behind this project is to create a hands-free soap dispensing system. The infrared obstacle avoidance sensor detects when an object (like a hand) is close. Upon detecting an object, the sensor sends a signal to the Arduino, which in turn triggers the water pump to dispense soap. The pump stays active for a brief period, dispensing soap, then turns off.
+La idea principal de este proyecto es crear un sistema de dispensado de jabón sin contacto. El sensor infrarrojo de evitación de obstáculos detecta cuando un objeto (como una mano) está cerca. Al detectar un objeto, el sensor envía una señal a la placa Arduino, que a su vez activa la bomba de agua para dispensar jabón. La bomba permanece activa durante un breve período, dispensando el jabón, luego se apaga.
 
-#. **Defining the pins for the sensor and the pump**
+1. **Definición de los pines para el sensor y la bomba**
 
-    In this code snippet, we define the Arduino pins that connect to the sensor and pump. 
-    We define pin 7 as the sensor pin and we will use the variable ``sensorValue`` to store the data read from this sensor. 
-    For the water pump, we use two pins, 9 and 10.
+    En este fragmento de código, definimos los pines de la placa Arduino que 
+    se conectan al sensor y la bomba. Definimos el pin 7 como el pin del sensor 
+    y utilizamos la variable ``sensorValue`` para almacenar los datos leídos de 
+    este sensor. Para la bomba de agua, utilizamos dos pines, 9 y 10.
     
     .. code-block:: arduino
-   
-        // Define the pin numbers for the Infrared obstacle avoidance sensor
+       
+        // Definir los números de pin para el Sensor de evitación de obstáculos infrarrojo
         const int sensorPin = 35;
         int sensorValue;
 
-        // Define pin numbers for the water pump
+        // Definir los números de pin para la bomba de agua
         const int pump1A = 19;
         const int pump1B = 21;
 
-#. **Setting up the sensor and pump**
+2. **Configuración del sensor y la bomba**
 
-    In the ``setup()`` function, we define the modes for the pins we're using. 
-    The sensor pin is set to ``INPUT`` as it will be used to receive data from the sensor. 
-    The pump pins are set to ``OUTPUT`` as they will send commands to the pump. 
-    We ensure that the pin ``pump1B`` starts in a ``LOW`` state (off), 
-    and we start the serial communication with a baud rate of 9600.
+    En la función ``setup()``, definimos los modos de los pines que estamos 
+    utilizando. El pin del sensor se configura como ``INPUT`` ya que se usará 
+    para recibir datos del sensor. Los pines de la bomba se configuran como ``OUTPUT`` 
+    ya que enviarán comandos a la bomba. Nos aseguramos de que el pin ``pump1B`` comience 
+    en un estado ``LOW`` (apagado), y comenzamos la comunicación serial con una velocidad de baudios de 9600.
 
     .. code-block:: arduino
     
         void setup() {
-            // Set the sensor pin as input
+            // Configurar el pin del sensor como entrada
             pinMode(sensorPin, INPUT);
 
-            // Initialize the pump pins as output
+            // Inicializar los pines de la bomba como salida
             pinMode(pump1A, OUTPUT);    
             pinMode(pump1B, OUTPUT);    
 
-            // Keep pump1B low
+            // Mantener pump1B en bajo
             digitalWrite(pump1A, LOW); 
             digitalWrite(pump1B, LOW);  
 
             Serial.begin(9600);
         }
 
-#. **Continuously checking the sensor and controlling the pump**
+3. **Verificación continua del sensor y control de la bomba**
 
-   In the ``loop()`` function, the Arduino constantly reads the value from the sensor using ``digitalRead()`` and assigns it to ``sensorValue()``. It then prints this value to the serial monitor for debugging purposes. If the sensor detects an object, ``sensorValue()`` will be 0. When this happens, ``pump1A`` is set to ``HIGH``, activating the pump, and a delay of 700 milliseconds allows the pump to dispense soap. The pump is then deactivated by setting ``pump1A`` to ``LOW``, and a 1-second delay gives the user time to move their hand away before the cycle repeats.
+   En la función ``loop()``, el Arduino lee constantemente el valor del sensor usando ``digitalRead()`` y lo asigna a ``sensorValue()``. Luego, imprime este valor en el monitor serial para fines de depuración. Si el sensor detecta un objeto, ``sensorValue()`` será 0. Cuando esto sucede, ``pump1A`` se configura en ``HIGH``, activando la bomba, y se introduce un retraso de 700 milisegundos para permitir que la bomba dispense jabón. Luego, la bomba se desactiva configurando ``pump1A`` en ``LOW``, y un retraso de 1 segundo le da al usuario tiempo para apartar la mano antes de que el ciclo se repita.
 
    .. note:: 
    
-      If the sensor is not working properly, adjust the IR transmitter and receiver to make them parallel. Additionally, you can adjust the detection range using the built-in potentiometer.
+      Si el sensor no funciona correctamente, ajusta el transmisor y receptor IR para que estén paralelos. Además, puedes ajustar el rango de detección utilizando el potenciómetro incorporado.
 
    .. code-block:: arduino
    
@@ -137,7 +139,7 @@ The main idea behind this project is to create a hands-free soap dispensing syst
             sensorValue = digitalRead(sensorPin);
             Serial.println(sensorValue);
 
-            // If an object is detected, turn on the pump for a brief period, then turn it off
+            // Si se detecta un objeto, encender la bomba por un breve período y luego apagarla
             if (sensorValue == 0) {  
                 digitalWrite(pump1A, HIGH);
                 delay(700);

@@ -1,20 +1,20 @@
-.. note::
+.. note:: 
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    ¡Hola, bienvenido a la Comunidad de Entusiastas de Raspberry Pi, Arduino y ESP32 en Facebook! Profundiza más en Raspberry Pi, Arduino y ESP32 junto con otros entusiastas.
 
-    **Why Join?**
+    **¿Por qué unirte?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Soporte experto**: Resuelve problemas postventa y desafíos técnicos con la ayuda de nuestra comunidad y equipo.
+    - **Aprende y comparte**: Intercambia consejos y tutoriales para mejorar tus habilidades.
+    - **Previsualizaciones exclusivas**: Accede anticipadamente a anuncios de nuevos productos y vistas previas.
+    - **Descuentos especiales**: Disfruta de descuentos exclusivos en nuestros productos más recientes.
+    - **Promociones festivas y sorteos**: Participa en sorteos y promociones especiales durante las festividades.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 ¿Listo para explorar y crear con nosotros? Haz clic en [|link_sf_facebook|] y únete hoy.
 
 .. _cpn_traffic:
 
-Traffic Light Module
+Módulo de Semáforo
 ==========================
 
 .. image:: img/29_traffic_light.png
@@ -25,13 +25,13 @@ Traffic Light Module
     
     <br/>
 
-The traffic light module is a small device that can display red, yellow and green lights, just like a real traffic light. It can be used to make a traffic light system model or to learn how to control LEDs with Arduino. It is featured with its small size, simple wiring, targeted, and custom installation. It can be connected PWM pin to control the brightness of the LED.
+El módulo de semáforo es un pequeño dispositivo que puede mostrar luces rojas, amarillas y verdes, al igual que un semáforo real. Se puede utilizar para crear un modelo de sistema de semáforos o para aprender cómo controlar LEDs con Arduino. Se caracteriza por su pequeño tamaño, cableado sencillo, instalación personalizada y dirigida. Se puede conectar a un pin PWM para controlar el brillo del LED.
 
-Principle
+Principio
 ---------------------------
-The traffic light module can be controlled in two primary ways. The more straightforward method involves using digital inputs from the Arduino, where a HIGH or LOW signal directly turns the corresponding LED on or off. Alternatively, PWM (pulse-width modulation) can be used, especially when varying the brightness of the LED is desired. PWM is a technique where the duty cycle of a digital signal is changed to modulate the brightness of the LED. A duty cycle represents the percentage of time that a signal remains on during a specific period. For instance, a 50% duty cycle implies the signal is active for half the duration and inactive for the remainder. Adjusting the duty cycle allows for the LED's brightness modulation.
+El módulo de semáforo se puede controlar de dos formas principales. El método más sencillo consiste en usar entradas digitales del Arduino, donde una señal ALTA o BAJA enciende o apaga directamente el LED correspondiente. Alternativamente, se puede utilizar PWM (modulación por ancho de pulso), especialmente cuando se desea variar el brillo del LED. PWM es una técnica en la que el ciclo de trabajo de una señal digital se cambia para modular el brillo del LED. Un ciclo de trabajo representa el porcentaje de tiempo que una señal permanece activa durante un período determinado. Por ejemplo, un ciclo de trabajo del 50% implica que la señal está activa durante la mitad del tiempo y inactiva durante el resto. Ajustar el ciclo de trabajo permite la modulación del brillo del LED.
 
-Schematic diagram
+Diagrama esquemático
 ---------------------------
 
 .. image:: img/29_traffic_light_schematic.png
@@ -42,7 +42,7 @@ Schematic diagram
 
    <br/>
 
-Example
+Ejemplo
 ---------------------------
 * :ref:`uno_lesson29_traffic_light_module` (Arduino UNO)
 * :ref:`esp32_lesson29_traffic_light_module` (ESP32)

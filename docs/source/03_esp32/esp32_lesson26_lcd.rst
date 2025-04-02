@@ -1,53 +1,53 @@
-.. note::
+.. note:: 
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    ¡Hola, bienvenido a la Comunidad de Entusiastas de Raspberry Pi, Arduino y ESP32 en Facebook! Profundiza en el mundo de Raspberry Pi, Arduino y ESP32 junto con otros entusiastas.
 
-    **Why Join?**
+    **¿Por qué unirte?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Soporte experto**: Resuelve problemas postventa y desafíos técnicos con la ayuda de nuestra comunidad y equipo.
+    - **Aprende y comparte**: Intercambia consejos y tutoriales para mejorar tus habilidades.
+    - **Vistas previas exclusivas**: Accede a nuevos anuncios de productos y avances antes que nadie.
+    - **Descuentos especiales**: Disfruta de descuentos exclusivos en nuestros productos más recientes.
+    - **Promociones festivas y sorteos**: Participa en sorteos y promociones de temporada.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 ¿Estás listo para explorar y crear con nosotros? Haz clic en [|link_sf_facebook|] y únete hoy mismo!
 
 .. _esp32_lesson26_lcd:
 
-Lesson 26: I2C LCD 1602
+Lección 26: LCD I2C 1602
 ==================================
 
-In this lesson, you'll learn how to set up and display messages on a 16x2 Liquid Crystal Display (LCD) with an I2C interface using an ESP32 Development Board. We'll cover initializing the LCD using the LiquidCrystal I2C library, then displaying "Hello world!" and "LCD Tutorial" on two separate lines of the screen. This tutorial is ideal for beginners, offering hands-on experience with LCD interfaces and improving your understanding of output operations in Arduino programming.
+En esta lección aprenderás a configurar y mostrar mensajes en una pantalla de cristal líquido (LCD) 16x2 con interfaz I2C utilizando una placa de desarrollo ESP32. Cubriremos la inicialización de la pantalla LCD utilizando la biblioteca LiquidCrystal I2C y luego mostraremos "¡Hola Mundo!" y "Tutorial LCD" en dos líneas separadas de la pantalla. Este tutorial es ideal para principiantes, ofreciendo experiencia práctica con interfaces LCD y mejorando tu comprensión de las operaciones de salida en la programación de Arduino.
 
 
-Required Components
+Componentes necesarios
 --------------------------
 
-In this project, we need the following components. 
+En este proyecto necesitamos los siguientes componentes. 
 
-It's definitely convenient to buy a whole kit, here's the link: 
+Es muy conveniente comprar un kit completo, aquí tienes el enlace: 
 
 .. list-table::
     :widths: 20 20 20
     :header-rows: 1
 
-    *   - Name	
-        - ITEMS IN THIS KIT
-        - LINK
-    *   - Universal Maker Sensor Kit
+    *   - Nombre	
+        - ARTÍCULOS EN ESTE KIT
+        - ENLACE
+    *   - Kit de Sensor Universal Maker
         - 94
         - |link_umsk|
 
-You can also buy them separately from the links below.
+También puedes comprarlos por separado a través de los enlaces a continuación.
 
 .. list-table::
     :widths: 30 20
     :header-rows: 1
 
-    *   - Component Introduction
-        - Purchase Link
+    *   - Introducción al componente
+        - Enlace de compra
 
-    *   - ESP32 & Development Board (:ref:`cpn_esp32_wroom_32e`)
+    *   - ESP32 & Placa de Desarrollo (:ref:`cpn_esp32_wroom_32e`)
         - |link_esp32_camera_pro_kit_buy|
     *   - :ref:`cpn_i2c_lcd1602`
         - |link_i2clcd1602_buy|
@@ -55,51 +55,51 @@ You can also buy them separately from the links below.
         - |link_breadboard_buy|
 
 
-Wiring
+Conexiones
 ---------------------------
 
 .. image:: img/Lesson_26_LCD1602_esp32_bb.png
     :width: 100%
 
 
-Code
+Código
 ---------------------------
 
 .. note:: 
-   To install the library, use the Arduino Library Manager and search for **"LiquidCrystal I2C"** and install it. 
+   Para instalar la biblioteca, utiliza el Administrador de Bibliotecas de Arduino y busca **"LiquidCrystal I2C"** e instálala. 
 
 .. raw:: html
 
     <iframe src=https://create.arduino.cc/editor/sunfounder01/3c6bcc49-9030-4539-8220-4ff3c484814c/preview?embed style="height:510px;width:100%;margin:10px 0" frameborder=0></iframe>
 
-Code Analysis
+Análisis del código
 ---------------------------
 
-1. Library Inclusion and LCD Initialization:
-   The LiquidCrystal I2C library is included to provide functions and methods for LCD interfacing. Following that, an LCD object is created using the LiquidCrystal_I2C class, specifying the I2C address, number of columns, and number of rows.
+1. Inclusión de la biblioteca e inicialización del LCD:
+   Se incluye la biblioteca LiquidCrystal I2C para proporcionar funciones y métodos para la interfaz con el LCD. Luego, se crea un objeto LCD utilizando la clase LiquidCrystal_I2C, especificando la dirección I2C, el número de columnas y el número de filas.
 
    .. note:: 
-      To install the library, use the Arduino Library Manager and search for **"LiquidCrystal I2C"** and install it.  
+      Para instalar la biblioteca, utiliza el Administrador de Bibliotecas de Arduino y busca **"LiquidCrystal I2C"** e instálala.  
 
    .. code-block:: arduino
 
       #include <LiquidCrystal_I2C.h>
       LiquidCrystal_I2C lcd(0x27, 16, 2);
 
-2. Setup Function:
-   The ``setup()`` function is executed once when the ESP32 Development Board starts. In this function, the LCD is initialized, cleared, and the backlight is turned on. Then, two messages are displayed on the LCD.
+2. Función setup:
+   La función ``setup()`` se ejecuta una vez cuando la placa de desarrollo ESP32 arranca. En esta función, el LCD se inicializa, se limpia y se enciende la retroiluminación. Luego, se muestran dos mensajes en el LCD.
 
    .. code-block:: arduino
 
       void setup() {
-        lcd.init();       // initialize the LCD
-        lcd.clear();      // clear the LCD display
-        lcd.backlight();  // Make sure backlight is on
+        lcd.init();       // Inicializar el LCD
+        lcd.clear();      // Limpiar la pantalla LCD
+        lcd.backlight();  // Asegurarse de que la retroiluminación esté encendida
       
-        // Print a message on both lines of the LCD.
-        lcd.setCursor(2, 0);  //Set cursor to character 2 on line 0
+        // Imprimir un mensaje en ambas líneas del LCD.
+        lcd.setCursor(2, 0);  // Colocar el cursor en el carácter 2 de la línea 0
         lcd.print("Hello world!");
       
-        lcd.setCursor(2, 1);  //Move cursor to character 2 on line 1
+        lcd.setCursor(2, 1);  // Mover el cursor al carácter 2 de la línea 1
         lcd.print("LCD Tutorial");
       }

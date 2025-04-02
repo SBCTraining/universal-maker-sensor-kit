@@ -1,52 +1,52 @@
-.. note::
+.. note:: 
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    ¡Hola, bienvenido a la comunidad de entusiastas de SunFounder en Facebook sobre Raspberry Pi, Arduino y ESP32! Sumérgete más a fondo en Raspberry Pi, Arduino y ESP32 con otros aficionados.
 
-    **Why Join?**
+    **¿Por qué unirse?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Soporte de Expertos**: Resuelve problemas posventa y desafíos técnicos con ayuda de nuestra comunidad y equipo.
+    - **Aprender y Compartir**: Intercambia consejos y tutoriales para mejorar tus habilidades.
+    - **Previsualizaciones Exclusivas**: Obtén acceso anticipado a anuncios de nuevos productos y avances exclusivos.
+    - **Descuentos Especiales**: Disfruta de descuentos exclusivos en nuestros productos más nuevos.
+    - **Promociones Festivas y Sorteos**: Participa en sorteos y promociones festivas.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 ¿Listo para explorar y crear con nosotros? Haz clic en [|link_sf_facebook|] ¡y únete hoy!
 
 .. _esp32_lesson06_hall_sensor:
 
-Lesson 06: Hall Sensor Module
+Lección 06: Módulo Sensor Hall
 ==================================
 
-In this lesson, you will learn how to use a Hall sensor with an ESP32 Development Board to detect the polarity of a magnetic field. We'll cover reading analog signals from the sensor and interpreting them to differentiate between south and north poles. This project is ideal for beginners in electronics, providing practical experience with sensors and signal processing on the ESP32 platform.
+En esta lección, aprenderás a usar un sensor Hall con una Placa de Desarrollo ESP32 para detectar la polaridad de un campo magnético. Cubriremos la lectura de señales analógicas del sensor e interpretarlas para diferenciar entre los polos sur y norte. Este proyecto es ideal para principiantes en electrónica, proporcionando experiencia práctica con sensores y procesamiento de señales en la plataforma ESP32.
 
-Required Components
+Componentes Necesarios
 --------------------------
 
-In this project, we need the following components. 
+En este proyecto, necesitamos los siguientes componentes.
 
-It's definitely convenient to buy a whole kit, here's the link: 
+Es definitivamente conveniente comprar un kit completo, aquí está el enlace:
 
 .. list-table::
     :widths: 20 20 20
     :header-rows: 1
 
-    *   - Name	
-        - ITEMS IN THIS KIT
-        - LINK
-    *   - Universal Maker Sensor Kit
+    *   - Nombre	
+        - ARTÍCULOS EN ESTE KIT
+        - ENLACE
+    *   - Kit Universal de Sensores para Creadores
         - 94
         - |link_umsk|
 
-You can also buy them separately from the links below.
+También puedes comprarlos por separado en los enlaces a continuación.
 
 .. list-table::
     :widths: 30 20
     :header-rows: 1
 
-    *   - Component Introduction
-        - Purchase Link
+    *   - Introducción al Componente
+        - Enlace de Compra
 
-    *   - ESP32 & Development Board (:ref:`cpn_esp32_wroom_32e`)
+    *   - ESP32 & Placa de Desarrollo (:ref:`cpn_esp32_wroom_32e`)
         - |link_esp32_camera_pro_kit_buy|
     *   - :ref:`cpn_hall`
         - \-
@@ -54,53 +54,53 @@ You can also buy them separately from the links below.
         - |link_breadboard_buy|
 
 
-Wiring
+Cableado
 ---------------------------
 
 .. image:: img/Lesson_06_Hall_Sensor_Module_esp32_bb.png
     :width: 100%
 
 
-Code
+Código
 ---------------------------
 
 .. raw:: html
 
     <iframe src=https://create.arduino.cc/editor/sunfounder01/48094da0-b2f8-4af6-ad59-38504a201cbf/preview?embed style="height:510px;width:100%;margin:10px 0" frameborder=0></iframe>
 
-Code Analysis
+Análisis del Código
 ---------------------------
 
-1. Setting up the Hall Sensor
+1. Configuración del Sensor Hall
 
    .. code-block:: arduino
 
-      const int hallSensorPin = 25;  // Pin connected to the Hall sensor output
+      const int hallSensorPin = 25;  // Pin conectado a la salida del sensor Hall
       void setup() {
-        Serial.begin(9600);             // Initialize serial communication at 9600 bps
-        pinMode(hallSensorPin, INPUT);  // Set hall sensor pin as input
+        Serial.begin(9600);             // Inicializar la comunicación serial a 9600 bps
+        pinMode(hallSensorPin, INPUT);  // Configurar el pin del sensor Hall como entrada
       }
 
-   The hall sensor's output is connected to pin 25 on the ESP32 Development Board. The ``setup()`` function is used to initialize serial communication at 9600 bits per second (bps) for displaying data on the serial monitor. The ``pinMode()`` function is used to configure 25 as an input pin.
+   La salida del sensor Hall está conectada al pin 25 en la Placa de Desarrollo ESP32. La función ``setup()`` se utiliza para iniciar la comunicación serial a 9600 bits por segundo (bps) para mostrar datos en el monitor serial. La función ``pinMode()`` se utiliza para configurar el pin 25 como entrada.
 
-2. Reading from the Hall Sensor and Determining Polarity
+2. Lectura del Sensor Hall y Determinación de la Polaridad
 
-   The Hall sensor module is equipped with a 49E linear Hall effect sensor, which can measure the polarity of the magnetic field's north and south poles as well as the relative strength of the magnetic field. If you place a magnet's south pole near the side marked with 49E (the side with text engraved on it), the value read by the code will increase linearly in proportion to the applied magnetic field strength. Conversely, if you place a north pole near this side, the value read by the code will decrease linearly in proportion to that magnetic field strength. For more details, please refer to :ref:`cpn_hall`.
+   El módulo del sensor Hall está equipado con un sensor de efecto Hall lineal 49E, que puede medir la polaridad de los polos norte y sur del campo magnético, así como la fuerza relativa del campo magnético. Si colocas el polo sur de un imán cerca del lado marcado con 49E (el lado con texto grabado), el valor leído por el código aumentará linealmente en proporción a la fuerza del campo magnético aplicado. Por el contrario, si colocas un polo norte cerca de este lado, el valor leído por el código disminuirá linealmente en proporción a esa fuerza del campo magnético. Para más detalles, consulta :ref:`cpn_hall`.
 
    .. code-block:: arduino
 
       void loop() {
-        int sensorValue = analogRead(hallSensorPin);  // Read analog value from Hall sensor
-        Serial.print(sensorValue);                    // Output raw sensor value to Serial Monitor
-        delay(200);                                   // Delay for 200 milliseconds
+        int sensorValue = analogRead(hallSensorPin);  // Leer el valor analógico del sensor Hall
+        Serial.print(sensorValue);                    // Salida del valor del sensor crudo al Monitor Serial
+        delay(200);                                   // Retraso de 200 milisegundos
 
-        // Determine magnetic pole based on sensor value
+        // Determinar el polo magnético basado en el valor del sensor
         if (sensorValue >= 2600) {
-          Serial.print(" - South pole detected");  // South pole detected if value >= 2600
+          Serial.print(" - South pole detected");  // Polo sur detectado si el valor >= 2600
         } else if (sensorValue <= 1200) {
-          Serial.print(" - North pole detected");  // North pole detected if value <= 1200
+          Serial.print(" - North pole detected");  // Polo norte detectado si el valor <= 1200
         }
 
-        Serial.println();  // New line for next output
+        Serial.println();  // Nueva línea para la próxima salida
       }
 

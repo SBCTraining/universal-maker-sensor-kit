@@ -1,67 +1,67 @@
 .. note::
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    ¡Hola, bienvenidos a la Comunidad de Entusiastas de Raspberry Pi & Arduino & ESP32 de SunFounder en Facebook! Profundiza más en Raspberry Pi, Arduino y ESP32 junto con otros entusiastas.
 
-    **Why Join?**
+    **¿Por qué unirte?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Soporte experto**: Resuelve problemas postventa y desafíos técnicos con la ayuda de nuestra comunidad y equipo.
+    - **Aprender y compartir**: Intercambia consejos y tutoriales para mejorar tus habilidades.
+    - **Preestrenos exclusivos**: Accede anticipadamente a los anuncios de nuevos productos y adelantos.
+    - **Descuentos especiales**: Disfruta de descuentos exclusivos en nuestros productos más nuevos.
+    - **Promociones festivas y sorteos**: Participa en sorteos y promociones especiales durante las festividades.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 ¿Listo para explorar y crear con nosotros? ¡Haz clic en [|link_sf_facebook|] y únete hoy!
 
 .. _pi_lesson08_ir_obstacle_avoidance:
 
-Lesson 08: IR Obstacle Avoidance Sensor Module
-====================================================
+Lección 08: Módulo Sensor de Obstrucción Infrarrojo
+=====================================================
 
-In this lesson, you will learn how to detect obstacles using a sensor with the Raspberry Pi. We will guide you through connecting a digital input sensor to GPIO pin 17. You'll learn how to write a Python script that continuously monitors the sensor to determine the presence of an obstacle. The program will output a message indicating whether an obstacle is detected or not. This straightforward yet practical project is an excellent way to get started with GPIO interfacing and Python programming, making it ideal for beginners interested in exploring sensor integration with the Raspberry Pi.
+En esta lección, aprenderás cómo detectar obstrucciones utilizando un sensor con Raspberry Pi. Te guiaremos en cómo conectar un sensor de entrada digital al pin GPIO 17. Aprenderás a escribir un script en Python que monitorice continuamente el estado del sensor para determinar si hay una obstrucción. El programa mostrará un mensaje indicando si se detecta o no una obstrucción. Este proyecto práctico es una excelente introducción al uso de la interfaz GPIO y la programación en Python, ideal para principiantes interesados en explorar la integración de sensores con Raspberry Pi.
 
-Required Components
---------------------------
+Componentes Requeridos
+------------------------
 
-In this project, we need the following components. 
+En este proyecto, necesitamos los siguientes componentes.
 
-It's definitely convenient to buy a whole kit, here's the link: 
+Es muy conveniente comprar un kit completo, aquí está el enlace:
 
 .. list-table::
     :widths: 20 20 20
     :header-rows: 1
 
-    *   - Name	
-        - ITEMS IN THIS KIT
-        - LINK
-    *   - Universal Maker Sensor Kit
+    *   - Nombre
+        - ARTÍCULOS EN ESTE KIT
+        - ENLACE
+    *   - Kit Sensor Universal Maker
         - 94
         - |link_umsk|
 
-You can also buy them separately from the links below.
+También puedes comprarlos por separado desde los siguientes enlaces.
 
 .. list-table::
     :widths: 30 20
     :header-rows: 1
 
-    *   - Component Introduction
-        - Purchase Link
+    *   - Introducción del Componente
+        - Enlace de compra
 
     *   - Raspberry Pi 5
-        - \-
+        - |link_rpi5_buy|
     *   - :ref:`cpn_ir_obstacle`
         - |link_obstacle_avoidance_module_buy|
     *   - :ref:`cpn_breadboard`
         - |link_breadboard_buy|
 
 
-Wiring
+Cableado
 ---------------------------
 
 .. image:: img/Lesson_08_Obstacle_Avoidance_Sensor_Pi_bb.png
     :width: 100%
 
 
-Code
+Código
 ---------------------------
 
 .. code-block:: python
@@ -69,43 +69,43 @@ Code
    from gpiozero import InputDevice
    from time import sleep
 
-   # Initialize the sensor as a digital input device on GPIO 17
+   # Inicializar el sensor como un dispositivo de entrada digital en GPIO 17
    sensor = InputDevice(17)
 
    while True:
       if sensor.is_active:
-         print("No obstacle detected")  # Prints when no obstacle is detected
+         print("No obstacle detected")  # Imprime cuando no se detecta obstrucción
       else:
-         print("Obstacle detected")     # Prints when an obstacle is detected
+         print("Obstacle detected")     # Imprime cuando se detecta una obstrucción
       sleep(0.5)
 
-Code Analysis
+Análisis del Código
 ---------------------------
 
-#. Importing Libraries
-   
-   The script begins by importing the ``InputDevice`` class from the gpiozero library for interacting with the sensor, and the ``sleep`` function from Python's time module for pausing execution.
+#. Importación de Bibliotecas
+
+   El script comienza importando la clase ``InputDevice`` de gpiozero para interactuar con el sensor, y la función ``sleep`` del módulo time de Python para pausar la ejecución.
 
    .. code-block:: python
 
       from gpiozero import InputDevice
       from time import sleep
 
-#. Initializing the Sensor
-   
-   An ``InputDevice`` object named ``sensor`` is created, connected to GPIO pin 17. This line assumes that the obstacle sensor is connected to this specific GPIO pin.
+#. Inicialización del Sensor
+
+   Se crea un objeto ``InputDevice`` llamado ``sensor``, conectado al pin GPIO 17. Esta línea asume que el sensor de obstrucción está conectado a este pin GPIO específico.
 
    .. code-block:: python
 
       sensor = InputDevice(17)
 
-#. Implementing the Continuous Monitoring Loop
-   
-   - The script uses a ``while True:`` loop to continuously check the sensor's state. This loop will run indefinitely until the program is stopped.
-   - Inside the loop, an ``if`` statement checks the ``is_active`` property of the ``sensor``. 
-   - If ``is_active`` is ``True``, it indicates no obstacle is detected, and "No obstacle detected" is printed.
-   - If ``is_active`` is ``False``, indicating an obstacle is detected, "Obstacle detected" is printed.
-   - ``sleep(0.5)`` pauses the loop for 0.5 seconds between each check, which helps in reducing the script's processing demand and provides a delay between consecutive sensor readings.
+#. Implementación del Bucle de Monitoreo Continuo
+
+   - El script utiliza un bucle ``while True:`` para comprobar continuamente el estado del sensor. Este bucle se ejecutará indefinidamente hasta que el programa sea detenido.
+   - Dentro del bucle, una sentencia ``if`` comprueba la propiedad ``is_active`` del ``sensor``.
+   - Si ``is_active`` es ``True``, indica que no se detecta obstrucción, y se imprime "No se detectó obstrucción".
+   - Si ``is_active`` es ``False``, lo que indica que se detectó una obstrucción, se imprime "Obstrucción detectada".
+   - ``sleep(0.5)`` pausa el bucle durante 0.5 segundos entre cada lectura, lo que ayuda a reducir la demanda de procesamiento del script y proporciona un retraso entre las lecturas consecutivas del sensor.
 
    .. raw:: html
 
@@ -120,6 +120,6 @@ Code Analysis
               print("Obstacle detected")
           sleep(0.5)
 
-   .. note:: 
-   
-      If the sensor is not working properly, adjust the IR transmitter and receiver to make them parallel. Additionally, you can adjust the detection range using the built-in potentiometer.
+   .. note::
+
+      Si el sensor no funciona correctamente, ajusta el transmisor y receptor infrarrojos para que estén paralelos. Además, puedes ajustar el rango de detección utilizando el potenciómetro incorporado.

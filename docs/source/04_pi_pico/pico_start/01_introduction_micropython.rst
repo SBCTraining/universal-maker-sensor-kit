@@ -1,45 +1,45 @@
-.. note::
+.. note:: 
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    ¡Hola, bienvenido a la Comunidad de Aficionados de SunFounder Raspberry Pi & Arduino & ESP32 en Facebook! Profundiza en Raspberry Pi, Arduino y ESP32 junto a otros entusiastas.
 
     **Why Join?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Soporte de Expertos**: Resuelve problemas posventa y desafíos técnicos con la ayuda de nuestra comunidad y equipo.
+    - **Aprender y Compartir**: Intercambia consejos y tutoriales para mejorar tus habilidades.
+    - **Vistas Previas Exclusivas**: Obtén acceso anticipado a anuncios de nuevos productos y avances exclusivos.
+    - **Descuentos Especiales**: Disfruta de descuentos exclusivos en nuestros productos más recientes.
+    - **Promociones Festivas y Sorteos**: Participa en sorteos y promociones de festividades.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 ¿Listo para explorar y crear con nosotros? Haz clic en [|link_sf_facebook|] y únete hoy mismo.
 
-Introduction of MicroPython
+Introducción a MicroPython
 ======================================
 
-MicroPython is a software implementation of a programming language largely compatible with Python 3, written in C, that is optimized to run on a microcontroller.
+MicroPython es una implementación de software de un lenguaje de programación ampliamente compatible con Python 3, escrito en C, optimizado para funcionar en un microcontrolador.
 
-MicroPython consists of a Python compiler to bytecode and a runtime interpreter of that bytecode. The user is presented with an interactive prompt (the REPL) to execute supported commands immediately. Included are a selection of core Python libraries; MicroPython includes modules which give the programmer access to low-level hardware.
+MicroPython consta de un compilador de Python a bytecode y un intérprete en tiempo de ejecución de ese bytecode. Se presenta al usuario un prompt interactivo (el REPL) para ejecutar comandos compatibles de inmediato. Incluye una selección de bibliotecas centrales de Python; MicroPython incorpora módulos que le dan al programador acceso a hardware de bajo nivel.
 
-* Reference: `MicroPython - Wikipedia <https://en.wikipedia.org/wiki/MicroPython>`_
+* Referencia: `MicroPython - Wikipedia <https://en.wikipedia.org/wiki/MicroPython>`_
 
-The Story Starts Here
+El Inicio de la Historia
 --------------------------------
 
-Things changed in 2013 when Damien George launched a crowdfunding campaign (Kickstarter).
+Las cosas cambiaron en 2013 cuando Damien George lanzó una campaña de financiamiento colectivo (Kickstarter).
 
-Damien was an undergraduate student at Cambridge University and an avid robotics programmer. He wanted to reduce the world of Python from a gigabyte machine to a kilobyte. His Kickstarter campaign was to support his development while he turned his proof of concept into a finished implementation.
+Damien era un estudiante de pregrado en la Universidad de Cambridge y un apasionado programador de robótica. Quería reducir el mundo de Python de una máquina de gigabytes a una de kilobytes. Su campaña de Kickstarter fue para apoyar su desarrollo mientras convertía su prueba de concepto en una implementación final.
 
-MicroPython is supported by a diverse Pythonista community that has a keen interest in seeing the project succeed.
+MicroPython está respaldado por una comunidad diversa de Pythonistas que tiene un gran interés en ver el éxito del proyecto.
 
-Apart from testing and supporting the code base, the developers provided tutorials, code libraries, and hardware porting, so Damien was able to focus on other aspects of the project.
+Aparte de probar y apoyar la base de código, los desarrolladores proporcionaron tutoriales, bibliotecas de código y portabilidad de hardware, así Damien pudo concentrarse en otros aspectos del proyecto.
 
-* Reference: `realpython <https://realpython.com/micropython/>`_
+* Referencia: `realpython <https://realpython.com/micropython/>`_
 
-Why MicroPython？
-------------------
+¿Por qué MicroPython？
+------------------------
 
-Although the original Kickstarter campaign released MicroPython as a development board "pyboard" with STM32F4, MicroPython supports many ARM-based product architectures. The mainline supported ports are ARM Cortex-M (many STM32 boards, TI CC3200/WiPy, Teensy boards, Nordic nRF series, SAMD21 and SAMD51), ESP8266, ESP32, 16bit PIC, Unix, Windows, Zephyr and JavaScript.
-Second, MicroPython allows for fast feedback. This is because you can use REPL to enter commands interactively and get responses. You can even tweak code and run it immediately instead of traversing the code-compile-upload-execute cycle.
+Aunque la campaña original de Kickstarter lanzó MicroPython como una placa de desarrollo "pyboard" con STM32F4, MicroPython soporta muchas arquitecturas de productos basadas en ARM. Los puertos principales soportados son ARM Cortex-M (muchas placas STM32, TI CC3200/WiPy, placas Teensy, series Nordic nRF, SAMD21 y SAMD51), ESP8266, ESP32, PIC de 16 bits, Unix, Windows, Zephyr y JavaScript.
+En segundo lugar, MicroPython permite una retroalimentación rápida. Esto se debe a que puedes usar el REPL para ingresar comandos de manera interactiva y obtener respuestas. Incluso puedes ajustar el código y ejecutarlo inmediatamente en lugar de atravesar el ciclo de código-compilación-carga-ejecución.
 
-While Python has the same advantages, for some Microcontroller boards like the Raspberry Pi Pico, they are small, simple and have little memory to run the Python language at all. That's why MicroPython has evolved, keeping the main Python features and adding a bunch of new ones to work with these Microcontroller boards.
+Aunque Python tiene las mismas ventajas, para algunas placas de microcontroladores como el Raspberry Pi Pico, son pequeñas, simples y tienen poca memoria para ejecutar el lenguaje Python en absoluto. Por eso ha evolucionado MicroPython, manteniendo las principales características de Python y añadiendo un montón de nuevas para trabajar con estas placas de microcontroladores.
 
-Next you will learn to install MicroPython into the Raspberry Pi Pico.
+A continuación, aprenderás a instalar MicroPython en el Raspberry Pi Pico.

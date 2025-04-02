@@ -1,52 +1,52 @@
-.. note::
+.. note:: 
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    ¡Hola, bienvenido a la comunidad de entusiastas de SunFounder Raspberry Pi, Arduino y ESP32 en Facebook! Profundiza en Raspberry Pi, Arduino y ESP32 junto a otros entusiastas.
 
-    **Why Join?**
+    **¿Por qué unirse?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Soporte experto**: Resuelve problemas postventa y desafíos técnicos con la ayuda de nuestra comunidad y equipo.
+    - **Aprender y compartir**: Intercambia consejos y tutoriales para mejorar tus habilidades.
+    - **Preestrenos exclusivos**: Accede de forma anticipada a anuncios de nuevos productos y avances.
+    - **Descuentos especiales**: Disfruta de descuentos exclusivos en nuestros productos más nuevos.
+    - **Promociones festivas y sorteos**: Participa en sorteos y promociones especiales.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 ¿Listo para explorar y crear con nosotros? Haz clic en [|link_sf_facebook|] y únete hoy mismo!
 
 .. _uno_lesson07_speed:
 
-Lesson 07: Infrared Speed Sensor Module
-==========================================
+Lección 07: Módulo Sensor de Velocidad Infrarrojo
+========================================================
 
-In this lesson, you will learn how to measure motor speed using a speed sensor module with an Arduino Uno. We'll cover setting up the motor and sensor, programming the Arduino to calculate revolutions per second, and displaying the data. This project is great for intermediate learners as it provides hands-on experience with real-time data processing and motor control on the Arduino platform.
+En esta lección, aprenderás cómo medir la velocidad de un motor utilizando un módulo sensor de velocidad con un Arduino Uno. Cubriremos la configuración del motor y el sensor, la programación del Arduino para calcular las revoluciones por segundo y la visualización de los datos. Este proyecto es ideal para aprendices intermedios, ya que ofrece una experiencia práctica con el procesamiento de datos en tiempo real y el control de motores en la plataforma Arduino.
 
-Required Components
+Componentes necesarios
 --------------------------
 
-In this project, we need the following components. 
+En este proyecto, necesitamos los siguientes componentes.
 
-It's definitely convenient to buy a whole kit, here's the link: 
+Es definitivamente conveniente comprar un kit completo, aquí está el enlace:
 
 .. list-table::
     :widths: 20 20 20
     :header-rows: 1
 
-    *   - Name	
-        - ITEMS IN THIS KIT
-        - LINK
-    *   - Universal Maker Sensor Kit
+    *   - Nombre
+        - ARTÍCULOS EN ESTE KIT
+        - ENLACE
+    *   - Kit de Sensores Universal Maker
         - 94
         - |link_umsk|
 
-You can also buy them separately from the links below.
+También puedes comprarlos por separado desde los enlaces a continuación.
 
 .. list-table::
     :widths: 30 20
     :header-rows: 1
 
-    *   - Component Introduction
-        - Purchase Link
+    *   - Introducción del componente
+        - Enlace de compra
 
-    *   - Arduino UNO R3 or R4
+    *   - Arduino UNO R3 o R4
         - |link_Uno_R3_buy|
     *   - :ref:`cpn_breadboard`
         - |link_breadboard_buy|
@@ -58,33 +58,33 @@ You can also buy them separately from the links below.
         - \-
 
 
-Wiring
+Cableado
 ---------------------------
 
 .. image:: img/Lesson_07_speed_module_uno_bb.png
     :width: 100%
 
 
-Code
+Código
 ---------------------------
 
 .. raw:: html
 
     <iframe src=https://create.arduino.cc/editor/sunfounder01/0d705c03-2813-4e71-8ec6-1208684358c9/preview?embed style="height:510px;width:100%;margin:10px 0" frameborder=0></iframe>
 
-Code Analysis
+Análisis del Código
 ---------------------------
 
-#. Setting up the pins and initializing variables. Here, we define the pins for the motor and the speed sensor. We also initialize variables that will be used to measure and calculate the speed of the motor.
+#. Configuración de los pines e inicialización de variables. Aquí definimos los pines para el motor y el sensor de velocidad. También inicializamos las variables que se utilizarán para medir y calcular la velocidad del motor.
 
    .. code-block:: arduino
 
-      // Define the sensor and motor pins
+      // Definir los pines del sensor y motor
       const int sensorPin = 11;
       const int motorB_1A = 9;
       const int motorB_2A = 10;
       
-      // Define variables for measuring speed
+      // Definir variables para medir la velocidad
       unsigned long start_time = 0;
       unsigned long end_time = 0;
       int steps = 0;
@@ -92,7 +92,7 @@ Code Analysis
       float temp = 0;
       float rps = 0;
 
-#. Initialization in the ``setup()`` function. This section sets up the serial communication, configures the pins' modes, and sets the initial motor speed.
+#. Inicialización en la función ``setup()``. Esta sección configura la comunicación serial, los modos de los pines y establece la velocidad inicial del motor.
 
    .. code-block:: arduino
 
@@ -105,9 +105,9 @@ Code Analysis
         analogWrite(motorB_2A, 0);
       }
 
-#. Measuring the motor's speed in the ``loop()`` function. In this segment, the motor's steps are measured for a duration of 1 second. These steps are then used to calculate the revolutions per second (rps), which is then printed to the serial monitor.
+#. Medición de la velocidad del motor en la función ``loop()``. En esta sección, se miden los pasos del motor durante un segundo. Estos pasos luego se utilizan para calcular las revoluciones por segundo (rps), que luego se imprimen en el monitor serial.
 
-   ``millis()`` returns the number of milliseconds passed since the Arduino board began running the current program. 
+   ``millis()`` devuelve el número de milisegundos transcurridos desde que la placa Arduino comenzó a ejecutar el programa actual.
 
    .. code-block:: arduino
 

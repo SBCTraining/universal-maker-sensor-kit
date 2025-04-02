@@ -1,52 +1,52 @@
-.. note::
+.. note:: 
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    ¡Hola, bienvenido a la comunidad de entusiastas de SunFounder en Facebook sobre Raspberry Pi, Arduino y ESP32! Sumérgete más a fondo en Raspberry Pi, Arduino y ESP32 con otros aficionados.
 
-    **Why Join?**
+    **¿Por qué unirse?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Soporte de Expertos**: Resuelve problemas posventa y desafíos técnicos con ayuda de nuestra comunidad y equipo.
+    - **Aprender y Compartir**: Intercambia consejos y tutoriales para mejorar tus habilidades.
+    - **Previsualizaciones Exclusivas**: Obtén acceso anticipado a anuncios de nuevos productos y avances exclusivos.
+    - **Descuentos Especiales**: Disfruta de descuentos exclusivos en nuestros productos más nuevos.
+    - **Promociones Festivas y Sorteos**: Participa en sorteos y promociones festivas.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 ¿Listo para explorar y crear con nosotros? Haz clic en [|link_sf_facebook|] ¡y únete hoy!
 
 .. _esp32_lesson08_ir_obstacle_avoidance:
 
-Lesson 08: IR Obstacle Avoidance Sensor Module
-====================================================
+Lección 08: Módulo Sensor de Evitación de Obstáculos por Infrarrojos
+=========================================================================
 
-In this lesson, you'll learn how to use an Infrared obstacle avoidance sensor with an ESP32 Development Board. We'll explore how the sensor detects obstacles and alters its output signal. You'll also learn how to read these signals using the ESP32 and display them on the serial monitor. This project provides a great opportunity for beginners to gain hands-on experience with sensors and digital input processing on the ESP32 platform, making it perfect for those interested in building interactive projects.
+En esta lección, aprenderás a utilizar un sensor de evitación de obstáculos por infrarrojos con una Placa de Desarrollo ESP32. Exploraremos cómo el sensor detecta los obstáculos y altera su señal de salida. También aprenderás a leer estas señales usando el ESP32 y mostrarlas en el monitor serial. Este proyecto es una excelente oportunidad para que los principiantes adquieran experiencia práctica con sensores y procesamiento de entradas digitales en la plataforma ESP32, lo que lo convierte en un proyecto ideal para aquellos interesados en crear proyectos interactivos.
 
-Required Components
+Componentes Necesarios
 --------------------------
 
-In this project, we need the following components. 
+En este proyecto, necesitamos los siguientes componentes.
 
-It's definitely convenient to buy a whole kit, here's the link: 
+Es definitivamente conveniente comprar un kit completo, aquí está el enlace:
 
 .. list-table::
     :widths: 20 20 20
     :header-rows: 1
 
-    *   - Name	
-        - ITEMS IN THIS KIT
-        - LINK
-    *   - Universal Maker Sensor Kit
+    *   - Nombre	
+        - ARTÍCULOS EN ESTE KIT
+        - ENLACE
+    *   - Kit Universal de Sensores para Creadores
         - 94
         - |link_umsk|
 
-You can also buy them separately from the links below.
+También puedes comprarlos por separado en los enlaces a continuación.
 
 .. list-table::
     :widths: 30 20
     :header-rows: 1
 
-    *   - Component Introduction
-        - Purchase Link
+    *   - Introducción al Componente
+        - Enlace de Compra
 
-    *   - ESP32 & Development Board (:ref:`cpn_esp32_wroom_32e`)
+    *   - ESP32 & Placa de Desarrollo (:ref:`cpn_esp32_wroom_32e`)
         - |link_esp32_camera_pro_kit_buy|
     *   - :ref:`cpn_ir_obstacle`
         - |link_obstacle_avoidance_module_buy|
@@ -54,44 +54,44 @@ You can also buy them separately from the links below.
         - |link_breadboard_buy|
 
 
-Wiring
+Cableado
 ---------------------------
 
 .. image:: img/Lesson_08_Obstacle_Avoidance_Sensor_Module_esp32_bb.png
     :width: 100%
 
 
-Code
+Código
 ---------------------------
 
 .. raw:: html
 
     <iframe src=https://create.arduino.cc/editor/sunfounder01/e04a4a04-e707-46a1-aee5-488add646356/preview?embed style="height:510px;width:100%;margin:10px 0" frameborder=0></iframe>
 
-Code Analysis
+Análisis del Código
 ---------------------------
 
-1. Define pin number for sensor connection:
+1. Definir el número del pin para la conexión del sensor:
 
    .. code-block:: arduino
 
      const int sensorPin = 25;
 
-   Connect the sensor's output pin to pin 25.
+   Conecta el pin de salida del sensor al pin 25.
 
-2. Setup serial communication and define sensor pin as input:
+2. Configurar la comunicación serial y definir el pin del sensor como entrada:
 
    .. code-block:: arduino
-
+    
      void setup() {
        pinMode(sensorPin, INPUT);  
        Serial.begin(9600);
      }
 
-   Initialize serial communication at 9600 baud rate to print to serial monitor.
-   Set sensor pin as input to read input signal.
+   Inicializa la comunicación serial a una tasa de baudios de 9600 para imprimir en el monitor serial.
+   Configura el pin del sensor como entrada para leer la señal de entrada.
 
-3. Read sensor value and print to serial monitor:
+3. Leer el valor del sensor e imprimirlo en el monitor serial:
 
    .. code-block:: arduino
 
@@ -100,9 +100,9 @@ Code Analysis
        delay(50); 
      }
    
-   Continuously read digital value from sensor pin using ``digitalRead()`` and print value to serial monitor using ``Serial.println()``.
-   Add 50ms delay between prints for better viewing.
+   Lee continuamente el valor digital del pin del sensor usando ``digitalRead()`` e imprime el valor en el monitor serial usando ``Serial.println()``.
+   Agrega un retraso de 50 ms entre impresiones para una mejor visualización.
 
    .. note:: 
    
-      If the sensor is not working properly, adjust the IR transmitter and receiver to make them parallel. Additionally, you can adjust the detection range using the built-in potentiometer.
+      Si el sensor no funciona correctamente, ajusta el transmisor y receptor IR para que queden paralelos. Además, puedes ajustar el rango de detección utilizando el potenciómetro incorporado.

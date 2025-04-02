@@ -1,164 +1,164 @@
-.. note::
+.. note:: 
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    ¡Hola, bienvenido a la Comunidad de Entusiastas de SunFounder Raspberry Pi, Arduino y ESP32 en Facebook! Profundiza más en Raspberry Pi, Arduino y ESP32 con otros entusiastas.
 
-    **Why Join?**
+    **¿Por qué unirte?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Soporte experto**: Resuelve problemas postventa y desafíos técnicos con la ayuda de nuestra comunidad y equipo.
+    - **Aprender y compartir**: Intercambia consejos y tutoriales para mejorar tus habilidades.
+    - **Preestrenos exclusivos**: Obtén acceso anticipado a nuevos anuncios de productos y adelantos.
+    - **Descuentos especiales**: Disfruta de descuentos exclusivos en nuestros productos más nuevos.
+    - **Promociones festivas y sorteos**: Participa en sorteos y promociones de temporada.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 ¿Listo para explorar y crear con nosotros? Haz clic en [|link_sf_facebook|] y únete hoy mismo!
 
 .. _pi_lesson29_traffic_light_module:
 
-Lesson 29: Traffic Light Module
+Lección 29: Módulo de Semáforo
 ==================================
 
-In this lesson, you will learn to simulate traffic lights using a Raspberry Pi. You'll program the Raspberry Pi to control these LEDs in a sequence that resembles traffic lights: the red LED will be active for 3 seconds, the yellow LED will blink in a specific pattern, and then the green LED will turn on for 3 seconds. This project is a practical way to get started with GPIO interfacing and Python programming, suitable for those new to combining hardware and software with the Raspberry Pi.
+En esta lección, aprenderás a simular un semáforo usando una Raspberry Pi. Programarás la Raspberry Pi para controlar estos LEDs en una secuencia que simula un semáforo: el LED rojo estará activo durante 3 segundos, el LED amarillo parpadeará en un patrón específico, y luego el LED verde se encenderá durante 3 segundos. Este proyecto es una manera práctica de comenzar con la interfaz GPIO y la programación en Python, adecuado para quienes se inician en la combinación de hardware y software con la Raspberry Pi.
 
-Required Components
+Componentes necesarios
 --------------------------
 
-In this project, we need the following components. 
+En este proyecto, necesitamos los siguientes componentes.
 
-It's definitely convenient to buy a whole kit, here's the link: 
+Es definitivamente conveniente comprar un kit completo, aquí tienes el enlace:
 
 .. list-table::
     :widths: 20 20 20
     :header-rows: 1
 
-    *   - Name	
-        - ITEMS IN THIS KIT
-        - LINK
-    *   - Universal Maker Sensor Kit
+    *   - Nombre  
+        - ELEMENTOS EN ESTE KIT  
+        - ENLACE
+    *   - Kit Sensor Universal Maker
         - 94
         - |link_umsk|
 
-You can also buy them separately from the links below.
+También puedes comprarlos por separado en los siguientes enlaces.
 
 .. list-table::
     :widths: 30 20
     :header-rows: 1
 
-    *   - Component Introduction
-        - Purchase Link
+    *   - Introducción del componente  
+        - Enlace de compra
 
     *   - Raspberry Pi 5
-        - \-
+        - |link_rpi5_buy|
     *   - :ref:`cpn_traffic`
         - |link_traffic_light_module_buy|
     *   - :ref:`cpn_breadboard`
         - |link_breadboard_buy|
 
 
-Wiring
+Cableado
 ---------------------------
 
 .. image:: img/Lesson_29_Traffic_Light_Module_Pi_bb.png
     :width: 100%
 
 
-Code
+Código
 ---------------------------
 
 .. code-block:: python
 
-   from gpiozero import LED
+   from gpiozero import LED  
    from time import sleep
 
-   # Initialize LED pins
-   red = LED(22)    # Red LED connected to GPIO pin 22
-   yellow = LED(27) # Yellow LED connected to GPIO pin 27
-   green = LED(17)  # Green LED connected to GPIO pin 17
+   # Inicializar los pines LED
+   red = LED(22)    # LED rojo conectado al pin GPIO 22
+   yellow = LED(27) # LED amarillo conectado al pin GPIO 27
+   green = LED(17)  # LED verde conectado al pin GPIO 17
 
-   # LED control in a continuous loop
+   # Control de los LEDs en un ciclo continuo
    try:
        while True:
-           # Red LED cycle
-           red.on()     # Turn on red LED
-           sleep(3)     # Red LED on for 3 seconds
-           red.off()    # Turn off red LED
+           # Ciclo LED rojo
+           red.on()     # Encender LED rojo
+           sleep(3)     # LED rojo encendido durante 3 segundos
+           red.off()    # Apagar LED rojo
 
-           # Yellow LED blinking pattern
-           yellow.on()  # Turn on yellow LED
-           sleep(0.5)   # Yellow LED on for 0.5 second
-           yellow.off() # Turn off yellow LED
-           sleep(0.5)   # Off for 0.5 second
-           yellow.on()  # Repeat blinking
-           sleep(0.5)   # Yellow LED on for 0.5 second
-           yellow.off() # Turn off yellow LED
-           sleep(0.5)   # Off for 0.5 second
-           yellow.on()  # Repeat blinking
-           sleep(0.5)   # Yellow LED on for 0.5 second
-           yellow.off() # Turn off yellow LED
-           sleep(0.5)   # Off for 0.5 second
+           # Patrón de parpadeo del LED amarillo
+           yellow.on()  # Encender LED amarillo
+           sleep(0.5)   # LED amarillo encendido durante 0.5 segundos
+           yellow.off() # Apagar LED amarillo
+           sleep(0.5)   # Apagar durante 0.5 segundos
+           yellow.on()  # Repetir parpadeo
+           sleep(0.5)   # LED amarillo encendido durante 0.5 segundos
+           yellow.off() # Apagar LED amarillo
+           sleep(0.5)   # Apagar durante 0.5 segundos
+           yellow.on()  # Repetir parpadeo
+           sleep(0.5)   # LED amarillo encendido durante 0.5 segundos
+           yellow.off() # Apagar LED amarillo
+           sleep(0.5)   # Apagar durante 0.5 segundos
 
-           # Green LED cycle
-           green.on()   # Turn on green LED
-           sleep(3)     # Green LED on for 3 seconds
-           green.off()  # Turn off green LED
+           # Ciclo LED verde
+           green.on()   # Encender LED verde
+           sleep(3)     # LED verde encendido durante 3 segundos
+           green.off()  # Apagar LED verde
 
    except KeyboardInterrupt:
-       # Turn off all LEDs and exit safely on keyboard interrupt
+       # Apagar todos los LEDs y salir de manera segura al interrumpir con el teclado
        red.off()
        yellow.off()
        green.off()
 
 
 
-Code Analysis
+Análisis del código
 ---------------------------
 
-#. Import Libraries
-   
-   The ``gpiozero`` library is imported to control the GPIO pins, and the ``time`` library's ``sleep`` function is used for timing delays.
+#. Importación de bibliotecas
+
+   Se importa la biblioteca ``gpiozero`` para controlar los pines GPIO y la función ``sleep`` del módulo time para los retrasos.
 
    .. code-block:: python
 
-      from gpiozero import LED
+      from gpiozero import LED  
       from time import sleep
 
-#. Initialize LED pins
-   
-   Here, each LED is associated with a specific GPIO pin on the Raspberry Pi using the ``LED`` class from the ``gpiozero`` library.
+#. Inicialización de los pines LED
+
+   Aquí, cada LED se asocia con un pin GPIO específico en la Raspberry Pi usando la clase ``LED`` de la biblioteca ``gpiozero``.
 
    .. code-block:: python
 
-      red = LED(22)    # Red LED connected to GPIO pin 22
-      yellow = LED(27) # Yellow LED connected to GPIO pin 27
-      green = LED(17)  # Green LED connected to GPIO pin 17
+      red = LED(22)    # LED rojo conectado al pin GPIO 22
+      yellow = LED(27) # LED amarillo conectado al pin GPIO 27
+      green = LED(17)  # LED verde conectado al pin GPIO 17
 
-#. LED Control Loop
-   
-   The ``while True:`` loop runs continuously, cycling through each LED. It turns each LED on and off in a specific pattern, using ``on()``, ``off()``, and ``sleep()`` functions.
+#. Bucle de control de los LEDs
 
-   - Red LED is turned on for 3 seconds.
-   - Yellow LED blinks: 0.5 seconds on, 0.5 seconds off, repeated three times.
-   - Green LED is turned on for 3 seconds.
+   El bucle ``while True:`` se ejecuta continuamente, alternando entre los LEDs. Enciende y apaga cada LED en un patrón específico, utilizando las funciones ``on()``, ``off()`` y ``sleep()``.
+
+   - El LED rojo se enciende durante 3 segundos.
+   - El LED amarillo parpadea: 0.5 segundos encendido, 0.5 segundos apagado, repitiéndose tres veces.
+   - El LED verde se enciende durante 3 segundos.
 
    .. code-block:: python
 
       try:
           while True:
-              # Red LED cycle
+              # Ciclo LED rojo
               red.on()
               sleep(3)
               red.off()
 
-              # Yellow LED blinking pattern
-              # [The pattern is repeated three times]
-              
-              # Green LED cycle
+              # Patrón de parpadeo LED amarillo
+              # [El patrón se repite tres veces]
+
+              # Ciclo LED verde
               green.on()
               sleep(3)
               green.off()
 
-#. Exception Handling
-   
-   The ``except`` block catches a ``KeyboardInterrupt`` (usually generated by pressing Ctrl+C). It ensures all LEDs are turned off before the program exits, preventing the LEDs from being left in an undefined state.
+#. Manejo de excepciones
+
+   El bloque ``except`` captura una ``KeyboardInterrupt`` (generalmente generada al presionar Ctrl+C). Asegura que todos los LEDs se apaguen antes de que el programa termine, evitando que los LEDs queden en un estado indefinido.
 
    .. code-block:: python
 

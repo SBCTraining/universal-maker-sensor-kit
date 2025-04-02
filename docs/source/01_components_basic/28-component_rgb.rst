@@ -1,20 +1,20 @@
-.. note::
+.. note:: 
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    ¡Hola, bienvenido a la Comunidad de Entusiastas de Raspberry Pi, Arduino y ESP32 en Facebook! Profundiza más en Raspberry Pi, Arduino y ESP32 junto con otros entusiastas.
 
-    **Why Join?**
+    **¿Por qué unirte?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Soporte experto**: Resuelve problemas postventa y desafíos técnicos con la ayuda de nuestra comunidad y equipo.
+    - **Aprende y comparte**: Intercambia consejos y tutoriales para mejorar tus habilidades.
+    - **Previsualizaciones exclusivas**: Accede anticipadamente a anuncios de nuevos productos y vistas previas.
+    - **Descuentos especiales**: Disfruta de descuentos exclusivos en nuestros productos más recientes.
+    - **Promociones festivas y sorteos**: Participa en sorteos y promociones especiales durante las festividades.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 ¿Listo para explorar y crear con nosotros? Haz clic en [|link_sf_facebook|] y únete hoy.
 
 .. _cpn_rgb:
 
-RGB LED Module
+Módulo LED RGB
 ==========================
 
 .. image:: img/28_rgb_module.png
@@ -25,20 +25,20 @@ RGB LED Module
     
     <br/>
 
-The RGB Full Color LED module emits a range of colors by mixing red, green, and blue light. Each color is adjusted by using PWM.It can be used to create colorful lighting effects or to learn how to use PWM (pulse-width modulation) with Arduino.
+El módulo LED RGB de color completo emite una gama de colores mediante la mezcla de luz roja, verde y azul. Cada color se ajusta utilizando PWM (modulación por ancho de pulso). Se puede utilizar para crear efectos de iluminación coloridos o para aprender a usar PWM (modulación por ancho de pulso) con Arduino.
 
-Pinout
+Distribución de pines
 ---------------------------
 
-* **GND**: Common ground for power.
-* **B**: Controls the brightness of the red LED. By adjusting the current flowing through this pin, the intensity of the red light can be varied.
-* **R**: Controls the brightness of the green LED. Similarly to the red pin, adjusting the current flow through this pin changes the intensity of the green light.
-* **G**: Controls the brightness of the blue LED. By adjusting the current flowing through this pin, the intensity of the blue light can be altered.
+* **GND**: Tierra común para la alimentación.
+* **B**: Controla el brillo del LED rojo. Ajustando la corriente que fluye a través de este pin, se puede variar la intensidad de la luz roja.
+* **R**: Controla el brillo del LED verde. Al igual que el pin rojo, ajustar el flujo de corriente a través de este pin cambia la intensidad de la luz verde.
+* **G**: Controla el brillo del LED azul. Ajustando la corriente que fluye a través de este pin, se puede alterar la intensidad de la luz azul.
 
-Principle
+Principio
 ---------------------------
-The RGB MODULE works by using a full-color LED that uses R, G, and B pins with adjustable PWM voltage input. 
-Colors from the LED can be combined. For example, mix blue light and green light give cyan light, red light and green light give yellow light. This is called "The additive method of color mixing".
+El módulo RGB funciona utilizando un LED de color completo que usa los pines R, G y B con entrada de voltaje PWM ajustable. 
+Los colores del LED pueden combinarse. Por ejemplo, mezclar luz azul y verde da luz cian, y mezclar luz roja y verde da luz amarilla. Esto se conoce como "El método aditivo de mezcla de colores".
 
 * `Additive color - Wikipedia <https://en.wikipedia.org/wiki/Additive_color>`_
 
@@ -46,10 +46,10 @@ Colors from the LED can be combined. For example, mix blue light and green light
     :width: 200
     :align: center
 
-Based on this method, we can use the three primary colors to mix the visible light of any color according to different proportions. For example, orange can be produced by more red and less green.
-The strength of the primary colors (red, blue, green) is adjusted in order to achieve full color mixing effect.PWM is a technique where the duty cycle of a digital signal is modified, adjusting the percentage of time that the signal remains active within a given period. By changing the duty cycle, we can make the LED appear brighter or dimmer.
+Basado en este método, podemos usar los tres colores primarios para mezclar la luz visible de cualquier color según diferentes proporciones. Por ejemplo, el naranja puede producirse con más rojo y menos verde.
+La intensidad de los colores primarios (rojo, azul, verde) se ajusta para lograr el efecto de mezcla de colores completo. PWM es una técnica en la que se modifica el ciclo de trabajo de una señal digital, ajustando el porcentaje de tiempo que la señal permanece activa dentro de un periodo determinado. Al cambiar el ciclo de trabajo, podemos hacer que el LED parezca más brillante o más tenue.
 
-Schematic diagram
+Diagrama esquemático
 ---------------------------
 
 .. image:: img/28_rgb_module_schematic.png
@@ -61,7 +61,7 @@ Schematic diagram
    <br/>
 
 
-Example
+Ejemplo
 ---------------------------
 * :ref:`uno_lesson28_rgb_module` (Arduino UNO)
 * :ref:`esp32_lesson28_rgb_module` (ESP32)

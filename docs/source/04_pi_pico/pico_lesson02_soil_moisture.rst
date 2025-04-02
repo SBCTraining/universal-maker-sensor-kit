@@ -1,50 +1,50 @@
-.. note::
+.. note:: 
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    ¡Hola, bienvenido a la Comunidad de Aficionados de SunFounder Raspberry Pi & Arduino & ESP32 en Facebook! Profundiza en Raspberry Pi, Arduino y ESP32 junto a otros entusiastas.
 
     **Why Join?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Soporte de Expertos**: Resuelve problemas posventa y desafíos técnicos con la ayuda de nuestra comunidad y equipo.
+    - **Aprender y Compartir**: Intercambia consejos y tutoriales para mejorar tus habilidades.
+    - **Vistas Previas Exclusivas**: Obtén acceso anticipado a anuncios de nuevos productos y avances exclusivos.
+    - **Descuentos Especiales**: Disfruta de descuentos exclusivos en nuestros productos más recientes.
+    - **Promociones Festivas y Sorteos**: Participa en sorteos y promociones de festividades.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 ¿Listo para explorar y crear con nosotros? Haz clic en [|link_sf_facebook|] y únete hoy mismo.
 
 .. _pico_lesson02_soil_moisture:
 
-Lesson 02: Capacitive Soil Moisture Module
-============================================
+Lección 02: Módulo de Humedad de Suelo Capacitivo
+===================================================
 
-In this lesson, you'll learn how to use the Raspberry Pi Pico W to measure soil moisture levels using a capacitive sensor and an ADC (Analog to Digital Converter). This beginner-friendly project will introduce you to handling analog signals in MicroPython. 
+En esta lección, aprenderás a utilizar el Raspberry Pi Pico W para medir los niveles de humedad del suelo utilizando un sensor capacitivo y un ADC (Convertidor Analógico a Digital). Este proyecto amigable para principiantes te introducirá al manejo de señales analógicas en MicroPython.
 
-Required Components
+Componentes Necesarios
 --------------------------
 
-In this project, we need the following components. 
+Para este proyecto, necesitaremos los siguientes componentes.
 
-It's definitely convenient to buy a whole kit, here's the link: 
+Es definitivamente conveniente comprar un kit completo, aquí está el enlace:
 
 .. list-table::
     :widths: 20 20 20
     :header-rows: 1
 
-    *   - Name	
-        - ITEMS IN THIS KIT
-        - LINK
-    *   - Universal Maker Sensor Kit
+    *   - Nombre	
+        - ÍTEMS EN ESTE KIT
+        - ENLACE
+    *   - Kit de Sensores Universal Maker
         - 94
         - |link_umsk|
 
-You can also buy them separately from the links below.
+También puedes comprarlos por separado en los siguientes enlaces.
 
 .. list-table::
     :widths: 30 20
     :header-rows: 1
 
-    *   - Component Introduction
-        - Purchase Link
+    *   - Introducción del Componente
+        - Enlace de Compra
 
     *   - Raspberry Pi Pico W
         - \-
@@ -54,14 +54,14 @@ You can also buy them separately from the links below.
         - |link_breadboard_buy|
 
 
-Wiring
+Cableado
 ---------------------------
 
 .. image:: img/Lesson_02_Capacitive_Soil_Moisture_Module_bb.png
     :width: 100%
 
 
-Code
+Código
 ---------------------------
 
 .. code-block:: python
@@ -69,36 +69,36 @@ Code
    from machine import ADC
    import time
    
-   # Initialize an ADC object on GPIO pin 26.
-   # This is typically used for reading analog signals.
+   # Inicializar un objeto ADC en el pin GPIO 26.
+   # Esto se utiliza típicamente para leer señales analógicas.
    sensor_AO = ADC(26)
    
-   # Continuously read and print sensor data.
+   # Leer y mostrar continuamente los datos del sensor.
    while True:
-       value = sensor_AO.read_u16()  # Read and convert analog value to 16-bit integer
-       print("AO:", value)  # Print the analog value
+       value = sensor_AO.read_u16()  # Leer y convertir el valor analógico a un entero de 16 bits
+       print("AO:", value)  # Mostrar el valor analógico
    
-       time.sleep_ms(200)  # Wait for 200 milliseconds before the next read
+       time.sleep_ms(200)  # Esperar 200 milisegundos antes de la próxima lectura
 
-Code Analysis
+Análisis del Código
 ---------------------------
 
-#. Importing Libraries:
+#. Importación de Librerías:
 
    .. code-block:: python
 
       from machine import ADC
       import time
 
-#. ADC Setup:
+#. Configuración del ADC:
 
    .. code-block:: python
 
       sensor_AO = ADC(26)
 
-   This code initializes an ADC object on GPIO pin 26. ADC is used to convert analog signals (from analog sensors) to digital data that the microcontroller can process.
+   Este código inicializa un objeto ADC en el pin GPIO 26. El ADC se utiliza para convertir señales analógicas (de sensores analógicos) a datos digitales que el microcontrolador puede procesar.
 
-#. Reading Sensor Data in a Loop:
+#. Lectura de Datos del Sensor en Bucle:
 
    .. code-block:: python
     
@@ -107,4 +107,4 @@ Code Analysis
           print("AO:", value)
           time.sleep_ms(200)
 
-   The ``while True`` loop runs indefinitely, constantly reading data from the sensor. The ``read_u16()`` method reads the analog value and converts it to a 16-bit unsigned integer. The ``print`` statement displays this value. The ``time.sleep_ms(200)`` causes the loop to wait for 200 milliseconds before reading the sensor value again, preventing excessive data readings and console output.
+   El bucle ``while True`` se ejecuta indefinidamente, leyendo constantemente datos del sensor. El método ``read_u16()`` lee el valor analógico y lo convierte a un entero sin signo de 16 bits. La instrucción ``print`` muestra este valor. El ``time.sleep_ms(200)`` hace que el bucle espere 200 milisegundos antes de leer nuevamente el valor del sensor, evitando lecturas de datos y salidas de consola excesivas.

@@ -1,21 +1,21 @@
-.. note::
+.. note:: 
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    ¡Hola, bienvenido a la Comunidad de Entusiastas de SunFounder Raspberry Pi & Arduino & ESP32 en Facebook! Profundiza más en Raspberry Pi, Arduino y ESP32 con otros entusiastas.
 
-    **Why Join?**
+    **¿Por qué unirse?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Soporte experto**: Resuelve problemas postventa y desafíos técnicos con la ayuda de nuestra comunidad y equipo.
+    - **Aprende y comparte**: Intercambia consejos y tutoriales para mejorar tus habilidades.
+    - **Vistas previas exclusivas**: Accede antes que nadie a nuevos anuncios de productos y avances.
+    - **Descuentos especiales**: Disfruta de descuentos exclusivos en nuestros productos más nuevos.
+    - **Promociones festivas y sorteos**: Participa en sorteos y promociones especiales.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 ¿Listo para explorar y crear con nosotros? Haz clic en [|link_sf_facebook|] y únete hoy mismo!
 
 .. _cpn_photoresistor:
 
-Photoresistor Module
-==========================
+Módulo de Fotoresistor
+===========================
 
 .. image:: img/11_photoresistor_module.png
     :width: 400
@@ -25,36 +25,36 @@ Photoresistor Module
 
    <br/>
 
-The photoresistor module is a device that can detect the intensity of light in the environment. It can be used for various purposes, such as adjusting the brightness of a device, detecting day and night, or activating a light switch.
+El módulo de fotoresistor es un dispositivo que puede detectar la intensidad de la luz en el entorno. Puede ser utilizado para diversos propósitos, como ajustar el brillo de un dispositivo, detectar el día y la noche, o activar un interruptor de luz.
 
-An important component of the photoresistor module is the photoresistor. A photoresistor is a light-controlled variable resistor. The resistance of a photoresistor decreases with increasing incident light intensity; in other words, it exhibits photo conductivity.
+Un componente importante del módulo de fotoresistor es el propio fotoresistor. Un fotoresistor es una resistencia variable controlada por la luz. La resistencia de un fotoresistor disminuye a medida que aumenta la intensidad de la luz incidente; en otras palabras, exhibe fotoconductividad.
 
-A photoresistor can be applied in light-sensitive detector circuits and light-activated and dark-activated switching circuits acting as a resistance semiconductor. In the dark, a photoresistor can have a resistance as high as several megaohms (MΩ), while in the light, a photoresistor can have a resistance as low as a few hundred ohms.
+Un fotoresistor puede aplicarse en circuitos detectores sensibles a la luz y en circuitos de conmutación activados por luz y por oscuridad, funcionando como un semiconductor resistivo. En la oscuridad, un fotoresistor puede tener una resistencia de varios megaohmios (MΩ), mientras que en la luz, un fotoresistor puede tener una resistencia tan baja como unos pocos cientos de ohmios.
 
-Here is the electronic symbol of photoresistor.
+Aquí está el símbolo electrónico del fotoresistor.
 
 .. image:: img/11_photoresistor_symbol_2.png
     :width: 200
     :align: center
 
-Specification
+Especificaciones
 ---------------------------
-* Supply Voltage: 3.3V - 5V
-* PCB Size: 32 x 14mm
-* Output Signal Type: DO and AO
+* Voltaje de suministro: 3.3V - 5V
+* Tamaño de la PCB: 32 x 14mm
+* Tipo de señal de salida: DO y AO
 
 Pinout
 ---------------------------
-* **VCC**: This is the positive power supply input from the main control. 
-* **GND**: Ground connection.
-* **DO**: Digital output. When the intensity of the light exceeds the threshold value (set by the potentiometer), D0 becomes LOW; otherwise, it remains HIGH.
-* **AO**: Analog output. The stronger the light, the lower the output value; conversely, the weaker the light, the higher the output value.
+* **VCC**: Esta es la entrada de suministro de energía positiva del control principal. 
+* **GND**: Conexión a tierra.
+* **DO**: Salida digital. Cuando la intensidad de la luz supera el valor umbral (ajustado mediante el potenciómetro), D0 se convierte en bajo; de lo contrario, permanece alto.
+* **AO**: Salida analógica. Cuanto más fuerte sea la luz, menor será el valor de salida; por el contrario, cuanto más débil sea la luz, mayor será el valor de salida.
 
-Principle
+Principio
 ---------------------------
-The photoresistor module works on the principle of changing resistance in response to different light intensities. The sensor has a built-in potentiometer that adjusts the sensor's digital output (D0) threshold. 
+El módulo de fotoresistor funciona según el principio de cambio de resistencia en respuesta a diferentes intensidades de luz. El sensor tiene un potenciómetro incorporado que ajusta el umbral de la salida digital (D0) del sensor.
 
-Schematic diagram
+Diagrama esquemático
 ---------------------------
 
 .. image:: img/11_photoresistor_module_schematic.png
@@ -65,7 +65,7 @@ Schematic diagram
 
    <br/>
 
-Example
+Ejemplo
 ---------------------------
 * :ref:`uno_lesson11_photoresistor` (Arduino UNO)
 * :ref:`esp32_lesson11_photoresistor` (ESP32)

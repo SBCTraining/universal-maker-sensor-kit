@@ -1,59 +1,62 @@
-.. note::
+.. note:: 
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    ¡Hola, bienvenido a la Comunidad de Entusiastas de SunFounder Raspberry Pi, Arduino y ESP32 en Facebook! Profundiza en Raspberry Pi, Arduino y ESP32 junto con otros entusiastas.
 
-    **Why Join?**
+    **¿Por qué unirse?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Soporte Experto**: Resuelve problemas postventa y desafíos técnicos con la ayuda de nuestra comunidad y equipo.
+    - **Aprender y Compartir**: Intercambia consejos y tutoriales para mejorar tus habilidades.
+    - **Vistazos Exclusivos**: Accede de forma anticipada a los anuncios de nuevos productos y adelantos.
+    - **Descuentos Especiales**: Disfruta de descuentos exclusivos en nuestros productos más recientes.
+    - **Promociones Festivas y Sorteos**: Participa en sorteos y promociones especiales.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 ¿Listo para explorar y crear con nosotros? Haz clic en [|link_sf_facebook|] y únete hoy mismo!
 
-Operators
+Operadores
 ============
-Operators are used to perform operations on variables and values.
 
-* :ref:`Arithmetic operators`
+Los operadores se utilizan para realizar operaciones sobre variables y valores.
 
-* :ref:`Assignment operators`
+* :ref:`Operadores aritméticos`
 
-* :ref:`Comparison operators`
+* :ref:`Operadores de asignación`
 
-* :ref:`Logical operators`
+* :ref:`Operadores de comparación`
 
-* :ref:`Identity operators`
+* :ref:`Operadores lógicos`
 
-* :ref:`Membership operators`
+* :ref:`Operadores de identidad`
 
-* :ref:`Bitwise operators`
+* :ref:`Operadores de membresía`
 
-Arithmetic Operators
-----------------------
-You can use arithmetic operators to do some common mathematical operations.
+* :ref:`Operadores a nivel de bits`
+
+
+Operadores Aritméticos
+--------------------------
+
+Puedes usar operadores aritméticos para realizar algunas operaciones matemáticas comunes.
 
 .. list-table:: 
     :widths: 10 30
     :header-rows: 1
 
-    *   - Operator
-        - Name
+    *   - Operador
+        - Nombre
     *   - ``+``
-        - Addition
+        - Suma
     *   - ``-``
-        - Subtraction
+        - Resta
     *   - ``*``
-        - Multiplication
+        - Multiplicación
     *   - ``/``
-        - Division
+        - División
     *   - ``%``
-        - Modulus
+        - Módulo
     *   - ``**``
-        - Exponentiation
+        - Exponenciación
     *   - ``//``
-        - Floor division
+        - División entera
 
 
 
@@ -91,18 +94,18 @@ You can use arithmetic operators to do some common mathematical operations.
 15
 >>> 
 
-Assignment operators
----------------------
+Operadores de Asignación
+----------------------------
 
-Assignment operators can used to assign values to variables.
+Los operadores de asignación se utilizan para asignar valores a las variables.
 
 .. list-table:: 
     :widths: 10 30 30
     :header-rows: 1
 
-    *   - Operator
-        - Example
-        - Same As
+    *   - Operador
+        - Ejemplo
+        - Equivalente
     *   - ``=``
         - a = 6
         - a =6
@@ -156,28 +159,30 @@ Assignment operators can used to assign values to variables.
 36
 >>> 
 
-Comparison Operators
-------------------------
-Comparison operators are used to compare two values.
+
+Operadores de Comparación
+--------------------------
+
+Los operadores de comparación se utilizan para comparar dos valores.
 
 .. list-table:: 
     :widths: 10 30
     :header-rows: 1
 
-    *   - Operator
-        - Name
+    *   - Operador
+        - Nombre
     *   - ``==``
-        - Equal
+        - Igual
     *   - ``!=``
-        - Not equal
+        - Diferente
     *   - ``<``
-        - Less than
+        - Menor que
     *   - ``>``
-        - Greater than
+        - Mayor que
     *   - ``>=``
-        - Greater than or equal to
+        - Mayor o igual que
     *   - ``<=``
-        - Less than or equal to
+        - Menor o igual que
 
 
 
@@ -193,25 +198,25 @@ Comparison operators are used to compare two values.
 False
 >>> 
 
-Return **False**, because the **a** is less than the **b**.
+Devuelve **False**, porque **a** es menor que **b**.
 
-Logical Operators
------------------------
+Operadores Lógicos
+---------------------
 
-Logical operators are used to combine conditional statements.
+Los operadores lógicos se utilizan para combinar sentencias condicionales.
 
 .. list-table:: 
     :widths: 10 30
     :header-rows: 1
 
-    *   - Operator
-        - Description
+    *   - Operador
+        - Descripción
     *   - ``and``
-        - Returns True if both statements are true
+        - Devuelve True si ambas sentencias son verdaderas
     *   - ``or``
-        - Returns True if one of the statements is true
+        - Devuelve True si una de las sentencias es verdadera
     *   - ``not``
-        - Reverse the result, returns False if the result is true
+        - Invierte el resultado, devuelve False si el resultado es verdadero
 
 .. code-block:: python
 
@@ -220,23 +225,23 @@ Logical operators are used to combine conditional statements.
 
 >>> %Run -c $EDITOR_CONTENT
 True
->>> 
+>>>
 
-Identity Operators
-------------------------
+Operadores de Identidad
+-------------------------
 
-Identity operators are used to compare the objects, not if they are equal, but if they are actually the same object, with the same memory location.
+Los operadores de identidad se utilizan para comparar los objetos, no si son iguales, sino si son realmente el mismo objeto, con la misma ubicación en memoria.
 
 .. list-table:: 
     :widths: 10 30
     :header-rows: 1
 
-    *   - Operator
-        - Description
+    *   - Operador
+        - Descripción
     *   - ``is``
-        - Returns True if both variables are the same object
+        - Devuelve True si ambas variables son el mismo objeto
     *   - ``is not``
-        - Returns True if both variables are not the same object
+        - Devuelve True si ambas variables no son el mismo objeto
 
 .. code-block:: python
 
@@ -245,13 +250,13 @@ Identity operators are used to compare the objects, not if they are equal, but i
     c = a
 
     print(a is c)
-    # returns True because z is the same object as x
+    # devuelve True porque c es el mismo objeto que a
 
     print(a is b)
-    # returns False because x is not the same object as y, even if they have the same content
+    # devuelve False porque a no es el mismo objeto que b, aunque tengan el mismo contenido
 
     print(a == b)
-    # returns True because x is equal to y
+    # devuelve True porque a es igual a b
 
 >>> %Run -c $EDITOR_CONTENT
 True
@@ -259,20 +264,22 @@ False
 True
 >>> 
 
-Membership Operators
-----------------------
-Membership operators are used to test if a sequence is presented in an object.
+
+Operadores de Membresía
+-------------------------
+
+Los operadores de membresía se utilizan para probar si una secuencia está presente en un objeto.
 
 .. list-table:: 
     :widths: 10 30
     :header-rows: 1
 
-    *   - Operator
-        - Description
+    *   - Operador
+        - Descripción
     *   - ``in``
-        - Returns True if a sequence with the specified value is present in the object
+        - Devuelve True si una secuencia con el valor especificado está presente en el objeto
     *   - ``not in``
-        - Returns True if a sequence with the specified value is not present in the object
+        - Devuelve True si una secuencia con el valor especificado no está presente en el objeto
 
 .. code-block:: python
 
@@ -284,36 +291,36 @@ Membership operators are used to test if a sequence is presented in an object.
 True
 >>> 
 
-Bitwise Operators
-------------------------
+Operadores a Nivel de Bits
+-----------------------------
 
-Bitwise operators are used to compare (binary) numbers.
+Los operadores a nivel de bits se utilizan para comparar números (binarios).
 
 .. list-table:: 
     :widths: 10 20 50
     :header-rows: 1
 
-    *   - Operator
-        - Name
-        - Description
+    *   - Operador
+        - Nombre
+        - Descripción
     *   - ``&``
         - AND
-        - Sets each bit to 1 if both bits are 1
+        - Establece cada bit en 1 si ambos bits son 1
     *   - ``|``
         - OR
-        - Sets each bit to 1 if one of two bits is 1
+        - Establece cada bit en 1 si uno de los dos bits es 1
     *   - ``^``
         - XOR
-        - Sets each bit to 1 if only one of two bits is 1
+        - Establece cada bit en 1 si solo uno de los dos bits es 1
     *   - ``~``
         - NOT
-        - Inverts all the bits
+        - Invierte todos los bits
     *   - ``<<``
-        - Zero fill left shift
-        - Shift left by pushing zeros in from the right and let the leftmost bits fall off
+        - Desplazamiento a la izquierda con relleno de ceros
+        - Desplaza hacia la izquierda introduciendo ceros desde la derecha y dejando que los bits más a la izquierda caigan
     *   - ``>>``
-        - Signed right shift
-        - Shift right by pushing copies of the leftmost bit in from the left, and let the rightmost bits fall off
+        - Desplazamiento a la derecha con signo
+        - Desplaza hacia la derecha copiando los bits más a la izquierda desde la izquierda, y dejando que los bits más a la derecha caigan
 
 .. code-block:: python
 

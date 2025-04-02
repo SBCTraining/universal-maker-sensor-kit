@@ -1,20 +1,20 @@
-.. note::
+.. note:: 
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    ¡Hola, bienvenido a la Comunidad de Entusiastas de Raspberry Pi, Arduino y ESP32 en Facebook! Profundiza más en Raspberry Pi, Arduino y ESP32 junto con otros entusiastas.
 
-    **Why Join?**
+    **¿Por qué unirte?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Soporte experto**: Resuelve problemas postventa y desafíos técnicos con la ayuda de nuestra comunidad y equipo.
+    - **Aprende y comparte**: Intercambia consejos y tutoriales para mejorar tus habilidades.
+    - **Previsualizaciones exclusivas**: Accede anticipadamente a anuncios de nuevos productos y vistas previas.
+    - **Descuentos especiales**: Disfruta de descuentos exclusivos en nuestros productos más recientes.
+    - **Promociones festivas y sorteos**: Participa en sorteos y promociones especiales durante las festividades.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 ¿Listo para explorar y crear con nosotros? Haz clic en [|link_sf_facebook|] y únete hoy.
 
 .. _cpn_pump:
 
-Centrifugal Pump
+Bomba Centrífuga
 ==========================
 
 .. image:: img/31_pump.png
@@ -24,28 +24,28 @@ Centrifugal Pump
 .. raw:: html
     
     <br/>
-    
 
-A centrifugal pump is a device that can move liquids from one place to another by using a rotating impeller. It can be used to pump water, oil, chemicals, etc. A centrifugal pump has two main parts: a motor and a pump. The motor provides power to the pump and the pump converts the rotational energy into pressure and flow.
 
-Specification
+Una bomba centrífuga es un dispositivo que puede mover líquidos de un lugar a otro utilizando un impulsor rotatorio. Puede usarse para bombear agua, aceite, productos químicos, etc. Una bomba centrífuga tiene dos partes principales: un motor y una bomba. El motor proporciona energía a la bomba y la bomba convierte la energía rotacional en presión y flujo.
+
+Especificaciones
 ---------------------------
 
-* **Voltage Scope**: DC 3 ~ 4.5V
-* **Operating Current**: 120 ~ 180mA
-* **Power**: 0.36 ~ 0.91W
-* **Max Water Head**: 0.35 ~ 0.55M
-* **Max Flow Rate**: 80 ~ 100 L/H
-* **Continuous Working Life**: 100 hours
-* **Water Fing Grade**: IP68
-* **Driving Mode**: DC, Magnetic Driving
-* **Material**: Engineering Plastic
-* **Outlet Outside Diameter**: 7.8 mm
-* **Outlet Inside Diameter**: 6.5 mm
-* It is a submersible pump and should be used that way. It tends to heat too much that there's a risk of overheating if you turn it on unsubmerged.
+* **Rango de Voltaje**: DC 3 ~ 4.5V
+* **Corriente de Operación**: 120 ~ 180mA
+* **Potencia**: 0.36 ~ 0.91W
+* **Altura Máxima de Agua**: 0.35 ~ 0.55M
+* **Caudal Máximo**: 80 ~ 100 L/H
+* **Vida Útil Continua**: 100 horas
+* **Grado de Protección al Agua**: IP68
+* **Modo de Impulsión**: DC, Impulsión Magnética
+* **Material**: Plástico de ingeniería
+* **Diámetro Exterior de la Salida**: 7.8 mm
+* **Diámetro Interior de la Salida**: 6.5 mm
+* Es una bomba sumergible y debe usarse de esa manera. Tiende a calentarse demasiado, lo que conlleva el riesgo de sobrecalentamiento si se enciende sin estar sumergida.
 
 
-Example
+Ejemplo
 ---------------------------
 * :ref:`uno_lesson31_pump` (Arduino UNO)
 * :ref:`esp32_lesson31_pump` (ESP32)

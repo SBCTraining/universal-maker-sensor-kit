@@ -1,56 +1,54 @@
+.. note:: 
 
-.. note::
-
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    ¡Hola, bienvenido a la comunidad de entusiastas de SunFounder Raspberry Pi & Arduino & ESP32 en Facebook! Profundiza en Raspberry Pi, Arduino y ESP32 con otros aficionados.
 
     **Why Join?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Expert Support**: Resuelve problemas posventa y desafíos técnicos con la ayuda de nuestra comunidad y equipo.
+    - **Learn & Share**: Intercambia consejos y tutoriales para mejorar tus habilidades.
+    - **Exclusive Previews**: Obtén acceso anticipado a anuncios de nuevos productos y avances exclusivos.
+    - **Special Discounts**: Disfruta de descuentos exclusivos en nuestros productos más recientes.
+    - **Festive Promotions and Giveaways**: Participa en sorteos y promociones festivas.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 ¿Listo para explorar y crear con nosotros? Haz clic en [|link_sf_facebook|] y únete hoy mismo!
 
 .. _uno_lesson42_touch_toggle_light:
 
-Lesson 42: Touch toggle light
-==================================
+Lección 42: Luz activada por toque
+=====================================
+
+Este proyecto es una implementación simple de un sistema de control de semáforo utilizando un sensor táctil y un módulo LED de semáforo.
+Activar el sensor táctil inicia una secuencia donde los LEDs se iluminan en el siguiente orden: Rojo -> Amarillo -> Verde.
 
 
-This project is a simple implementation of a traffic light control system utilizing a touch sensor and a traffic light LED module. 
-Activating the touch sensor initiates a sequence where LEDs illuminate in the following order: Red -> Yellow -> Green.
-
-
-Required Components
+Componentes Necesarios
 --------------------------
 
-In this project, we need the following components. 
+Para este proyecto, necesitaremos los siguientes componentes.
 
-It's definitely convenient to buy a whole kit, here's the link: 
+Es definitivamente conveniente comprar un kit completo, aquí está el enlace:
 
 .. list-table::
     :widths: 20 20 20
     :header-rows: 1
 
-    *   - Name	
-        - ITEMS IN THIS KIT
-        - LINK
-    *   - Universal Maker Sensor Kit
+    *   - Nombre	
+        - ELEMENTOS EN ESTE KIT
+        - ENLACE
+    *   - Kit Universal de Sensores para Creadores
         - 94
         - |link_umsk|
 
-You can also buy them separately from the links below.
+También puedes comprarlos por separado en los siguientes enlaces.
 
 .. list-table::
     :widths: 30 20
     :header-rows: 1
 
-    *   - Component Introduction
-        - Purchase Link
+    *   - Introducción del Componente
+        - Enlace de Compra
 
-    *   - Arduino UNO R3 or R4
+    *   - Arduino UNO R3 o R4
         - |link_Uno_R3_buy|
     *   - :ref:`cpn_touch`
         - \-
@@ -60,66 +58,66 @@ You can also buy them separately from the links below.
         - |link_breadboard_buy|
         
 
-Wiring
+Cableado
 ---------------------------
 
 .. image:: img/Lesson_42_Touch_toggle_light_uno_bb.png
     :width: 100%
 
 
-Code
+Código
 ---------------------------
 
 .. raw:: html
 
-  <iframe src=https://create.arduino.cc/editor/sunfounder01/f53d6cf6-ed27-49d3-b4d3-12f29b417a89/preview?embed style="height:510px;width:100%;margin:10px 0" frameborder=0></iframe>
+    <iframe src=https://create.arduino.cc/editor/sunfounder01/f53d6cf6-ed27-49d3-b4d3-12f29b417a89/preview?embed style="height:510px;width:100%;margin:10px 0" frameborder=0></iframe>
 
-Code Analysis
+Análisis del Código
 ---------------------------
 
-The operation of this project is straightforward: a touch detection on the sensor triggers the illumination of the next LED in the sequence (Red -> Yellow -> Green), controlled by the ``currentLED`` variable.
+La operación de este proyecto es sencilla: un toque detectado en el sensor desencadena la iluminación del siguiente LED en la secuencia (Rojo -> Amarillo -> Verde), controlado por la variable ``currentLED``.
 
-1. Define pins and initial values
+1. Define pines y valores iniciales
 
    .. code-block:: arduino
    
-      const int touchSensorPin = 2;  // Touch sensor pin
-      const int rledPin = 7;         // Red LED pin
-      const int yledPin = 8;         // Yellow LED pin
-      const int gledPin = 9;         // Green LED pin
-      int lastTouchState;            // Previous touch sensor state
-      int currentTouchState;         // Current touch sensor state
-      int currentLED = 0;            // Current LED: 0->Red, 1->Yellow, 2->Green
+      const int touchSensorPin = 2;  // Pin del sensor táctil
+      const int rledPin = 7;         // Pin del LED rojo
+      const int yledPin = 8;         // Pin del LED amarillo
+      const int gledPin = 9;         // Pin del LED verde
+      int lastTouchState;            // Estado anterior del sensor táctil
+      int currentTouchState;         // Estado actual del sensor táctil
+      int currentLED = 0;            // LED actual: 0->Rojo, 1->Amarillo, 2->Verde
    
-   These lines establish the pin connections for the Arduino board components and initialize the touch sensor and LED states.
+   Estas líneas establecen las conexiones de los pines para los componentes de la placa Arduino e inicializan el estado del sensor táctil y los LEDs.
 
-2. setup() function
+2. Función setup()
 
    .. code-block:: arduino
    
        void setup() {
-         Serial.begin(9600);              // Initialize serial communication
-         pinMode(touchSensorPin, INPUT);  // Set touch sensor pin as input
-         // Configure LED pins as outputs
+         Serial.begin(9600);              // Inicia comunicación serial
+         pinMode(touchSensorPin, INPUT);  // Configura el pin del sensor táctil como entrada
+         // Configura los pines de los LEDs como salidas
          pinMode(rledPin, OUTPUT);
          pinMode(yledPin, OUTPUT);
          pinMode(gledPin, OUTPUT);
-         currentTouchState = digitalRead(touchSensorPin); // Read initial touch state
+         currentTouchState = digitalRead(touchSensorPin); // Lee el estado inicial del toque
        }
    
-   This function configures the initial setup for the Arduino, defining input and output modes and starting serial communication for debugging.
+   Esta función configura la configuración inicial para el Arduino, definiendo modos de entrada y salida y comenzando la comunicación serial para la depuración.
 
-3. loop() function
+3. Función loop()
 
    .. code-block:: arduino
    
        void loop() {
-         lastTouchState = currentTouchState;                        // Store the last state
-         currentTouchState = digitalRead(touchSensorPin);           // Read new touch state
-         if (lastTouchState == LOW && currentTouchState == HIGH) {  // Detect touch
+         lastTouchState = currentTouchState;                        // Guarda el último estado
+         currentTouchState = digitalRead(touchSensorPin);           // Lee el nuevo estado del toque
+         if (lastTouchState == LOW && currentTouchState == HIGH) {  // Detecta toque
            Serial.println("Sensor touched");
-           turnAllLEDsOff();  // Turn off all LEDs
-           // Activate the next LED in sequence
+           turnAllLEDsOff();  // Apaga todos los LEDs
+           // Activa el siguiente LED en secuencia
            switch (currentLED) {
              case 0:
                digitalWrite(rledPin, HIGH);
@@ -137,17 +135,17 @@ The operation of this project is straightforward: a touch detection on the senso
          }
        }
 
-   The loop continuously monitors the touch sensor, cycling through the LEDs when a touch is detected, ensuring only one LED is on at any given time.
+   El bucle monitorea continuamente el sensor táctil, pasando por los LEDs cuando se detecta un toque, asegurando que solo un LED esté encendido en cualquier momento dado.
 
-4. Turn off LEDs function
+4. Función para apagar LEDs
 
    .. code-block:: arduino
       
        void turnAllLEDsOff() {
-         // Set all LED pins to LOW, turning them off
+         // Establece todos los pines de los LEDs en BAJO, apagándolos
          digitalWrite(rledPin, LOW);
          digitalWrite(yledPin, LOW);
          digitalWrite(gledPin, LOW);
        }
 
-   This auxiliary function turns off all LEDs, aiding in the cycling process.
+   Esta función auxiliar apaga todos los LEDs, ayudando en el proceso de ciclado.

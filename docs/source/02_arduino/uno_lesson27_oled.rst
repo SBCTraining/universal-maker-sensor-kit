@@ -1,117 +1,117 @@
-.. note::
+.. note:: 
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    ¡Hola, bienvenido a la comunidad de entusiastas de SunFounder Raspberry Pi, Arduino y ESP32 en Facebook! Profundiza en Raspberry Pi, Arduino y ESP32 junto con otros entusiastas.
 
-    **Why Join?**
+    **¿Por qué unirse?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Soporte experto**: Resuelve problemas postventa y desafíos técnicos con la ayuda de nuestra comunidad y equipo.
+    - **Aprender y compartir**: Intercambia consejos y tutoriales para mejorar tus habilidades.
+    - **Preestrenos exclusivos**: Accede de forma anticipada a anuncios de nuevos productos y avances.
+    - **Descuentos especiales**: Disfruta de descuentos exclusivos en nuestros productos más nuevos.
+    - **Promociones festivas y sorteos**: Participa en sorteos y promociones especiales.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 ¿Listo para explorar y crear con nosotros? Haz clic en [|link_sf_facebook|] y únete hoy mismo!
 
 .. _uno_lesson27_oled:
 
-Lesson 27: OLED Display Module (SSD1306)
-============================================
+Lección 27: Módulo de pantalla OLED (SSD1306)
+================================================
 
-In this lesson, you will learn how to program an Arduino Uno board to control an OLED display (SSD1306). We’ll cover using the Adafruit SSD1306 and GFX libraries to display text, numbers, and create scroll animations on the screen. This project is ideal for those seeking to enhance their knowledge of displaying graphics and text on small screens using the Arduino environment.
+En esta lección, aprenderás cómo programar una placa Arduino Uno para controlar una pantalla OLED (SSD1306). Veremos lo básico sobre el uso de las bibliotecas Adafruit SSD1306 y GFX para inicializar la pantalla, mostrar texto, números y crear animaciones de desplazamiento en la pantalla. Este proyecto es ideal para aquellos que desean mejorar sus conocimientos sobre la visualización de gráficos y texto en pantallas pequeñas utilizando el entorno Arduino.
 
-Required Components
+Componentes necesarios
 --------------------------
 
-In this project, we need the following components. 
+En este proyecto, necesitamos los siguientes componentes. 
 
-It's definitely convenient to buy a whole kit, here's the link: 
+Es definitivamente conveniente comprar un kit completo, aquí está el enlace:
 
 .. list-table::
     :widths: 20 20 20
     :header-rows: 1
 
-    *   - Name	
-        - ITEMS IN THIS KIT
-        - LINK
-    *   - Universal Maker Sensor Kit
+    *   - Nombre
+        - ARTÍCULOS EN ESTE KIT
+        - ENLACE
+    *   - Kit de Sensores Universal Maker
         - 94
         - |link_umsk|
 
-You can also buy them separately from the links below.
+También puedes comprarlos por separado desde los enlaces a continuación.
 
 .. list-table::
     :widths: 30 20
     :header-rows: 1
 
-    *   - Component Introduction
-        - Purchase Link
+    *   - Introducción del componente
+        - Enlace de compra
 
-    *   - Arduino UNO R3 or R4
+    *   - Arduino UNO R3 o R4
         - |link_Uno_R3_buy|
     *   - :ref:`cpn_oled`
         - \-
 
 
-Wiring
+Cableado
 ---------------------------
 
 .. image:: img/Lesson_27_OLED_circuit_uno_bb.png
     :width: 100%
 
 
-Code
+Código
 ---------------------------
 
 .. note:: 
-   To install the library, use the Arduino Library Manager and search for **"Adafruit SSD1306"** and **"Adafruit GFX"** and install it. 
+   Para instalar la librería, utiliza el Administrador de Librerías de Arduino y busca **"Adafruit SSD1306"** y **"Adafruit GFX"** e instálalas.  
 
 .. raw:: html
 
     <iframe src=https://create.arduino.cc/editor/sunfounder01/b2617291-5326-4d12-812b-78c45ced7516/preview?embed style="height:510px;width:100%;margin:10px 0" frameborder=0></iframe>
 
-Code Analysis
+Análisis del código
 ---------------------------
 
-1. **Library Inclusion and Initial Definitions**:
-   The necessary libraries for interfacing with the OLED are included. Following that, definitions regarding the OLED's dimensions and I2C address are provided.
+1. **Inclusión de bibliotecas y definiciones iniciales**:
+   Se incluyen las bibliotecas necesarias para la interfaz con el OLED. A continuación, se proporcionan las definiciones relacionadas con las dimensiones del OLED y la dirección I2C.
 
 
-   - **Adafruit SSD1306**: This library is designed to help with the interfacing of the SSD1306 OLED display. It provides methods to initialize the display, control its settings, and display content.
-   - **Adafruit GFX Library**: This is a core graphics library for displaying text, producing colors, drawing shapes, etc., on various screens including OLEDs.
+   - **Adafruit SSD1306**: Esta biblioteca está diseñada para facilitar la interfaz con la pantalla OLED SSD1306. Proporciona métodos para inicializar la pantalla, controlar su configuración y mostrar contenido.
+   - **Biblioteca Adafruit GFX**: Esta es una biblioteca gráfica básica para mostrar texto, generar colores, dibujar formas, etc., en diversas pantallas, incluidas las OLED.
 
    .. note:: 
-      To install the library, use the Arduino Library Manager and search for **"Adafruit SSD1306"** and **"Adafruit GFX"** and install it. 
+      Para instalar la librería, utiliza el Administrador de Librerías de Arduino y busca **"Adafruit SSD1306"** y **"Adafruit GFX"** e instálalas.  
 
    .. code-block:: arduino
-    
+
       #include <SPI.h>
       #include <Wire.h>
       #include <Adafruit_GFX.h>
       #include <Adafruit_SSD1306.h>
 
-      #define SCREEN_WIDTH 128  // OLED display width, in pixels
-      #define SCREEN_HEIGHT 64  // OLED display height, in pixels
+      #define SCREEN_WIDTH 128  // Ancho de la pantalla OLED, en píxeles
+      #define SCREEN_HEIGHT 64  // Alto de la pantalla OLED, en píxeles
 
       #define OLED_RESET -1
       #define SCREEN_ADDRESS 0x3C
 
-2. **Bitmap Data**:
-   Bitmap data for displaying a custom icon on the OLED screen. This data represents an image in a format that the OLED can interpret.
+2. Datos de la imagen:
+   Datos de imagen para mostrar un ícono personalizado en la pantalla OLED. Estos datos representan una imagen en un formato que la pantalla OLED puede interpretar.
 
-   You can use this online tool called |link_image2cpp| that can turn your image into an array. 
+   Puedes usar esta herramienta en línea llamada |link_image2cpp| que puede convertir tu imagen en un array. 
 
-   The ``PROGMEM`` keyword denotes that the array is stored in the program memory of the Arduino microcontroller. Storing data in program memory(PROGMEM) instead of RAM can be helpful for large amounts of data, which would otherwise take up too much space in RAM.
+   La palabra clave ``PROGMEM`` indica que el array se almacena en la memoria del programa del microcontrolador de Arduino. Almacenar los datos en la memoria del programa (PROGMEM) en lugar de en la RAM puede ser útil para grandes cantidades de datos, que de otro modo ocuparían demasiado espacio en la RAM.
 
    .. code-block:: arduino
 
       static const unsigned char PROGMEM sunfounderIcon[] = {...};
 
-3. **Setup Function (Initialization and Display)**:
-   The ``setup()`` function initializes the OLED and displays a series of patterns, texts, and animations.
+3. **Función setup (Inicialización y visualización)** :
+   La función ``setup()`` inicializa el OLED y muestra una serie de patrones, textos y animaciones.
 
    .. code-block:: arduino
 
       void setup() {
-         ...  // Serial initialization and OLED object initialization
-         ...  // Displaying various text, numbers, and animations
+         ...  // Inicialización de la comunicación serial y del objeto OLED
+         ...  // Mostrar diversos textos, números y animaciones
       }

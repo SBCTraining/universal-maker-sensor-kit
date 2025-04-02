@@ -1,27 +1,27 @@
-.. note::
+.. note:: 
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    ¡Hola, bienvenido a la Comunidad de Entusiastas de SunFounder Raspberry Pi, Arduino y ESP32 en Facebook! Profundiza en Raspberry Pi, Arduino y ESP32 junto con otros entusiastas.
 
-    **Why Join?**
+    **¿Por qué unirse?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Soporte Experto**: Resuelve problemas postventa y desafíos técnicos con la ayuda de nuestra comunidad y equipo.
+    - **Aprender y Compartir**: Intercambia consejos y tutoriales para mejorar tus habilidades.
+    - **Vistazos Exclusivos**: Accede de forma anticipada a los anuncios de nuevos productos y adelantos.
+    - **Descuentos Especiales**: Disfruta de descuentos exclusivos en nuestros productos más recientes.
+    - **Promociones Festivas y Sorteos**: Participa en sorteos y promociones especiales.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 ¿Listo para explorar y crear con nosotros? Haz clic en [|link_sf_facebook|] y únete hoy mismo!
 
-Indentation
-=============
+Indentación
+==============
 
-Indentation refers to the spaces at the beginning of a code line.
-Like standard Python programs, MicroPython programs usually run from top to bottom:
-It traverses each line in turn, runs it in the interpreter, and then continues to the next line,
-Just like you type them line by line in the Shell.
-A program that just browses the instruction list line by line is not very smart, though – so MicroPython, just like Python, has its own method to control the sequence of its program execution: indentation.
+La indentación se refiere a los espacios al inicio de una línea de código.
+Al igual que los programas estándar de Python, los programas en MicroPython generalmente se ejecutan de arriba hacia abajo:
+Recorre cada línea, la ejecuta en el intérprete y luego continúa con la siguiente línea,
+Tal como lo escribirías línea por línea en el Shell.
+Sin embargo, un programa que solo recorre la lista de instrucciones línea por línea no es muy inteligente, por lo que MicroPython, al igual que Python, tiene su propio método para controlar la secuencia de ejecución del programa: la indentación.
 
-You must put at least one space before print(), otherwise an error message "Invalid syntax" will appear. It is usually recommended to standardise spaces by pressing the Tab key uniformly.
+Debes poner al menos un espacio antes de print(), de lo contrario aparecerá el mensaje de error "Sintaxis inválida". Se recomienda estandarizar los espacios presionando la tecla Tab de manera uniforme.
 
 
 
@@ -35,7 +35,7 @@ Traceback (most recent call last):
   File "<stdin>", line 2
 SyntaxError: invalid syntax
 
-You must use the same number of spaces in the same block of code, or Python will give you an error.
+Debes usar la misma cantidad de espacios en el mismo bloque de código, o Python te dará un error.
 
 
 .. code-block:: python

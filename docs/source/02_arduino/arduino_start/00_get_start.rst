@@ -1,21 +1,21 @@
 
-.. note::
+.. note:: 
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    ¡Hola, bienvenido a la Comunidad de Entusiastas de Raspberry Pi, Arduino y ESP32 en Facebook! Profundiza más en Raspberry Pi, Arduino y ESP32 junto con otros entusiastas.
 
-    **Why Join?**
+    **¿Por qué unirte?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Soporte experto**: Resuelve problemas postventa y desafíos técnicos con la ayuda de nuestra comunidad y equipo.
+    - **Aprende y comparte**: Intercambia consejos y tutoriales para mejorar tus habilidades.
+    - **Previsualizaciones exclusivas**: Accede anticipadamente a anuncios de nuevos productos y vistas previas.
+    - **Descuentos especiales**: Disfruta de descuentos exclusivos en nuestros productos más recientes.
+    - **Promociones festivas y sorteos**: Participa en sorteos y promociones especiales durante las festividades.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 ¿Listo para explorar y crear con nosotros? Haz clic en [|link_sf_facebook|] y únete hoy!
 
 .. _get_start_arduino_ide:
 
-Get Started with Arduino
+Comienza con Arduino
 =======================================
 
 .. Arduino is an open source platform with simple software and hardware.
@@ -28,57 +28,58 @@ Get Started with Arduino
 
 .. Please follow the tutorial below to learn how to install the Arduino IDE, add libraries and upload code.
 
-.. .. toctree::
+.. 
+    .. toctree::
 ..     :maxdepth: 1
 
 ..     install_arduino_ide
 ..     download_add
 ..     upload_code
 
-If you have no idea about Arduino. There are several words I would like to show you: electronics, design, programming, and even Maker. Some of you may think these words are quite far away from us, but in fact, they are not far at all. Because Arduino can take us into the world of programming and help us realize the dream of being a Maker. 
-In this session we will learn: 
+Si no tienes idea sobre Arduino, hay varias palabras que me gustaría mostrarte: electrónica, diseño, programación e incluso Maker. Algunos de ustedes pueden pensar que estas palabras están bastante lejos de nosotros, pero en realidad, no lo están en absoluto. Porque Arduino puede introducirnos al mundo de la programación y ayudarnos a realizar el sueño de ser un Maker.
+En esta sesión aprenderemos:
 
-* What is Arduino?
-* What can Arduino do? 
-* How to build an Arduino Project?
+* ¿Qué es Arduino?
+* ¿Qué puede hacer Arduino?
+* ¿Cómo construir un proyecto con Arduino?
 
 .. _what_is:
 
-What is Arduino?
------------------
+¿Qué es Arduino?
+------------------
 
-First of all, I will give you a brief introduction to Arduino.
+Primero, te daré una breve introducción a Arduino.
 
-Arduino is a convenient, flexible, and easy-to-use open-source electronic prototyping platform, including hardware Arduino boards of various models and software Arduino IDE. It is not only suitable for engineers for rapid prototyping, but also artists, designers, hobbyists, while it is almost a must-have tool for modern Makers.
+Arduino es una plataforma abierta, flexible y fácil de usar para la creación de prototipos electrónicos, que incluye las placas de hardware de Arduino de varios modelos y el software Arduino IDE. No solo es adecuada para ingenieros que necesitan prototipos rápidos, sino también para artistas, diseñadores, aficionados, y es casi una herramienta imprescindible para los Makers modernos.
 
-Arduino is quite a large system. It has software, hardware, and a very huge online community of people who have never met each other but are able to work together because of a common hobby. Everyone in the Arduino family is using their wisdom, making with their hands, and sharing one great invention after another. And you can also be a part of it.
+Arduino es un sistema bastante grande. Tiene software, hardware y una comunidad en línea muy amplia de personas que nunca se han conocido, pero que pueden trabajar juntas debido a un hobby común. Todos en la familia Arduino están usando su ingenio, creando con sus manos y compartiendo un gran invento tras otro. Y tú también puedes ser parte de ello.
 
 .. _what_cando:
 
-What can Arduino do?
----------------------
+¿Qué puede hacer Arduino?
+---------------------------
 
-Speaking of which, you may have doubts about what Arduino can actually do. Suffice it to say, Arduino will solve all your problems.
+Hablando de esto, es posible que tengas dudas sobre lo que realmente puede hacer Arduino. Basta con decir que Arduino resolverá todos tus problemas.
 
-Technically speaking, Arduino is a programmable logic controller. It is a development board that can be used to create many exciting and creative electronic creations: such as remote-controlled cars, robotic arms, bionic robots, smart homes, etc. 
+Técnicamente hablando, Arduino es un controlador lógico programable. Es una placa de desarrollo que se puede usar para crear muchas creaciones electrónicas emocionantes y creativas: como coches a control remoto, brazos robóticos, robots biónicos, hogares inteligentes, etc.
 
-Arduino boards are straightforward, simple, and powerful, suitable for students, makers and even professional programmers. 
+Las placas Arduino son simples, fáciles de usar y poderosas, adecuadas para estudiantes, makers e incluso programadores profesionales.
 
-To this day, electronics enthusiasts worldwide continue to develop creative electronic creations based on Arduino development boards.
+Hasta el día de hoy, los entusiastas de la electrónica en todo el mundo continúan desarrollando creaciones electrónicas creativas basadas en las placas de desarrollo de Arduino.
 
 .. What is Arduino UNO?
 .. ----------------------
 
-.. The Arduino team has open sourced the Arduino development board, this means that others can manufacture products from Arduino designs. So there are currently two types of development boards available on the market. One is the official development board provided by Arduino, and the other is the compatible development board produced by other companies. ARDUINO original boards are produced by ARDUINO with arduino's Certification. Compatible development boards for Arduino are assembled and produced by third-party companies, which will be more favorable in terms of price. The Arduino team has done a lot for Arduino, so if you want to support them, consider buying Arduino original boards on the Arduino website. You can choose which board to buy according to your situation.
-.. We recommend purchasing an Arduino Uno R3 board or an compatible board for Arduino Uno R3 for a consistent learning experience in our tutorials.
+.. El equipo de Arduino ha abierto el código de la placa de desarrollo de Arduino, lo que significa que otros pueden fabricar productos a partir de los diseños de Arduino. Actualmente, existen dos tipos de placas de desarrollo disponibles en el mercado. Una es la placa de desarrollo oficial proporcionada por Arduino, y la otra es la placa de desarrollo compatible fabricada por otras empresas. Las placas originales de ARDUINO son fabricadas por ARDUINO con la certificación de Arduino. Las placas de desarrollo compatibles para Arduino son ensambladas y producidas por empresas de terceros, lo que las hace más favorables en términos de precio. El equipo de Arduino ha hecho mucho por Arduino, así que si quieres apoyarlos, considera comprar placas originales de Arduino en el sitio web de Arduino. Puedes elegir qué placa comprar según tu situación.
+.. Te recomendamos adquirir una placa Arduino Uno R3 o una placa compatible con Arduino Uno R3 para una experiencia de aprendizaje consistente en nuestros tutoriales.
 
 
 
 
-How to build an Arduino Project
------------------------------------
+Cómo construir un proyecto con Arduino
+-------------------------------------
 
-Follow these steps to learn how to use Arduino from zero!
+¡Sigue estos pasos para aprender a usar Arduino desde cero!
 
 
 .. toctree::

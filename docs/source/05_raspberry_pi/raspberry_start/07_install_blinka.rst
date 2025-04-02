@@ -1,35 +1,35 @@
-.. note::
+.. note:: 
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    ¡Hola, bienvenido a la comunidad de entusiastas de Raspberry Pi, Arduino y ESP32 de SunFounder en Facebook! Profundiza en Raspberry Pi, Arduino y ESP32 junto a otros entusiastas.
 
-    **Why Join?**
+    **¿Por qué unirse?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Soporte experto**: Resuelve problemas postventa y desafíos técnicos con la ayuda de nuestra comunidad y equipo.
+    - **Aprende y comparte**: Intercambia consejos y tutoriales para mejorar tus habilidades.
+    - **Avances exclusivos**: Obtén acceso anticipado a anuncios de nuevos productos y adelantos.
+    - **Descuentos especiales**: Disfruta de descuentos exclusivos en nuestros productos más nuevos.
+    - **Promociones festivas y sorteos**: Participa en sorteos y promociones de temporada.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 ¿Listo para explorar y crear con nosotros? Haz clic en [|link_sf_facebook|] y únete hoy mismo!
 
 .. _install_blinka:
 
-Insatll ``Adafruit_Blinka`` (CircuitPython) - Optional
-=======================================================
+Instalar ``Adafruit_Blinka`` (CircuitPython) - Opcional
+===========================================================
 
-For an enhanced experience with advanced modules, we recommend using the ``Adafruit_Blinka`` library, a key component of the CircuitPython environment. The unique feature of Blinka is its ability to enable code written for CircuitPython to run seamlessly and effortlessly on Linux computers like the Raspberry Pi.
+Para una experiencia mejorada con módulos avanzados, recomendamos utilizar la librería ``Adafruit_Blinka``, un componente clave del entorno CircuitPython. La característica única de Blinka es su capacidad para permitir que el código escrito para CircuitPython se ejecute de forma fluida y sin esfuerzo en computadoras Linux como Raspberry Pi.
 
-This library makes it simpler to use complex modules like BMP280, VL53L0X, and OLED, streamlining your project development process. With CircuitPython, programming becomes more accessible, allowing you to focus on creating robust applications without needing extensive hardware knowledge.
+Esta librería facilita el uso de módulos complejos como BMP280, VL53L0X y OLED, agilizando el proceso de desarrollo de tu proyecto. Con CircuitPython, la programación se vuelve más accesible, permitiéndote centrarte en crear aplicaciones robustas sin necesidad de conocimientos extensos de hardware.
 
-Additionally, you’ll gain the benefit of a large support community and a variety of resources to aid your learning and development.
+Además, contarás con el beneficio de una gran comunidad de soporte y diversos recursos para ayudarte en tu aprendizaje y desarrollo.
 
-We will guide you through the straightforward process of installing Adafruit_Blinka, setting the stage for you to quickly start working on your projects.
+Te guiaremos a través del sencillo proceso de instalación de Adafruit_Blinka, preparándote para que puedas comenzar a trabajar rápidamente en tus proyectos.
 
 
-Update your Raspberry Pi and Python
-----------------------------------------------
+Actualiza tu Raspberry Pi y Python
+------------------------------------------------
 
-Before installing Blinka, please use the following commands to ensure that your Raspberry Pi and Python versions are up to date:
+Antes de instalar Blinka, utiliza los siguientes comandos para asegurarte de que tu Raspberry Pi y las versiones de Python estén actualizadas:
 
 .. code-block:: bash
 
@@ -37,34 +37,34 @@ Before installing Blinka, please use the following commands to ensure that your 
    sudo apt-get upgrade
 
 
-Setup Virtual Environment
+Configurar Entorno Virtual
 ----------------------------------------------
 
-Starting from Bookworm (OS version), packages installed using ``pip`` must be installed into a Python virtual environment using ``venv``. A virtual environment is a secure container where you can install third-party modules without affecting or disrupting your system's Python.
+A partir de Bookworm (versión del sistema operativo), los paquetes instalados usando ``pip`` deben instalarse en un entorno virtual de Python utilizando ``venv``. Un entorno virtual es un contenedor seguro donde puedes instalar módulos de terceros sin afectar ni interrumpir el Python del sistema.
 
-The following command will create an "env" directory in your user directory (``~``) for the virtual Python environment.
+El siguiente comando creará un directorio "env" en tu directorio de usuario (``~``) para el entorno virtual de Python.
 
 .. code-block:: bash
    
    cd ~
    python -m venv env --system-site-packages
 
-You will need to activate the virtual environment every time the Pi is rebooted. To activate it:
+Deberás activar el entorno virtual cada vez que reinicies la Pi. Para activarlo:
 
 .. code-block:: bash
 
    source env/bin/activate
 
-You’ll see that your prompt is now prepended with (env) to indicate that you’re no longer using the system Python. Instead, you’re using the version of Python contained inside your virtual environment. Any changes you make here won’t cause problems for your system Python; nor will any new modules you install into your environment.
+Verás que tu terminal ahora tiene el prefijo (env), lo que indica que ya no estás utilizando el Python del sistema. En su lugar, estás usando la versión de Python contenida dentro de tu entorno virtual. Cualquier cambio que realices aquí no causará problemas en el Python de tu sistema; ni los nuevos módulos que instales en tu entorno afectarán al Python del sistema.
 
 .. image:: img/07_activate_env.png
 
-To deactivate, you can use ``deactivate``, but leave it active for now.
+Para desactivarlo, puedes usar ``deactivate``, pero déjalo activo por ahora.
 
-Automatic Installation
------------------------
+Instalación Automática
+--------------------------
 
-When activated in the virtual environment (you will see ``(env)`` at the beginning of the terminal command), run the following code in order. This code will execute the installation script provided by adafruit and automatically complete the remaining installation steps.
+Cuando el entorno virtual esté activado (verás ``(env)`` al principio del comando de la terminal), ejecuta el siguiente código en orden. Este código ejecutará el script de instalación proporcionado por Adafruit e instalará automáticamente los pasos restantes.
 
 .. code-block:: bash
 
@@ -73,17 +73,17 @@ When activated in the virtual environment (you will see ``(env)`` at the beginni
    wget https://raw.githubusercontent.com/adafruit/Raspberry-Pi-Installer-Scripts/master/raspi-blinka.py
    sudo -E env PATH=$PATH python3 raspi-blinka.py
 
-It may take a few minutes to run. When it finishes, it will ask you if you would like to reboot. Press Enter directly to reboot, or if you want to reboot later, enter "n" and then press Enter. When you are ready, manually reboot your raspberry pi.
+Puede que tarde unos minutos en ejecutarse. Cuando termine, te preguntará si deseas reiniciar. Presiona Enter directamente para reiniciar o, si prefieres reiniciar más tarde, escribe "n" y presiona Enter. Cuando estés listo, reinicia manualmente tu Raspberry Pi.
 
 .. image:: img/07_after_install_blinka.png
 
-Once it reboots, the connection will close. After a couple of minutes, you can reconnect.
+Una vez que se reinicie, la conexión se cerrará. Después de un par de minutos, podrás volver a conectarte.
 
 
-Blinka Test
+Prueba de Blinka
 -----------------------
 
-Create a new file called ``blinkatest.py`` with nano or your favorite text editor and put the following in:
+Crea un nuevo archivo llamado ``blinkatest.py`` con nano o tu editor de texto favorito y coloca lo siguiente:
 
 .. code-block:: python
 
@@ -93,38 +93,38 @@ Create a new file called ``blinkatest.py`` with nano or your favorite text edito
    
    print("Hello blinka!")
    
-   # Try to great a Digital input
+   # Intentar crear una entrada digital
    pin = digitalio.DigitalInOut(board.17)
    print("Digital IO ok!")
    
-   # Try to create an I2C device
+   # Intentar crear un dispositivo I2C
    i2c = busio.I2C(board.SCL, board.SDA)
    print("I2C ok!")
    
-   # Try to create an SPI device
+   # Intentar crear un dispositivo SPI
    spi = busio.SPI(board.SCLK, board.MOSI, board.MISO)
    print("SPI ok!")
    
    print("done!")
 
-Before running the code, please make sure that you have activated the virtual python environment with blinka installed:
+Antes de ejecutar el código, asegúrate de haber activado el entorno virtual de Python con Blinka instalado:
 
 .. code-block:: bash
 
    source ~/env/bin/activate
 
-Then run the following command in the command line:
+Luego, ejecuta el siguiente comando en la línea de comandos:
 
 .. code-block:: bash
 
    python blinkatest.py
 
-You should see the following, indicating digital i/o, I2C and SPI all worked.
+Deberías ver lo siguiente, lo que indica que Digital I/O, I2C y SPI funcionan correctamente.
 
 .. image:: img/07_check_blinka.png
 
 
-Reference
+Referencia
 -----------------------
 
 - |link_adafruit_blinka_guide|

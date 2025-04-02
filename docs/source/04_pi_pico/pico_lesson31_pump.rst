@@ -1,50 +1,50 @@
-.. note::
+.. note:: 
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    ¡Hola, bienvenido a la comunidad de entusiastas de Raspberry Pi, Arduino y ESP32 de SunFounder en Facebook! Profundiza en Raspberry Pi, Arduino y ESP32 con otros entusiastas.
 
-    **Why Join?**
+    **¿Por qué unirse?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Soporte Experto**: Resuelve problemas post-venta y desafíos técnicos con la ayuda de nuestra comunidad y equipo.
+    - **Aprende y Comparte**: Intercambia consejos y tutoriales para mejorar tus habilidades.
+    - **Avances Exclusivos**: Obtén acceso anticipado a anuncios de nuevos productos y avances.
+    - **Descuentos Especiales**: Disfruta de descuentos exclusivos en nuestros productos más nuevos.
+    - **Promociones Festivas y Sorteos**: Participa en sorteos y promociones de temporada.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 ¿Listo para explorar y crear con nosotros? Haz clic en [|link_sf_facebook|] y únete hoy mismo!
 
 .. _pico_lesson31_pump:
 
-Lesson 31: Centrifugal Pump
+Lección 31: Bomba Centrífuga
 ==================================
 
-In this lesson, you will learn how to operate a centrifugal pump using the Raspberry Pi Pico W and an L9110 motor control board. We'll guide you through the process of configuring two PWM (Pulse Width Modulation) pins to control the motor. You'll set up the pump to run for 5 seconds and then turn off. This practical exercise offers a valuable opportunity to delve into motor control mechanisms and PWM signals, crucial in microcontroller programming. 
+En esta lección, aprenderás a operar una bomba centrífuga utilizando el Raspberry Pi Pico W y una placa de control de motor L9110. Te guiaremos a través del proceso de configurar dos pines PWM (Modulación por Ancho de Pulso) para controlar el motor. Configurarás la bomba para que funcione durante 5 segundos y luego se apague. Este ejercicio práctico ofrece una valiosa oportunidad para profundizar en los mecanismos de control de motores y señales PWM, aspectos clave en la programación de microcontroladores.
 
-Required Components
+Componentes Requeridos
 --------------------------
 
-In this project, we need the following components. 
+En este proyecto, necesitamos los siguientes componentes.
 
-It's definitely convenient to buy a whole kit, here's the link: 
+Es muy conveniente comprar un kit completo, aquí tienes el enlace:
 
 .. list-table::
     :widths: 20 20 20
     :header-rows: 1
 
-    *   - Name	
-        - ITEMS IN THIS KIT
-        - LINK
-    *   - Universal Maker Sensor Kit
+    *   - Nombre
+        - ARTÍCULOS EN ESTE KIT
+        - ENLACE
+    *   - Kit Sensor Universal Maker
         - 94
         - |link_umsk|
 
-You can also buy them separately from the links below.
+También puedes comprarlos por separado desde los siguientes enlaces.
 
 .. list-table::
     :widths: 30 20
     :header-rows: 1
 
-    *   - Component Introduction
-        - Purchase Link
+    *   - Introducción del componente
+        - Enlace de compra
 
     *   - Raspberry Pi Pico W
         - \-
@@ -56,14 +56,14 @@ You can also buy them separately from the links below.
         - |link_breadboard_buy|
 
 
-Wiring
+Conexión
 ---------------------------
 
 .. image:: img/Lesson_31_Pump_pico_bb.png
     :width: 100%
 
 
-Code
+Código
 ---------------------------
 
 .. code-block:: python
@@ -74,24 +74,24 @@ Code
    pump_a = PWM(Pin(26), freq=1000)
    pump_b = PWM(Pin(27), freq=1000)
    
-   # turn on pump
+   # encender la bomba
    pump_a.duty_u16(0)
-   pump_b.duty_u16(65535)  # speed(0-65535)
+   pump_b.duty_u16(65535)  # velocidad (0-65535)
    
    time.sleep(5)
    
-   # turn off pump
+   # apagar la bomba
    pump_a.duty_u16(0)
    pump_b.duty_u16(0)
 
 
-Code Analysis
+Análisis del Código
 ---------------------------
 
-#. Importing Libraries
+#. Importación de Bibliotecas
 
-   - The ``machine`` module is imported to interact with the GPIO pins and PWM functionalities of the Raspberry Pi Pico W.
-   - The ``time`` module is used for creating delays in the code.
+   - Se importa el módulo ``machine`` para interactuar con los pines GPIO y las funcionalidades PWM del Raspberry Pi Pico W.
+   - Se importa el módulo ``time`` para crear retrasos en el código.
 
    .. raw:: html
 
@@ -102,10 +102,10 @@ Code Analysis
       from machine import Pin, PWM
       import time
 
-#. Initializing PWM Objects
+#. Inicialización de Objetos PWM
 
-   - Two PWM objects, ``pump_a`` and ``pump_b``, are created. They correspond to GPIO pins 26 and 27, respectively.
-   - The frequency for PWM is set to 1000 Hz, a common frequency for motor control.
+   - Se crean dos objetos PWM, ``pump_a`` y ``pump_b``, que corresponden a los pines GPIO 26 y 27, respectivamente.
+   - La frecuencia para PWM se establece en 1000 Hz, una frecuencia común para el control de motores.
 
    .. raw:: html
 
@@ -116,10 +116,10 @@ Code Analysis
       pump_a = PWM(Pin(26), freq=1000)
       pump_b = PWM(Pin(27), freq=1000)
 
-#. Turning on the Pump
+#. Encender la Bomba
 
-   - ``pump_a.duty_u16(0)`` sets the duty cycle of ``pump_a`` pin to 0, while ``pump_b.duty_u16(65535)`` sets the duty cycle of ``pump_b`` pin to 65535, running the motor at full speed. For more details, please refer to :ref:`the working principle of L9110 <cpn_l9110_principle>`.
-   - The pump runs for 5 seconds, controlled by ``time.sleep(5)``.
+   - ``pump_a.duty_u16(0)`` establece el ciclo de trabajo del pin ``pump_a`` en 0, mientras que ``pump_b.duty_u16(65535)`` establece el ciclo de trabajo del pin ``pump_b`` en 65535, haciendo funcionar el motor a su máxima velocidad. Para más detalles, consulta :ref:`el principio de funcionamiento del L9110 <cpn_l9110_principle>`.
+   - La bomba funciona durante 5 segundos, controlada por ``time.sleep(5)``.
 
    .. raw:: html
 
@@ -127,17 +127,17 @@ Code Analysis
 
    .. code-block:: python
 
-      # turn on pump
+      # encender la bomba
       pump_a.duty_u16(0)
-      pump_b.duty_u16(65535)  # speed(0-65535)
+      pump_b.duty_u16(65535)  # velocidad (0-65535)
       time.sleep(5)
 
-#. Turning off the Pump
+#. Apagar la Bomba
 
-   Both ``pump_a`` and ``pump_b`` are set to a duty cycle of 0, stopping the motor.
+   Ambos ``pump_a`` y ``pump_b`` se establecen en un ciclo de trabajo de 0, deteniendo el motor.
 
    .. code-block:: python
 
-      # turn off pump
+      # apagar la bomba
       pump_a.duty_u16(0)
       pump_b.duty_u16(0)

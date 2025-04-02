@@ -1,37 +1,37 @@
-.. note::
+.. note:: 
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    ¡Hola, bienvenido a la Comunidad de Entusiastas de Raspberry Pi, Arduino y ESP32 en Facebook! Profundiza más en Raspberry Pi, Arduino y ESP32 junto con otros entusiastas.
 
-    **Why Join?**
+    **¿Por qué unirte?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Soporte experto**: Resuelve problemas postventa y desafíos técnicos con la ayuda de nuestra comunidad y equipo.
+    - **Aprende y comparte**: Intercambia consejos y tutoriales para mejorar tus habilidades.
+    - **Previsualizaciones exclusivas**: Accede anticipadamente a anuncios de nuevos productos y vistas previas.
+    - **Descuentos especiales**: Disfruta de descuentos exclusivos en nuestros productos más recientes.
+    - **Promociones festivas y sorteos**: Participa en sorteos y promociones especiales durante las festividades.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 ¿Listo para explorar y crear con nosotros? Haz clic en [|link_sf_facebook|] y únete hoy!
 
 .. _connect_blynk:
 
-1.4 Connecting the R4 board to Blynk
+1.4 Conectando la placa R4 a Blynk
 ========================================
 
-#. Reconnect the ESP8266 module and R4 board, here the software serial is used, so TX and RX are connected to pins 2 and 3 of R4 board respectively.
+#. Reconecta el módulo ESP8266 y la placa R4. Aquí se utiliza la comunicación serial por software, por lo que TX y RX deben conectarse a los pines 2 y 3 de la placa R4 respectivamente.
 
   .. note::
 
-       The ESP8266 module requires a high current to provide a stable operating environment, so make sure the 9V battery is plugged in.
+       El módulo ESP8266 requiere una corriente alta para proporcionar un entorno de operación estable, así que asegúrate de que la batería de 9V esté conectada.
 
   .. image:: img/wiring_r4_quickstart.png
 
-#. Open the ``00-Blynk_quick_start.ino`` file under the path of ``ultimate-sensor-kit\iot_project\wifi\00-Blynk_quick_start``. Or copy this code into **Arduino IDE**.
+#. Abre el archivo ``00-Blynk_quick_start.ino`` en la ruta ``ultimate-sensor-kit\iot_project\wifi\00-Blynk_quick_start``. O copia este código en **Arduino IDE**.
 
    .. raw:: html
        
        <iframe src=https://create.arduino.cc/editor/sunfounder01/421997b2-aaa7-45d7-926a-f0aec50db99a/preview?embed style="height:510px;width:100%;margin:10px 0" frameborder=0></iframe>
 
-#. Replace the following three lines of code that you can copy from your account's **Device info** page. These three lines of code will allow your R4 board to find your blynk account.
+#. Reemplaza las siguientes tres líneas de código que puedes copiar desde la página de **Información del dispositivo** de tu cuenta. Estas tres líneas de código permitirán que tu placa R4 encuentre tu cuenta de Blynk.
 
    .. code-block:: arduino
 
@@ -41,27 +41,27 @@
    
    .. image:: img/sp20220614174721.png
 
-#. Fill in the ``ssid`` and ``password`` of the WiFi you are using.
+#. Completa el ``ssid`` y la ``password`` de la red WiFi que estás utilizando.
 
    .. code-block:: arduino
 
        char ssid[] = "ssid";
        char pass[] = "password";
 
-#. Upload the code to the R4 board, then open the serial monitor and set the baud rate to 115200. when the R4 board communicates with Blynk successfully, the serial monitor will show the ``ready`` character.
+#. Sube el código a la placa R4, luego abre el monitor serial y ajusta la tasa de baudios a 115200. Cuando la placa R4 se comunique exitosamente con Blynk, el monitor serial mostrará el carácter ``ready``.
 
    .. image:: img/sp220607_170223.png
 
    .. note::
    
-       If the message ``ESP is not responding`` appears when you connect, please follow these steps.
+       Si aparece el mensaje ``ESP is not responding`` cuando te conectas, sigue estos pasos.
 
-       * Make sure the 9V battery is plugged in.
-       * Reset the ESP8266 module by connecting the pin RST to GND for 1 second, then unplug it.
-       * Press the reset button on the R4 board.
+       * Asegúrate de que la batería de 9V esté conectada.
+       * Reinicia el módulo ESP8266 conectando el pin RST a GND durante 1 segundo, luego desconéctalo.
+       * Pulsa el botón de reinicio en la placa R4.
 
-       Sometimes, you may need to repeat the above operation 3-5 times, please be patient.
+       A veces, es posible que necesites repetir la operación anterior entre 3 y 5 veces, por favor, ten paciencia.
 
-#. The status of Blynk will change from **offline** to **online**.
+#. El estado de Blynk cambiará de **offline** a **online**.
 
     .. image:: img/sp220607_170326.png

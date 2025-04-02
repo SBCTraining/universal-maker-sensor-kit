@@ -1,20 +1,20 @@
-.. note::
+.. note:: 
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    ¡Hola, bienvenido a la Comunidad de Entusiastas de Raspberry Pi, Arduino y ESP32 en Facebook! Profundiza más en Raspberry Pi, Arduino y ESP32 junto con otros entusiastas.
 
-    **Why Join?**
+    **¿Por qué unirte?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Soporte experto**: Resuelve problemas postventa y desafíos técnicos con la ayuda de nuestra comunidad y equipo.
+    - **Aprende y comparte**: Intercambia consejos y tutoriales para mejorar tus habilidades.
+    - **Previsualizaciones exclusivas**: Accede anticipadamente a anuncios de nuevos productos y vistas previas.
+    - **Descuentos especiales**: Disfruta de descuentos exclusivos en nuestros productos más recientes.
+    - **Promociones festivas y sorteos**: Participa en sorteos y promociones especiales durante las festividades.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 ¿Listo para explorar y crear con nosotros? Haz clic en [|link_sf_facebook|] y únete hoy.
 
 .. _cpn_ttmotor:
 
-TT Motor
+Motor TT
 ==========================
 
 .. image:: img/34_tt_motor.png
@@ -26,27 +26,27 @@ TT Motor
     <br/>
 
 
-A TT motor is a type of DC motor that has a gearbox attached to it. The gearbox reduces the speed of the motor and increases its torque. A TT motor is commonly used in applications such as driving wheels, propellers, fans, among others. A TT motor has two wires: a positive wire and a negative wire. The positive wire is usually red and the negative wire is usually black.
+Un motor TT es un tipo de motor de corriente continua (DC) que tiene un reductor de velocidad (caja de engranajes) acoplado. La caja de engranajes reduce la velocidad del motor y aumenta su par motor. Los motores TT se utilizan comúnmente en aplicaciones como la conducción de ruedas, hélices, ventiladores, entre otros. Un motor TT tiene dos cables: uno positivo y uno negativo. El cable positivo generalmente es rojo y el cable negativo es generalmente negro.
 
-A TT DC gearbox motor with a 1:48 gear ratio is used in the product, it comes with 2 x 200mm wires with 0.1” male connectors that fit into a breadboard. Perfect for plugging into a breadboard or terminal block.
+El motor con caja de engranajes DC TT con una relación de engranaje de 1:48 se utiliza en este producto. Viene con 2 cables de 200 mm con conectores macho de 0.1” que se ajustan a una placa de pruebas (breadboard). Perfecto para conectar en una placa de pruebas o bloque terminal.
 
-You can power these motors with 3 ~ 6VDC, but of course, they will go a little faster at higher voltages.
+Puedes alimentar estos motores con 3 ~ 6VDC, pero, por supuesto, irán un poco más rápido con voltajes más altos.
 
 
-**Technical Details** 
+**Detalles técnicos**
 
-* Rated Voltage: 3~6V
-* Continuous No-Load Current: 150mA +/- 10%
-* Min. Operating Speed (3V): 90+/- 10% RPM
-* Min. Operating Speed (6V): 200+/- 10% RPM
-* Stall Torque (3V): 0.4kg.cm
-* Stall Torque (6V): 0.8kg.cm
-* Gear Ratio: 1:48
-* Body Dimensions: 70 x 22 x 18mm
-* Wires Length: 200mm & 28 AWG
-* Weight: 30.6g
+* Voltaje nominal: 3~6V
+* Corriente continua sin carga: 150mA +/- 10%
+* Velocidad mínima de funcionamiento (3V): 90+/- 10% RPM
+* Velocidad mínima de funcionamiento (6V): 200+/- 10% RPM
+* Par de estancamiento (3V): 0.4kg.cm
+* Par de estancamiento (6V): 0.8kg.cm
+* Relación de engranaje: 1:48
+* Dimensiones del cuerpo: 70 x 22 x 18mm
+* Longitud de los cables: 200mm & 28 AWG
+* Peso: 30.6g
 
-**Dimensional Drawing**
+**Dibujo dimensional**
 
 .. image:: img/34_motor_size.png
     :width: 65%
@@ -56,7 +56,7 @@ You can power these motors with 3 ~ 6VDC, but of course, they will go a little f
     <br/>
 
 
-Example
+Ejemplo
 ---------------------------
 * :ref:`uno_lesson34_motor` (Arduino UNO)
 * :ref:`esp32_lesson34_motor` (ESP32)

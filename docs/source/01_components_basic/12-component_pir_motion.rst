@@ -1,57 +1,58 @@
-.. note::
+.. note:: 
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    ¡Hola, bienvenido a la Comunidad de Entusiastas de SunFounder Raspberry Pi & Arduino & ESP32 en Facebook! Profundiza en Raspberry Pi, Arduino y ESP32 con otros entusiastas.
 
-    **Why Join?**
+    **¿Por qué unirse?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Soporte experto**: Resuelve problemas postventa y desafíos técnicos con la ayuda de nuestra comunidad y equipo.
+    - **Aprende y comparte**: Intercambia consejos y tutoriales para mejorar tus habilidades.
+    - **Vistas previas exclusivas**: Accede antes que nadie a nuevos anuncios de productos y avances.
+    - **Descuentos especiales**: Disfruta de descuentos exclusivos en nuestros productos más nuevos.
+    - **Promociones festivas y sorteos**: Participa en sorteos y promociones especiales.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 ¿Listo para explorar y crear con nosotros? Haz clic en [|link_sf_facebook|] y únete hoy mismo!
 
 .. _cpn_pir_motion:
 
-PIR Motion Module (HC-SR501)
-=====================================
+Módulo de Sensor de Movimiento PIR (HC-SR501)
+====================================================
 
 .. image:: img/12_pir_module.png
     :width: 300
     :align: center
 
 
-The Passive Infrared(PIR) Motion Sensor is a sensor that detects motion. It is commonly used in security systems and automatic lighting systems. The sensor has two slots that detect infrared radiation. When an object, such as a person, passes in front of the sensor, it detects a change in the amount of infrared radiation and triggers an output signal.
+El sensor de movimiento PIR (infrarrojo pasivo) es un sensor que detecta movimiento. Se utiliza comúnmente en sistemas de seguridad y en sistemas de iluminación automática. El sensor tiene dos ranuras que detectan la radiación infrarroja. Cuando un objeto, como una persona, pasa frente al sensor, detecta un cambio en la cantidad de radiación infrarroja y genera una señal de salida.
 
-Specification
+
+Especificaciones
 ---------------------------
-* Supply Voltage: 5V~20V; 
-* Output: Defaults to low; goes high when someone passes by.
-* Delay Time: 5~200s(adjustable)
-* Blocking Time: 8s
-* Sensing Range: <120°, within 7 meters(adjustable)
-* Trigger Mode: L Non-repeatable trigger mode, H Repeatable trigger mode
-* PCB size: 32 x 24mm
-* Lens size: 23mm
-* Working temperature: -15~+70℃
+* Voltaje de suministro: 5V~20V; 
+* Salida: Predeterminado a bajo; se pone alto cuando alguien pasa por delante.
+* Tiempo de retardo: 5~200s (ajustable)
+* Tiempo de bloqueo: 8s
+* Rango de detección: <120°, hasta 7 metros (ajustable)
+* Modo de activación: L Modo de activación no repetible, H Modo de activación repetible
+* Tamaño de la PCB: 32 x 24mm
+* Tamaño de la lente: 23mm
+* Temperatura de funcionamiento: -15~+70℃
 
 
 Pinout
 ---------------------------
-* **VCC**: This is the positive power supply input from the main control. 
-* **GND**: Ground connection.
-* **DO**: Digital output. Defaults to low; goes high when someone passes by.
+* **VCC**: Entrada de suministro de energía positiva desde el control principal.
+* **GND**: Conexión a tierra.
+* **DO**: Salida digital. Predeterminado a bajo; se pone alto cuando se detecta movimiento.
 
-Principle
+Principio
 ---------------------------
-The PIR sensor is split into two slots that are connected to a differential amplifier. Whenever a stationary object is in front of the sensor, the two slots receive the same amount of radiation and the output is zero. Whenever a moving object is in front of the sensor, one of the slots receives more radiation than the other , which makes the output fluctuate high or low. This change in output voltage is a result of detection of motion.
+El sensor PIR está dividido en dos ranuras conectadas a un amplificador diferencial. Siempre que un objeto está estacionario frente al sensor, ambas ranuras reciben la misma cantidad de radiación y la salida es cero. Cuando un objeto en movimiento pasa frente al sensor, una de las ranuras recibe más radiación que la otra, lo que provoca que la salida fluctúe entre alto o bajo. Este cambio en la salida de voltaje es el resultado de la detección del movimiento.
 
 .. image:: img/12_pir_working_principle.jpg
     :width: 500
     :align: center
 
-After the sensing module is wired, there is a one-minute initialization. During the initialization, module will output for 0~3 times at intervals. Then the module will be in the standby mode. Please keep the interference of light source and other sources away from the surface of the module so as to avoid the misoperation caused by the interfering signal. Even you’d better use the module without too much wind, because the wind can also interfere with the sensor.
+Después de conectar el módulo de detección, hay un tiempo de inicialización de un minuto. Durante la inicialización, el módulo enviará entre 0 y 3 señales a intervalos. Luego, el módulo pasará al modo de espera. Asegúrese de mantener alejadas las fuentes de luz y otras interferencias de la superficie del módulo para evitar errores causados por señales interferentes. También es mejor usar el módulo sin mucho viento, ya que el viento también puede interferir con el sensor.
 
 .. image:: img/12_pir_module_back.png
     :width: 350
@@ -61,22 +62,22 @@ After the sensing module is wired, there is a one-minute initialization. During 
     
     <br/><br/> 
 
-Distance Adjustment
+Ajuste de distancia
+^^^^^^^^^^^^^^^^^^^^^
+Al girar el potenciómetro de ajuste de distancia en sentido horario, el rango de detección aumenta, y el rango máximo de detección es de aproximadamente 0-7 metros. Si se gira en sentido antihorario, el rango de detección se reduce, y el rango mínimo de detección es de aproximadamente 0-3 metros.
+
+Ajuste de retardo
 ^^^^^^^^^^^^^^^^^^^^
-Turning the knob of the distance adjustment potentiometer clockwise, the range of sensing distance increases, and the maximum sensing distance range is about 0-7 meters. If turn it anticlockwise, the range of sensing distance is reduced, and the minimum sensing distance range is about 0-3 meters.
+Girar el potenciómetro de ajuste de retardo en sentido horario aumenta el retardo de detección. El máximo de retardo de detección puede alcanzar hasta 300 segundos. Por el contrario, si se gira en sentido antihorario, el retardo se acorta con un mínimo de 5 segundos.
 
-Delay adjustment
-^^^^^^^^^^^^^^^^^^^^
-Rotate the knob of the delay adjustment potentiometer clockwise, you can also see the sensing delay increasing. The maximum of the sensing delay can reach up to 300s. On the contrary, if rotate it anticlockwise, you can shorten the delay with a minimum of 5s.
+Dos modos de activación
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+Seleccionar diferentes modos usando el capuchón del jumper.
 
-Two Trigger Modes
-^^^^^^^^^^^^^^^^^^^^
-Choosing different modes by using the jumper cap.
+* H: Modo de activación repetible, después de detectar el cuerpo humano, el módulo emite un nivel alto. Durante el período de retardo posterior, si alguien entra en el rango de detección, la salida seguirá siendo alta.
+* L: Modo de activación no repetible, emite un nivel alto al detectar el cuerpo humano. Después del retardo, la salida cambiará de alto a bajo automáticamente.
 
-* H: Repeatable trigger mode, after sensing the human body, the module outputs high level. During the subsequent delay period, if somebody enters the sensing range,the output will keep being the high level.
-* L: Non-repeatable trigger mode, outputs high level when it senses the human body. After the delay, the output will change from high level into low level automatically.
-
-Example
+Ejemplo
 ---------------------------
 * :ref:`uno_lesson12_pir_motion` (Arduino UNO)
 * :ref:`esp32_lesson12_pir_motion` (ESP32)

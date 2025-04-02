@@ -1,52 +1,52 @@
-.. note::
+.. note:: 
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    ¡Hola, bienvenido a la comunidad de entusiastas de SunFounder en Facebook sobre Raspberry Pi, Arduino y ESP32! Sumérgete más a fondo en Raspberry Pi, Arduino y ESP32 con otros aficionados.
 
-    **Why Join?**
+    **¿Por qué unirse?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Soporte de Expertos**: Resuelve problemas posventa y desafíos técnicos con ayuda de nuestra comunidad y equipo.
+    - **Aprender y Compartir**: Intercambia consejos y tutoriales para mejorar tus habilidades.
+    - **Previsualizaciones Exclusivas**: Obtén acceso anticipado a anuncios de nuevos productos y avances exclusivos.
+    - **Descuentos Especiales**: Disfruta de descuentos exclusivos en nuestros productos más nuevos.
+    - **Promociones Festivas y Sorteos**: Participa en sorteos y promociones festivas.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 ¿Listo para explorar y crear con nosotros? Haz clic en [|link_sf_facebook|] ¡y únete hoy!
 
 .. _esp32_lesson07_speed:
 
-Lesson 07: Infrared Speed Sensor Module
-==========================================
+Lección 07: Módulo Sensor de Velocidad Infrarrojo
+======================================================
 
-In this lesson, you'll learn how to use an ESP32 Development Board with a Speed Sensor Module to detect obstructions. We'll see how the sensor sends a high signal when there's an obstruction and a low signal when the path is clear. This project is ideal for those looking to grasp sensor integration and basic input/output operations in a practical setting using the ESP32 platform.
+En esta lección, aprenderás a usar una Placa de Desarrollo ESP32 con un Módulo Sensor de Velocidad para detectar obstrucciones. Veremos cómo el sensor envía una señal alta cuando hay una obstrucción y una señal baja cuando el camino está despejado. Este proyecto es ideal para aquellos que buscan entender la integración de sensores y las operaciones básicas de entrada/salida en un entorno práctico utilizando la plataforma ESP32.
 
-Required Components
---------------------------
+Componentes Necesarios
+----------------------------
 
-In this project, we need the following components. 
+En este proyecto, necesitamos los siguientes componentes.
 
-It's definitely convenient to buy a whole kit, here's the link: 
+Es definitivamente conveniente comprar un kit completo, aquí está el enlace:
 
 .. list-table::
     :widths: 20 20 20
     :header-rows: 1
 
-    *   - Name	
-        - ITEMS IN THIS KIT
-        - LINK
-    *   - Universal Maker Sensor Kit
+    *   - Nombre	
+        - ARTÍCULOS EN ESTE KIT
+        - ENLACE
+    *   - Kit Universal de Sensores para Creadores
         - 94
         - |link_umsk|
 
-You can also buy them separately from the links below.
+También puedes comprarlos por separado en los enlaces a continuación.
 
 .. list-table::
     :widths: 30 20
     :header-rows: 1
 
-    *   - Component Introduction
-        - Purchase Link
+    *   - Introducción al Componente
+        - Enlace de Compra
 
-    *   - ESP32 & Development Board (:ref:`cpn_esp32_wroom_32e`)
+    *   - ESP32 & Placa de Desarrollo (:ref:`cpn_esp32_wroom_32e`)
         - |link_esp32_camera_pro_kit_buy|
     *   - :ref:`cpn_breadboard`
         - |link_breadboard_buy|
@@ -54,34 +54,34 @@ You can also buy them separately from the links below.
         - |link_speed_sensor_module_buy|
 
 
-Wiring
+Cableado
 ---------------------------
 
 .. image:: img/Lesson_07_Speed_esp32_bb.png
     :width: 100%
 
 
-Code
+Código
 ---------------------------
 
 .. raw:: html
 
     <iframe src=https://create.arduino.cc/editor/sunfounder01/bdf494c6-c0b1-4dbd-89bc-ce671db41bbb/preview?embed style="height:510px;width:100%;margin:10px 0" frameborder=0></iframe>
 
-Code Analysis
+Análisis del Código
 ---------------------------
 
-#. Define the sensor pin
+1. Definir el pin del sensor
 
-   The sensor pin is declared as a constant integer and is assigned pin number 25 of the ESP32.
+   El pin del sensor se declara como un entero constante y se asigna al pin número 25 de la ESP32.
 
    .. code-block:: arduino
 
       const int sensorPin = 25;
 
-#. Setup function
+2. Función de configuración
 
-   This function initializes the serial communication at 9600 baud rate and sets the sensorPin as an input.
+   Esta función inicializa la comunicación serial a una tasa de baudios de 9600 y configura el pin del sensor como una entrada.
 
    .. code-block:: arduino
     
@@ -90,11 +90,11 @@ Code Analysis
         pinMode(sensorPin, INPUT);
       }
 
-#. Loop function
+3. Función de bucle
 
-   The loop function continuously checks the sensor pin's status.
-   If the sensor pin reads HIGH, it prints "Obstruction detected" to the Serial Monitor.
-   If the sensor pin is LOW, it prints "Unobstructed".
+   La función de bucle verifica continuamente el estado del pin del sensor. 
+   Si el pin del sensor lee HIGH, imprime "Obstrucción detectada" en el Monitor Serial. 
+   Si el pin del sensor está en LOW, imprime "Sin obstrucción".
 
    .. code-block:: arduino
 
@@ -106,9 +106,9 @@ Code Analysis
         }
       }
 
-#. More
+4. Más
 
-   If an encoder is mounted on the motor, the rotational speed of the motor can be calculated by counting the number of times an obstruction passes the sensor within a specific period.
+   Si se monta un codificador en el motor, la velocidad de rotación del motor puede calcularse contando el número de veces que una obstrucción pasa por el sensor dentro de un período específico.
 
    .. image:: img/Lesson_07_Encoder_Disk.png
       :align: center

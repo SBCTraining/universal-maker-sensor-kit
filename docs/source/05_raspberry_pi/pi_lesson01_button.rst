@@ -1,106 +1,106 @@
-.. note::
+.. note:: 
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    ¡Hola, bienvenido a la comunidad de entusiastas de Raspberry Pi, Arduino y ESP32 de SunFounder en Facebook! Profundiza en Raspberry Pi, Arduino y ESP32 junto a otros entusiastas.
 
-    **Why Join?**
+    **¿Por qué unirse?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Soporte experto**: Resuelve problemas postventa y desafíos técnicos con la ayuda de nuestra comunidad y equipo.
+    - **Aprende y comparte**: Intercambia consejos y tutoriales para mejorar tus habilidades.
+    - **Avances exclusivos**: Obtén acceso anticipado a anuncios de nuevos productos y adelantos.
+    - **Descuentos especiales**: Disfruta de descuentos exclusivos en nuestros productos más nuevos.
+    - **Promociones festivas y sorteos**: Participa en sorteos y promociones de temporada.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 ¿Listo para explorar y crear con nosotros? Haz clic en [|link_sf_facebook|] y únete hoy mismo!
 
 .. _pi_lesson01_button:
 
-Lesson 01: Button Module
+Lección 01: Módulo de Botón
 ==================================
 
-In this lesson, you will learn the basics of using a button with Raspberry Pi. We will show you how to connect a button to GPIO pin 17 and write a simple Python script to monitor its state. You'll learn how to program the Raspberry Pi to detect when the button is pressed and released, and respond with appropriate messages. This introductory project is an excellent way to get familiar with GPIO interaction and basic Python scripting, making it well-suited for beginners starting their journey in Raspberry Pi and hardware programming.
+En esta lección, aprenderás los conceptos básicos de cómo utilizar un botón con Raspberry Pi. Te mostraremos cómo conectar un botón al pin GPIO 17 y escribir un script simple en Python para monitorear su estado. Aprenderás cómo programar la Raspberry Pi para detectar cuándo se presiona y se suelta el botón, y responder con los mensajes correspondientes. Este proyecto introductorio es una excelente manera de familiarizarse con la interacción de GPIO y la programación básica en Python, lo que lo hace ideal para principiantes que comienzan su camino en Raspberry Pi y programación de hardware.
 
-Required Components
+Componentes necesarios
 --------------------------
 
-In this project, we need the following components. 
+Para este proyecto, necesitamos los siguientes componentes.
 
-It's definitely convenient to buy a whole kit, here's the link: 
+Es conveniente comprar un kit completo, aquí tienes el enlace:
 
 .. list-table::
     :widths: 20 20 20
     :header-rows: 1
 
-    *   - Name	
-        - ITEMS IN THIS KIT
-        - LINK
+    *   - Nombre	
+        - ARTÍCULOS EN ESTE KIT
+        - ENLACE
     *   - Universal Maker Sensor Kit
         - 94
         - |link_umsk|
 
-You can also buy them separately from the links below.
+También puedes comprarlos por separado en los enlaces a continuación.
 
 .. list-table::
     :widths: 30 20
     :header-rows: 1
 
-    *   - Component Introduction
-        - Purchase Link
+    *   - Introducción al componente
+        - Enlace de compra
 
     *   - Raspberry Pi 5
-        - \-
+        - |link_rpi5_buy|
     *   - :ref:`cpn_button`
         - \-
     *   - :ref:`cpn_breadboard`
         - |link_breadboard_buy|
 
 
-Wiring
+Conexiones
 ---------------------------
 
 .. image:: img/Lesson_01_Button_Module_Pi_bb.png
     :width: 100%
 
 
-Code
+Código
 ---------------------------
 
 .. code-block:: python
 
    from gpiozero import Button
 
-   # Initialize button connected to GPIO pin 17
+   # Inicializa el botón conectado al pin GPIO 17
    button = Button(17)
 
-   # Continuously check the button state
+   # Verifica continuamente el estado del botón
    while True:
       if button.is_pressed:
-         print("Button is pressed")  # Print when button is pressed
+         print("Button is pressed")  # Imprime cuando el botón está presionado
       else:
-         print("Button is not pressed")  # Print when button is not pressed
+         print("Button is not pressed")  # Imprime cuando el botón no está presionado
 
 
-Code Analysis
+Análisis del código
 ---------------------------
 
-#. Import Library
+#. Importar la librería
    
-   Import the ``Button`` class from the ``gpiozero`` library for button control.
+   Importa la clase ``Button`` de la librería ``gpiozero`` para controlar el botón.
 
    .. code-block:: python
 
       from gpiozero import Button
 
-#. Initialize the Button
+#. Inicializar el botón
    
-   Create a ``Button`` object connected to GPIO pin 17.
+   Crea un objeto ``Button`` conectado al pin GPIO 17.
 
    .. code-block:: python
 
       button = Button(17)
 
-#. Monitor Button State Continuously
+#. Monitorear el estado del botón continuamente
    
-   Use a ``while True`` loop to continuously check the state of the button. If the button is pressed (``button.is_pressed``), it prints "Button is pressed". Otherwise, it prints "Button is not pressed".
+   Utiliza un bucle ``while True`` para verificar continuamente el estado del botón. Si el botón está presionado (``button.is_pressed``), imprime "El botón está presionado". De lo contrario, imprime "El botón no está presionado".
 
    .. code-block:: python
 

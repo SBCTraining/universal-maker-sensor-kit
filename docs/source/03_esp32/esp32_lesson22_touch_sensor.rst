@@ -1,52 +1,52 @@
-.. note::
+.. note:: 
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    ¡Hola, bienvenido a la Comunidad de Entusiastas de Raspberry Pi, Arduino y ESP32 en Facebook! Profundiza en el mundo de Raspberry Pi, Arduino y ESP32 junto con otros entusiastas.
 
-    **Why Join?**
+    **¿Por qué unirte?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Soporte experto**: Resuelve problemas postventa y desafíos técnicos con la ayuda de nuestra comunidad y equipo.
+    - **Aprende y comparte**: Intercambia consejos y tutoriales para mejorar tus habilidades.
+    - **Vistas previas exclusivas**: Accede a nuevos anuncios de productos y avances antes que nadie.
+    - **Descuentos especiales**: Disfruta de descuentos exclusivos en nuestros productos más recientes.
+    - **Promociones festivas y sorteos**: Participa en sorteos y promociones de temporada.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 ¿Estás listo para explorar y crear con nosotros? Haz clic en [|link_sf_facebook|] y únete hoy mismo!
 
 .. _esp32_lesson22_touch_sensor:
 
-Lesson 22: Touch Sensor Module
-==================================
+Lección 22: Módulo Sensor Táctil
+=====================================
 
-In this lesson, you'll learn how to use a touch sensor with an ESP32 Development Board. We'll see how touching the sensor sends a signal to the ESP32, triggering a response displayed through serial communication. This project is ideal for beginners and provides hands-on experience with digital inputs and serial output on the ESP32 platform. You'll develop a foundational understanding of how sensors interact with microcontrollers, which is essential for building interactive hardware projects.
+En esta lección aprenderás a utilizar un sensor táctil con una placa de desarrollo ESP32. Veremos cómo al tocar el sensor se envía una señal al ESP32, lo que desencadena una respuesta que se muestra a través de la comunicación serial. Este proyecto es ideal para principiantes y proporciona experiencia práctica con entradas digitales y salida serial en la plataforma ESP32. Desarrollarás una comprensión básica de cómo los sensores interactúan con los microcontroladores, lo cual es esencial para crear proyectos de hardware interactivos.
 
-Required Components
+Componentes necesarios
 --------------------------
 
-In this project, we need the following components. 
+En este proyecto necesitamos los siguientes componentes.
 
-It's definitely convenient to buy a whole kit, here's the link: 
+Es muy conveniente comprar un kit completo, aquí tienes el enlace:
 
 .. list-table::
     :widths: 20 20 20
     :header-rows: 1
 
-    *   - Name	
-        - ITEMS IN THIS KIT
-        - LINK
-    *   - Universal Maker Sensor Kit
+    *   - Nombre	
+        - ARTÍCULOS EN ESTE KIT
+        - ENLACE
+    *   - Kit de Sensor Universal Maker
         - 94
         - |link_umsk|
 
-You can also buy them separately from the links below.
+También puedes comprarlos por separado a través de los enlaces a continuación.
 
 .. list-table::
     :widths: 30 20
     :header-rows: 1
 
-    *   - Component Introduction
-        - Purchase Link
+    *   - Introducción al componente
+        - Enlace de compra
 
-    *   - ESP32 & Development Board (:ref:`cpn_esp32_wroom_32e`)
+    *   - ESP32 & Placa de Desarrollo (:ref:`cpn_esp32_wroom_32e`)
         - |link_esp32_camera_pro_kit_buy|
     *   - :ref:`cpn_touch`
         - |link_touch_buy|
@@ -54,28 +54,28 @@ You can also buy them separately from the links below.
         - |link_breadboard_buy|
 
 
-Wiring
+Conexiones
 ---------------------------
 
 .. image:: img/Lesson_22_Touch_Sensor_Module_esp32_bb.png
     :width: 100%
 
 
-Code
+Código
 ---------------------------
 
 .. raw:: html
 
     <iframe src=https://create.arduino.cc/editor/sunfounder01/f3fd3d61-1d6b-46b8-8e62-e3c91e262830/preview?embed style="height:510px;width:100%;margin:10px 0" frameborder=0></iframe>
 
-Code Analysis
+Análisis del código
 ---------------------------
 
-#. **Setting Up the Pin and Serial Communication**
+#. **Configuración del Pin y la Comunicación Serial**
 
-   - The touch sensor is connected to pin 25 of the ESP32, and this pin is configured as an input.
-   - The ``Serial.begin(9600);`` initializes serial communication at a baud rate of 9600 bits per second.
-   
+   - El sensor táctil se conecta al pin 25 del ESP32, y este pin se configura como entrada.
+   - ``Serial.begin(9600);`` inicializa la comunicación serial a una velocidad de 9600 baudios.
+
    .. raw:: html
       
       <br/>
@@ -85,17 +85,17 @@ Code Analysis
       const int sensorPin = 25;
 
       void setup() {
-        pinMode(sensorPin, INPUT);     // Set the sensor pin as input
-        Serial.begin(9600);            // Start the serial communication
+        pinMode(sensorPin, INPUT);     // Configurar el pin del sensor como entrada
+        Serial.begin(9600);            // Iniciar la comunicación serial
       }
 
-#. **Reading the Sensor and Sending Data to Serial Monitor**
+#. **Lectura del Sensor y Envío de Datos al Monitor Serial**
 
-   - The ``loop()`` function continuously checks the state of the touch sensor.
-   - ``digitalRead(sensorPin)`` reads the digital value (1 or 0) from the sensor pin.
-   - If the sensor is touched (value 1), it prints "Touch detected!" to the Serial Monitor.
-   - If not touched (value 0), it prints "No touch detected...".
-   - The ``delay(100);`` helps in debouncing the sensor, preventing multiple rapid readings.
+   - La función ``loop()`` comprueba continuamente el estado del sensor táctil.
+   - ``digitalRead(sensorPin)`` lee el valor digital (1 o 0) del pin del sensor.
+   - Si el sensor es tocado (valor 1), imprime "¡Toque detectado!" en el Monitor Serial.
+   - Si no se toca (valor 0), imprime "No se detectó toque...".
+   - ``delay(100);`` ayuda a prevenir lecturas rápidas y repetidas del sensor, evitando el rebote.
 
    .. raw:: html
       
@@ -104,10 +104,10 @@ Code Analysis
    .. code-block:: arduino
 
       void loop() {
-        if (digitalRead(sensorPin) == 1) {  // If the sensor is touched
+        if (digitalRead(sensorPin) == 1) {  // Si el sensor es tocado
           Serial.println("Touch detected!");
         } else {
           Serial.println("No touch detected...");
         }
-        delay(100);  // Wait for a short period to avoid rapid reading of the sensor
+        delay(100);  // Esperar un breve periodo para evitar lecturas rápidas del sensor
       }

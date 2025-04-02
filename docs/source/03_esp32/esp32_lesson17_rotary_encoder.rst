@@ -1,77 +1,77 @@
-.. note::
+.. note:: 
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    ¡Hola, bienvenido a la Comunidad de Entusiastas de Raspberry Pi, Arduino y ESP32 de SunFounder en Facebook! Profundiza en Raspberry Pi, Arduino y ESP32 con otros entusiastas.
 
-    **Why Join?**
+    **¿Por qué unirse?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Soporte experto**: Resuelve problemas postventa y desafíos técnicos con la ayuda de nuestra comunidad y equipo.
+    - **Aprende y comparte**: Intercambia consejos y tutoriales para mejorar tus habilidades.
+    - **Vistas exclusivas**: Obtén acceso anticipado a nuevos anuncios de productos y adelantos.
+    - **Descuentos especiales**: Disfruta de descuentos exclusivos en nuestros productos más nuevos.
+    - **Promociones festivas y sorteos**: Participa en sorteos y promociones especiales de temporada.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 ¿Listo para explorar y crear con nosotros? Haz clic en [|link_sf_facebook|] y únete hoy mismo!
 
 .. _esp32_lesson17_rotary_encoder:
 
-Lesson 17: Rotary Encoder Module
-==================================
+Lección 17: Módulo de Codificador Rotatorio
+==============================================
 
-In this lesson, you will learn how to use an ESP32 Development Board and a rotary encoder module to detect rotation direction and count, as well as button presses. We'll explore how the encoder signals clockwise and counterclockwise rotations and increments or decrements a counter accordingly. Additionally, you'll understand how to detect button presses on the encoder module. This project offers hands-on experience in managing rotary encoders and reading digital inputs, enhancing your skills in working with the ESP32 and Arduino programming.
+En esta lección, aprenderás a usar una placa de desarrollo ESP32 junto con un módulo de codificador rotatorio para detectar la dirección y el conteo de rotaciones, así como los pulsos de botón. Exploraremos cómo el codificador detecta las rotaciones en sentido horario y antihorario, e incrementa o decrementa un contador según corresponda. Además, aprenderás a detectar pulsaciones de botones en el módulo del codificador. Este proyecto es ideal para aquellos interesados en obtener experiencia práctica en el manejo de codificadores rotatorios y la lectura de entradas digitales, mejorando tus habilidades en el uso de la plataforma ESP32 y la programación de Arduino.
 
-Required Components
---------------------------
+Componentes requeridos
+-------------------------
 
-In this project, we need the following components. 
+En este proyecto, necesitamos los siguientes componentes.
 
-It's definitely convenient to buy a whole kit, here's the link: 
+Definitivamente es conveniente comprar un kit completo, aquí está el enlace:
 
 .. list-table::
     :widths: 20 20 20
     :header-rows: 1
 
-    *   - Name	
-        - ITEMS IN THIS KIT
-        - LINK
-    *   - Universal Maker Sensor Kit
+    *   - Nombre
+        - ARTÍCULOS EN ESTE KIT
+        - ENLACE
+    *   - Kit Sensor Universal Maker
         - 94
         - |link_umsk|
 
-You can also buy them separately from the links below.
+También puedes comprarlos por separado desde los enlaces a continuación.
 
 .. list-table::
     :widths: 30 20
     :header-rows: 1
 
-    *   - Component Introduction
-        - Purchase Link
+    *   - Introducción al componente
+        - Enlace de compra
 
-    *   - ESP32 & Development Board (:ref:`cpn_esp32_wroom_32e`)
+    *   - ESP32 y placa de desarrollo (:ref:`cpn_esp32_wroom_32e`)
         - |link_esp32_camera_pro_kit_buy|
     *   - :ref:`cpn_rotary_encoder`
         - \-
     *   - :ref:`cpn_breadboard`
         - |link_breadboard_buy|
- 
 
-Wiring
----------------------------
+
+Cableado
+------------
 
 .. image:: img/Lesson_17_Rotary_Encoder_Module_esp32_bb.png
     :width: 100%
 
 
-Code
----------------------------
+Código
+--------
 
 .. raw:: html
 
     <iframe src=https://create.arduino.cc/editor/sunfounder01/0ba81725-2139-4c8c-9575-c4d343be6708/preview?embed style="height:510px;width:100%;margin:10px 0" frameborder=0></iframe>
 
-Code Analysis
----------------------------
+Análisis del código
+----------------------
 
-#. **Setup and Initialization**
+#. **Configuración e inicialización**
 
    .. code-block:: arduino
 
@@ -83,9 +83,9 @@ Code Analysis
         lastStateCLK = digitalRead(CLK);
       }
 
-   In the setup function, the digital pins connected to the encoder's CLK and DT are set as inputs. The SW pin, which is connected to the button, is set as an input with an internal pull-up resistor. This setup prevents the need for an external pull-up resistor. The Serial communication is started at a baud rate of 9600 to enable data visualization on the Serial Monitor. The initial state of the CLK pin is read and stored.
+   En la función de configuración, se establecen los pines digitales conectados al CLK y DT del codificador como entradas. El pin SW, que está conectado al botón, se establece como entrada con una resistencia pull-up interna. Esta configuración elimina la necesidad de una resistencia pull-up externa. La comunicación serial se inicia a una velocidad de 9600 baudios para habilitar la visualización de los datos en el monitor serial. Se lee y almacena el estado inicial del pin CLK.
 
-#. **Main Loop: Reading Encoder and Button State**
+#. **Bucle principal: Lectura del estado del codificador y del botón**
 
    .. code-block:: arduino
 
@@ -115,6 +115,8 @@ Code Analysis
         delay(1);
       }
 
-   In the loop function, the program continually reads the current state of the CLK pin. If there's a change in the state, it implies a rotation has occurred. The direction of rotation is determined by comparing the states of CLK and DT pins. If they are different, it indicates counterclockwise (CCW) rotation; otherwise, it's clockwise (CW). The encoder's count is incremented or decremented accordingly. This information is then sent to the Serial Monitor.
 
-   The button state is read from the SW pin. If it's LOW (pressed), a debounce mechanism is implemented by checking the time elapsed since the last button press. If more than 50 milliseconds have passed, it's considered a valid press, and a message is sent to the Serial Monitor. The `delay(1)` at the end helps in debouncing.
+   En la función loop, el programa lee continuamente el estado actual del pin CLK. Si hay un cambio en el estado, esto indica que se ha producido una rotación. La dirección de la rotación se determina comparando los estados de los pines CLK y DT. Si son diferentes, indica rotación en sentido antihorario (CCW); de lo contrario, es en sentido horario (CW). El contador del codificador se incrementa o decrementa en consecuencia. Esta información se envía al monitor serial.
+   
+
+   El estado del botón se lee desde el pin SW. Si es bajo (presionado), se implementa un mecanismo de "debounce" verificando el tiempo transcurrido desde la última pulsación del botón. Si han pasado más de 50 milisegundos, se considera una pulsación válida y se envía un mensaje al monitor serial. El `delay(1)` al final ayuda en el "debounce".

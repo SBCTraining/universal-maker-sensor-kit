@@ -1,137 +1,137 @@
-.. note::
+.. note:: 
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    ¡Hola! Bienvenido a la comunidad de entusiastas de SunFounder Raspberry Pi, Arduino y ESP32 en Facebook. Sumérgete más en Raspberry Pi, Arduino y ESP32 junto con otros entusiastas.
 
-    **Why Join?**
+    **¿Por qué unirte?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Soporte experto**: Resuelve problemas postventa y desafíos técnicos con la ayuda de nuestra comunidad y equipo.
+    - **Aprende y comparte**: Intercambia consejos y tutoriales para mejorar tus habilidades.
+    - **Avances exclusivos**: Obtén acceso anticipado a los anuncios de nuevos productos y adelantos.
+    - **Descuentos especiales**: Disfruta de descuentos exclusivos en nuestros productos más recientes.
+    - **Promociones y sorteos festivos**: Participa en sorteos y promociones durante las fiestas.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 ¿Listo para explorar y crear con nosotros? Haz clic en [|link_sf_facebook|] y únete hoy.
 
 .. _pi_lesson05_mpu6050:
 
-Lesson 05: Gyroscope & Accelerometer Module (MPU6050)
+Lección 05: Módulo Giroscopio y Acelerómetro (MPU6050)
 ==========================================================
 
-In this lesson, you'll learn how to interface the Raspberry Pi with the MPU6050, a sensor that integrates a 3-axis gyroscope and accelerometer. You'll explore how to measure acceleration, orientation, and rotation. This project offers hands-on experience with reading sensor data, utilizing Python for hardware interaction, and grasping I2C communication fundamentals. You will also learn to continuously capture acceleration in three axes, rotational speed, and temperature from the sensor. It's an ideal starting point for beginners eager to delve into sensors and motion tracking using the Raspberry Pi.
+En esta lección, aprenderás a usar el sensor MPU6050 con la Raspberry Pi para la detección de movimiento. Explorarás cómo medir la aceleración, la orientación y la rotación. Este proyecto te ofrece experiencia práctica con la lectura de datos de sensores, utilizando Python para la interacción con el hardware y comprendiendo los fundamentos de la comunicación I2C. También aprenderás a capturar continuamente la aceleración en tres ejes, la velocidad de rotación y la temperatura del sensor. Es un excelente punto de partida para los principiantes que desean adentrarse en los sensores y el seguimiento de movimiento usando la Raspberry Pi.
 
-Required Components
+Componentes necesarios
 --------------------------
 
-In this project, we need the following components. 
+Para este proyecto necesitamos los siguientes componentes.
 
-It's definitely convenient to buy a whole kit, here's the link: 
+Es muy conveniente comprar un kit completo, aquí tienes el enlace:
 
 .. list-table::
     :widths: 20 20 20
     :header-rows: 1
 
-    *   - Name	
-        - ITEMS IN THIS KIT
-        - LINK
+    *   - Nombre	
+        - COMPONENTES EN ESTE KIT
+        - ENLACE
     *   - Universal Maker Sensor Kit
         - 94
         - |link_umsk|
 
-You can also buy them separately from the links below.
+También puedes comprarlos por separado en los enlaces de abajo.
 
 .. list-table::
     :widths: 30 20
     :header-rows: 1
 
-    *   - Component Introduction
-        - Purchase Link
+    *   - Introducción al componente
+        - Enlace de compra
 
     *   - Raspberry Pi 5
-        - \-
+        - |link_rpi5_buy|
     *   - :ref:`cpn_mpu6050`
         - |link_mpu6050_buy|
 
 
-Wiring
+Conexión
 ---------------------------
 
 .. image:: img/Lesson_05_mpu6050_pi_bb.png
     :width: 100%
 
 
-Code
+Código
 ---------------------------
 
 .. code-block:: python
 
-   # Import the mpu6050 class and sleep function from respective modules.
+   # Importar la clase mpu6050 y la función sleep de los respectivos módulos.
    from mpu6050 import mpu6050
    from time import sleep
    
-   # Initialize the MPU-6050 sensor with the I2C address 0x68.
+   # Inicializar el sensor MPU-6050 con la dirección I2C 0x68.
    sensor = mpu6050(0x68)
    
-   # Infinite loop to continuously read data from the sensor.
+   # Bucle infinito para leer continuamente los datos del sensor.
    while True:
-       # Retrieve accelerometer data from the sensor.
+       # Recuperar los datos del acelerómetro del sensor.
        accel_data = sensor.get_accel_data()
-       # Retrieve gyroscope data from the sensor.
+       # Recuperar los datos del giroscopio del sensor.
        gyro_data = sensor.get_gyro_data()
-       # Retrieve temperature data from the sensor.
+       # Recuperar los datos de temperatura del sensor.
        temp = sensor.get_temp()
    
-       # Print accelerometer data.
+       # Imprimir los datos del acelerómetro.
        print("Accelerometer data")
        print("x: " + str(accel_data['x']))
        print("y: " + str(accel_data['y']))
        print("z: " + str(accel_data['z']))
    
-       # Print gyroscope data.
+       # Imprimir los datos del giroscopio.
        print("Gyroscope data")
        print("x: " + str(gyro_data['x']))
        print("y: " + str(gyro_data['y']))
        print("z: " + str(gyro_data['z']))
    
-       # Print the temperature in Celsius.
+       # Imprimir la temperatura en grados Celsius.
        print("Temp: " + str(temp) + " C")
    
-       # Pause for 0.5 seconds before the next read cycle.
+       # Pausar durante 0.5 segundos antes de la siguiente lectura.
        sleep(0.5)
-   
 
-Code Analysis
+
+Análisis del código
 ---------------------------
 
-#. Import Statements
+#. Instrucciones de importación
 
-   The ``mpu6050`` class is imported from the ``mpu6050`` library, and the ``sleep`` function is imported from the ``time`` module. These imports are necessary for interacting with the MPU-6050 sensor and introducing delays in the code.
+   La clase ``mpu6050`` se importa desde la librería ``mpu6050``, y la función ``sleep`` se importa desde el módulo ``time``. Estas importaciones son necesarias para interactuar con el sensor MPU-6050 e introducir retrasos en el código.
 
-   For more information about the ``mpu6050`` library, please visit |link_mpu6050_python_driver|.
+   Para obtener más información sobre la librería ``mpu6050``, visita |link_mpu6050_python_driver|.
 
    .. code-block:: python
 
       from mpu6050 import mpu6050
       from time import sleep
 
-#. Sensor Initialization
+#. Inicialización del Sensor
 
-   An instance of the ``mpu6050`` class is created with the I2C address 0x68 (the default address of the MPU-6050 sensor). This step initializes the sensor for data reading.
+   Se crea una instancia de la clase ``mpu6050`` con la dirección I2C 0x68 (la dirección predeterminada del sensor MPU-6050). Este paso inicializa el sensor para la lectura de datos.
 
    .. code-block:: python
 
       sensor = mpu6050(0x68)
 
-#. Infinite Loop for Continuous Reading
+#. Bucle Infinito para Lectura Continua
 
-   An infinite loop (``while True``) is used to continuously read data from the sensor. This is a common practice for sensor-based applications where constant monitoring is required.
+   Se utiliza un bucle infinito (``while True``) para leer continuamente los datos del sensor. Esta es una práctica común en aplicaciones basadas en sensores donde se requiere un monitoreo constante.
 
    .. code-block:: python
 
       while True:
 
-#. Reading Sensor Data
+#. Lectura de Datos del Sensor
 
-   Inside the loop, data from the accelerometer, gyroscope, and temperature sensor is read using the ``get_accel_data``, ``get_gyro_data``, and ``get_temp`` methods of the ``mpu6050`` class instance. These methods return the sensor data in a user-friendly format.
+   Dentro del bucle, los datos del acelerómetro, giroscopio y sensor de temperatura se leen utilizando los métodos ``get_accel_data``, ``get_gyro_data`` y ``get_temp`` de la instancia de la clase ``mpu6050``. Estos métodos devuelven los datos del sensor en un formato fácil de usar.
 
    .. code-block:: python
 
@@ -139,9 +139,9 @@ Code Analysis
       gyro_data = sensor.get_gyro_data()
       temp = sensor.get_temp()
 
-#. Printing Sensor Data
+#. Impresión de los datos del sensor
 
-   The retrieved data is then printed out. Accelerometer and gyroscope data are accessed as dictionary values (x, y, z axes), and temperature is directly printed as a Celsius value.
+   Los datos recuperados se imprimen luego en la terminal. Los datos del acelerómetro y giroscopio se acceden como valores de diccionario (ejes x, y, z), y la temperatura se imprime directamente como un valor en grados Celsius.
 
    .. code-block:: python
 
@@ -157,9 +157,9 @@ Code Analysis
 
       print("Temp: " + str(temp) + " C")
 
-#. Delay Between Readings
+#. Pausa entre lecturas
 
-   Finally, a half-second delay is introduced using ``sleep(0.5)``. This delay is crucial to prevent overwhelming the Raspberry Pi with continuous data readings.
+   Finalmente, se introduce un retraso de medio segundo usando ``sleep(0.5)``. Este retraso es crucial para evitar que la Raspberry Pi se sobrecargue con lecturas de datos continuas.
 
    .. code-block:: python
 

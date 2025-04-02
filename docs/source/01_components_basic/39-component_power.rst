@@ -1,41 +1,41 @@
-.. note::
+.. note:: 
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    ¡Hola, bienvenido a la Comunidad de Entusiastas de Raspberry Pi, Arduino y ESP32 en Facebook! Profundiza más en Raspberry Pi, Arduino y ESP32 junto con otros entusiastas.
 
-    **Why Join?**
+    **¿Por qué unirte?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Soporte experto**: Resuelve problemas postventa y desafíos técnicos con la ayuda de nuestra comunidad y equipo.
+    - **Aprende y comparte**: Intercambia consejos y tutoriales para mejorar tus habilidades.
+    - **Previsualizaciones exclusivas**: Accede anticipadamente a anuncios de nuevos productos y vistas previas.
+    - **Descuentos especiales**: Disfruta de descuentos exclusivos en nuestros productos más recientes.
+    - **Promociones festivas y sorteos**: Participa en sorteos y promociones especiales durante las festividades.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 ¿Listo para explorar y crear con nosotros? Haz clic en [|link_sf_facebook|] y únete hoy!
 
 .. _cpn_power_module:
 
-Power Supply Module
-===================
+Módulo de Fuente de Alimentación
+====================================
 
-The breadboard power module provides 3.3V and 5V with a series diode and reverse polarity protection. It accepts input from 6.5V to 12V and outputs 3.3V and +5V. This power supply module is essential for experimenters who need to test electronic circuits on breadboards or perforated/veroboards.
+El módulo de alimentación para placa de pruebas proporciona 3.3V y 5V con un diodo en serie y protección contra inversión de polaridad. Acepta entradas de 6.5V a 12V y proporciona salidas de 3.3V y +5V. Este módulo de fuente de alimentación es esencial para los experimentadores que necesitan probar circuitos electrónicos en placas de pruebas o placas perforadas/veroboards.
 
 .. image:: img/39_power_module.png
     :width: 60%
     :align: center
 
-**Features**
+**Características**
 
-#. Plug directly to MB102 Standard breadboard.
-#. Input voltage: 6.5-12 V (DC) or 5V USB power supply.
-#. Output voltage: 3.3V and 5V can switch over.
-#. Maximum output current: <700 mA.
-#. External Input voltage ON/OFF switch.
-#. Independent control of upper and Lower Bread Board Power Rails. Can switch over to 0V, 3.3V, 5V using jumpers on any rail.
-#. On-board two groups of 3.3V, 5V DC output plug pin, convenient external lead use.
-#. USB device connector onboard for power output to external device.
-#. Size: 5.3cm x 3.5cm.
+#. Se conecta directamente a la placa estándar MB102.
+#. Voltaje de entrada: 6.5-12 V (DC) o fuente de alimentación USB de 5V.
+#. Voltaje de salida: 3.3V y 5V, conmutables.
+#. Corriente máxima de salida: <700 mA.
+#. Interruptor de encendido/apagado para el voltaje de entrada externo.
+#. Control independiente de las vías de alimentación superior e inferior de la placa de pruebas. Puede cambiarse a 0V, 3.3V, 5V usando los jumpers en cualquier vía.
+#. Dos grupos de pines de salida DC de 3.3V y 5V a bordo, convenientemente utilizables con cables externos.
+#. Conector USB a bordo para salida de alimentación a dispositivos externos.
+#. Tamaño: 5.3cm x 3.5cm.
 
-Example
+Ejemplo
 ---------------------------
 * :ref:`uno_lesson39_soap_dispenser` (Arduino UNO)
 * :ref:`esp32_soap_dispenser` (ESP32)

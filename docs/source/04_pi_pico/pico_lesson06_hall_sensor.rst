@@ -1,50 +1,50 @@
-.. note::
+.. note:: 
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    ¡Hola, bienvenido a la Comunidad de Aficionados de SunFounder Raspberry Pi & Arduino & ESP32 en Facebook! Profundiza en Raspberry Pi, Arduino y ESP32 junto a otros entusiastas.
 
     **Why Join?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Soporte de Expertos**: Resuelve problemas posventa y desafíos técnicos con la ayuda de nuestra comunidad y equipo.
+    - **Aprender y Compartir**: Intercambia consejos y tutoriales para mejorar tus habilidades.
+    - **Vistas Previas Exclusivas**: Obtén acceso anticipado a anuncios de nuevos productos y avances exclusivos.
+    - **Descuentos Especiales**: Disfruta de descuentos exclusivos en nuestros productos más recientes.
+    - **Promociones Festivas y Sorteos**: Participa en sorteos y promociones de festividades.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 ¿Listo para explorar y crear con nosotros? Haz clic en [|link_sf_facebook|] y únete hoy mismo.
 
 .. _pico_lesson06_hall_sensor:
 
-Lesson 06: Hall Sensor Module
-==================================
+Lección 06: Módulo Sensor de Efecto Hall
+=============================================
 
-In this lesson, you will learn how to use the Raspberry Pi Pico W to measure magnetic fields with a Hall effect sensor. By connecting the sensor to the Pico W, you'll discover how to read analog values and interpret them to detect the presence and type of magnetic poles. This engaging project is perfect for those starting out, as it provides practical experience with analog input processing on the Raspberry Pi Pico W using MicroPython. You'll understand how to set up the sensor, read its data, and apply conditional logic to determine the magnetic pole type, enhancing your skills in electronics and programming.
+En esta lección, aprenderás a usar el Raspberry Pi Pico W para medir campos magnéticos con un sensor de efecto Hall. Al conectar el sensor al Pico W, descubrirás cómo leer valores analógicos e interpretarlos para detectar la presencia y el tipo de polos magnéticos. Este proyecto es perfecto para quienes comienzan, ya que proporciona experiencia práctica con el procesamiento de entradas analógicas en el Raspberry Pi Pico W utilizando MicroPython. Comprenderás cómo configurar el sensor, leer sus datos y aplicar lógica condicional para determinar el tipo de polo magnético, mejorando tus habilidades en electrónica y programación.
 
-Required Components
---------------------------
+Componentes Necesarios
+----------------------------
 
-In this project, we need the following components. 
+Para este proyecto, necesitaremos los siguientes componentes.
 
-It's definitely convenient to buy a whole kit, here's the link: 
+Es definitivamente conveniente comprar un kit completo, aquí está el enlace:
 
 .. list-table::
     :widths: 20 20 20
     :header-rows: 1
 
-    *   - Name	
-        - ITEMS IN THIS KIT
-        - LINK
-    *   - Universal Maker Sensor Kit
+    *   - Nombre	
+        - ÍTEMS EN ESTE KIT
+        - ENLACE
+    *   - Kit de Sensores Universal Maker
         - 94
         - |link_umsk|
 
-You can also buy them separately from the links below.
+También puedes comprarlos por separado en los siguientes enlaces.
 
 .. list-table::
     :widths: 30 20
     :header-rows: 1
 
-    *   - Component Introduction
-        - Purchase Link
+    *   - Introducción del Componente
+        - Enlace de Compra
 
     *   - Raspberry Pi Pico W
         - \-
@@ -54,14 +54,14 @@ You can also buy them separately from the links below.
         - |link_breadboard_buy|
 
 
-Wiring
+Cableado
 ---------------------------
 
 .. image:: img/Lesson_06_Hall_Sensor_Module_bb.png
     :width: 100%
 
 
-Code
+Código
 ---------------------------
 
 .. code-block:: python
@@ -69,16 +69,16 @@ Code
    import machine
    import utime
    
-   # Initialize an ADC on GPIO pin 26 for Hall effect sensor readings.
+   # Inicializar un ADC en el pin GPIO 26 para lecturas del sensor de efecto Hall.
    hall_sensor = machine.ADC(26)
    
-   # Continuously monitor and process Hall sensor data.
+   # Monitorear y procesar continuamente los datos del sensor Hall.
    while True:
-       # Read the analog value from the sensor and convert to a 16-bit integer.
+       # Leer el valor analógico del sensor y convertirlo a un entero de 16 bits.
        value = hall_sensor.read_u16()
-       print(value, end="")  # Output the raw sensor value.
+       print(value, end="")  # Mostrar el valor del sensor en bruto.
    
-       # Detect and print the type of magnetic pole based on the sensor reading.
+       # Detectar e imprimir el tipo de polo magnético basado en la lectura del sensor.
        if value >= 48000:
            print(" - South pole detected", end="")
        elif value <= 18000:
@@ -86,17 +86,17 @@ Code
    
        print()
    
-       # Wait 200 milliseconds before the next sensor reading
+       # Esperar 200 milisegundos antes de la próxima lectura del sensor
        utime.sleep_ms(200)
 
 
-Code Analysis
+Análisis del Código
 ---------------------------
 
 
-#. **Import Necessary Modules**:
+#. **Importación de Módulos Necesarios**:
 
-   This section imports the required modules. ``machine`` is used for hardware interfaces, and ``utime`` provides timing functions.
+   Esta sección importa los módulos requeridos. ``machine`` se usa para interfaces de hardware, y ``utime`` proporciona funciones de tiempo.
 
    .. code-block:: python
 
@@ -105,9 +105,9 @@ Code Analysis
 
 
 
-#. **Initialize the Hall Sensor**:
+#. **Inicialización del Sensor Hall**:
 
-   Here, we initialize an ADC (Analog-to-Digital Converter) on GPIO pin 26. This is where the Hall sensor is connected. The ``machine.ADC`` function is used to read analog values from the sensor.
+   Aquí, se inicializa un ADC (Convertidor Analógico a Digital) en el pin GPIO 26. Aquí es donde se conecta el sensor Hall. La función ``machine.ADC`` se usa para leer valores analógicos del sensor.
 
    .. code-block:: python
    
@@ -115,20 +115,20 @@ Code Analysis
    
    
 
-#. **Main Loop for Sensor Reading**:
+#. **Bucle Principal para la Lectura del Sensor**:
 
-   In this loop, ``hall_sensor.read_u16()`` reads the sensor's analog value and converts it to a 16-bit integer. This loop will run indefinitely.
+   En este bucle, ``hall_sensor.read_u16()`` lee el valor analógico del sensor y lo convierte en un entero de 16 bits. Este bucle se ejecutará indefinidamente.
 
    .. code-block:: python
 
       while True:
           value = hall_sensor.read_u16()
 
-#. **Processing Sensor Data**:
+#. **Procesamiento de Datos del Sensor**:
 
-   After reading the value, the code checks whether it falls within certain thresholds to determine if a magnetic North or South pole is detected. The values ``48000`` and ``18000`` are threshold values that represent the presence of different magnetic poles. You can adjust the threshold values representing the South and North poles according to actual conditions.
+   Después de leer el valor, el código verifica si se encuentra dentro de ciertos umbrales para determinar si se ha detectado un polo magnético norte o sur. Los valores ``48000`` y ``18000`` son valores umbral que representan la presencia de diferentes polos magnéticos. Puedes ajustar los valores umbral que representan los polos sur y norte según las condiciones reales.
 
-   The Hall sensor module is equipped with a 49E linear Hall effect sensor, which can measure the polarity of the magnetic field's north and south poles as well as the relative strength of the magnetic field. If you place a magnet's south pole near the side marked with 49E (the side with text engraved on it), the value read by the code will increase linearly in proportion to the applied magnetic field strength. Conversely, if you place a north pole near this side, the value read by the code will decrease linearly in proportion to that magnetic field strength. For more details, please refer to :ref:`cpn_hall`.
+   El módulo sensor Hall está equipado con un sensor Hall 49E lineal, que puede medir la polaridad de los polos norte y sur del campo magnético, así como la fuerza relativa del campo magnético. Si colocas el polo sur de un imán cerca del lado marcado con 49E (el lado con texto grabado), el valor leído por el código aumentará linealmente en proporción a la fuerza del campo magnético aplicado. Por el contrario, si colocas un polo norte cerca de este lado, el valor leído por el código disminuirá linealmente en proporción a esa fuerza del campo magnético. Para más detalles, consulta :ref:`cpn_hall`.
 
    .. code-block:: python
 
@@ -141,11 +141,11 @@ Code Analysis
 
 
 
-#. **Delay Between Readings**:
+#. **Retardo Entre Lecturas**:
 
-   This line introduces a 200-millisecond delay before the next reading, using ``utime.sleep_ms``. This prevents the loop from running too quickly and flooding the output.
+   Esta línea introduce un retardo de 200 milisegundos antes de la próxima lectura, utilizando ``utime.sleep_ms``. Esto previene que el bucle se ejecute demasiado rápido y sature la salida.
 
    .. code-block:: python
 
       utime.sleep_ms(200)
- 
+

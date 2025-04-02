@@ -1,61 +1,62 @@
-.. note::
+.. note:: 
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    ¡Hola, bienvenido a la Comunidad de Entusiastas de Raspberry Pi, Arduino y ESP32 en Facebook! Profundiza en el mundo de Raspberry Pi, Arduino y ESP32 junto con otros entusiastas.
 
-    **Why Join?**
+    **¿Por qué unirte?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Soporte experto**: Resuelve problemas postventa y desafíos técnicos con la ayuda de nuestra comunidad y equipo.
+    - **Aprende y comparte**: Intercambia consejos y tutoriales para mejorar tus habilidades.
+    - **Vistas previas exclusivas**: Accede a nuevos anuncios de productos y avances antes que nadie.
+    - **Descuentos especiales**: Disfruta de descuentos exclusivos en nuestros productos más recientes.
+    - **Promociones festivas y sorteos**: Participa en sorteos y promociones de temporada.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 ¿Estás listo para explorar y crear con nosotros? Haz clic en [|link_sf_facebook|] y únete hoy mismo!
 
 .. _esp32_motion_triggered_relay:
 
-Lesson 38: Motion triggered relay
-==================================
+Lección 38: Relé activado por movimiento
+=============================================
 
-This project aims to control a relay-operated light using a passive infrared (PIR) sensor. 
-When the PIR sensor detects motion, the relay is activated, turning the light on. 
-The light remains on for 5 seconds after the last detected motion.
+Este proyecto tiene como objetivo controlar una luz operada por un relé 
+utilizando un sensor infrarrojo pasivo (PIR). Cuando el sensor PIR detecta 
+movimiento, se activa el relé, encendiendo la luz. La luz permanece encendida 
+durante 5 segundos después del último movimiento detectado.
 
 .. warning::
 
-    As a demonstration, we are using a relay to control an RGB LED module. 
-    However, in real-life scenarios, this may not be the most practical approach.
-    
-    **While you can connect the relay to other appliances in actual applications, extreme caution is required when dealing with HIGH AC voltage. Improper or incorrect use can lead to severe injury or even death. Therefore, it is intended for people who are familiar with and knowledgeable about HIGH AC voltage. Always prioritize safety.**
+    Como demostración, estamos utilizando un relé para controlar un módulo de LED RGB. 
+    Sin embargo, en escenarios reales, este puede no ser el enfoque más práctico.
 
-Required Components
+    **Aunque puedes conectar el relé a otros electrodomésticos en aplicaciones reales, se requiere extrema precaución al tratar con ALTA tensión AC. Un uso incorrecto o inapropiado puede causar lesiones graves o incluso la muerte. Por lo tanto, está destinado a personas que estén familiarizadas y sean expertas en el manejo de ALTA tensión AC. Siempre prioriza la seguridad.**
+
+Componentes necesarios
 --------------------------
 
-In this project, we need the following components. 
+En este proyecto necesitamos los siguientes componentes. 
 
-It's definitely convenient to buy a whole kit, here's the link: 
+Es muy conveniente comprar un kit completo, aquí tienes el enlace: 
 
 .. list-table::
     :widths: 20 20 20
     :header-rows: 1
 
-    *   - Name	
-        - ITEMS IN THIS KIT
-        - LINK
-    *   - Universal Maker Sensor Kit
+    *   - Nombre	
+        - ARTÍCULOS EN ESTE KIT
+        - ENLACE
+    *   - Kit de Sensor Universal Maker
         - 94
         - |link_umsk|
 
-You can also buy them separately from the links below.
+También puedes comprarlos por separado a través de los enlaces a continuación.
 
 .. list-table::
     :widths: 30 20
     :header-rows: 1
 
-    *   - Component Introduction
-        - Purchase Link
+    *   - Introducción al componente
+        - Enlace de compra
 
-    *   - ESP32 & Development Board (:ref:`cpn_esp32_wroom_32e`)
+    *   - ESP32 & Placa de Desarrollo (:ref:`cpn_esp32_wroom_32e`)
         - |link_esp32_camera_pro_kit_buy|
     *   - :ref:`cpn_pir_motion`
         - \-
@@ -67,79 +68,78 @@ You can also buy them separately from the links below.
         - |link_breadboard_buy|
         
 
-Wiring
+Conexiones
 ---------------------------
 
 .. image:: img/Lesson_38_Motion_triggered_relay_esp32_bb.png
     :width: 100%
 
 
-Code
+Código
 ---------------------------
 
 .. raw:: html
 
     <iframe src=https://create.arduino.cc/editor/sunfounder01/5a29dc43-f362-434e-9e5a-f32dcd41b952/preview?embed style="height:510px;width:100%;margin:10px 0" frameborder=0></iframe>
+    
 
-
-Code Analysis
+Análisis del código
 ---------------------------
 
-The project revolves around the PIR motion sensor's capability to detect motion. When motion is detected, a signal is sent to the Arduino, triggering the relay module, which in turn activates a light. The light stays on for a specified duration (in this case, 5 seconds) after the last detected motion, ensuring the area remains illuminated for a short period even if motion ceases.
+El proyecto se basa en la capacidad del sensor PIR para detectar movimiento. Cuando se detecta movimiento, el sensor envía una señal al Arduino, que a su vez activa el módulo de relé, lo que enciende una luz. La luz permanece encendida durante un tiempo determinado (en este caso, 5 segundos) después del último movimiento detectado, asegurando que el área permanezca iluminada por un corto período, incluso si el movimiento cesa.
 
-1. **Initial setup and variable declarations**
+1. **Configuración inicial y declaración de variables**
 
-    This segment defines constants and variables that will be used throughout the code. We set up the relay and PIR pins and a delay constant for motion. We also have a variable to keep track of the last detected motion time and a flag to monitor if motion is detected.
+    Este segmento define las constantes y variables que se utilizarán en el código. Configuramos los pines del relé y del PIR, así como una constante de retraso para el movimiento. También tenemos una variable para rastrear el último tiempo de detección de movimiento y una bandera para monitorear si se detectó movimiento.
 
     .. code-block:: arduino
    
-        // Define the pin number for the relay
+        // Definir el número de pin para el relé
         const int relayPin = 19;
 
-        // Define the pin number for the PIR sensor
+        // Definir el número de pin para el sensor PIR
         const int pirPin = 18;
 
-        // Motion delay threshold in milliseconds
+        // Umbral de retraso por movimiento en milisegundos
         const unsigned long MOTION_DELAY = 5000;
 
-        unsigned long lastMotionTime = 0;  // Timestamp of the last motion detection
-        bool motionDetected = false;       // Flag to track if motion is detected
+        unsigned long lastMotionTime = 0;  // Marca temporal del último movimiento detectado
+        bool motionDetected = false;       // Bandera para verificar si se detectó movimiento
         
    
 
-2. **Configuration of pins in setup() function**
+2. **Configuración de los pines en la función ``setup()``**
 
-    In the ``setup()`` function, we configure the pin modes for both the relay and PIR sensor. We also initialize the relay to be off at the start.
+    En la función ``setup()``, configuramos los modos de los pines para el relé y el sensor PIR. También inicializamos el relé para que esté apagado al inicio.
 
     .. code-block:: arduino
     
         void setup() {
-            pinMode(relayPin, OUTPUT);    // Set relayPin as an output pin
-            pinMode(pirPin, INPUT);       // Set the PIR pin as an input
-            digitalWrite(relayPin, LOW);  // Turn off the relay initially
+            pinMode(relayPin, OUTPUT);    // Configurar relayPin como pin de salida
+            pinMode(pirPin, INPUT);       // Configurar el pin PIR como entrada
+            digitalWrite(relayPin, LOW);  // Apagar el relé inicialmente
         }
 
-3. **Main logic in loop() function**
+3. **Lógica principal en la función ``loop()``**
 
-    The ``loop()`` function contains the primary logic. When the PIR sensor detects motion, it sends a ``HIGH`` signal, turning on the relay and updating the ``lastMotionTime``. If there's no motion for the specified delay (5 seconds in this case), the relay is turned off.
+    La función ``loop()`` contiene la lógica principal. Cuando el sensor PIR detecta movimiento, envía una señal ``HIGH``, encendiendo el relé y actualizando ``lastMotionTime``. Si no hay movimiento durante el retraso especificado (5 segundos en este caso), el relé se apaga.
     
-    This approach ensures that even if motion is sporadic or brief, the light remains on for at least 5 seconds after the last detected motion, providing a consistent illumination duration.
+    Este enfoque asegura que, incluso si el movimiento es esporádico o breve, la luz permanezca encendida durante al menos 5 segundos después del último movimiento detectado, proporcionando una duración de iluminación constante.
 
     .. code-block:: arduino
     
         void loop() {
             if (digitalRead(pirPin) == HIGH) {
-                lastMotionTime = millis();     // Update the last motion time
-                digitalWrite(relayPin, HIGH);  // Turn on the relay (and hence the light)
+                lastMotionTime = millis();     // Actualizar el último tiempo de movimiento
+                digitalWrite(relayPin, HIGH);  // Encender el relé (y la luz)
                 motionDetected = true;
             }
     
-            // If motion was detected earlier and 5 seconds have elapsed, turn off the relay
+            // Si se detectó movimiento anteriormente y han pasado 5 segundos, apagar el relé
             if (motionDetected && (millis() - lastMotionTime >= MOTION_DELAY)) {
-                digitalWrite(relayPin, LOW);  // Turn off the relay
+                digitalWrite(relayPin, LOW);  // Apagar el relé
                 motionDetected = false;
             }
         }
     
-   
    

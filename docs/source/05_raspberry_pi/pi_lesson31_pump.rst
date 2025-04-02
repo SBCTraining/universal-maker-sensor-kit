@@ -1,118 +1,118 @@
-.. note::
+.. note:: 
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    ¡Hola, bienvenido a la Comunidad de Entusiastas de SunFounder Raspberry Pi, Arduino y ESP32 en Facebook! Profundiza más en Raspberry Pi, Arduino y ESP32 con otros entusiastas.
 
-    **Why Join?**
+    **¿Por qué unirte?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Soporte experto**: Resuelve problemas postventa y desafíos técnicos con la ayuda de nuestra comunidad y equipo.
+    - **Aprender y compartir**: Intercambia consejos y tutoriales para mejorar tus habilidades.
+    - **Preestrenos exclusivos**: Obtén acceso anticipado a nuevos anuncios de productos y adelantos.
+    - **Descuentos especiales**: Disfruta de descuentos exclusivos en nuestros productos más nuevos.
+    - **Promociones festivas y sorteos**: Participa en sorteos y promociones de temporada.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 ¿Listo para explorar y crear con nosotros? Haz clic en [|link_sf_facebook|] y únete hoy mismo!
 
 .. _pi_lesson31_pump:
 
-Lesson 31: Centrifugal Pump
+Lección 31: Bomba centrífuga
 ==================================
 
-In this lesson, you will learn how to control a pump using a Raspberry Pi. You'll learn how to write a Python script to activate the pump, control its speed, and then stop it after a set period. This project provides a basic understanding of pump control through GPIO interfacing and Python programming, making it a suitable starting point for beginners interested in Raspberry Pi and simple pump applications.
+En esta lección, aprenderás a controlar una bomba utilizando una Raspberry Pi. Aprenderás a escribir un script en Python para activar la bomba, controlar su velocidad y luego detenerla después de un tiempo determinado. Este proyecto proporciona una comprensión básica del control de bombas mediante la interfaz GPIO y programación en Python, lo que lo convierte en un punto de partida adecuado para principiantes interesados en Raspberry Pi y aplicaciones simples de bombas.
 
-Required Components
+Componentes necesarios
 --------------------------
 
-In this project, we need the following components. 
+En este proyecto, necesitamos los siguientes componentes. 
 
-It's definitely convenient to buy a whole kit, here's the link: 
+Es definitivamente conveniente comprar un kit completo, aquí tienes el enlace: 
 
 .. list-table::
     :widths: 20 20 20
     :header-rows: 1
 
-    *   - Name	
-        - ITEMS IN THIS KIT
-        - LINK
-    *   - Universal Maker Sensor Kit
+    *   - Nombre  
+        - ELEMENTOS EN ESTE KIT  
+        - ENLACE
+    *   - Kit Sensor Universal Maker
         - 94
         - |link_umsk|
 
-You can also buy them separately from the links below.
+También puedes comprarlos por separado en los siguientes enlaces.
 
 .. list-table::
     :widths: 30 20
     :header-rows: 1
 
-    *   - Component Introduction
-        - Purchase Link
+    *   - Introducción del componente  
+        - Enlace de compra
 
     *   - Raspberry Pi 5
-        - \-
+        - |link_rpi5_buy|
     *   - :ref:`cpn_pump`
         - \-
     *   - :ref:`cpn_l9110`
         - \-
 
 
-Wiring
+Cableado
 ---------------------------
 
 .. image:: img/Lesson_31_Pump_Pi_bb.png
     :width: 100%
 
 
-Code
+Código
 ---------------------------
 
 .. code-block:: python
 
-   from gpiozero import Motor
-   from time import sleep
+   from gpiozero import Motor  
+   from time import sleep  
    
-   # Define pump pins
-   pump = Motor(forward=17, backward=27)  # Using Raspberry Pi GPIO pin numbers
+   # Definir los pines de la bomba
+   pump = Motor(forward=17, backward=27)  # Usando los números de pin GPIO de la Raspberry Pi
    
-   # Activate the pump
-   pump.forward(speed=1)  # Set pump speed, range is 0 to 1
-   sleep(5)               # Run the pump for 5 seconds
+   # Activar la bomba
+   pump.forward(speed=1)  # Establecer la velocidad de la bomba, el rango es de 0 a 1
+   sleep(5)               # Ejecutar la bomba durante 5 segundos
    
-   # Deactivate the pump
-   pump.stop()            # Stop the pump
+   # Desactivar la bomba
+   pump.stop()            # Detener la bomba
 
 
 
-Code Analysis
+Análisis del código
 ---------------------------
 
-#. Import Libraries
+#. Importar bibliotecas
    
-   The ``gpiozero`` library is used for controlling the motor, and the ``time`` library's ``sleep`` function is for delays.
+   La biblioteca ``gpiozero`` se usa para controlar el motor, y la función ``sleep`` de la biblioteca ``time`` se utiliza para los retrasos.
 
    .. code-block:: python
 
-      from gpiozero import Motor
-      from time import sleep
+      from gpiozero import Motor  
+      from time import sleep  
 
-#. Define Pump Pins
+#. Definir los pines de la bomba
    
-   A ``Motor`` object is created with two GPIO pins: one for forward and one for backward operation. In this case, GPIO 17 and 27 are used.
+   Se crea un objeto ``Motor`` con dos pines GPIO: uno para la operación hacia adelante y otro para la operación hacia atrás. En este caso, se utilizan los pines GPIO 17 y 27.
 
    .. code-block:: python
 
       pump = Motor(forward=17, backward=27)
 
-#. Activate the pump
+#. Activar la bomba
    
-   The motor is activated in the forward direction with a specified speed using ``pump.forward(speed=1)``. The speed parameter ranges from 0 (stopped) to 1 (full speed). The motor runs for 5 seconds, as defined by ``sleep(5)``.
+   El motor se activa en la dirección hacia adelante con una velocidad especificada mediante ``pump.forward(speed=1)``. El parámetro de velocidad varía de 0 (detenido) a 1 (velocidad máxima). El motor funciona durante 5 segundos, como lo define ``sleep(5)``.
 
    .. code-block:: python
 
       pump.forward(speed=1)
       sleep(5)
 
-#. Deactivate the pump
+#. Desactivar la bomba
    
-   The motor is stopped using ``pump.stop()``. This is essential for safely halting the motor's operation after the required duration.
+   El motor se detiene usando ``pump.stop()``. Esto es esencial para detener de manera segura la operación del motor después del tiempo requerido.
 
    .. code-block:: python
 

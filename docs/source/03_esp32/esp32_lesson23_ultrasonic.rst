@@ -1,52 +1,52 @@
-.. note::
+.. note:: 
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    ¡Hola, bienvenido a la Comunidad de Entusiastas de Raspberry Pi, Arduino y ESP32 en Facebook! Profundiza en el mundo de Raspberry Pi, Arduino y ESP32 junto con otros entusiastas.
 
-    **Why Join?**
+    **¿Por qué unirte?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Soporte experto**: Resuelve problemas postventa y desafíos técnicos con la ayuda de nuestra comunidad y equipo.
+    - **Aprende y comparte**: Intercambia consejos y tutoriales para mejorar tus habilidades.
+    - **Vistas previas exclusivas**: Accede a nuevos anuncios de productos y avances antes que nadie.
+    - **Descuentos especiales**: Disfruta de descuentos exclusivos en nuestros productos más recientes.
+    - **Promociones festivas y sorteos**: Participa en sorteos y promociones de temporada.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 ¿Estás listo para explorar y crear con nosotros? Haz clic en [|link_sf_facebook|] y únete hoy mismo!
 
 .. _esp32_lesson23_ultrasonic:
 
-Lesson 23: Ultrasonic Sensor Module (HC-SR04)
-================================================
+Lección 23: Módulo Sensor Ultrasonido (HC-SR04)
+==================================================
 
-In this lesson, you'll learn how to use an ESP32 Development Board for measuring distance with an ultrasonic sensor (HC-SR04). We'll cover setting up the sensor, reading data, and calculating the distance in centimeters. This project is ideal for beginners working with microcontrollers and sensors, offering hands-on experience in data acquisition and serial communication. You'll develop practical skills in programming the ESP32 and grasp ultrasonic sensing technology.
+En esta lección aprenderás a usar una placa de desarrollo ESP32 para medir distancias con un sensor ultrasónico (HC-SR04). Veremos cómo configurar el sensor, leer los datos y calcular la distancia en centímetros. Este proyecto es ideal para principiantes que trabajan con microcontroladores y sensores, ofreciendo experiencia práctica en adquisición de datos y comunicación serial. Desarrollarás habilidades prácticas en la programación del ESP32 y comprenderás la tecnología de sensores ultrasónicos.
 
-Required Components
+Componentes necesarios
 --------------------------
 
-In this project, we need the following components. 
+En este proyecto necesitamos los siguientes componentes.
 
-It's definitely convenient to buy a whole kit, here's the link: 
+Es muy conveniente comprar un kit completo, aquí tienes el enlace:
 
 .. list-table::
     :widths: 20 20 20
     :header-rows: 1
 
-    *   - Name	
-        - ITEMS IN THIS KIT
-        - LINK
-    *   - Universal Maker Sensor Kit
+    *   - Nombre	
+        - ARTÍCULOS EN ESTE KIT
+        - ENLACE
+    *   - Kit de Sensor Universal Maker
         - 94
         - |link_umsk|
 
-You can also buy them separately from the links below.
+También puedes comprarlos por separado a través de los enlaces a continuación.
 
 .. list-table::
     :widths: 30 20
     :header-rows: 1
 
-    *   - Component Introduction
-        - Purchase Link
+    *   - Introducción al componente
+        - Enlace de compra
 
-    *   - ESP32 & Development Board (:ref:`cpn_esp32_wroom_32e`)
+    *   - ESP32 & Placa de Desarrollo (:ref:`cpn_esp32_wroom_32e`)
         - |link_esp32_camera_pro_kit_buy|
     *   - :ref:`cpn_ultrasonic`
         - |link_ultrasonic_buy|
@@ -54,35 +54,35 @@ You can also buy them separately from the links below.
         - |link_breadboard_buy|
 
 
-Wiring
+Conexiones
 ---------------------------
 
 .. image:: img/Lesson_23_Ultrasonic_esp32_bb.png
     :width: 100%
 
 
-Code
+Código
 ---------------------------
 
 .. raw:: html
 
     <iframe src=https://create.arduino.cc/editor/sunfounder01/b5dbcdfa-3dc8-4f64-adf9-a3227e3f6044/preview?embed style="height:510px;width:100%;margin:10px 0" frameborder=0></iframe>
 
-Code Analysis
+Análisis del código
 ---------------------------
 
-1. Pin declaration:
+1. Declaración de pines:
 
-   Start by defining the pins for the ultrasonic sensor. ``echoPin`` and ``trigPin`` are declared as integers and their values are set to match the physical connection on the ESP32 Development Board.
+   Comienza definiendo los pines para el sensor ultrasónico. ``echoPin`` y ``trigPin`` se declaran como enteros y sus valores se configuran para coincidir con la conexión física en la placa de desarrollo ESP32.
 
    .. code-block:: arduino
 
       const int echoPin = 26;
       const int trigPin = 25;
 
-2. ``setup()`` function:
+2. Función ``setup()``:
 
-   The ``setup()`` function initializes the serial communication, sets the pin modes, and prints a message to indicate the ultrasonic sensor is ready.
+   La función ``setup()`` inicializa la comunicación serial, establece los modos de los pines y muestra un mensaje para indicar que el sensor ultrasónico está listo.
  
    .. code-block:: arduino
  
@@ -93,9 +93,9 @@ Code Analysis
         Serial.println("Ultrasonic sensor:");
       }
 
-3. ``loop()`` function:
+3. Función ``loop()``:
 
-   The ``loop()`` function reads the distance from the sensor and prints it to the serial monitor, then delays for 400 milliseconds before repeating.
+   La función ``loop()`` lee la distancia del sensor y la imprime en el monitor serial, luego hace una pausa de 400 milisegundos antes de repetir.
 
    .. code-block:: arduino
 
@@ -106,20 +106,20 @@ Code Analysis
         delay(400);
       }
 
-4. ``readDistance()`` function :
+4. Función ``readDistance()``:
 
-   The ``readDistance()`` function triggers the ultrasonic sensor and calculates the distance based on the time it takes for the signal to bounce back.
+   La función ``readDistance()`` activa el sensor ultrasónico y calcula la distancia en función del tiempo que tarda la señal en regresar.
 
-   For more details, please refer to the working :ref:`principle <cpn_ultrasonic_principle>` of the ultrasonic sensor module.
+   Para más detalles, consulta el principio de funcionamiento del :ref:`principle <cpn_ultrasonic_principle>`.
 
    .. code-block:: arduino
 
       float readDistance() {
-        digitalWrite(trigPin, LOW);   // Set trig pin to low to ensure a clean pulse
-        delayMicroseconds(2);         // Delay for 2 microseconds
-        digitalWrite(trigPin, HIGH);  // Send a 10 microsecond pulse by setting trig pin to high
+        digitalWrite(trigPin, LOW);   // Configurar trigPin a bajo para asegurar un pulso limpio
+        delayMicroseconds(2);         // Retraso de 2 microsegundos
+        digitalWrite(trigPin, HIGH);  // Enviar un pulso de 10 microsegundos configurando trigPin a alto
         delayMicroseconds(10);
-        digitalWrite(trigPin, LOW);  // Set trig pin back to low
-        float distance = pulseIn(echoPin, HIGH) / 58.00;  // Formula: (340m/s * 1us) / 2
+        digitalWrite(trigPin, LOW);  // Configurar trigPin de vuelta a bajo
+        float distance = pulseIn(echoPin, HIGH) / 58.00;  // Fórmula: (340m/s * 1us) / 2
         return distance;
       }

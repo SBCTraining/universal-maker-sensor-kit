@@ -1,57 +1,59 @@
-.. note::
+.. note:: 
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    ¡Hola, bienvenido a la Comunidad de Entusiastas de Raspberry Pi, Arduino y ESP32 en Facebook! Profundiza en el mundo de Raspberry Pi, Arduino y ESP32 junto con otros entusiastas.
 
-    **Why Join?**
+    **¿Por qué unirte?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Soporte experto**: Resuelve problemas postventa y desafíos técnicos con la ayuda de nuestra comunidad y equipo.
+    - **Aprende y comparte**: Intercambia consejos y tutoriales para mejorar tus habilidades.
+    - **Vistas previas exclusivas**: Accede a nuevos anuncios de productos y avances antes que nadie.
+    - **Descuentos especiales**: Disfruta de descuentos exclusivos en nuestros productos más recientes.
+    - **Promociones festivas y sorteos**: Participa en sorteos y promociones de temporada.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 ¿Estás listo para explorar y crear con nosotros? Haz clic en [|link_sf_facebook|] y únete hoy mismo!
 
 .. _esp32_potentiometer_scale_value:
 
-Lesson 41: Potentiometer scale value
+Lección 41: Valor de escala del potenciómetro
 =============================================================
 
 
-This project focuses on reading a potentiometer's value and displaying it on an LCD 1620 equipped with an I2C interface. 
-Additionally, the value is transmitted to the serial monitor for live monitoring. 
-A distinctive aspect of this project is the graphical representation of the potentiometer's value on the LCD, 
-which is depicted as a variable-length bar proportional to the potentiometer's reading.
+Este proyecto se centra en leer el valor de un potenciómetro y mostrarlo 
+en una pantalla LCD 1620 equipada con una interfaz I2C. Además, el valor 
+se transmite al monitor serial para su monitoreo en tiempo real. Un aspecto 
+distintivo de este proyecto es la representación gráfica del valor del 
+potenciómetro en la pantalla LCD, que se muestra como una barra de longitud 
+variable proporcional a la lectura del potenciómetro.
 
 
-Required Components
---------------------------
+Componentes necesarios
+---------------------------
 
-In this project, we need the following components. 
+En este proyecto necesitamos los siguientes componentes. 
 
-It's definitely convenient to buy a whole kit, here's the link: 
+Es muy conveniente comprar un kit completo, aquí tienes el enlace: 
 
 .. list-table::
     :widths: 20 20 20
     :header-rows: 1
 
-    *   - Name	
-        - ITEMS IN THIS KIT
-        - LINK
-    *   - Universal Maker Sensor Kit
+    *   - Nombre	
+        - ARTÍCULOS EN ESTE KIT
+        - ENLACE
+    *   - Kit de Sensor Universal Maker
         - 94
         - |link_umsk|
 
-You can also buy them separately from the links below.
+También puedes comprarlos por separado a través de los enlaces a continuación.
 
 .. list-table::
     :widths: 30 20
     :header-rows: 1
 
-    *   - Component Introduction
-        - Purchase Link
+    *   - Introducción al componente
+        - Enlace de compra
 
-    *   - ESP32 & Development Board (:ref:`cpn_esp32_wroom_32e`)
+    *   - ESP32 & Placa de Desarrollo (:ref:`cpn_esp32_wroom_32e`)
         - |link_esp32_camera_pro_kit_buy|
     *   - :ref:`cpn_potentiometer`
         - \-
@@ -61,14 +63,14 @@ You can also buy them separately from the links below.
         - |link_breadboard_buy|
         
 
-Wiring
+Conexiones
 ---------------------------
 
 .. image:: img/Lesson_41_Potentiometer_scale_value_esp32_bb.png
     :width: 100%
 
 
-Code
+Código
 ---------------------------
 
 .. raw:: html
@@ -76,58 +78,58 @@ Code
    <iframe src=https://create.arduino.cc/editor/sunfounder01/407cf491-e932-4334-a3f3-e04f7309c941/preview?embed style="height:510px;width:100%;margin:10px 0" frameborder=0></iframe>
 
    
-Code Analysis
+Análisis del código
 ---------------------------
 
-The core functionality of this project is to consistently read the potentiometer's value, map it to a scaled range (0-16), and display the result both numerically and graphically on the LCD. The implementation minimizes jitter by updating the display only when significant changes in the reading occur, thus maintaining a smooth visual experience.
+La funcionalidad principal de este proyecto es leer de manera continua el valor del potenciómetro, asignarlo a un rango escalado (0-16) y mostrar el resultado tanto numéricamente como gráficamente en la pantalla LCD. La implementación minimiza el parpadeo al actualizar la pantalla solo cuando ocurren cambios significativos en la lectura, manteniendo así una experiencia visual fluida.
 
-1. **Library Inclusion and Initialization**:
+1. **Inclusión de bibliotecas y declaración inicial**:
 
    .. code-block:: arduino
    
-      // Required libraries for I2C and LCD operations
+      // Bibliotecas necesarias para operaciones I2C y LCD
       #include <Wire.h>
       #include <LiquidCrystal_I2C.h>
 
-      // Initialize LCD at I2C address 0x27 with 16 columns and 2 rows
+      // Inicializa el LCD con dirección I2C 0x27 y 16 columnas y 2 filas
       LiquidCrystal_I2C lcd(0x27, 16, 2);
 
-   This segment incorporates the necessary libraries for I2C communication and LCD control. It then initializes an LCD instance with the I2C address of ``0x27``, specifying its dimensions as ``16 columns`` and ``2 rows``.
+   Este segmento incluye las bibliotecas necesarias para la comunicación I2C y el control del LCD. Luego, inicializa una instancia de LCD con la dirección I2C ``0x27``, especificando sus dimensiones como ``16 columns`` y ``2 rows``.
 
-2. **Variable Declaration**:
+2. **Declaración de variables**:
 
    .. code-block:: arduino
    
-      // Variables to hold the potentiometer readings
-      int lastRead = 0;     // Previous potentiometer value
-      int currentRead = 0;  // Current potentiometer value
+      // Variables para almacenar las lecturas del potenciómetro
+      int lastRead = 0;     // Valor anterior del potenciómetro
+      int currentRead = 0;  // Valor actual del potenciómetro
 
-   Variables ``lastRead`` and ``currentRead`` are used to keep track of the potentiometer's readings across different moments.
+   Las variables ``lastRead`` y ``currentRead`` se utilizan para llevar un seguimiento de las lecturas del potenciómetro en diferentes momentos.
 
-3. **setup() Function**:
+3. **Función setup()**:
 
    .. code-block:: arduino
    
       void setup() {
-        lcd.init();          // Initiates the LCD
-        lcd.backlight();     // Activates the LCD's backlight
-        Serial.begin(9600);  // Commences serial communication at 9600 baud
+        lcd.init();          // Inicia el LCD
+        lcd.backlight();     // Activa la retroiluminación del LCD
+        Serial.begin(9600);  // Inicia la comunicación serial a 9600 baudios
       }
 
-   This function prepares the LCD and starts serial communication, setting up the environment for the project's operation.
+   Esta función prepara el LCD y comienza la comunicación serial, configurando el entorno para el funcionamiento del proyecto.
 
-4. **Main Loop**:
+4. **Bucle principal**:
 
    .. code-block:: arduino
    
       void loop() {
-         // Read the current potentiometer value
+         // Leer el valor actual del potenciómetro
          int currentRead = analogRead(35);
 
-         // Map the read value from 0-4096 to 0-16
+         // Mapea el valor leído de 0-4096 a 0-16
          int barLength = map(currentRead, 0, 4096, 0, 16);
 
-         // Update LCD only if the difference between current and last reading is greater than 2 to avoid jitter
+         // Actualiza el LCD solo si la diferencia entre la lectura actual y la anterior es mayor a 2 para evitar parpadeos
          if (abs(lastRead - currentRead) > 2) {
             lcd.clear();
             lcd.setCursor(0, 0);
@@ -136,21 +138,21 @@ The core functionality of this project is to consistently read the potentiometer
             lcd.print(currentRead);
             Serial.println(currentRead);
 
-            // Display a bar on the second row of LCD proportional to the potentiometer value
+            // Muestra una barra en la segunda fila del LCD proporcional al valor del potenciómetro
             for (int i = 0; i < barLength; i++) {
                lcd.setCursor(i, 1);
                lcd.print(char(255));
             }
          }
-         // Update the last read value for the next iteration
+         // Actualiza el último valor leído para la próxima iteración
          lastRead = currentRead;
 
-         // Introduce a delay for a stable reading
+         // Introduce un retraso para una lectura estable
          delay(200);
       }
 
-   * Reads the potentiometer and converts its value to a scale suitable for visual representation.
-   * Updates the LCD only when a meaningful change is detected, displaying the numeric value and a corresponding bar graph.
-   * Also sends the reading to the serial monitor for external observation.
-   * Ensures stability and responsiveness by introducing a brief delay between iterations.
+   * Lee el potenciómetro y convierte su valor en una escala adecuada para la representación visual.
+   * Actualiza el LCD solo cuando se detecta un cambio significativo, mostrando el valor numérico y un gráfico de barras correspondiente.
+   * También envía la lectura al monitor serial para su observación externa.
+   * Asegura estabilidad y capacidad de respuesta introduciendo un breve retraso entre iteraciones.
 

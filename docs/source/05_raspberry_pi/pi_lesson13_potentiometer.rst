@@ -1,123 +1,123 @@
-.. note::
+.. note:: 
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    ¡Hola, bienvenido a la Comunidad de Entusiastas de Raspberry Pi, Arduino y ESP32 de SunFounder en Facebook! Profundiza en Raspberry Pi, Arduino y ESP32 con otros entusiastas.
 
-    **Why Join?**
+    **¿Por qué unirte?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Soporte experto**: Resuelve problemas postventa y desafíos técnicos con la ayuda de nuestra comunidad y equipo.
+    - **Aprende y comparte**: Intercambia consejos y tutoriales para mejorar tus habilidades.
+    - **Preestrenos exclusivos**: Accede anticipadamente a anuncios de nuevos productos y adelantos.
+    - **Descuentos especiales**: Disfruta de descuentos exclusivos en nuestros productos más recientes.
+    - **Promociones festivas y sorteos**: Participa en sorteos y promociones de temporada.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 ¿Listo para explorar y crear con nosotros? Haz clic en [|link_sf_facebook|] y únete hoy mismo!
 
 .. _pi_lesson13_potentiometer:
 
-Lesson 13: Potentiometer Module
-==================================
+Lección 13: Módulo de Potenciómetro
+=======================================
 
-.. note::
-   The Raspberry Pi does not have analog input capabilities, so it needs a module like the :ref:`cpn_pcf8591` to read analog signals for processing.
+.. note:: 
+   El Raspberry Pi no tiene capacidades de entrada analógica, por lo que necesita un módulo como el :ref:`cpn_pcf8591` para leer señales analógicas y procesarlas.
 
-In this lesson, we'll learn how to read from a potentiometer using a Raspberry Pi. You'll find out how to connect a potentiometer module to the PCF8591 for analog-to-digital conversion and monitor its output in real-time with Python.
+En esta lección, aprenderás cómo leer un módulo de potenciómetro utilizando un Raspberry Pi. Verás cómo conectar un módulo de potenciómetro al PCF8591 para la conversión de analógico a digital y cómo monitorear su salida en tiempo real con Python.
 
-Required Components
---------------------------
+Componentes Requeridos
+------------------------
 
-In this project, we need the following components. 
+En este proyecto, necesitamos los siguientes componentes.
 
-It's definitely convenient to buy a whole kit, here's the link: 
+Es definitivamente conveniente comprar un kit completo, aquí está el enlace:
 
 .. list-table::
     :widths: 20 20 20
     :header-rows: 1
 
-    *   - Name	
-        - ITEMS IN THIS KIT
-        - LINK
-    *   - Universal Maker Sensor Kit
+    *   - Nombre
+        - ARTÍCULOS EN ESTE KIT
+        - ENLACE
+    *   - Kit Universal Maker Sensor
         - 94
         - |link_umsk|
 
-You can also buy them separately from the links below.
+También puedes comprarlos por separado desde los enlaces a continuación.
 
 .. list-table::
     :widths: 30 20
     :header-rows: 1
 
-    *   - Component Introduction
-        - Purchase Link
+    *   - Introducción al Componente
+        - Enlace de Compra
 
     *   - Raspberry Pi 5
-        - \-
+        - |link_rpi5_buy|
     *   - :ref:`cpn_potentiometer`
         - |link_potentiometer_sensor_module_buy|
     *   - :ref:`cpn_pcf8591`
         - |link_pcf8591_module_buy|
 
 
-Wiring
----------------------------
+Cableado
+------------
 
 .. image:: img/Lesson_13_potentiometer_module_pi_bb.png
     :width: 100%
 
 
-Code
----------------------------
+Código
+--------
 
 .. code-block:: python
 
-   import PCF8591 as ADC  # Import PCF8591 module
-   import time  # Import time for delay
+   import PCF8591 as ADC  # Importar módulo PCF8591
+   import time  # Importar módulo de tiempo para agregar retrasos
    
-   ADC.setup(0x48)  # Initialize PCF8591 at address 0x48
+   ADC.setup(0x48)  # Inicializar PCF8591 en la dirección 0x48
    
    try:
-       while True:  # Continuously read and print
-           print(ADC.read(1))  # Read from Potentiometer at AIN1
-           time.sleep(0.2)  # Delay of 0.2 seconds
+       while True:  # Leer y mostrar continuamente
+           print(ADC.read(1))  # Leer desde el Potenciómetro en AIN1
+           time.sleep(0.2)  # Retraso de 0.2 segundos
    except KeyboardInterrupt:
-       print("Exit")  # Exit on CTRL+C
+       print("Exit")  # Salir con CTRL+C
 
 
-Code Analysis
----------------------------
+Análisis del Código
+------------------------
 
-1. **Import Libraries**:
+1. **Importación de Bibliotecas**:
 
-   This section imports necessary Python libraries. The ``PCF8591`` library is used for interacting with the PCF8591 module, and ``time`` is for implementing delays in the code.
-
-   .. code-block:: python
-
-      import PCF8591 as ADC  # Import PCF8591 module
-      import time  # Import time for delay
-
-2. **Initialize PCF8591 Module**:
-
-   Here, the PCF8591 module is initialized. The address ``0x48`` is the I²C address of the PCF8591 module. This is necessary for the Raspberry Pi to communicate with the module.
+   Esta sección importa las bibliotecas necesarias en Python. La biblioteca ``PCF8591`` se utiliza para interactuar con el módulo PCF8591, y ``time`` se utiliza para implementar retrasos en el código.
 
    .. code-block:: python
 
-      ADC.setup(0x48)  # Initialize PCF8591 at address 0x48
+      import PCF8591 as ADC  # Importar módulo PCF8591
+      import time  # Importar módulo de tiempo para agregar retrasos
 
-3. **Main Loop and Reading Data**:
+2. **Inicialización del Módulo PCF8591**:
 
-   The ``try`` block includes a continuous loop that consistently reads data from the potentiometer module. The ``ADC.read(1)`` function captures the analog input from the sensor connected to channel 1 (AIN1) of the PCF8591 module. Incorporating a ``time.sleep(0.2)`` creates a 0.2-second pause between each reading. This not only helps in reducing CPU usage on the Raspberry Pi by avoiding excessive data processing demands, but also prevents the terminal from being overrun with rapidly scrolling information, making it easier to monitor and analyze the output.
+   Aquí, se inicializa el módulo PCF8591. La dirección ``0x48`` es la dirección I²C del módulo PCF8591. Este paso es necesario para que el Raspberry Pi pueda comunicarse con el módulo.
+
+   .. code-block:: python
+
+      ADC.setup(0x48)  # Inicializar PCF8591 en la dirección 0x48
+
+3. **Bucle Principal y Lectura de Datos**:
+
+   El bloque ``try`` incluye un bucle continuo que lee datos del módulo de potenciómetro. La función ``ADC.read(1)`` captura la entrada analógica del sensor conectado al canal 1 (AIN1) del módulo PCF8591. Incluir un ``time.sleep(0.2)`` crea una pausa de 0.2 segundos entre cada lectura. Esto ayuda no solo a reducir el uso de la CPU en el Raspberry Pi al evitar demandas excesivas de procesamiento de datos, sino también a evitar que la terminal se sobrecargue con información de desplazamiento rápido, lo que facilita monitorear y analizar la salida.
 
    .. code-block:: python
 
       try:
-          while True:  # Continuously read and print
-              print(ADC.read(1))  # Read from Potentiometer at AIN1
-              time.sleep(0.2)  # Delay of 0.2 seconds
+          while True:  # Leer y mostrar continuamente
+              print(ADC.read(1))  # Leer desde el Potenciómetro en AIN1
+              time.sleep(0.2)  # Retraso de 0.2 segundos
 
-4. **Handling Keyboard Interrupt**:
+4. **Manejo de Interrupciones por Teclado**:
 
-   The ``except`` block is designed to catch a KeyboardInterrupt (like pressing CTRL+C). When this interrupt occurs, the script prints "exit" and stops running. This is a common way to gracefully exit a continuously running script in Python.
+   El bloque ``except`` está diseñado para capturar una interrupción por teclado (como al presionar CTRL+C). Cuando ocurre esta interrupción, el script imprime "Salir" y deja de ejecutarse. Este es un método común para salir de manera elegante de un script en ejecución continua en Python.
 
    .. code-block:: python
 
       except KeyboardInterrupt:
-          print("exit")  # Exit on CTRL+C
+          print("exit")  # Salir con CTRL+C

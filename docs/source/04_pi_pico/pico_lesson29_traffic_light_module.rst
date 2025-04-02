@@ -1,50 +1,50 @@
-.. note::
+.. note:: 
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    ¡Hola, bienvenido a la comunidad de entusiastas de Raspberry Pi, Arduino y ESP32 de SunFounder en Facebook! Profundiza en Raspberry Pi, Arduino y ESP32 con otros entusiastas.
 
-    **Why Join?**
+    **¿Por qué unirse?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Soporte Experto**: Resuelve problemas post-venta y desafíos técnicos con la ayuda de nuestra comunidad y equipo.
+    - **Aprende y Comparte**: Intercambia consejos y tutoriales para mejorar tus habilidades.
+    - **Avances Exclusivos**: Obtén acceso anticipado a anuncios de nuevos productos y avances.
+    - **Descuentos Especiales**: Disfruta de descuentos exclusivos en nuestros productos más nuevos.
+    - **Promociones Festivas y Sorteos**: Participa en sorteos y promociones de temporada.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 ¿Listo para explorar y crear con nosotros? Haz clic en [|link_sf_facebook|] y únete hoy mismo!
 
 .. _pico_lesson29_traffic_light_module:
 
-Lesson 29: Traffic Light Module
+Lección 29: Módulo Semáforo
 ==================================
 
-In this lesson, you will learn to create a traffic light system using the Raspberry Pi Pico W. You'll program the Pico W to control three LEDs – red, yellow, and green – mimicking a real traffic light. This project offers a practical introduction to using Pulse Width Modulation (PWM) for LED brightness control and basic control structures in MicroPython. It's ideal for beginners looking to explore digital signal processing and gain confidence in coding on the Raspberry Pi Pico W platform.
+En esta lección, aprenderás a crear un sistema de semáforo utilizando el Raspberry Pi Pico W. Programarás el Pico W para controlar tres LEDs – rojo, amarillo y verde – imitando un semáforo real. Este proyecto ofrece una introducción práctica al uso de la Modulación por Ancho de Pulso (PWM) para controlar la luminosidad de los LEDs y a las estructuras de control básicas en MicroPython. Es ideal para principiantes que deseen explorar el procesamiento de señales digitales y ganar confianza en la programación en la plataforma Raspberry Pi Pico W.
 
-Required Components
+Componentes Requeridos
 --------------------------
 
-In this project, we need the following components. 
+En este proyecto, necesitamos los siguientes componentes.
 
-It's definitely convenient to buy a whole kit, here's the link: 
+Es muy conveniente comprar un kit completo, aquí tienes el enlace:
 
 .. list-table::
     :widths: 20 20 20
     :header-rows: 1
 
-    *   - Name	
-        - ITEMS IN THIS KIT
-        - LINK
-    *   - Universal Maker Sensor Kit
+    *   - Nombre
+        - ARTÍCULOS EN ESTE KIT
+        - ENLACE
+    *   - Kit Sensor Universal Maker
         - 94
         - |link_umsk|
 
-You can also buy them separately from the links below.
+También puedes comprarlos por separado desde los siguientes enlaces.
 
 .. list-table::
     :widths: 30 20
     :header-rows: 1
 
-    *   - Component Introduction
-        - Purchase Link
+    *   - Introducción del componente
+        - Enlace de compra
 
     *   - Raspberry Pi Pico W
         - \-
@@ -54,14 +54,14 @@ You can also buy them separately from the links below.
         - |link_breadboard_buy|
 
 
-Wiring
+Conexión
 ---------------------------
 
 .. image:: img/Lesson_29_Traffic_Light_Module_pico_bb.png
     :width: 100%
 
 
-Code
+Código
 ---------------------------
 
 .. code-block:: python
@@ -69,13 +69,13 @@ Code
    from machine import Pin, PWM
    import time
    
-   # Initialize pins for LEDs
-   red = PWM(Pin(26), freq=1000)  #  red LED
-   yellow = PWM(Pin(27), freq=1000)  #  yellow LED
-   green = PWM(Pin(28), freq=1000)  # green LED
+   # Inicializar pines para los LEDs
+   red = PWM(Pin(26), freq=1000)  # LED rojo
+   yellow = PWM(Pin(27), freq=1000)  # LED amarillo
+   green = PWM(Pin(28), freq=1000)  # LED verde
    
    
-   # Function to set the brightness of an LED (0-100%)
+   # Función para ajustar el brillo de un LED (0-100%)
    def set_brightness(led, brightness):
        if brightness < 0 or brightness > 100:
            raise ValueError("Brightness should be between 0 and 100")
@@ -83,15 +83,15 @@ Code
    
    
    try:
-       # Example sequence
+       # Secuencia de ejemplo
        while True:
            
-           # Green light for 5 seconds
+           # Luz verde durante 5 segundos
            set_brightness(green, 100)
            time.sleep(5)
            set_brightness(green, 0)
    
-           # Blink Yellow light
+           # Parpadeo de la luz amarilla
            set_brightness(yellow, 100)
            time.sleep(0.5)
            set_brightness(yellow, 0)
@@ -105,46 +105,46 @@ Code
            set_brightness(yellow, 0)
            time.sleep(0.5)
            
-           # Red light for 5 seconds
+           # Luz roja durante 5 segundos
            set_brightness(red, 100)
            time.sleep(5)
            set_brightness(red, 0)
            
    except KeyboardInterrupt:
-       # Turn off RGB LED on interrupt
+       # Apagar los LEDs RGB al interrumpir
        set_brightness(red, 0)
        set_brightness(yellow, 0)
        set_brightness(green, 0)
 
 
-Code Analysis
+Análisis del Código
 ---------------------------
 
-#. Importing Libraries
+#. Importación de Bibliotecas
 
-   The ``machine`` library is used for controlling hardware components, and ``time`` is used for creating delays.
+   Se importa la librería ``machine`` para controlar los componentes de hardware, y ``time`` para crear retrasos.
 
    .. code-block:: python
 
       from machine import Pin, PWM
       import time
 
-#. Initializing LED Pins
+#. Inicialización de los Pines del LED
 
-   Here, we initialize the pins connected to the LEDs. PWM is used to control the brightness of the LEDs.
+   Aquí inicializamos los pines conectados a los LEDs. Se utiliza PWM para controlar el brillo de los LEDs.
 
    .. code-block:: python
 
-      red = PWM(Pin(26), freq=1000)  #  red LED
-      yellow = PWM(Pin(27), freq=1000)  #  yellow LED
-      green = PWM(Pin(28), freq=1000)  # green LED
+      red = PWM(Pin(26), freq=1000)  # LED rojo
+      yellow = PWM(Pin(27), freq=1000)  # LED amarillo
+      green = PWM(Pin(28), freq=1000)  # LED verde
 
-#. Defining the Set Brightness Function
+#. Definición de la Función set_brightness
 
    .. note::
-      Due to the fact that the pins of Raspberry Pi Pico can only output a maximum voltage of 3.3V, the green LED will appear dim.
+      Debido a que los pines del Raspberry Pi Pico solo pueden generar un voltaje máximo de 3.3V, el LED verde aparecerá más tenue.
 
-   This function sets the brightness of the LEDs. It takes two parameters: the LED and the desired brightness level (0-100%). The ``duty_u16`` method is used to set the PWM duty cycle.
+   Esta función ajusta el brillo de los LEDs. Recibe dos parámetros: el LED y el nivel de brillo deseado (0-100%). Se utiliza el método ``duty_u16`` para ajustar el ciclo de trabajo del PWM.
 
    .. code-block:: python
 
@@ -153,23 +153,23 @@ Code Analysis
               raise ValueError("Brightness should be between 0 and 100")
           led.duty_u16(int(brightness / 100 * 65535))
 
-#. Main Loop and Traffic Light Sequence
+#. Bucle Principal y Secuencia del Semáforo
 
-   The ``while True`` loop makes the code run continuously. It controls the sequence of the traffic light: green, yellow (blinking), and red.
+   El bucle ``while True`` hace que el código se ejecute continuamente. Controla la secuencia del semáforo: verde, amarillo (parpadeando) y rojo.
 
    .. code-block:: python
 
       try:
           while True:
-              # Green light for 5 seconds
+              # Luz verde durante 5 segundos
               set_brightness(green, 100)
               time.sleep(5)
               set_brightness(green, 0)
               ...
 
-#. Handling Keyboard Interrupt
+#. Manejo de la Interrupción del Teclado
 
-   The ``except KeyboardInterrupt`` block is used to handle a manual interruption (like Ctrl+C). It turns off all LEDs when the script is interrupted.
+   El bloque ``except KeyboardInterrupt`` se usa para manejar una interrupción manual (como Ctrl+C). Apaga todos los LEDs cuando el script es interrumpido.
 
    .. code-block:: python
 

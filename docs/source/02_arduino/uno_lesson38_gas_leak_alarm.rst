@@ -1,52 +1,52 @@
-.. note::
+.. note:: 
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    ¡Hola, bienvenido a la comunidad de entusiastas de SunFounder Raspberry Pi & Arduino & ESP32 en Facebook! Profundiza en Raspberry Pi, Arduino y ESP32 con otros aficionados.
 
     **Why Join?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Expert Support**: Resuelve problemas posventa y desafíos técnicos con la ayuda de nuestra comunidad y equipo.
+    - **Learn & Share**: Intercambia consejos y tutoriales para mejorar tus habilidades.
+    - **Exclusive Previews**: Obtén acceso anticipado a anuncios de nuevos productos y avances exclusivos.
+    - **Special Discounts**: Disfruta de descuentos exclusivos en nuestros productos más recientes.
+    - **Festive Promotions and Giveaways**: Participa en sorteos y promociones festivas.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 ¿Listo para explorar y crear con nosotros? Haz clic en [|link_sf_facebook|] y únete hoy mismo!
 
 .. _uno_lesson38_gas_leak_alarm:
 
-Lesson 38: Gas leak alarm
-==================================
+Lección 38: Alarma de fuga de gas
+=====================================
 
-This project revolves around simulating a gas leak detection scenario using an Arduino Uno board. By incorporating an MQ-2 gas sensor and an RGB LED, this demonstration continuously reads the gas concentration. If this concentration surpasses a predefined threshold, it activates an alarm (buzzer) and illuminates the RGB LED in red. Conversely, if the concentration remains below this threshold, the alarm remains inactive and the LED shines green. It's crucial to note that this demo is purely illustrative and shouldn't replace real gas leak detection systems.
+Este proyecto gira en torno a la simulación de un escenario de detección de fugas de gas utilizando una placa Arduino Uno. Incorporando un sensor de gas MQ-2 y un LED RGB, esta demostración lee continuamente la concentración de gas. Si esta concentración supera un umbral predefinido, activa una alarma (zumbador) y enciende el LED RGB en rojo. Por el contrario, si la concentración permanece por debajo de este umbral, la alarma permanece inactiva y el LED brilla en verde. Es crucial tener en cuenta que esta demostración es puramente ilustrativa y no debe reemplazar a los sistemas reales de detección de fugas de gas.
 
-Required Components
---------------------------
+Componentes Necesarios
+---------------------------
 
-In this project, we need the following components. 
+Para este proyecto, necesitaremos los siguientes componentes.
 
-It's definitely convenient to buy a whole kit, here's the link: 
+Es definitivamente conveniente comprar un kit completo, aquí está el enlace:
 
 .. list-table::
     :widths: 20 20 20
     :header-rows: 1
 
-    *   - Name	
-        - ITEMS IN THIS KIT
-        - LINK
-    *   - Universal Maker Sensor Kit
+    *   - Nombre	
+        - ELEMENTOS EN ESTE KIT
+        - ENLACE
+    *   - Kit Universal de Sensores para Creadores
         - 94
         - |link_umsk|
 
-You can also buy them separately from the links below.
+También puedes comprarlos por separado en los siguientes enlaces.
 
 .. list-table::
     :widths: 30 20
     :header-rows: 1
 
-    *   - Component Introduction
-        - Purchase Link
+    *   - Introducción del Componente
+        - Enlace de Compra
 
-    *   - Arduino UNO R3 or R4
+    *   - Arduino UNO R3 o R4
         - |link_Uno_R3_buy|
     *   - :ref:`cpn_gas`
         - |link_mq2_gas_sensor_module_buy|
@@ -58,91 +58,91 @@ You can also buy them separately from the links below.
         - |link_breadboard_buy|
         
 
-Wiring
+Cableado
 ---------------------------
 
 .. image:: img/Lesson_38_Gas_leak_alarm_uno_bb.png
     :width: 100%
 
 
-Code
+Código
 ---------------------------
 
 .. raw:: html
 
     <iframe src=https://create.arduino.cc/editor/sunfounder01/314a351a-9c54-4938-bb72-1471f1807adb/preview?embed style="height:510px;width:100%;margin:10px 0" frameborder=0></iframe>
 
-Code Analysis
+Análisis del Código
 ---------------------------
 
-The core principle of the project revolves around continuously monitoring the gas concentration. When the detected gas concentration surpasses a certain threshold, it sets off an alarm and changes the LED's color to red. This serves as a simulated warning mechanism, indicative of potentially hazardous conditions. If the concentration drops below the threshold, the alarm is deactivated and the LED switches to green, indicating a safe environment.
+El principio central del proyecto se basa en la monitorización continua de la concentración de gas. Cuando la concentración de gas detectada supera un cierto umbral, se activa una alarma y cambia el color del LED a rojo. Esto sirve como un mecanismo de advertencia simulado, indicativo de condiciones potencialmente peligrosas. Si la concentración baja del umbral, la alarma se desactiva y el LED cambia a verde, indicando un ambiente seguro.
 
-1. Defining Constants and Variables
+1. Definición de Constantes y Variables
 
-   These lines declare and initialize the pin numbers for various components. The ``sensorPin`` denotes the analog pin where the MQ-2 gas sensor is connected. ``sensorValue`` is an integer variable storing the sensor's analog output. The ``buzzerPin`` indicates the digital pin to which the buzzer is connected. Finally, the ``RPin`` and ``GPin`` are the pins for the red and green channels of the RGB LED, respectively.
+   Estas líneas declaran e inicializan los números de los pines para varios componentes. El ``sensorPin`` denota el pin analógico donde se conecta el sensor de gas MQ-2. ``sensorValue`` es una variable entera que almacena la salida analógica del sensor. El ``buzzerPin`` indica el pin digital al cual está conectado el zumbador. Finalmente, ``RPin`` y ``GPin`` son los pines para los canales rojo y verde del LED RGB, respectivamente.
 
    .. code-block:: arduino
    
-      // Define the pin numbers for the Gas Sensor
+      // Define los números de pin para el Sensor de Gas
       const int sensorPin = A0;
       int sensorValue;
    
-      // Define the pin number for the buzzer
+      // Define el número de pin para el zumbador
       const int buzzerPin = 9;
    
-      // Define pin numbers for the RGB LED
-      const int RPin = 5;  // R channel of RGB LED
-      const int GPin = 6;  // G channel of RGB LED
+      // Define los números de pin para el LED RGB
+      const int RPin = 5;  // Canal R del LED RGB
+      const int GPin = 6;  // Canal G del LED RGB
    
 
-2. Initialization in ``setup()``
+2. Inicialización en ``setup()``
 
-   The ``setup()`` function initializes the required settings. Serial communication begins at a baud rate of 9600, allowing us to view sensor readings on the Serial Monitor. Pins for the buzzer and RGB LED are set as ``OUTPUT``, meaning they'll send signals out to external components.
+   La función ``setup()`` inicializa los ajustes requeridos. La comunicación serial comienza a una tasa de baudios de 9600, permitiéndonos ver las lecturas del sensor en el Monitor Serial. Los pines para el zumbador y el LED RGB se configuran como ``OUTPUT``, lo que significa que enviarán señales a los componentes externos.
 
    .. code-block:: arduino
    
       void setup() {
-        Serial.begin(9600);  // Start serial communication at 9600 baud rate
+        Serial.begin(9600);  // Inicia la comunicación serial a 9600 baudios
    
-        // Initialize the buzzer and RGB LED pins as output
+        // Inicializa los pines del zumbador y LED RGB como salida
         pinMode(buzzerPin, OUTPUT);
         pinMode(RPin, OUTPUT);
         pinMode(GPin, OUTPUT);
       }
    
 
-3. Main Loop: Reading Sensor and Triggering Alarm
+3. Bucle Principal: Lectura del Sensor y Activación de la Alarma
 
-   The ``loop()`` function continually reads the gas sensor's output. The reading is then displayed on the Serial Monitor for observation. Depending on the sensor value, two scenarios can occur:
+   La función ``loop()`` lee continuamente la salida del sensor de gas. La lectura se muestra luego en el Monitor Serial para observación. Dependiendo del valor del sensor, pueden ocurrir dos escenarios:
    
-   - If the value exceeds 300, the buzzer is activated using ``tone()``, and the RGB LED turns red.
-   - If the value is below 300, the buzzer is silenced using ``noTone()``, and the LED turns green.
+   - Si el valor supera 300, se activa el zumbador usando ``tone()``, y el LED RGB se vuelve rojo.
+   - Si el valor es inferior a 300, se silencia el zumbador usando ``noTone()``, y el LED se vuelve verde.
    
-   Lastly, a delay of 50 milliseconds is introduced before the next loop iteration to manage the read frequency and reduce the CPU load.
+   Por último, se introduce un retraso de 50 milisegundos antes de la siguiente iteración del bucle para gestionar la frecuencia de lectura y reducir la carga de la CPU.
 
    .. code-block:: arduino
    
       void loop() {
-        // Read the analog value of the gas sensor
+        // Lee el valor analógico del sensor de gas
         sensorValue = analogRead(sensorPin);
    
-        // Print the sensor value to the serial monitor
+        // Imprime el valor del sensor en el monitor serial
         Serial.print("Analog output: ");
         Serial.println(sensorValue);
    
-        // If the sensor value exceeds the threshold, trigger the alarm and make the RGB LED red
+        // Si el valor del sensor supera el umbral, activa la alarma y cambia el LED RGB a rojo
         if (sensorValue > 300) {
           tone(buzzerPin, 500, 300);
           digitalWrite(GPin, LOW);
           digitalWrite(RPin, HIGH);
         } else {
-          // If the sensor value is below the threshold, turn off the alarm and make the RGB LED green
+          // Si el valor del sensor está por debajo del umbral, desactiva la alarma y cambia el LED RGB a verde
           noTone(buzzerPin);
           digitalWrite(RPin, LOW);
           digitalWrite(GPin, HIGH);
         }
    
-        // Wait for 50 milliseconds before the next loop iteration
+        // Espera 50 milisegundos antes de la siguiente iteración del bucle
         delay(50);
       }
    

@@ -1,25 +1,25 @@
-.. note::
+.. note:: 
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    ¡Hola, bienvenido a la Comunidad de Entusiastas de SunFounder Raspberry Pi, Arduino y ESP32 en Facebook! Profundiza más en Raspberry Pi, Arduino y ESP32 junto a otros entusiastas.
 
-    **Why Join?**
+    **¿Por qué unirte?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Soporte experto**: Resuelve problemas postventa y desafíos técnicos con la ayuda de nuestra comunidad y equipo.
+    - **Aprender y compartir**: Intercambia consejos y tutoriales para mejorar tus habilidades.
+    - **Preestrenos exclusivos**: Obtén acceso anticipado a nuevos anuncios de productos y adelantos.
+    - **Descuentos especiales**: Disfruta de descuentos exclusivos en nuestros productos más nuevos.
+    - **Promociones festivas y sorteos**: Participa en sorteos y promociones de temporada.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 ¿Listo para explorar y crear con nosotros? Haz clic en [|link_sf_facebook|] y únete hoy mismo!
 
-For Raspberry Pi
+Para Raspberry Pi
 ==================================================
 
-Raspberry Pi users, please refer to the following tutorial. This tutorial is based on Raspberry Pi 5 as an example and has been verified on Raspberry Pi 4 and Raspberry Pi 5, but may also be applicable to other versions of Raspberry Pi (not guaranteed).
+Usuarios de Raspberry Pi, por favor consulta el siguiente tutorial. Este tutorial se basa en la Raspberry Pi 5 como ejemplo y ha sido verificado en la Raspberry Pi 4 y Raspberry Pi 5, pero también puede ser aplicable a otras versiones de Raspberry Pi (no garantizado).
 
-We will program the Raspberry Pi using the ``GPIO Zero`` library in Python, providing simple code examples for each component to help you get started quickly.
+Vamos a programar la Raspberry Pi utilizando la librería ``GPIO Zero`` en Python, proporcionando ejemplos de código simples para cada componente para ayudarte a comenzar rápidamente.
 
-The ``GPIO Zero`` library is a remarkable tool in Python designed for interfacing with the GPIO (General Purpose Input/Output) pins on a Raspberry Pi. It offers a straightforward and intuitive API, making it exceptionally accessible for beginners in electronics and programming. The library simplifies tasks such as reading sensors, controlling motors, and activating LEDs, allowing for seamless interaction with a wide array of hardware components. Its user-friendly nature encourages experimentation and learning, making it a popular choice in educational environments and DIY projects.
+La librería ``GPIO Zero`` es una herramienta destacada en Python diseñada para interactuar con los pines GPIO (Entrada/Salida de Propósito General) de una Raspberry Pi. Ofrece una API sencilla e intuitiva, lo que la hace excepcionalmente accesible para principiantes en electrónica y programación. La librería simplifica tareas como la lectura de sensores, el control de motores y la activación de LEDs, permitiendo una interacción sin problemas con una amplia variedad de componentes de hardware. Su naturaleza amigable con el usuario fomenta la experimentación y el aprendizaje, lo que la convierte en una opción popular en entornos educativos y proyectos de bricolaje.
 
 
 .. toctree::

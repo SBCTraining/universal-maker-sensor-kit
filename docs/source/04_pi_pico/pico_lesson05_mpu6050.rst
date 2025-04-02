@@ -1,50 +1,50 @@
-.. note::
+.. note:: 
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    ¡Hola, bienvenido a la Comunidad de Aficionados de SunFounder Raspberry Pi & Arduino & ESP32 en Facebook! Profundiza en Raspberry Pi, Arduino y ESP32 junto a otros entusiastas.
 
     **Why Join?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Soporte de Expertos**: Resuelve problemas posventa y desafíos técnicos con la ayuda de nuestra comunidad y equipo.
+    - **Aprender y Compartir**: Intercambia consejos y tutoriales para mejorar tus habilidades.
+    - **Vistas Previas Exclusivas**: Obtén acceso anticipado a anuncios de nuevos productos y avances exclusivos.
+    - **Descuentos Especiales**: Disfruta de descuentos exclusivos en nuestros productos más recientes.
+    - **Promociones Festivas y Sorteos**: Participa en sorteos y promociones de festividades.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 ¿Listo para explorar y crear con nosotros? Haz clic en [|link_sf_facebook|] y únete hoy mismo.
 
 .. _pico_lesson05_mpu6050:
 
-Lesson 05: Gyroscope & Accelerometer Module (MPU6050)
+Lección 05: Módulo de Giroscopio y Acelerómetro (MPU6050)
 ==========================================================
 
-In this lesson, you will learn how to use the Raspberry Pi Pico W with the MPU6050 module, which combines a gyroscope and accelerometer. You'll discover how to connect the MPU6050 to the Raspberry Pi Pico W and read its acceleration and gyroscopic data using MicroPython. The lesson will guide you through writing a script to continuously display the X, Y, and Z values of both the accelerometer and gyroscope. 
+En esta lección, aprenderás a usar el Raspberry Pi Pico W con el módulo MPU6050, que combina un giroscopio y un acelerómetro. Descubrirás cómo conectar el MPU6050 al Raspberry Pi Pico W y leer sus datos de aceleración y giroscópicos utilizando MicroPython. La lección te guiará en la escritura de un script para mostrar continuamente los valores de X, Y y Z tanto del acelerómetro como del giroscopio.
 
-Required Components
+Componentes Necesarios
 --------------------------
 
-In this project, we need the following components. 
+Para este proyecto, necesitaremos los siguientes componentes.
 
-It's definitely convenient to buy a whole kit, here's the link: 
+Es definitivamente conveniente comprar un kit completo, aquí está el enlace:
 
 .. list-table::
     :widths: 20 20 20
     :header-rows: 1
 
-    *   - Name	
-        - ITEMS IN THIS KIT
-        - LINK
-    *   - Universal Maker Sensor Kit
+    *   - Nombre	
+        - ÍTEMS EN ESTE KIT
+        - ENLACE
+    *   - Kit de Sensores Universal Maker
         - 94
         - |link_umsk|
 
-You can also buy them separately from the links below.
+También puedes comprarlos por separado en los siguientes enlaces.
 
 .. list-table::
     :widths: 30 20
     :header-rows: 1
 
-    *   - Component Introduction
-        - Purchase Link
+    *   - Introducción del Componente
+        - Enlace de Compra
 
     *   - Raspberry Pi Pico W
         - \-
@@ -54,61 +54,61 @@ You can also buy them separately from the links below.
         - |link_breadboard_buy|
 
 
-Wiring
+Cableado
 ---------------------------
 
 .. image:: img/Lesson_05_mpu6050_circuit_bb.png
     :width: 100%
 
 
-Code
+Código
 ---------------------------
 
 .. note::
 
-    * Open the ``05_mpu6050_module.py`` file under the path of ``universal-maker-sensor-kit-main/pico/Lesson_05_MPU6050_Module`` or copy this code into Thonny, then click "Run Current Script" or simply press F5 to run it. For detailed tutorials, please refer to :ref:`open_run_code_py`. 
+    * Abre el archivo ``05_mpu6050_module.py`` bajo la ruta de ``universal-maker-sensor-kit-main/pico/Lesson_05_MPU6050_Module`` o copia este código en Thonny, luego haz clic en "Run Current Script" o simplemente presiona F5 para ejecutarlo. Para tutoriales detallados, consulta :ref:`open_run_code_py`. 
 
-    * Here you need to use the ``imu.py`` and ``vector3d.py``, please check if it has been uploaded to Pico W, for a detailed tutorial refer to :ref:`add_libraries_py`.
+    * Aquí necesitas usar los archivos ``imu.py`` y ``vector3d.py``, verifica si han sido cargados en Pico W, para un tutorial detallado consulta :ref:`add_libraries_py`.
 
-    * Don't forget to click on the "MicroPython (Raspberry Pi Pico)" interpreter in the bottom right corner. 
+    * No olvides hacer clic en el intérprete "MicroPython (Raspberry Pi Pico)" en la esquina inferior derecha. 
     
 
 .. code-block:: python
 
-   # Import libraries
+   # Importar librerías
    from imu import MPU6050
    from machine import I2C, Pin
    import time
    
-   # Initialize I2C for MPU6050
-   i2c = I2C(1, sda=Pin(20), scl=Pin(21), freq=400000)  # I2C bus 1, SDA pin 20, SCL pin 21, 400kHz
+   # Inicializar I2C para MPU6050
+   i2c = I2C(1, sda=Pin(20), scl=Pin(21), freq=400000)  # Bus I2C 1, pin SDA 20, pin SCL 21, 400kHz
    
-   # Create MPU6050 object
+   # Crear objeto MPU6050
    mpu = MPU6050(i2c)
    
-   # Main loop to read and print sensor data
+   # Bucle principal para leer e imprimir datos del sensor
    while True:
-       # Print accelerometer data (x, y, z)
+       # Imprimir datos del acelerómetro (x, y, z)
        print("-" * 50)
        print("x: %s, y: %s, z: %s" % (mpu.accel.x, mpu.accel.y, mpu.accel.z))
        time.sleep(0.1)
    
-       # Print gyroscope data (x, y, z)
+       # Imprimir datos del giroscopio (x, y, z)
        print("X: %s, Y: %s, Y: %s" % (mpu.gyro.x, mpu.gyro.y, mpu.gyro.z))
        time.sleep(0.1)
    
-       # Delay between readings
+       # Retraso entre lecturas
        time.sleep(0.5)
    
 
-Code Analysis
+Análisis del Código
 ---------------------------
 
-#. Importing Libraries and Initializing I2C
+#. Importación de Librerías e Inicialización de I2C
 
-   The code starts by importing necessary libraries. The ``imu`` library is used to read the values of the MPU6050 sensor, and ``machine`` allows controlling the hardware features of the Raspberry Pi Pico W. I2C is initialized using specific pins (SDA and SCL) for data communication.
+   El código comienza importando las librerías necesarias. La librería ``imu`` se utiliza para leer los valores del sensor MPU6050, y ``machine`` permite controlar las características de hardware del Raspberry Pi Pico W. Se inicializa I2C utilizando pines específicos (SDA y SCL) para la comunicación de datos.
 
-   For more information about the ``imu`` library, please visit |link_imu|.
+   Para más información sobre la librería ``imu``, visita |link_imu|.
 
    .. code-block:: python
 
@@ -118,17 +118,17 @@ Code Analysis
 
       i2c = I2C(1, sda=Pin(20), scl=Pin(21), freq=400000)
 
-#. Creating MPU6050 Object
+#. Creación del Objeto MPU6050
 
-   An object of the MPU6050 sensor is created by passing the initialized I2C. This object will be used to access sensor data.
+   Se crea un objeto del sensor MPU6050 pasando el I2C inicializado. Este objeto se utilizará para acceder a los datos del sensor.
 
    .. code-block:: python
 
       mpu = MPU6050(i2c)
 
-#. Reading and Printing Sensor Data in a Loop
+#. Lectura e Impresión de Datos del Sensor en Bucle
 
-   The code then enters an infinite loop where it continually reads and prints accelerometer and gyroscope data. ``time.sleep`` is used to create a delay between successive readings.
+   El código entra en un bucle infinito donde continuamente lee e imprime los datos del acelerómetro y giroscopio. Se utiliza ``time.sleep`` para crear un retraso entre lecturas sucesivas.
 
    .. code-block:: python
 

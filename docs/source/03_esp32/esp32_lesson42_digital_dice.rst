@@ -1,58 +1,58 @@
-.. note::
+.. note:: 
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    ¡Hola, bienvenido a la Comunidad de Entusiastas de Raspberry Pi, Arduino y ESP32 en Facebook! Profundiza en Raspberry Pi, Arduino y ESP32 junto con otros entusiastas.
 
-    **Why Join?**
+    **¿Por qué unirte?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Soporte experto**: Resuelve problemas postventa y desafíos técnicos con la ayuda de nuestra comunidad y equipo.
+    - **Aprende y comparte**: Intercambia consejos y tutoriales para mejorar tus habilidades.
+    - **Vistas previas exclusivas**: Accede a nuevos anuncios de productos y avances antes que nadie.
+    - **Descuentos especiales**: Disfruta de descuentos exclusivos en nuestros productos más recientes.
+    - **Promociones festivas y sorteos**: Participa en sorteos y promociones de temporada.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 ¿Estás listo para explorar y crear con nosotros? Haz clic en [|link_sf_facebook|] y únete hoy mismo!
 
 .. _esp32_digital_dice:
 
-Lesson 42: Digital Dice
+Lección 42: Dados digitales
 =============================================================
 
+Este programa simula el lanzamiento de un dado utilizando una pantalla OLED. 
+La simulación se activa al agitar el interruptor de vibración, lo que provoca 
+que la pantalla muestre números del 1 al 6, de manera similar al lanzamiento 
+de un dado. La pantalla se detiene después de un corto período, mostrando un 
+número seleccionado aleatoriamente que representa el resultado del lanzamiento 
+del dado.
 
-This program simulates a dice roll using an OLED display. 
-The simulation is triggered by shaking the vibration switch, causing the display to cycle through numbers 1 to 6, 
-akin to rolling a dice. 
-The display halts after a short duration, revealing a randomly selected number that represents the dice roll outcome.
 
-
-
-Required Components
+Componentes necesarios
 --------------------------
 
-In this project, we need the following components. 
+En este proyecto necesitamos los siguientes componentes. 
 
-It's definitely convenient to buy a whole kit, here's the link: 
+Es muy conveniente comprar un kit completo, aquí tienes el enlace: 
 
 .. list-table::
     :widths: 20 20 20
     :header-rows: 1
 
-    *   - Name	
-        - ITEMS IN THIS KIT
-        - LINK
-    *   - Universal Maker Sensor Kit
+    *   - Nombre	
+        - ARTÍCULOS EN ESTE KIT
+        - ENLACE
+    *   - Kit de Sensor Universal Maker
         - 94
         - |link_umsk|
 
-You can also buy them separately from the links below.
+También puedes comprarlos por separado a través de los enlaces a continuación.
 
 .. list-table::
     :widths: 30 20
     :header-rows: 1
 
-    *   - Component Introduction
-        - Purchase Link
+    *   - Introducción al componente
+        - Enlace de compra
 
-    *   - ESP32 & Development Board (:ref:`cpn_esp32_wroom_32e`)
+    *   - ESP32 & Placa de Desarrollo (:ref:`cpn_esp32_wroom_32e`)
         - |link_esp32_camera_pro_kit_buy|
     *   - :ref:`cpn_vibration`
         - |link_sw420_vibration_module_buy|
@@ -62,39 +62,39 @@ You can also buy them separately from the links below.
         - |link_breadboard_buy|
         
 
-Wiring
+Conexiones
 ---------------------------
 
 .. image:: img/Lesson_42_Digital_dice_esp32_bb.png
     :width: 100%
 
 
-Code
+Código
 ---------------------------
 
 .. note:: 
-   To install the library, use the Arduino Library Manager and search for **"Adafruit SSD1306"** and **"Adafruit GFX"** and install it. 
+   Para instalar la biblioteca, utiliza el Administrador de Bibliotecas de Arduino y busca **"Adafruit SSD1306"** y **"Adafruit GFX"**, luego instálalas. 
 
 .. raw:: html
 
     <iframe src=https://create.arduino.cc/editor/sunfounder01/f3c250f6-c5f6-4dc9-906a-a5a914741fe3/preview?embed style="height:510px;width:100%;margin:10px 0" frameborder=0></iframe>
 
-Code Analysis
+Análisis del código
 ---------------------------
 
-A comprehensive breakdown of the code:
+Un desglose detallado del código:
 
-1. Initialization of variables:
+1. Inicialización de variables:
 
-    ``vibPin``: Digital pin connected to the vibration sensor.
+    ``vibPin``: Pin digital conectado al sensor de vibración.
 
     .. code-block:: arduino
 
-        const int vibPin = 35;    // The pin where the vib switch is connected
+        const int vibPin = 35;    // Pin donde está conectado el interruptor de vibración
 
-2. Volatile variables:
+2. Variables volátiles:
 
-    ``rolling``: A volatile flag that indicates the dice's rolling status. It is volatile as it is accessed within both the interrupt service routine and the main program.
+    ``rolling``: Una bandera volátil que indica el estado de rodaje del dado. Es volátil porque se accede tanto en la rutina de interrupción como en el programa principal.
 
     .. code-block:: arduino
 
@@ -103,24 +103,24 @@ A comprehensive breakdown of the code:
 
 3. ``setup()``:
 
-    Configures the vibration sensor's input mode.
-    Assigns an interrupt to the sensor to trigger the rollDice function upon state change.
-    Initializes the OLED display.
+    Configura el modo de entrada para el sensor de vibración. 
+    Asigna una interrupción al sensor para activar la función ``rollDice`` cuando cambie de estado. 
+    Inicializa la pantalla OLED.
 
     .. code-block:: arduino
 
         void setup() {
-            // Initialize pins
+            // Inicializar los pines
             pinMode(vibPin, INPUT);  
 
-            // initialize the OLED object
+            // Inicializar el objeto OLED
             if (!display.begin(SSD1306_SWITCHCAPVCC, SCREEN_ADDRESS)) {
                 Serial.println(F("SSD1306 allocation failed"));
                 for (;;)
                 ;
             }
 
-            // Attach an interrupt to the vibPin. When the vib switch is activated, the shakeDetected function will be called
+            // Asignar una interrupción al vibPin. Cuando el interruptor de vibración se active, se llamará a la función shakeDetected
             attachInterrupt(digitalPinToInterrupt(vibPin), rollDice, CHANGE);
         }
 
@@ -128,18 +128,18 @@ A comprehensive breakdown of the code:
 
 4. ``loop()``:
 
-    Continuously checks if ``rolling`` is true, displaying a random number between 1 and 6 during this state. The rolling ceases if the sensor has been shaken for over 500 milliseconds.
+    Verifica continuamente si ``rolling`` es verdadero, mostrando un número aleatorio entre 1 y 6 durante este estado. El rodaje se detiene si el sensor se ha sacudido durante más de 500 milisegundos.
 
     .. code-block:: arduino
 
         void loop() {
-            // Check if it's rolling
+            // Verificar si está rodando
             if (rolling) {
-                byte number = random(1, 7);  // Generate a random number between 1 and 6
+                byte number = random(1, 7);  // Generar un número aleatorio entre 1 y 6
                 displayNumber(number);
-                delay(80);  // Delay to make the rolling effect visible
+                delay(80);  // Retraso para hacer visible el efecto de rodaje
 
-                // Stop rolling after 1 second
+                // Detener el rodaje después de 1 segundo
                 if ((millis() - lastShakeTime) > 1000) {
                     rolling = false;
                 }
@@ -148,34 +148,34 @@ A comprehensive breakdown of the code:
 
 5. ``rollDice()``:
 
-    The interrupt service routine for the vibration sensor. It initiates the dice roll when the sensor is shaken by recording the current time.
+    La rutina de servicio de interrupción para el sensor de vibración. Inicia el lanzamiento del dado cuando el sensor se sacude registrando el tiempo actual.
 
     .. code-block:: arduino
 
-        // Interrupt handler for shake detection
+        // Manejador de interrupción para la detección de sacudidas
         void rollDice() {
             if (digitalRead(vibPin) == LOW) {
-                lastShakeTime = millis();  // Record the time of shake
-                rolling = true;            // Start rolling
+                lastShakeTime = millis();  // Registrar el tiempo de la sacudida
+                rolling = true;            // Comenzar a rodar
             }
         }
 
 
 6. ``displayNumber()``:
 
-    Displays a selected number on the OLED screen.
+    Muestra un número seleccionado en la pantalla OLED.
 
     .. code-block:: arduino
 
-        // Function to display a number on the 7-segment display
+        // Función para mostrar un número en la pantalla de 7 segmentos
         void displayNumber(byte number) {
-            display.clearDisplay();  // Clear the screen
+            display.clearDisplay();  // Limpiar la pantalla
 
-            // Display Text
-            display.setTextSize(4);       // Set text size
-            display.setTextColor(WHITE);  // Set text color
-            display.setCursor(54, 20);     // Set cursor position
+            // Mostrar texto
+            display.setTextSize(4);       // Establecer tamaño de texto
+            display.setTextColor(WHITE);  // Establecer color de texto
+            display.setCursor(54, 20);     // Establecer la posición del cursor
             display.println(number);
-            display.display();  // Display the content on the screen
+            display.display();  // Mostrar el contenido en la pantalla
 
         }

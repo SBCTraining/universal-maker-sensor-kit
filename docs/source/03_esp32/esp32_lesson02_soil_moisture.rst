@@ -1,52 +1,52 @@
-.. note::
+.. note:: 
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    ¡Hola, bienvenido a la comunidad de entusiastas de SunFounder en Facebook sobre Raspberry Pi, Arduino y ESP32! Sumérgete más a fondo en Raspberry Pi, Arduino y ESP32 con otros aficionados.
 
-    **Why Join?**
+    **¿Por qué unirse?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Soporte de Expertos**: Resuelve problemas posventa y desafíos técnicos con ayuda de nuestra comunidad y equipo.
+    - **Aprender y Compartir**: Intercambia consejos y tutoriales para mejorar tus habilidades.
+    - **Previsualizaciones Exclusivas**: Obtén acceso anticipado a anuncios de nuevos productos y avances exclusivos.
+    - **Descuentos Especiales**: Disfruta de descuentos exclusivos en nuestros productos más nuevos.
+    - **Promociones Festivas y Sorteos**: Participa en sorteos y promociones festivas.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 ¿Listo para explorar y crear con nosotros? Haz clic en [|link_sf_facebook|] ¡y únete hoy!
 
 .. _esp32_lesson02_soil_moisture:
 
-Lesson 02: Capacitive Soil Moisture Module
-============================================
+Lección 02: Módulo de Humedad del Suelo Capacitivo
+=====================================================
 
-In this lesson, you will learn how to use a capacitive soil moisture sensor with an ESP32 Development Board to read the moisture level of soil. We'll cover connecting the sensor to pin 25, reading its analog value, and interpreting these readings to determine the soil's moisture level. This project is ideal for beginners as it provides hands-on experience in working with sensors and understanding analog input on the ESP32 platform.
+En esta lección, aprenderás a usar un sensor de humedad del suelo capacitivo con una Placa de Desarrollo ESP32 para medir el nivel de humedad del suelo. Cubriremos cómo conectar el sensor al pin 25, leer su valor analógico e interpretar estas lecturas para determinar el nivel de humedad del suelo. Este proyecto es ideal para principiantes, ya que proporciona experiencia práctica en el trabajo con sensores y la comprensión de entrada analógica en la plataforma ESP32.
 
-Required Components
+Componentes Necesarios
 --------------------------
 
-In this project, we need the following components. 
+En este proyecto, necesitamos los siguientes componentes.
 
-It's definitely convenient to buy a whole kit, here's the link: 
+Es definitivamente conveniente comprar un kit completo, aquí está el enlace:
 
 .. list-table::
     :widths: 20 20 20
     :header-rows: 1
 
-    *   - Name	
-        - ITEMS IN THIS KIT
-        - LINK
-    *   - Universal Maker Sensor Kit
+    *   - Nombre	
+        - ARTÍCULOS EN ESTE KIT
+        - ENLACE
+    *   - Kit Universal de Sensores para Creadores
         - 94
         - |link_umsk|
 
-You can also buy them separately from the links below.
+También puedes comprarlos por separado en los enlaces a continuación.
 
 .. list-table::
     :widths: 30 20
     :header-rows: 1
 
-    *   - Component Introduction
-        - Purchase Link
+    *   - Introducción al Componente
+        - Enlace de Compra
 
-    *   - ESP32 & Development Board (:ref:`cpn_esp32_wroom_32e`)
+    *   - ESP32 & Placa de Desarrollo (:ref:`cpn_esp32_wroom_32e`)
         - |link_esp32_camera_pro_kit_buy|
     *   - :ref:`cpn_soil`
         - |link_soil_moisture_buy|
@@ -54,34 +54,34 @@ You can also buy them separately from the links below.
         - |link_breadboard_buy|
 
 
-Wiring
+Cableado
 ---------------------------
 
 .. image:: img/Lesson_02_Capacitive_Soil_Moisture_Module_esp32_bb.png
     :width: 100%
 
 
-Code
+Código
 ---------------------------
 
 .. raw:: html
 
     <iframe src=https://create.arduino.cc/editor/sunfounder01/ab3dd759-5698-477c-b837-0c3719a09b8d/preview?embed style="height:510px;width:100%;margin:10px 0" frameborder=0></iframe>
 
-Code Analysis
+Análisis del Código
 ---------------------------
 
-#. Defining the sensor pin:
+#. Definición del pin del sensor:
 
-   This line of code declares a constant integer ``sensorPin`` and assigns it the value of ``25``, which is the pin the sensor is connected to.
+   Esta línea de código declara una constante entera ``sensorPin`` y le asigna el valor ``25``, que es el pin al que está conectado el sensor.
 
    .. code-block:: arduino
 
       const int sensorPin = 25;
 
-#. Setup function:
+#. Función de configuración:
 
-   The ``setup()`` function is executed once when the program starts. It initializes serial communication at 9600 baud rate. This setup is necessary for sending data to the serial monitor.
+   La función ``setup()`` se ejecuta una vez cuando el programa comienza. Inicializa la comunicación serial a una tasa de 9600 baudios. Esta configuración es necesaria para enviar datos al monitor serial.
 
    .. code-block:: arduino
 
@@ -89,9 +89,9 @@ Code Analysis
         Serial.begin(9600);
       }
 
-#. Loop function:
+#. Función de bucle:
 
-   The ``loop()`` function runs continuously after ``setup()``. It reads the sensor value from pin A0 using ``analogRead()`` and prints this value to the serial monitor. The ``delay(500)`` statement pauses the loop for 500 milliseconds before the next reading, thus controlling the rate of data acquisition.
+   La función ``loop()`` se ejecuta continuamente después de ``setup()``. Lee el valor del sensor desde el pin A0 usando ``analogRead()`` e imprime este valor en el monitor serial. La declaración ``delay(500)`` pausa el bucle durante 500 milisegundos antes de la siguiente lectura, controlando así la tasa de adquisición de datos.
 
    .. code-block:: arduino
 

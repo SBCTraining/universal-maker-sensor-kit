@@ -1,43 +1,43 @@
-.. note::
+.. note:: 
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    ¡Hola, bienvenido a la Comunidad de Entusiastas de Raspberry Pi, Arduino y ESP32 en Facebook! Profundiza en Raspberry Pi, Arduino y ESP32 junto con otros entusiastas.
 
-    **Why Join?**
+    **¿Por qué unirse?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Soporte experto**: Resuelve problemas postventa y desafíos técnicos con la ayuda de nuestra comunidad y equipo.
+    - **Aprender y compartir**: Intercambia consejos y tutoriales para mejorar tus habilidades.
+    - **Vistazos exclusivos**: Obtén acceso anticipado a nuevos anuncios de productos y adelantos.
+    - **Descuentos especiales**: Disfruta de descuentos exclusivos en nuestros productos más nuevos.
+    - **Promociones festivas y sorteos**: Participa en sorteos y promociones especiales de temporada.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 ¿Listo para explorar y crear con nosotros? Haz clic en [|link_sf_facebook|] y únete hoy mismo.
 
 .. _cpn_touch:
 
-Touch Sensor Module
-==========================
+Módulo de Sensor Táctil
+============================
 
 .. image:: img/22_touch_sensor_moudle.png
     :width: 200
     :align: center
 
 
-The Touch switch sensor (also called touch button or touch switch) is widely used to control devices (e.g. touchable lamp). It has the same functionality as a button. It is used instead of the button on many new devices because it makes the product look neat.
+El sensor de interruptor táctil (también llamado botón táctil o interruptor táctil) se utiliza ampliamente para controlar dispositivos (por ejemplo, lámpara táctil). Tiene la misma funcionalidad que un botón. Se utiliza en lugar del botón en muchos dispositivos nuevos porque hace que el producto se vea más elegante.
 
-Pinout
+Conexiones
 ---------------------------
-* **VCC**: This is the positive power supply input from the main control. 
-* **GND**: Ground connection.
-* **IO**: Digital output. High level with a touch, low level without touching.
+* **VCC**: Este es el pin de entrada de alimentación positiva desde el control principal.
+* **GND**: Conexión a tierra.
+* **IO**: Salida digital. Nivel alto cuando se toca, nivel bajo cuando no se toca.
 
 
-Principle
+Principio de funcionamiento
 ---------------------------
-This module is a capacitive touch switch module based on a touch sensor IC (TTP223B). In the normal state, the module outputs a low level with low power consumption; when a finger touches the corresponding position, the module outputs a high level and becomes low level again after the finger is released.
+Este módulo es un interruptor táctil capacitivo basado en un IC de sensor táctil (TTP223B). En el estado normal, el módulo emite un nivel bajo con bajo consumo de energía; cuando un dedo toca la posición correspondiente, el módulo emite un nivel alto y vuelve a nivel bajo después de que se retire el dedo.
 
-Here is how the capacitive touch switch works:
+Así es como funciona el interruptor táctil capacitivo:
 
-A capacitive touch switch has different layers—top insulating face plate followed by touch plate, another insulating layer and then ground plate.
+Un interruptor táctil capacitivo tiene diferentes capas: una placa aislante superior seguida de la placa táctil, otra capa aislante y luego la placa a tierra.
 
 .. image:: img/22_touch_sensor_moudle_principle.jpeg
     :width: 400
@@ -47,11 +47,11 @@ A capacitive touch switch has different layers—top insulating face plate follo
     
     <br/>
 
-In practice, a capacitive sensor can be made on a double-sided PCB by regarding one side as the touch sensor and the opposite side as ground plate of the capacitor. When power is applied across these plates, the two plates get charged. In equilibrium state, the plates have the same voltage as the power source.
+En la práctica, un sensor capacitivo puede fabricarse en una PCB de doble cara, considerando un lado como el sensor táctil y el lado opuesto como la placa a tierra del condensador. Cuando se aplica alimentación a través de estas placas, las dos placas se cargan. En estado de equilibrio, las placas tienen el mismo voltaje que la fuente de alimentación.
 
-The touch detector circuit has an oscillator whose frequency is dependent on capacitance of the touchpad. When a finger is moved close to the touchpad, additional capacitance causes frequency of this internal oscillator to change. The detector circuit tracks oscillator frequency at timed intervals, and when the shift crosses the threshold change, the circuit triggers a key-press event.
+El circuito detector tiene un oscilador cuya frecuencia depende de la capacitancia de la superficie táctil. Cuando un dedo se acerca a la superficie táctil, la capacitancia adicional provoca que la frecuencia de este oscilador interno cambie. El circuito detector rastrea la frecuencia del oscilador a intervalos temporales, y cuando el cambio supera el umbral, el circuito activa un evento de pulsación de tecla.
 
-Schematic diagram
+Diagrama esquemático
 ---------------------------
 
 .. image:: img/22_touch_sensor_moudle_schematic.png
@@ -63,7 +63,7 @@ Schematic diagram
    <br/>
 
 
-Example
+Ejemplo
 ---------------------------
 * :ref:`uno_lesson22_touch_sensor` (Arduino UNO)
 * :ref:`esp32_lesson22_touch_sensor` (ESP32)

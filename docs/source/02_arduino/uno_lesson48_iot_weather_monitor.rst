@@ -1,54 +1,54 @@
-.. note::
+.. note:: 
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    ¡Hola, bienvenido a la comunidad de entusiastas de SunFounder Raspberry Pi & Arduino & ESP32 en Facebook! Profundiza en Raspberry Pi, Arduino y ESP32 junto a otros aficionados.
 
     **Why Join?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Expert Support**: Resuelve problemas posventa y desafíos técnicos con ayuda de nuestra comunidad y equipo.
+    - **Learn & Share**: Intercambia consejos y tutoriales para mejorar tus habilidades.
+    - **Exclusive Previews**: Accede de forma anticipada a anuncios de nuevos productos y avances exclusivos.
+    - **Special Discounts**: Disfruta de descuentos exclusivos en nuestros productos más recientes.
+    - **Festive Promotions and Giveaways**: Participa en sorteos y promociones festivas.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 ¿Listo para explorar y crear con nosotros? Haz clic en [|link_sf_facebook|] y únete hoy mismo.
 
 .. _uno_iot_weather_monito:
 
-Lesson 48: Weather Monitor with ThingSpeak
+Lección 48: Monitor de Clima con ThingSpeak
 =============================================================
 
 
 
-This project collects temperature and pressure data using an Atmospheric Pressure Sensor. The collected data is then transmitted to the ThingSpeak cloud platform via an ESP8266 module and Wi-Fi network at regular time intervals.
+Este proyecto recoge datos de temperatura y presión usando un Sensor de Presión Atmosférica. Los datos recogidos se transmiten a la plataforma en la nube de ThingSpeak mediante un módulo ESP8266 y una red Wi-Fi en intervalos regulares de tiempo.
 
-Required Components
+Componentes Necesarios
 --------------------------
 
-In this project, we need the following components. 
+Para este proyecto, necesitamos los siguientes componentes.
 
-It's definitely convenient to buy a whole kit, here's the link: 
+Es definitivamente conveniente comprar un kit completo, aquí está el enlace:
 
 .. list-table::
     :widths: 20 20 20
     :header-rows: 1
 
-    *   - Name	
-        - ITEMS IN THIS KIT
-        - LINK
-    *   - Universal Maker Sensor Kit
+    *   - Nombre	
+        - ELEMENTOS EN ESTE KIT
+        - ENLACE
+    *   - Kit Universal de Sensores para Creadores
         - 94
         - |link_umsk|
 
-You can also buy them separately from the links below.
+También puedes comprarlos por separado en los siguientes enlaces.
 
 .. list-table::
     :widths: 30 20
     :header-rows: 1
 
-    *   - Component Introduction
-        - Purchase Link
+    *   - Introducción del Componente
+        - Enlace de Compra
 
-    *   - Arduino UNO R3 or R4
+    *   - Arduino UNO R3 o R4
         - |link_Uno_R3_buy|
     *   - :ref:`cpn_breadboard`
         - |link_breadboard_buy|
@@ -58,7 +58,7 @@ You can also buy them separately from the links below.
         - \-
 
 
-Wiring
+Cableado
 ---------------------------
 
 .. image:: img/Lesson_48_Iot_weather_monitor_uno_bb.png
@@ -66,10 +66,10 @@ Wiring
 
 
 
-Configure ThingSpeak
+Configurar ThingSpeak
 -----------------------------
 
-|link_thingspeak| ™ is an IoT analytics platform service that allows you to aggregate, visualize and analyze live data streams in the cloud. ThingSpeak provides instant visualizations of data posted by your devices to ThingSpeak. With the ability to execute MATLAB® code in ThingSpeak you can perform online analysis and processing of the data as it comes in. ThingSpeak is often used for prototyping and proof of concept IoT systems that require analytics.
+|link_thingspeak| ™ es un servicio de plataforma de análisis IoT que te permite agregar, visualizar y analizar flujos de datos en vivo en la nube. ThingSpeak proporciona visualizaciones instantáneas de los datos publicados por tus dispositivos a ThingSpeak. Con la capacidad de ejecutar código MATLAB® en ThingSpeak, puedes realizar análisis y procesamiento en línea de los datos a medida que llegan. ThingSpeak se utiliza a menudo para prototipos y sistemas IoT de prueba de concepto que requieren análisis.
 
 .. image:: img/signup_tsp_ml.png
     :width: 80% 
@@ -79,28 +79,28 @@ Configure ThingSpeak
     
     <br/>  
 
-**1) Creating ThingSpeak Account**
+**1) Crear una cuenta en ThingSpeak**
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The first thing you need to do is to create an account with ThingSpeak. Since the collaboration with MATLAB, you can use your MathWorks credentials to login to |link_thingspeak|.
+Lo primero que debes hacer es crear una cuenta en ThingSpeak. Desde la colaboración con MATLAB, puedes usar tus credenciales de MathWorks para iniciar sesión en |link_thingspeak|.
 
-If you do not have one, you need to create an account with MathWorks and login to ThingSpeak Application.
+Si no tienes una, necesitas crear una cuenta con MathWorks e iniciar sesión en la aplicación ThingSpeak.
 
 .. image:: img/05-thingspeak_signup_shadow.png
     :width: 50%
     :align: center
 
 
-**2) Creating the channel**
+**2) Crear el canal**
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-After logging in, create a new channel to store the data by going to "Channels" > "My Channels" and clicking on "New Channel".
+Después de iniciar sesión, crea un nuevo canal para almacenar los datos yendo a "Canales" > "Mis Canales" y haciendo clic en "Nuevo Canal".
 
 .. image:: img/05-thingspeak_channel_1_shadow.png
     :width: 95%
     :align: center
 
-For this project, we need to create a channel called "**Weather Monitor**" with two fields: **Field 1** for "**Temperature**" and **Field 2** for "**Atmospheric Pressure**".
+Para este proyecto, necesitamos crear un canal llamado "**Monitor del Clima**" con dos campos: **Field 1** para "**Temperatura**" y **Field 2** para "**Atmospheric Pressure**".
 
 .. image:: img/05-thingspeak_channel_2_shadow.png
     :width: 95%
@@ -111,43 +111,43 @@ For this project, we need to create a channel called "**Weather Monitor**" with 
     <br/>  
 
 
-Code
---------------------------- 
+Código
+---------------------------
 
 
-#. Open the ``Lesson_48_Iot_Weather_Monitor.ino`` file under the path of ``universal-maker-sensor-kit\arduino_uno\Lesson_48_Iot_Weather_Monitor``, or copy this code into **Arduino IDE**.
+#. Abre el archivo ``Lesson_48_Iot_Weather_Monitor.ino`` bajo la ruta de ``universal-maker-sensor-kit\arduino_uno\Lesson_48_Iot_Weather_Monitor``, o copia este código en **Arduino IDE**.
 
    .. note:: 
-      To install the library, use the Arduino Library Manager and search for **"Adafruit BMP280"** and install it. 
+      Para instalar la biblioteca, usa el Administrador de Bibliotecas de Arduino y busca **"Adafruit BMP280"** e instálala.
 
    .. raw:: html
       
-      <iframe src=https://create.arduino.cc/editor/sunfounder01/59eeae43-5dcc-46d7-833f-65fd2bdb3603/preview?embed style="height:510px;width:100%;margin:10px 0" frameborder=0></iframe>
+      <iframe src=https://create.arduino.cc/editor/sunfounder01/59eeae43-5dcc-46d7-833f-65fd2bdb3603/preview?embed style="height:510px;width:100%;margin:10px 0" frameborder=0></iframe
 
 
-#. You need to enter the ``mySSID`` and ``myPWD`` of the WiFi you are using. 
+#. Necesitas ingresar el ``mySSID`` y ``myPWD`` de la WiFi que estás utilizando.
 
    .. code-block:: arduino
 
-    String mySSID = "your_ssid";     // WiFi SSID
-    String myPWD = "your_password";  // WiFi Password
+    String mySSID = "your_ssid";     // SSID de WiFi
+    String myPWD = "your_password";  // Contraseña de WiFi
 
-#. You also need to modify the ``myAPI`` with your ThingSpeak Channel API key.
+#. También necesitas modificar el ``myAPI`` con tu clave API del canal de ThingSpeak.
 
    .. code-block:: arduino
     
-      String myAPI = "xxxxxxxxxxxx";  // API Key
+      String myAPI = "xxxxxxxxxxxx";  // Clave API
 
    .. image:: img/05-thingspeak_api_shadow.png
        :width: 80%
        :align: center
    
    
-   Here you can find **your unique API KEY that you must keep private**. 
+   Aquí puedes encontrar **tu clave API única que debes mantener privada**. 
 
-#. After selecting the correct board and port, click the **Upload** button.
+#. Después de seleccionar la placa y el puerto correctos, haz clic en el botón **Subir**.
 
-#. Open the Serial monitor(set baudrate to **9600**) and wait for a prompt such as a successful connection to appear.
+#. Abre el monitor serie (establece la tasa de baudios en **9600**) y espera una indicación como una conexión exitosa.
 
    .. image:: img/05-ready_1_shadow.png
           :width: 95%
@@ -155,34 +155,33 @@ Code
    .. image:: img/05-ready_2_shadow.png
           :width: 95%
 
-Code Analysis
+Análisis del Código
 ---------------------------
 
-
-#. Initialization and Bluetooth setup
+1. Inicialización y configuración del Bluetooth
 
    .. code-block:: arduino
 
-      // Set up Bluetooth module communication
+      // Configuración de la comunicación del módulo Bluetooth
       #include <SoftwareSerial.h>
       const int bluetoothTx = 3;
       const int bluetoothRx = 4;
       SoftwareSerial bleSerial(bluetoothTx, bluetoothRx);
    
-   We begin by including the SoftwareSerial library to help us with Bluetooth communication. The Bluetooth module's TX and RX pins are then defined and associated with pins 3 and 4 on the Arduino. Finally, we initialize the ``bleSerial`` object for Bluetooth communication.
+   Comenzamos incluyendo la biblioteca SoftwareSerial para ayudarnos con la comunicación Bluetooth. Los pines TX y RX del módulo Bluetooth se definen y se asocian con los pines 3 y 4 del Arduino. Finalmente, inicializamos el objeto ``bleSerial`` para la comunicación Bluetooth.
 
-#. LED Pin Definitions
+2. Definición de los pines de los LED
 
    .. code-block:: arduino
 
-      // Pin numbers for each LED
-      const int rledPin = 10;  //red
-      const int yledPin = 11;  //yellow
-      const int gledPin = 12;  //green
+      // Números de pines para cada LED
+      const int rledPin = 10;  //rojo
+      const int yledPin = 11;  //amarillo
+      const int gledPin = 12;  //verde
 
-   Here, we're defining which Arduino pins our LEDs are connected to. The red LED is on pin 10, yellow on 11, and green on 12.
+   Aquí, definimos a qué pines del Arduino están conectados nuestros LEDs. El LED rojo está en el pin 10, el amarillo en el 11 y el verde en el 12.
 
-#. setup() Function
+3. Función setup()
 
    .. code-block:: arduino
 
@@ -195,9 +194,9 @@ Code Analysis
          bleSerial.begin(9600);
       }
 
-   In the ``setup()`` function, we set the LED pins as ``OUTPUT``. We also start serial communication for both the Bluetooth module and the default serial (connected to the computer) at a baud rate of 9600.
+   En la función ``setup()``, configuramos los pines de los LED como ``OUTPUT``. También iniciamos la comunicación serial tanto para el módulo Bluetooth como para el serial predeterminado (conectado al ordenador) con una tasa de baudios de 9600.
 
-#. Main loop() for Bluetooth Communication
+4. Bucle principal para la comunicación Bluetooth
 
    .. code-block:: arduino
 
@@ -216,9 +215,9 @@ Code Analysis
          }
       }
 
-   Inside our main ``loop()``, we continuously check if data is available from the Bluetooth module. If we receive data, we read the character and display it in the serial monitor. Depending on the character received (R, Y, or G), we toggle the respective LED using the ``toggleLights()`` function.
+   Dentro de nuestro bucle principal ``loop()``, verificamos continuamente si hay datos disponibles desde el módulo Bluetooth. Si recibimos datos, leemos el carácter y lo mostramos en el monitor serial. Dependiendo del carácter recibido (R, Y o G), alternamos el LED correspondiente usando la función ``toggleLights()``.
 
-#. Toggle Lights Function
+5. Función para alternar luces
 
    .. code-block:: arduino
 
@@ -230,4 +229,4 @@ Code Analysis
          digitalWrite(targetLight, HIGH);
       }
 
-   This function, ``toggleLights()``, turns off all the LEDs first. After ensuring they are all off, it turns on the specified target LED. This ensures that only one LED is on at a time.
+   Esta función, ``toggleLights()``, primero apaga todos los LEDs. Después de asegurarse de que todos están apagados, enciende el LED objetivo especificado. Esto garantiza que solo un LED esté encendido a la vez.

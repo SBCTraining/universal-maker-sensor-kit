@@ -1,20 +1,20 @@
-.. note::
+.. note:: 
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    ¡Hola, bienvenido a la Comunidad de Entusiastas de SunFounder Raspberry Pi & Arduino & ESP32 en Facebook! Profundiza más en Raspberry Pi, Arduino y ESP32 con otros entusiastas.
 
-    **Why Join?**
+    **¿Por qué unirse?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Soporte experto**: Resuelve problemas postventa y desafíos técnicos con la ayuda de nuestra comunidad y equipo.
+    - **Aprende y comparte**: Intercambia consejos y tutoriales para mejorar tus habilidades.
+    - **Vistas previas exclusivas**: Accede antes que nadie a nuevos anuncios de productos y avances.
+    - **Descuentos especiales**: Disfruta de descuentos exclusivos en nuestros productos más nuevos.
+    - **Promociones festivas y sorteos**: Participa en sorteos y promociones especiales.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 ¿Listo para explorar y crear con nosotros? Haz clic en [|link_sf_facebook|] y únete hoy mismo!
 
 .. _cpn_ds18b20:
 
-Temperature Sensor Module (DS18B20)
+Módulo de Sensor de Temperatura (DS18B20)
 ===============================================
 
 .. image:: img/18_ds18b20_module.png
@@ -25,23 +25,23 @@ Temperature Sensor Module (DS18B20)
 
    <br/>
 
-The DS18B20 is a digital temperature sensor that can measure temperatures ranging from -67°F to +257°F with an accuracy of ±0.5°C. It follows the single wire protocol and can communicate with a microcontroller using only one pin. The sensor can be powered directly from the data line, eliminating the need for an external power supply. The applications of the DS18B20 temperature sensor include industrial systems, consumer products, systems which are sensitive thermally, thermostatic controls, and thermometers.
+El DS18B20 es un sensor de temperatura digital que puede medir temperaturas que van desde -67°F hasta +257°F con una precisión de ±0.5°C. Sigue el protocolo de un solo cable y puede comunicarse con un microcontrolador usando solo un pin. El sensor puede alimentarse directamente desde la línea de datos, eliminando la necesidad de una fuente de alimentación externa. Las aplicaciones del sensor de temperatura DS18B20 incluyen sistemas industriales, productos de consumo, sistemas sensibles térmicamente, controles termostáticos y termómetros.
 
-Specification
+Especificaciones
 ---------------------------
-* PCB Size: 13 x 27.9mm
-* Power Supply: 3V to 5.5V
-* Temperature Range: -55 to 125°C
-* Accuracy:	±0.5°C
-* Resolution: 9 to 12 bit (selectable)
+* Tamaño del PCB: 13 x 27.9mm
+* Fuente de alimentación: 3V a 5.5V
+* Rango de temperatura: -55 a 125°C
+* Precisión: ±0.5°C
+* Resolución: de 9 a 12 bits (seleccionable)
 
 Pinout
 ---------------------------
-* **VCC**: This is the positive power supply input from the main control. 
-* **GND**: Ground connection.
-* **OUT**: The 1-Wire Data Bus that should be connected to a digital pin on the microcontroller.
+* **VCC**: Entrada de la fuente de alimentación positiva desde el control principal.
+* **GND**: Conexión a tierra.
+* **OUT**: El bus de datos 1-Wire que debe conectarse a un pin digital en el microcontrolador.
 
-Schematic diagram
+Esquema
 ---------------------------
 
 .. image:: img/18_ds18b20_module_schematic.png
@@ -52,7 +52,7 @@ Schematic diagram
 
    <br/>
 
-Example
+Ejemplo
 ---------------------------
 * :ref:`uno_lesson18_ds18b20` (Arduino UNO)
 * :ref:`esp32_lesson18_ds18b20` (ESP32)

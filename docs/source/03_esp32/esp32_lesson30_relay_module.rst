@@ -1,52 +1,52 @@
-.. note::
+.. note:: 
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    ¡Hola, bienvenido a la Comunidad de Entusiastas de Raspberry Pi, Arduino y ESP32 en Facebook! Profundiza en el mundo de Raspberry Pi, Arduino y ESP32 junto con otros entusiastas.
 
-    **Why Join?**
+    **¿Por qué unirte?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Soporte experto**: Resuelve problemas postventa y desafíos técnicos con la ayuda de nuestra comunidad y equipo.
+    - **Aprende y comparte**: Intercambia consejos y tutoriales para mejorar tus habilidades.
+    - **Vistas previas exclusivas**: Accede a nuevos anuncios de productos y avances antes que nadie.
+    - **Descuentos especiales**: Disfruta de descuentos exclusivos en nuestros productos más recientes.
+    - **Promociones festivas y sorteos**: Participa en sorteos y promociones de temporada.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 ¿Estás listo para explorar y crear con nosotros? Haz clic en [|link_sf_facebook|] y únete hoy mismo!
 
 .. _esp32_lesson30_relay_module:
 
-Lesson 30: Relay Module
+Lección 30: Módulo de Relé
 ==================================
 
-In this lesson, you'll learn how to use an ESP32 Development Board to control a one-channel relay module. We'll cover turning the relay on and off in a loop, with a 3-second delay between each state change. This project provides hands-on experience with digital output operations in embedded systems, making it ideal for beginners entering the realm of ESP32 and relay modules.
+En esta lección aprenderás a utilizar una placa de desarrollo ESP32 para controlar un módulo de relé de un solo canal. Cubriremos cómo encender y apagar el relé en un ciclo, con un retraso de 3 segundos entre cada cambio de estado. Este proyecto proporciona experiencia práctica con operaciones de salida digital en sistemas embebidos, lo que lo hace ideal para principiantes que ingresan al mundo del ESP32 y los módulos de relé.
 
-Required Components
+Componentes necesarios
 --------------------------
 
-In this project, we need the following components. 
+En este proyecto necesitamos los siguientes componentes. 
 
-It's definitely convenient to buy a whole kit, here's the link: 
+Es muy conveniente comprar un kit completo, aquí tienes el enlace: 
 
 .. list-table::
     :widths: 20 20 20
     :header-rows: 1
 
-    *   - Name	
-        - ITEMS IN THIS KIT
-        - LINK
-    *   - Universal Maker Sensor Kit
+    *   - Nombre	
+        - ARTÍCULOS EN ESTE KIT
+        - ENLACE
+    *   - Kit de Sensor Universal Maker
         - 94
         - |link_umsk|
 
-You can also buy them separately from the links below.
+También puedes comprarlos por separado a través de los enlaces a continuación.
 
 .. list-table::
     :widths: 30 20
     :header-rows: 1
 
-    *   - Component Introduction
-        - Purchase Link
+    *   - Introducción al componente
+        - Enlace de compra
 
-    *   - ESP32 & Development Board (:ref:`cpn_esp32_wroom_32e`)
+    *   - ESP32 & Placa de Desarrollo (:ref:`cpn_esp32_wroom_32e`)
         - |link_esp32_camera_pro_kit_buy|
     *   - :ref:`cpn_breadboard`
         - |link_breadboard_buy|
@@ -56,26 +56,26 @@ You can also buy them separately from the links below.
         - \-
 
 
-Wiring
+Conexiones
 ---------------------------
 
 .. image:: img/Lesson_30_Relay_esp32_bb.png
     :width: 100%
 
 
-Code
+Código
 ---------------------------
 
 .. raw:: html
 
     <iframe src=https://create.arduino.cc/editor/sunfounder01/a0035890-76ca-4a85-9f21-9df01717d906/preview?embed style="height:510px;width:100%;margin:10px 0" frameborder=0></iframe>
 
-Code Analysis
+Análisis del código
 ---------------------------
 
-#. Setting up the relay pin:
+#. Configuración del pin del relé:
 
-   - The relay module is connected to pin 25 of the ESP32 Development Board. This pin is defined as ``relayPin`` for ease of reference in the code.
+   - El módulo de relé está conectado al pin 25 de la placa de desarrollo ESP32. Este pin se define como ``relayPin`` para facilitar la referencia en el código.
 
    .. raw:: html
 
@@ -85,9 +85,9 @@ Code Analysis
     
       const int relayPin = 25;
 
-#. Configuring the relay pin as an output:
+#. Configuración del pin del relé como salida:
 
-   - In the ``setup()`` function, the relay pin is set as an OUTPUT using the ``pinMode()`` function. This means the Arduino will send signals (either HIGH or LOW) to this pin.
+   - En la función ``setup()``, el pin del relé se configura como una salida usando la función ``pinMode()``. Esto significa que el Arduino enviará señales (ya sea ALTO o BAJO) a este pin.
 
    .. raw:: html
 
@@ -99,11 +99,11 @@ Code Analysis
         pinMode(relayPin, OUTPUT);
       }
 
-#. Toggling the relay ON and OFF:
+#. Alternar el relé ENCENDIDO y APAGADO:
 
-   - In the ``loop()`` function, the relay is first set to the OFF state using ``digitalWrite(relayPin, LOW)``. It remains in this state for 3 seconds (``delay(3000)``).
-   - Then, the relay is set to the ON state using ``digitalWrite(relayPin, HIGH)``. Again, it remains in this state for 3 seconds.
-   - This cycle repeats indefinitely.
+   - En la función ``loop()``, el relé se configura inicialmente en el estado APAGADO usando ``digitalWrite(relayPin, LOW)``. Permanecerá en este estado durante 3 segundos (``delay(3000)``).
+   - Luego, el relé se configura en el estado ENCENDIDO usando ``digitalWrite(relayPin, HIGH)``. Nuevamente, permanecerá en este estado durante 3 segundos.
+   - Este ciclo se repite indefinidamente.
 
    .. raw:: html
 

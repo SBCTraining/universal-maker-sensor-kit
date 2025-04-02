@@ -1,16 +1,16 @@
-.. note::
+.. note:: 
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    ¡Hola, bienvenido a la Comunidad de Entusiastas de Raspberry Pi, Arduino y ESP32 en Facebook! Profundiza más en Raspberry Pi, Arduino y ESP32 junto con otros entusiastas.
 
-    **Why Join?**
+    **¿Por qué unirte?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Soporte experto**: Resuelve problemas postventa y desafíos técnicos con la ayuda de nuestra comunidad y equipo.
+    - **Aprende y comparte**: Intercambia consejos y tutoriales para mejorar tus habilidades.
+    - **Previsualizaciones exclusivas**: Accede anticipadamente a anuncios de nuevos productos y vistas previas.
+    - **Descuentos especiales**: Disfruta de descuentos exclusivos en nuestros productos más recientes.
+    - **Promociones festivas y sorteos**: Participa en sorteos y promociones especiales durante las festividades.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 ¿Listo para explorar y crear con nosotros? Haz clic en [|link_sf_facebook|] y únete hoy.
 
 .. _cpn_i2c_lcd1602:
 
@@ -25,58 +25,58 @@ I2C LCD 1602
 
    <br/>
 
-An I2C LCD1602 is a device that can display text and characters on a 16x2 (16 columns and 2 rows) liquid crystal display (LCD) using the I2C protocol. You can use an I2C LCD1602 to show information from your Arduino projects, such as sensor readings, messages, menus, etc. The I2C module has a built-in PCF8574 I2C chip that converts I2C serial data to parallel data for the LCD display.        
+Un LCD1602 I2C es un dispositivo que puede mostrar texto y caracteres en una pantalla de cristal líquido (LCD) de 16x2 (16 columnas y 2 filas) utilizando el protocolo I2C. Puedes usar un LCD1602 I2C para mostrar información de tus proyectos con Arduino, como lecturas de sensores, mensajes, menús, etc. El módulo I2C tiene un chip I2C PCF8574 integrado, que convierte los datos seriales I2C en datos paralelos para la pantalla LCD.
 
 * |link_PCF8574_Datasheet|
 
-Principle
+Principio
 ---------------------------
-An I2C LCD1602 consists of a normal LCD1602 and an I2C module that is attached to the back of the LCD. The I2C module is a chip that can expand the I/O ports of the Arduino using the I2C protocol. The I2C protocol is a serial communication protocol that uses two wires: SDA (serial data) and SCL (serial clock). The I2C protocol allows multiple devices to communicate with each other using only two wires and unique addresses.
+Un LCD1602 I2C consiste en un LCD1602 normal y un módulo I2C que se conecta en la parte posterior del LCD. El módulo I2C es un chip que puede expandir los puertos de E/S del Arduino utilizando el protocolo I2C. El protocolo I2C es un protocolo de comunicación serial que utiliza dos cables: SDA (datos seriales) y SCL (reloj serial). El protocolo I2C permite que múltiples dispositivos se comuniquen entre sí utilizando solo dos cables y direcciones únicas.
 
-The I2C module converts the signals from the Arduino into commands for the LCD. The LCD has 16x2 cells that can display characters or symbols. Each cell consists of 5x8 dots that can be turned on or off by applying voltage. The LCD can display different characters or symbols by turning on or off different combinations of dots.
+El módulo I2C convierte las señales del Arduino en comandos para el LCD. El LCD tiene 16x2 celdas que pueden mostrar caracteres o símbolos. Cada celda consta de 5x8 puntos que pueden encenderse o apagarse mediante la aplicación de voltaje. El LCD puede mostrar diferentes caracteres o símbolos encendiendo o apagando distintas combinaciones de puntos.
 
 .. image:: img/26_ic2_lcd_2.png
     :width: 500
     :align: center
 
 .. raw:: html
-    
+
     <br/><br/> 
 
-**I2C Address**
+**Dirección I2C**
 
-The default address is basically 0x27, in a few cases it may be 0x3F.
+La dirección por defecto es 0x27, aunque en algunos casos puede ser 0x3F.
 
-Taking the default address of 0x27 as an example, the device address can be modified by shorting the A0/A1/A2 pads; in the default state, A0/A1/A2 is 1, and if the pad is shorted, A0/A1/A2 is 0.
+Tomando como ejemplo la dirección por defecto de 0x27, la dirección del dispositivo puede modificarse cortocircuitando los pads A0/A1/A2; en el estado por defecto, A0/A1/A2 es 1, y si el pad está cortocircuitado, A0/A1/A2 será 0.
 
 .. image:: img/26_i2c_address.jpg
     :width: 600
     :align: center
 
 .. raw:: html
-    
+
     <br/>
 
-**Backlight/Contrast**
+**Retroiluminación/Contraste**
 
-Backlight can be enabled by jumper cap, unplugg the jumper cap to disable the backlight. The blue potentiometer on the back is used to adjust the contrast (the ratio of brightness between the brightest white and the darkest black).
+La retroiluminación se puede habilitar mediante un capuchón de puente, y se deshabilita al quitar dicho capuchón. El potenciómetro azul en la parte posterior se utiliza para ajustar el contraste (la relación de brillo entre el blanco más brillante y el negro más oscuro).
 
 .. image:: img/26_back_lcd1602.jpg
     :width: 600
     :align: center
 
 .. raw:: html
-    
+
     <br/> 
 
-* **Shorting Cap**: Backlight can be enabled by this cap，unplugg this cap to disable the backlight.
-* **Potentiometer**: It is used to adjust the contrast (the clarity of the displayed text), which is increased in the clockwise direction and decreased in the counterclockwise direction.
+* **Capuchón de puente**: La retroiluminación se puede habilitar mediante este capuchón; retíralo para deshabilitar la retroiluminación.
+* **Potenciómetro**: Se usa para ajustar el contraste (la claridad del texto mostrado), el cual aumenta al girar en sentido horario y disminuye al girar en sentido antihorario.
 
 .. note::
-    After wiring the LCD, you should turn on the Arduino and adjust the contrast by rotating the potentiometer on the I2C module until the first row of rectangles appear to ensure proper LCD operation.
+    Después de conectar el LCD, debes encender el Arduino y ajustar el contraste girando el potenciómetro del módulo I2C hasta que aparezcan los primeros rectángulos en la primera fila, para asegurar un funcionamiento adecuado del LCD.
 
 
-Example
+Ejemplo
 ---------------------------
 * :ref:`uno_lesson26_lcd` (Arduino UNO)
 * :ref:`esp32_lesson26_lcd` (ESP32)

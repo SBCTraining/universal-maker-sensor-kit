@@ -1,52 +1,52 @@
-.. note::
+.. note:: 
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    ¡Hola, bienvenido a la Comunidad de Entusiastas de Raspberry Pi, Arduino y ESP32 en Facebook! Profundiza en el mundo de Raspberry Pi, Arduino y ESP32 con otros entusiastas.
 
-    **Why Join?**
+    **¿Por qué unirte?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Soporte experto**: Resuelve problemas postventa y desafíos técnicos con la ayuda de nuestra comunidad y equipo.
+    - **Aprende y comparte**: Intercambia consejos y tutoriales para mejorar tus habilidades.
+    - **Vistas previas exclusivas**: Accede a nuevos anuncios de productos y avances antes que nadie.
+    - **Descuentos especiales**: Disfruta de descuentos exclusivos en nuestros productos más recientes.
+    - **Promociones festivas y sorteos**: Participa en sorteos y promociones de temporada.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 ¿Listo para explorar y crear con nosotros? Haz clic en [|link_sf_facebook|] y únete hoy mismo!
 
 .. _esp32_lesson21_vl53l0x:
 
-Lesson 21: Time of Flight Micro-LIDAR Distance Sensor (VL53L0X)
-====================================================================
+Lección 21: Sensor de Distancia Micro-LIDAR Time of Flight (VL53L0X)
+=======================================================================
 
-In this lesson, you will learn how to use the Adafruit VL53L0X Time of Flight Distance Sensor with an ESP32 Development Board. We'll cover initializing the sensor, reading distance measurements, and displaying them in millimeters on the serial monitor.
+En esta lección aprenderás cómo utilizar el Sensor de Distancia Time of Flight VL53L0X de Adafruit con una placa de desarrollo ESP32. Cubriremos la inicialización del sensor, la lectura de mediciones de distancia y su visualización en milímetros en el monitor serial.
 
-Required Components
+Componentes necesarios
 --------------------------
 
-In this project, we need the following components. 
+En este proyecto, necesitamos los siguientes componentes.
 
-It's definitely convenient to buy a whole kit, here's the link: 
+Es muy conveniente comprar un kit completo, aquí tienes el enlace:
 
 .. list-table::
     :widths: 20 20 20
     :header-rows: 1
 
-    *   - Name	
-        - ITEMS IN THIS KIT
-        - LINK
-    *   - Universal Maker Sensor Kit
+    *   - Nombre	
+        - ARTÍCULOS EN ESTE KIT
+        - ENLACE
+    *   - Kit de Sensor Universal Maker
         - 94
         - |link_umsk|
 
-You can also buy them separately from the links below.
+También puedes comprarlos por separado a través de los enlaces a continuación.
 
 .. list-table::
     :widths: 30 10
     :header-rows: 1
 
-    *   - Component Introduction
-        - Purchase Link
+    *   - Introducción al componente
+        - Enlace de compra
 
-    *   - ESP32 & Development Board (:ref:`cpn_esp32_wroom_32e`)
+    *   - ESP32 & Placa de Desarrollo (:ref:`cpn_esp32_wroom_32e`)
         - |link_esp32_camera_pro_kit_buy|
     *   - :ref:`cpn_VL53L0X`
         - |link_vl53l0x_module_buy|
@@ -54,37 +54,37 @@ You can also buy them separately from the links below.
         - |link_breadboard_buy|
 
 
-Wiring
+Conexiones
 ---------------------------
 
 .. image:: img/Lesson_21_VL53L0X_esp32_bb.png
     :width: 100%
 
 
-Code
+Código
 ---------------------------
 
 .. note:: 
-   To install the library, use the Arduino Library Manager and search for **"Adafruit_VL53L0X"** and install it.  
+   Para instalar la biblioteca, utiliza el Administrador de Bibliotecas de Arduino, busca **"Adafruit_VL53L0X"** e instálala.  
 
 .. raw:: html
 
     <iframe src=https://create.arduino.cc/editor/sunfounder01/2f8bf48c-e404-4a3d-a9ac-eb1878f54017/preview?embed style="height:510px;width:100%;margin:10px 0" frameborder=0></iframe>
 
-Code Analysis
+Análisis del código
 ---------------------------
 
-#. Including the necessary library and initializing the sensor object. We start by including the library for the VL53L0X sensor and creating an instance of the Adafruit_VL53L0X class.
+#. Incluir la biblioteca necesaria e inicializar el objeto del sensor. Comenzamos incluyendo la biblioteca para el sensor VL53L0X y creando una instancia de la clase Adafruit_VL53L0X.
 
    .. note:: 
-      To install the library, use the Arduino Library Manager and search for **"Adafruit_VL53L0X"** and install it.  
+      Para instalar la biblioteca, utiliza el Administrador de Bibliotecas de Arduino, busca **"Adafruit_VL53L0X"** e instálala.  
 
    .. code-block:: arduino
 
       #include <Adafruit_VL53L0X.h>
       Adafruit_VL53L0X lox = Adafruit_VL53L0X();
 
-#. Initialization in the ``setup()`` function. Here, we set up serial communication and initialize the distance sensor. If the sensor can't be initialized, the program halts.
+#. Inicialización en la función ``setup()`` . Aquí configuramos la comunicación serial e inicializamos el sensor de distancia. Si el sensor no puede inicializarse, el programa se detiene.
 
    .. code-block:: arduino
 
@@ -102,7 +102,7 @@ Code Analysis
         Serial.println(F("VL53L0X API Simple Ranging example\n\n"));
       }
 
-#. Capturing and displaying the measurements in the ``loop()`` function. Continuously, the ESP32 Development Board captures a distance measurement using the ``rangingTest()`` method. If the measurement is valid, it's printed to the serial monitor.
+#. Capturar y mostrar las mediciones en la función ``loop()``. De forma continua, la placa de desarrollo ESP32 captura una medición de distancia utilizando el método rangingTest(). Si la medición es válida, se imprime en el monitor serial.
 
    .. code-block:: arduino
        

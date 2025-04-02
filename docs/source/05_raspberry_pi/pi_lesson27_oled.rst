@@ -1,99 +1,99 @@
-.. note::
+.. note:: 
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    ¡Hola, bienvenido a la Comunidad de Entusiastas de SunFounder Raspberry Pi, Arduino y ESP32 en Facebook! Profundiza más en Raspberry Pi, Arduino y ESP32 con otros entusiastas.
 
-    **Why Join?**
+    **¿Por qué unirte?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Soporte experto**: Resuelve problemas postventa y desafíos técnicos con la ayuda de nuestra comunidad y equipo.
+    - **Aprender y compartir**: Intercambia consejos y tutoriales para mejorar tus habilidades.
+    - **Preestrenos exclusivos**: Obtén acceso anticipado a nuevos anuncios de productos y adelantos.
+    - **Descuentos especiales**: Disfruta de descuentos exclusivos en nuestros productos más nuevos.
+    - **Promociones festivas y sorteos**: Participa en sorteos y promociones de temporada.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 ¿Listo para explorar y crear con nosotros? Haz clic en [|link_sf_facebook|] y únete hoy mismo!
 
 .. _pi_lesson27_oled:
 
-Lesson 27: OLED Display Module (SSD1306)
-============================================
+Lección 27: Módulo de pantalla OLED (SSD1306)
+=================================================
 
-In this lesson, you will learn how to connect a Raspberry Pi with an OLED Display Module (SSD1306) using Python. You'll learn how to establish I2C communication between the Raspberry Pi and the OLED display, and use the Python Imaging Library (PIL) for creating graphics and text. The lesson will guide you through drawing shapes and text on the OLED screen, providing a practical example with the message "Hello World!".
+En esta lección, aprenderás a conectar una Raspberry Pi con un módulo de pantalla OLED (SSD1306) utilizando Python. Aprenderás a establecer comunicación I2C entre la Raspberry Pi y la pantalla OLED, y usar la Biblioteca de Imágenes de Python (PIL) para crear gráficos y texto. La lección te guiará en el proceso de dibujar formas y texto en la pantalla OLED, proporcionando un ejemplo práctico con el mensaje "¡Hola Mundo!".
 
-Required Components
---------------------------
+Componentes necesarios
+---------------------------
 
-In this project, we need the following components. 
+En este proyecto, necesitamos los siguientes componentes.
 
-It's definitely convenient to buy a whole kit, here's the link: 
+Es definitivamente conveniente comprar un kit completo, aquí tienes el enlace:
 
 .. list-table::
     :widths: 20 20 20
     :header-rows: 1
 
-    *   - Name	
-        - ITEMS IN THIS KIT
-        - LINK
-    *   - Universal Maker Sensor Kit
+    *   - Nombre  
+        - ELEMENTOS EN ESTE KIT  
+        - ENLACE
+    *   - Kit Sensor Universal Maker
         - 94
         - |link_umsk|
 
-You can also buy them separately from the links below.
+También puedes comprarlos por separado en los siguientes enlaces.
 
 .. list-table::
     :widths: 30 20
     :header-rows: 1
 
-    *   - Component Introduction
-        - Purchase Link
+    *   - Introducción del componente  
+        - Enlace de compra
 
     *   - Raspberry Pi 5
-        - \-
+        - |link_rpi5_buy|
     *   - :ref:`cpn_oled`
         - \-
     *   - :ref:`cpn_breadboard`
         - |link_breadboard_buy|
 
 
-Wiring
+Cableado
 ---------------------------
 
 .. image:: img/Lesson_27_oled_pi_bb.png
     :width: 100%
 
 
-Install Library
+Instalar la biblioteca
 ---------------------------
 
 .. note::
-    The adafruit-circuitpython-ssd1306 library relies on Blinka, so please ensure that Blinka has been installed. To install libraries, refer to :ref:`install_blinka`.
+    La biblioteca adafruit-circuitpython-ssd1306 depende de Blinka, por lo que asegúrate de que Blinka esté instalada. Para instalar bibliotecas, consulta :ref:`install_blinka`.
 
-Before installing the library, please make sure that the virtual Python environment is activated:
+Antes de instalar la biblioteca, asegúrate de que el entorno virtual de Python esté activado:
 
 .. code-block:: bash
 
    source ~/env/bin/activate
 
-Install adafruit-circuitpython-ssd1306 library:
+Instalar la biblioteca adafruit-circuitpython-ssd1306:
 
 .. code-block:: bash
 
    pip install adafruit-circuitpython-ssd1306
 
-Run the Code
+Ejecutar el código
 ---------------------------
 
 .. note::
-   - Please ensure that you have installed the Python library required for running the code according to the "Install Library" steps.
-   - Before running the code, please make sure that you have activated the virtual Python environment with blinka installed. You can activate the virtual environment using a command like this:
+   - Asegúrate de haber instalado la biblioteca de Python necesaria para ejecutar el código siguiendo los pasos de "Instalar la biblioteca".
+   - Antes de ejecutar el código, asegúrate de que hayas activado el entorno virtual de Python con Blinka instalado. Puedes activar el entorno virtual utilizando un comando como este:
 
      .. code-block:: bash
-  
+
         source ~/env/bin/activate
 
-   - Find the code for this lesson in ``universal-maker-sensor-kit-main/pi/`` directory, or directly copy and paste the code below. Execute the code by running the following commands in terminal:
+   - Encuentra el código para esta lección en el directorio ``universal-maker-sensor-kit-main/pi/``, o copia y pega directamente el código a continuación. Ejecuta el código ejecutando los siguientes comandos en el terminal:
 
      .. code-block:: bash
-  
+
         python 27_ssd1306_oled_module.py
 
 .. code-block:: python
@@ -103,49 +103,49 @@ Run the Code
    from PIL import Image, ImageDraw, ImageFont
    import adafruit_ssd1306
    
-   # Initialize OLED display dimensions
+   # Inicializa las dimensiones de la pantalla OLED
    WIDTH = 128
    HEIGHT = 64
    
-   # Set up I2C communication with the OLED display
-   i2c = board.I2C()  # Utilizes board's SCL and SDA pins
+   # Configura la comunicación I2C con la pantalla OLED
+   i2c = board.I2C()  # Utiliza los pines SCL y SDA de la placa
    oled = adafruit_ssd1306.SSD1306_I2C(WIDTH, HEIGHT, i2c, addr=0x3C)
    
-   # Clear the OLED display
+   # Limpia la pantalla OLED
    oled.fill(0)
    oled.show()
    
-   # Create a new image with 1-bit color for drawing
+   # Crea una nueva imagen con color de 1 bit para dibujar
    image = Image.new("1", (oled.width, oled.height))
    
-   # Obtain a drawing object to manipulate the image
+   # Obtén un objeto de dibujo para manipular la imagen
    draw = ImageDraw.Draw(image)
    
-   # Draw a filled white rectangle as the background
+   # Dibuja un rectángulo blanco lleno como fondo
    draw.rectangle((0, 0, oled.width, oled.height), outline=255, fill=255)
    
-   # Define border size for an inner rectangle
+   # Define el tamaño del borde para un rectángulo interno
    BORDER = 5
-   # Draw a smaller black rectangle inside the larger one
+   # Dibuja un rectángulo negro más pequeño dentro del más grande
    draw.rectangle(
        (BORDER, BORDER, oled.width - BORDER - 1, oled.height - BORDER - 1),
        outline=0,
        fill=0,
    )
    
-   # Load the default font for text
+   # Carga la fuente predeterminada para el texto
    font = ImageFont.load_default()
    
    def getfontsize(font, text):
-       # Calculate the size of the text in pixels
+       # Calcula el tamaño del texto en píxeles
        left, top, right, bottom = font.getbbox(text)
        return right - left, bottom - top
    
-   # Define the text to be displayed
+   # Define el texto a mostrar
    text = "Hello World!"
-   # Get the width and height of the text in pixels
+   # Obtén el ancho y la altura del texto en píxeles
    (font_width, font_height) = getfontsize(font, text)
-   # Draw the text, centered on the display
+   # Dibuja el texto, centrado en la pantalla
    draw.text(
        (oled.width // 2 - font_width // 2, oled.height // 2 - font_height // 2),
        text,
@@ -153,19 +153,19 @@ Run the Code
        fill=255,
    )
    
-   # Send the image to the OLED display
+   # Envía la imagen a la pantalla OLED
    oled.image(image)
    oled.show()
 
 
-Code Analysis
+Análisis del código
 ---------------------------
 
-#. Importing Necessary Libraries
+#. Importación de bibliotecas necesarias
 
-   Here, we import the libraries needed for the project. ``board`` is for interfacing with the Raspberry Pi hardware, ``PIL`` for image processing, and ``adafruit_ssd1306`` for controlling the OLED display.
+   Aquí importamos las bibliotecas necesarias para el proyecto. ``board`` se utiliza para interactuar con el hardware de la Raspberry Pi, ``PIL`` para el procesamiento de imágenes y ``adafruit_ssd1306`` para controlar la pantalla OLED.
 
-   For more detail about the ``adafruit_ssd1306`` library, please refer to |Adafruit_Adafruit_CircuitPython_SSD1306|.
+   Para más detalles sobre la biblioteca ``adafruit_ssd1306``, consulta |Adafruit_Adafruit_CircuitPython_SSD1306|.
 
    .. code-block:: python
 
@@ -174,81 +174,81 @@ Code Analysis
       from PIL import Image, ImageDraw, ImageFont
       import adafruit_ssd1306
 
-#. Initializing the OLED Display
+#. Inicialización de la pantalla OLED
 
-   The OLED display dimensions are set, and I2C communication is established. The ``adafruit_ssd1306.SSD1306_I2C`` object is created to interact with the OLED.
+   Se configuran las dimensiones de la pantalla OLED y se establece la comunicación I2C. El objeto ``adafruit_ssd1306.SSD1306_I2C`` se crea para interactuar con la OLED.
 
    .. code-block:: python
 
-      # Initialize OLED display dimensions
+      # Inicializa las dimensiones de la pantalla OLED
       WIDTH = 128
       HEIGHT = 64
 
-      # Set up I2C communication with the OLED display
+      # Configura la comunicación I2C con la pantalla OLED
       i2c = board.I2C()
       oled = adafruit_ssd1306.SSD1306_I2C(WIDTH, HEIGHT, i2c, addr=0x3C)
 
-#. Clearing the Display
+#. Limpiar la pantalla
 
-   The OLED display is cleared by filling it with zeros (black).
+   La pantalla OLED se limpia llenándola de ceros (negro).
 
    .. code-block:: python
 
-      # Clear the OLED display
+      # Limpia la pantalla OLED
       oled.fill(0)
       oled.show()
 
-#. Creating an Image Buffer
+#. Crear un buffer de imagen
 
-   An image buffer is created using PIL. This is where the graphics are drawn before being displayed on the screen.
+   Se crea un buffer de imagen usando PIL. Aquí es donde se dibujan los gráficos antes de mostrarlos en la pantalla.
 
-   The PIL(Python Imaging Library) adds image processing capabilities to your Python interpreter. For more detail, please refer to |link_pil_handbook|.
+   La PIL (Biblioteca de Imágenes de Python) agrega capacidades de procesamiento de imágenes a tu intérprete de Python. Para más detalles, consulta |link_pil_handbook|.
 
    .. code-block:: python
 
-      # Create a new image with 1-bit color for drawing
+      # Crea una nueva imagen con color de 1 bit para dibujar
       image = Image.new("1", (oled.width, oled.height))
 
-      # Obtain a drawing object to manipulate the image
+      # Obtén un objeto de dibujo para manipular la imagen
       draw = ImageDraw.Draw(image)
 
-#. Drawing Graphics
+#. Dibujar gráficos
 
-   Here, a white rectangle (background) and a smaller black rectangle (border effect) are drawn on the image buffer.
+   Aquí, se dibuja un rectángulo blanco (fondo) y un rectángulo negro más pequeño (efecto de borde) en el buffer de imagen.
 
    .. code-block:: python
 
-      # Draw a filled white rectangle as the background
+      # Dibuja un rectángulo blanco lleno como fondo
       draw.rectangle((0, 0, oled.width, oled.height), outline=255, fill=255)
 
-      # Define border size for an inner rectangle
+      # Define el tamaño del borde para un rectángulo interno
       BORDER = 5
-      # Draw a smaller black rectangle inside the larger one
+      # Dibuja un rectángulo negro más pequeño dentro del más grande
       draw.rectangle(
           (BORDER, BORDER, oled.width - BORDER - 1, oled.height - BORDER - 1),
           outline=0,
           fill=0,
       )
 
-#. Adding Text
+#. Añadir texto
 
-   The default font is loaded, and a function to calculate the text size is defined. Then, "Hello World!" is centered and drawn on the image buffer.
+   Se carga la fuente predeterminada y se define una función para calcular el tamaño del texto. Luego, "¡Hola Mundo!" se centra y se dibuja en el buffer de imagen.
 
    .. code-block:: python
 
-      # Load the default font for text
+      # Carga la fuente predeterminada para el texto
       font = ImageFont.load_default()
 
       def getfontsize(font, text):
-          # Calculate the size of the text in pixels
+          # Calcula el tamaño del texto en píxeles
           left, top, right, bottom = font.getbbox(text)
           return right - left, bottom - top
 
-      # Define the text to be displayed
+      # Define el texto a mostrar
       text = "Hello World!"
-      # Get the width and height of the text in pixels
+      # Obtén el ancho y la altura del texto en píxeles
       (font_width, font_height) = getfontsize(font, text)
-      # Draw the text, centered on the display
+      # Dibuja el texto, centrado en la pantalla
       draw.text(
           (oled.width // 2 - font_width // 2, oled.height // 2 - font_height // 2),
           text,
@@ -256,12 +256,12 @@ Code Analysis
           fill=255,
       )
 
-#. Displaying the Image
+#. Mostrar la imagen
 
-   Finally, the image buffer is sent to the OLED display for visualization.
+   Finalmente, el buffer de imagen se envía a la pantalla OLED para su visualización.
 
    .. code-block:: python
 
-      # Send the image to the OLED display
+      # Envía la imagen a la pantalla OLED
       oled.image(image)
       oled.show()

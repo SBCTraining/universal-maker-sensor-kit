@@ -1,50 +1,50 @@
-.. note::
+.. note:: 
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    ¡Hola, bienvenido a la Comunidad de Entusiastas de Raspberry Pi, Arduino y ESP32 en Facebook! Profundiza en Raspberry Pi, Arduino y ESP32 junto con otros entusiastas.
 
-    **Why Join?**
+    **¿Por qué unirte?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Soporte de expertos**: Resuelve problemas postventa y desafíos técnicos con la ayuda de nuestra comunidad y equipo.
+    - **Aprende y comparte**: Intercambia consejos y tutoriales para mejorar tus habilidades.
+    - **Avances exclusivos**: Accede a novedades sobre productos y vistas previas de manera anticipada.
+    - **Descuentos especiales**: Disfruta de descuentos exclusivos en nuestros productos más recientes.
+    - **Promociones festivas y sorteos**: Participa en sorteos y promociones especiales de temporada.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 ¿Listo para explorar y crear con nosotros? Haz clic en [|link_sf_facebook|] y únete hoy mismo!
 
 .. _pico_lesson17_rotary_encoder:
 
-Lesson 17: Rotary Encoder Module
-==================================
+Lección 17: Módulo de Codificador Rotatorio
+===============================================
 
-In this lesson, you'll learn how to use the Raspberry Pi Pico W to control a rotary encoder. The rotary encoder is an advanced sensor that translates knob rotation into an output signal, indicating both the amount and direction of rotation. This project offers hands-on experience with digital input devices, enhancing your ability to work with more complex sensors. You'll configure the rotary encoder using specific GPIO pins, read its output to determine rotation direction and amount, and master using a button to trigger events.
+En esta lección, aprenderás cómo usar el Raspberry Pi Pico W para controlar un codificador rotatorio. El codificador rotatorio es un sensor avanzado que traduce la rotación de una perilla en una señal de salida, indicando tanto la cantidad como la dirección de la rotación. Este proyecto te ofrece experiencia práctica con dispositivos de entrada digital, mejorando tu capacidad para trabajar con sensores más complejos. Configurarás el codificador rotatorio utilizando pines GPIO específicos, leerás su salida para determinar la dirección y la cantidad de rotación, y dominarás el uso de un botón para activar eventos.
 
-Required Components
---------------------------
+Componentes necesarios
+----------------------------
 
-In this project, we need the following components. 
+En este proyecto, necesitaremos los siguientes componentes. 
 
-It's definitely convenient to buy a whole kit, here's the link: 
+Es muy conveniente comprar un kit completo, aquí está el enlace: 
 
 .. list-table::
     :widths: 20 20 20
     :header-rows: 1
 
-    *   - Name	
-        - ITEMS IN THIS KIT
-        - LINK
-    *   - Universal Maker Sensor Kit
+    *   - Nombre	
+        - ARTÍCULOS EN ESTE KIT
+        - ENLACE
+    *   - Kit Universal Maker Sensor
         - 94
         - |link_umsk|
 
-You can also buy them separately from the links below.
+También puedes comprarlos por separado desde los siguientes enlaces.
 
 .. list-table::
     :widths: 30 20
     :header-rows: 1
 
-    *   - Component Introduction
-        - Purchase Link
+    *   - Introducción del componente
+        - Enlace de compra
 
     *   - Raspberry Pi Pico W
         - \-
@@ -54,23 +54,23 @@ You can also buy them separately from the links below.
         - |link_breadboard_buy|
 
 
-Wiring
+Conexiones
 ---------------------------
 
 .. image:: img/Lesson_17_Rotary_encoder_bb.png
     :width: 100%
 
 
-Code
+Código
 ---------------------------
 
 .. note::
 
-    * Open the ``17_rotary_encoder_module.py`` file under the path of ``universal-maker-sensor-kit-main/pico/Lesson_17_Rotary_Encoder_Module`` or copy this code into Thonny, then click "Run Current Script" or simply press F5 to run it. For detailed tutorials, please refer to :ref:`open_run_code_py`. 
+    * Abre el archivo ``17_rotary_encoder_module.py`` en la ruta ``universal-maker-sensor-kit-main/pico/Lesson_17_Rotary_Encoder_Module`` o copia este código en Thonny, luego haz clic en "Ejecutar script actual" o simplemente presiona F5 para ejecutarlo. Para tutoriales detallados, consulta :ref:`open_run_code_py`. 
 
-    * Here you need to use the ``rotary_irq_rp2.py``, please check if it has been uploaded to Pico W, for a detailed tutorial refer to :ref:`add_libraries_py`.
+    * Aquí necesitarás usar el archivo ``rotary_irq_rp2.py``, por favor verifica si ya ha sido subido al Pico W, para un tutorial detallado consulta :ref:`add_libraries_py`.
 
-    * Don't forget to click on the "MicroPython (Raspberry Pi Pico)" interpreter in the bottom right corner. 
+    * No olvides hacer clic en el intérprete "MicroPython (Raspberry Pi Pico)" en la esquina inferior derecha. 
 
 .. code-block:: python
 
@@ -78,10 +78,10 @@ Code
    import time
    from machine import Pin
    
-   # Set GPIO 20 as an input pin for reading the button(sw)'s state
+   # Establecer el GPIO 20 como pin de entrada para leer el estado del botón(sw)
    button_pin = Pin(20, Pin.IN, Pin.PULL_UP)
    
-   # Initialize the rotary encoder with specific GPIO pins and settings
+   # Inicializar el codificador rotatorio con pines GPIO específicos y configuraciones
    rotary_encoder = RotaryIRQ(
        pin_num_clk=18,
        pin_num_dt=19,
@@ -91,40 +91,40 @@ Code
        range_mode=RotaryIRQ.RANGE_WRAP,
    )
    
-   # Store the initial value of the rotary encoder and button state
+   # Almacenar el valor inicial del codificador rotatorio y el estado del botón
    last_rotary_value = rotary_encoder.value()
    last_button_state = button_pin.value()
    
-   # Main loop
+   # Bucle principal
    while True:
-       # Read the current value of the rotary encoder and button state
+       # Leer el valor actual del codificador rotatorio y el estado del botón
        current_rotary_value = rotary_encoder.value()
        current_button_state = button_pin.value()
    
-       # Check if the rotary encoder's value has changed
+       # Verificar si el valor del codificador rotatorio ha cambiado
        if last_rotary_value != current_rotary_value:
            last_rotary_value = current_rotary_value
            print("result =", current_rotary_value)
    
-       # Check if the button's state changed from not pressed to pressed
+       # Verificar si el estado del botón cambió de no presionado a presionado
        if last_button_state and not current_button_state:
            print("Button pressed!")
    
-       # Update the previous state of the button for the next loop iteration
+       # Actualizar el estado anterior del botón para la siguiente iteración del bucle
        last_button_state = current_button_state
    
-       # Short delay to prevent debouncing issues
+       # Retraso corto para prevenir problemas de rebote
        time.sleep_ms(50)
 
 
-Code Analysis
+Análisis del código
 ---------------------------
 
-#. **Importing Libraries**
+#. **Importación de bibliotecas**
 
-   First, the necessary libraries are imported. ``rotary_irq_rp2`` is for the rotary encoder, ``time`` for delays, and ``machine`` for hardware control.
+   Primero, se importan las bibliotecas necesarias. ``rotary_irq_rp2`` es para el codificador rotatorio, ``time`` para los retrasos, y ``machine`` para el control del hardware.
 
-   For more information about the ``rotary_irq_rp2`` library, please visit |link_rotary_irq_rp2_library|.
+   Para más información sobre la biblioteca ``rotary_irq_rp2``, visita |link_rotary_irq_rp2_library|.
 
    .. code-block:: python
 
@@ -132,17 +132,17 @@ Code Analysis
       import time
       from machine import Pin
 
-#. **Setting up the Button Pin**
+#. **Configuración del pin del botón**
 
-   The GPIO pin connected to the SW pin is configured as an input with a pull-up resistor. This ensures a stable HIGH signal when the button is not pressed.
+   El pin GPIO conectado al pin SW se configura como entrada con una resistencia pull-up. Esto garantiza una señal HIGH estable cuando el botón no está presionado.
 
    .. code-block:: python
 
       button_pin = Pin(20, Pin.IN, Pin.PULL_UP)
 
-#. **Initializing the Rotary Encoder**
+#. **Inicialización del codificador rotatorio**
 
-   The encoder is set up with specified GPIO pins for CLK and DT. ``min_val`` and ``max_val`` define the range of values, and ``range_mode`` sets how the value behaves at limits (wraps around in this case).
+   El codificador se configura con los pines GPIO especificados para CLK y DT. ``min_val`` y ``max_val`` definen el rango de valores, y ``range_mode`` establece cómo se comporta el valor en los límites (se envuelve en este caso).
 
    .. code-block:: python
 
@@ -155,18 +155,18 @@ Code Analysis
           range_mode=RotaryIRQ.RANGE_WRAP,
       )
 
-#. **Storing Initial Values**
+#. **Almacenamiento de valores iniciales**
 
-   The initial values of the rotary encoder and the button are stored to detect changes in their states later.
+   Los valores iniciales del codificador rotatorio y del botón se almacenan para detectar cambios en sus estados más tarde.
 
    .. code-block:: python
 
       last_rotary_value = rotary_encoder.value()
       last_button_state = button_pin.value()
 
-#. **Main Loop**
+#. **Bucle principal**
 
-   The loop continuously checks for changes in the rotary encoder value and button state. If the rotary value changes, it prints the new value. If the button state changes from unpressed to pressed, it prints "Button pressed!".
+   El bucle revisa continuamente si hay cambios en el valor del codificador rotatorio y el estado del botón. Si el valor del codificador cambia, imprime el nuevo valor. Si el estado del botón cambia de no presionado a presionado, imprime "¡Botón presionado!".
 
    .. code-block:: python
 
@@ -184,4 +184,4 @@ Code Analysis
           last_button_state = current_button_state
           time.sleep_ms(50)
 
-   The ``time.sleep_ms(50)`` at the end of the loop is to prevent debouncing issues, which can cause erratic readings.
+   El ``time.sleep_ms(50)`` al final del bucle es para evitar problemas de rebote, los cuales pueden causar lecturas erráticas.

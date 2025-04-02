@@ -1,67 +1,67 @@
 .. note::
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    ¡Hola, bienvenido a la Comunidad de Entusiastas de Raspberry Pi, Arduino y ESP32 de SunFounder en Facebook! Profundiza en Raspberry Pi, Arduino y ESP32 con otros entusiastas.
 
-    **Why Join?**
+    **¿Por qué unirte?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Soporte experto**: Resuelve problemas postventa y desafíos técnicos con la ayuda de nuestra comunidad y equipo.
+    - **Aprende y comparte**: Intercambia consejos y tutoriales para mejorar tus habilidades.
+    - **Preestrenos exclusivos**: Accede anticipadamente a anuncios de nuevos productos y adelantos.
+    - **Descuentos especiales**: Disfruta de descuentos exclusivos en nuestros productos más recientes.
+    - **Promociones festivas y sorteos**: Participa en sorteos y promociones de temporada.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 ¿Listo para explorar y crear con nosotros? Haz clic en [|link_sf_facebook|] y únete hoy mismo!
 
 .. _pi_lesson23_ultrasonic:
 
-Lesson 23: Ultrasonic Sensor Module (HC-SR04)
-================================================
+Lección 23: Módulo de Sensor Ultrasónico (HC-SR04)
+====================================================
 
-In this lesson, you'll learn how to connect an ultrasonic distance sensor to a Raspberry Pi and write a Python script for reading distance measurements. We'll guide you through the process of wiring the sensor's trigger pin to GPIO 17 and the echo pin to GPIO 27. The provided Python code will assist you in measuring distances and displaying them in centimeters. 
+En esta lección, aprenderás cómo conectar un sensor de distancia ultrasónico a un Raspberry Pi y escribir un script en Python para leer las mediciones de distancia. Te guiaremos en el proceso de conectar el pin de disparo del sensor al GPIO 17 y el pin de eco al GPIO 27. El código de Python proporcionado te ayudará a medir distancias y mostrarlas en centímetros.
 
-Required Components
+Componentes Requeridos
 --------------------------
 
-In this project, we need the following components. 
+En este proyecto, necesitamos los siguientes componentes.
 
-It's definitely convenient to buy a whole kit, here's the link: 
+Es definitivamente conveniente comprar un kit completo, aquí está el enlace:
 
 .. list-table::
     :widths: 20 20 20
     :header-rows: 1
 
-    *   - Name	
-        - ITEMS IN THIS KIT
-        - LINK
-    *   - Universal Maker Sensor Kit
+    *   - Nombre
+        - ARTÍCULOS EN ESTE KIT
+        - ENLACE
+    *   - Kit Universal Maker Sensor
         - 94
         - |link_umsk|
 
-You can also buy them separately from the links below.
+También puedes comprarlos por separado desde los enlaces a continuación.
 
 .. list-table::
     :widths: 30 20
     :header-rows: 1
 
-    *   - Component Introduction
-        - Purchase Link
+    *   - Introducción del Componente
+        - Enlace de compra
 
     *   - Raspberry Pi 5
-        - \-
+        - |link_rpi5_buy|
     *   - :ref:`cpn_ultrasonic`
         - |link_ultrasonic_buy|
     *   - :ref:`cpn_breadboard`
         - |link_breadboard_buy|
 
 
-Wiring
+Cableado
 ---------------------------
 
 .. image:: img/Lesson_23_ultrasonic_sensor_Pi_bb.png
     :width: 100%
 
 
-Code
+Código
 ---------------------------
 
 .. code-block:: python
@@ -70,49 +70,49 @@ Code
    from gpiozero import DistanceSensor
    from time import sleep
 
-   # Initialize the DistanceSensor using GPIO Zero library
-   # Trigger pin is connected to GPIO 17, Echo pin to GPIO 27
+   # Inicializa el sensor de distancia utilizando la librería GPIO Zero
+   # El pin de disparo está conectado al GPIO 17, el pin de eco al GPIO 27
    sensor = DistanceSensor(echo=27, trigger=17)
 
    try:
-       # Main loop to continuously measure and report distance
+       # Bucle principal para medir continuamente y reportar la distancia
        while True:
-           dis = sensor.distance * 100  # Measure distance and convert from meters to centimeters
-           print('Distance: {:.2f} cm'.format(dis))  # Print the distance with two decimal precision
-           sleep(0.3)  # Wait for 0.3 seconds before the next measurement
+           dis = sensor.distance * 100  # Medir la distancia y convertir de metros a centímetros
+           print('Distance: {:.2f} cm'.format(dis))  # Imprimir la distancia con dos decimales
+           sleep(0.3)  # Esperar 0.3 segundos antes de la siguiente medición
 
    except KeyboardInterrupt:
-       # Handle KeyboardInterrupt (Ctrl+C) to gracefully exit the loop
+       # Manejar KeyboardInterrupt (Ctrl+C) para salir del bucle de forma ordenada
        pass
 
 
 
-Code Analysis
+Análisis del Código
 ---------------------------
 
-#. Importing Libraries
+#. Importación de Bibliotecas
    
-   The script begins by importing ``DistanceSensor`` from the gpiozero library for the ultrasonic sensor, and ``sleep`` from the time module for timing control.
+   El script comienza importando ``DistanceSensor`` desde la librería gpiozero para interactuar con el sensor ultrasónico, y ``sleep`` desde el módulo time para controlar los tiempos.
 
    .. code-block:: python
 
       from gpiozero import DistanceSensor
       from time import sleep
 
-#. Initializing the Distance Sensor
+#. Inicialización del Sensor de Distancia
    
-   A ``DistanceSensor`` object named ``sensor`` is created with ``echo`` and ``trigger`` pins connected to GPIO 27 and GPIO 17, respectively. These pins are used to send and receive the ultrasonic signals for distance measurement.
+   Se crea un objeto ``DistanceSensor`` llamado ``sensor`` con los pines ``echo`` y ``trigger`` conectados a los GPIO 27 y GPIO 17, respectivamente. Estos pines se utilizan para enviar y recibir las señales ultrasónicas para medir la distancia.
 
    .. code-block:: python
 
       sensor = DistanceSensor(echo=27, trigger=17)
 
-#. Implementing the Continuous Monitoring Loop
+#. Implementación del Bucle de Monitoreo Continuo
    
-   - A ``try`` block with an infinite loop (``while True:``) is used to continuously measure the distance.
-   - Within the loop, ``sensor.distance`` gives the measured distance in meters, which is then converted to centimeters and stored in ``dis``.
-   - The distance is printed with two decimal points of precision using the ``format`` method.
-   - ``sleep(0.3)`` adds a 0.3-second delay between each measurement to control the frequency of readings and reduce CPU load.
+   - Se utiliza un bloque ``try`` con un bucle infinito (``while True:``) para medir continuamente la distancia.
+   - Dentro del bucle, ``sensor.distance`` proporciona la distancia medida en metros, la cual luego se convierte a centímetros y se guarda en ``dis``.
+   - La distancia se imprime con una precisión de dos decimales usando el método ``format``.
+   - ``sleep(0.3)`` agrega un retraso de 0.3 segundos entre cada medición para controlar la frecuencia de las lecturas y reducir la carga en la CPU.
 
    .. raw:: html
 
@@ -126,9 +126,9 @@ Code Analysis
               print('Distance: {:.2f} cm'.format(dis))
               sleep(0.3)
 
-#. Handling KeyboardInterrupt for Graceful Exit
+#. Manejo de KeyboardInterrupt para Salida Ordenada
    
-   The ``except`` block is used to catch a KeyboardInterrupt (typically Ctrl+C). When this occurs, the script exits the loop gracefully without any additional actions.
+   El bloque ``except`` se usa para capturar un KeyboardInterrupt (normalmente Ctrl+C). Cuando esto ocurre, el script sale del bucle de manera ordenada sin realizar ninguna acción adicional.
 
    .. code-block:: python
 

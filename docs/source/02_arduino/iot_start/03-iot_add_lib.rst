@@ -1,45 +1,45 @@
-.. note::
+.. note:: 
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    ¡Hola, bienvenido a la Comunidad de Entusiastas de Raspberry Pi, Arduino y ESP32 en Facebook! Profundiza más en Raspberry Pi, Arduino y ESP32 junto con otros entusiastas.
 
-    **Why Join?**
+    **¿Por qué unirte?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Soporte experto**: Resuelve problemas postventa y desafíos técnicos con la ayuda de nuestra comunidad y equipo.
+    - **Aprende y comparte**: Intercambia consejos y tutoriales para mejorar tus habilidades.
+    - **Previsualizaciones exclusivas**: Accede anticipadamente a anuncios de nuevos productos y vistas previas.
+    - **Descuentos especiales**: Disfruta de descuentos exclusivos en nuestros productos más recientes.
+    - **Promociones festivas y sorteos**: Participa en sorteos y promociones especiales durante las festividades.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 ¿Listo para explorar y crear con nosotros? Haz clic en [|link_sf_facebook|] y únete hoy!
 
 .. _iot_add_library:
 
-1.3 Adding the required libraries
-===================================
+1.3 Añadiendo las bibliotecas necesarias
+==========================================
 
-You need to add the correct libraries for the Arduino IDE to use Blynk.
+Es necesario añadir las bibliotecas correctas para que el IDE de Arduino pueda usar Blynk.
 
-#. Click |link_blynk_lib|, scroll down to **"Assets"** and download the first ``.zip`` file. 
+#. Haz clic en |link_blynk_lib|, desplázate hacia abajo hasta **"Assets"** y descarga el primer archivo ``.zip``. 
 
-   .. note::
-    Please note that the version number shown in the image below may be outdated. We highly recommend downloading and installing the latest version available.
+   .. note:: 
+    Ten en cuenta que el número de versión mostrado en la imagen a continuación puede estar desactualizado. Recomendamos encarecidamente descargar e instalar la versión más reciente disponible.
 
    .. image:: img/new/add_lib_shadow.png
 
-#. Unzip this file and then enter the ``libraries`` folder to see the following folders.
+#. Descomprime este archivo y luego entra en la carpeta ``libraries`` para ver las siguientes carpetas.
 
    .. image:: img/new/add_lib_0_shadow.png
-    
-#. Copy them all and add them to the ``libraries`` folder of your sketchbook.
 
-   **Step 1:** You can find or change the location of your libraries folder at ``File > Preferences > Sketchbook location``.
+#. Copia todas las carpetas y añádelas a la carpeta ``libraries`` de tu cuaderno de bocetos.
+
+   **Paso 1:** Puedes encontrar o cambiar la ubicación de la carpeta de bibliotecas en ``File > Preferences > Sketchbook location``.
 
    .. image:: img/new/add_lib_1_shadow.png
 
-   **Step 2:** Go to the location of your Sketchbook location(find from Arduino IDE). And find ``libraries`` folder, click to open it.
+   **Paso 2:** Ve a la ubicación de tu cuaderno de bocetos (puedes encontrarla desde el IDE de Arduino). Y busca la carpeta ``libraries``, haz clic para abrirla.
 
    .. image:: img/new/add_lib_2_shadow.png
 
-   **Step 3:** Paste all the unzipped folders of ``Blynk_Release_vx.x.x\libraries`` into the libraries folder.
+   **Paso 3:** Pega todas las carpetas descomprimidas de ``Blynk_Release_vx.x.x\libraries`` en la carpeta de bibliotecas.
 
    .. image:: img/new/add_lib_3_shadow.png

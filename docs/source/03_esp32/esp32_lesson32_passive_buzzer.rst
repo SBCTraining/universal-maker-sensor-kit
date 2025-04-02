@@ -1,52 +1,52 @@
-.. note::
+.. note:: 
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    ¡Hola, bienvenido a la Comunidad de Entusiastas de Raspberry Pi, Arduino y ESP32 en Facebook! Profundiza en el mundo de Raspberry Pi, Arduino y ESP32 junto con otros entusiastas.
 
-    **Why Join?**
+    **¿Por qué unirte?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Soporte experto**: Resuelve problemas postventa y desafíos técnicos con la ayuda de nuestra comunidad y equipo.
+    - **Aprende y comparte**: Intercambia consejos y tutoriales para mejorar tus habilidades.
+    - **Vistas previas exclusivas**: Accede a nuevos anuncios de productos y avances antes que nadie.
+    - **Descuentos especiales**: Disfruta de descuentos exclusivos en nuestros productos más recientes.
+    - **Promociones festivas y sorteos**: Participa en sorteos y promociones de temporada.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 ¿Estás listo para explorar y crear con nosotros? Haz clic en [|link_sf_facebook|] y únete hoy mismo!
 
 .. _esp32_lesson32_passive_buzzer:
 
-Lesson 32: Passive Buzzer Module
-==================================
+Lección 32: Módulo de Zumbador Pasivo
+=======================================
 
-In this lesson, you'll learn to play a melody on a passive buzzer module using an ESP32 Development Board. We'll cover programming the ESP32 to control the buzzer and create musical notes with varying durations. This project is ideal for beginners in electronics and programming, providing hands-on experience in sound generation and basic digital sound principles. You'll develop practical skills in utilizing the ESP32 board and integrating simple components like the passive buzzer.
+En esta lección aprenderás a reproducir una melodía en un módulo de zumbador pasivo utilizando una placa de desarrollo ESP32. Cubriremos cómo programar el ESP32 para controlar el zumbador y crear notas musicales con duraciones variables. Este proyecto es ideal para principiantes en electrónica y programación, proporcionando experiencia práctica en la generación de sonido y los principios básicos del sonido digital. Desarrollarás habilidades prácticas en el uso de la placa ESP32 e integración de componentes simples como el zumbador pasivo.
 
-Required Components
---------------------------
+Componentes necesarios
+----------------------------
 
-In this project, we need the following components. 
+En este proyecto necesitamos los siguientes componentes. 
 
-It's definitely convenient to buy a whole kit, here's the link: 
+Es muy conveniente comprar un kit completo, aquí tienes el enlace: 
 
 .. list-table::
     :widths: 20 20 20
     :header-rows: 1
 
-    *   - Name	
-        - ITEMS IN THIS KIT
-        - LINK
-    *   - Universal Maker Sensor Kit
+    *   - Nombre	
+        - ARTÍCULOS EN ESTE KIT
+        - ENLACE
+    *   - Kit de Sensor Universal Maker
         - 94
         - |link_umsk|
 
-You can also buy them separately from the links below.
+También puedes comprarlos por separado a través de los enlaces a continuación.
 
 .. list-table::
     :widths: 30 20
     :header-rows: 1
 
-    *   - Component Introduction
-        - Purchase Link
+    *   - Introducción al componente
+        - Enlace de compra
 
-    *   - ESP32 & Development Board (:ref:`cpn_esp32_wroom_32e`)
+    *   - ESP32 & Placa de Desarrollo (:ref:`cpn_esp32_wroom_32e`)
         - |link_esp32_camera_pro_kit_buy|
     *   - :ref:`cpn_buzzer`
         - |link_passive_buzzer_module_buy|
@@ -54,41 +54,41 @@ You can also buy them separately from the links below.
         - |link_breadboard_buy|
 
 
-Wiring
+Conexiones
 ---------------------------
 
 .. image:: img/Lesson_32_Passive_buzzer_esp32_bb.png
     :width: 100%
 
 
-Code
+Código
 ---------------------------
 
 .. raw:: html
 
     <iframe src=https://create.arduino.cc/editor/sunfounder01/1f3f8514-29eb-491f-b40f-0d808ef0aaac/preview?embed style="height:510px;width:100%;margin:10px 0" frameborder=0></iframe>
 
-Code Analysis
+Análisis del código
 ---------------------------
 
-1. Including the pitches library:
+1. Inclusión de la biblioteca de notas musicales:
 
-   This library provides the frequency values for various musical notes, allowing you to use musical notation in your code.
+   Esta biblioteca proporciona los valores de frecuencia para varias notas musicales, lo que permite utilizar notación musical en tu código.
 
    .. code-block:: arduino
        
       #include "pitches.h"
 
-2. Defining constants and arrays:
+2. Definición de constantes y arreglos:
 
-   * ``buzzerPin`` is the digital pin on the ESP32 Development Board where the buzzer is connected.
+   * ``buzzerPin`` es el pin digital en la placa de desarrollo ESP32 donde se conecta el zumbador.
 
-   * ``melody[]`` is an array that stores the sequence of notes to be played.
+   * ``melody[]`` es un arreglo que almacena la secuencia de notas que se van a reproducir.
 
-   * ``noteDurations[]`` is an array that stores the duration of each note in the melody.
+   * ``noteDurations[]`` es un arreglo que almacena la duración de cada nota en la melodía.
 
    .. raw:: html
-      
+       
       <br/>
 
    .. code-block:: arduino
@@ -101,18 +101,18 @@ Code Analysis
         4, 8, 8, 4, 4, 4, 4, 4
       };
 
-3. Playing the melody:
+3. Reproducción de la melodía:
 
-   * The ``for`` loop iterates over each note in the melody.
+   * El ciclo ``for`` recorre cada nota en la melodía.
 
-   * The ``tone()`` function plays a note on the buzzer for a specific duration.
+   * La función ``tone()`` reproduce una nota en el zumbador durante una duración específica.
 
-   * A delay is added between notes to distinguish them.
+   * Se añade un retraso entre las notas para distinguirlas.
 
-   * The ``noTone()`` function stops the sound.
+   * La función ``noTone()`` detiene el sonido.
 
    .. raw:: html
-      
+       
       <br/>
 
    .. code-block:: arduino
@@ -127,6 +127,6 @@ Code Analysis
         }
       }
 
-4. Empty loop function:
+4. Función loop vacía:
 
-   Since the melody is played only once in the setup, there's no code in the loop function.
+   Dado que la melodía solo se reproduce una vez en la configuración, no hay código en la función loop.

@@ -1,21 +1,21 @@
-.. note::
+.. note:: 
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    ¡Hola, bienvenido a la Comunidad de Entusiastas de SunFounder Raspberry Pi & Arduino & ESP32 en Facebook! Profundiza en Raspberry Pi, Arduino y ESP32 con otros entusiastas.
 
-    **Why Join?**
+    **¿Por qué unirse?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Soporte experto**: Resuelve problemas postventa y desafíos técnicos con la ayuda de nuestra comunidad y equipo.
+    - **Aprende y comparte**: Intercambia consejos y tutoriales para mejorar tus habilidades.
+    - **Vistas previas exclusivas**: Accede antes que nadie a nuevos anuncios de productos y avances.
+    - **Descuentos especiales**: Disfruta de descuentos exclusivos en nuestros productos más nuevos.
+    - **Promociones festivas y sorteos**: Participa en sorteos y promociones especiales.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 ¿Listo para explorar y crear con nosotros? Haz clic en [|link_sf_facebook|] y únete hoy mismo!
 
 .. _cpn_max30102:
 
-Pulse Oximeter and Heart Rate Sensor Module (MAX30102)
-===============================================================
+Módulo de Oxímetro de Pulso y Sensor de Frecuencia Cardíaca (MAX30102)
+===========================================================================
 
 .. image:: img/14_gy_max30102_module.png
     :width: 200
@@ -25,46 +25,46 @@ Pulse Oximeter and Heart Rate Sensor Module (MAX30102)
 
    <br/>
 
-The MAX30102 is an advanced sensor module designed for tracking heart rate and blood oxygen levels (SpO2). Manufactured by Maxim Integrated, it combines pulse oximetry and heart rate monitoring into a compact package, making it a popular choice for wearable health and fitness applications.
+El MAX30102 es un módulo de sensor avanzado diseñado para monitorear la frecuencia cardíaca y los niveles de oxígeno en la sangre (SpO2). Fabricado por Maxim Integrated, combina la oximetría de pulso y el monitoreo de la frecuencia cardíaca en un paquete compacto, lo que lo convierte en una opción popular para aplicaciones de salud y fitness portátiles.
 
-Specification
+Especificaciones
 ---------------------------
-* Chip Type: MAX30102
-* LED Peak Wavelength: 660nm/880nm
-* Supply Voltage: 3.3V or 5V; 
-* Detection Signal Type: Optical Reflection Signal (PPG)
-* Output Signal Interface: I2C Interface
-* PCB size: 14 x 14mm
-* Working temperature: -40 ~ +85℃
+* Tipo de Chip: MAX30102
+* Longitud de Onda Pico LED: 660nm/880nm
+* Tensión de Suministro: 3.3V o 5V
+* Tipo de Señal de Detección: Señal de Reflexión Óptica (PPG)
+* Interfaz de Señal de Salida: Interfaz I2C
+* Tamaño del PCB: 14 x 14mm
+* Temperatura de Funcionamiento: -40 ~ +85℃
 
 Pinout
 ---------------------------
-* **VCC**: This is the positive power supply input from the main control. 
-* **GND**: Ground connection.
-* **SCL**: serial clock pin for the I2C interface.
-* **SDA**: serial data pin for the I2C interface.
-* **INT**: the Interrupt pin of the IC. 
+* **VCC**: Esta es la entrada de suministro de energía positiva desde el control principal.
+* **GND**: Conexión a tierra.
+* **SCL**: Pin de reloj serial para la interfaz I2C.
+* **SDA**: Pin de datos seriales para la interfaz I2C.
+* **INT**: Pin de interrupción del IC.
 
-Principle
+Principio
 ---------------------------
 
-MAX30102 is a sensor that combines a pulse oximeter and a heart rate monitor. It's an optical sensor that measures the absorbance of pulsating blood through a photodetector after emitting two wavelengths of light from two LEDs - a red and an infrared one. This particular LED colour combination is designed to allow data to be read with the tip of one's finger.
+El MAX30102 es un sensor que combina un oxímetro de pulso y un monitor de frecuencia cardíaca. Es un sensor óptico que mide la absorbancia de la sangre pulsante a través de un fotodetector después de emitir dos longitudes de onda de luz desde dos LEDs: uno rojo y uno infrarrojo. Esta combinación particular de colores de LEDs está diseñada para permitir que los datos se lean con la punta del dedo.
 
-The MAX30102 works by shining both lights onto the finger or earlobe (or essentially anywhere where the skin isn’t too thick, so both lights can easily penetrate the tissue) and measuring the amount of reflected light using a photodetector. This method of pulse detection through light is called Photoplethysmogram.
+El MAX30102 funciona iluminando ambos LEDs en el dedo o el lóbulo de la oreja (o, esencialmente, en cualquier lugar donde la piel no sea demasiado gruesa, para que ambas luces puedan penetrar fácilmente el tejido) y midiendo la cantidad de luz reflejada utilizando un fotodetector. Este método de detección del pulso mediante luz se llama Fotopletismografía.
 
-The working of MAX30102 can be divided into two parts: Heart Rate Measurement and Pulse Oximetry (measuring the oxygen level of the blood).
+El funcionamiento del MAX30102 se puede dividir en dos partes: Medición de la Frecuencia Cardíaca y Oximetría de Pulso (medición del nivel de oxígeno en la sangre).
 
-Heart Rate Measurement
-^^^^^^^^^^^^^^^^^^^^^^^^^^
-The oxygenated hemoglobin (HbO2) in the arterial blood has the characteristic of absorbing IR light. The redder the blood (the higher the hemoglobin), the more IR light is absorbed. As the blood is pumped through the finger with each heartbeat, the amount of reflected light changes, creating a changing waveform at the output of the photodetector. As you continue to shine light and take photodetector readings, you quickly start to get a heart-beat (HR) pulse reading.
+Medición de la Frecuencia Cardíaca
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+La hemoglobina oxigenada (HbO2) en la sangre arterial tiene la característica de absorber luz infrarroja (IR). Cuanto más roja es la sangre (cuanto mayor es la hemoglobina), más luz IR se absorbe. A medida que la sangre se bombea a través del dedo con cada latido del corazón, la cantidad de luz reflejada cambia, creando una forma de onda cambiante en la salida del fotodetector. A medida que sigues iluminando y tomando lecturas del fotodetector, comienzas rápidamente a obtener una lectura de pulso (HR).
 
 
-Pulse Oximetry
+Oximetría de Pulso
 ^^^^^^^^^^^^^^^^^^^^
-Pulse oximetry is based on the principle that the amount of RED and IR light absorbed varies depending on the amount of oxygen in your blood.    
+La oximetría de pulso se basa en el principio de que la cantidad de luz ROJA e IR absorbida varía según la cantidad de oxígeno en la sangre.
 
 
-Example
+Ejemplo
 ---------------------------
 * :ref:`uno_lesson14_max30102` (Arduino UNO)
 * :ref:`esp32_lesson14_max30102` (ESP32)
