@@ -47,7 +47,7 @@ You can also buy them separately from the links below.
         - Purchase Link
 
     *   - Raspberry Pi Pico W
-        - \-
+        - |link_picow_buy|
     *   - :ref:`cpn_mpu6050`
         - |link_mpu6050_buy|
     *   - :ref:`cpn_breadboard`

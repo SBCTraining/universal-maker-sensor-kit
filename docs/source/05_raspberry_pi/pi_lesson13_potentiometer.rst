@@ -50,7 +50,7 @@ You can also buy them separately from the links below.
         - Purchase Link
 
     *   - Raspberry Pi 5
-        - \-
+        - |link_rpi5_buy|
     *   - :ref:`cpn_potentiometer`
         - |link_potentiometer_sensor_module_buy|
     *   - :ref:`cpn_pcf8591`

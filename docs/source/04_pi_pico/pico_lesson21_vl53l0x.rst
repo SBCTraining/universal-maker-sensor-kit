@@ -47,7 +47,7 @@ You can also buy them separately from the links below.
         - Purchase Link
 
     *   - Raspberry Pi Pico W
-        - \-
+        - |link_picow_buy|
     *   - :ref:`cpn_VL53L0X`
         - |link_vl53l0x_module_buy|
     *   - :ref:`cpn_breadboard`

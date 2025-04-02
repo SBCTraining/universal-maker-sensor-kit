@@ -418,6 +418,10 @@ rst_epilog += """
 
     <a href="https://www.sunfounder.com/products/raspberry-pi-pico-w" target="_blank">BUY</a>
 
+.. |link_rpi5_buy| raw:: html
+
+    <a href="https://www.sunfounder.com/collections/the-raspberry-pi/products/raspberry-pi-5" target="_blank">BUY</a>
+
 .. |link_wires_buy| raw:: html
 
     <a href="https://www.sunfounder.com/products/560pcs-jumper-wire-kit-with-14-lengths" target="_blank">BUY</a>

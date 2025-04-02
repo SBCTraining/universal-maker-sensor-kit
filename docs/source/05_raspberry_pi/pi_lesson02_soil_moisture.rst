@@ -50,7 +50,7 @@ You can also buy them separately from the links below.
         - Purchase Link
 
     *   - Raspberry Pi 5
-        - \-
+        - |link_rpi5_buy|
     *   - :ref:`cpn_soil`
         - |link_soil_moisture_buy|
     *   - :ref:`cpn_pcf8591`
