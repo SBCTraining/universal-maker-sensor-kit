@@ -47,7 +47,7 @@
         - Purchase Link
 
     *   - Raspberry Pi 5
-        - \-
+        - |link_rpi5_buy|
     *   - :ref:`cpn_vibration`
         - |link_sw420_vibration_module_buy|
     *   - :ref:`cpn_breadboard`
@@ -97,7 +97,7 @@
 
 #. **振動センサーのセットアップ**
 
-   ``gpiozero``ライブラリから ``InputDevice`` のインスタンスを作成して振動センサーを初期化します。振動センサーはRaspberry PiのGPIOピン17に接続されています。
+   ``gpiozero`` ライブラリから ``InputDevice`` のインスタンスを作成して振動センサーを初期化します。振動センサーはRaspberry PiのGPIOピン17に接続されています。
 
    .. code-block:: python
 
@@ -105,7 +105,7 @@
 
 #. **連続監視ループ**
 
-   ``while True``ループを使用して、連続監視を行います。このループはプログラムが手動で停止されるまで無期限に実行されます。
+   ``while True`` ループを使用して、連続監視を行います。このループはプログラムが手動で停止されるまで無期限に実行されます。
 
    .. code-block:: python
 
@@ -113,8 +113,8 @@
 
 #. **センサー状態のチェックと出力**
 
-   - ループ内で、``if``文を使用して振動センサーの状態をチェックします。 ``vibration_sensor.is_active`` が ``True`` の場合、振動が検出されていないことを意味し、「Vibration detected!」が表示されます。
-   - ``vibration_sensor.is_active``が ``False`` の場合は振動が検出されたことを示し、代わりに"..."が表示されます。
+   - ループ内で、 ``if`` 文を使用して振動センサーの状態をチェックします。 ``vibration_sensor.is_active`` が ``True`` の場合、振動が検出されていないことを意味し、「Vibration detected!」が表示されます。
+   - ``vibration_sensor.is_active`` が ``False`` の場合は振動が検出されたことを示し、代わりに"..."が表示されます。
    - この区別は、コード内でセンサーの出力がどのように解釈されるかを理解するために重要です。
 
    .. code-block:: python

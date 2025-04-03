@@ -47,7 +47,7 @@
         - Purchase Link
 
     *   - Raspberry Pi 5
-        - \-
+        - |link_rpi5_buy|
     *   - :ref:`cpn_raindrop`
         - |link_raindrop_sensor_module_buy|
     *   - :ref:`cpn_breadboard`
@@ -104,9 +104,9 @@ Code Analysis
    
    - 無限ループ（ ``while True:`` ）が設定され、雨センサーを継続的に監視します。
    - ループ内で、 ``if`` 文が ``rain_sensor`` の ``is_active`` プロパティをチェックします。
-   - ``is_active``が ``True`` の場合、雨が検出されていないことを示し、 "No rain detected."が表示されます。
-   - ``is_active``が ``False`` の場合、雨が検出されたことを示し、"Rain detected!" が表示されます。
-   - ``sleep(1)``は各チェックの間に1秒の遅延を挿入し、センサーポーリングの頻度を制御し、CPU使用率を減少させます。
+   - ``is_active`` が ``True`` の場合、雨が検出されていないことを示し、 "No rain detected."が表示されます。
+   - ``is_active`` が ``False`` の場合、雨が検出されたことを示し、"Rain detected!" が表示されます。
+   - ``sleep(1)`` は各チェックの間に1秒の遅延を挿入し、センサーポーリングの頻度を制御し、CPU使用率を減少させます。
 
    .. raw:: html
 

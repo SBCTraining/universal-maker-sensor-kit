@@ -65,7 +65,7 @@
 ---------------------------
 
 .. note::
-   ライブラリをインストールするには、Arduino Library Managerを使用して **"LiquidCrystal I2C"**を検索し、インストールしてください。
+   ライブラリをインストールするには、Arduino Library Managerを使用して **"LiquidCrystal I2C"** を検索し、インストールしてください。
 
 .. raw:: html
 
@@ -78,7 +78,7 @@
    LiquidCrystal I2Cライブラリをインクルードして、LCDインターフェース用の関数とメソッドを提供します。その後、I2Cアドレス、列数、および行数を指定して、LiquidCrystal_I2Cクラスを使用してLCDオブジェクトを作成します。
 
    .. note::
-      ライブラリをインストールするには、Arduino Library Managerを使用して **"LiquidCrystal I2C"**を検索し、インストールしてください。
+      ライブラリをインストールするには、Arduino Library Managerを使用して **"LiquidCrystal I2C"** を検索し、インストールしてください。
 
    .. code-block:: arduino
 

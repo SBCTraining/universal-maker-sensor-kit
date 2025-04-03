@@ -26,7 +26,7 @@ Arduino IDEで正しい **Board** と **Port** を選択します。通常、Ard
     .. image:: img/board_port.png
         :width: 90%
 
-ボードが既に接続されているのに認識されない場合は、**ボードマネージャ**の **Arduino AVR Boards** セクションで **INSTALLED** ロゴが表示されるか確認してください。表示されない場合は、少しスクロールして **INSTALL** をクリックしてください。
+ボードが既に接続されているのに認識されない場合は、 **ボードマネージャ** の **Arduino AVR Boards** セクションで **INSTALLED** ロゴが表示されるか確認してください。表示されない場合は、少しスクロールして **INSTALL** をクリックしてください。
 
     .. image:: img/upload1.png
         :width: 90%

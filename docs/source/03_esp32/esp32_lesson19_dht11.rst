@@ -63,8 +63,8 @@
 .. csv-table:: 
    :widths: 25, 75
 
-   |dht11_module|, |dht11_module_circuit|
-   |dht11_module_withLED|, |dht11_module_withLED_circuit|
+   |dht11_module| , |dht11_module_circuit|
+   |dht11_module_withLED| , |dht11_module_withLED_circuit|
 
 .. |dht11_module| image:: img/Lesson_19_dht11_module.png 
    :width: 100px
@@ -83,7 +83,8 @@
 ---------------------------
 
 .. note::
-   ライブラリをインストールするには、Arduino Library Managerを使用して**"DHT sensor library"**を検索し、インストールしてください。
+
+   ライブラリをインストールするには、Arduino Library Managerを使用して **"DHT sensor library"** を検索し、インストールしてください。
 
 .. raw:: html
 
@@ -96,7 +97,8 @@
    このコード部分では、DHTセンサーライブラリがインクルードされ、このプロジェクトで使用するピン番号とセンサータイプが定義されます。
 
    .. note::
-      ライブラリをインストールするには、Arduino Library Managerを使用して **"DHT sensor library"**を検索し、インストールしてください。
+      
+      ライブラリをインストールするには、Arduino Library Managerを使用して **"DHT sensor library"** を検索し、インストールしてください。
 
    .. code-block:: arduino
     
@@ -122,7 +124,7 @@
       }
 
 #. メインループ
-   ``loop()``関数は、セットアップ関数の後に連続して実行されます。ここでは、湿度と温度の値を読み取り、熱指数を計算し、これらの値をシリアルモニタに表示します。センサーの読み取りに失敗した場合（NaNが返される）、エラーメッセージを表示します。
+   ``loop()`` 関数は、セットアップ関数の後に連続して実行されます。ここでは、湿度と温度の値を読み取り、熱指数を計算し、これらの値をシリアルモニタに表示します。センサーの読み取りに失敗した場合（NaNが返される）、エラーメッセージを表示します。
 
    .. note::
     

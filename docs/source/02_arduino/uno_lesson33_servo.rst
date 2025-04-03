@@ -77,7 +77,7 @@
       int angle = 0;           // Initialize the angle variable to 0 degrees
       Servo servo;             // Create a servo object
 
-2. ``setup()``関数はArduinoが起動すると一度だけ実行されます。サーボは ``attach()`` 関数を使用して定義されたピンに接続されます。
+2. ``setup()`` 関数はArduinoが起動すると一度だけ実行されます。サーボは ``attach()`` 関数を使用して定義されたピンに接続されます。
 
    .. code-block:: arduino
 

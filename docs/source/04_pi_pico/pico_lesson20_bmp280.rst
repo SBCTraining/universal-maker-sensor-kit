@@ -47,7 +47,7 @@
         - Purchase Link
 
     *   - Raspberry Pi Pico W
-        - \-
+        - |link_picow_buy|
     *   - :ref:`cpn_bmp280`
         - |link_bmp280_module_buy|
     *   - :ref:`cpn_breadboard`
@@ -102,7 +102,7 @@
 
    このコードセグメントは、必要なライブラリをインポートし、I2C通信を初期化します。 ``machine`` モジュールはI2Cやピンなどのハードウェアコンポーネントと対話するために使用されます。 ``bmp280`` ライブラリはBMP280センサーと対話するためにインポートされます。
 
-   ``bmp280`` ライブラリの詳細については、|link_micropython_bmp280_driver| を参照してください。
+   ``bmp280`` ライブラリの詳細については、 |link_micropython_bmp280_driver| を参照してください。
 
    .. code-block:: python
 

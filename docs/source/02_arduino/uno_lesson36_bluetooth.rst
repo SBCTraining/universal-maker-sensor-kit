@@ -85,14 +85,14 @@
 
   .. image:: img/Lesson_36_bluetooth_serial_2.gif
 
-* **Bluetoothデバイスの名前を設定する:** ``AT+NAME``（新しい名前を続けて入力）。 ``+OK`` と表示されれば設定は成功です。再度 ``AT+NAME`` を送信して確認することができます。
+* **Bluetoothデバイスの名前を設定する:** ``AT+NAME`` （新しい名前を続けて入力）。 ``+OK`` と表示されれば設定は成功です。再度 ``AT+NAME`` を送信して確認することができます。
 
 .. image:: img/Lesson_36_bluetooth_serial_3.gif
 
 .. note::
 学習体験の一貫性を保つため、Bluetoothモジュールのデフォルトのボーレートを変更せずにデフォルトの値である9600ボーレートのままにすることをお勧めします。関連するコースでは、9600ボーレートを使用してBluetoothと通信します。
 
-* **Set Bluetooth baudrate:** ``AT+BAUD``（ボーレートを示す番号を続けて入力）。
+* **Set Bluetooth baudrate:** ``AT+BAUD`` （ボーレートを示す番号を続けて入力）。
 
     * 4 == 9600
     * 5 == 19200
@@ -132,7 +132,7 @@
 
 a. **Serial Bluetooth Terminalのインストール**
 
-   Google Playにアクセスして、|link_serial_bluetooth_terminal| をダウンロードしてインストールします。
+   Google Playにアクセスして、 |link_serial_bluetooth_terminal| をダウンロードしてインストールします。
 
 
 b. **Bluetoothを接続する**

@@ -47,7 +47,7 @@
         - Purchase Link
 
     *   - Raspberry Pi 5
-        - \-
+        - |link_rpi5_buy|
     *   - :ref:`cpn_buzzer`
         - |link_passive_buzzer_module_buy|
     *   - :ref:`cpn_breadboard`
@@ -120,7 +120,7 @@
 
 #. 再生関数の定義
    
-   ``play``関数は、音符とその持続時間を表すタプルのリストを入力として受け取ります。各タプルを反復処理して音符を再生し、その持続時間だけ待機します。
+   ``play`` 関数は、音符とその持続時間を表すタプルのリストを入力として受け取ります。各タプルを反復処理して音符を再生し、その持続時間だけ待機します。
 
    .. code-block:: python
 

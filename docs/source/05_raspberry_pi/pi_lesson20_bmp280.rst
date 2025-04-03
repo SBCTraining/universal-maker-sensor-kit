@@ -47,7 +47,7 @@ Required Components
         - Purchase Link
 
     *   - Raspberry Pi 5
-        - \-
+        - |link_rpi5_buy|
     *   - :ref:`cpn_bmp280`
         - |link_bmp280_module_buy|
     *   - :ref:`cpn_breadboard`
@@ -129,7 +129,7 @@ adafruit-circuitpython-bmp280ライブラリをインストール：
 
    必要なライブラリをインポートし、BMP280センサーと対話するオブジェクトを作成します。 ``board.I2C()`` はI2C通信を設定します。 ``adafruit_bmp280.Adafruit_BMP280_I2C(i2c, address=0x76)`` はBMP280センサーをそのI2Cアドレスで初期化します。
 
-   ``adafruit_bmp280`` ライブラリの詳細については、|link_Adafruit_CircuitPython_BMP280| を参照してください。
+   ``adafruit_bmp280`` ライブラリの詳細については、 |link_Adafruit_CircuitPython_BMP280| を参照してください。
 
    .. code-block:: python
 

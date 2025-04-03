@@ -50,7 +50,7 @@
         - Purchase Link
 
     *   - Raspberry Pi 5
-        - \-
+        - |link_rpi5_buy|
     *   - :ref:`cpn_hall`
         - \-
     *   - :ref:`cpn_pcf8591`
@@ -146,4 +146,4 @@
       except KeyboardInterrupt:
           print("Exit")  # Exit on CTRL+C
 
-``time.sleep(0.2)``は各ループの反復間に0.2秒の遅延を作り、過剰な読み取り速度を防ぎます。 ``except`` ブロックはキーボード割り込み（CTRL+C）をキャッチして、プログラムを適切に終了させます。
+``time.sleep(0.2)`` は各ループの反復間に0.2秒の遅延を作り、過剰な読み取り速度を防ぎます。 ``except`` ブロックはキーボード割り込み（CTRL+C）をキャッチして、プログラムを適切に終了させます。

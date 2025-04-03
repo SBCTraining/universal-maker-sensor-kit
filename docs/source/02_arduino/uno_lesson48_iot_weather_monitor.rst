@@ -107,7 +107,7 @@ ThingSpeakの設定
 コード
 --------------------------- 
 
-#. ``universal-maker-sensor-kit\arduino_uno\Lesson_48_Iot_Weather_Monitor``のパスにある ``Lesson_48_Iot_Weather_Monitor.ino`` ファイルを開くか、このコードを **Arduino IDE** にコピーします。
+#. ``universal-maker-sensor-kit\arduino_uno\Lesson_48_Iot_Weather_Monitor`` のパスにある ``Lesson_48_Iot_Weather_Monitor.ino`` ファイルを開くか、このコードを **Arduino IDE** にコピーします。
 
    .. note:: 
       ライブラリをインストールするには、Arduinoライブラリマネージャを使用して **"Adafruit BMP280"**を検索し、インストールしてください。
@@ -159,7 +159,7 @@ ThingSpeakの設定
       const int bluetoothRx = 4;
       SoftwareSerial bleSerial(bluetoothTx, bluetoothRx);
    
-   まず、Bluetooth通信をサポートするためにSoftwareSerialライブラリをインクルードします。次に、BluetoothモジュールのTXおよびRXピンを定義し、Arduinoのピン3および4に割り当てます。最後に、Bluetooth通信のための``bleSerial``オブジェクトを初期化します。
+   まず、Bluetooth通信をサポートするためにSoftwareSerialライブラリをインクルードします。次に、BluetoothモジュールのTXおよびRXピンを定義し、Arduinoのピン3および4に割り当てます。最後に、Bluetooth通信のための ``bleSerial`` オブジェクトを初期化します。
 
 #. LEDピンの定義
 
@@ -186,7 +186,7 @@ ThingSpeakの設定
          bleSerial.begin(9600);
       }
 
-   ``setup()``関数では、LEDピンを ``OUTPUT`` として設定します。また、Bluetoothモジュールおよびデフォルトのシリアル（コンピュータに接続されている）とのシリアル通信をボーレート9600で開始します。
+   ``setup()`` 関数では、LEDピンを ``OUTPUT`` として設定します。また、Bluetoothモジュールおよびデフォルトのシリアル（コンピュータに接続されている）とのシリアル通信をボーレート9600で開始します。
 
 #. Bluetooth通信のためのメインループ
 
@@ -221,4 +221,4 @@ ThingSpeakの設定
          digitalWrite(targetLight, HIGH);
       }
 
-   ``toggleLights()``関数は、まずすべてのLEDを消灯します。すべてが消灯していることを確認した後、指定されたターゲットLEDを点灯させます。これにより、常に1つのLEDのみが点灯するようにします。
+   ``toggleLights()`` 関数は、まずすべてのLEDを消灯します。すべてが消灯していることを確認した後、指定されたターゲットLEDを点灯させます。これにより、常に1つのLEDのみが点灯するようにします。

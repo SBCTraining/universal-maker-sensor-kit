@@ -75,11 +75,11 @@
 
 a. **Serial Bluetooth Terminalのインストール**
 
-   Google Playにアクセスして、|link_serial_bluetooth_terminal| をダウンロードしてインストールします。
+   Google Playにアクセスして、 |link_serial_bluetooth_terminal| をダウンロードしてインストールします。
 
 b. **Bluetoothの接続**
 
-   まず、スマートフォンで**Bluetooth**をオンにします。
+   まず、スマートフォンで **Bluetooth** をオンにします。
    
       .. image:: img/09-app_1_shadow.png
          :width: 60%
@@ -132,7 +132,7 @@ d. **コマンドの送信**
       const int bluetoothRx = 4;
       SoftwareSerial bleSerial(bluetoothTx, bluetoothRx);
    
-   まず、Bluetooth通信をサポートするためにSoftwareSerialライブラリをインクルードします。次に、BluetoothモジュールのTXおよびRXピンを定義し、Arduinoのピン3および4に割り当てます。最後に、Bluetooth通信のための``bleSerial``オブジェクトを初期化します。
+   まず、Bluetooth通信をサポートするためにSoftwareSerialライブラリをインクルードします。次に、BluetoothモジュールのTXおよびRXピンを定義し、Arduinoのピン3および4に割り当てます。最後に、Bluetooth通信のための ``bleSerial`` オブジェクトを初期化します。
 
 #. LEDピンの定義
 
@@ -158,7 +158,7 @@ d. **コマンドの送信**
          bleSerial.begin(9600);
       }
 
-   ``setup()``関数では、LEDピンを ``OUTPUT`` として設定します。また、Bluetoothモジュールおよびデフォルトのシリアル（コンピュータに接続されている）とのシリアル通信をボーレート9600で開始します。
+   ``setup()`` 関数では、LEDピンを ``OUTPUT`` として設定します。また、Bluetoothモジュールおよびデフォルトのシリアル（コンピュータに接続されている）とのシリアル通信をボーレート9600で開始します。
 
 #. Bluetooth通信のためのメインループ
 
@@ -193,4 +193,4 @@ d. **コマンドの送信**
          digitalWrite(targetLight, HIGH);
       }
 
-   ``toggleLights()``関数は、まずすべてのLEDを消灯します。すべてが消灯していることを確認した後、指定されたターゲットLEDを点灯させます。これにより、常に1つのLEDのみが点灯するようにします。
+   ``toggleLights()`` 関数は、まずすべてのLEDを消灯します。すべてが消灯していることを確認した後、指定されたターゲットLEDを点灯させます。これにより、常に1つのLEDのみが点灯するようにします。

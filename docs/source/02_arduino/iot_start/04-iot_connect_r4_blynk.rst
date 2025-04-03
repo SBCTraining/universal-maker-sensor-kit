@@ -25,7 +25,7 @@
 
   .. image:: img/wiring_r4_quickstart.png
 
-#. ``ultimate-sensor-kit\iot_project\wifi\00-Blynk_quick_start``のパスにある ``00-Blynk_quick_start.ino`` ファイルを開くか、このコードを **Arduino IDE** にコピーします。
+#. ``ultimate-sensor-kit\iot_project\wifi\00-Blynk_quick_start`` のパスにある ``00-Blynk_quick_start.ino`` ファイルを開くか、このコードを **Arduino IDE** にコピーします。
 
    .. raw:: html
        
@@ -62,6 +62,6 @@
 
        時には、上記の操作を3〜5回繰り返す必要があるかもしれませんので、忍耐強く行ってください。
 
-#. Blynkのステータスが**offline**から**online**に変わります。
+#. Blynkのステータスが **offline** から **online** に変わります。
 
     .. image:: img/sp220607_170326.png

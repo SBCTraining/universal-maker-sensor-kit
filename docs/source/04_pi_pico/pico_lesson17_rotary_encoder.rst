@@ -47,7 +47,7 @@ Required Components
         - Purchase Link
 
     *   - Raspberry Pi Pico W
-        - \-
+        - |link_picow_buy|
     *   - :ref:`cpn_rotary_encoder`
         - \-
     *   - :ref:`cpn_breadboard`
@@ -120,9 +120,9 @@ Code Analysis
 
 #. **ライブラリのインポート**
 
-   まず、必要なライブラリをインポートします。 ``rotary_irq_rp2``はロータリーエンコーダー用、 ``time`` は遅延処理用、 ``machine`` はハードウェア制御用です。
+   まず、必要なライブラリをインポートします。 ``rotary_irq_rp2`` はロータリーエンコーダー用、 ``time`` は遅延処理用、 ``machine`` はハードウェア制御用です。
 
-   ``rotary_irq_rp2``ライブラリの詳細については、|link_rotary_irq_rp2_library|をご覧ください。
+   ``rotary_irq_rp2`` ライブラリの詳細については、 |link_rotary_irq_rp2_library| をご覧ください。
 
    .. code-block:: python
 

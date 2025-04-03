@@ -47,7 +47,7 @@
         - Purchase Link
 
     *   - Raspberry Pi 5
-        - \-
+        - |link_rpi5_buy|
     *   - :ref:`cpn_servo`
         - |link_servo_buy|
 
@@ -106,7 +106,7 @@
 
 #. ライブラリのインポート
    
-   ``gpiozero``からサーボ制御用の ``Servo`` クラスと、タイミング用の ``time`` から ``sleep`` をインポートします。
+   ``gpiozero`` からサーボ制御用の ``Servo`` クラスと、タイミング用の ``time`` から ``sleep`` をインポートします。
 
    .. code-block:: python
 
@@ -134,7 +134,7 @@
 
 #. サーボを連続的に移動
    
-   ``while True``ループを使用して、サーボを最小、中間、および最大の位置間で移動させ、現在の位置を表示し、移動間にポーズを入れます。
+   ``while True`` ループを使用して、サーボを最小、中間、および最大の位置間で移動させ、現在の位置を表示し、移動間にポーズを入れます。
 
    .. code-block:: python
 

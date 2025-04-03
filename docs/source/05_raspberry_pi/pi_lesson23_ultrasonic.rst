@@ -47,7 +47,7 @@
         - Purchase Link
 
     *   - Raspberry Pi 5
-        - \-
+        - |link_rpi5_buy|
     *   - :ref:`cpn_ultrasonic`
         - |link_ultrasonic_buy|
     *   - :ref:`cpn_breadboard`
@@ -99,7 +99,7 @@
 
 #. 距離センサーの初期化
    
-   ``DistanceSensor``オブジェクト ``sensor`` が作成され、 ``echo`` ピンと ``trigger`` ピンがそれぞれGPIO 27とGPIO 17に接続されます。これらのピンは、距離測定のために超音波信号の送受信に使用されます。
+   ``DistanceSensor`` オブジェクト ``sensor`` が作成され、 ``echo`` ピンと ``trigger`` ピンがそれぞれGPIO 27とGPIO 17に接続されます。これらのピンは、距離測定のために超音波信号の送受信に使用されます。
 
    .. code-block:: python
 
@@ -107,10 +107,10 @@
 
 #. 継続的な監視ループの実装
    
-   - 無限ループ（ ``while True:`` ）を持つ``try``ブロックが使用され、継続的に距離を測定します。
+   - 無限ループ（ ``while True:`` ）を持つ ``try`` ブロックが使用され、継続的に距離を測定します。
    - ループ内で、 ``sensor.distance`` はメートル単位で測定された距離を返し、それをセンチメートルに変換して ``dis`` に保存します。
    - 距離は ``format`` メソッドを使用して小数点以下2桁の精度で表示されます。
-   - ``sleep(0.3)``は各測定の間に0.3秒の遅延を追加し、読み取りの頻度を制御してCPUの負荷を軽減します。
+   - ``sleep(0.3)`` は各測定の間に0.3秒の遅延を追加し、読み取りの頻度を制御してCPUの負荷を軽減します。
 
    .. raw:: html
 
@@ -126,7 +126,7 @@
 
 #. 優雅な終了のためのKeyboardInterruptの処理
    
-   ``except``ブロックはKeyboardInterrupt（通常はCtrl+C）をキャッチするために使用されます。これが発生すると、追加のアクションを取ることなくスクリプトはループを正常に終了します。
+   ``except`` ブロックはKeyboardInterrupt（通常はCtrl+C）をキャッチするために使用されます。これが発生すると、追加のアクションを取ることなくスクリプトはループを正常に終了します。
 
    .. code-block:: python
 

@@ -1,5 +1,3 @@
-.. _uno_lesson35_esp8266:
-
 .. note::
 
     こんにちは、SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Communityへようこそ！Facebook上で、仲間と一緒にRaspberry Pi、Arduino、ESP32をさらに深く探求しましょう。
@@ -14,7 +12,7 @@
 
     👉 私たちと一緒に探索と創造を始める準備はできましたか？[|link_sf_facebook|]をクリックして、今すぐ参加しましょう！
 
-.. _esp8266_start:
+.. _uno_lesson35_esp8266:
 
 レッスン35: ESP8266モジュールの始め方
 ===================================================
@@ -29,9 +27,9 @@
    .. image:: img/Lesson_35_esp01_wiring_r3.png
        :width: 800
 
-2. ``universal-maker-sensor-kit\arduino_uno\Lesson_35_ESP8266``のパスにある ``.ino`` ファイルを開くか、このコードをArduino IDEにコピーしてアップロードします。
+2. ``universal-maker-sensor-kit\arduino_uno\Lesson_35_ESP8266`` のパスにある ``.ino`` ファイルを開くか、このコードをArduino IDEにコピーしてアップロードします。
 
-   このコードはArduinoのSoftwareSerialライブラリを使用してソフトウェアシリアル通信を確立し、Arduinoがデジタルピン2と3（RxとTx）を介してESP8266モジュールと通信できるようにします。データ転送をチェックし、受信したメッセージを互いに転送し、115200のボーレートで通信します。 **このコードを使うことで、Arduinoのシリアルモニターを使用してESP8266モジュールにATファームウェアコマンドを送信し、その応答を受信することができます **。
+   このコードはArduinoのSoftwareSerialライブラリを使用してソフトウェアシリアル通信を確立し、Arduinoがデジタルピン2と3（RxとTx）を介してESP8266モジュールと通信できるようにします。データ転送をチェックし、受信したメッセージを互いに転送し、115200のボーレートで通信します。 **このコードを使うことで、Arduinoのシリアルモニターを使用してESP8266モジュールにATファームウェアコマンドを送信し、その応答を受信することができます** 。
 
    .. code-block:: Arduino
 
@@ -59,21 +57,21 @@
 
    .. warning::
         
-        * ``ready``と表示されない場合は、ESP8266モジュールをリセット（RSTをGNDに接続）して、シリアルモニターを再度開いてみてください。
+        * ``ready`` と表示されない場合は、ESP8266モジュールをリセット（RSTをGNDに接続）して、シリアルモニターを再度開いてみてください。
 
         * さらに、結果が ``OK`` であれば、ファームウェアを再度書き込む必要があるかもしれません。詳細については :ref:`burn_firmware` を参照してください。それでも解決しない場合は、シリアルモニターのスクリーンショットを service@sunfounder.com に送信してください。できるだけ早く問題を解決いたします。
 
-4. **NEWLINE DROPDOWN BOX**をクリックし、ドロップダウンオプションから ``both NL & CR`` を選択し、 ``AT`` を入力します。OKと返された場合、ESP8266はR4ボードと正常に接続されています。
+4. **NEWLINE DROPDOWN BOX** をクリックし、ドロップダウンオプションから ``both NL & CR`` を選択し、 ``AT`` を入力します。OKと返された場合、ESP8266はR4ボードと正常に接続されています。
 
    .. image:: img/Lesson_35_esp01_configurie_2.png
 
    .. image:: img/Lesson_35_esp01_configurie_3.png
 
-5. ``AT+CWMODE=3``を入力すると、モードが **StationとAP** の共存に変更されます。
+5. ``AT+CWMODE=3`` を入力すると、モードが **StationとAP** の共存に変更されます。
 
    .. image:: img/Lesson_35_esp01_configurie_4.png
 
-.. 6. 後でソフトウェアシリアルを使用するために、``AT+UART=9600,8,1,0,0``を入力してESP8266のボーレートを9600に変更する必要があります。
+.. 6. 後でソフトウェアシリアルを使用するために、 ``AT+UART=9600,8,1,0,0`` を入力してESP8266のボーレートを9600に変更する必要があります。
 
 ..    .. image:: img/esp01_configurie_5.png
 

@@ -78,12 +78,12 @@
 
 a. **Serial Bluetooth Terminalのインストール**
 
-   Google Playにアクセスして、|link_serial_bluetooth_terminal| をダウンロードしてインストールします。
+   Google Playにアクセスして、 |link_serial_bluetooth_terminal| をダウンロードしてインストールします。
 
 
 b. **Bluetoothの接続**
 
-   まず、スマートフォンで**Bluetooth**をオンにします。
+   まず、スマートフォンで **Bluetooth** をオンにします。
    
       .. image:: img/09-app_1_shadow.png
          :width: 60%
@@ -156,7 +156,7 @@ d. **コマンドの送信**
          bleSerial.begin(9600);
       }
 
-   ``setup()``関数は、LCDを初期化し、既存のコンテンツをクリアします。また、LCDのバックライトをオンにします。シリアルモニタおよびBluetoothモジュールとの通信は、どちらもボーレート ``9600`` で開始されます。
+   ``setup()`` 関数は、LCDを初期化し、既存のコンテンツをクリアします。また、LCDのバックライトをオンにします。シリアルモニタおよびBluetoothモジュールとの通信は、どちらもボーレート ``9600`` で開始されます。
 
 #. メインループ
 

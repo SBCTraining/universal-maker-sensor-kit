@@ -50,7 +50,7 @@
         - Purchase Link
 
     *   - Raspberry Pi 5
-        - \-
+        - |link_rpi5_buy|
     *   - :ref:`cpn_joystick`
         - |link_joystick_buy|
     *   - :ref:`cpn_pcf8591`

@@ -47,7 +47,7 @@
         - Purchase Link
 
     *   - Raspberry Pi Pico W
-        - \-
+        - |link_picow_buy|
     *   - :ref:`cpn_buzzer`
         - |link_passive_buzzer_module_buy|
     *   - :ref:`cpn_breadboard`
@@ -151,11 +151,11 @@
 
 #. buzzer_musicライブラリの使用
 
-   ``buzzer_music``ライブラリをインポートし、曲の文字列を準備します。
+   ``buzzer_music`` ライブラリをインポートし、曲の文字列を準備します。
 
    onlinesequencer.netで音楽を見つけ、編集し、CTRL + Aで全ての音符を選択し、CTRL + Cでコピーします。文字列を ``song`` に貼り付け、開始部分の"Online Sequencer:120233:"と末尾の";:"を削除してください。
 
-   ``buzzer_music``ライブラリの詳細については、|link_buzzer_music|をご覧ください。
+   ``buzzer_music`` ライブラリの詳細については、 |link_buzzer_music| をご覧ください。
 
    .. code-block:: python
 
@@ -167,7 +167,7 @@
 
 #. 曲の初期化と再生
 
-   ``music``クラスを曲の文字列とブザーのGPIOピンで初期化します。 ``music`` クラスの ``tick`` メソッドを使用して、音楽をループ再生します。
+   ``music`` クラスを曲の文字列とブザーのGPIOピンで初期化します。 ``music`` クラスの ``tick`` メソッドを使用して、音楽をループ再生します。
 
    .. code-block:: python
 

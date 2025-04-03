@@ -47,7 +47,7 @@
         - Purchase Link
 
     *   - Raspberry Pi Pico W
-        - \-
+        - |link_picow_buy|
     *   - :ref:`cpn_servo`
         - |link_servo_buy|
     *   - :ref:`cpn_breadboard`
@@ -97,16 +97,16 @@
 
 
    # Main loop to continuously move the servo
-while True:
-       # Sweep the servo from 0 to 180 degrees
-    for angle in range(180):
-        servo_write(servo, angle)
-           time.sleep_ms(20)  # Short delay for smooth movement
+    while True:
+        # Sweep the servo from 0 to 180 degrees
+        for angle in range(180):
+            servo_write(servo, angle)
+            time.sleep_ms(20)  # Short delay for smooth movement
 
-       # Sweep the servo back from 180 to 0 degrees
-    for angle in range(180, -1, -1):
-        servo_write(servo, angle)
-           time.sleep_ms(20)  # Short delay for smooth movement
+        # Sweep the servo back from 180 to 0 degrees
+        for angle in range(180, -1, -1):
+            servo_write(servo, angle)
+            time.sleep_ms(20)  # Short delay for smooth movement
 
 
 コード解析

@@ -47,7 +47,7 @@
         - Purchase Link
 
     *   - Raspberry Pi Pico W
-        - \-
+        - |link_picow_buy|
     *   - :ref:`cpn_traffic`
         - |link_traffic_light_module_buy|
     *   - :ref:`cpn_breadboard`
@@ -120,7 +120,7 @@
 
 #. ライブラリのインポート
 
-   ``machine``ライブラリはハードウェアコンポーネントを制御するために使用され、 ``time`` ライブラリは遅延を作成するために使用されます。
+   ``machine`` ライブラリはハードウェアコンポーネントを制御するために使用され、 ``time`` ライブラリは遅延を作成するために使用されます。
 
    .. code-block:: python
 
@@ -153,7 +153,7 @@
 
 #. メインループと交通信号シーケンス
 
-   ``while True``ループはコードを連続的に実行します。これは交通信号のシーケンス（緑、黄色（点滅）、赤）を制御します。
+   ``while True`` ループはコードを連続的に実行します。これは交通信号のシーケンス（緑、黄色（点滅）、赤）を制御します。
 
    .. code-block:: python
 
@@ -167,7 +167,7 @@
 
 #. キーボード割り込みの処理
 
-   ``except KeyboardInterrupt``ブロックは手動の割り込み（Ctrl+Cなど）を処理するために使用されます。スクリプトが中断されたときにすべてのLEDを消灯します。
+   ``except KeyboardInterrupt`` ブロックは手動の割り込み（Ctrl+Cなど）を処理するために使用されます。スクリプトが中断されたときにすべてのLEDを消灯します。
 
    .. code-block:: python
 

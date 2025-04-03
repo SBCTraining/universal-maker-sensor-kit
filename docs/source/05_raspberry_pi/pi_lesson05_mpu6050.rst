@@ -47,7 +47,7 @@
         - Purchase Link
 
     *   - Raspberry Pi 5
-        - \-
+        - |link_rpi5_buy|
     *   - :ref:`cpn_mpu6050`
         - |link_mpu6050_buy|
 
@@ -98,14 +98,14 @@
        # Pause for 0.5 seconds before the next read cycle.
        sleep(0.5)
 
- コード解析
+コード解析
 ---------------------------
 
 #. インポート文
 
-   ``mpu6050``クラスは ``mpu6050`` ライブラリからインポートされ、 ``sleep`` 関数は ``time`` モジュールからインポートされます。これらのインポートは、MPU-6050センサーとの対話とコード内での遅延を導入するために必要です。
+   ``mpu6050`` クラスは ``mpu6050`` ライブラリからインポートされ、 ``sleep`` 関数は ``time`` モジュールからインポートされます。これらのインポートは、MPU-6050センサーとの対話とコード内での遅延を導入するために必要です。
 
-   ``mpu6050``ライブラリの詳細については、|link_mpu6050_python_driver|をご覧ください。
+   ``mpu6050`` ライブラリの詳細については、|link_mpu6050_python_driver|をご覧ください。
 
    .. code-block:: python
 

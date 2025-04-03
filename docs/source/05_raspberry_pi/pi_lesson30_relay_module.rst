@@ -47,7 +47,7 @@
         - Purchase Link
 
     *   - Raspberry Pi 5
-        - \-
+        - |link_rpi5_buy|
     *   - :ref:`cpn_relay`
         - \-
     *   - :ref:`cpn_rgb`
@@ -129,7 +129,7 @@
 
 #. 例外処理
    
-   ``except``ブロックは ``KeyboardInterrupt`` （Ctrl+C）をキャッチします。これにより、リレーがオフになり、プログラムが安全に終了することが保証されます。
+   ``except`` ブロックは ``KeyboardInterrupt`` （Ctrl+C）をキャッチします。これにより、リレーがオフになり、プログラムが安全に終了することが保証されます。
 
    .. code-block:: python
 

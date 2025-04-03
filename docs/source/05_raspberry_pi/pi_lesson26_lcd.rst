@@ -47,7 +47,7 @@
         - Purchase Link
 
     *   - Raspberry Pi 5
-        - \-
+        - |link_rpi5_buy|
     *   - :ref:`cpn_i2c_lcd1602`
         - |link_i2clcd1602_buy|
 
@@ -87,7 +87,7 @@
    
    遅延を作成するための ``time`` モジュールと、LCDを制御するための ``LCD`` モジュールをインポートします。
 
-   ``LCD`` ライブラリの詳細については、|link_lcd1602_python_driver_pi|を参照してください。
+   ``LCD`` ライブラリの詳細については、 |link_lcd1602_python_driver_pi| を参照してください。
 
    .. code-block:: python
 
@@ -104,7 +104,7 @@
 
 #. LCDにメッセージを表示
    
-   ``LCD``オブジェクトの ``message`` メソッドを使用してLCDにテキストを表示します。最初の引数はテキスト、2番目の引数は行番号です。
+   ``LCD`` オブジェクトの ``message`` メソッドを使用してLCDにテキストを表示します。最初の引数はテキスト、2番目の引数は行番号です。
 
    .. code-block:: python
 

@@ -47,7 +47,7 @@
         - Purchase Link
 
     *   - Raspberry Pi Pico W
-        - \-
+        - |link_picow_buy|
     *   - :ref:`cpn_potentiometer`
         - |link_potentiometer_sensor_module_buy|
     *   - :ref:`cpn_breadboard`
@@ -58,6 +58,7 @@
 
 .. image:: img/Lesson_13_potentiometer_module_bb.png
     :width: 100%
+
 コード
 ---------------------------
 

@@ -47,7 +47,7 @@
         - Purchase Link
 
     *   - Raspberry Pi Pico W
-        - \-
+        - |link_picow_buy|
     *   - :ref:`cpn_ds18b20`
         - \-
     *   - :ref:`cpn_breadboard`
@@ -101,7 +101,7 @@ Code Analysis
 
    コードは必要なライブラリをインポートすることから始まります。 ``machine`` はGPIOピンの制御に使用され、 ``onewire`` はOneWire通信プロトコルに使用され、 ``ds18x20``  は特定の温度センサーに使用され、 ``time`` は遅延処理に使用されます。
 
-   MicroPythonにおけるOneWireの詳細については、|link_micropython_onewire_driver| を参照してください。
+   MicroPythonにおけるOneWireの詳細については、 |link_micropython_onewire_driver| を参照してください。
 
    .. code-block:: python
 

@@ -47,7 +47,7 @@
         - Purchase Link
 
     *   - Raspberry Pi Pico W
-        - \-
+        - |link_picow_buy|
     *   - :ref:`cpn_ir_obstacle`
         - |link_obstacle_avoidance_module_buy|
     *   - :ref:`cpn_breadboard`
@@ -84,7 +84,7 @@
 
 #. ライブラリのインポート
 
-   ``machine``モジュールはGPIOピンと対話するためにインポートされ、 ``time`` モジュールは遅延を追加するために使用されます。
+   ``machine`` モジュールはGPIOピンと対話するためにインポートされ、 ``time`` モジュールは遅延を追加するために使用されます。
 
    .. code-block:: python
 
@@ -101,7 +101,7 @@
 
 #. ループでセンサーデータを読み取る
 
-   ``while True:``ループはセンサーの出力を継続的にチェックします。センサーが障害物を検出すると、 ``0`` を返し、それが表示されます。 ``time.sleep(0.1)``は読み取りを管理しやすくするために小さな遅延を追加します。
+   ``while True:``ループはセンサーの出力を継続的にチェックします。センサーが障害物を検出すると、 ``0`` を返し、それが表示されます。 ``time.sleep(0.1)`` は読み取りを管理しやすくするために小さな遅延を追加します。
 
    .. code-block:: python
 

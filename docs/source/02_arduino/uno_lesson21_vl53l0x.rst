@@ -82,7 +82,7 @@
       #include <Adafruit_VL53L0X.h>
       Adafruit_VL53L0X lox = Adafruit_VL53L0X();
 
-#. ``setup()``関数での初期化。ここでは、シリアル通信を設定し、距離センサーを初期化します。センサーが初期化できない場合、プログラムは停止します。
+#. ``setup()`` 関数での初期化。ここでは、シリアル通信を設定し、距離センサーを初期化します。センサーが初期化できない場合、プログラムは停止します。
 
    .. code-block:: arduino
 
@@ -100,7 +100,7 @@
         Serial.println(F("VL53L0X API Simple Ranging example\n\n"));
       }
 
-#. ``loop()``関数での測定値のキャプチャと表示。Arduinoは ``rangingTest()`` メソッドを使用して距離を継続的に測定します。測定が有効であれば、シリアルモニターに表示されます。
+#. ``loop()`` 関数での測定値のキャプチャと表示。Arduinoは ``rangingTest()`` メソッドを使用して距離を継続的に測定します。測定が有効であれば、シリアルモニターに表示されます。
 
    .. code-block:: arduino
        

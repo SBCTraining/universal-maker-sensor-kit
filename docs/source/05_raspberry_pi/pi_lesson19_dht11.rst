@@ -47,7 +47,7 @@
         - Purchase Link
 
     *   - Raspberry Pi 5
-        - \-
+        - |link_rpi5_buy|
     *   - :ref:`cpn_dht11`
         - |link_dht11_humiture_buy|
     *   - :ref:`cpn_breadboard`
@@ -71,7 +71,7 @@
 ---------------------------
 
 .. note::
-    adafruit-circuitpython-dhtライブラリはBlinkaに依存しているため、Blinkaがインストールされていることを確認してください。ライブラリのインストールについては、:ref:`install_blinka` を参照してください。
+    adafruit-circuitpython-dhtライブラリはBlinkaに依存しているため、Blinkaがインストールされていることを確認してください。ライブラリのインストールについては、 :ref:`install_blinka` を参照してください。
 
 ライブラリをインストールする前に、仮想Python環境がアクティブになっていることを確認してください。
 
@@ -141,7 +141,7 @@ Code Analysis
 
 #. ライブラリのインポート:
 
-   このコードは、必要なライブラリをインポートすることから始まります。 ``time`` は遅延処理に使用され、 ``board`` はRaspberry PiのGPIOピンにアクセスし、 ``adafruit_dht`` はDHT11センサーと対話するために使用されます。 ``adafruit_dht`` ライブラリの詳細については、|Adafruit_CircuitPython_DHT| を参照してください。
+   このコードは、必要なライブラリをインポートすることから始まります。 ``time`` は遅延処理に使用され、 ``board`` はRaspberry PiのGPIOピンにアクセスし、 ``adafruit_dht`` はDHT11センサーと対話するために使用されます。 ``adafruit_dht`` ライブラリの詳細については、 |Adafruit_CircuitPython_DHT| を参照してください。
 
    .. code-block:: python
     
@@ -159,7 +159,7 @@ Code Analysis
 
 #. ループ内でのセンサーデータの読み取り:
 
-   ``while True``ループは、プログラムが新しいデータを継続的にセンサーからチェックできるようにします。
+   ``while True`` ループは、プログラムが新しいデータを継続的にセンサーからチェックできるようにします。
 
    .. code-block:: python
 

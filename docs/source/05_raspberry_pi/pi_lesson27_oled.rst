@@ -15,7 +15,7 @@
 .. _pi_lesson27_oled:
 
 レッスン27: OLEDディスプレイモジュール (SSD1306)
-===============================================
+===================================================
 
 このレッスンでは、Raspberry Piを使用してOLEDディスプレイモジュール (SSD1306) をPythonで接続する方法を学びます。Raspberry PiとOLEDディスプレイの間でI2C通信を確立し、Python Imaging Library (PIL) を使用してグラフィックスやテキストを作成する方法を学びます。このレッスンでは、OLED画面に図形やテキストを描画する手順を説明し、"Hello World!"というメッセージの実用的な例を提供します。
 
@@ -47,7 +47,7 @@
         - Purchase Link
 
     *   - Raspberry Pi 5
-        - \-
+        - |link_rpi5_buy|
     *   - :ref:`cpn_oled`
         - \-
     *   - :ref:`cpn_breadboard`
@@ -65,7 +65,7 @@
 ---------------------------
 
 .. note::
-    adafruit-circuitpython-ssd1306ライブラリはBlinkaに依存しているため、Blinkaがインストールされていることを確認してください。ライブラリのインストール方法については、:ref:`install_blinka` を参照してください。
+    adafruit-circuitpython-ssd1306ライブラリはBlinkaに依存しているため、Blinkaがインストールされていることを確認してください。ライブラリのインストール方法については、 :ref:`install_blinka` を参照してください。
 
 ライブラリをインストールする前に、仮想Python環境がアクティブになっていることを確認してください：
 
@@ -165,7 +165,7 @@ Code Analysis
 
    ここでは、プロジェクトに必要なライブラリをインポートします。 ``board`` はRaspberry Piハードウェアとのインターフェース用、 ``PIL`` は画像処理用、 ``adafruit_ssd1306`` はOLEDディスプレイの制御用です。
 
-   ``adafruit_ssd1306``ライブラリの詳細については、|Adafruit_Adafruit_CircuitPython_SSD1306|を参照してください。
+   ``adafruit_ssd1306`` ライブラリの詳細については、 |Adafruit_Adafruit_CircuitPython_SSD1306| を参照してください。
 
    .. code-block:: python
 
@@ -202,7 +202,7 @@ Code Analysis
 
    PILを使用してイメージバッファを作成します。これは、グラフィックスが画面に表示される前に描画される場所です。
 
-   PIL（Python Imaging Library）は、Pythonインタープリタに画像処理機能を追加します。詳細については、|link_pil_handbook|を参照してください。
+   PIL（Python Imaging Library）は、Pythonインタープリタに画像処理機能を追加します。詳細については、 |link_pil_handbook| を参照してください。
 
    .. code-block:: python
 

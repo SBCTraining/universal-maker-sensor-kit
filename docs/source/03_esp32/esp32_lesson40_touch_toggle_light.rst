@@ -71,7 +71,7 @@ Code
 
   <iframe src=https://create.arduino.cc/editor/sunfounder01/3745fb2e-d031-4698-9360-a2f7e9a54c13/preview?embed style="height:510px;width:100%;margin:10px 0" frameborder=0></iframe>
 
-  コード解析
+コード解析
 ---------------------------
 
 このプロジェクトの動作は簡単です。センサーがタッチを検出すると、次のLED（赤 -> 黄 -> 緑）が点灯します。これは ``currentLED`` 変数によって制御されます。

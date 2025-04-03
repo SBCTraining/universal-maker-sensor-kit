@@ -47,7 +47,7 @@
         - Purchase Link
 
     *   - Raspberry Pi 5
-        - \-
+        - |link_rpi5_buy|
     *   - :ref:`cpn_button`
         - \-
     *   - :ref:`cpn_breadboard`
@@ -84,7 +84,7 @@
 
 #. ライブラリのインポート
    
-   ``gpiozero``ライブラリから ``Button`` クラスをインポートします。
+   ``gpiozero`` ライブラリから ``Button`` クラスをインポートします。
 
    .. code-block:: python
 

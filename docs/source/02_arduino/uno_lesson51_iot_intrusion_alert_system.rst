@@ -72,7 +72,7 @@ Blynkの設定
 -----------------------------
 
 .. note::
-    Blynkに不慣れな方は、まずこれらの2つのチュートリアルを読むことを強くお勧めします。:ref:`iot_blynk_start`はBlynkの初心者向けガイドで、ESP8266の設定やBlynkへの登録方法が含まれています。:ref:`uno_iot_Flame`はシンプルな例ですが、手順の説明がより詳細です。
+    Blynkに不慣れな方は、まずこれらの2つのチュートリアルを読むことを強くお勧めします。 :ref:`iot_blynk_start` はBlynkの初心者向けガイドで、ESP8266の設定やBlynkへの登録方法が含まれています。 :ref:`uno_iot_Flame` はシンプルな例ですが、手順の説明がより詳細です。
 
 **1 テンプレートの作成**
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -86,18 +86,18 @@ Blynkの設定
 **2 データストリームの作成**
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-**Datastream**ページで、esp8266およびuno r4ボードからデータを受信するための **仮想ピン** タイプの **Datastreams**を作成します。
+**Datastream** ページで、esp8266およびuno r4ボードからデータを受信するための **仮想ピン** タイプの **Datastreams** を作成します。
 
 * 次の図に従って仮想ピンV0を作成します：
 
-  **仮想ピンV0**の名前を **AwayMode** に設定します。 **データタイプ** を **整数** に設定し、MINとMAXを **0** および **1** に設定します。
+  **仮想ピンV0** の名前を **AwayMode** に設定します。 **データタイプ** を **整数** に設定し、MINとMAXを **0** および **1** に設定します。
 
   .. image:: img/02-datastream_1_shadow.png
       :width: 90%
 
 * 次の図に従って仮想ピンV1を作成します：
 
-  **仮想ピンV1**の名前を **Current status**に設定します。 **データタイプ** を **文字列** に設定します。
+  **仮想ピンV1** の名前を **Current status**に設定します。 **データタイプ** を **文字列** に設定します。
 
   .. image:: img/02-datastream_2_shadow.png
       :width: 90%
@@ -123,7 +123,7 @@ Blynkの設定
     :width: 90%
     :align: center
 
-**Notifications**ページに移動し、メール設定を構成します。
+**Notifications** ページに移動し、メール設定を構成します。
 
 .. image:: img/02-event_2_shadow.png
     :width: 90%
@@ -144,13 +144,13 @@ Blynkの設定
     :width: 100%
     :align: center
 
-**スイッチウィジェット**の設定ページで、 **Datastream** を **AwayMode(V0)** に選択します。スイッチがオンの時に「away home」、オフの時に「at home」と表示されるように **ONLABEL** と **OFFLABEL** を設定します。
+**スイッチウィジェット** の設定ページで、 **Datastream** を **AwayMode(V0)** に選択します。スイッチがオンの時に「away home」、オフの時に「at home」と表示されるように **ONLABEL** と **OFFLABEL** を設定します。
 
 .. image:: img/02-web_dashboard_2_shadow.png
     :width: 100%
     :align: center
 
-**ラベルウィジェット**の設定ページで、 **Datastream** を **Current status(V1)** に選択します。
+**ラベルウィジェット** の設定ページで、 **Datastream** を **Current status(V1)** に選択します。
 
 .. image:: img/02-web_dashboard_3_shadow.png
     :width: 100%
@@ -173,7 +173,7 @@ Blynkの設定
 コード
 ----------------------- 
 
-#. ``universal-maker-sensor-kit\arduino_uno\Lesson_51_Intrusion_alert_system``のパスにある ``Lesson_51_Intrusion_alert_system.ino`` ファイルを開くか、このコードを **Arduino IDE** にコピーします。
+#. ``universal-maker-sensor-kit\arduino_uno\Lesson_51_Intrusion_alert_system`` のパスにある ``Lesson_51_Intrusion_alert_system.ino`` ファイルを開くか、このコードを **Arduino IDE** にコピーします。
 
    .. raw:: html
        
@@ -289,9 +289,9 @@ Blynkの設定
 
    これらの関数は、デバイスがBlynkに接続されたとき、またはBlynkアプリの仮想ピンV0の状態が変化したときに呼び出されます。
 
-   - デバイスがBlynkサーバーに接続されるたびに、またはネットワーク条件が悪いために再接続されるたびに、 ``BLYNK_CONNECTED()`` 関数が呼び出されます。 ``Blynk.syncVirtual()`` コマンドは単一の仮想ピン値を要求します。指定された仮想ピンは ``BLYNK_WRITE()`` 呼び出しを実行します。詳細については|link_blynk_syncing|をご参照ください。
+   - デバイスがBlynkサーバーに接続されるたびに、またはネットワーク条件が悪いために再接続されるたびに、 ``BLYNK_CONNECTED()`` 関数が呼び出されます。 ``Blynk.syncVirtual()`` コマンドは単一の仮想ピン値を要求します。指定された仮想ピンは ``BLYNK_WRITE()`` 呼び出しを実行します。詳細については |link_blynk_syncing| をご参照ください。
 
-   - BLYNKサーバーの仮想ピンの値が変更されるたびに ``BLYNK_WRITE()`` がトリガーされます。詳細は|link_blynk_write|をご参照ください。
+   - BLYNKサーバーの仮想ピンの値が変更されるたびに ``BLYNK_WRITE()`` がトリガーされます。詳細は |link_blynk_write| をご参照ください。
 
    .. raw:: html
     
@@ -312,11 +312,11 @@ Blynkの設定
 
 #. **データ処理**
 
-   毎秒、 ``myTimerEvent()`` 関数は ``sendData()``を呼び出します。Blynkでアウェイモードが有効になっている場合、PIRセンサーをチェックし、動きが検出された場合はBlynkに通知を送信します。
+   毎秒、 ``myTimerEvent()`` 関数は ``sendData()`` を呼び出します。Blynkでアウェイモードが有効になっている場合、PIRセンサーをチェックし、動きが検出された場合はBlynkに通知を送信します。
 
-   - ``Blynk.virtualWrite(V1, "Somebody in your house! Please check!");``を使用してラベルのテキストを変更します。
+   - ``Blynk.virtualWrite(V1, "Somebody in your house! Please check!");`` を使用してラベルのテキストを変更します。
 
-   - ``Blynk.logEvent("intrusion_detected");``を使用してBlynkにイベントをログします。
+   - ``Blynk.logEvent("intrusion_detected");`` を使用してBlynkにイベントをログします。
 
    .. raw:: html
     

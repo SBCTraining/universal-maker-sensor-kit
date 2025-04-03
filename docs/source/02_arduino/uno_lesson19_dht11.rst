@@ -61,8 +61,8 @@
 .. csv-table:: 
    :widths: 25, 75
 
-   |dht11_module|, |dht11_module_circuit|
-   |dht11_module_withLED|, |dht11_module_withLED_circuit|
+   |dht11_module| , |dht11_module_circuit|
+   |dht11_module_withLED| , |dht11_module_withLED_circuit|
 
 .. |dht11_module| image:: img/dht11_module.png 
    :width: 100px
@@ -121,11 +121,11 @@
       }
 
 #. メインループ。
-   ``loop()``関数は、setup関数の後に継続的に実行されます。ここでは、湿度と温度の値を読み取り、熱指数を計算し、これらの値をシリアルモニターに表示します。センサーの読み取りが失敗した場合（NaNを返す）、エラーメッセージを表示します。
+   ``loop()`` 関数は、setup関数の後に継続的に実行されます。ここでは、湿度と温度の値を読み取り、熱指数を計算し、これらの値をシリアルモニターに表示します。センサーの読み取りが失敗した場合（NaNを返す）、エラーメッセージを表示します。
 
    .. note::
     
-      |link_heat_index|は、気温と湿度を組み合わせて外の暑さを測定する方法です。「体感気温」や「見かけの温度」とも呼ばれます。
+      |link_heat_index| は、気温と湿度を組み合わせて外の暑さを測定する方法です。「体感気温」や「見かけの温度」とも呼ばれます。
 
    .. code-block:: arduino
 

@@ -48,7 +48,7 @@
         - Purchase Link
 
     *   - Raspberry Pi 5
-        - \-
+        - |link_rpi5_buy|
     *   - :ref:`cpn_flame`
         - |link_flame_sensor_module_buy|
     *   - :ref:`cpn_breadboard`
@@ -99,7 +99,7 @@
 
 #. 炎センサーの初期化
    
-   ``InputDevice``オブジェクトの ``flame_sensor`` を作成し、Raspberry PiのGPIOピン17に接続された炎センサーを表します。この設定では、炎センサーのデジタル出力がGPIO17に接続されていることを前提としています。
+   ``InputDevice`` オブジェクトの ``flame_sensor`` を作成し、Raspberry PiのGPIOピン17に接続された炎センサーを表します。この設定では、炎センサーのデジタル出力がGPIO17に接続されていることを前提としています。
 
    .. code-block:: python
 
@@ -109,9 +109,9 @@
    
    - スクリプトは ``while True:`` ループを使用してセンサーのデータを継続的に読み取ります。このループは無期限に実行されます。
    - ループ内では、 ``if`` 文を使用して ``is_active`` プロパティを使用して炎センサーの状態を確認します。
-   - ``flame_sensor.is_active``が ``True`` の場合、炎が検出されていないことを示し、「炎は検出されませんでした。」と表示されます。
-   - ``flame_sensor.is_active``が ``False`` の場合、炎が検出されたことを示し、「炎が検出されました！」と表示されます。
-   - ``time.sleep(1)``コマンドは、各センサーの読み取り間でループを1秒間一時停止し、スクリプトがCPUを過負荷にしないようにします。
+   - ``flame_sensor.is_active`` が ``True`` の場合、炎が検出されていないことを示し、「炎は検出されませんでした。」と表示されます。
+   - ``flame_sensor.is_active`` が ``False`` の場合、炎が検出されたことを示し、「炎が検出されました！」と表示されます。
+   - ``time.sleep(1)`` コマンドは、各センサーの読み取り間でループを1秒間一時停止し、スクリプトがCPUを過負荷にしないようにします。
 
    .. raw:: html
 

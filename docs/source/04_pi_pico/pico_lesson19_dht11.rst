@@ -47,7 +47,7 @@ Required Components
         - Purchase Link
 
     *   - Raspberry Pi Pico W
-        - \-
+        - |link_picow_buy|
     *   - :ref:`cpn_dht11`
         - |link_dht11_humiture_buy|
     *   - :ref:`cpn_breadboard`
@@ -63,8 +63,8 @@ Wiring
 .. csv-table:: 
    :widths: 25, 75
 
-   |dht11_module|, |dht11_module_circuit|
-   |dht11_module_withLED|, |dht11_module_withLED_circuit|
+   |dht11_module| , |dht11_module_circuit|
+   |dht11_module_withLED| , |dht11_module_withLED_circuit|
 
 .. |dht11_module| image:: img/Lesson_19_dht11_module.png 
    :width: 100px

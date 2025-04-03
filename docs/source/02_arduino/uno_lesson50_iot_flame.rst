@@ -136,13 +136,13 @@ Blynkの設定
 
 次に、Unoボードから送信されたセンサーデータを表示するために、 **Webダッシュボード** を設定する必要があります。
 
-**Webダッシュボード**ページに **ラベルウィジェット** をドラッグアンドドロップします。
+**Webダッシュボード** ページに **ラベルウィジェット** をドラッグアンドドロップします。
 
 .. image:: img/01-web_dashboard_1_shadow.png
     :width: 100%
     :align: center
 
-**ラベルウィジェット**の設定ページで、 **Datastream** を **flame_sensor_value(V0)** に設定します。次に、データの値に応じて **ウィジェット背景** の色を変えるように設定します。表示される値が1のときは緑色、0のときは赤色で表示されます。
+**ラベルウィジェット** の設定ページで、 **Datastream** を **flame_sensor_value(V0)** に設定します。次に、データの値に応じて **ウィジェット背景** の色を変えるように設定します。表示される値が1のときは緑色、0のときは赤色で表示されます。
 
 .. image:: img/01-web_dashboard_2_shadow.png
     :width: 100%
@@ -239,7 +239,7 @@ Blynkの設定
     :width: 80%
     :align: center
 
-#. モバイルデバイスでBlynkを使用する場合は、:ref:`blynk_mobile`を参照してください。
+#. モバイルデバイスでBlynkを使用する場合は、 :ref:`blynk_mobile` を参照してください。
 
 コード解析
 ---------------------------
@@ -293,7 +293,7 @@ Blynkの設定
 
    センサーのピンモードの設定、シリアル通信の初期化、BlynkTimerの設定、およびBlynkアプリへの接続などの初期設定をこの関数で行います。
 
-   - ``timer.setInterval(1000L, myTimerEvent)``を使用してsetup()でタイマー間隔を設定します。ここでは**1000ms**ごとに ``myTimerEvent()`` 関数を実行するように設定しています。 ``timer.setInterval(1000L, myTimerEvent)`` の最初のパラメータを変更して ``myTimerEvent`` の実行間隔を変更できます。
+   - ``timer.setInterval(1000L, myTimerEvent)`` を使用してsetup()でタイマー間隔を設定します。ここでは **1000ms** ごとに ``myTimerEvent()`` 関数を実行するように設定しています。 ``timer.setInterval(1000L, myTimerEvent)`` の最初のパラメータを変更して ``myTimerEvent`` の実行間隔を変更できます。
 
    .. raw:: html
     
@@ -331,11 +331,11 @@ Blynkの設定
          sendData();  // Call function to send sensor data to Blynk app
        }
 
-   ``sendData()``関数は、火炎センサーから値を読み取り、それをBlynkに送信します。火炎が検出された場合（値が0）、Blynkアプリに ``flame_detection_alert`` イベントを送信します。
+   ``sendData()`` 関数は、火炎センサーから値を読み取り、それをBlynkに送信します。火炎が検出された場合（値が0）、Blynkアプリに ``flame_detection_alert`` イベントを送信します。
 
-   - ``Blynk.virtualWrite(vPin, value)``を使用してデータをBlynkの仮想ピンV0に送信します。詳細は |link_blynk_virtualWrite| を参照してください。
+   - ``Blynk.virtualWrite(vPin, value)`` を使用してデータをBlynkの仮想ピンV0に送信します。詳細は |link_blynk_virtualWrite| を参照してください。
 
-   - ``Blynk.logEvent("event_code")``を使用してBlynkにイベントを記録します。詳細は |link_blynk_logEvent| を参照してください。
+   - ``Blynk.logEvent("event_code")`` を使用してBlynkにイベントを記録します。詳細は |link_blynk_logEvent| を参照してください。
 
    .. raw:: html
     

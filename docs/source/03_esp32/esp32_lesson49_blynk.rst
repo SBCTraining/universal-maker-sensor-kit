@@ -86,6 +86,7 @@ Blynkアプリでシステムを「不在」モードに設定すると、PIRセ
    
     .. image:: img/09_blynk_tour.png
         :width: 90%
+    
 **2.2 テンプレート作成**
 
 #. 最初に、Blynkでテンプレートを作成します。以下の手順に従って、 **Intrusion Alert System** テンプレートを作成してください。
@@ -183,6 +184,7 @@ Blynkアプリでシステムを「不在」モードに設定すると、PIRセ
     .. image:: img/09_web_dashboard_3_shadow.png
         :width: 100%
         :align: center
+
 **2.6 テンプレートの保存**
 
 最後に、テンプレートを保存することを忘れないでください。
@@ -211,7 +213,7 @@ Blynkアプリでシステムを「不在」モードに設定すると、PIRセ
         :width: 700
         :align: center
 
-#. ここで、 ``Template ID``、 ``Device Name``、および ``AuthToken``が表示されます。これらをコードにコピーして、ESP32がBlynkと連携できるようにします。
+#. ここで、 ``Template ID``、 ``Device Name``、および ``AuthToken`` が表示されます。これらをコードにコピーして、ESP32がBlynkと連携できるようにします。
 
     .. image:: img/09_blynk_device_code.png
         :width: 700
@@ -225,14 +227,14 @@ Blynkアプリでシステムを「不在」モードに設定すると、PIRセ
         :width: 700
         :align: center
 
-#. ``universal-maker-sensor-kit\esp32\Lesson_49_Blynk_based_intrusion_system``ディレクトリにある ``Lesson_49_Blynk_based_intrusion_system.ino``ファイルを開きます。または、その内容をArduino IDEにコピーすることもできます。
+#. ``universal-maker-sensor-kit\esp32\Lesson_49_Blynk_based_intrusion_system`` ディレクトリにある ``Lesson_49_Blynk_based_intrusion_system.ino`` ファイルを開きます。または、その内容をArduino IDEにコピーすることもできます。
 
     .. raw:: html
 
         <iframe src=https://create.arduino.cc/editor/sunfounder01/987fb2fd-47e9-4a73-9020-6b2111eadd9c/preview?embed style="height:510px;width:100%;margin:10px 0" frameborder=0></iframe>
         
 
-#. ``BLYNK_TEMPLATE_ID``、 ``BLYNK_TEMPLATE_NAME``、および ``BLYNK_AUTH_TOKEN``のプレースホルダーを自分のユニークなIDに置き換えます。
+#. ``BLYNK_TEMPLATE_ID`` 、 ``BLYNK_TEMPLATE_NAME`` 、および ``BLYNK_AUTH_TOKEN`` のプレースホルダーを自分のユニークなIDに置き換えます。
 
     .. code-block:: arduino
     
@@ -240,14 +242,14 @@ Blynkアプリでシステムを「不在」モードに設定すると、PIRセ
         #define BLYNK_TEMPLATE_NAME "Intrusion Alert System"
         #define BLYNK_AUTH_TOKEN "xxxxxxxxxxxxx"
 
-#. WiFiネットワークの ``ssid``と ``password``も入力する必要があります。
+#. WiFiネットワークの ``ssid`` と ``password`` も入力する必要があります。
 
    .. code-block:: arduino
 
         char ssid[] = "your_ssid";
         char pass[] = "your_password";
 
-#. 正しいボード（ **ESP32 Dev Module**）とポートを選択し、 **Upload**ボタンをクリックします。
+#. 正しいボード（ **ESP32 Dev Module**）とポートを選択し、 **Upload** ボタンをクリックします。
 
 #. シリアルモニターを開き（ボーレートを115200に設定）、接続成功メッセージを待ちます。
 
@@ -304,7 +306,7 @@ Blynkアプリでシステムを「不在」モードに設定すると、PIRセ
 
    この関数は、PIRセンサーを入力として初期化し、シリアル通信を設定し、WiFiに接続し、Blynkを設定します。
 
-   - ``timer.setInterval(1000L, myTimerEvent)``を使ってタイマー間隔を設定します。ここでは、 ``myTimerEvent()``関数を **1000ms**ごとに実行するように設定しています。 ``timer.setInterval(1000L, myTimerEvent)``の最初のパラメータを変更して、 ``myTimerEvent``の実行間隔を変更できます。
+   - ``timer.setInterval(1000L, myTimerEvent)`` を使ってタイマー間隔を設定します。ここでは、 ``myTimerEvent()`` 関数を **1000ms** ごとに実行するように設定しています。 ``timer.setInterval(1000L, myTimerEvent)`` の最初のパラメータを変更して、 ``myTimerEvent`` の実行間隔を変更できます。
 
    .. raw:: html
     
@@ -337,9 +339,9 @@ Blynkアプリでシステムを「不在」モードに設定すると、PIRセ
 
    これらの関数は、デバイスがBlynkに接続されたとき、およびBlynkアプリ上の仮想ピンV0の状態が変化したときに呼び出されます。
 
-   - デバイスがBlynkサーバーに接続されるたびに、またはネットワークの問題で再接続されるたびに、 ``BLYNK_CONNECTED()``関数が呼び出されます。 ``Blynk.syncVirtual()``コマンドは、指定された仮想ピンの値をリクエストし、 ``BLYNK_WRITE()``呼び出しを行います。
+   - デバイスがBlynkサーバーに接続されるたびに、またはネットワークの問題で再接続されるたびに、 ``BLYNK_CONNECTED()`` 関数が呼び出されます。 ``Blynk.syncVirtual()`` コマンドは、指定された仮想ピンの値をリクエストし、 ``BLYNK_WRITE()`` 呼び出しを行います。
 
-   - Blynkサーバー上の仮想ピンの値が変更されるたびに、 ``BLYNK_WRITE()``がトリガーされます。
+   - Blynkサーバー上の仮想ピンの値が変更されるたびに、 ``BLYNK_WRITE()`` がトリガーされます。
 
    .. raw:: html
     
@@ -362,9 +364,9 @@ Blynkアプリでシステムを「不在」モードに設定すると、PIRセ
 
    毎秒、 ``myTimerEvent()`` 関数が ``sendData()`` を呼び出します。Blynkでアウェイモードが有効になっている場合、PIRセンサーをチェックし、動きが検出された場合はBlynkに通知を送信します。
 
-   - ``Blynk.virtualWrite(V1, "Somebody in your house! Please check!");``を使用してラベルのテキストを変更します。
+   - ``Blynk.virtualWrite(V1, "Somebody in your house! Please check!");`` を使用してラベルのテキストを変更します。
 
-   - ``Blynk.logEvent("intrusion_detected");``を使用してBlynkにイベントを記録します。
+   - ``Blynk.logEvent("intrusion_detected");`` を使用してBlynkにイベントを記録します。
 
    .. raw:: html
     

@@ -47,7 +47,7 @@
         - Purchase Link
 
     *   - Raspberry Pi 5
-        - \-
+        - |link_rpi5_buy|
     *   - :ref:`cpn_traffic`
         - |link_traffic_light_module_buy|
     *   - :ref:`cpn_breadboard`
@@ -113,7 +113,7 @@
 
 #. ライブラリのインポート
    
-   ``gpiozero``ライブラリはGPIOピンを制御するためにインポートされ、 ``time`` ライブラリの ``sleep``関数はタイミングの遅延に使用されます。
+   ``gpiozero`` ライブラリはGPIOピンを制御するためにインポートされ、 ``time`` ライブラリの ``sleep`` 関数はタイミングの遅延に使用されます。
 
    .. code-block:: python
 
@@ -132,7 +132,7 @@
 
 #. LED制御ループ
    
-   ``while True:``ループは連続して実行され、各LEDを順番に点灯および消灯します。 ``on()`` , ``off()``, ``sleep()``関数を使用して、特定のパターンで各LEDを制御します。
+   ``while True:``ループは連続して実行され、各LEDを順番に点灯および消灯します。 ``on()`` , ``off()`` , ``sleep()`` 関数を使用して、特定のパターンで各LEDを制御します。
 
    - 赤色LEDは3秒間点灯します。
    - 黄色LEDは点滅します：0.5秒点灯、0.5秒消灯を3回繰り返します。
@@ -157,7 +157,7 @@
 
 #. 例外処理
    
-   ``except``ブロックは ``KeyboardInterrupt`` （通常はCtrl+Cを押すことで発生）をキャッチします。プログラムが終了する前にすべてのLEDを消灯し、LEDが不定の状態に残らないようにします。
+   ``except`` ブロックは ``KeyboardInterrupt`` （通常はCtrl+Cを押すことで発生）をキャッチします。プログラムが終了する前にすべてのLEDを消灯し、LEDが不定の状態に残らないようにします。
 
    .. code-block:: python
 

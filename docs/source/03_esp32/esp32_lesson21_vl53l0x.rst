@@ -65,7 +65,7 @@
 ---------------------------
 
 .. note:: 
-   ライブラリをインストールするには、Arduino Library Managerを使用して **"Adafruit_VL53L0X"**を検索し、インストールしてください。  
+   ライブラリをインストールするには、Arduino Library Managerを使用して **"Adafruit_VL53L0X"** を検索し、インストールしてください。  
 
 .. raw:: html
 
@@ -77,7 +77,7 @@
 #. 必要なライブラリのインクルードとセンサーオブジェクトの初期化。まず、VL53L0Xセンサー用のライブラリをインクルードし、Adafruit_VL53L0Xクラスのインスタンスを作成します。
 
    .. note:: 
-      ライブラリをインストールするには、Arduino Library Managerを使用して **"Adafruit_VL53L0X"**を検索し、インストールしてください。  
+      ライブラリをインストールするには、Arduino Library Managerを使用して **"Adafruit_VL53L0X"** を検索し、インストールしてください。  
 
    .. code-block:: arduino
 

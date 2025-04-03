@@ -21,7 +21,7 @@ Raspberry Piの始め方
 
 .. note::
 
-    Raspberry Piのセットアップに関する完全なチュートリアルは、Raspberry Pi財団の公式ウェブサイトでご覧いただけます：|link_set_up_pi|。
+    Raspberry Piのセットアップに関する完全なチュートリアルは、Raspberry Pi財団の公式ウェブサイトでご覧いただけます： |link_set_up_pi| 。
 
     Raspberry Piがセットアップされたら、この部分をスキップして次の章に進むことができます。
 

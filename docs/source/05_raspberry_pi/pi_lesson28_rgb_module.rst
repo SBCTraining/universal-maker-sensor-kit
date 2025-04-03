@@ -47,7 +47,7 @@
         - Purchase Link
 
     *   - Raspberry Pi 5
-        - \-
+        - |link_rpi5_buy|
     *   - :ref:`cpn_rgb`
         - \-
     *   - :ref:`cpn_breadboard`
@@ -142,7 +142,7 @@
    
    スクリプトは、colorzeroの ``Color`` クラスを使用してLEDを名前付きの色（ ``yellow`` ）に設定し、1秒待機する方法を示します。
 
-   事前定義された色を直接使用するだけでなく、さまざまな方法で色を定義することもできます。詳細については、|link_gpiozero_color|を参照してください。
+   事前定義された色を直接使用するだけでなく、さまざまな方法で色を定義することもできます。詳細については、 |link_gpiozero_color| を参照してください。
 
    .. code-block:: python
 

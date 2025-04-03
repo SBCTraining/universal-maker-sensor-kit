@@ -47,7 +47,7 @@
         - Purchase Link
 
     *   - Raspberry Pi Pico W
-        - \-
+        - |link_picow_buy|
     *   - :ref:`cpn_pir_motion`
         - \-
     *   - :ref:`cpn_breadboard`
@@ -84,7 +84,7 @@
 
 #. モジュールのインポート
 
-   ``machine``モジュールはGPIOピンを制御するために ``Pin``クラスを使用するためにインポートされます。 ``time``モジュールはループ内で遅延を作成するためにインポートされます。
+   ``machine`` モジュールはGPIOピンを制御するために ``Pin`` クラスを使用するためにインポートされます。 ``time`` モジュールはループ内で遅延を作成するためにインポートされます。
 
    .. code-block:: python
 

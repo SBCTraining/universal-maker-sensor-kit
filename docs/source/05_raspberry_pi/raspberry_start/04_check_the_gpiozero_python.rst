@@ -12,10 +12,10 @@
 
     👉 私たちと一緒に探索と創造を始める準備はできましたか？[|link_sf_facebook|]をクリックして、今すぐ参加しましょう！
 
-``GPIO Zero``の確認
+``GPIO Zero`` の確認
 =================================
 
-``GPIO Zero``はRaspberry PiのGPIOピンを制御するためのモジュールです。このパッケージは、Raspberry PiのGPIOを制御するための使いやすいクラスや関数を提供します。例やドキュメントについては、https://gpiozero.readthedocs.io/en/latest/ をご覧ください。
+``GPIO Zero`` はRaspberry PiのGPIOピンを制御するためのモジュールです。このパッケージは、Raspberry PiのGPIOを制御するための使いやすいクラスや関数を提供します。例やドキュメントについては、https://gpiozero.readthedocs.io/en/latest/ をご覧ください。
 
 最新のRaspberry Pi OSには、デフォルトでGPIO Zeroが含まれています。インストールを確認するには、ターミナルを開いて以下を入力します：
 

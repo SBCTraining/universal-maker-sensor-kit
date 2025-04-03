@@ -47,7 +47,7 @@ Required Components
         - Purchase Link
 
     *   - Raspberry Pi 5
-        - \-
+        - |link_rpi5_buy|
     *   - :ref:`cpn_ds18b20`
         - \-
     *   - :ref:`cpn_breadboard`
@@ -65,7 +65,7 @@ Code
 ---------------------------
 
 .. note::
-   DS18B20モジュールはonewireプロトコルを使用してRaspberry Piと通信します。コードを実行する前に、Raspberry Piのonewire機能を有効にする必要があります。このチュートリアルを参照してください：:ref:`pi_enable_1wire`.
+   DS18B20モジュールはonewireプロトコルを使用してRaspberry Piと通信します。コードを実行する前に、Raspberry Piのonewire機能を有効にする必要があります。このチュートリアルを参照してください： :ref:`pi_enable_1wire` .
 
 .. code-block:: python
 

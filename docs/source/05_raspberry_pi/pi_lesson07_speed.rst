@@ -47,7 +47,7 @@
         - Purchase Link
 
     *   - Raspberry Pi 5
-        - \-
+        - |link_rpi5_buy|
     *   - :ref:`cpn_speed`
         - |link_speed_sensor_module_buy|
     *   - :ref:`cpn_ttmotor`
@@ -124,17 +124,17 @@
 
 #. センサーの初期化
    
-   ``DigitalInputDevice``オブジェクトの ``sensor`` がGPIOピン17に接続されて作成されます。この設定では、デジタルセンサーがGPIO17に接続されていることを前提としています。
+   ``DigitalInputDevice`` オブジェクトの ``sensor`` がGPIOピン17に接続されて作成されます。この設定では、デジタルセンサーがGPIO17に接続されていることを前提としています。
 
    .. code-block:: python
 
       sensor = DigitalInputDevice(17)
 
-#. ``calculate_rps``関数の定義
+#. ``calculate_rps`` 関数の定義
    
    - この関数は、回転体の1秒あたりの回転数（RPS）を計算します。
-   - ``sample_time``は、センサーの出力がサンプリングされる秒数を表します。
-   - ``steps_per_revolution``は、1回転あたりのセンサーの作動回数を示します。
+   - ``sample_time`` は、センサーの出力がサンプリングされる秒数を表します。
+   - ``steps_per_revolution`` は、1回転あたりのセンサーの作動回数を示します。
    - 関数は、サンプル時間内のステップ（センサーの作動回数）をカウントするためにwhileループを使用します。
    - 非アクティブ状態からアクティブ状態への遷移を検出し、それに応じて ``steps`` カウントを増加させます。
    - RPSは、ステップ数を ``steps_per_revolution`` で割ったものとして計算されます。
@@ -173,7 +173,7 @@
    
    - 次にスクリプトは、 ``calculate_rps`` を呼び出してRPSを計算し、出力する連続ループに入ります。
    - ループはキーボード割り込み（Ctrl+C）が検出されるまで無期限に実行されます。
-   - ``try-except``ブロックを使用して割り込みを適切に処理し、安全に終了できるようにします。
+   - ``try-except`` ブロックを使用して割り込みを適切に処理し、安全に終了できるようにします。
 
    .. code-block:: python
 

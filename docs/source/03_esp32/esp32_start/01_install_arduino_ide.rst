@@ -67,7 +67,7 @@ Windows
 macOS
 ^^^^^^^^^^^^^^^^
 
-ダウンロードした ``arduino_ide_xxxx.dmg`` ファイルをダブルクリックし、指示に従って **Arduino IDE.app**を **Applications**フォルダにコピーします。数秒後にArduino IDEが正常にインストールされます。
+ダウンロードした ``arduino_ide_xxxx.dmg`` ファイルをダブルクリックし、指示に従って **Arduino IDE.app** を **Applications** フォルダにコピーします。数秒後にArduino IDEが正常にインストールされます。
 
 .. image:: img/install_ide_macos.png
     :width: 100%

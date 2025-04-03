@@ -47,7 +47,7 @@
         - Purchase Link
 
     *   - Raspberry Pi Pico W
-        - \-
+        - |link_picow_buy|
     *   - :ref:`cpn_pcf8591`
         - |link_pcf8591_module_buy|
     *   - :ref:`cpn_breadboard`
@@ -110,7 +110,7 @@
 
    - ``machine`` モジュールをインポートしてI2C通信と ``Pin`` クラスを使用します。
    - ``time`` モジュールをインポートしてプログラムに遅延を追加します。
-   - ``PCF8591`` ライブラリをインポートしてPCF8591モジュールとの簡単なやり取りを行います。 ``PCF8591`` ライブラリの詳細については、|link_PCF8591_micropython_library|をご覧ください。
+   - ``PCF8591`` ライブラリをインポートしてPCF8591モジュールとの簡単なやり取りを行います。 ``PCF8591`` ライブラリの詳細については、 |link_PCF8591_micropython_library| をご覧ください。
 
    .. raw:: html
 

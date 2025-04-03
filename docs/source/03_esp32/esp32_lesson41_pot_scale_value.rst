@@ -73,7 +73,7 @@
 
    <iframe src=https://create.arduino.cc/editor/sunfounder01/407cf491-e932-4334-a3f3-e04f7309c941/preview?embed style="height:510px;width:100%;margin:10px 0" frameborder=0></iframe>
 
-   コード解析
+コード解析
 ---------------------------
 
 このプロジェクトの核心機能は、ポテンショメータの値を継続的に読み取り、その値をスケール範囲（0-16）にマップし、結果を数値およびグラフィカルにLCDに表示することです。実装では、読み取りの大きな変化が発生した場合にのみ表示を更新することで、表示の揺れを最小限に抑え、スムーズなビジュアル体験を維持します。
@@ -89,11 +89,12 @@
       // Initialize LCD at I2C address 0x27 with 16 columns and 2 rows
       LiquidCrystal_I2C lcd(0x27, 16, 2);
 
-   このセグメントでは、I2C通信とLCD制御に必要なライブラリを組み込みます。次に、I2Cアドレスが ``0x27`` で、 ``16列``と ``2行``の寸法を指定したLCDインスタンスを初期化します。
+   このセグメントでは、I2C通信とLCD制御に必要なライブラリを組み込みます。次に、I2Cアドレスが ``0x27`` で、 ``16列`` と ``2行`` の寸法を指定したLCDインスタンスを初期化します。
 
 2. **変数の宣言**：
 
    .. code-block:: arduino
+
       // Variables to hold the potentiometer readings
       int lastRead = 0;     // Previous potentiometer value
       int currentRead = 0;  // Current potentiometer value

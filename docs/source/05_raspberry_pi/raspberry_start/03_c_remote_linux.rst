@@ -15,7 +15,7 @@
 Linux/Unixユーザー向け
 ==========================
 
-#. Linux/Unixシステムで**ターミナル**を見つけて開きます。
+#. Linux/Unixシステムで **ターミナル** を見つけて開きます。
 
 #. Raspberry Piが同じネットワークに接続されていることを確認します。次のコマンドを入力して確認します： ``ping <hostname>.local``。例：
 
@@ -25,7 +25,7 @@ Linux/Unixユーザー向け
 
    ネットワークに接続されている場合、Raspberry PiのIPアドレスが表示されます。
 
-   * ターミナルが ``Ping request could not find host pi.local. Please check the name and try again.``のようなメッセージを表示する場合、入力したホスト名を再確認してください。
+   * ターミナルが ``Ping request could not find host pi.local. Please check the name and try again.`` のようなメッセージを表示する場合、入力したホスト名を再確認してください。
    * IPアドレスを取得できない場合は、Raspberry PiのネットワークまたはWiFi設定を確認してください。
 
 #. ``ssh <username>@<hostname>.local`` または ``ssh <username>@<IP address>`` と入力してSSH接続を開始します。例：

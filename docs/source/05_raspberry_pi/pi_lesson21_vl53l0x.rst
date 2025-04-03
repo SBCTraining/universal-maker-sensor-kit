@@ -47,7 +47,7 @@
         - Purchase Link
 
     *   - Raspberry Pi 5
-        - \-
+        - |link_rpi5_buy|
     *   - :ref:`cpn_VL53L0X`
         - |link_vl53l0x_module_buy|
     *   - :ref:`cpn_breadboard`
@@ -65,7 +65,7 @@
 ---------------------------
 
 .. note::
-    adafruit-circuitpython-vl53l0xライブラリはBlinkaに依存しているため、Blinkaがインストールされていることを確認してください。ライブラリのインストール方法については、:ref:`install_blinka` を参照してください。
+    adafruit-circuitpython-vl53l0xライブラリはBlinkaに依存しているため、Blinkaがインストールされていることを確認してください。ライブラリのインストール方法については、 :ref:`install_blinka` を参照してください。
 
 ライブラリをインストールする前に、仮想Python環境がアクティブになっていることを確認してください：
 
@@ -145,10 +145,10 @@ adafruit-circuitpython-vl53l0xライブラリをインストールします：
        import busio
        import adafruit_vl53l0x
 
-   - ``time``: 遅延の実装に使用します。
-   - ``board``: Raspberry Piの物理ピンにアクセスします。
-   - ``busio``: Piとセンサー間のI2C通信を管理します。
-   - ``adafruit_vl53l0x``: VL53L0Xセンサー専用のライブラリです。 ``adafruit_vl53l0x`` ライブラリの詳細については、|link_Adafruit_CircuitPython_VL53L0X| を参照してください。
+   - ``time`` : 遅延の実装に使用します。
+   - ``board`` : Raspberry Piの物理ピンにアクセスします。
+   - ``busio`` : Piとセンサー間のI2C通信を管理します。
+   - ``adafruit_vl53l0x`` : VL53L0Xセンサー専用のライブラリです。 ``adafruit_vl53l0x`` ライブラリの詳細については、 |link_Adafruit_CircuitPython_VL53L0X| を参照してください。
 
    .. raw:: html
       

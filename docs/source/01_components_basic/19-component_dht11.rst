@@ -60,8 +60,8 @@
 .. csv-table:: 
    :widths: 30, 70
 
-   |dht11_module|, |dht11_module_schematic|
-   |dht11_module_withLED|, |dht11_module_withLED_schematic|
+   |dht11_module| , |dht11_module_schematic|
+   |dht11_module_withLED| , |dht11_module_withLED_schematic|
 
 .. |dht11_module| image:: img/19_dht11_module.png
    :width: 100px

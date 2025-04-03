@@ -79,7 +79,7 @@
      const int yledPin = 26;  //yellow
      const int gledPin = 27;  //green
 
-2. ここでは、LEDピンのピンモードを指定します。これらはすべて ``OUTPUT``に設定されており、電圧を送信することを意図しています。
+2. ここでは、LEDピンのピンモードを指定します。これらはすべて ``OUTPUT`` に設定されており、電圧を送信することを意図しています。
 
   .. code-block:: arduino
 

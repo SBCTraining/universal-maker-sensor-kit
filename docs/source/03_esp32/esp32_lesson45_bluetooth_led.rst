@@ -59,7 +59,7 @@
 
     .. image:: img/Lesson_28_RGB_LED_Module_esp32_bb.png
 
-#. ``universal-maker-sensor-kit\esp32\Lesson_45_Bluetooth_RGB`` ディレクトリにある``Lesson_45_Bluetooth_RGB.ino``ファイルを開くか、Arduino IDEにコードをコピーします。
+#. ``universal-maker-sensor-kit\esp32\Lesson_45_Bluetooth_RGB`` ディレクトリにある ``Lesson_45_Bluetooth_RGB.ino`` ファイルを開くか、Arduino IDEにコードをコピーします。
 
     .. raw:: html
          
@@ -86,7 +86,7 @@
 
     .. image:: img/bluetooth_open.png
 
-#. **スキャン**ページで **ESP32-Bluetooth** を見つけて **接続** をクリックします。表示されない場合は、ページを数回更新してみてください。「 **デバイスに接続されました！**」と表示されたら、Bluetooth接続は成功です。コードで設定された3つのUUIDを確認するには、下にスクロールします。
+#. **スキャン** ページで **ESP32-Bluetooth** を見つけて **接続** をクリックします。表示されない場合は、ページを数回更新してみてください。「 **デバイスに接続されました！** 」と表示されたら、Bluetooth接続は成功です。コードで設定された3つのUUIDを確認するには、下にスクロールします。
 
     .. image:: img/bluetooth_connect.png
         :width: 800
@@ -138,7 +138,7 @@
 
         }
 
-* ``MyCharacteristicCallbacks``クラスの ``onWrite`` メソッドを修正します。この関数は、Bluetooth接続からのデータをリッスンします。受信した文字列（例： ``"led_off"`` 、 ``"red"`` 、 ``"green"`` など）に基づいて、RGB LEDを制御します。
+* ``MyCharacteristicCallbacks`` クラスの ``onWrite`` メソッドを修正します。この関数は、Bluetooth接続からのデータをリッスンします。受信した文字列（例： ``"led_off"`` 、 ``"red"`` 、 ``"green"`` など）に基づいて、RGB LEDを制御します。
 
     .. code-block:: arduino
 
