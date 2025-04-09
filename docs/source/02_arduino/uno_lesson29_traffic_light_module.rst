@@ -1,85 +1,85 @@
-.. note::
+.. note:: 
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    Ciao, benvenuto nella Community Facebook di SunFounder dedicata agli appassionati di Raspberry Pi, Arduino ed ESP32! Approfondisci il mondo di Raspberry Pi, Arduino ed ESP32 insieme ad altri maker come te.
 
-    **Why Join?**
+    **Perché unirsi?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Supporto Esperto**: Risolvi problemi post-vendita e sfide tecniche grazie all'aiuto della nostra community e del nostro team.
+    - **Impara e Condividi**: Scambia suggerimenti e tutorial per migliorare le tue competenze.
+    - **Anteprime Esclusive**: Ottieni l'accesso anticipato agli annunci dei nuovi prodotti e alle anteprime.
+    - **Sconti Speciali**: Approfitta di sconti esclusivi sui nostri prodotti più recenti.
+    - **Promozioni e Giveaway Festivi**: Partecipa a concorsi e promozioni durante le festività.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 Pronto a esplorare e creare con noi? Clicca su [|link_sf_facebook|] e unisciti oggi stesso!
 
 .. _uno_lesson29_traffic_light_module:
 
-Lesson 29: Traffic Light Module
+Lezione 29: Modulo Semaforo LED
 ==================================
 
-In this lesson, you will learn how to use Arduino to control a mini LED traffic light. We’ll cover programming the Arduino Uno to cycle through green, yellow, and red lights, simulating a real traffic signal. This project is ideal for beginners as it provides practical experience in coding light sequences and timing controls on the Arduino platform.
+In questa lezione imparerai a utilizzare Arduino per controllare un mini semaforo a LED. Vedremo come programmare Arduino Uno per alternare i LED verde, giallo e rosso, simulando il funzionamento di un vero semaforo. Questo progetto è ideale per i principianti, poiché offre un'esperienza pratica nella programmazione di sequenze luminose e nel controllo dei tempi.
 
-Required Components
+Componenti Necessari
 --------------------------
 
-In this project, we need the following components. 
+Per questo progetto sono richiesti i seguenti componenti.
 
-It's definitely convenient to buy a whole kit, here's the link: 
+È sicuramente comodo acquistare un kit completo. Ecco il link:
 
 .. list-table::
     :widths: 20 20 20
     :header-rows: 1
 
-    *   - Name	
-        - ITEMS IN THIS KIT
+    *   - Nome	
+        - COMPONENTI NEL KIT
         - LINK
     *   - Universal Maker Sensor Kit
         - 94
         - |link_umsk|
 
-You can also buy them separately from the links below.
+Puoi anche acquistare i componenti separatamente dai link seguenti.
 
 .. list-table::
     :widths: 30 20
     :header-rows: 1
 
-    *   - Component Introduction
-        - Purchase Link
+    *   - Descrizione del Componente
+        - Link Acquisto
 
-    *   - Arduino UNO R3 or R4
+    *   - Arduino UNO R3 o R4
         - |link_Uno_R3_buy|
     *   - :ref:`cpn_traffic`
         - |link_traffic_light_module_buy|
 
-* Arduino UNO R3 or R4
+* Arduino UNO R3 o R4  
 * :ref:`cpn_traffic`
 
-Wiring
+Collegamenti
 ---------------------------
 
 .. image:: img/Lesson_29_traffic_light_circuit_uno_bb.png
     :width: 100%
 
 
-Code
+Codice
 ---------------------------
 
 .. raw:: html
 
     <iframe src=https://create.arduino.cc/editor/sunfounder01/48f3abf4-1a9c-405f-9247-7dbd61e64f75/preview?embed style="height:510px;width:100%;margin:10px 0" frameborder=0></iframe>
 
-Code Analysis
+Analisi del Codice
 ---------------------------
 
-1. Before any operations, we define constants for the pins where LEDs are connected. This makes our code easier to read and modify.
+1. Prima di ogni operazione, definiamo delle costanti per i pin a cui sono collegati i LED. Questo rende il codice più leggibile e facile da modificare.
 
   .. code-block:: arduino
 
-     const int rledPin = 9;  //red
-     const int yledPin = 8;  //yellow
-     const int gledPin = 7;  //green
+     const int rledPin = 9;  // rosso
+     const int yledPin = 8;  // giallo
+     const int gledPin = 7;  // verde
 
-2. Here, we specify the pin modes for our LED pins. They are all set to ``OUTPUT`` because we intend to send voltage to them.
+2. Qui specifichiamo le modalità dei pin LED. Tutti sono impostati su ``OUTPUT`` perché devono inviare tensione.
 
   .. code-block:: arduino
 
@@ -89,12 +89,12 @@ Code Analysis
        pinMode(gledPin, OUTPUT);
      }
 
-3. This is where our traffic light cycle logic is implemented. The sequence of operations is:
+3. Qui viene implementata la logica del ciclo semaforico. La sequenza delle operazioni è la seguente:
 
-    * Turn the green LED on for 5 seconds.
-    * Blink the yellow LED three times (each blink lasts for 0.5 seconds).
-    * Turn the red LED on for 5 seconds.
-    
+    * Accende il LED verde per 5 secondi.
+    * Fa lampeggiare il LED giallo tre volte (ogni lampeggio dura 0,5 secondi).
+    * Accende il LED rosso per 5 secondi.
+
   .. code-block:: arduino
 
      void loop() {

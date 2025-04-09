@@ -1,39 +1,39 @@
-.. note::
+.. note:: 
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    Ciao! Benvenuto nella community Facebook di appassionati di SunFounder Raspberry Pi, Arduino ed ESP32! Esplora più a fondo Raspberry Pi, Arduino ed ESP32 insieme ad altri entusiasti.
 
-    **Why Join?**
+    **Perché unirsi?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Supporto esperto**: Risolvi problemi post-vendita e sfide tecniche grazie all’aiuto della nostra community e del nostro team.
+    - **Impara e condividi**: Scambia consigli e tutorial per migliorare le tue competenze.
+    - **Anteprime esclusive**: Ottieni l’accesso anticipato ai nuovi annunci di prodotto e alle anteprime riservate.
+    - **Sconti speciali**: Approfitta di sconti esclusivi sui nostri prodotti più recenti.
+    - **Promozioni festive e giveaway**: Partecipa a promozioni a tema e concorsi con premi.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 Pronto a esplorare e creare con noi? Clicca su [|link_sf_facebook|] e unisciti oggi stesso!
 
 .. _cpn_esp8266:
 
-ESP8266 Module
+Modulo ESP8266
 =================
 
 .. image:: img/35_esp8266.jpg
     :align: center
 
-The ESP8266 is a low-cost Wi-Fi microchip, 
-with built-in TCP/IP networking software, 
-and microcontroller capability, produced by Espressif Systems in Shanghai, China.
+L'ESP8266 è un microchip Wi-Fi a basso costo,
+con software di rete TCP/IP integrato
+e capacità di microcontrollore, prodotto da Espressif Systems a Shanghai, Cina.
 
-The chip first came to the attention of Western makers in August 2014 with the ESP-01 module, 
-made by a third-party manufacturer Ai-Thinker. 
-This small module allows microcontrollers to connect to a Wi-Fi network and make simple TCP/IP connections using Hayes-style commands. 
-However, at first, there was almost no English-language documentation on the chip and the commands it accepted. 
-The very low price and the fact that there were very few external components on the module, 
-which suggested that it could eventually be very inexpensive in volume, 
-attracted many hackers to explore the module, 
-the chip, and the software on it, as well as to translate the Chinese documentation.
+Il chip è diventato noto ai maker occidentali nell’agosto 2014 con il modulo ESP-01,
+realizzato da un produttore terzo, Ai-Thinker.
+Questo piccolo modulo consente ai microcontrollori di connettersi a una rete Wi-Fi e di effettuare semplici connessioni TCP/IP utilizzando comandi in stile Hayes.
+Inizialmente, però, la documentazione in inglese sul chip e i suoi comandi era quasi inesistente.
+Il prezzo molto basso e la presenza di pochissimi componenti esterni nel modulo,
+che facevano presagire un costo ancora più contenuto in produzione su larga scala,
+attirarono numerosi hacker ad esplorare il modulo,
+il chip e il software, traducendo nel frattempo la documentazione cinese.
 
-Pins of ESP8266 and their functions:
+Pin dell’ESP8266 e relative funzioni:
 
 .. image:: img/35_ESP8266_pinout.png
 
@@ -43,53 +43,53 @@ Pins of ESP8266 and their functions:
    :header-rows: 1
 
    * - Pin	
-     - Name	
-     - Description
+     - Nome	
+     - Descrizione
    * - 1	
      - TXD	
-     - UART_TXD, sending; General Purpose Input/Output: GPIO1; Pull-down is not allowed when startup.
+     - UART_TXD, invio dati; GPIO1; non consentita resistenza pull-down all’avvio.
    * - 2	
      - GND
-     - GND
+     - Massa
    * - 3	
      - CU_PD	
-     - Working at high level; Power off when low level is supplied.
+     - Funziona a livello alto; spegnimento con livello basso.
    * - 4		
      - GPIO2
-     - It should be high level when power on, hardware pull-down is not allowed; Pull-up by default;
+     - Deve essere a livello alto all’accensione; pull-down hardware non consentito; pull-up di default.
    * - 5	
      - RST	
-     - External Reset signal, reset when low level is supplied; work when high level is supplied (high level by default);
+     - Segnale di reset esterno; reset con livello basso; operativo con livello alto (default alto).
    * - 6	
      - GPIO0	
-     - WiFi Status indicator; Operation mode selection: Pull-up: Flash Boot, operation mode; Pull-down: UART Download, download mode
+     - Indicatore stato WiFi; selezione modalità: Pull-up: = Flash Boot (modalità operativa); Pull-down = UART Download (modalità download).
    * - 7	
      - VCC	
-     - Power Supply(3.3V)
+     - Alimentazione (3.3V)
    * - 8	
      - RXD	
-     - UART_RXD，Receiving; General Purpose Input/Output: GPIO3;
+     - UART_RXD, ricezione; GPIO3
 
 
 * `ESP8266 - Espressif <https://www.espressif.com/en/products/socs/esp8266>`_
 * |link_esp8266_at|
 
-ESP8266 Adapter
----------------
+Adattatore ESP8266
+---------------------
 
 .. image:: img/35_esp8266_adapter.png
     :width: 300
     :align: center
 
-The ESP8266 adapter is an expansion board that allows the ESP8266 module to be used on a breadboard.
+L’adattatore ESP8266 è una scheda di espansione che consente di utilizzare il modulo ESP8266 su una breadboard.
 
-It perfectly matches the pins of the ESP8266 itself, and also adds a 5V pin to receive the voltage from the Arduino board. The integrated AMS1117 chip is used to drive the ESP8266 module after dropping the voltage to 3.3V.
+È progettato per allinearsi perfettamente ai pin dell’ESP8266 e include anche un pin da 5V per ricevere l’alimentazione dalla scheda Arduino. Il chip AMS1117 integrato regola la tensione da 5V a 3.3V per alimentare in modo sicuro il modulo.
 
-The schematic diagram is as follows:
+Lo schema elettrico è il seguente:
 
 .. image:: img/35_sch_esp8266adapter.png
 
-Example
+Esempi
 ---------------------------
 * :ref:`uno_lesson35_esp8266` (Arduino UNO)
 * :ref:`uno_iot_weather_monito` (Arduino UNO)

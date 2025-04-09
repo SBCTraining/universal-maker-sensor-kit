@@ -1,16 +1,16 @@
-.. note::
+.. note:: 
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+   Ciao, benvenuti nella Community di appassionati di SunFounder Raspberry Pi, Arduino & ESP32 su Facebook! Immergiti più a fondo in Raspberry Pi, Arduino e ESP32 con altri appassionati.
 
-    **Why Join?**
+   **Perché unirsi?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+   - **Supporto Esperto**: Risolvi problemi post-vendita e sfide tecniche con l'aiuto della nostra community e del nostro team.
+   - **Impara e Condividi**: Scambia consigli e tutorial per migliorare le tue competenze.
+   - **Anteprime Esclusive**: Ottieni accesso anticipato alle nuove annunci di prodotti e anteprime.
+   - **Sconti Speciali**: Goditi sconti esclusivi sui nostri prodotti più recenti.
+   - **Promozioni Festive e Giveaway**: Partecipa ai giveaway e alle promozioni festive.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+   👉 Pronto per esplorare e creare con noi? Clicca [|link_sf_facebook|] e unisciti oggi!
 
 .. _cpn_pico_w:
 
@@ -21,37 +21,37 @@ Raspberry Pi Pico W
     :width: 60%
     :align: center
 
-Raspberry Pi Pico W brings wireless connectivity to the best-selling Raspberry Pi Pico product line. Built around our RP2040 silicon platform, Pico products bring our signature values of high performance, low cost, and ease of use to the microcontroller space.
+Il Raspberry Pi Pico W porta la connettività wireless nella linea di prodotti più venduti Raspberry Pi Pico. Basato sulla nostra piattaforma di silicio RP2040, i prodotti Pico incarnano i nostri valori di alta prestazione, basso costo e facilità d'uso nello spazio dei microcontrollori.
 
-Raspberry Pi Pico W offers 2.4GHz 802.11 b/g/n wireless LAN support, with an on-board antenna, and modular compliance certification. It is able to operate in both station and access-point modes. Full access to network functionality is available to both C and MicroPython developers.
+Il Raspberry Pi Pico W offre supporto LAN wireless 802.11 b/g/n a 2.4GHz, con un'antenna integrata e certificazione di conformità modulare. È in grado di operare sia in modalità stazione che punto di accesso. L'accesso completo alla funzionalità di rete è disponibile sia per gli sviluppatori C che MicroPython.
 
-Raspberry Pi Pico W pairs RP2040 with 2MB of flash memory, and a power supply chip supporting input voltages from 1.8–5.5V. It provides 26 GPIO pins, three of which can function as analogue inputs, on 0.1”-pitch through-hole pads with castellated edges.
-Raspberry Pi Pico W is available as an individual unit, or in 480-unit reels for automated assembly.
+Il Raspberry Pi Pico W abbina RP2040 con 2MB di memoria flash e un chip di alimentazione che supporta tensioni di ingresso da 1,8–5,5V. Offre 26 pin GPIO, tre dei quali possono funzionare come ingressi analogici, su pad passanti con passo di 0,1” e bordi smussati.
+Il Raspberry Pi Pico W è disponibile come unità singola o in bobine da 480 unità per l'assemblaggio automatizzato.
 
-Features
---------------
+Caratteristiche
+--------------------
 
-* 21 mm x 51 mm form factor
-* RP2040 microcontroller chip designed by Raspberry Pi in the UK
-* Dual-core Arm Cortex-M0+ processor, flexible clock running up to 133 MHz
-* 264kB on-chip SRAM
-* 2MB on-board QSPI flash
-* 2.4GHz 802.11n wireless LAN
-* 26 multifunction GPIO pins, including 3 analogue inputs
-* 2 x UART, 2 x SPI controllers, 2 x I2C controllers, 16 x PWM channels
-* 1 x USB 1.1 controller and PHY, with host and device support
-* 8 x Programmable I/O (PIO) state machines for custom peripheral support
-* Supported input power 1.8-5.5V DC
-* Operating temperature -20°C to +70°C
-* Castellated module allows soldering direct to carrier boards
-* Drag-and-drop programming using mass storage over USB
-* Low-power sleep and dormant modes
-* Accurate on-chip clock
-* Temperature sensor
-* Accelerated integer and floating-point libraries on-chip
+* Formato 21 mm x 51 mm
+* Chip microcontrollore RP2040 progettato da Raspberry Pi nel Regno Unito
+* Processore dual-core Arm Cortex-M0+ con clock flessibile fino a 133 MHz
+* 264kB di SRAM integrato
+* 2MB di flash QSPI integrato
+* LAN wireless 802.11n a 2.4GHz
+* 26 pin GPIO multifunzione, inclusi 3 ingressi analogici
+* 2 x UART, 2 x controller SPI, 2 x controller I2C, 16 x canali PWM
+* 1 x controller USB 1.1 e PHY, con supporto host e dispositivo
+* 8 x macchine a stati I/O programmabili (PIO) per supporto periferiche personalizzate
+* Alimentazione supportata da 1.8-5.5V DC
+* Temperatura operativa -20°C a +70°C
+* Modulo con bordi smussati permette la saldatura diretta su schede portanti
+* Programmazione tramite trascinamento utilizzando la memoria di massa su USB
+* Modalità di basso consumo energetico e dormienza
+* Orologio integrato preciso
+* Sensore di temperatura
+* Librerie di librerie intere e in virgola mobile accelerate su chip
 
-Pico's Pins
-------------
+Pin di Pico
+-------------
 
 .. image:: img/pico_pin.jpg
     :width: 100%
@@ -65,51 +65,51 @@ Pico's Pins
     :widths: 3 5 10
     :header-rows: 1
 
-    *   - Name
-        - Description
-        - Function
+    *   - Nome
+        - Descrizione
+        - Funzione
     *   - GP0-GP28
-        - General-purpose input/output pins
-        - Act as either input or output and have no fixed purpose of their own
+        - Pin di input/output generici
+        - Possono agire sia come input che output e non hanno uno scopo fisso
     *   - GND
-        - 0 volts ground
-        - Several GND pins around Pico W to make wiring easier.
+        - Terra a 0 volt
+        - Diversi pin GND intorno a Pico W per facilitare il cablaggio.
     *   - RUN
-        - Enables or disables your Pico
-        - Start and stop your Pico W from another microcontroller.
+        - Abilita o disabilita il tuo Pico
+        - Avvia e ferma il tuo Pico W da un altro microcontrollore.
     *   - GPxx_ADCx
-        - General-purpose input/output or analog input
-        - Used as an analog input as well as a digital input or output – but not both at the same time.
+        - Input/output generico o ingresso analogico
+        - Utilizzato come ingresso analogico così come input digitale o output – ma non entrambi contemporaneamente.
     *   - ADC_VREF
-        - Analog-to-digital converter (ADC) voltage reference
-        - A special input pin which sets a reference voltage for any analog inputs.
+        - Riferimento di tensione per il convertitore analogico-digitale (ADC)
+        - Un pin di ingresso speciale che imposta una tensione di riferimento per qualsiasi ingresso analogico.
     *   - AGND
-        - Analog-to-digital converter (ADC) 0 volts ground
-        - A special ground connection for use with the ADC_VREF pin.
+        - Terra a 0 volt per il convertitore analogico-digitale (ADC)
+        - Una connessione a terra speciale da utilizzare con il pin ADC_VREF.
     *   - 3V3(O)
-        - 3.3 volts power
-        - A source of 3.3V power, the same voltage your Pico W runs at internally, generated from the VSYS input.
+        - Alimentazione a 3.3 volt
+        - Una fonte di alimentazione a 3.3V, la stessa tensione a cui funziona internamente il tuo Pico W, generata dall'ingresso VSYS.
     *   - 3v3(E)
-        - Enables or disables the power
-        - Switch on or off the 3V3(O) power, can also switches your Pico W off.
+        - Abilita o disabilita l'alimentazione
+        - Accendi o spegni l'alimentazione 3V3(O), può anche spegnere il tuo Pico W.
     *   - VSYS
-        - 2-5 volts power
-        - A pin directly connected to your Pico's internal power supply, which cannot be switched off without also switching Pico W off.
+        - Alimentazione da 2-5 volt
+        - Un pin direttamente collegato all'alimentazione interna del tuo Pico, che non può essere spento senza spegnere anche il Pico W.
     *   - VBUS
-        - 5 volts power
-        - A source of 5 V power taken from your Pico's micro USB port, and used to power hardware which needs more than 3.3 V.
+        - Alimentazione a 5 volt
+        - Una fonte di alimentazione a 5 V prelevata dalla porta micro USB del tuo Pico, usata per alimentare l'hardware che necessita di più di 3.3 V.
 
-The best place to find everything you need to get started with your Raspberry Pi Pico W is `here <https://www.raspberrypi.com/documentation/microcontrollers/raspberry-pi-pico.html>`_.
+Il miglior posto per trovare tutto ciò di cui hai bisogno per iniziare con il tuo Raspberry Pi Pico W è `qui <https://www.raspberrypi.com/documentation/microcontrollers/raspberry-pi-pico.html>`_.
 
-Or you can click on the links below: 
+Oppure puoi cliccare sui link qui sotto:
 
-* `Raspberry Pi Pico W product brief <https://datasheets.raspberrypi.com/picow/pico-w-product-brief.pdf>`_
-* `Raspberry Pi Pico W datasheet <https://datasheets.raspberrypi.com/picow/pico-w-datasheet.pdf>`_
-* `Getting started with Raspberry Pi Pico: C/C++ development <https://datasheets.raspberrypi.org/pico/getting-started-with-pico.pdf>`_
-* `Raspberry Pi Pico C/C++ SDK <https://datasheets.raspberrypi.org/pico/raspberry-pi-pico-c-sdk.pdf>`_
-* `API-level Doxygen documentation for the Raspberry Pi Pico C/C++ SDK <https://raspberrypi.github.io/pico-sdk-doxygen/>`_
-* `Raspberry Pi Pico Python SDK <https://datasheets.raspberrypi.org/pico/raspberry-pi-pico-python-sdk.pdf>`_
-* `Raspberry Pi RP2040 datasheet <https://datasheets.raspberrypi.org/rp2040/rp2040-datasheet.pdf>`_
-* `Hardware design with RP2040 <https://datasheets.raspberrypi.org/rp2040/hardware-design-with-rp2040.pdf>`_
-* `Raspberry Pi Pico W design files <https://datasheets.raspberrypi.com/picow/RPi-PicoW-PUBLIC-20220607.zip>`_
-* `Raspberry Pi Pico W STEP file <https://datasheets.raspberrypi.com/picow/PicoW-step.zip>`_
+* `Scheda informativa del Raspberry Pi Pico W <https://datasheets.raspberrypi.com/picow/pico-w-product-brief.pdf>`_
+* `Scheda tecnica del Raspberry Pi Pico W <https://datasheets.raspberrypi.com/picow/pico-w-datasheet.pdf>`_
+* `Iniziare con Raspberry Pi Pico: sviluppo in C/C++ <https://datasheets.raspberrypi.org/pico/getting-started-with-pico.pdf>`_
+* `SDK C/C++ di Raspberry Pi Pico <https://datasheets.raspberrypi.org/pico/raspberry-pi-pico-c-sdk.pdf>`_
+* `Documentazione Doxygen a livello API per l'SDK C/C++ di Raspberry Pi Pico <https://raspberrypi.github.io/pico-sdk-doxygen/>`_
+* `SDK Python di Raspberry Pi Pico <https://datasheets.raspberrypi.org/pico/raspberry-pi-pico-python-sdk.pdf>`_
+* `Scheda tecnica RP2040 di Raspberry Pi <https://datasheets.raspberrypi.org/rp2040/rp2040-datasheet.pdf>`_
+* `Progettazione hardware con RP2040 <https://datasheets.raspberrypi.org/rp2040/hardware-design-with-rp2040.pdf>`_
+* `File di design del Raspberry Pi Pico W <https://datasheets.raspberrypi.com/picow/RPi-PicoW-PUBLIC-20220607.zip>`_
+* `File STEP del Raspberry Pi Pico W <https://datasheets.raspberrypi.com/picow/PicoW-step.zip>`_

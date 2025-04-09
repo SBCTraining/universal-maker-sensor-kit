@@ -1,50 +1,50 @@
-.. note::
+.. note:: 
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    Ciao, benvenuto nella Comunità di Appassionati di Raspberry Pi, Arduino & ESP32 di SunFounder su Facebook! Immergiti più a fondo in Raspberry Pi, Arduino e ESP32 con altri entusiasti.
 
-    **Why Join?**
+    **Perché Unirsi?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Supporto Esperto**: Risolvi problemi post-vendita e sfide tecniche con l'aiuto della nostra comunità e del nostro team.
+    - **Impara e Condividi**: Scambia consigli e tutorial per migliorare le tue competenze.
+    - **Anteprime Esclusive**: Ottieni accesso anticipato agli annunci di nuovi prodotti e alle anteprime.
+    - **Sconti Speciali**: Goditi sconti esclusivi sui nostri prodotti più recenti.
+    - **Promozioni Festive e Giveaway**: Partecipa ai giveaway e alle promozioni festivi.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 Pronto a esplorare e creare con noi? Clicca [|link_sf_facebook|] e unisciti oggi!
 
 .. _pi_lesson20_bmp280:
 
-Lesson 20: Temperature, Humidity & Pressure Sensor (BMP280)
+Lezione 20: Sensore di Temperatura, Umidità e Pressione (BMP280)
 ====================================================================
 
-In this lesson, you will learn how to connect and read data from a BMP280 sensor that measures temperature, humidity, and pressure using a Raspberry Pi. You'll set up the sensor and write a Python script to measure environmental data including temperature, atmospheric pressure, and altitude.
+In questa lezione imparerai a collegare e leggere i dati da un sensore BMP280 che misura temperatura, umidità e pressione utilizzando un Raspberry Pi. Configurerai il sensore e scriverai uno script Python per misurare i dati ambientali inclusi temperatura, pressione atmosferica e altitudine.
 
-Required Components
+Componenti Necessari
 --------------------------
 
-In this project, we need the following components. 
+Per questo progetto sono necessari i seguenti componenti.
 
-It's definitely convenient to buy a whole kit, here's the link: 
+È decisamente conveniente acquistare un kit completo, ecco il link: 
 
 .. list-table::
     :widths: 20 20 20
     :header-rows: 1
 
-    *   - Name	
-        - ITEMS IN THIS KIT
+    *   - Nome	
+        - ELEMENTI IN QUESTO KIT
         - LINK
-    *   - Universal Maker Sensor Kit
+    *   - Kit Sensori Universali
         - 94
         - |link_umsk|
 
-You can also buy them separately from the links below.
+Puoi anche acquistarli separatamente dai link sottostanti.
 
 .. list-table::
     :widths: 30 10
     :header-rows: 1
 
-    *   - Component Introduction
-        - Purchase Link
+    *   - Introduzione al Componente
+        - Link per l'Acquisto
 
     *   - Raspberry Pi 5
         - |link_rpi5_buy|
@@ -54,44 +54,44 @@ You can also buy them separately from the links below.
         - |link_breadboard_buy|
 
 
-Wiring
+Cablaggio
 ---------------------------
 
 .. image:: img/Lesson_20_bmp280_pi_bb.png
     :width: 100%
 
 
-Install Library
----------------------------
+Installazione della Libreria
+--------------------------------
 
 .. note::
-    The adafruit-circuitpython-bmp280 library relies on Blinka, so please ensure that Blinka has been installed. To install libraries, refer to :ref:`install_blinka`.
+    La libreria adafruit-circuitpython-bmp280 dipende da Blinka, quindi assicurati che Blinka sia stato installato. Per installare le librerie, fare riferimento a :ref:`install_blinka`.
 
-Before installing the library, please make sure that the virtual Python environment is activated:
+Prima di installare la libreria, assicurati che l'ambiente Python virtuale sia attivato:
 
 .. code-block:: bash
 
    source ~/env/bin/activate
 
-Install adafruit-circuitpython-bmp280 library:
+Installa la libreria adafruit-circuitpython-bmp280:
 
 .. code-block:: bash
 
    pip install adafruit-circuitpython-bmp280
 
 
-Run the Code
+Esecuzione del Codice
 ---------------------------
 
 .. note::
-   - Please ensure that you have installed the Python library required for running the code according to the "Install Library" steps.
-   - Before running the code, please make sure that you have activated the virtual Python environment with blinka installed. You can activate the virtual environment using a command like this:
+   - Assicurati di aver installato la libreria Python necessaria per eseguire il codice secondo i passaggi di "Installazione della Libreria".
+   - Prima di eseguire il codice, assicurati di aver attivato l'ambiente virtuale Python con Blinka installato. Puoi attivare l'ambiente virtuale usando un comando come questo:
 
      .. code-block:: bash
   
         source ~/env/bin/activate
 
-   - Find the code for this lesson in ``universal-maker-sensor-kit-main/pi/`` directory, or directly copy and paste the code below. Execute the code by running the following commands in terminal:
+   - Trova il codice per questa lezione nella directory ``universal-maker-sensor-kit-main/pi/``, oppure copia e incolla direttamente il codice qui sotto. Esegui il codice eseguendo i seguenti comandi nel terminale:
 
      .. code-block:: bash
   
@@ -106,12 +106,12 @@ Run the Code
    
    import adafruit_bmp280
    
-   # Create sensor object, communicating over the board's default I2C bus
-   i2c = board.I2C()  # uses board.SCL and board.SDA
-   bmp280 = adafruit_bmp280.Adafruit_BMP280_I2C(i2c,address=0x76)
+   # Crea l'oggetto sensore, comunicando tramite il bus I2C predefinito della scheda
+   i2c = board.I2C()  # utilizza board.SCL e board.SDA
+   bmp280 = adafruit_bmp280.Adafruit_BMP280_I2C(i2c, indirizzo=0x76)
    
-   # change this to match the location's pressure (hPa) at sea level
-   bmp280.sea_level_pressure = 1013.25
+   # modifica questo per corrispondere alla pressione (hPa) a livello del mare della tua località
+   bmp280.pressione_a_livello_del_mare = 1013.25
    
    try:
       while True:
@@ -120,17 +120,17 @@ Run the Code
          print("Altitude = %0.2f meters" % bmp280.altitude)
          time.sleep(2)
    except KeyboardInterrupt:
-       print("Exit")  # Exit on CTRL+C
+       print("Exit")  # Uscita con CTRL+C
 
 
-Code Analysis
+Analisi del Codice
 ---------------------------
 
-#. Setting up the sensor
+#. Configurazione del sensore
 
-   Import necessary libraries and create an object to interact with the BMP280 sensor. ``board.I2C()`` sets up the I2C communication. ``adafruit_bmp280.Adafruit_BMP280_I2C(i2c, address=0x76)`` initializes the BMP280 sensor with its I2C address.
+   Importa le librerie necessarie e crea un oggetto per interagire con il sensore BMP280. ``board.I2C()`` imposta la comunicazione I2C. ``adafruit_bmp280.Adafruit_BMP280_I2C(i2c, indirizzo=0x76)`` inizializza il sensore BMP280 con il suo indirizzo I2C.
 
-   For more detail about the ``adafruit_bmp280`` library, please refer to |link_Adafruit_CircuitPython_BMP280|.
+   Per maggiori dettagli sulla libreria ``adafruit_bmp280``, si rimanda a |link_Adafruit_CircuitPython_BMP280|.
 
    .. code-block:: python
 
@@ -140,17 +140,17 @@ Code Analysis
       i2c = board.I2C()
       bmp280 = adafruit_bmp280.Adafruit_BMP280_I2C(i2c, address=0x76)
 
-#. Configuring sea-level pressure
+#. Configurazione della pressione a livello del mare
 
-   Set the ``sea_level_pressure`` property of the BMP280 object. This value is needed to calculate altitude.
+   Imposta la proprietà ``sea_level_pressure`` dell'oggetto BMP280. Questo valore è necessario per calcolare l'altitudine.
 
    .. code-block:: python
 
       bmp280.sea_level_pressure = 1013.25
 
-#. Reading data in a loop
+#. Lettura dei dati in un ciclo
 
-   Use a ``while True`` loop to continuously read data from the sensor. ``bmp280.temperature``, ``bmp280.pressure``, and ``bmp280.altitude`` read the temperature, pressure, and altitude, respectively. ``time.sleep(2)`` pauses the loop for 2 seconds.
+   Usa un ciclo ``while True`` per leggere continuamente i dati dal sensore. ``bmp280.temperature``, ``bmp280.pressure``, e ``bmp280.altitude`` leggono rispettivamente la temperatura, la pressione e l'altitudine. ``time.sleep(2)`` mette in pausa il ciclo per 2 secondi.
 
    .. code-block:: python
 
@@ -163,13 +163,13 @@ Code Analysis
       except KeyboardInterrupt:
          print("Exit")
 
-#. Handling interruptions
+#. Gestione delle interruzioni
 
-   The ``try`` and ``except KeyboardInterrupt:`` block allows the program to exit gracefully when you press CTRL+C.
+   Il blocco ``try`` e ``except KeyboardInterrupt:`` permette al programma di uscire in modo pulito quando premi CTRL+C.
 
    .. code-block:: python
 
       try:
-         # while loop code here
+         # qui il codice del ciclo while
       except KeyboardInterrupt:
          print("Exit")

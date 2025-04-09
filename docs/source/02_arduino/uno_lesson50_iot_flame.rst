@@ -1,56 +1,56 @@
 
-.. note::
+.. note:: 
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+   Ciao, benvenuti nella Comunità degli Appassionati di SunFounder Raspberry Pi & Arduino & ESP32 su Facebook! Approfondisci la tua conoscenza di Raspberry Pi, Arduino e ESP32 insieme ad altri appassionati.
 
-    **Why Join?**
+   **Perché unirsi?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+   - **Supporto Esperto**: Risolvi problemi post-vendita e sfide tecniche con l'aiuto della nostra comunità e del nostro team.
+   - **Impara & Condividi**: Scambia consigli e tutorial per migliorare le tue competenze.
+   - **Anteprime Esclusive**: Ottieni accesso anticipato agli annunci di nuovi prodotti e anteprime esclusive.
+   - **Sconti Speciali**: Goditi sconti esclusivi sui nostri prodotti più recenti.
+   - **Promozioni Festive e Regali**: Partecipa a regali e promozioni festive.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+   👉 Pronto a esplorare e creare con noi? Clicca [|link_sf_facebook|] e unisciti oggi!
 
 .. _uno_iot_flame:
 
-Lesson 50: Flame Alert System with Blynk
+Lezione 50: Sistema di Allerta Fiamma con Blynk
 ============================================================
 
 
 
-In this chapter, we will guide you through the process of creating a home flame alarm system demo using Blynk. By utilizing a flame sensor, you can detect potential fires in your home. Sending the detected values to Blynk allows for remote monitoring of your home via the internet. In case of a fire, Blynk will promptly notify you via email.
+In questo capitolo, ti guideremo attraverso il processo di creazione di una demo di sistema di allarme per fiamme domestico usando Blynk. Utilizzando un sensore di fiamma, puoi rilevare potenziali incendi nella tua abitazione. L'invio dei valori rilevati a Blynk permette il monitoraggio remoto della tua casa via internet. In caso di incendio, Blynk ti notificherà tempestivamente via email.
 
 
-Required Components
+Componenti Necessari
 --------------------------
 
-In this project, we need the following components. 
+Per questo progetto, abbiamo bisogno dei seguenti componenti.
 
-It's definitely convenient to buy a whole kit, here's the link: 
+È decisamente conveniente acquistare un kit completo, ecco il link:
 
 .. list-table::
     :widths: 20 20 20
     :header-rows: 1
 
-    *   - Name	
-        - ITEMS IN THIS KIT
+    *   - Nome	
+        - ELEMENTI IN QUESTO KIT
         - LINK
     *   - Universal Maker Sensor Kit
         - 94
         - |link_umsk|
 
-You can also buy them separately from the links below.
+Puoi anche acquistarli separatamente dai link sottostanti.
 
 .. list-table::
     :widths: 30 20
     :header-rows: 1
 
-    *   - Component Introduction
-        - Purchase Link
+    *   - Introduzione ai Componenti
+        - Link di Acquisto
 
-    *   - Arduino UNO R3 or R4
+    *   - Arduino UNO R3 o R4
         - |link_Uno_R3_buy|
     *   - :ref:`cpn_breadboard`
         - |link_breadboard_buy|
@@ -60,7 +60,7 @@ You can also buy them separately from the links below.
         - \-
 
 
-Wiring
+Cablaggio
 ---------------------------
 
 .. image:: img/Lesson_50_Iot_flame_alert_system_uno_bb.png
@@ -68,19 +68,19 @@ Wiring
 
 
 
-Configure Blynk
+Configurazione di Blynk
 -----------------------------
 
-**1 Create template**
+**1 Crea un template**
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Firstly, we need to establish a template on Blynk. Follow the steps below to create a **"Flame Alert System"** template. 
+Prima di tutto, dobbiamo stabilire un template su Blynk. Segui i passaggi sottostanti per creare un template **"Sistema di Allerta Fiamma"**.
 
 .. image:: img/01-create_template_1_shadow.png
     :width: 70%
     :align: center
 
-Ensure that the **HARDWARE** is configured as **ESP8266** and the **CONNECT TYPE** is set to **WiFi**.
+Assicurati che il **HARDWARE** sia configurato come **ESP8266** e il **TIPO DI CONNESSIONE** sia impostato su **WiFi**.
 
 .. image:: img/01-create_template_2_shadow.png
     :width: 70%
@@ -93,13 +93,13 @@ Ensure that the **HARDWARE** is configured as **ESP8266** and the **CONNECT TYPE
 **2 Datastream**
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Create a **Datastream** of type **Virtual Pin** in the **Datastream** page to get the value of Flame sensor module. 
+Crea un **Datastream** di tipo **Pin Virtuale** nella pagina **Datastream** per ottenere il valore del modulo sensore di fiamma.
 
 .. image:: img/01-datastream_1_shadow.png
     :width: 90%
     :align: center
 
-Set the name of the **Virtual Pin** to ``flame_sensor_value``. Set the **DATA TYPE** to **Integer** and MIN and MAX to **0** and **1**.
+Imposta il nome del **Pin Virtuale** su ``flame_sensor_value``. Imposta il **TIPO DI DATO** su **Integer** e i valori MIN e MAX su **0** e **1**.
 
 .. image:: img/01-datastream_2_shadow.png
     :width: 90%
@@ -109,25 +109,25 @@ Set the name of the **Virtual Pin** to ``flame_sensor_value``. Set the **DATA TY
     
     <br/> 
 
-**3 Event**
+**3 Evento**
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Next, we will create an **event** that logs the detection of flames and sends an email notification.
+Successivamente, creeremo un **evento** che registra il rilevamento delle fiamme e invia una notifica via email.
 
 .. image:: img/01-event_1_shadow.png
     :width: 80%
     :align: center
 
 .. note::
-    It is recommended to keep it consistent with my settings, otherwise you may need to modify the code to run the project.
+    Si raccomanda di mantenere le impostazioni coerenti con le mie, altrimenti potrebbe essere necessario modificare il codice per eseguire il progetto.
 
-Set **EVENT NAME** to ``flame_detection_alert``. At the same time, you can customize the content of email sent by setting **DESCRIPTION** for event triggering. You can also set frequency limits for event triggering below.
+Imposta **NOME EVENTO** su ``flame_detection_alert``. Allo stesso tempo, puoi personalizzare il contenuto dell'email inviata impostando **DESCRIZIONE** per l'attivazione dell'evento. Puoi anche impostare limiti di frequenza per l'attivazione dell'evento qui sotto.
 
 .. image:: img/01-event_2_shadow.png
     :width: 80%
     :align: center
 
-Go to the **Notifications** page and configure email settings.
+Vai alla pagina **Notifiche** e configura le impostazioni email.
 
 .. image:: img/01-event_3_shadow.png
     :width: 80%
@@ -140,15 +140,15 @@ Go to the **Notifications** page and configure email settings.
 **4 Web Dashboard**
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-We also need to set up the **Web Dashboard** to display the sensor data sent from the Uno board.
+Dobbiamo anche impostare il **Web Dashboard** per visualizzare i dati del sensore inviati dalla scheda Uno.
 
-Drag and drop an **Label widget** on the **Web Dashboard** page.
+Trascina e rilascia un **Widget Etichetta** nella pagina **Web Dashboard**.
 
 .. image:: img/01-web_dashboard_1_shadow.png
     :width: 100%
     :align: center
 
-In the settings page of the **Label widget**, select **Datastream** as **flame_sensor_value(V0)**. Then set the color of **WIDGET BACKGROUND** to change with the value of data. When the displayed value is 1, it will be shown in green. When the value is 0, it will be shown in red.
+Nella pagina delle impostazioni del **Widget Etichetta**, seleziona **Datastream** come **flame_sensor_value(V0)**. Imposta poi il colore di **SFONDO WIDGET** per cambiare con il valore dei dati. Quando il valore visualizzato è 1, sarà mostrato in verde. Quando il valore è 0, sarà mostrato in rosso.
 
 .. image:: img/01-web_dashboard_2_shadow.png
     :width: 100%
@@ -162,16 +162,16 @@ In the settings page of the **Label widget**, select **Datastream** as **flame_s
     
     <br/> 
 
-**5 Save template**
+**5 Salva il template**
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-At last, remember to save the template.
+Infine, ricordati di salvare il template.
 
 .. image:: img/01-save_template_shadow.png
     :width: 70%
     :align: center
 
-In case you need to edit the template, you can click on the edit button in the upper right corner.
+Nel caso in cui tu debba modificare il template, puoi cliccare sul pulsante di modifica nell'angolo in alto a destra.
 
 .. image:: img/01-save_template_2_shadow.png
     :width: 70%
@@ -182,17 +182,17 @@ In case you need to edit the template, you can click on the edit button in the u
     <br/> 
 
 
-Code
------------------------ 
+Codice
+-----------------------
 
-#. Open the ``Lesson_50_Flame_alert_system.ino`` file under the path of ``universal-maker-sensor-kit\arduino_uno\Lesson_50_Flame_alert_system``, or copy this code into **Arduino IDE**.
+#. Apri il file ``Lesson_50_Flame_alert_system.ino`` nel percorso ``universal-maker-sensor-kit\arduino_uno\Lesson_50_Flame_alert_system``, o copia questo codice nell'**Arduino IDE**.
 
 
    .. raw:: html
        
        <iframe src=https://create.arduino.cc/editor/sunfounder01/ef829dd7-337d-475d-908b-d118c6a93eef/preview?embed style="height:510px;width:100%;margin:10px 0" frameborder=0></iframe>
 
-#. Create a Blynk device using the Flame Detection Alert template. Then, replace the ``BLYNK_TEMPLATE_ID``, ``BLYNK_TEMPLATE_NAME``, and ``BLYNK_AUTH_TOKEN`` with your own. 
+#. Crea un dispositivo Blynk usando il template di Rilevamento Fiamma. Poi, sostituisci ``BLYNK_TEMPLATE_ID``, ``BLYNK_TEMPLATE_NAME``, e ``BLYNK_AUTH_TOKEN`` con i tuoi. 
 
    .. code-block:: arduino
     
@@ -216,16 +216,16 @@ Code
     :width: 80%
     :align: center
 
-#. You also need to enter the ``ssid`` and ``password`` of the WiFi you are using. 
+#. Devi anche inserire il ``ssid`` e ``password`` del WiFi che stai utilizzando. 
 
    .. code-block:: arduino
 
     char ssid[] = "your_ssid";
     char pass[] = "your_password";
 
-#. After selecting the correct board and port, click the **Upload** button.
+#. Dopo aver selezionato la scheda e la porta corretti, clicca sul pulsante **Upload**.
 
-#. Open the Serial monitor(set baudrate to 115200) and wait for a prompt such as a successful connection to appear.
+#. Apri il monitor seriale (imposta il baudrate a 115200) e attendi un prompt come una connessione riuscita che appaia.
 
    .. image:: img/01-ready_1_shadow.png
     :width: 80%
@@ -233,75 +233,75 @@ Code
 
    .. note::
 
-       If the message ``ESP is not responding`` appears when you connect, please follow these steps.
+       Se appare il messaggio ``ESP is not responding`` quando ti connetti, segui questi passaggi.
 
-       * Make sure the 9V battery is plugged in.
-       * Reset the ESP8266 module by connecting the pin RST to GND for 1 second, then unplug it.
-       * Press the reset button on the R4 board.
+       * Assicurati che la batteria da 9V sia collegata.
+       * Resetta il modulo ESP8266 collegando il pin RST a GND per 1 secondo, poi scollegarlo.
+       * Premi il pulsante di reset sulla scheda R4.
 
-       Sometimes, you may need to repeat the above operation 3-5 times, please be patient.
+       A volte, potrebbe essere necessario ripetere l'operazione sopra 3-5 volte, per favore sii paziente.
 
-#. Now, Blynk will show the data read from flame sensor. In the label widget, you can see the value read by the flame sensor. When the displayed value is 1, the background of the label will be shown in green. When the value is 0, the background of the label will be shown in red and Blynk will send you an alert email.
+#. Ora, Blynk mostrerà i dati letti dal sensore di fiamma. Nel widget etichetta, puoi vedere il valore letto dal sensore di fiamma. Quando il valore visualizzato è 1, lo sfondo dell'etichetta sarà mostrato in verde. Quando il valore è 0, lo sfondo dell'etichetta sarà mostrato in rosso e Blynk ti invierà un'email di allerta.
    
    .. image:: img/01-ready_2_shadow.png
     :width: 80%
     :align: center
 
-#. If you want to use Blynk on mobile devices, please refer to :ref:`blynk_mobile`.
+#. Se vuoi usare Blynk sui dispositivi mobili, consulta :ref:`blynk_mobile`.
 
-Code Analysis
+Analisi del Codice
 ---------------------------
 
-1. **Library Initialization**
+1. **Inizializzazione delle Librerie**
 
-   Before we start, it's crucial to set up the necessary libraries and settings for communication between the Arduino, ESP8266 WiFi module, and Blynk app. This code sets up the required libraries and configures a software serial connection between the Arduino and ESP8266 module, with the appropriate baud rate for data transmission.
+   Prima di iniziare, è fondamentale impostare le librerie necessarie e le impostazioni per la comunicazione tra Arduino, il modulo WiFi ESP8266 e l'app Blynk. Questo codice imposta le librerie richieste e configura una connessione seriale software tra Arduino e il modulo ESP8266, con il baud rate appropriato per la trasmissione dei dati.
    
    .. code-block:: arduino
    
-       //Set debug prints on Serial Monitor
+       //Imposta stampe di debug su Monitor Seriale
        #define BLYNK_PRINT Serial
    
-       #include <ESP8266_Lib.h>               // Library for ESP8266
-       #include <BlynkSimpleShieldEsp8266.h>  // Library for Blynk
+       #include <ESP8266_Lib.h>               // Libreria per ESP8266
+       #include <BlynkSimpleShieldEsp8266.h>  // Libreria per Blynk
    
-       // Software Serial on Uno
+       // Seriale Software su Uno
        #include <SoftwareSerial.h>
        SoftwareSerial EspSerial(2, 3);  // RX, TX
-       #define ESP8266_BAUD 115200      // Set the ESP8266 baud rate
+       #define ESP8266_BAUD 115200      // Imposta il baud rate di ESP8266
        ESP8266 wifi(&EspSerial);
 
-2. **Blynk and WiFi configuration**
+2. **Configurazione Blynk e WiFi**
 
-   For the project to communicate with the Blynk app, it needs to connect to a Wi-Fi network. The credentials need to specified here.
+   Per comunicare con l'app Blynk, il progetto deve connettersi a una rete Wi-Fi. Le credenziali devono essere specificate qui.
    
    .. code-block:: arduino
 
-      // Template ID, Device Name and Auth Token are provided by the Blynk Cloud
-      // See the Device Info tab, or Template settings
+      // ID Template, Nome Dispositivo e Auth Token sono forniti da Blynk Cloud
+      // Vedi la scheda Informazioni Dispositivo, o impostazioni del Template
       #define BLYNK_TEMPLATE_ID "TMPxxxxxx"
-      #define BLYNK_TEMPLATE_NAME "Flame Alert System"
+      #define BLYNK_TEMPLATE_NAME "Sistema di Allerta Fiamma"
       #define BLYNK_AUTH_TOKEN "xxxxxxxxxxxxxxx" 
       
-      // Your WiFi credentials.
-      // Set password to "" for open networks.
+      // Credenziali WiFi.
+      // Imposta la password su "" per reti aperte.
       char ssid[] = "your_ssid";
       char pass[] = "your_password";
 
-3. **Sensor Pin & Timer Declaration**
+3. **Dichiarazione del Pin del Sensore & Timer**
 
-   Define the pin number for the flame.
-   Blynk library provides a built-in timer, and we create a timer object. More about |link_blynk_timer_intro| 
+   Definisci il numero del pin per la fiamma.
+   La libreria Blynk fornisce un timer integrato, e creiamo un oggetto timer. Maggiori informazioni su |link_blynk_timer_intro| 
 
    .. code-block:: arduino
 
        const int sensorPin = 8;
        BlynkTimer timer;
 
-4. **setup() Function**
+4. **Funzione setup()**
 
-   Initial configurations such as setting the pin mode for the sensorPin, initiating serial communication, setting the BlynkTimer, and connecting to the Blynk app are done in this function.
+   Le configurazioni iniziali come l'impostazione della modalità del pin per sensorPin, l'inizio della comunicazione seriale, l'impostazione del BlynkTimer e la connessione all'app Blynk sono fatte in questa funzione.
 
-   - We use ``timer.setInterval(1000L, myTimerEvent)`` to set the timer interval in setup(), here we set to execute the ``myTimerEvent()`` function every **1000ms**. You can modify the first parameter of ``timer.setInterval(1000L, myTimerEvent)`` to change the interval between ``myTimerEvent`` executions.
+   - Usiamo ``timer.setInterval(1000L, myTimerEvent)`` per impostare l'intervallo del timer in setup(), qui impostiamo per eseguire la funzione ``myTimerEvent()`` ogni **1000ms**. Puoi modificare il primo parametro di ``timer.setInterval(1000L, myTimerEvent)`` per cambiare l'intervallo tra le esecuzioni di ``myTimerEvent``.
 
    .. raw:: html
     
@@ -319,9 +319,9 @@ Code Analysis
          Blynk.connectWiFi(ssid, pass);
        }
 
-5. **loop() Function**
+5. **Funzione loop()**
 
-   The main loop runs the Blynk and Timer services continuously.
+   Il loop principale esegue continuamente i servizi Blynk e Timer.
 
    .. code-block:: arduino
 
@@ -330,22 +330,22 @@ Code Analysis
          timer.run();
        }
 
-6. **myTimerEvent() & sendData() Function**
+6. **Funzioni myTimerEvent() & sendData()**
 
    
 
    .. code-block:: arduino
  
        void myTimerEvent() {
-         // Please don't send more that 10 values per second.
-         sendData();  // Call function to send sensor data to Blynk app
+         // Si prega di non inviare più di 10 valori al secondo.
+         sendData();  // Chiama funzione per inviare dati del sensore a Blynk
        }
 
-   The ``sendData()`` function reads the value from the flame sensor and sends it to Blynk. If it detects a flame (value 0), it sends ``flame_detection_alert`` event to the Blynk app.
+   La funzione ``sendData()`` legge il valore dal sensore di fiamma e lo invia a Blynk. Se rileva una fiamma (valore 0), invia l'evento ``flame_detection_alert`` all'app Blynk.
 
-   - Use ``Blynk.virtualWrite(vPin, value)`` to send data to virtual pin V0 on Blynk. More about |link_blynk_virtualWrite|.
+   - Usa ``Blynk.virtualWrite(vPin, value)`` per inviare dati al pin virtuale V0 su Blynk. Maggiori informazioni su |link_blynk_virtualWrite|.
 
-   - Use ``Blynk.logEvent("event_code")`` to log event to Blynk. More about |link_blynk_logEvent|.
+   - Usa ``Blynk.logEvent("event_code")`` per registrare eventi su Blynk. Maggiori informazioni su |link_blynk_logEvent|.
 
    .. raw:: html
     
@@ -355,15 +355,15 @@ Code Analysis
        
       void sendData() {
         int data = digitalRead(sensorPin);
-        Blynk.virtualWrite(V0, data);  // send data to virtual pin V0 on Blynk
+        Blynk.virtualWrite(V0, data);  // invia dati al pin virtuale V0 su Blynk
         Serial.print("flame:");
-        Serial.println(data);  // Print flame status on Serial Monitor
+        Serial.println(data);  // Stampa lo stato della fiamma su Monitor Seriale
         if (data == 0) {
-          Blynk.logEvent("flame_alert");  // log flame alert event if sensor detects flame
+          Blynk.logEvent("flame_alert");  // registra evento di allerta fiamma se il sensore rileva fiamma
         }
       }
 
-**Reference**
+**Riferimenti**
 
 - |link_blynk_doc|
 - |link_blynk_quickstart| 

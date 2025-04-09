@@ -1,20 +1,20 @@
-.. note::
+.. note:: 
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    Ciao! Benvenuto nella community Facebook dedicata agli appassionati di SunFounder, Raspberry Pi, Arduino ed ESP32! Unisciti a noi per approfondire il mondo di Raspberry Pi, Arduino ed ESP32 insieme ad altri maker ed entusiasti.
 
-    **Why Join?**
+    **Perché unirsi?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Supporto esperto**: Risolvi problemi post-vendita e difficoltà tecniche con l’aiuto della nostra community e del nostro team.
+    - **Impara e condividi**: Scambia consigli e tutorial per migliorare le tue competenze.
+    - **Anteprime esclusive**: Ottieni accesso anticipato a novità e anteprime sui nuovi prodotti.
+    - **Sconti speciali**: Approfitta di sconti esclusivi sui nostri prodotti più recenti.
+    - **Promozioni festive e giveaway**: Partecipa a omaggi e promozioni speciali durante le festività.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 Pronto a esplorare e creare con noi? Clicca su [|link_sf_facebook|] e unisciti oggi stesso!
 
 .. _cpn_ds18b20:
 
-Temperature Sensor Module (DS18B20)
+Modulo Sensore di Temperatura (DS18B20)
 ===============================================
 
 .. image:: img/18_ds18b20_module.png
@@ -25,23 +25,23 @@ Temperature Sensor Module (DS18B20)
 
    <br/>
 
-The DS18B20 is a digital temperature sensor that can measure temperatures ranging from -67°F to +257°F with an accuracy of ±0.5°C. It follows the single wire protocol and can communicate with a microcontroller using only one pin. The sensor can be powered directly from the data line, eliminating the need for an external power supply. The applications of the DS18B20 temperature sensor include industrial systems, consumer products, systems which are sensitive thermally, thermostatic controls, and thermometers.
+Il DS18B20 è un sensore di temperatura digitale in grado di misurare temperature comprese tra -67°F e +257°F (da -55°C a +125°C) con una precisione di ±0,5°C. Utilizza il protocollo 1-Wire e può comunicare con un microcontrollore usando un solo pin. Il sensore può essere alimentato direttamente attraverso la linea dati, senza la necessità di un'alimentazione esterna. Le sue applicazioni includono sistemi industriali, prodotti di consumo, dispositivi sensibili alla temperatura, controlli termostatici e termometri.
 
-Specification
+Specifiche
 ---------------------------
-* PCB Size: 13 x 27.9mm
-* Power Supply: 3V to 5.5V
-* Temperature Range: -55 to 125°C
-* Accuracy:	±0.5°C
-* Resolution: 9 to 12 bit (selectable)
+* Dimensioni PCB: 13 x 27,9 mm  
+* Alimentazione: da 3V a 5,5V  
+* Intervallo di temperatura: da -55°C a +125°C  
+* Precisione: ±0,5°C  
+* Risoluzione: da 9 a 12 bit (selezionabile)
 
 Pinout
 ---------------------------
-* **VCC**: This is the positive power supply input from the main control. 
-* **GND**: Ground connection.
-* **OUT**: The 1-Wire Data Bus that should be connected to a digital pin on the microcontroller.
+* **VCC**: Ingresso di alimentazione positiva dal controllore principale.  
+* **GND**: Collegamento a massa.  
+* **OUT**: Bus dati 1-Wire da collegare a un pin digitale del microcontrollore.
 
-Schematic diagram
+Schema elettrico
 ---------------------------
 
 .. image:: img/18_ds18b20_module_schematic.png
@@ -52,7 +52,7 @@ Schematic diagram
 
    <br/>
 
-Example
+Esempi
 ---------------------------
 * :ref:`uno_lesson18_ds18b20` (Arduino UNO)
 * :ref:`esp32_lesson18_ds18b20` (ESP32)

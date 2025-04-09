@@ -1,52 +1,52 @@
 .. note::
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    Ciao, benvenuto nella Comunità degli Appassionati di Raspberry Pi, Arduino e ESP32 di SunFounder su Facebook! Approfondisci la tua conoscenza di Raspberry Pi, Arduino e ESP32 insieme ad altri appassionati.
 
     **Why Join?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Expert Support**: Risolvi problemi post-vendita e sfide tecniche con l'aiuto della nostra comunità e del nostro team.
+    - **Learn & Share**: Scambia consigli e tutorial per migliorare le tue competenze.
+    - **Exclusive Previews**: Ottieni accesso anticipato alle nuove annunci di prodotti e anteprime esclusive.
+    - **Special Discounts**: Goditi sconti esclusivi sui nostri prodotti più recenti.
+    - **Festive Promotions and Giveaways**: Partecipa a giveaway e promozioni festive.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 Pronto per esplorare e creare con noi? Clicca [|link_sf_facebook|] e unisciti oggi!
 
 .. _esp32_lesson34_motor:
 
-Lesson 34: TT Motor
+Lezione 34: Motore TT
 ==================================
 
-In this lesson, you'll learn how to control a motor with the ESP32 Development Board and an L9110 motor control board. We'll cover defining and initializing motor pins, setting them as outputs, and adjusting the motor's speed using the analogWrite function. This project is ideal for those seeking to grasp motor control and pulse-width modulation (PWM) on the ESP32 platform, providing a hands-on demonstration of output operations in a microcontroller environment.
+In questa lezione, imparerai a controllare un motore con una scheda di sviluppo ESP32 e una scheda di controllo motore L9110. Copriremo la definizione e l'inizializzazione dei pin del motore, impostandoli come output, e regoleremo la velocità del motore utilizzando la funzione analogWrite. Questo progetto è ideale per chi cerca di comprendere il controllo del motore e la modulazione di larghezza di impulso (PWM) sulla piattaforma ESP32, fornendo una dimostrazione pratica delle operazioni di output in un ambiente microcontrollore.
 
-Required Components
---------------------------
+Componenti Necessari
+-------------------------
 
-In this project, we need the following components. 
+In questo progetto, abbiamo bisogno dei seguenti componenti.
 
-It's definitely convenient to buy a whole kit, here's the link: 
+È decisamente conveniente acquistare un kit completo, ecco il link:
 
 .. list-table::
     :widths: 20 20 20
     :header-rows: 1
 
-    *   - Name	
-        - ITEMS IN THIS KIT
+    *   - Nome	
+        - ELEMENTI IN QUESTO KIT
         - LINK
-    *   - Universal Maker Sensor Kit
+    *   - Kit Sensori per Maker Universali
         - 94
         - |link_umsk|
 
-You can also buy them separately from the links below.
+Puoi anche acquistarli separatamente dai link qui sotto.
 
 .. list-table::
     :widths: 30 20
     :header-rows: 1
 
-    *   - Component Introduction
-        - Purchase Link
+    *   - Introduzione al Componente
+        - Link per l'Acquisto
 
-    *   - ESP32 & Development Board (:ref:`cpn_esp32_wroom_32e`)
+    *   - ESP32 & Scheda di Sviluppo (:ref:`cpn_esp32_wroom_32e`)
         - |link_esp32_camera_pro_kit_buy|
     *   - :ref:`cpn_ttmotor`
         - \-
@@ -56,40 +56,40 @@ You can also buy them separately from the links below.
         - |link_breadboard_buy|
 
 
-Wiring
----------------------------
+Cablaggio
+------------
 
 .. image:: img/Lesson_34_Motor_esp32_bb.png
     :width: 100%
 
 
-Code
----------------------------
+Codice
+------------
 
 .. raw:: html
 
     <iframe src=https://create.arduino.cc/editor/sunfounder01/c1d4e7f5-140c-4ed4-a149-1af81df5dc0b/preview?embed style="height:510px;width:100%;margin:10px 0" frameborder=0></iframe>
 
-Code Analysis
+Analisi del Codice
 ---------------------------
 
-1. The first part of the code defines the motor control pins. These are connected to the L9110 motor control board.
+1. La prima parte del codice definisce i pin di controllo del motore. Questi sono collegati alla scheda di controllo motore L9110.
 
    .. code-block:: arduino
    
-      // Define the motor pins
+      // Definire i pin del motore
       const int motorB_1A = 26;
       const int motorB_2A = 25;
 
-2. The ``setup()`` function initializes the motor control pins as output using the ``pinMode()`` function. Then it uses ``analogWrite()`` to set the speed of the motor. The value passed to ``analogWrite()`` can range from 0 (off) to 255 (full speed). A ``delay()`` function is then used to pause the code for 5000 milliseconds (or 5 seconds), after which the motor speed is set to 0 (off).
+2. La funzione ``setup()`` inizializza i pin di controllo del motore come output utilizzando la funzione ``pinMode()``. Successivamente utilizza ``analogWrite()`` per impostare la velocità del motore. Il valore passato a ``analogWrite()`` può variare da 0 (spento) a 255 (velocità massima). Una funzione ``delay()`` viene poi utilizzata per mettere in pausa il codice per 5000 millisecondi (o 5 secondi), dopo i quali la velocità del motore è impostata a 0 (spento).
 
    .. code-block:: arduino
    
       void setup() {
-        pinMode(motorB_1A, OUTPUT);  // set motor pin 1 as output
-        pinMode(motorB_2A, OUTPUT);  // set motor pin 2 as output
+        pinMode(motorB_1A, OUTPUT);  // impostare il pin 1 del motore come output
+        pinMode(motorB_2A, OUTPUT);  // impostare il pin 2 del motore come output
    
-        analogWrite(motorB_1A, 255);  // set motor speed (0-255)
+        analogWrite(motorB_1A, 255);  // impostare la velocità del motore (0-255)
         analogWrite(motorB_2A, 0);
    
         delay(5000);

@@ -1,50 +1,50 @@
-.. note::
+.. note:: 
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    Ciao, benvenuto nella Comunità degli Appassionati di Raspberry Pi, Arduino e ESP32 di SunFounder su Facebook! Immergiti più a fondo in Raspberry Pi, Arduino e ESP32 con altri entusiasti.
 
-    **Why Join?**
+    **Perché Unirsi?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Supporto Esperto**: Risolvi problemi post-vendita e sfide tecniche con l'aiuto della nostra comunità e del nostro team.
+    - **Impara e Condividi**: Scambia consigli e tutorial per migliorare le tue competenze.
+    - **Anteprime Esclusive**: Ottieni accesso anticipato agli annunci di nuovi prodotti e alle anteprime.
+    - **Sconti Speciali**: Goditi sconti esclusivi sui nostri prodotti più recenti.
+    - **Promozioni Festive e Giveaway**: Partecipa ai giveaway e alle promozioni festive.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 Pronto a esplorare e creare con noi? Clicca [|link_sf_facebook|] e unisciti oggi!
 
 .. _pi_lesson22_touch_sensor:
 
-Lesson 22: Touch Sensor Module
-==================================
+Lezione 22: Modulo Sensore Tattile
+=====================================
 
-In this lesson, you will learn how to connect and program a touch sensor with the Raspberry Pi using Python. The focus will be on setting up the sensor on GPIO pin 17 and writing a simple script to detect and respond to touch and release events. This practical session is aimed at teaching the basics of sensor integration and event handling in Python, providing you with the skills needed for more advanced sensor-based projects. It's an ideal starting point for those new to working with electronics and the Raspberry Pi.
+In questa lezione imparerai a connettere e programmare un sensore tattile con il Raspberry Pi usando Python. L'attenzione sarà focalizzata sull'impostazione del sensore sul pin GPIO 17 e sulla scrittura di uno script semplice per rilevare e rispondere agli eventi di tocco e rilascio. Questa sessione pratica è volta all'insegnamento delle basi dell'integrazione dei sensori e della gestione degli eventi in Python, fornendoti le competenze necessarie per progetti basati su sensori più avanzati. È un punto di partenza ideale per chi è nuovo nel lavorare con l'elettronica e il Raspberry Pi.
 
-Required Components
+Componenti Necessari
 --------------------------
 
-In this project, we need the following components. 
+Per questo progetto sono necessari i seguenti componenti.
 
-It's definitely convenient to buy a whole kit, here's the link: 
+È decisamente conveniente acquistare un kit completo, ecco il link: 
 
 .. list-table::
     :widths: 20 20 20
     :header-rows: 1
 
-    *   - Name	
-        - ITEMS IN THIS KIT
+    *   - Nome	
+        - ELEMENTI IN QUESTO KIT
         - LINK
-    *   - Universal Maker Sensor Kit
+    *   - Kit Sensori Universali
         - 94
         - |link_umsk|
 
-You can also buy them separately from the links below.
+Puoi anche acquistarli separatamente dai link sottostanti.
 
 .. list-table::
     :widths: 30 20
     :header-rows: 1
 
-    *   - Component Introduction
-        - Purchase Link
+    *   - Introduzione al Componente
+        - Link per l'Acquisto
 
     *   - Raspberry Pi 5
         - |link_rpi5_buy|
@@ -54,14 +54,14 @@ You can also buy them separately from the links below.
         - |link_breadboard_buy|
 
 
-Wiring
+Cablaggio
 ---------------------------
 
 .. image:: img/Lesson_22_touch_Pi_bb.png
     :width: 100%
 
 
-Code
+Codice
 ---------------------------
 
 .. code-block:: python
@@ -69,45 +69,45 @@ Code
    from gpiozero import Button
    from signal import pause
 
-   # Function called when the sensor is touched
+   # Funzione chiamata quando il sensore è toccato
    def touched():
-       # Print a message indicating the sensor is touched
-       print("Touched!")  
+       # Stampa un messaggio che indica che il sensore è stato toccato
+       print("Touched!")   
 
-   # Function called when the sensor is not touched
+   # Funzione chiamata quando il sensore non è toccato
    def not_touched():
-       # Print a message indicating the sensor is not touched
-       print("Not touched!")  
+       # Stampa un messaggio che indica che il sensore non è stato toccato
+       print("Not touched!") 
 
-   # Initialize a Button object for the touch sensor
-   # GPIO 17: pin connected to the sensor
-   # pull_up=None: disable internal pull-up/pull-down resistors
-   # active_state=True: high voltage is considered the active state
+   # Inizializza un oggetto Button per il sensore tattile
+   # GPIO 17: pin collegato al sensore
+   # pull_up=None: disabilita le resistenze interne di pull-up/pull-down
+   # active_state=True: lo stato attivo considera l'alta tensione
    touch_sensor = Button(17, pull_up=None, active_state=True)
 
-   # Assign functions to sensor events
+   # Assegna funzioni agli eventi del sensore
    touch_sensor.when_pressed = touched
    touch_sensor.when_released = not_touched
 
-   pause()  # Keep the program running to detect touch events
+   pause()  # Mantieni il programma in esecuzione per rilevare gli eventi di tocco
 
 
 
-Code Analysis
+Analisi del Codice
 ---------------------------
 
-#. Importing Libraries
+#. Importazione delle Librerie
    
-   The script starts by importing the ``Button`` class from gpiozero for interfacing with the touch sensor, and ``pause`` from the signal module to keep the program running and responsive to events.
+   Lo script inizia importando la classe ``Button`` da gpiozero per interfacciarsi con il sensore tattile, e ``pause`` dal modulo signal per mantenere il programma in esecuzione e reattivo agli eventi.
 
    .. code-block:: python
 
       from gpiozero import Button
       from signal import pause
 
-#. Defining Callback Functions
+#. Definizione delle Funzioni di Callback
    
-   Two functions, ``touched`` and ``not_touched``, are defined to handle touch and release events from the sensor. Each function prints a message indicating the sensor's state.
+   Due funzioni, ``touched`` e ``not_touched``, sono definite per gestire gli eventi di tocco e rilascio dal sensore. Ogni funzione stampa un messaggio che indica lo stato del sensore.
 
    .. code-block:: python
 
@@ -117,26 +117,26 @@ Code Analysis
       def not_touched():
           print("Not touched!")  
 
-#. Initializing the Touch Sensor
+#. Inizializzazione del Sensore Tattile
    
-   A ``Button`` object named ``touch_sensor`` is created for the touch sensor on GPIO pin 17. The ``pull_up`` parameter is set to ``None`` to disable internal pull-up/pull-down resistors, and ``active_state`` is set to ``True`` to consider high voltage as the active state.
+   Viene creato un oggetto ``Button`` chiamato ``touch_sensor`` per il sensore tattile sul pin GPIO 17. Il parametro ``pull_up`` è impostato su ``None`` per disabilitare le resistenze interne di pull-up/pull-down, e ``active_state`` è impostato su ``True`` per considerare l'alta tensione come stato attivo.
 
    .. code-block:: python
 
       touch_sensor = Button(17, pull_up=None, active_state=True)
 
-#. Assigning Functions to Sensor Events
+#. Assegnazione delle Funzioni agli Eventi del Sensore
    
-   The ``when_pressed`` event of the ``touch_sensor`` is linked to the ``touched`` function, and the ``when_released`` event is linked to the ``not_touched`` function. This setup allows the script to react to touch and release events from the sensor.
+   L'evento ``when_pressed`` del ``touch_sensor`` è collegato alla funzione ``touched``, e l'evento ``when_released`` è collegato alla funzione ``not_touched``. Questa configurazione permette allo script di reagire agli eventi di tocco e rilascio dal sensore.
 
    .. code-block:: python
 
       touch_sensor.when_pressed = touched
       touch_sensor.when_released = not_touched
 
-#. Keeping the Program Running
+#. Mantenimento dell'Esecuzione del Programma
    
-   The ``pause()`` function is called to keep the program running indefinitely. This is necessary to continuously monitor and respond to touch sensor events.
+   Viene chiamata la funzione ``pause()`` per mantenere il programma in esecuzione a tempo indeterminato. Questo è necessario per monitorare e rispondere continuamente agli eventi del sensore tattile.
 
    .. code-block:: python
 

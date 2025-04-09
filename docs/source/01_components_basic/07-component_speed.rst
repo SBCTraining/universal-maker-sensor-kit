@@ -1,47 +1,47 @@
-.. note::
+.. note:: 
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    Ciao! Benvenuto nella community Facebook dedicata agli appassionati di SunFounder, Raspberry Pi, Arduino ed ESP32! Unisciti a noi per approfondire il mondo di Raspberry Pi, Arduino ed ESP32 insieme ad altri maker ed entusiasti.
 
-    **Why Join?**
+    **Perché unirsi?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Supporto esperto**: Risolvi problemi post-vendita e difficoltà tecniche grazie al supporto della nostra community e del nostro team.
+    - **Impara e condividi**: Scambia consigli e tutorial per migliorare le tue competenze.
+    - **Anteprime esclusive**: Accedi in anteprima ad annunci e anticipazioni sui nuovi prodotti.
+    - **Sconti speciali**: Approfitta di sconti esclusivi sui nostri prodotti più innovativi.
+    - **Promozioni festive e giveaway**: Partecipa a omaggi e promozioni durante le festività.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 Pronto a esplorare e creare con noi? Clicca su [|link_sf_facebook|] e unisciti oggi stesso!
 
 .. _cpn_speed:
 
-Infrared Speed Sensor Module
-=====================================
+Modulo Sensore di Velocità a Infrarossi
+============================================
 
 .. image:: img/07_speed_sensor_module.png
     :width: 300
     :align: center
 
 
-The Infrared Speed Sensor Module is an IR counter that has an IR transmitter and receiver. If any obstacle is placed between these sensors, a signal is sent to the microcontroller. The module can be used in association with a microcontroller for motor speed detection, pulse count, position limit, etc.
+Il Modulo Sensore di Velocità a Infrarossi è un contatore IR dotato di un trasmettitore e un ricevitore a infrarossi. Quando un ostacolo si frappone tra i due sensori, viene inviato un segnale al microcontrollore. Questo modulo può essere utilizzato con un microcontrollore per rilevare la velocità di rotazione di un motore, contare impulsi, definire limiti di posizione, ecc.
 
 Pinout
 ---------------------------
-* **VCC**: This is the positive power supply(3.3V or 5V) input from the main control.
-* **GND**: Ground connection.
-* **OUT**: Digital output. When the speed sensor is obstructed, it outputs a high level; when unobstructed, it outputs a low level.
+* **VCC**: Ingresso di alimentazione positiva (3.3V o 5V) dal controllore principale.
+* **GND**: Collegamento a massa.
+* **OUT**: Uscita digitale. Quando il sensore di velocità è ostruito, l’uscita è a livello alto; quando non è ostruito, l’uscita è a livello basso.
 
-Principle
+Principio di funzionamento
 ---------------------------
 
-The speed sensor module is mainly used to detect changes in rotational speed or velocity. When an object passes by the H2010 sensor, it generates a pulse signal. The integrated LM393 comparator inside the module compares this pulse signal with a preset threshold, producing a stable high-level output signal.
+Il modulo sensore di velocità viene utilizzato principalmente per rilevare variazioni di velocità o di rotazione. Quando un oggetto attraversa il sensore H2010, viene generato un segnale a impulsi. Il comparatore LM393 integrato confronta questo segnale con una soglia predefinita, producendo un segnale di uscita stabile a livello alto.
 
-The Infrared Speed Sensor Module has 1 H2010 photocell, which consists of a phototransistor and an infrared light emitter packaged in a 10 cm wide black plastic housing.
+Il modulo include una fotocellula H2010, composta da un fototransistor e da un emettitore di luce infrarossa, racchiusi in un alloggiamento in plastica nera largo 10 mm.
 
 .. image:: img/07_speed_sensor_module_2.png
     :width: 200
     :align: center
 
-When operating, the infrared light-emitting diode continuously emits infrared light (invisible light), and the photosensitive triode will conduct if it receives it.
+Durante il funzionamento, il diodo a infrarossi emette costantemente luce infrarossa (non visibile), e il fototransistor conduce quando la riceve.
 
 .. image:: img/07_speed_sensor_module_3.png
     :width: 900
@@ -51,7 +51,7 @@ When operating, the infrared light-emitting diode continuously emits infrared li
 
    <br/>
 
-Schematic diagram
+Schema elettrico
 ---------------------------
 
 .. image:: img/07_speed_sensor_module_schematic.png
@@ -63,7 +63,7 @@ Schematic diagram
    <br/>
 
 
-Example
+Esempi
 ---------------------------
 * :ref:`uno_lesson07_speed` (Arduino UNO)
 * :ref:`esp32_lesson07_speed` (ESP32)

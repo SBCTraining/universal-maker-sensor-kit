@@ -1,50 +1,50 @@
 .. note::
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    Ciao, benvenuto nella community SunFounder dedicata agli appassionati di Raspberry Pi, Arduino ed ESP32 su Facebook! Approfondisci il mondo di Raspberry Pi, Arduino ed ESP32 insieme ad altri appassionati.
 
-    **Why Join?**
+    **Perché unirsi?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Supporto esperto**: Risolvi problemi post-vendita e affronta sfide tecniche grazie all’aiuto della nostra community e del nostro team.
+    - **Impara e condividi**: Scambia consigli e tutorial per migliorare le tue competenze.
+    - **Anteprime esclusive**: Ottieni l’accesso anticipato alle novità sui prodotti e agli sneak peek.
+    - **Sconti speciali**: Approfitta di sconti esclusivi sui nostri ultimi prodotti.
+    - **Promozioni festive e giveaway**: Partecipa a concorsi e promozioni durante le festività.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 Pronto a esplorare e creare con noi? Clicca su [|link_sf_facebook|] e unisciti subito!
 
 .. _pico_lesson30_relay_module:
 
-Lesson 30: Relay Module
+Lezione 30: Modulo Relè
 ==================================
 
-In this lesson, you will learn how to use the Raspberry Pi Pico W to control a relay module. We will set up a basic circuit connecting the relay to the Pi and write a MicroPython script to toggle the relay on and off at one-second intervals. This project introduces you to controlling external devices such as relays and demonstrates practical output operations using the GPIO pins on the Raspberry Pi Pico W. Ideal for those interested in delving into home automation or managing other high-power devices, this lesson offers fundamental insight into how microcontrollers can interact with and control external hardware.
+In questa lezione imparerai a controllare un modulo relè utilizzando il Raspberry Pi Pico W. Imposteremo un circuito base collegando il relè al Pico e scriveremo uno script in MicroPython per accenderlo e spegnerlo ad intervalli di un secondo. Questo progetto ti introdurrà al controllo di dispositivi esterni come i relè e ti mostrerà operazioni di output pratiche utilizzando i pin GPIO del Raspberry Pi Pico W. Perfetta per chi è interessato alla domotica o al controllo di dispositivi ad alta potenza, questa lezione offre una comprensione essenziale di come i microcontrollori possano interagire e controllare hardware esterni.
 
-Required Components
+Componenti Necessari
 --------------------------
 
-In this project, we need the following components. 
+In questo progetto avremo bisogno dei seguenti componenti.
 
-It's definitely convenient to buy a whole kit, here's the link: 
+È sicuramente comodo acquistare un kit completo. Ecco il link:
 
 .. list-table::
     :widths: 20 20 20
     :header-rows: 1
 
-    *   - Name	
-        - ITEMS IN THIS KIT
+    *   - Nome
+        - COMPONENTI INCLUSI NEL KIT
         - LINK
     *   - Universal Maker Sensor Kit
         - 94
         - |link_umsk|
 
-You can also buy them separately from the links below.
+Puoi anche acquistare i componenti singolarmente dai link sottostanti.
 
 .. list-table::
     :widths: 30 20
     :header-rows: 1
 
-    *   - Component Introduction
-        - Purchase Link
+    *   - Descrizione del Componente
+        - Link per l'acquisto
 
     *   - Raspberry Pi Pico W
         - |link_picow_buy|
@@ -56,66 +56,66 @@ You can also buy them separately from the links below.
         - |link_breadboard_buy|
 
 
-Wiring
+Collegamenti
 ---------------------------
 
 .. image:: img/Lesson_30_Relay_Module_pico_bb.png
     :width: 100%
 
 
-Code
+Codice
 ---------------------------
 
 .. code-block:: python
 
    from machine import Pin
    import time
-   
-   # Replace this number with the GPIO pin number your relay is connected to
+
+   # Sostituisci questo numero con il pin GPIO a cui è collegato il relè
    relay_pin = Pin(16, Pin.OUT)
-   
+
    def relay_on():
-       relay_pin.value(1)  # Set relay to ON state
-   
+       relay_pin.value(1)  # Attiva il relè
+
    def relay_off():
-       relay_pin.value(0)  # Set relay to OFF state
-   
+       relay_pin.value(0)  # Disattiva il relè
+
    try:
        while True:
            relay_on()
            print("on....")
-           time.sleep(1)  # Wait for 1 second
+           time.sleep(1)  # Attendi 1 secondo
            relay_off()
            print("off....")
-           time.sleep(1)  # Wait for 1 second
+           time.sleep(1)  # Attendi 1 secondo
    except:
-       relay_off()  # Ensure the relay is turned off in case of an exception
+       relay_off()  # Assicurati che il relè sia spento in caso di eccezione
        print("Program interrupted, relay turned off.")
 
 
-Code Analysis
+Analisi del Codice
 ---------------------------
 
-#. Importing Libraries
-   
-   The ``machine`` and ``time`` libraries are imported to interact with GPIO pins and handle time-related functions, respectively.
+#. Importazione delle librerie
+
+   Le librerie ``machine`` e ``time`` vengono importate per interagire con i pin GPIO e gestire le funzioni temporali.
 
    .. code-block:: python
 
       from machine import Pin
       import time
 
-#. Initializing Relay Pin
+#. Inizializzazione del Pin del Relè
 
-   A GPIO pin is set up as an output pin to control the relay. The ``relay_pin`` variable represents the GPIO pin connected to the relay.
+   Un pin GPIO è configurato come output per controllare il relè. La variabile ``relay_pin`` rappresenta il pin GPIO collegato al relè.
 
    .. code-block:: python
 
       relay_pin = Pin(16, Pin.OUT)
 
-#. Defining Relay Control Functions
-   
-   Two functions, ``relay_on`` and ``relay_off``, are defined to turn the relay on and off, respectively. These functions change the GPIO pin's value to high (1) or low (0).
+#. Definizione delle Funzioni di Controllo del Relè
+
+   Due funzioni, ``relay_on`` e ``relay_off``, sono definite per accendere e spegnere il relè. Queste modificano il valore del pin GPIO a 1 (alto) o 0 (basso).
 
    .. code-block:: python
 
@@ -125,9 +125,9 @@ Code Analysis
       def relay_off():
           relay_pin.value(0)  # Set relay to OFF state
 
-#. Main Loop and Exception Handling
-   
-   A continuous loop is created using ``while True``. Inside this loop, the relay is turned on and off with a 1-second delay between each state. If an interruption occurs (like a keyboard interruption), the relay is turned off for safety, and a message is printed.
+#. Ciclo Principale e Gestione delle Eccezioni
+
+   Un ciclo ``while True`` viene utilizzato per far funzionare continuamente il codice. All’interno del ciclo, il relè viene acceso e spento con una pausa di 1 secondo tra ogni stato. In caso di interruzione (come Ctrl+C), il relè viene spento per sicurezza e viene mostrato un messaggio.
 
    .. code-block:: python
 
@@ -140,5 +140,5 @@ Code Analysis
               print("off....")
               time.sleep(1)  # Wait for 1 second
       except:
-          relay_off()  # Ensure the relay is turned off in case of an exception
+          relay_off()
           print("Program interrupted, relay turned off.")

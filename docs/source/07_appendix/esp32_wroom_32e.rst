@@ -1,103 +1,103 @@
-.. note::
+.. note:: 
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+   Ciao, benvenuti nella Community di appassionati di SunFounder Raspberry Pi, Arduino & ESP32 su Facebook! Approfondisci la tua conoscenza su Raspberry Pi, Arduino e ESP32 insieme ad altri appassionati.
 
-    **Why Join?**
+   **Perché unirsi?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+   - **Supporto Esperto**: Risolvi problemi post-vendita e sfide tecniche con l'aiuto della nostra community e del nostro team.
+   - **Impara e Condividi**: Scambia consigli e tutorial per migliorare le tue competenze.
+   - **Anteprime Esclusive**: Accedi in anteprima alle nuove annunci di prodotti e anteprime.
+   - **Sconti Speciali**: Goditi sconti esclusivi sui nostri prodotti più recenti.
+   - **Promozioni Festive e Giveaway**: Partecipa ai giveaway e alle promozioni festive.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+   👉 Pronto per esplorare e creare con noi? Clicca [|link_sf_facebook|] e unisciti oggi!
 
 .. _cpn_esp32_wroom_32e:
 
 ESP32 WROOM 32E
-=================
+===================
 
-The ESP32 WROOM-32E is a versatile and powerful module built around Espressif's ESP32 chipset. It offers dual-core processing, integrated Wi-Fi and Bluetooth connectivity, and boasts a wide range of peripheral interfaces. Known for its low-power consumption, the module is ideal for IoT applications, enabling smart connectivity and robust performance in compact form factors.
+L'ESP32 WROOM-32E è un modulo versatile e potente basato sul chipset ESP32 di Espressif. Offre elaborazione dual-core, connettività Wi-Fi e Bluetooth integrate e vanta un'ampia gamma di interfacce periferiche. Nota per il suo basso consumo energetico, il modulo è ideale per applicazioni IoT, consentendo connettività intelligente e prestazioni robuste in formati compatti.
 
 .. image:: img/esp32_wroom_32e.png
-    :width: 60%
-    :align: center
+   :width: 60%
+   :align: center
 
 
-Key features include:
+Le caratteristiche principali includono:
 
-* **Processing Power**: It's equipped with a dual-core Xtensa® 32-bit LX6 microprocessor, offering scalability and flexibility.
-* **Wireless Capabilities**: With integrated 2.4 GHz Wi-Fi and dual-mode Bluetooth, it's perfectly suited for applications demanding stable wireless communication.
-* **Memory & Storage**: It comes with ample SRAM and high-performance flash storage, catering to user programs and data storage needs.
-* **GPIO**: Offering up to 38 GPIO pins, it supports a variety of external devices and sensors.
-* **Low Power Consumption**: Multiple power-saving modes are available, making it ideal for battery-powered or energy-efficient scenarios.
-* **Security**: Integrated encryption and security features ensure user data and privacy are well-protected.
-* **Versatility**: From simple household appliances to complex industrial machinery, the WROOM-32E delivers consistent, efficient performance.
+* **Potenza di Elaborazione**: È dotato di un microprocessore dual-core Xtensa® LX6 a 32 bit, offrendo scalabilità e flessibilità.
+* **Capacità Wireless**: Con Wi-Fi integrato a 2,4 GHz e Bluetooth dual-mode, è perfettamente adatto per applicazioni che richiedono una comunicazione wireless stabile.
+* **Memoria e Archiviazione**: Dispone di ampio SRAM e memoria flash ad alte prestazioni, soddisfando le esigenze di memorizzazione di programmi utente e dati.
+* **GPIO**: Offrendo fino a 38 pin GPIO, supporta una varietà di dispositivi esterni e sensori.
+* **Consumo Energetico Ridotto**: Sono disponibili molteplici modalità di risparmio energetico, rendendolo ideale per scenari alimentati a batteria o efficienti dal punto di vista energetico.
+* **Sicurezza**: Le funzionalità integrate di crittografia e sicurezza garantiscono che i dati e la privacy degli utenti siano ben protetti.
+* **Versatilità**: Dalle semplici apparecchiature domestiche alle complesse macchine industriali, il WROOM-32E offre prestazioni consistenti ed efficienti.
 
-In summary, the ESP32 WROOM-32E not only offers robust processing capabilities and diverse connectivity options but also boasts an array of features making it a preferred choice in the IoT and smart device sectors.
+In sintesi, l'ESP32 WROOM-32E non solo offre capacità di elaborazione robuste e diverse opzioni di connettività, ma vanta anche una serie di funzionalità che lo rendono la scelta preferita nei settori IoT e dispositivi intelligenti.
 
 * |link_esp32_datasheet|
 
 .. _esp32_pinout:
 
-Pinout Diagram
+Schema dei Pin
 -------------------------
 
-The ESP32 has some pin usage limitations due to various functionalities sharing certain pins. When designing a project, it's a good practice to carefully plan the pin usage and cross-check for potential conflicts to ensure proper functioning and avoid issues.
+L'ESP32 presenta alcune limitazioni nell'uso dei pin a causa della condivisione di certe funzionalità su determinati pin. Quando si progetta un progetto, è buona pratica pianificare attentamente l'uso dei pin e verificare eventuali conflitti per garantire il corretto funzionamento ed evitare problemi.
 
 
 .. image:: img/esp32_pinout.jpg
-    :width: 100%
-    :align: center
+   :width: 100%
+   :align: center
 
-Here are some of the key restrictions and considerations:
+Ecco alcune delle principali restrizioni e considerazioni:
 
-* **ADC1 and ADC2**: ADC2 cannot be used when WiFi or Bluetooth is active. However, ADC1 can be used without any restrictions.
-* **Bootstrapping Pins**: GPIO0, GPIO2, GPIO5, GPIO12, and GPIO15 are used for bootstrapping during the boot process. Care should be taken not to connect external components that could interfere with the boot process on these pins.
-* **JTAG Pins**: GPIO12, GPIO13, GPIO14, and GPIO15 can be used as JTAG pins for debugging purposes. If JTAG debugging is not required, these pins can be used as regular GPIOs.
-* **Touch Pins**: Some pins support touch functionalities. These pins should be used carefully if you intend to use them for touch sensing.
-* **Power Pins**: Some pins are reserved for power-related functions and should be used accordingly. For example, avoid drawing excessive current from power supply pins like 3V3 and GND.
-* **Input-only Pins**: Some pins are input-only and should not be used as outputs.
+* **ADC1 e ADC2**: ADC2 non può essere utilizzato quando il WiFi o il Bluetooth sono attivi. Tuttavia, ADC1 può essere utilizzato senza restrizioni.
+* **Pin di Bootstrap**: GPIO0, GPIO2, GPIO5, GPIO12 e GPIO15 sono utilizzati per il bootstrap durante il processo di avvio. Si dovrebbe fare attenzione a non collegare componenti esterni che potrebbero interferire con il processo di avvio su questi pin.
+* **Pin JTAG**: GPIO12, GPIO13, GPIO14 e GPIO15 possono essere utilizzati come pin JTAG per scopi di debug. Se il debug JTAG non è richiesto, questi pin possono essere utilizzati come GPIO regolari.
+* **Pin Touch**: Alcuni pin supportano funzionalità touch. Questi pin dovrebbero essere utilizzati con cautela se si intende utilizzarli per il rilevamento touch.
+* **Pin di Alimentazione**: Alcuni pin sono riservati per funzioni legate all'alimentazione e dovrebbero essere utilizzati di conseguenza. Ad esempio, evitare di prelevare corrente eccessiva dai pin di alimentazione come 3V3 e GND.
+* **Pin Solo Input**: Alcuni pin sono solo di input e non dovrebbero essere utilizzati come output.
 
 
 .. _esp32_strapping:
 
-Strapping Pins
+Pin di Strapping
 --------------------------
 
-ESP32 has five strapping pins:
+L'ESP32 ha cinque pin di strapping:
 
 .. list-table::
-    :widths: 5 15
-    :header-rows: 1
+   :widths: 5 15
+   :header-rows: 1
 
-    *   - Strapping Pins
-        - Description
-    *   - IO5
-        - Defaults to pull-up, the voltage level of IO5 and IO15 affects the Timing of SDIO Slave.
-    *   - IO0
-        - Defaults to pull-up, if pulled low, it enters download mode.
-    *   - IO2
-        - Defaults to pull-down, IO0 and IO2 will make ESP32 enter download mode.
-    *   - IO12(MTDI)
-        - Defaults to pull-down, if pulled high, ESP32 will fail to boot up normally.
-    *   - IO15(MTDO)
-        - Defaults to pull-up, if pulled low, debug log will not be visible. Additionally, the voltage level of IO5 and IO15 affects the Timing of SDIO Slave.
+   *   - Pin di Strapping
+       - Descrizione
+   *   - IO5
+       - Predefinito a pull-up, il livello di tensione di IO5 e IO15 influisce sulla temporizzazione di SDIO Slave.
+   *   - IO0
+       - Predefinito a pull-up, se tirato a terra, entra in modalità di download.
+   *   - IO2
+       - Predefinito a pull-down, IO0 e IO2 faranno entrare l'ESP32 in modalità di download.
+   *   - IO12(MTDI)
+       - Predefinito a pull-down, se tirato in alto, l'ESP32 non si avvierà normalmente.
+   *   - IO15(MTDO)
+       - Predefinito a pull-up, se tirato a terra, il log di debug non sarà visibile. Inoltre, il livello di tensione di IO5 e IO15 influisce sulla temporizzazione di SDIO Slave.
 
 
-Software can read the values of these five bits from register "GPIO_STRAPPING". During the chip's system reset release (power-on-reset, RTC watchdog reset and brownout reset), the latches of the strapping pins sample the voltage level as strapping bits of "0" or "1", and hold these bits until the chip is powered down or shut down. The strapping bits configure the device's boot mode, the operating voltage of VDD_SDIO and other initial system settings.
+Il software può leggere i valori di questi cinque bit dal registro "GPIO_STRAPPING". Durante il rilascio del reset del sistema del chip (power-on-reset, reset del watchdog RTC e reset per calo di tensione), i latch dei pin di strapping campionano il livello di tensione come bit di strapping di "0" o "1" e mantengono questi bit fino a quando il chip non viene alimentato o spento. I bit di strapping configurano la modalità di avvio del dispositivo, la tensione operativa di VDD_SDIO e altre impostazioni iniziali del sistema.
 
-Each strapping pin is connected to its internal pull-up/pull-down during the chip reset. Consequently, if a strapping pin is unconnected or the connected external circuit is high-impedance, the internal weak pull-up/pull-down will determine the default input level of the strapping pins.
+Ogni pin di strapping è collegato al suo pull-up/pull-down interno durante il reset del chip. Di conseguenza, se un pin di strapping non è collegato o il circuito esterno collegato è ad alta impedenza, il pull-up/pull-down interno debole determinerà il livello di ingresso predefinito dei pin di strapping.
 
-To change the strapping bit values, users can apply the external pull-down/pull-up resistances, or use the host MCU's GPIOs to control the voltage level of these pins when powering on ESP32.
+Per modificare i valori dei bit di strapping, gli utenti possono applicare le resistenze esterne di pull-down/pull-up, o utilizzare i GPIO del MCU ospite per controllare il livello di tensione di questi pin all'accensione dell'ESP32.
 
-After reset release, the strapping pins work as normal-function pins.
-Refer to following table for a detailed boot-mode configuration by strapping pins.
+Dopo il rilascio del reset, i pin di strapping funzionano come pin di funzione normale.
+Consulta la seguente tabella per una configurazione dettagliata della modalità di avvio tramite pin di strapping.
 
 .. image:: img/esp32_strapping.png
    :width: 100%
    :align: center
 
-* FE: falling-edge, RE: rising-edge
-* Firmware can configure register bits to change the settings of "Voltage of Internal LDO (VDD_SDIO)" and "Timing of SDIO Slave", after booting.
-* The module integrates a 3.3 V SPI flash, so the pin MTDI cannot be set to 1 when the module is powered up.
+* FE: flanco di discesa, RE: flanco di salita
+* Il firmware può configurare i bit del registro per modificare le impostazioni di "Tensione dell'LDO interno (VDD_SDIO)" e "Temporizzazione di SDIO Slave", dopo l'avvio.
+* Il modulo integra un flash SPI da 3,3 V, quindi il pin MTDI non può essere impostato su 1 quando il modulo è alimentato.

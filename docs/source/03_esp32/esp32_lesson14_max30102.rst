@@ -1,55 +1,55 @@
 .. note::
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    Ciao, benvenuto nella Comunità di Appassionati di Raspberry Pi, Arduino e ESP32 di SunFounder su Facebook! Approfondisci le tue conoscenze su Raspberry Pi, Arduino e ESP32 con altri appassionati.
 
     **Why Join?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Expert Support**: Risolvi problemi post-vendita e sfide tecniche con il supporto della nostra comunità e del nostro team.
+    - **Learn & Share**: Scambia consigli e tutorial per migliorare le tue competenze.
+    - **Exclusive Previews**: Ottieni accesso anticipato ad annunci di nuovi prodotti e anteprime esclusive.
+    - **Special Discounts**: Godi di sconti esclusivi sui nostri prodotti più recenti.
+    - **Festive Promotions and Giveaways**: Partecipa a giveaway e promozioni festive.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 Pronto a esplorare e creare con noi? Clicca [|link_sf_facebook|] e unisciti oggi!
 
 .. _esp32_lesson14_max30102:
 
-Lesson 14: Pulse Oximeter and Heart Rate Sensor Module (MAX30102)
+Lezione 14: Sensore di Frequenza Cardiaca e Ossimetro (MAX30102)
 ====================================================================
 
-In this lesson, you will learn how to measure heart rate using an ESP32 Development Board and MAX30102 Pulse Oximeter and Heart Rate Sensor. We'll cover setting up the sensor, reading infrared values, and accurately calculating beats per minute (BPM). This project is ideal for those interested in health monitoring systems and provides a valuable introduction to working with biomedical sensors using the ESP32. 
+In questa lezione, imparerai come misurare la frequenza cardiaca utilizzando una Scheda di Sviluppo ESP32 e il sensore MAX30102 Ossimetro e Frequenza Cardiaca. Copriremo la configurazione del sensore, la lettura dei valori infrarossi e il calcolo accurato dei battiti per minuto (BPM). Questo progetto è ideale per chi è interessato ai sistemi di monitoraggio della salute e offre un'introduzione preziosa all'uso di sensori biomedici con l'ESP32.
 
 .. warning::
-    This project detects heart-rate optically. This method is tricky and prone to give false readings. So please **DO NOT** use it for actual medical diagnosis.
+    Questo progetto rileva la frequenza cardiaca otticamente. Questo metodo è delicato e può portare a letture errate. Pertanto, **NON** utilizzarlo per diagnosi mediche reali.
 
-Required Components
+Componenti Necessari
 --------------------------
 
-In this project, we need the following components. 
+Per questo progetto, abbiamo bisogno dei seguenti componenti.
 
-It's definitely convenient to buy a whole kit, here's the link: 
+È decisamente conveniente acquistare un kit completo, ecco il link:
 
 .. list-table::
     :widths: 20 20 20
     :header-rows: 1
 
-    *   - Name	
-        - ITEMS IN THIS KIT
+    *   - Nome	
+        - ELEMENTI IN QUESTO KIT
         - LINK
-    *   - Universal Maker Sensor Kit
+    *   - Kit Sensori Universale Maker
         - 94
         - |link_umsk|
 
-You can also buy them separately from the links below.
+Puoi anche acquistarli separatamente dai link qui sotto.
 
 .. list-table::
     :widths: 30 20
     :header-rows: 1
 
-    *   - Component Introduction
-        - Purchase Link
+    *   - Introduzione al Componente
+        - Link d'acquisto
 
-    *   - ESP32 & Development Board (:ref:`cpn_esp32_wroom_32e`)
+    *   - ESP32 & Scheda di Sviluppo (:ref:`cpn_esp32_wroom_32e`)
         - |link_esp32_camera_pro_kit_buy|
     *   - :ref:`cpn_max30102`
         - |link_max30102_module_buy|
@@ -57,32 +57,32 @@ You can also buy them separately from the links below.
         - |link_breadboard_buy|
 
 
-Wiring
+Cablaggio
 ---------------------------
 
 .. image:: img/Lesson_14_MAX30102_esp32_bb.png
     :width: 100%
 
 
-Code
+Codice
 ---------------------------
 
 .. note:: 
-   To install the library, use the Arduino Library Manager and search for **"SparkFun MAX3010x"** and install it.
+   Per installare la libreria, utilizza il gestore delle librerie di Arduino e cerca **"SparkFun MAX3010x"** e installala.
 
 .. raw:: html
 
     <iframe src=https://create.arduino.cc/editor/sunfounder01/a59539a0-dab1-414e-a195-3d221a61c9a9/preview?embed style="height:510px;width:100%;margin:10px 0" frameborder=0></iframe>
 
-Code Analysis
+Analisi del Codice
 ---------------------------
 
-1. **Including Libraries & Initializing Global Variables**:
+1. **Inclusione delle Librerie e Inizializzazione delle Variabili Globali**:
 
-   The essential libraries are imported, the sensor object is instantiated, and global variables for data management are set.
+   Importazione delle librerie essenziali, istanziazione dell'oggetto sensore e impostazione delle variabili globali per la gestione dei dati.
 
    .. note:: 
-      To install the library, use the Arduino Library Manager and search for **"SparkFun MAX3010x"** and install it. 
+      Per installare la libreria, utilizza il gestore delle librerie di Arduino e cerca **"SparkFun MAX3010x"** e installala. 
    
    .. code-block:: arduino
     
@@ -90,11 +90,11 @@ Code Analysis
       #include "MAX30105.h"
       #include "heartRate.h"
       MAX30105 particleSensor;
-      // ... (other global variables)
+      // ... (altre variabili globali)
 
-2. **Setup Function & Sensor Initialization**:
+2. **Funzione Setup e Inizializzazione del Sensore**:
 
-   The Serial communication is initialized at a baud rate of 9600. The sensor's connection is checked, and if successful, an initialization sequence is run. An error message is displayed if the sensor isn't detected.
+   La comunicazione seriale viene inizializzata a una velocità di baud di 9600. Si verifica la connessione del sensore e, se riuscita, viene eseguita una sequenza di inizializzazione. Viene visualizzato un messaggio di errore se il sensore non viene rilevato.
    
    .. code-block:: arduino
 
@@ -102,41 +102,41 @@ Code Analysis
         Serial.begin(9600);
         if (!particleSensor.begin(Wire, I2C_SPEED_FAST)) {
           Serial.println("MAX30102 not found.");
-          while (1) ;  // Infinite loop if sensor not detected.
+          while (1) ;  // Ciclo infinito se il sensore non viene rilevato.
         }
-        // ... (further setup)
+        // ... (ulteriore configurazione)
 
-3. **Reading IR Value & Checking for Heartbeat**:
+3. **Lettura del Valore IR e Controllo del Battito Cardiaco**:
 
-   The IR value, which is indicative of the blood flow, is fetched from the sensor. The ``checkForBeat()`` function assesses if a heartbeat is detected based on this value.
+   Viene recuperato il valore IR, indicativo del flusso sanguigno, dal sensore. La funzione ``checkForBeat()`` valuta se è stato rilevato un battito basandosi su questo valore.
 
    .. code-block:: arduino
 
       long irValue = particleSensor.getIR();
       if (checkForBeat(irValue) == true) {
-          // ... (heartbeat detected actions)
+          // ... (azioni rilevate dal battito)
       }
 
-4. **Calculating Beats Per Minute (BPM)**:
+4. **Calcolo dei Battiti per Minuto (BPM)**:
 
-   Upon detecting a heartbeat, the BPM is calculated based on the time difference since the last detected heartbeat. The code also ensures the BPM falls within a realistic range before updating the average.
+   Una volta rilevato un battito, il BPM viene calcolato in base alla differenza di tempo dall'ultimo battito rilevato. Il codice si assicura anche che il BPM rientri in un intervallo realistico prima di aggiornare la media.
 
    .. code-block:: arduino
 
       long delta = millis() - lastBeat;
       beatsPerMinute = 60 / (delta / 1000.0);
       if (beatsPerMinute < 255 && beatsPerMinute > 20) {
-          // ... (store and average BPM)
+          // ... (memorizza e media il BPM)
       }
       
 
-5. **Printing Values to the Serial Monitor**:
+5. **Stampa dei Valori sul Monitor Seriale**:
 
-   The IR value, current BPM, and average BPM are printed to the Serial Monitor. Additionally, the code checks if the IR value is too low, suggesting the absence of a finger.
+   Il valore IR, il BPM corrente e il BPM medio vengono stampati sul Monitor Seriale. Inoltre, il codice verifica se il valore IR è troppo basso, suggerendo l'assenza di un dito.
 
    .. code-block:: arduino
 
-      //Print the IR value, current BPM value, and average BPM value to the serial monitor
+      //Stampa il valore IR, il valore BPM corrente e il valore BPM medio sul monitor seriale
       Serial.print("IR=");
       Serial.print(irValue);
       Serial.print(", BPM=");

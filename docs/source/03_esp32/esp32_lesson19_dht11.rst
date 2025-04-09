@@ -1,52 +1,52 @@
 .. note::
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    Ciao, benvenuto nella Comunità di Appassionati di Raspberry Pi, Arduino e ESP32 di SunFounder su Facebook! Approfondisci le tue conoscenze su Raspberry Pi, Arduino e ESP32 con altri appassionati.
 
     **Why Join?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Expert Support**: Risolvi problemi post-vendita e sfide tecniche con il supporto della nostra comunità e del nostro team.
+    - **Learn & Share**: Scambia consigli e tutorial per migliorare le tue competenze.
+    - **Exclusive Previews**: Ottieni accesso anticipato ad annunci di nuovi prodotti e anteprime esclusive.
+    - **Special Discounts**: Godi di sconti esclusivi sui nostri prodotti più recenti.
+    - **Festive Promotions and Giveaways**: Partecipa a giveaway e promozioni festive.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 Pronto a esplorare e creare con noi? Clicca [|link_sf_facebook|] e unisciti oggi!
 
 .. _esp32_lesson19_dht11:
 
-Lesson 19: Temperature and Humidity Sensor Module (DHT11)
+Lezione 19: Modulo Sensore di Temperatura e Umidità (DHT11)
 ====================================================================
 
-In this lesson, you will learn how to read temperature and humidity from a DHT11 sensor using an ESP32 Development Board. We'll also cover interpreting these readings and calculating the heat index in both Celsius and Fahrenheit. This project is ideal for beginners in environmental sensing, providing hands-on experience with sensor data acquisition and basic concepts of climate monitoring on the ESP32 platform.
+In questa lezione, imparerai come leggere la temperatura e l'umidità da un sensore DHT11 utilizzando una scheda di sviluppo ESP32. Copriremo anche l'interpretazione di queste letture e il calcolo dell'indice di calore sia in gradi Celsius che Fahrenheit. Questo progetto è ideale per i principianti nel campo della rilevazione ambientale, offrendo esperienza pratica nell'acquisizione dei dati dei sensori e nei concetti di base del monitoraggio climatico sulla piattaforma ESP32.
 
-Required Components
+Componenti Necessari
 --------------------------
 
-In this project, we need the following components. 
+Per questo progetto, abbiamo bisogno dei seguenti componenti.
 
-It's definitely convenient to buy a whole kit, here's the link: 
+È decisamente conveniente acquistare un kit completo, ecco il link:
 
 .. list-table::
     :widths: 20 20 20
     :header-rows: 1
 
-    *   - Name	
-        - ITEMS IN THIS KIT
+    *   - Nome	
+        - ELEMENTI IN QUESTO KIT
         - LINK
-    *   - Universal Maker Sensor Kit
+    *   - Kit Sensori Universale Maker
         - 94
         - |link_umsk|
 
-You can also buy them separately from the links below.
+Puoi anche acquistarli separatamente dai link qui sotto.
 
 .. list-table::
     :widths: 30 10
     :header-rows: 1
 
-    *   - Component Introduction
-        - Purchase Link
+    *   - Introduzione al Componente
+        - Link d'acquisto
 
-    *   - ESP32 & Development Board (:ref:`cpn_esp32_wroom_32e`)
+    *   - ESP32 & Scheda di Sviluppo (:ref:`cpn_esp32_wroom_32e`)
         - |link_esp32_camera_pro_kit_buy|
     *   - :ref:`cpn_dht11`
         - |link_dht11_humiture_buy|
@@ -54,11 +54,11 @@ You can also buy them separately from the links below.
         - |link_breadboard_buy|
  
 
-Wiring
+Cablaggio
 ---------------------------
 
 .. note:: 
-   The kit may contain different versions of the DHT11 module. Please confirm the wiring method according to the module you have.
+   Il kit può contenere diverse versioni del modulo DHT11. Si prega di confermare il metodo di cablaggio secondo il modulo che si possiede.
 
 .. csv-table:: 
    :header: "module", "diagram"
@@ -79,54 +79,54 @@ Wiring
 .. |dht11_module_withLED_circuit| image:: img/Lesson_19_DHT11_esp32_new_bb.png
    :width: 500px
 
-Code
+Codice
 ---------------------------
 
 .. note:: 
-   To install the library, use the Arduino Library Manager and search for **"DHT sensor library"** and install it. 
+   Per installare la libreria, usa il Gestore delle Librerie di Arduino e cerca **"DHT sensor library"** e installala.
 
 .. raw:: html
 
     <iframe src=https://create.arduino.cc/editor/sunfounder01/926830ca-9421-4852-ad72-ff75c1f10174/preview?embed style="height:510px;width:100%;margin:10px 0" frameborder=0></iframe>
 
-Code Analysis
+Analisi del Codice
 ---------------------------
 
-#. Inclusion of necessary libraries and definition of constants.
-   This part of the code includes the DHT sensor library and defines the pin number and sensor type used in this project.
+1. Inclusione delle librerie necessarie e definizione delle costanti.
+   Questa parte del codice include la libreria del sensore DHT e definisce il numero del pin e il tipo di sensore utilizzati in questo progetto.
 
    .. note:: 
-      To install the library, use the Arduino Library Manager and search for **"DHT sensor library"** and install it. 
+      Per installare la libreria, usa il Gestore delle Librerie di Arduino e cerca **"DHT sensor library"** e installala.
 
    .. code-block:: arduino
     
       #include <DHT.h>
-      #define DHTPIN 25       // Define the pin used to connect the sensor
-      #define DHTTYPE DHT11  // Define the sensor type
+      #define DHTPIN 25       // Definisci il pin utilizzato per collegare il sensore
+      #define DHTTYPE DHT11  // Definisci il tipo di sensore
 
-#. Creation of DHT object.
-   Here we create a DHT object using the defined pin number and sensor type.
+2. Creazione dell'oggetto DHT.
+   Qui creiamo un oggetto DHT usando il numero del pin e il tipo di sensore definiti.
 
    .. code-block:: arduino
 
-      DHT dht(DHTPIN, DHTTYPE);  // Create a DHT object
+      DHT dht(DHTPIN, DHTTYPE);  // Crea un oggetto DHT
 
-#. This function is executed once when the ESP32 Development Board starts. We initialize the serial communication and the DHT sensor in this function.
+3. Questa funzione viene eseguita una volta all'avvio della scheda di sviluppo ESP32. Inizializziamo la comunicazione seriale e il sensore DHT in questa funzione.
 
    .. code-block:: arduino
 
       void setup() {
         Serial.begin(9600);
         Serial.println(F("DHT11 test!"));
-        dht.begin();  // Initialize the DHT sensor
+        dht.begin();  // Inizializza il sensore DHT
       }
 
-#. Main loop.
-   The ``loop()`` function runs continuously after the setup function. Here, we read the humidity and temperature values, calculate the heat index, and print these values to the serial monitor.  If the sensor read fails (returns NaN), it prints an error message.
+4. Ciclo principale.
+   La funzione ``loop()`` viene eseguita continuamente dopo la funzione di setup. Qui, leggiamo i valori di umidità e temperatura, calcoliamo l'indice di calore e stampiamo questi valori sul monitor seriale.  Se la lettura del sensore fallisce (ritorna NaN), stampa un messaggio di errore.
 
    .. note::
     
-      The |link_heat_index| is a way to measure how hot it feels outside by combining the air temperature and the humidity. It is also called the "felt air temperature" or "apparent temperature".
+      L' |link_heat_index| è un modo per misurare quanto caldo si sente all'esterno combinando la temperatura dell'aria e l'umidità. È anche chiamato "temperatura percepita" o "temperatura apparente".
 
    .. code-block:: arduino
 

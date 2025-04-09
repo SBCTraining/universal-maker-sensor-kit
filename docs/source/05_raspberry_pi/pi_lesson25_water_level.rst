@@ -1,53 +1,53 @@
-.. note::
+.. note:: 
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    Ciao, benvenuto nella Comunità degli Appassionati di Raspberry Pi, Arduino e ESP32 di SunFounder su Facebook! Immergiti più a fondo in Raspberry Pi, Arduino e ESP32 con altri entusiasti.
 
-    **Why Join?**
+    **Perché Unirsi?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Supporto Esperto**: Risolvi problemi post-vendita e sfide tecniche con l'aiuto della nostra comunità e del nostro team.
+    - **Impara e Condividi**: Scambia consigli e tutorial per migliorare le tue competenze.
+    - **Anteprime Esclusive**: Ottieni accesso anticipato agli annunci di nuovi prodotti e alle anteprime.
+    - **Sconti Speciali**: Goditi sconti esclusivi sui nostri prodotti più recenti.
+    - **Promozioni Festive e Giveaway**: Partecipa ai giveaway e alle promozioni festive.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 Pronto a esplorare e creare con noi? Clicca [|link_sf_facebook|] e unisciti oggi!
 
 .. _pi_lesson25_water_level:
 
-Lesson 25: Water Level Sensor Module
-=========================================
+Lezione 25: Modulo Sensore di Livello dell'Acqua
+=======================================================
 
 .. note::
-   The Raspberry Pi does not have analog input capabilities, so it needs a module like the :ref:`cpn_pcf8591` to read analog signals for processing.
+   Il Raspberry Pi non dispone di capacità di input analogico, quindi necessita di un modulo come il :ref:`cpn_pcf8591` per leggere i segnali analogici per l'elaborazione.
 
-In this lesson, we'll learn how to read from a water level sensor using a Raspberry Pi. You'll find out how to connect a water level sensor module to the PCF8591 for analog-to-digital conversion and monitor its output in real-time with Python.
+In questa lezione, imparerai a leggere da un sensore di livello dell'acqua utilizzando un Raspberry Pi. Scoprirai come collegare un modulo sensore di livello dell'acqua al PCF8591 per la conversione analogico-digitale e monitorarne l'uscita in tempo reale con Python.
 
-Required Components
+Componenti Necessari
 --------------------------
 
-In this project, we need the following components. 
+Per questo progetto sono necessari i seguenti componenti.
 
-It's definitely convenient to buy a whole kit, here's the link: 
+È decisamente conveniente acquistare un kit completo, ecco il link: 
 
 .. list-table::
     :widths: 20 20 20
     :header-rows: 1
 
-    *   - Name	
-        - ITEMS IN THIS KIT
+    *   - Nome	
+        - ELEMENTI IN QUESTO KIT
         - LINK
-    *   - Universal Maker Sensor Kit
+    *   - Kit Sensori Universali
         - 94
         - |link_umsk|
 
-You can also buy them separately from the links below.
+Puoi anche acquistarli separatamente dai link sottostanti.
 
 .. list-table::
     :widths: 30 20
     :header-rows: 1
 
-    *   - Component Introduction
-        - Purchase Link
+    *   - Introduzione al Componente
+        - Link per l'Acquisto
 
     *   - Raspberry Pi 5
         - |link_rpi5_buy|
@@ -57,68 +57,68 @@ You can also buy them separately from the links below.
         - |link_pcf8591_module_buy|
 
 
-Wiring
+Cablaggio
 ---------------------------
 
 .. image:: img/Lesson_25_Water_Level_Sensor_Module_pi_bb.png
     :width: 100%
 
 
-Code
+Codice
 ---------------------------
 
 .. code-block:: python
 
-   import PCF8591 as ADC  # Import PCF8591 module
-   import time  # Import time for delay
+   import PCF8591 as ADC  # Importa il modulo PCF8591
+   import time  # Importa time per i ritardi
    
-   ADC.setup(0x48)  # Initialize PCF8591 at address 0x48
+   ADC.setup(0x48)  # Inizializza PCF8591 all'indirizzo 0x48
    
    try:
-       while True:  # Continuously read and print
-           print(ADC.read(1))  # Read from Water level sensor module at AIN1
-           time.sleep(0.2)  # Delay of 0.2 seconds
+       while True:  # Leggi e stampa continuamente
+           print(ADC.read(1))  # Leggi dal modulo sensore di livello dell'acqua su AIN1
+           time.sleep(0.2)  # Ritardo di 0.2 secondi
    except KeyboardInterrupt:
-       print("Exit")  # Exit on CTRL+C
+       print("Exit")  # Esci con CTRL+C
 
 
-Code Analysis
+Analisi del Codice
 ---------------------------
 
 
-1. **Import Libraries**:
+1. **Importazione delle Librerie**:
 
-   This section imports necessary Python libraries. The ``PCF8591`` library is used for interacting with the PCF8591 module, and ``time`` is for implementing delays in the code.
-
-   .. code-block:: python
-
-      import PCF8591 as ADC  # Import PCF8591 module
-      import time  # Import time for delay
-
-2. **Initialize PCF8591 Module**:
-
-   Here, the PCF8591 module is initialized. The address ``0x48`` is the I²C address of the PCF8591 module. This is necessary for the Raspberry Pi to communicate with the module.
+   Questa sezione importa le librerie Python necessarie. La libreria ``PCF8591`` è usata per interagire con il modulo PCF8591, e ``time`` è per implementare ritardi nel codice.
 
    .. code-block:: python
 
-      ADC.setup(0x48)  # Initialize PCF8591 at address 0x48
+      import PCF8591 as ADC  # Importa il modulo PCF8591
+      import time  # Importa time per i ritardi
 
-3. **Main Loop and Reading Data**:
+2. **Inizializzazione del Modulo PCF8591**:
 
-   The ``try`` block includes a continuous loop that consistently reads data from the water level sensor module. The ``ADC.read(1)`` function captures the analog input from the sensor connected to channel 1 (AIN1) of the PCF8591 module. Incorporating a ``time.sleep(0.2)`` creates a 0.2-second pause between each reading. This not only helps in reducing CPU usage on the Raspberry Pi by avoiding excessive data processing demands, but also prevents the terminal from being overrun with rapidly scrolling information, making it easier to monitor and analyze the output.
+   Qui, il modulo PCF8591 è inizializzato. L'indirizzo ``0x48`` è l'indirizzo I²C del modulo PCF8591. Questo è necessario per permettere al Raspberry Pi di comunicare con il modulo.
+
+   .. code-block:: python
+
+      ADC.setup(0x48)  # Inizializza PCF8591 all'indirizzo 0x48
+
+3. **Ciclo Continuo e Lettura dei Dati**:
+
+   Il blocco ``try`` include un ciclo continuo che legge costantemente i dati dal modulo sensore di livello dell'acqua. La funzione ``ADC.read(1)`` cattura l'input analogico dal sensore connesso al canale 1 (AIN1) del modulo PCF8591. Includere un ``time.sleep(0.2)`` crea una pausa di 0.2 secondi tra ogni lettura. Questo aiuta a ridurre l'uso della CPU del Raspberry Pi evitando eccessive richieste di elaborazione dei dati e previene che il terminale sia sopraffatto da informazioni che scorrono rapidamente, rendendo più facile monitorare e analizzare l'output.
 
    .. code-block:: python
 
       try:
-          while True:  # Continuously read and print
-              print(ADC.read(1))  # Read from Water level sensor module at AIN1
-              time.sleep(0.2)  # Delay of 0.2 seconds
+          while True:  # Leggi e stampa continuamente
+              print(ADC.read(1))  # Leggi dal modulo sensore di livello dell'acqua su AIN1
+              time.sleep(0.2)  # Ritardo di 0.2 secondi
 
-4. **Handling Keyboard Interrupt**:
+4. **Gestione dell'Interruzione da Tastiera**:
 
-   The ``except`` block is designed to catch a KeyboardInterrupt (like pressing CTRL+C). When this interrupt occurs, the script prints "exit" and stops running. This is a common way to gracefully exit a continuously running script in Python.
+   Il blocco ``except`` è progettato per catturare un'interruzione da tastiera (come premere CTRL+C). Quando si verifica questa interruzione, lo script stampa "uscita" e smette di funzionare. Questo è un modo comune per uscire in modo elegante da uno script che si esegue continuamente in Python.
 
    .. code-block:: python
 
       except KeyboardInterrupt:
-          print("exit")  # Exit on CTRL+C
+          print("exit")  # Esci con CTRL+C

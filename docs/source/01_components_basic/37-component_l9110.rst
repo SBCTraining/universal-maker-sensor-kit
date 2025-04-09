@@ -1,66 +1,66 @@
-.. note::
+.. note:: 
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    Ciao! Benvenuto nella community Facebook degli appassionati SunFounder di Raspberry Pi, Arduino ed ESP32! Approfondisci le tue conoscenze su Raspberry Pi, Arduino ed ESP32 insieme a una comunità di appassionati.
 
-    **Why Join?**
+    **Perché unirsi?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Supporto esperto**: Risolvi problemi post-vendita e sfide tecniche grazie al supporto del nostro team e della community.
+    - **Impara e condividi**: Scambia consigli e tutorial per migliorare le tue competenze.
+    - **Anteprime esclusive**: Accedi in anteprima alle novità sui prodotti e agli sneak peek.
+    - **Sconti speciali**: Approfitta di sconti esclusivi sui nostri prodotti più recenti.
+    - **Promozioni festive e giveaway**: Partecipa a concorsi e promozioni durante le festività.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 Pronto a esplorare e creare con noi? Clicca su [|link_sf_facebook|] e unisciti subito!
 
 .. _cpn_l9110:
 
-L9110 Motor Driver Module
-=============================
+Modulo Driver per Motori L9110
+==================================
 
-The L9110 motor driver module is adept at driving two motors in tandem. It houses a pair of independent L9110S driver chips, each channel boasting a steady current output of up to 800mA.
+Il modulo driver per motori L9110 è progettato per pilotare due motori contemporaneamente. Integra due chip driver L9110S indipendenti, ciascuno in grado di fornire una corrente continua fino a 800mA.
 
-Spanning a voltage range from 2.5V to 12V, the module comfortably pairs with both 3.3V and 5V microcontrollers.
+Con un intervallo di tensione da 2.5V a 12V, il modulo è compatibile con microcontrollori da 3.3V e 5V.
 
-Serving as a streamlined solution, the L9110 motor driver module facilitates motor control across a spectrum of applications. 
-Thanks to its dual-channel architecture, it enables the independent orchestration of two motors—ideal for projects where dual motor operations are paramount.
+Questo modulo rappresenta una soluzione compatta ed efficiente per il controllo di motori in numerose applicazioni. 
+Grazie all'architettura a doppio canale, consente il controllo indipendente di due motori—ideale per progetti in cui è richiesto un controllo simultaneo.
 
-Given its potent continuous current output, this module confidently powers motors from the petite to the moderately sized, paving the way for diverse robotic, automation, and motor-centric endeavors. Its expansive voltage range further injects adaptability, aligning with varied power supply setups.
+La sua capacità di erogare corrente continua elevata lo rende adatto ad alimentare motori da piccoli a medi, risultando utile in ambiti come la robotica, l’automazione e altri progetti motorizzati. Il suo ampio intervallo di tensione garantisce versatilità con diverse fonti di alimentazione.
 
-Designed with user-friendliness in mind, the module offers intuitive input and output terminals, simplifying connections to microcontrollers or akin control devices. Plus, it doesn't skimp on safety—integrated overcurrent and overtemperature safeguards bolster the trustworthiness and security of motor operations.
+Progettato per essere facile da usare, il modulo offre terminali di input e output intuitivi per una semplice connessione con microcontrollori o dispositivi di controllo. Include anche protezioni integrate contro sovracorrenti e sovratemperature per garantire sicurezza e affidabilità.
 
 .. image:: img/37_l9110_module.jpg
     :width: 80%
     :align: center
-    
-* **B-1A & B-1B(B-2A)**: Input pins for controlling the spinning direction of Motor B.
-* **A-1A & A-1B**: Input pins for controlling the spinning direction of Motor A.
-* **0A & OB(A)**: Output pins of Motor A.
-* **0A & OB(B)**: Output pins of Motor B.
-* **VCC**: Power input pin (2.5V-12V).
-* **GND**: Ground pin.
 
-**Features**
+* **B-1A & B-1B(B-2A)**: Pin di input per controllare il senso di rotazione del Motore B.
+* **A-1A & A-1B**: Pin di input per controllare il senso di rotazione del Motore A.
+* **0A & OB(A)**: Pin di output per il Motore A.
+* **0A & OB(B)**: Pin di output per il Motore B.
+* **VCC**: Pin di alimentazione (2.5V-12V).
+* **GND**: Pin di massa.
 
-* On-board 2 L9110S motor control chip
-* Dual-channel motor control.
-* Independent motor spinning direction control.
-* High current output (800mA per channel).
-* Wide voltage range (2.5V-12V).
-* Compact design.
-* Convenient input and output terminals.
-* Built-in protective features.
-* Versatile applications.
-* PCB Size: 29.2mm x 23mm
-* Operating Temperature: -20°C ~ 80°C
-* Power-On LED indicator
+**Caratteristiche**
+
+* 2 chip L9110S integrati per il controllo dei motori
+* Controllo motori a doppio canale
+* Controllo indipendente della direzione di rotazione dei motori
+* Uscita a corrente elevata (800mA per canale)
+* Ampio intervallo di tensione (2.5V-12V)
+* Design compatto
+* Terminali di input/output comodi
+* Protezioni integrate
+* Ampia versatilità applicativa
+* Dimensioni PCB: 29.2mm x 23mm
+* Temperatura operativa: -20°C ~ 80°C
+* LED di stato di accensione integrato
 
 .. _cpn_l9110_principle:
 
-**Operating Principle**
+**Principio di Funzionamento**
 
-Here is the truth table of Motor B:
+Tabella della verità del Motore B:
 
-This truth table shows the different states of Motor B based on the values of input pins B-1A and B-1B(B-2A). It indicates the direction of rotation (clockwise or counterclockwise), braking, or stopping of Motor B.
+Questa tabella mostra gli stati del Motore B in base ai valori dei pin B-1A e B-1B(B-2A). Indica la direzione di rotazione (oraria o antioraria), la frenata o l'arresto del motore.
 
 .. list-table:: 
     :widths: 25 25 50
@@ -68,23 +68,23 @@ This truth table shows the different states of Motor B based on the values of in
 
     * - B-1A
       - B-1B(B-2A)
-      - The state of Motor B
+      - Stato del Motore B
     * - 1
       - 0
-      - Rotate clockwise
+      - Ruota in senso orario
     * - 0
       - 1
-      - Rotate counterclockwise
+      - Ruota in senso antiorario
     * - 0
       - 0
-      - Brake
+      - Freno
     * - 1
       - 1
       - Stop
 
-Here is the truth table of Motor A:
+Tabella della verità del Motore A:
 
-This truth table shows the different states of Motor A based on the values of input pins A-1A and A-1B. It indicates the direction of rotation (clockwise or counterclockwise), braking, or stopping of Motor A.
+Questa tabella mostra gli stati del Motore A in base ai valori dei pin A-1A e A-1B. Indica la direzione di rotazione (oraria o antioraria), la frenata o l'arresto del motore.
 
 .. list-table:: 
     :widths: 25 25 50
@@ -92,21 +92,21 @@ This truth table shows the different states of Motor A based on the values of in
 
     * - A-1A
       - A-1B
-      - The state of Motor B
+      - Stato del Motore A
     * - 1
       - 0
-      - Rotate clockwise
+      - Ruota in senso orario
     * - 0
       - 1
-      - Rotate counterclockwise
+      - Ruota in senso antiorario
     * - 0
       - 0
-      - Brake
+      - Freno
     * - 1
       - 1
       - Stop
 
-Example
+Esempi
 ---------------------------
 * :ref:`uno_lesson31_pump` (Arduino UNO)
 * :ref:`esp32_lesson31_pump` (ESP32)

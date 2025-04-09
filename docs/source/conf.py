@@ -93,7 +93,7 @@ rst_epilog = """
 
 .. |link_sf_facebook| raw:: html
 
-    <a href="https://bit.ly/raphaelkit" target="_blank">here</a>
+    <a href="https://bit.ly/raphaelkit" target="_blank">qui</a>
 
 .. |link_german_tutorials| raw:: html
 
@@ -125,27 +125,27 @@ rst_epilog = """
 
 .. |link_install_arduino_linux| raw:: html
 
-    <a href="https://docs.arduino.cc/software/ide-v2/tutorials/getting-started/ide-v2-downloading-and-installing#linux" target="_blank"> Installing the Arduino IDE 2 - Linux </a>
+    <a href="https://docs.arduino.cc/software/ide-v2/tutorials/getting-started/ide-v2-downloading-and-installing#linux" target="_blank"> Installazione di Arduino IDE 2 - Linux </a>
     
 .. |link_ascii| raw:: html
 
-    <a href="https://www.asciitable.com/" target="_blank">ASCII table of characters</a>
+    <a href="https://www.asciitable.com/" target="_blank">Tabella dei caratteri ASCII</a>
 
 .. |link_esp8266_at| raw:: html
 
-    <a href="../_static/pdf/esp8266_at_instruction_set_en.pdf" target="_blank">ESP8266 AT Instruction Set</a>
+    <a href="../_static/pdf/esp8266_at_instruction_set_en.pdf" target="_blank">Set di istruzioni AT per ESP8266</a>
 
 .. |link_blynk_lib| raw:: html
 
-    <a href="https://github.com/blynkkk/blynk-library/releases" target="_blank">HERE</a>
+    <a href="https://github.com/blynkkk/blynk-library/releases" target="_blank">QUI</a>
 
 .. |link_r4_datasheet| raw:: html
 
-    <a href="https://docs.arduino.cc/resources/datasheets/ABX00080-datasheet.pdf" target="_blank">Arduino UNO R4 Minima Datasheet</a> 
+    <a href="https://docs.arduino.cc/resources/datasheets/ABX00080-datasheet.pdf" target="_blank">Scheda tecnica di Arduino UNO R4 Minima</a> 
 
 .. |link_ra4m1_datasheet| raw:: html
 
-    <a href="https://docs.arduino.cc/resources/datasheets/ra4m1-datasheet.pdf" target="_blank">Renesas RA4M1 Group Datasheet</a> 
+    <a href="https://docs.arduino.cc/resources/datasheets/ra4m1-datasheet.pdf" target="_blank">Scheda tecnica del gruppo Renesas RA4M1</a> 
 
 .. |link_uno_r4| raw:: html
 
@@ -161,15 +161,15 @@ rst_epilog = """
 
 .. |link_blynk_timer_intro| raw:: html
 
-    <a href="https://docs.blynk.io/en/legacy-platform/legacy-articles/keep-your-void-loop-clean" target="_blank">Why we use Blynk timer?</a> 
+    <a href="https://docs.blynk.io/en/legacy-platform/legacy-articles/keep-your-void-loop-clean" target="_blank">Perché usiamo il timer di Blynk?</a> 
 
 .. |link_blynk_quickstart| raw:: html
 
-    <a href="https://docs.blynk.io/en/getting-started/what-do-i-need-to-blynk/quickstart-device-code-overview" target="_blank">Blynk Quickstart</a> 
+    <a href="https://docs.blynk.io/en/getting-started/what-do-i-need-to-blynk/quickstart-device-code-overview" target="_blank">Avvio rapido di Blynk</a> 
 
 .. |link_blynk_doc| raw:: html
 
-    <a href="https://docs.blynk.io/" target="_blank">Blynk Documentation</a> 
+    <a href="https://docs.blynk.io/" target="_blank">Documentazione di Blynk</a> 
 
 .. |link_blynk_syncing| raw:: html
 
@@ -213,7 +213,7 @@ rst_epilog = """
 
 .. |link_appinventor_login| raw:: html
 
-    <a href="http://appinventor.mit.edu/explore/get-started" target="_blank">Get Started with MIT App Inventor</a>
+    <a href="http://appinventor.mit.edu/explore/get-started" target="_blank">Inizia con MIT App Inventor</a>
 
 .. |link_heat_index| raw:: html
 
@@ -233,7 +233,7 @@ rst_epilog = """
 
 .. |link_speech_recognition| raw:: html
 
-    <a href="https://play.google.com/store/apps/details?id=com.google.android.tts" target="_blank">Speech Recognition & Synthesis</a>  
+    <a href="https://play.google.com/store/apps/details?id=com.google.android.tts" target="_blank">Riconoscimento e sintesi vocale</a>  
 
 .. |link_language_tag| raw:: html
 
@@ -241,7 +241,7 @@ rst_epilog = """
 
 .. |link_serial_bluetooth_terminal| raw:: html
 
-    <a href="https://play.google.com/store/apps/details?id=de.kai_morich.serial_bluetooth_terminal" target="_blank">Serial Bluetooth Terminal</a>  
+    <a href="https://play.google.com/store/apps/details?id=de.kai_morich.serial_bluetooth_terminal" target="_blank">Terminale Bluetooth Seriale</a>  
 
 .. |link_blynk| raw:: html
 
@@ -253,7 +253,7 @@ rst_epilog = """
     
 .. |link_breadboard_tutorials| raw:: html
 
-    <a href="https://www.sciencebuddies.org/science-fair-projects/references/how-to-use-a-breadboard" target="_blank">How to Use a Breadboard - Science Buddies</a>
+    <a href="https://www.sciencebuddies.org/science-fair-projects/references/how-to-use-a-breadboard" target="_blank">Come Usare una Breadboard - Science Buddies</a>
 
 .. |link_esp32_datasheet| raw:: html
 
@@ -270,7 +270,7 @@ rst_epilog = """
 
 .. |link_micropython_pi| raw:: html
 
-    <a href="https://www.raspberrypi.com/documentation/microcontrollers/micropython.html#drag-and-drop-micropython" target="_blank">method</a>
+    <a href="https://www.raspberrypi.com/documentation/microcontrollers/micropython.html#drag-and-drop-micropython" target="_blank">metodo</a>
 
 .. |link_imu| raw:: html
 
@@ -314,11 +314,11 @@ rst_epilog = """
     
 .. |link_buy_pi_case| raw:: html
 
-    <a href="https://www.sunfounder.com/search?type=product&q=CASE" target="_blank">here</a>
+    <a href="https://www.sunfounder.com/search?type=product&q=CASE" target="_blank">qui</a>
 
 .. |link_set_up_pi| raw:: html
 
-    <a href="https://projects.raspberrypi.org/en/projects/raspberry-pi-setting-up" target="_blank">Setting up your Raspberry Pi</a>
+    <a href="https://projects.raspberrypi.org/en/projects/raspberry-pi-setting-up" target="_blank">Configurazione del tuo Raspberry Pi</a>
 
 .. |link_alpha2_code| raw:: html
 
@@ -358,7 +358,7 @@ rst_epilog = """
 
 .. |link_pil_handbook| raw:: html
 
-    <a href="https://pillow.readthedocs.io/en/stable/handbook/overview.html" target="_blank">Pillow Handbook</a>
+    <a href="https://pillow.readthedocs.io/en/stable/handbook/overview.html" target="_blank">Manuale di Pillow</a>
 
 .. |link_lcd1602_python_driver_pi| raw:: html
 
@@ -400,7 +400,7 @@ rst_epilog += """
 
 .. |link_Universal_Maker_Sensor_Kit| raw:: html
 
-    <a href="https://www.sunfounder.com/products/sunfounder-universal-maker-sensor-kit?_pos=1&_sid=0cf649641&_ss=r" target="_blank">Purchase Link for Universal Maker Sensor Kit</a>
+    <a href="https://www.sunfounder.com/products/sunfounder-universal-maker-sensor-kit?_pos=1&_sid=0cf649641&_ss=r" target="_blank">Link di acquisto per Universal Maker Sensor Kit</a>
 
 .. |link_Universal_kit| raw:: html
 
@@ -408,140 +408,140 @@ rst_epilog += """
 
 .. |link_Uno_R3_buy| raw:: html
 
-    <a href="https://www.sunfounder.com/products/arduino-unor3-control-board" target="_blank">BUY</a>
+    <a href="https://www.sunfounder.com/products/arduino-unor3-control-board" target="_blank">ACQUISTA</a>
 
 .. |link_esp8266_buy| raw:: html
 
-    <a href="https://www.sunfounder.com/products/esp01-esp-01s-programmer-adapter-serial-high-speed-esp8266-ch340g-usb-to-esp8266-serial-wireless-wifi-developent-board" target="_blank">BUY</a>
+    <a href="https://www.sunfounder.com/products/esp01-esp-01s-programmer-adapter-serial-high-speed-esp8266-ch340g-usb-to-esp8266-serial-wireless-wifi-developent-board" target="_blank">ACQUISTA</a>
 
 .. |link_picow_buy| raw:: html
 
-    <a href="https://www.sunfounder.com/products/raspberry-pi-pico-w" target="_blank">BUY</a>
+    <a href="https://www.sunfounder.com/products/raspberry-pi-pico-w" target="_blank">ACQUISTA</a>
 
 .. |link_rpi5_buy| raw:: html
 
-    <a href="https://www.sunfounder.com/collections/the-raspberry-pi/products/raspberry-pi-5" target="_blank">BUY</a>
+    <a href="https://www.sunfounder.com/collections/the-raspberry-pi/products/raspberry-pi-5" target="_blank">ACQUISTA</a>
 
 .. |link_wires_buy| raw:: html
 
-    <a href="https://www.sunfounder.com/products/560pcs-jumper-wire-kit-with-14-lengths" target="_blank">BUY</a>
+    <a href="https://www.sunfounder.com/products/560pcs-jumper-wire-kit-with-14-lengths" target="_blank">ACQUISTA</a>
 
 .. |link_breadboard_buy| raw:: html
 
-    <a href="https://www.sunfounder.com/products/sunfounder-breadboard-kit" target="_blank">BUY</a>
+    <a href="https://www.sunfounder.com/products/sunfounder-breadboard-kit" target="_blank">ACQUISTA</a>
 
 .. |link_i2clcd1602_buy| raw:: html
 
-    <a href="https://www.sunfounder.com/products/i2c-lcd1602-module" target="_blank">BUY</a>
+    <a href="https://www.sunfounder.com/products/i2c-lcd1602-module" target="_blank">ACQUISTA</a>
 
 .. |link_servo_buy| raw:: html
 
-    <a href="https://www.sunfounder.com/products/sf0180-servo-motor" target="_blank">BUY</a>
+    <a href="https://www.sunfounder.com/products/sf0180-servo-motor" target="_blank">ACQUISTA</a>
 
 .. |link_ultrasonic_buy| raw:: html
 
-    <a href="https://www.sunfounder.com/products/5pcs-hc-sr04-ultrasonic-module-distance-sensor" target="_blank">BUY</a>
+    <a href="https://www.sunfounder.com/products/5pcs-hc-sr04-ultrasonic-module-distance-sensor" target="_blank">ACQUISTA</a>
 
 .. |link_pir_buy| raw:: html
 
-    <a href="https://www.sunfounder.com/products/hcsr501-infrared-sensor" target="_blank">BUY</a>
+    <a href="https://www.sunfounder.com/products/hcsr501-infrared-sensor" target="_blank">ACQUISTA</a>
 
 .. |link_touch_buy| raw:: html
 
-    <a href="https://www.sunfounder.com/products/ttp223-touch-sensor-module" target="_blank">BUY</a>
+    <a href="https://www.sunfounder.com/products/ttp223-touch-sensor-module" target="_blank">ACQUISTA</a>
 
 .. |link_rotary_encoder_buy| raw:: html
 
-    <a href="https://www.sunfounder.com/products/rotary-encoder-module" target="_blank">BUY</a>
+    <a href="https://www.sunfounder.com/products/rotary-encoder-module" target="_blank">ACQUISTA</a>
 
 .. |link_dht11_humiture_buy| raw:: html
 
-    <a href="https://www.sunfounder.com/products/dht11-temperature-and-humidity-sensor-module" target="_blank">BUY</a>
+    <a href="https://www.sunfounder.com/products/dht11-temperature-and-humidity-sensor-module" target="_blank">ACQUISTA</a>
 
 .. |link_obstacle_avoidance_module_buy| raw:: html
 
-    <a href="https://www.sunfounder.com/products/ir-obstacle-avoidance-sensor-module" target="_blank">BUY</a>
+    <a href="https://www.sunfounder.com/products/ir-obstacle-avoidance-sensor-module" target="_blank">ACQUISTA</a>
 
 .. |link_mpu6050_buy| raw:: html
 
-    <a href="https://www.sunfounder.com/products/3pcs-gy-521-mpu-6050-mpu6050-3-axis-accelerometer-gyroscope-module-6-dof-6-axis-accelerometer-gyroscope-sensor-module-16-bit-ad-converter-data-output-iic-i2c-for-arduino" target="_blank">BUY</a>
+    <a href="https://www.sunfounder.com/products/3pcs-gy-521-mpu-6050-mpu6050-3-axis-accelerometer-gyroscope-module-6-dof-6-axis-accelerometer-gyroscope-sensor-module-16-bit-ad-converter-data-output-iic-i2c-for-arduino" target="_blank">ACQUISTA</a>
 
 .. |link_soil_moisture_buy| raw:: html
 
-    <a href="https://www.sunfounder.com/products/capacitive-soil-moisture-sensor-module" target="_blank">BUY</a>       
+    <a href="https://www.sunfounder.com/products/capacitive-soil-moisture-sensor-module" target="_blank">ACQUISTA</a>       
 
 .. |link_oled_buy| raw:: html
 
-    <a href="https://www.sunfounder.com/products/0-96-oled-display-module-ssd1306-128x64-blue-display" target="_blank">BUY</a>   
+    <a href="https://www.sunfounder.com/products/0-96-oled-display-module-ssd1306-128x64-blue-display" target="_blank">ACQUISTA</a>   
 
 .. |link_joystick_buy| raw:: html
 
-    <a href="https://www.sunfounder.com/products/dual-axis-button-joystick-module-ps2-game" target="_blank">BUY</a>
+    <a href="https://www.sunfounder.com/products/dual-axis-button-joystick-module-ps2-game" target="_blank">ACQUISTA</a>
 
 .. |link_flame_sensor_module_buy| raw:: html
 
-    <a href="https://www.sunfounder.com/products/flame-sensor-module-1" target="_blank">BUY</a>
+    <a href="https://www.sunfounder.com/products/flame-sensor-module-1" target="_blank">ACQUISTA</a>
 
 .. |link_mq2_gas_sensor_module_buy| raw:: html
 
-    <a href="https://www.sunfounder.com/products/mq-2-gas-sensor-module" target="_blank">BUY</a>
+    <a href="https://www.sunfounder.com/products/mq-2-gas-sensor-module" target="_blank">ACQUISTA</a>
 
 .. |link_speed_sensor_module_buy| raw:: html
 
-    <a href="https://www.sunfounder.com/products/h2010-speed-ir-measuring-sensor-module" target="_blank">BUY</a>
+    <a href="https://www.sunfounder.com/products/h2010-speed-ir-measuring-sensor-module" target="_blank">ACQUISTA</a>
 
 .. |link_pcf8591_module_buy| raw:: html
 
-    <a href="https://www.sunfounder.com/products/pcf8591-converter-module" target="_blank">BUY</a>
+    <a href="https://www.sunfounder.com/products/pcf8591-converter-module" target="_blank">ACQUISTA</a>
 
 
 .. |link_photoresistor_sensor_module_buy| raw:: html
 
-    <a href="https://www.sunfounder.com/products/photoresistor-sensor-module-1" target="_blank">BUY</a>
+    <a href="https://www.sunfounder.com/products/photoresistor-sensor-module-1" target="_blank">ACQUISTA</a>
 
 .. |link_potentiometer_sensor_module_buy| raw:: html
 
-    <a href="https://www.sunfounder.com/products/potentiometer-sensor-module" target="_blank">BUY</a>
+    <a href="https://www.sunfounder.com/products/potentiometer-sensor-module" target="_blank">ACQUISTA</a>
 
 .. |link_max30102_module_buy| raw:: html
 
-    <a href="https://www.sunfounder.com/products/max30102-heart-rate-sensor-module-pulse-detection-blood-oxygen-concentration-module" target="_blank">BUY</a>
+    <a href="https://www.sunfounder.com/products/max30102-heart-rate-sensor-module-pulse-detection-blood-oxygen-concentration-module" target="_blank">ACQUISTA</a>
 
 .. |link_raindrop_sensor_module_buy| raw:: html
 
-    <a href="https://www.sunfounder.com/products/raindrop-detection-sensor-module" target="_blank">BUY</a>
+    <a href="https://www.sunfounder.com/products/raindrop-detection-sensor-module" target="_blank">ACQUISTA</a>
 
 .. |link_ds1302_module_buy| raw:: html
 
-    <a href="https://www.sunfounder.com/products/ds1302-rtc-real-time-clock-module" target="_blank">BUY</a>
+    <a href="https://www.sunfounder.com/products/ds1302-rtc-real-time-clock-module" target="_blank">ACQUISTA</a>
 
 .. |link_bmp280_module_buy| raw:: html
 
-    <a href="https://www.sunfounder.com/products/bmp280-high-precision-digital-atmospheric-barometric-pressure-module" target="_blank">BUY</a>
+    <a href="https://www.sunfounder.com/products/bmp280-high-precision-digital-atmospheric-barometric-pressure-module" target="_blank">ACQUISTA</a>
 
 .. |link_vl53l0x_module_buy| raw:: html
 
-    <a href="https://www.sunfounder.com/products/vl53l0x-time-of-flight-distance-sensor-laser-ranging-module" target="_blank">BUY</a>
+    <a href="https://www.sunfounder.com/products/vl53l0x-time-of-flight-distance-sensor-laser-ranging-module" target="_blank">ACQUISTA</a>
 
 .. |link_sw420_vibration_module_buy| raw:: html
 
-    <a href="https://www.sunfounder.com/products/sw-420-vibration-switch-sensor-module" target="_blank">BUY</a>
+    <a href="https://www.sunfounder.com/products/sw-420-vibration-switch-sensor-module" target="_blank">ACQUISTA</a>
 
 .. |link_traffic_light_module_buy| raw:: html
 
-    <a href="https://www.sunfounder.com/products/mini-traffic-light-led-5v-8mm-module" target="_blank">BUY</a>
+    <a href="https://www.sunfounder.com/products/mini-traffic-light-led-5v-8mm-module" target="_blank">ACQUISTA</a>
 
 .. |link_passive_buzzer_module_buy| raw:: html
 
-    <a href="https://www.sunfounder.com/products/3-3-5v-passive-low-level-trigger-buzzer-alarm-sound-module" target="_blank">BUY</a>
+    <a href="https://www.sunfounder.com/products/3-3-5v-passive-low-level-trigger-buzzer-alarm-sound-module" target="_blank">ACQUISTA</a>
 
 .. |link_jdy31_bluetooth_module_buy| raw:: html
 
-    <a href="https://www.sunfounder.com/products/jdy-31-bluetooth-wireless-communication-serial-pass-through-module-replace-hc-05-hc-06" target="_blank">BUY</a>
+    <a href="https://www.sunfounder.com/products/jdy-31-bluetooth-wireless-communication-serial-pass-through-module-replace-hc-05-hc-06" target="_blank">ACQUISTA</a>
 
 .. |link_esp32_camera_pro_kit_buy| raw:: html
 
-    <a href="https://www.sunfounder.com/products/sunfounder-esp32-camera-pro-kit" target="_blank">BUY</a>    
+    <a href="https://www.sunfounder.com/products/sunfounder-esp32-camera-pro-kit" target="_blank">ACQUISTA</a>    
 
 .. |link_umsk| raw:: html
 

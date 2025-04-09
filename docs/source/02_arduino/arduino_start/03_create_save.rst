@@ -1,28 +1,27 @@
-.. note::
+.. note:: 
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    Ciao, benvenuto nella community Facebook di SunFounder dedicata agli appassionati di Raspberry Pi, Arduino ed ESP32! Approfondisci il mondo di Raspberry Pi, Arduino ed ESP32 insieme ad altri appassionati.
 
-    **Why Join?**
+    **Perché unirsi?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Supporto esperto**: Risolvi problemi post-vendita e sfide tecniche grazie all’aiuto della nostra community e del nostro team.
+    - **Impara e condividi**: Scambia suggerimenti e tutorial per migliorare le tue competenze.
+    - **Anteprime esclusive**: Ottieni accesso anticipato agli annunci dei nuovi prodotti e alle anteprime.
+    - **Sconti speciali**: Goditi sconti esclusivi sui nostri prodotti più recenti.
+    - **Promozioni festive e giveaway**: Partecipa a concorsi e promozioni durante le festività.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 Pronto a esplorare e creare con noi? Clicca su [|link_sf_facebook|] e unisciti oggi stesso!
 
-How to create, open or Save the Sketch?
-=======================================
+Come creare, aprire o salvare uno Sketch?
+============================================
 
-
-#. When you open the Arduino IDE for the first time or create a new sketch, you will see a page like this, where the Arduino IDE creates a new file for you, which is called a "sketch".
+#. Quando apri l’Arduino IDE per la prima volta o crei un nuovo sketch, vedrai una schermata come questa, in cui l’IDE crea automaticamente un nuovo file chiamato "sketch".
 
    .. image:: img/sp221014_173458.png
 
-   These sketch files have a regular temporary name, from which you can tell the date the file was created. ``sketch_oct14a.ino`` means October 14th first sketch, ``.ino`` is the file format of this sketch.
+   Questi file sketch hanno un nome temporaneo predefinito che riflette la data di creazione. ``sketch_oct14a.ino`` significa "primo sketch del 14 ottobre". L’estensione ``.ino`` è il formato dei file di sketch per Arduino.
 
-#. Now let's try to create a new sketch. Copy the following code into the Arduino IDE to replace the original code.
+#. Ora proviamo a creare un nuovo sketch. Copia il codice seguente nell’IDE Arduino, sostituendo il codice originale.
 
 
    .. image:: img/create1.png
@@ -30,24 +29,24 @@ How to create, open or Save the Sketch?
    .. code-block:: Arduino
 
        void setup() {
-           // put your setup code here, to run once:
+           // inserisci qui il codice di configurazione, eseguito una sola volta:
            pinMode(13,OUTPUT); 
        }
 
        void loop() {
-           // put your main code here, to run repeatedly:
+           // inserisci qui il codice principale, eseguito ripetutamente:
            digitalWrite(13,HIGH);
            delay(500);
            digitalWrite(13,LOW);
            delay(500);
        }
 
-#. Press ``Ctrl+S`` or click **File** -> **Save**. The Sketch is saved in: ``C:\Users\{your_user}\Documents\Arduino`` by default, you can rename it or find a new path to save it.
+#. Premi ``Ctrl+S`` oppure clicca su **File** -> **Salva**. Lo sketch verrà salvato per default nella cartella: ``C:\Users\{your_user}\Documents\Arduino``, ma puoi rinominarlo o scegliere un percorso differente.
 
    .. image:: img/create2.png
 
-#. After successful saving, you will see that the name in the Arduino IDE has been updated.
+#. Dopo il salvataggio, vedrai che il nome dello sketch è stato aggiornato anche nella finestra dell’IDE.
 
    .. image:: img/create3.png
 
-Please continue with the next section to learn how to upload this created sketch to your Arduino board.
+Continua con la prossima sezione per imparare come caricare lo sketch creato sulla tua scheda Arduino.

@@ -1,95 +1,95 @@
-.. note::
+.. note:: 
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    Ciao e benvenuto nella Community Facebook degli appassionati di SunFounder Raspberry Pi, Arduino ed ESP32! Approfondisci le tue competenze su Raspberry Pi, Arduino ed ESP32 insieme ad altri maker come te.
 
-    **Why Join?**
+    **Perché unirsi?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Supporto Esperto**: Risolvi problemi post-vendita e affronta sfide tecniche grazie al supporto del nostro team e della community.
+    - **Impara e Condividi**: Scambia suggerimenti e tutorial per migliorare le tue abilità.
+    - **Anteprime Esclusive**: Ottieni accesso anticipato alle novità sui prodotti e a contenuti esclusivi.
+    - **Sconti Speciali**: Approfitta di sconti esclusivi sui nostri prodotti più recenti.
+    - **Promozioni e Giveaway Festivi**: Partecipa a promozioni e concorsi a premi durante le festività.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 Pronto a scoprire e creare con noi? Clicca su [|link_sf_facebook|] ed entra oggi stesso!
 
 .. _uno_lesson11_photoresistor:
 
-Lesson 11: Photoresistor Module
-==================================
+Lezione 11: Modulo con Fotoresistenza
+=======================================
 
-In this lesson, you will learn how to measure light intensity using a photoresistor sensor with an Arduino Uno. We'll cover reading and displaying the analog values from the sensor, which reflect the amount of light it detects. This project is ideal for beginners as it provides hands-on experience in working with sensors and understanding analog input on the Arduino platform. You'll also improve your proficiency in serial communication by outputting sensor readings to the serial monitor.
+In questa lezione imparerai a misurare l’intensità luminosa utilizzando un sensore fotoresistivo con Arduino Uno. Vedremo come leggere e visualizzare i valori analogici rilevati dal sensore, che indicano la quantità di luce percepita. Questo progetto è ideale per i principianti, in quanto offre un’esperienza pratica nell’uso dei sensori e nella comprensione degli ingressi analogici su Arduino. Inoltre, migliorerai le tue competenze nella comunicazione seriale visualizzando i dati del sensore sul monitor seriale.
 
-Required Components
+Componenti Necessari
 --------------------------
 
-In this project, we need the following components. 
+Per questo progetto sono necessari i seguenti componenti.
 
-It's definitely convenient to buy a whole kit, here's the link: 
+È sicuramente comodo acquistare un kit completo. Ecco il link:
 
 .. list-table::
     :widths: 20 20 20
     :header-rows: 1
 
-    *   - Name	
-        - ITEMS IN THIS KIT
+    *   - Nome	
+        - CONTENUTO DEL KIT
         - LINK
     *   - Universal Maker Sensor Kit
         - 94
         - |link_umsk|
 
-You can also buy them separately from the links below.
+Puoi anche acquistare i singoli componenti dai link sottostanti.
 
 .. list-table::
     :widths: 30 20
     :header-rows: 1
 
-    *   - Component Introduction
-        - Purchase Link
+    *   - Descrizione del Componente
+        - Link per l'acquisto
 
-    *   - Arduino UNO R3 or R4
+    *   - Arduino UNO R3 o R4
         - |link_Uno_R3_buy|
     *   - :ref:`cpn_photoresistor`
         - |link_photoresistor_sensor_module_buy|
 
 
-Wiring
+Collegamenti
 ---------------------------
 
 .. image:: img/Lesson_11_photoresistor_module_uno_bb.png
     :width: 100%
 
 
-Code
+Codice
 ---------------------------
 
 .. raw:: html
 
     <iframe src=https://create.arduino.cc/editor/sunfounder01/ac4664d2-2f44-4d5f-9cf4-a82eadc74d3e/preview?embed style="height:510px;width:100%;margin:10px 0" frameborder=0></iframe>
 
-Code Analysis
+Analisi del Codice
 ---------------------------
 
-#. **Setting Up the Sensor Pin and Serial Communication**
+#. **Configurazione del Pin del Sensore e della Comunicazione Seriale**
 
-   We start by defining the sensor pin and initializing serial communication in the setup function. The photoresistor is connected to the analog pin A0.
+   Iniziamo definendo il pin del sensore e avviando la comunicazione seriale nella funzione ``setup()``. La fotoresistenza è collegata al pin analogico A0.
 
    .. code-block:: arduino
 
-      const int sensorPin = A0;  // Pin connected to the photoresistor
+      const int sensorPin = A0;  // Pin collegato alla fotoresistenza
 
       void setup() {
-        Serial.begin(9600);  // Start serial communication at 9600 baud rate
+        Serial.begin(9600);  // Avvia la comunicazione seriale a 9600 baud
       }
 
-#. **Reading and Displaying Sensor Data**
+#. **Lettura e Visualizzazione dei Dati del Sensore**
 
-   In the loop function, we continuously read the analog value from the sensor and print it to the Serial Monitor. We also add a short delay to stabilize the readings.
+   Nella funzione ``loop()``, leggiamo continuamente il valore analogico dal sensore e lo stampiamo sul Monitor Seriale. Aggiungiamo anche un breve ritardo per stabilizzare le letture.
 
    .. code-block:: arduino
 
       void loop() {
-        Serial.println(analogRead(sensorPin));  // Read and print the analog value
-        delay(50);                              // Short delay to stabilize readings
+        Serial.println(analogRead(sensorPin));  // Legge e stampa il valore analogico
+        delay(50);                              // Breve ritardo per stabilizzare la lettura
       }
 
 

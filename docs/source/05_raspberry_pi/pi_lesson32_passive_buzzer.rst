@@ -1,50 +1,50 @@
-.. note::
+.. note:: 
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    Ciao, benvenuto nella Comunità degli Appassionati di SunFounder Raspberry Pi & Arduino & ESP32 su Facebook! Approfondisci le tue conoscenze su Raspberry Pi, Arduino e ESP32 con altri appassionati.
 
-    **Why Join?**
+    **Perché Unirsi?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Supporto Esperto**: Risolvi problemi post-vendita e sfide tecniche con l'aiuto della nostra comunità e del nostro team.
+    - **Impara & Condividi**: Scambia consigli e tutorial per migliorare le tue competenze.
+    - **Anteprime Esclusive**: Accedi in anteprima alle nuove annunci di prodotti e anteprime esclusive.
+    - **Sconti Speciali**: Goditi sconti esclusivi sui nostri prodotti più recenti.
+    - **Promozioni Festive e Giveaway**: Partecipa a giveaway e promozioni natalizie.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 Pronto a esplorare e creare con noi? Clicca [|link_sf_facebook|] e unisciti oggi!
 
 .. _pi_lesson32_passive_buzzer:
 
-Lesson 32: Passive Buzzer Module
+Lezione 32: Modulo Buzzer Passivo
 ==================================
 
-In this lesson, you will learn how to create musical tones using a TonalBuzzer with a Raspberry Pi. You'll learn how to program the Raspberry Pi to play a sequence of musical notes using Python. The lesson includes defining a tune as a list of notes and durations, and writing a function to play these notes through the buzzer. This project offers a straightforward introduction to working with sound output and Python programming, making it a practical choice for beginners interested in exploring musical applications with the Raspberry Pi.
+In questa lezione imparerai a creare toni musicali utilizzando un TonalBuzzer con un Raspberry Pi. Imparerai a programmare il Raspberry Pi per riprodurre una sequenza di note musicali usando Python. La lezione include la definizione di una melodia come lista di note e durate, e la scrittura di una funzione per riprodurre queste note attraverso il buzzer. Questo progetto offre un'introduzione semplice al lavoro con l'output sonoro e alla programmazione Python, rendendolo una scelta pratica per i principianti interessati ad esplorare applicazioni musicali con il Raspberry Pi.
 
-Required Components
+Componenti Necessari
 --------------------------
 
-In this project, we need the following components. 
+Per questo progetto, abbiamo bisogno dei seguenti componenti.
 
-It's definitely convenient to buy a whole kit, here's the link: 
+È sicuramente conveniente acquistare un kit completo, ecco il link:
 
 .. list-table::
     :widths: 20 20 20
     :header-rows: 1
 
-    *   - Name	
-        - ITEMS IN THIS KIT
+    *   - Nome	
+        - ARTICOLI IN QUESTO KIT
         - LINK
     *   - Universal Maker Sensor Kit
         - 94
         - |link_umsk|
 
-You can also buy them separately from the links below.
+Puoi anche acquistarli separatamente dai link sottostanti.
 
 .. list-table::
     :widths: 30 20
     :header-rows: 1
 
-    *   - Component Introduction
-        - Purchase Link
+    *   - Introduzione ai Componenti
+        - Link Acquisto
 
     *   - Raspberry Pi 5
         - |link_rpi5_buy|
@@ -52,16 +52,16 @@ You can also buy them separately from the links below.
         - |link_passive_buzzer_module_buy|
     *   - :ref:`cpn_breadboard`
         - |link_breadboard_buy|
-        
 
-Wiring
+
+Cablaggio
 ---------------------------
 
 .. image:: img/Lesson_32_Passive_buzzer_Pi_bb.png
     :width: 100%
 
 
-Code
+Codice
 ---------------------------
 
 .. code-block:: python
@@ -69,8 +69,8 @@ Code
    from gpiozero import TonalBuzzer
    from time import sleep
 
-   # Initialize the TonalBuzzer on GPIO pin 17
-   tb = TonalBuzzer(17)  # Change to the pin number your buzzer is connected to
+   # Inizializzare il TonalBuzzer sul pin GPIO 17
+   tb = TonalBuzzer(17)  # Cambiare con il numero di pin a cui è collegato il buzzer
 
    def play(tune):
       """
@@ -78,12 +78,12 @@ Code
       :param tune: List of tuples, where each tuple contains a note and its duration.
       """
       for note, duration in tune:
-         print(note)  # Print the current note being played
-         tb.play(note)  # Play the note on the buzzer
-         sleep(float(duration))  # Wait for the duration of the note
-      tb.stop()  # Stop the buzzer after playing the tune
+         print(note)  # Stampa la nota attuale in riproduzione
+         tb.play(note)  # Riproduci la nota sul buzzer
+         sleep(float(duration))  # Attendi la durata della nota
+      tb.stop()  # Fermare il buzzer dopo aver riprodotto la melodia
 
-   # Define the musical tune as a list of notes and their durations
+   # Definire la melodia musicale come lista di note e loro durate
    tune = [('C#4', 0.2), ('D4', 0.2), (None, 0.2),
       ('Eb4', 0.2), ('E4', 0.2), (None, 0.6),
       ('F#4', 0.2), ('G4', 0.2), (None, 0.6),
@@ -95,32 +95,32 @@ Code
       ('A4', 0.2), ('G4', 0.2), ('E4', 0.2),
       ('D4', 0.2), ('E4', 0.2)]
 
-   # Play the tune
+   # Riprodurre la melodia
    play(tune) 
 
-Code Analysis
+Analisi del Codice
 ---------------------------
 
-#. Import Libraries
+#. Importare le Librerie
    
-   Import ``TonalBuzzer`` from ``gpiozero`` for sound generation and ``sleep`` from ``time`` for timing control.
+   Importare ``TonalBuzzer`` da ``gpiozero`` per la generazione di suoni e ``sleep`` da ``time`` per il controllo dei tempi.
 
    .. code-block:: python
 
       from gpiozero import TonalBuzzer
       from time import sleep
 
-#. Initialize the TonalBuzzer
+#. Inizializzare il TonalBuzzer
    
-   Create a ``TonalBuzzer`` object connected to GPIO pin 17.
+   Creare un oggetto ``TonalBuzzer`` collegato al pin GPIO 17.
 
    .. code-block:: python
 
       tb = TonalBuzzer(17)
 
-#. Define the Play Function
+#. Definire la Funzione di Riproduzione
    
-   The ``play`` function takes a list of tuples as input, where each tuple represents a musical note and its duration. It iterates through each tuple, playing the note and waiting for its duration.
+   La funzione ``play`` prende una lista di tuple come input, dove ogni tupla rappresenta una nota musicale e la sua durata. Itera attraverso ogni tupla, riproducendo la nota e attendendo la sua durata.
 
    .. code-block:: python
 
@@ -131,17 +131,17 @@ Code Analysis
               sleep(float(duration))
           tb.stop()
 
-#. Define the Musical Tune
+#. Definire la Melodia
    
-   The tune is defined as a list of tuples. Each tuple contains a note and its duration in seconds. ``None`` is used to represent a pause.
+   La melodia è definita come una lista di tuple. Ogni tupla contiene una nota e la sua durata in secondi. ``None`` è usato per rappresentare una pausa.
 
    .. code-block:: python
 
       tune = [('C#4', 0.2), ('D4', 0.2), (None, 0.2), ...]
 
-#. Play the Tune
+#. Riprodurre la Melodia
    
-   The ``play`` function is called with the ``tune`` list, causing the buzzer to play the defined sequence of notes.
+   La funzione ``play`` è chiamata con la lista ``tune``, facendo suonare il buzzer la sequenza di note definita.
 
    .. code-block:: python
 

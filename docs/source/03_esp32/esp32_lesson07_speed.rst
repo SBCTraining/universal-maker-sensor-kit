@@ -1,52 +1,52 @@
 .. note::
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    Ciao, benvenuto nella Comunità di Appassionati di Raspberry Pi, Arduino e ESP32 di SunFounder su Facebook! Approfondisci le tue conoscenze su Raspberry Pi, Arduino e ESP32 con altri appassionati.
 
     **Why Join?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Expert Support**: Risolvi problemi post-vendita e sfide tecniche con il supporto della nostra comunità e del nostro team.
+    - **Learn & Share**: Scambia consigli e tutorial per migliorare le tue competenze.
+    - **Exclusive Previews**: Ottieni accesso anticipato ad annunci di nuovi prodotti e anteprime esclusive.
+    - **Special Discounts**: Godi di sconti esclusivi sui nostri prodotti più recenti.
+    - **Festive Promotions and Giveaways**: Partecipa a giveaway e promozioni festive.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 Pronto a esplorare e creare con noi? Clicca [|link_sf_facebook|] e unisciti oggi!
 
 .. _esp32_lesson07_speed:
 
-Lesson 07: Infrared Speed Sensor Module
-==========================================
+Lezione 07: Modulo Sensore di Velocità a Infrarossi
+========================================================
 
-In this lesson, you'll learn how to use an ESP32 Development Board with a Speed Sensor Module to detect obstructions. We'll see how the sensor sends a high signal when there's an obstruction and a low signal when the path is clear. This project is ideal for those looking to grasp sensor integration and basic input/output operations in a practical setting using the ESP32 platform.
+In questa lezione, imparerai come utilizzare una Scheda di Sviluppo ESP32 con un Modulo Sensore di Velocità per rilevare ostruzioni. Vedremo come il sensore invia un segnale alto quando c'è un'ostacolo e un segnale basso quando il percorso è libero. Questo progetto è ideale per chi desidera comprendere l'integrazione dei sensori e le operazioni di input/output di base in un contesto pratico utilizzando la piattaforma ESP32.
 
-Required Components
+Componenti Necessari
 --------------------------
 
-In this project, we need the following components. 
+Per questo progetto, abbiamo bisogno dei seguenti componenti.
 
-It's definitely convenient to buy a whole kit, here's the link: 
+È decisamente conveniente acquistare un kit completo, ecco il link:
 
 .. list-table::
     :widths: 20 20 20
     :header-rows: 1
 
-    *   - Name	
-        - ITEMS IN THIS KIT
+    *   - Nome	
+        - ELEMENTI IN QUESTO KIT
         - LINK
-    *   - Universal Maker Sensor Kit
+    *   - Kit Sensori Universale Maker
         - 94
         - |link_umsk|
 
-You can also buy them separately from the links below.
+Puoi anche acquistarli separatamente dai link qui sotto.
 
 .. list-table::
     :widths: 30 20
     :header-rows: 1
 
-    *   - Component Introduction
-        - Purchase Link
+    *   - Introduzione al Componente
+        - Link d'acquisto
 
-    *   - ESP32 & Development Board (:ref:`cpn_esp32_wroom_32e`)
+    *   - ESP32 & Scheda di Sviluppo (:ref:`cpn_esp32_wroom_32e`)
         - |link_esp32_camera_pro_kit_buy|
     *   - :ref:`cpn_breadboard`
         - |link_breadboard_buy|
@@ -54,34 +54,34 @@ You can also buy them separately from the links below.
         - |link_speed_sensor_module_buy|
 
 
-Wiring
+Cablaggio
 ---------------------------
 
 .. image:: img/Lesson_07_Speed_esp32_bb.png
     :width: 100%
 
 
-Code
+Codice
 ---------------------------
 
 .. raw:: html
 
     <iframe src=https://create.arduino.cc/editor/sunfounder01/bdf494c6-c0b1-4dbd-89bc-ce671db41bbb/preview?embed style="height:510px;width:100%;margin:10px 0" frameborder=0></iframe>
 
-Code Analysis
+Analisi del Codice
 ---------------------------
 
-#. Define the sensor pin
+#. Definire il pin del sensore
 
-   The sensor pin is declared as a constant integer and is assigned pin number 25 of the ESP32.
+   Il pin del sensore è dichiarato come intero costante e assegnato al numero di pin 25 dell'ESP32.
 
    .. code-block:: arduino
 
       const int sensorPin = 25;
 
-#. Setup function
+#. Funzione Setup
 
-   This function initializes the serial communication at 9600 baud rate and sets the sensorPin as an input.
+   Questa funzione inizializza la comunicazione seriale a una velocità di 9600 baud e imposta il sensorPin come input.
 
    .. code-block:: arduino
     
@@ -90,11 +90,11 @@ Code Analysis
         pinMode(sensorPin, INPUT);
       }
 
-#. Loop function
+#. Funzione Loop
 
-   The loop function continuously checks the sensor pin's status.
-   If the sensor pin reads HIGH, it prints "Obstruction detected" to the Serial Monitor.
-   If the sensor pin is LOW, it prints "Unobstructed".
+   La funzione loop controlla continuamente lo stato del pin del sensore.
+   Se il pin del sensore legge HIGH, stampa "Ostruzione rilevata" sul Monitor Seriale.
+   Se il pin del sensore è LOW, stampa "Libero".
 
    .. code-block:: arduino
 
@@ -106,9 +106,9 @@ Code Analysis
         }
       }
 
-#. More
+#. Altro
 
-   If an encoder is mounted on the motor, the rotational speed of the motor can be calculated by counting the number of times an obstruction passes the sensor within a specific period.
+   Se un encoder è montato sul motore, la velocità di rotazione del motore può essere calcolata contando il numero di volte che un'ostruzione passa il sensore in un determinato periodo.
 
    .. image:: img/Lesson_07_Encoder_Disk.png
       :align: center

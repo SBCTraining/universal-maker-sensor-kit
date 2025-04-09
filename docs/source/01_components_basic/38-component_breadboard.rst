@@ -1,16 +1,16 @@
-.. note::
+.. note:: 
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    Ciao! Benvenuto nella community Facebook di appassionati di SunFounder Raspberry Pi, Arduino ed ESP32! Esplora più a fondo il mondo di Raspberry Pi, Arduino ed ESP32 insieme ad altri appassionati.
 
-    **Why Join?**
+    **Perché unirsi?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Supporto esperto**: Risolvi problemi post-vendita e difficoltà tecniche grazie all’aiuto della nostra community e del nostro team.
+    - **Impara e condividi**: Scambia consigli e tutorial per migliorare le tue competenze.
+    - **Anteprime esclusive**: Accedi in anteprima agli annunci di nuovi prodotti e anticipazioni.
+    - **Sconti speciali**: Approfitta di sconti esclusivi sui nostri prodotti più recenti.
+    - **Promozioni festive e giveaway**: Partecipa a concorsi e promozioni durante le festività.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 Pronto a esplorare e creare con noi? Clicca su [|link_sf_facebook|] e unisciti oggi stesso!
 
 .. _cpn_breadboard:
 
@@ -20,16 +20,16 @@ Breadboard
 .. image:: img/38_breadboard.png
     :width: 600
 
-A breadboard is a construction base for prototyping of electronics. Originally the word referred to a literal bread board, a polished piece of wood used for slicing bread. In the 1970s the solderless breadboard (a.k.a. plugboard, a terminal array board) became available and nowadays the term "breadboard" is commonly used to refer to these.
+La breadboard è una base di costruzione utilizzata per la prototipazione di circuiti elettronici. Originariamente il termine si riferiva a un tagliere in legno utilizzato per affettare il pane. Negli anni '70 è comparsa la breadboard senza saldature (nota anche come plugboard o terminal array board) e oggi il termine "breadboard" viene comunemente usato per indicare proprio questo tipo di strumento.
 
-It is used to build and test circuits quickly before finishing any circuit design. 
-And it has many holes into which components mentioned above can be inserted like ICs and resistors as well as jumper wires. 
-The breadboard allows you to plug in and remove components easily. 
+Serve per costruire e testare rapidamente circuiti prima di finalizzare il progetto definitivo. 
+È dotata di numerosi fori nei quali possono essere inseriti componenti come IC, resistori e jumper wire. 
+La breadboard consente di inserire e rimuovere i componenti con facilità.
 
-The picture shows the internal structure of a breadboard. 
-Although these holes on the breadboard appear to be independent of each other, they are actually connected to each other through metal strips internally.
+L'immagine seguente mostra la struttura interna di una breadboard. 
+Anche se i fori sulla breadboard sembrano indipendenti, in realtà sono collegati internamente tramite strisce metalliche.
 
 .. image:: img/38_breadboard_internal.png
     :width: 600
 
-If you want to know more about breadboard, refer to: |link_breadboard_tutorials|
+Per saperne di più sulla breadboard, consulta: |link_breadboard_tutorials|

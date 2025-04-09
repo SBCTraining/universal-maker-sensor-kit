@@ -1,20 +1,20 @@
-.. note::
+.. note:: 
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    Ciao! Benvenuto nella community Facebook dedicata agli appassionati di SunFounder, Raspberry Pi, Arduino ed ESP32! Unisciti a noi per approfondire il mondo di Raspberry Pi, Arduino ed ESP32 insieme ad altri maker ed entusiasti.
 
-    **Why Join?**
+    **Perché unirsi?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Supporto esperto**: Risolvi problemi post-vendita e sfide tecniche con l’aiuto della nostra community e del nostro team.
+    - **Impara e condividi**: Scambia consigli e tutorial per migliorare le tue competenze.
+    - **Anteprime esclusive**: Ottieni accesso anticipato a novità e anteprime sui nuovi prodotti.
+    - **Sconti speciali**: Approfitta di sconti esclusivi sui nostri prodotti più recenti.
+    - **Promozioni festive e giveaway**: Partecipa a omaggi e promozioni speciali durante le festività.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 Pronto a esplorare e creare con noi? Clicca su [|link_sf_facebook|] e unisciti oggi stesso!
 
 .. _cpn_touch:
 
-Touch Sensor Module
+Modulo Sensore Touch
 ==========================
 
 .. image:: img/22_touch_sensor_moudle.png
@@ -22,36 +22,36 @@ Touch Sensor Module
     :align: center
 
 
-The Touch switch sensor (also called touch button or touch switch) is widely used to control devices (e.g. touchable lamp). It has the same functionality as a button. It is used instead of the button on many new devices because it makes the product look neat.
+Il sensore touch (noto anche come pulsante touch o interruttore touch) è ampiamente utilizzato per il controllo di dispositivi, come ad esempio lampade tattili. Ha la stessa funzionalità di un pulsante meccanico, ma viene sempre più utilizzato nei dispositivi moderni perché dona al prodotto un aspetto più elegante e pulito.
 
 Pinout
 ---------------------------
-* **VCC**: This is the positive power supply input from the main control. 
-* **GND**: Ground connection.
-* **IO**: Digital output. High level with a touch, low level without touching.
+* **VCC**: Ingresso di alimentazione positiva dal controllore principale.  
+* **GND**: Collegamento a massa.  
+* **IO**: Uscita digitale. Livello alto quando toccato, livello basso quando non toccato.
 
 
-Principle
----------------------------
-This module is a capacitive touch switch module based on a touch sensor IC (TTP223B). In the normal state, the module outputs a low level with low power consumption; when a finger touches the corresponding position, the module outputs a high level and becomes low level again after the finger is released.
+Principio di funzionamento
+------------------------------
+Questo modulo è un interruttore capacitivo basato sul chip sensore TTP223B. In condizioni normali, il modulo emette un livello basso con basso consumo energetico; quando un dito tocca la superficie sensibile, il modulo passa a livello alto e ritorna a livello basso dopo che il dito viene rimosso.
 
-Here is how the capacitive touch switch works:
+Ecco come funziona un interruttore capacitivo:
 
-A capacitive touch switch has different layers—top insulating face plate followed by touch plate, another insulating layer and then ground plate.
+Un interruttore touch capacitivo è composto da diversi strati: una piastra isolante superiore, seguita da una piastra conduttiva, un altro strato isolante e infine una piastra di massa.
 
 .. image:: img/22_touch_sensor_moudle_principle.jpeg
     :width: 400
     :align: center
 
 .. raw:: html
-    
+
     <br/>
 
-In practice, a capacitive sensor can be made on a double-sided PCB by regarding one side as the touch sensor and the opposite side as ground plate of the capacitor. When power is applied across these plates, the two plates get charged. In equilibrium state, the plates have the same voltage as the power source.
+In pratica, un sensore capacitivo può essere realizzato su un PCB a doppia faccia, utilizzando un lato come area sensibile al tocco e l'altro lato come piastra di massa. Quando viene applicata una tensione tra queste due superfici, esse si caricano come in un condensatore. In stato di equilibrio, entrambe le piastre raggiungono la stessa tensione della sorgente.
 
-The touch detector circuit has an oscillator whose frequency is dependent on capacitance of the touchpad. When a finger is moved close to the touchpad, additional capacitance causes frequency of this internal oscillator to change. The detector circuit tracks oscillator frequency at timed intervals, and when the shift crosses the threshold change, the circuit triggers a key-press event.
+Il circuito di rilevamento contiene un oscillatore la cui frequenza dipende dalla capacità del pad touch. Quando un dito si avvicina al pad, l’aumento di capacità altera la frequenza dell’oscillatore. Il circuito di rilevamento monitora questa frequenza a intervalli regolari e, quando la variazione supera una soglia predefinita, viene generato un evento di pressione del tasto.
 
-Schematic diagram
+Schema elettrico
 ---------------------------
 
 .. image:: img/22_touch_sensor_moudle_schematic.png
@@ -63,12 +63,12 @@ Schematic diagram
    <br/>
 
 
-Example
+Esempi
 ---------------------------
-* :ref:`uno_lesson22_touch_sensor` (Arduino UNO)
-* :ref:`esp32_lesson22_touch_sensor` (ESP32)
-* :ref:`pico_lesson22_touch_sensor` (Raspberry Pi Pico)
-* :ref:`pi_lesson22_touch_sensor` (Raspberry Pi)
+* :ref:`uno_lesson22_touch_sensor` (Arduino UNO)  
+* :ref:`esp32_lesson22_touch_sensor` (ESP32)  
+* :ref:`pico_lesson22_touch_sensor` (Raspberry Pi Pico)  
+* :ref:`pi_lesson22_touch_sensor` (Raspberry Pi)  
 
-* :ref:`uno_lesson42_touch_toggle_light` (Arduino UNO)
+* :ref:`uno_lesson42_touch_toggle_light` (Arduino UNO)  
 * :ref:`esp32_touch_toggle_light` (ESP32)

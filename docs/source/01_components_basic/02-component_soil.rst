@@ -1,16 +1,16 @@
-.. note::
+.. note:: 
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    Ciao, benvenuto nella community SunFounder per appassionati di Raspberry Pi, Arduino ed ESP32 su Facebook! Approfondisci il mondo di Raspberry Pi, Arduino ed ESP32 insieme ad altri appassionati.
 
     **Why Join?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Expert Support**: Risolvi problemi post-vendita e difficoltà tecniche con l’aiuto del nostro team e della community.
+    - **Learn & Share**: Scambia suggerimenti e tutorial per migliorare le tue competenze.
+    - **Exclusive Previews**: Accedi in anteprima agli annunci dei nuovi prodotti e alle anticipazioni.
+    - **Special Discounts**: Goditi sconti esclusivi sui nostri prodotti più recenti.
+    - **Festive Promotions and Giveaways**: Partecipa a concorsi e promozioni speciali durante le festività.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 Pronto a esplorare e creare con noi? Clicca su [|link_sf_facebook|] e unisciti subito!
 
 .. _cpn_soil:
 
@@ -25,23 +25,23 @@ Capacitive Soil Moisture Module
 
    <br/> 
 
-The Soil Moisture Module is a sensor used in agriculture to measure the moisture content of soil, helping farmers monitor soil moisture levels and determine when to water their crops.
-This capacitive soil moisture sensor differs from the resistive sensors on the market, using the principle of capacitive induction to detect soil moisture. It avoids the problem of easy corrosion in resistive sensors and greatly extends its working life.
+Il modulo per l’umidità del suolo è un sensore impiegato in ambito agricolo per misurare il contenuto di umidità nel terreno, aiutando gli agricoltori a monitorare i livelli di umidità e determinare il momento ideale per l’irrigazione.
+Questo sensore capacitivo differisce dai sensori resistivi comunemente presenti sul mercato: utilizza il principio dell’induzione capacitiva per rilevare l’umidità, evitando il problema della corrosione tipica dei sensori resistivi e garantendo una durata operativa significativamente più lunga.
 
 Pinout
 ---------------------------
-* **VCC**: This is the positive power supply input from the main control. 
-* **GND**: Ground connection.
-* **AUOT**: Analog output. The higher the soil moisture content, the lower the analog output value.
+* **VCC**: Ingresso di alimentazione positiva dal controller principale.
+* **GND**: Collegamento a massa.
+* **AUOT**: Uscita analogica. Maggiore è l’umidità del terreno, minore sarà il valore dell’uscita analogica.
 
 Principle
 ---------------------------
 
-This capacitive soil moisture sensor is different from most of the resistive sensors on the market, using the principle of capacitive induction to detect soil moisture. It avoids the problem that resistive sensors are highly susceptible to corrosion and greatly extends its working life.
+Questo sensore capacitivo per l’umidità del suolo si distingue dalla maggior parte dei sensori resistivi in commercio grazie all’impiego dell’induzione capacitiva per la rilevazione dell’umidità. Elimina il problema della corrosione a cui sono soggetti i sensori resistivi e garantisce una durata molto più lunga.
 
-It is made of corrosion-resistant materials and has an excellent service life. Insert it into the soil around plants and monitor real-time soil moisture data. The module includes an on-board voltage regulator that allows it to operate over a voltage range of 3.3 ~ 5.5 V. It is ideal for low-voltage microcontrollers with 3.3 V and 5 V supplies.
+È costruito con materiali resistenti alla corrosione e offre un’eccellente longevità. Basta inserirlo nel terreno attorno alla pianta per monitorare in tempo reale i dati sull’umidità. Il modulo è dotato di un regolatore di tensione integrato, che consente il funzionamento con una gamma di alimentazione da 3,3 a 5,5 V. È ideale per microcontrollori a bassa tensione, come quelli da 3,3 V e 5 V.
 
-The hardware schematic of the capacitive soil moisture sensor is shown below.
+Lo schema elettrico del sensore capacitivo per l’umidità del suolo è illustrato di seguito.
 
 .. image:: img/02_soil_schematic_2.png
     :width: 90%
@@ -51,9 +51,9 @@ The hardware schematic of the capacitive soil moisture sensor is shown below.
 
    <br/> 
 
-There is a fixed frequency oscillator, which is built with a 555 timer IC. The generated square wave is then fed to the sensor like a capacitor. However, for the square wave signal, the capacitor has a certain reactance or, for the sake of argument, a resistor with a pure ohmic resistor (10k resistor on pin 3) to form a voltage divider.
+Il circuito include un oscillatore a frequenza fissa realizzato con un timer 555. L’onda quadra generata viene inviata al sensore, che si comporta come un condensatore. Per tale segnale, il condensatore mostra una certa reattanza, che insieme a una resistenza puramente ohmica (resistenza da 10kΩ sul pin 3) forma un partitore di tensione.
 
-The higher the soil moisture, the higher the capacitance of the sensor. As a result, the square wave has less reactance, which reduces the voltage on the signal line, and the smaller the value of the analog input through the microcontroller.
+Maggiore è l’umidità del terreno, maggiore sarà la capacità del sensore. Di conseguenza, la reattanza diminuisce, riducendo la tensione sulla linea del segnale e producendo un valore analogico inferiore letto dal microcontrollore.
 
 
 Example

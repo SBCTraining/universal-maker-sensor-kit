@@ -1,58 +1,59 @@
 .. note::
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    Ciao, benvenuto nella Comunità degli Appassionati di Raspberry Pi, Arduino e ESP32 di SunFounder su Facebook! Approfondisci la tua conoscenza di Raspberry Pi, Arduino e ESP32 insieme ad altri appassionati.
 
     **Why Join?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Expert Support**: Risolvi problemi post-vendita e sfide tecniche con l'aiuto della nostra comunità e del nostro team.
+    - **Learn & Share**: Scambia consigli e tutorial per migliorare le tue competenze.
+    - **Exclusive Previews**: Ottieni accesso anticipato alle nuove annunci di prodotti e anteprime esclusive.
+    - **Special Discounts**: Goditi sconti esclusivi sui nostri prodotti più recenti.
+    - **Festive Promotions and Giveaways**: Partecipa a giveaway e promozioni festive.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 Pronto per esplorare e creare con noi? Clicca [|link_sf_facebook|] e unisciti oggi!
 
 .. _esp32_trashcan:
 
-Lesson 35: Smart trashcan
+Lezione 35: Cestino Intelligente
 ==================================
 
-This project revolves around the concept of a smart trash can. 
-The primary aim is to have the trash can's lid automatically open 
-when an object approaches within a set distance (20cm in this case). 
-The functionality is achieved by using an ultrasonic distance sensor paired with a servo motor. 
-The distance between the object and the sensor is continually measured. 
-If the object is close enough, the servo motor is triggered to open the lid. 
+Questo progetto riguarda il concetto di un cestino intelligente. 
+L'obiettivo principale è fare in modo che il coperchio del cestino 
+si apra automaticamente quando un oggetto si avvicina entro una certa 
+distanza (20cm in questo caso). La funzionalità è ottenuta utilizzando 
+un sensore di distanza ad ultrasuoni abbinato a un motore servo. 
+La distanza tra l'oggetto e il sensore è misurata continuamente. 
+Se l'oggetto è sufficientemente vicino, il motore servo viene attivato 
+per aprire il coperchio.
 
+Componenti Necessari
+-------------------------
 
-Required Components
---------------------------
+In questo progetto, abbiamo bisogno dei seguenti componenti.
 
-In this project, we need the following components. 
-
-It's definitely convenient to buy a whole kit, here's the link: 
+È decisamente conveniente acquistare un kit completo, ecco il link:
 
 .. list-table::
     :widths: 20 20 20
     :header-rows: 1
 
-    *   - Name	
-        - ITEMS IN THIS KIT
+    *   - Nome	
+        - ELEMENTI IN QUESTO KIT
         - LINK
-    *   - Universal Maker Sensor Kit
+    *   - Kit Sensori per Maker Universali
         - 94
         - |link_umsk|
 
-You can also buy them separately from the links below.
+Puoi anche acquistarli separatamente dai link qui sotto.
 
 .. list-table::
     :widths: 30 20
     :header-rows: 1
 
-    *   - Component Introduction
-        - Purchase Link
+    *   - Introduzione al Componente
+        - Link per l'Acquisto
 
-    *   - ESP32 & Development Board (:ref:`cpn_esp32_wroom_32e`)
+    *   - ESP32 & Scheda di Sviluppo (:ref:`cpn_esp32_wroom_32e`)
         - |link_esp32_camera_pro_kit_buy|
     *   - :ref:`cpn_ultrasonic`
         - |link_ultrasonic_buy|
@@ -62,57 +63,57 @@ You can also buy them separately from the links below.
         - |link_breadboard_buy|
         
 
-Wiring
----------------------------
+Cablaggio
+------------
 
 .. image:: img/Lesson_35_smart_trashcan_esp32_bb.png
     :width: 100%
 
 
-Code
----------------------------
+Codice
+----------
 
 .. raw:: html
 
     <iframe src=https://create.arduino.cc/editor/sunfounder01/a4b1e0f2-4e01-4adc-9cb9-f984ca76dbfa/preview?embed style="height:510px;width:100%;margin:10px 0" frameborder=0></iframe>
 
     
-Code Analysis
+Analisi del Codice
 ---------------------------
 
-The project is based on real-time monitoring of the distance between an object and a trash can. An ultrasonic sensor continuously measures this distance, and if an object approaches within 20cm, the trash can interprets it as an intention to dispose of waste and automatically opens its lid. This automation adds smartness and convenience to a regular trash can.
+Il progetto si basa sul monitoraggio in tempo reale della distanza tra un oggetto e un cestino. Un sensore ad ultrasuoni misura continuamente questa distanza, e se un oggetto si avvicina entro 20 cm, il cestino interpreta ciò come un'intenzione di gettare rifiuti e apre automaticamente il coperchio. Questa automazione aggiunge intelligenza e comodità a un normale cestino.
 
-#. Initial Setup and Variable Declaration
+1. Configurazione Iniziale e Dichiarazione delle Variabili
 
-   Here, we're including the ``ESP32Servo`` library and defining the constants and variables we'll use. The pins for the servo and the ultrasonic sensor are declared. We also have an array ``averDist`` to hold the three distance measurements.
+   Qui includiamo la libreria ``ESP32Servo`` e definiamo le costanti e le variabili che useremo. I pin per il servo e il sensore ad ultrasuoni sono dichiarati. Abbiamo anche un array ``averDist`` per contenere le tre misurazioni della distanza.
 
    .. code-block:: arduino
        
         #include <ESP32Servo.h>
 
-        // Set up the servo motor parameters
+        // Configurazione dei parametri del motore servo
         Servo servo;
         const int servoPin = 27;
         const int openAngle = 0;
         const int closeAngle = 90;
 
-        // Define the minimum and maximum pulse widths for the servo
+        // Definizione delle larghezze degli impulsi minima e massima per il servo
         const int minPulseWidth = 500; // 0.5 ms
         const int maxPulseWidth = 2500; // 2.5 ms
 
 
-        // Set up the ultrasonic sensor parameters
+        // Configurazione dei parametri del sensore ad ultrasuoni
         const int trigPin = 26;
         const int echoPin = 25;
         long distance, averageDistance;
         long averDist[3];
 
-        // Distance threshold in centimeters
+        // Soglia di distanza in centimetri
         const int distanceThreshold = 20;
 
-#. ``setup()`` Function
+2. Funzione ``setup()``
 
-   The ``setup()`` function initializes serial communication, configures the ultrasonic sensor's pins, and sets the initial position of the servo to the closed position.
+   La funzione ``setup()`` inizializza la comunicazione seriale, configura i pin del sensore ad ultrasuoni e imposta la posizione iniziale del servo sulla posizione chiusa.
 
    .. code-block:: arduino
    
@@ -125,68 +126,68 @@ The project is based on real-time monitoring of the distance between an object a
         delay(100);
       }
 
-   
 
-#. ``loop()`` Function
 
-   The ``loop()`` function is responsible for continuously measuring the distance, computing its average, and then making a decision whether to open or close the trash can's lid based on this averaged distance.
+3. Funzione ``loop()``
+
+   La funzione ``loop()`` è responsabile della misurazione continua della distanza, del calcolo della sua media e poi della decisione se aprire o chiudere il coperchio del cestino basandosi su questa distanza media.
 
    .. code-block:: arduino
    
         void loop() {
-            // Measure the distance three times
+            // Misurare la distanza tre volte
             for (int i = 0; i <= 2; i++) {
                 distance = readDistance();
                 averDist[i] = distance;
                 delay(10);
             }
 
-            // Calculate the average distance
+            // Calcolare la distanza media
             averageDistance = (averDist[0] + averDist[1] + averDist[2]) / 3;
             Serial.println(averageDistance);
 
-            // Control the servo based on the averaged distance
+            // Controllare il servo in base alla distanza media
             if (averageDistance <= distanceThreshold) {
-                servo.attach(servoPin);  // Reattach the servo before sending a command
+                servo.attach(servoPin);  // Riattacare il servo prima di inviare un comando
                 delay(1);
-                servo.write(openAngle);  // Rotate the servo to the open position
+                servo.write(openAngle);  // Ruotare il servo alla posizione aperta
                 delay(3500);
             } else {
-                servo.write(closeAngle);  // Rotate the servo back to the closed position
+                servo.write(closeAngle);  // Ruotare il servo alla posizione chiusa
                 delay(1000);
-                servo.detach();  // Detach the servo to save power when not in use
+                servo.detach();  // Staccare il servo per risparmiare energia quando non in uso
             }
         }
-        
 
-#. Distance Reading Function
 
-   This function, ``readDistance()``, is what actually interacts with the ultrasonic sensor. It sends a pulse and waits for an echo. The time taken for the echo is then used to calculate the distance between the sensor and any object in front of it.
+4. Funzione di Lettura della Distanza
 
-   You can refer to the :ref:`cpn_ultrasonic_principle` of the ultrasonic sensor.
+   Questa funzione, ``readDistance()``, interagisce realmente con il sensore ad ultrasuoni. Invia un impulso e attende un eco. Il tempo impiegato per l'eco viene poi utilizzato per calcolare la distanza tra il sensore e qualsiasi oggetto davanti ad esso.
+
+   Per maggiori informazioni, puoi consultare il :ref:`cpn_ultrasonic_principle` del sensore ad ultrasuoni.
 
    .. code-block:: arduino
    
         float readDistance() {
-            // Send a pulse on the trigger pin of the ultrasonic sensor
+            // Invia un impulso sul pin di trigger del sensore ad ultrasuoni
             digitalWrite(trigPin, LOW);
             delayMicroseconds(2);
             digitalWrite(trigPin, HIGH);
             delayMicroseconds(10);
             digitalWrite(trigPin, LOW);
 
-            // Measure the pulse width of the echo pin and calculate the distance value
+            // Misurare la larghezza dell'impulso del pin di eco e calcolare il valore della distanza
             float distance = pulseIn(echoPin, HIGH) / 58.00;  // Formula: (340m/s * 1us) / 2
             return distance;
         }
 
-#. Servo Write Function
+5. Funzione di Scrittura del Servo
 
-    This function maps the angle value to pulse width and calls the ``writeMicroseconds(pulseWidth)`` function to deflect the servo to a specific angle.
+    Questa funzione mappa il valore dell'angolo alla larghezza dell'impulso e chiama la funzione ``writeMicroseconds(pulseWidth)`` per deviare il servo ad un angolo specifico.
 
     .. code-block:: arduino
         
-        // Function to make the servo work
+        // Funzione per far funzionare il servo
         void servoWrite(int angle){
             int pulseWidth = map(angle, 0, 180, minPulseWidth, maxPulseWidth);
             servo.writeMicroseconds(pulseWidth);

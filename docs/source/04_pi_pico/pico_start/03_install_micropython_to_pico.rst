@@ -1,35 +1,35 @@
 .. note::
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    Ciao, benvenuto nella comunità di appassionati di SunFounder Raspberry Pi, Arduino e ESP32 su Facebook! Immergiti più a fondo in Raspberry Pi, Arduino e ESP32 con altri appassionati.
 
-    **Why Join?**
+    **Perché unirsi?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Supporto Esperto**: Risolvi problemi post-vendita e sfide tecniche con l'aiuto della nostra comunità e del nostro team.
+    - **Impara & Condividi**: Scambia consigli e tutorial per migliorare le tue abilità.
+    - **Anteprime Esclusive**: Ottieni accesso anticipato ai nuovi annunci di prodotti e anteprime.
+    - **Sconti Speciali**: Goditi sconti esclusivi sui nostri prodotti più recenti.
+    - **Promozioni Festive e Giveaway**: Partecipa ai giveaway e alle promozioni festive.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 Pronto a esplorare e creare con noi? Clicca [|link_sf_facebook|] e unisciti oggi!
 
 .. _install_micropython_on_pico:
 
-Install MicroPython on Your Pico
-==========================================
+Installazione di MicroPython sul Tuo Pico
+==============================================
 
 
-Now come to install MicroPython into Raspberry Pi Pico, Thonny IDE provides a very convenient way for you to install it with one click.
+Ora passiamo all'installazione di MicroPython sul Raspberry Pi Pico, l'IDE Thonny offre un modo molto conveniente per installarlo con un solo clic.
 
 .. note::
-    You can also use the |link_micropython_pi| provided by Raspberry Pi official by dragging and dropping an ``rp2_pico_xxxx.uf2`` file into Raspberry Pi Pico.
+    Puoi anche usare il |link_micropython_pi| fornito ufficialmente da Raspberry Pi trascinando e rilasciando un file ``rp2_pico_xxxx.uf2`` sul Raspberry Pi Pico.
 
 
 
-#. Open Thonny IDE.
+#. Apri l'IDE Thonny.
 
    .. image:: img/set_pico1.png
 
-#. Press and hold the **BOOTSEL** button and then connect the Pico to computer via a Micro USB cable. Release the **BOOTSEL** button after your Pico is mount as a Mass Storage Device called **RPI-RP2**.
+#. Premi e tieni premuto il pulsante **BOOTSEL** e poi collega il Pico al computer tramite un cavo Micro USB. Rilascia il pulsante **BOOTSEL** dopo che il tuo Pico è stato montato come un dispositivo di archiviazione di massa chiamato **RPI-RP2**.
 
    .. image:: img/bootsel_onboard.png
       :width: 70%
@@ -39,22 +39,22 @@ Now come to install MicroPython into Raspberry Pi Pico, Thonny IDE provides a ve
 
       <br/>
 
-#. In the bottom right corner, click the interpreter selection button and select **Install Micropython**.
+#. Nell'angolo in basso a destra, clicca sul pulsante di selezione dell'interprete e seleziona **Installa Micropython**.
 
    .. note::
-      If your Thonny does not have this option, please update to the latest version.
+      Se il tuo Thonny non ha questa opzione, aggiornalo all'ultima versione.
 
    .. image:: img/set_pico2.png
 
-#. In the **Target volume** section, the volume of the Pico you just plugged in will automatically appear. In the **variant** section, select **Raspberry Pi.Pico/Pico H**. Select the latest version in the version dropdown menu.
+#. Nella sezione **Target volume**, apparirà automaticamente il volume del Pico che hai appena collegato. Nella sezione **variant**, seleziona **Raspberry Pi.Pico/Pico H**. Seleziona la versione più recente nel menu a discesa della versione.
 
    .. image:: img/set_pico3.png
 
-#. Click the **Install** button, wait for the installation to complete.
+#. Clicca sul pulsante **Installa**, attendi il completamento dell'installazione.
 
    .. image:: img/set_pico4.png
 
 
-#. Congratulations, now your Raspberry Pi Pico is ready to go.
+#. Congratulazioni, ora il tuo Raspberry Pi Pico è pronto all'uso.
 
    .. image:: img/set_pico5.png

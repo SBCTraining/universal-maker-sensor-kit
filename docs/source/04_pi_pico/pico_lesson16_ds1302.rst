@@ -1,50 +1,50 @@
-.. note::
+.. note:: 
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    Ciao, benvenuto nella Comunità di appassionati di SunFounder Raspberry Pi & Arduino & ESP32 su Facebook! Approfondisci le tue conoscenze su Raspberry Pi, Arduino e ESP32 insieme ad altri appassionati.
 
-    **Why Join?**
+    **Perché unirsi?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Supporto esperto**: Risolvi problemi post-vendita e difficoltà tecniche con l’aiuto della nostra community e del nostro team.
+    - **Impara & Condividi**: Condividi suggerimenti e tutorial per migliorare le tue competenze.
+    - **Anteprime esclusive**: Accedi in anteprima ai nuovi annunci di prodotto e a contenuti esclusivi.
+    - **Sconti speciali**: Approfitta di sconti esclusivi sui nostri prodotti più recenti.
+    - **Promozioni festive e giveaway**: Partecipa a concorsi e promozioni durante le festività.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 Pronto a esplorare e creare con noi? Clicca [|link_sf_facebook|] e unisciti subito!
 
 .. _pico_lesson16_ds1306:
 
-Lesson 16: Real Time Clock Module (DS1302)
-==================================================
+Lezione 16: Modulo Orologio in Tempo Reale (DS1302)
+=======================================================
 
-In this lesson, you'll learn how to use the Raspberry Pi Pico W to interact with a DS1302 Real-Time Clock module. We'll start by setting up the DS1302 and connecting it to the Pico W using specific GPIO pins. You'll also learn how to retrieve and set the current date and time on the DS1302. Additionally, we'll explore continuously displaying the current datetime on your console, updating every half second.
+In questa lezione imparerai a utilizzare il Raspberry Pi Pico W per interfacciarti con un modulo orologio in tempo reale DS1302. Inizieremo collegando il DS1302 al Pico W utilizzando specifici pin GPIO. Imparerai anche come leggere e impostare data e ora correnti sul DS1302. Inoltre, vedremo come visualizzare continuamente la data e l'ora aggiornate ogni mezzo secondo nella console.
 
-Required Components
---------------------------
+Componenti necessari
+-------------------------
 
-In this project, we need the following components. 
+Per questo progetto sono richiesti i seguenti componenti.
 
-It's definitely convenient to buy a whole kit, here's the link: 
+È sicuramente comodo acquistare un kit completo. Ecco il link:
 
 .. list-table::
     :widths: 20 20 20
     :header-rows: 1
 
-    *   - Name	
-        - ITEMS IN THIS KIT
+    *   - Nome	
+        - ELEMENTI IN QUESTO KIT
         - LINK
-    *   - Universal Maker Sensor Kit
+    *   - Kit Sensori Universali per Maker
         - 94
         - |link_umsk|
 
-You can also buy them separately from the links below.
+Puoi anche acquistare i componenti separatamente dai link seguenti.
 
 .. list-table::
     :widths: 30 20
     :header-rows: 1
 
-    *   - Component Introduction
-        - Purchase Link
+    *   - Introduzione ai Componenti
+        - Link per l'acquisto
 
     *   - Raspberry Pi Pico W
         - |link_picow_buy|
@@ -54,23 +54,23 @@ You can also buy them separately from the links below.
         - |link_breadboard_buy|
 
 
-Wiring
----------------------------
+Cablaggio
+------------
 
 .. image:: img/Lesson_16_DS1302_module_bb.png
     :width: 100%
 
 
-Code
----------------------------
+Codice
+--------------
 
 .. note::
 
-    * Open the ``16_ds1302_module.py`` file under the path of ``universal-maker-sensor-kit-main/pico/Lesson_16_DS1302_Module`` or copy this code into Thonny, then click "Run Current Script" or simply press F5 to run it. For detailed tutorials, please refer to :ref:`open_run_code_py`. 
+    * Apri il file ``16_ds1302_module.py`` nella directory ``universal-maker-sensor-kit-main/pico/Lesson_16_DS1302_Module`` oppure copia il codice in Thonny e clicca su "Run Current Script" o premi F5 per eseguirlo. Per un tutorial dettagliato, consulta :ref:`open_run_code_py`.
 
-    * Here you need to use the ``ds1302.py``, please check if it has been uploaded to Pico W, for a detailed tutorial refer to :ref:`add_libraries_py`.
+    * Assicurati che il file ``ds1302.py`` sia stato caricato su Pico W. Per istruzioni dettagliate, consulta :ref:`add_libraries_py`.
 
-    * Don't forget to click on the "MicroPython (Raspberry Pi Pico)" interpreter in the bottom right corner. 
+    * Ricorda di selezionare l’interprete "MicroPython (Raspberry Pi Pico)" nell’angolo in basso a destra.
 
 .. code-block:: python
 
@@ -78,32 +78,32 @@ Code
    import ds1302
    import time
    
-   # Initialize DS1302 RTC with specific GPIO pins
+   # Inizializza il modulo DS1302 RTC con i pin GPIO specificati
    ds = ds1302.DS1302(Pin(5), Pin(18), Pin(19))  # (clk, dio, cs)
    
-   # Get current datetime from DS1302
+   # Legge data e ora correnti dal DS1302
    ds.date_time()
    
-   # Set DS1302 datetime to 2024-01-01 Monday 00:00:00
-   ds.date_time([2024, 1, 1, 1, 0, 0, 0])  # (year,month,day,weekday,hour,minute,second)
+   # Imposta la data/ora del DS1302 al 01/01/2024 Lunedì 00:00:00
+   ds.date_time([2024, 1, 1, 1, 0, 0, 0])  # (anno, mese, giorno, giorno_settimana, ora, minuti, secondi)
    
-   # Set seconds to 10
+   # Imposta i secondi su 10
    ds.second(10)
    
-   # Continuously display current datetime every half second
+   # Visualizza continuamente data e ora ogni mezzo secondo
    while True:
        print(ds.date_time())
        time.sleep(0.5)
 
 
-Code Analysis
----------------------------
+Analisi del Codice
+-----------------------------
 
-#. **Import Libraries**
+#. **Importazione delle Librerie**
 
-   This section imports necessary libraries: ``machine`` for GPIO control, ``ds1302`` for the RTC module, and ``time`` for implementing delays.
+   In questa sezione vengono importate le librerie necessarie: ``machine`` per il controllo dei pin GPIO, ``ds1302`` per la gestione del modulo RTC, e ``time`` per inserire ritardi nel programma.
 
-   For more detail about the ``ds1302`` library, please refer to ``ds1302.py``.
+   Per ulteriori dettagli sulla libreria ``ds1302``, fare riferimento al file ``ds1302.py``.
 
    .. code-block:: python
 
@@ -111,41 +111,41 @@ Code Analysis
       import ds1302
       import time
 
-#. **Initialize the DS1302 RTC**
+#. **Inizializzazione del Modulo DS1302 RTC**
 
-   This code initializes the DS1302 module by defining which GPIO pins of the Raspberry Pi Pico W are connected to the clock (clk), data input/output (dio), and chip select (cs) pins of the DS1302.
+   Questo codice inizializza il modulo DS1302 specificando i pin GPIO del Raspberry Pi Pico W collegati ai pin clk, dio e cs del DS1302.
 
    .. code-block:: python
 
       ds = ds1302.DS1302(Pin(5), Pin(18), Pin(19))  # (clk, dio, cs)
 
-#. **Get Current DateTime**
+#. **Lettura di Data e Ora Correnti**
 
-   Retrieves the current date and time from the DS1302. The ``date_time()`` method returns a list containing year, month, day, weekday, hour, minute, and second.
+   Recupera la data e l'ora correnti dal DS1302. Il metodo ``date_time()`` restituisce una lista contenente anno, mese, giorno, giorno della settimana, ora, minuti e secondi.
 
    .. code-block:: python
 
       ds.date_time()
 
-#. **Set DS1302 DateTime**
+#. **Impostazione di Data e Ora**
 
-   Sets the DS1302's date and time to January 1, 2024, at 00:00:00. The day of the week (Monday) is represented by 1.
-   
+   Imposta la data e ora del DS1302 al 1° gennaio 2024, lunedì, alle ore 00:00:00. Il giorno della settimana (lunedì) è rappresentato da 1.
+
    .. code-block:: python
 
-      ds.date_time([2024, 1, 1, 1, 0, 0, 0])  # (year,month,day,weekday,hour,minute,second)
+      ds.date_time([2024, 1, 1, 1, 0, 0, 0])
 
-#. **Set Seconds**
+#. **Impostazione dei Secondi**
 
-   Sets the seconds value of the DS1302's time to 10.
+   Imposta il valore dei secondi dell'orologio a 10.
 
    .. code-block:: python
 
       ds.second(10)
 
-#. **Display Current DateTime Continuously**
+#. **Visualizzazione Continua di Data e Ora**
 
-   This loop continuously displays the current date and time every half second. The ``time.sleep(0.5)`` function creates a half-second delay between each iteration.
+   Questo ciclo stampa continuamente la data e l’ora correnti ogni mezzo secondo. La funzione ``time.sleep(0.5)`` introduce un ritardo di 0.5 secondi tra ciascuna iterazione.
 
    .. code-block:: python
 

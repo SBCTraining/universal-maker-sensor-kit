@@ -1,50 +1,50 @@
-.. note::
+.. note:: 
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    Ciao, benvenuto nella Comunità di appassionati di SunFounder Raspberry Pi & Arduino & ESP32 su Facebook! Approfondisci le tue conoscenze su Raspberry Pi, Arduino e ESP32 insieme ad altri entusiasti.
 
-    **Why Join?**
+    **Perché unirsi?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Supporto esperto**: Risolvi problemi post-vendita e sfide tecniche con l’aiuto della nostra community e del nostro team.
+    - **Impara & Condividi**: Condividi suggerimenti e tutorial per accrescere le tue competenze.
+    - **Anteprime esclusive**: Ottieni accesso anticipato ai nuovi annunci di prodotto e anteprime riservate.
+    - **Sconti speciali**: Goditi sconti esclusivi sui nostri prodotti più recenti.
+    - **Promozioni festive e giveaway**: Partecipa a promozioni stagionali e concorsi a premi.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 Pronto a esplorare e creare con noi? Clicca [|link_sf_facebook|] e unisciti subito!
 
 .. _pico_lesson08_ir_obstacle_avoidance:
 
-Lesson 08: IR Obstacle Avoidance Sensor Module
-====================================================
+Lezione 08: Modulo Sensore IR per Evitamento Ostacoli
+==========================================================
 
-In this lesson, you'll learn how to use the Raspberry Pi Pico W with an IR Obstacle Avoidance Sensor Module. We'll walk you through setting up the sensor and writing a MicroPython script that continuously reads its value to detect obstacles. By monitoring changes in the sensor data, you'll grasp how to use it for basic obstacle detection.
+In questa lezione imparerai a utilizzare il Raspberry Pi Pico W con un modulo sensore a infrarossi per l’evitamento degli ostacoli. Ti guideremo nella configurazione del sensore e nella scrittura di uno script in MicroPython che legge continuamente il suo valore per rilevare ostacoli. Monitorando le variazioni dei dati forniti dal sensore, comprenderai come utilizzarlo per una semplice rilevazione di ostacoli.
 
-Required Components
---------------------------
+Componenti necessari
+-------------------------
 
-In this project, we need the following components. 
+Per questo progetto abbiamo bisogno dei seguenti componenti.
 
-It's definitely convenient to buy a whole kit, here's the link: 
+È sicuramente comodo acquistare un kit completo. Ecco il link:
 
 .. list-table::
     :widths: 20 20 20
     :header-rows: 1
 
-    *   - Name	
-        - ITEMS IN THIS KIT
+    *   - Nome	
+        - ELEMENTI IN QUESTO KIT
         - LINK
-    *   - Universal Maker Sensor Kit
+    *   - Kit Sensori Universali per Maker
         - 94
         - |link_umsk|
 
-You can also buy them separately from the links below.
+Puoi anche acquistare i componenti separatamente dai link sottostanti.
 
 .. list-table::
     :widths: 30 20
     :header-rows: 1
 
-    *   - Component Introduction
-        - Purchase Link
+    *   - Introduzione ai Componenti
+        - Link per l'acquisto
 
     *   - Raspberry Pi Pico W
         - |link_picow_buy|
@@ -54,55 +54,55 @@ You can also buy them separately from the links below.
         - |link_breadboard_buy|
 
 
-Wiring
----------------------------
+Cablaggio
+---------------
 
 .. image:: img/Lesson_08_Obstacle_Avoidance_Sensor_Module_bb.png
     :width: 100%
 
 
-Code
----------------------------
+Codice
+--------------
 
 .. code-block:: python
 
    from machine import Pin
    import time
    
-   # Initialize obstacle avoidance sensor connected to pin 16 as input
+   # Inizializza il sensore di evitamento ostacoli collegato al pin 16 come input
    obstacle_avoidance_sensor = Pin(16, Pin.IN)
    
    while True:
-       # Read and print the value of the obstacle avoidance sensor
+       # Legge e stampa il valore del sensore di evitamento ostacoli
        print(obstacle_avoidance_sensor.value())
    
-       # Wait for 0.1 seconds before the next read
+       # Attende 0,1 secondi prima della prossima lettura
        time.sleep(0.1)
 
 
-Code Analysis
----------------------------
+Analisi del Codice
+--------------------------
 
-#. Importing Libraries
+#. Importazione delle Librerie
 
-   The ``machine`` module is imported to interact with the GPIO pins, and the ``time`` module is used for adding delays.
+   Il modulo ``machine`` è importato per interagire con i pin GPIO, mentre ``time`` viene usato per introdurre ritardi.
 
    .. code-block:: python
 
       from machine import Pin
       import time
 
-#. Setting Up the Sensor
-   
-   The obstacle avoidance sensor is set up as an input device on GPIO pin 16. The ``Pin.IN`` parameter configures the pin as an input.
+#. Configurazione del Sensore
+
+   Il sensore di evitamento ostacoli è configurato come dispositivo di input sul pin GPIO 16. Il parametro ``Pin.IN`` imposta il pin come ingresso.
 
    .. code-block:: python
 
       obstacle_avoidance_sensor = Pin(16, Pin.IN)
 
-#. Reading Sensor Data in a Loop
+#. Lettura dei Dati dal Sensore in un Ciclo
 
-   The ``while True:`` loop continuously checks the sensor's output. If the sensor detects an obstacle, it returns ``0``, which is printed out. The ``time.sleep(0.1)`` adds a small delay to make the readings more manageable.
+   Il ciclo ``while True:`` controlla continuamente il valore restituito dal sensore. Se il sensore rileva un ostacolo, restituisce ``0``, che viene stampato. Il comando ``time.sleep(0.1)`` aggiunge un piccolo ritardo per rendere le letture più gestibili.
 
    .. code-block:: python
 
@@ -112,4 +112,4 @@ Code Analysis
 
    .. note:: 
    
-      If the sensor is not working properly, adjust the IR transmitter and receiver to make them parallel. Additionally, you can adjust the detection range using the built-in potentiometer.
+      Se il sensore non funziona correttamente, regola il trasmettitore e il ricevitore IR affinché siano paralleli. Inoltre, puoi modificare la distanza di rilevamento agendo sul potenziometro integrato.

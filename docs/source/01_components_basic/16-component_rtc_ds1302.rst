@@ -1,21 +1,21 @@
-.. note::
+.. note:: 
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    Ciao! Benvenuto nella community Facebook dedicata agli appassionati di SunFounder, Raspberry Pi, Arduino ed ESP32! Unisciti a noi per approfondire il mondo di Raspberry Pi, Arduino ed ESP32 insieme ad altri appassionati e maker.
 
-    **Why Join?**
+    **Perché unirsi?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Supporto esperto**: Risolvi problemi post-vendita e sfide tecniche con l’aiuto della nostra community e del nostro team.
+    - **Impara e condividi**: Scambia suggerimenti e tutorial per migliorare le tue competenze.
+    - **Anteprime esclusive**: Ottieni accesso anticipato a novità e anteprime sui nuovi prodotti.
+    - **Sconti speciali**: Approfitta di sconti esclusivi sui nostri prodotti più recenti.
+    - **Promozioni festive e giveaway**: Partecipa a omaggi e promozioni speciali durante le festività.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 Pronto a esplorare e creare con noi? Clicca su [|link_sf_facebook|] e unisciti oggi stesso!
 
 .. _cpn_rtc_ds1302:
 
-Real Time Clock Module (DS1302)
-=====================================
+Modulo Orologio in Tempo Reale (DS1302)
+==========================================
 
 .. image:: img/16_DS1302_module.png
     :width: 400
@@ -25,24 +25,24 @@ Real Time Clock Module (DS1302)
 
    <br/>
 
-The DS1302 module is a Real-Time Clock (RTC) module that can track years, months, days, weekdays, hours, minutes, and seconds. It also has the ability to adjust for leap years. It is useful for creating projects requiring precise timing and scheduling.
+Il modulo DS1302 è un modulo RTC (Real-Time Clock) che consente di tenere traccia di anni, mesi, giorni, giorni della settimana, ore, minuti e secondi. Supporta anche il calcolo degli anni bisestili. È ideale per progetti che richiedono una gestione precisa del tempo e della pianificazione.
 
-Specification
----------------------------
-* Supply Voltage: 3.3V - 5V
-* PCB Size: 44 x 23mm
-* Clock IC: DS1302
-* Operating temperature: 0℃ - 70℃
+Specifiche
+----------------------------
+* Tensione di alimentazione: 3.3V - 5V  
+* Dimensioni PCB: 44 x 23mm  
+* Chip orologio: DS1302  
+* Temperatura operativa: 0℃ - 70℃
 
 Pinout
 ---------------------------
-* **VCC**: Module power supply
-* **GND**: Ground 
-* **CLK**: Clock pin
-* **DAT**: Data pin 
-* **RST**: Reset pin
+* **VCC**: Alimentazione del modulo  
+* **GND**: Massa  
+* **CLK**: Pin di clock  
+* **DAT**: Pin dati  
+* **RST**: Pin di reset
 
-Schematic diagram
+Schema elettrico
 ---------------------------
 
 .. image:: img/16_rtc_ds1302_module_schematic.png
@@ -53,7 +53,7 @@ Schematic diagram
 
    <br/>
 
-Example
+Esempi
 ---------------------------
 * :ref:`uno_lesson16_ds1306` (Arduino UNO)
 * :ref:`esp32_lesson16_ds1306` (ESP32)

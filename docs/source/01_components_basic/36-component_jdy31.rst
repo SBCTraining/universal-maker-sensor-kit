@@ -1,34 +1,34 @@
-.. note::
+.. note:: 
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    Ciao! Benvenuto nella community Facebook di appassionati SunFounder di Raspberry Pi, Arduino ed ESP32! Approfondisci l'uso di Raspberry Pi, Arduino ed ESP32 insieme ad altri entusiasti come te.
 
-    **Why Join?**
+    **Perché unirti?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Supporto esperto**: Risolvi problemi post-vendita e sfide tecniche con il supporto della community e del nostro team.
+    - **Impara e condividi**: Scambia suggerimenti e tutorial per migliorare le tue competenze.
+    - **Anteprime esclusive**: Accedi in anteprima a nuovi annunci e anticipazioni sui prodotti.
+    - **Sconti speciali**: Approfitta di offerte esclusive sui nostri prodotti più recenti.
+    - **Promozioni e giveaway festivi**: Partecipa a concorsi e promozioni a tema.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 Pronto a esplorare e creare con noi? Clicca su [|link_sf_facebook|] e unisciti oggi stesso!
 
 
 .. _cpn_jdy31:
 
-JDY-31 Bluetooth Module
+Modulo Bluetooth JDY-31
 =====================================
 
 .. image:: img/36_JDY31_1.jpg
     :align: center
 
 .. warning::
-  This module **does not support Apple device** connections, so tutorials involving this module require an Android phone or tablet.
+  Questo modulo **non supporta i dispositivi Apple**, quindi i tutorial che lo utilizzano richiedono uno smartphone o tablet Android.
 
-The JDY-31 Bluetooth module is a pin-compatible replacement for the HC-06 Bluetooth module. It is simpler and easier to use than the HC-06 and is often available at a slightly lower cost. 
+Il modulo Bluetooth JDY-31 è un sostituto compatibile con i pin del modulo HC-06. È più semplice da usare rispetto all’HC-06 ed è spesso disponibile a un costo leggermente inferiore.
 
-The JDY-31 Bluetooth module is based on Bluetooth 3.0 SPP design and can support Windows, Linux, and Android data transmission. The working frequency of the JDY-31 Bluetooth module is 2.4 GHz with modulation mode GFSK. The maximum transmission power is 8 dB, and the maximum transmission distance is 30 meters. Users can modify the device name through AT command, baud rate, and other instructions.
+Il JDY-31 è basato su Bluetooth 3.0 SPP e supporta la trasmissione dati su Windows, Linux e Android. Funziona a 2.4 GHz con modulazione GFSK, una potenza di trasmissione massima di 8 dB e una distanza massima di trasmissione di 30 metri. È possibile modificare il nome del dispositivo, il baud rate e altri parametri tramite comandi AT.
 
-Pins of JDY-31 and their functions:
+Pin del JDY-31 e relative funzioni:
 
 .. image:: img/36_JDY31_2.jpg
     :align: center
@@ -38,56 +38,56 @@ Pins of JDY-31 and their functions:
    :widths: 25 25 100
    :header-rows: 1
 
-   * - Pin	
-     - Name	
-     - Description
-   * - 1	
+   * - Pin
+     - Nome
+     - Descrizione
+   * - 1
      - STATE
-     - Connection status pin (not connected low level, output high level after connectio) 
-   * - 2	
-     - RXD	
-     - Receiver pin, this pin must connect to TX pin of next device.
-   * - 3	
+     - Pin di stato della connessione (livello basso se scollegato, livello alto dopo la connessione)
+   * - 2
+     - RXD
+     - Pin di ricezione, da collegare al pin TX del dispositivo successivo.
+   * - 3
      - TXD
-     - Transmitter pin, this pin must connect to RX pin of next device.
-   * - 4		
+     - Pin di trasmissione, da collegare al pin RX del dispositivo successivo.
+   * - 4
      - GND
-     - GND
-   * - 5	
+     - Massa
+   * - 5
      - VCC
-     - Power Supply(1.8-3.6V, 3.3v recommended)
-   * - 6	
+     - Alimentazione (1.8–3.6V, 3.3V raccomandati)
+   * - 6
      - EN
-     - enable or disable the module. When this pin is held high, the module is enabled and begins transmitting and receiving data.
+     - Abilita o disabilita il modulo. Livello alto = attivo, trasmette e riceve dati.
 
-patch application: general application only need to connect VCC, GND, RXD, TXD 4 pins, if you need to actively disconnect in the connection state, send AT+DISC in the connection state.
+Applicazioni di base: per l’uso generale è sufficiente collegare i pin VCC, GND, RXD e TXD. Se si desidera disconnettere manualmente durante la connessione, inviare il comando AT+DISC.
 
-AT Command Set
+Set di comandi AT
 ---------------------------
 
 +------------+-------------------------------------+-------------+
-|   Command  |               Function              |   Default   |
+|   Comando  |              Funzione               |   Default   |
 +============+=====================================+=============+
-| AT+VERSION | Version Number                      | JDY-31-V1.2 |
+| AT+VERSION | Mostra la versione del firmware     | JDY-31-V1.2 |
 +------------+-------------------------------------+-------------+
-| AT+RESET   | Soft reset                          |             |
+| AT+RESET   | Riavvio software                    |             |
 +------------+-------------------------------------+-------------+
-| AT+DISC    | Disconnect (valid when connected)   |             |
+| AT+DISC    | Disconnessione (valido se connesso) |             |
 +------------+-------------------------------------+-------------+
-| AT+LADDR   | Query the MAC address of the module |             |
+| AT+LADDR   | Mostra l’indirizzo MAC del modulo   |             |
 +------------+-------------------------------------+-------------+
-| AT+PIN     | Set or query connection password    | 1234        |
+| AT+PIN     | Imposta/mostra la password          | 1234        |
 +------------+-------------------------------------+-------------+
-| AT+BAUD    | Set or query baud rate              | 9600        |
+| AT+BAUD    | Imposta/mostra il baud rate         | 9600        |
 +------------+-------------------------------------+-------------+
-| AT+NAME    | Set or query broadcast name         | JDY-31-SPP  |
+| AT+NAME    | Imposta/mostra il nome del modulo   | JDY-31-SPP  |
 +------------+-------------------------------------+-------------+
-| AT+DEFAULT | Factory reset                       |             |
+| AT+DEFAULT | Ripristino impostazioni di fabbrica |             |
 +------------+-------------------------------------+-------------+
-| AT+ENLOG   | Serial port status output           | 1           |
+| AT+ENLOG   | Stato porta seriale                 | 1           |
 +------------+-------------------------------------+-------------+
 
-Example
+Esempi
 ---------------------------
 * :ref:`uno_lesson36_bluetooth` (Arduino UNO)
 * :ref:`uno_lesson46_bluetooth_lcd` (Arduino UNO)

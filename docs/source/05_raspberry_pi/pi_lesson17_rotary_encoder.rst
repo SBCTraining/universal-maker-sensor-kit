@@ -1,50 +1,50 @@
-.. note::
+.. note:: 
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    Ciao, benvenuto nella Comunità di Appassionati di SunFounder per Raspberry Pi, Arduino & ESP32 su Facebook! Approfondisci le tue conoscenze su Raspberry Pi, Arduino e ESP32 insieme ad altri appassionati.
 
     **Why Join?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Expert Support**: Risolvi problemi post-vendita e sfide tecniche con l'aiuto della nostra comunità e del nostro team.
+    - **Learn & Share**: Scambia consigli e tutorial per potenziare le tue competenze.
+    - **Exclusive Previews**: Accedi in anteprima agli annunci di nuovi prodotti e anteprime esclusive.
+    - **Special Discounts**: Approfitta di sconti esclusivi sui nostri prodotti più recenti.
+    - **Festive Promotions and Giveaways**: Partecipa a giveaway e promozioni festive.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 Pronto a esplorare e creare con noi? Clicca [|link_sf_facebook|] e unisciti oggi!
 
 .. _pi_lesson17_rotary_encoder:
 
-Lesson 17: Rotary Encoder Module
-==================================
+Lezione 17: Modulo Encoder Rotativo
+=======================================
 
-In this lesson, you will learn how to connect and program a rotary encoder with a Raspberry Pi. We will provide step-by-step instructions on writing a Python script that monitors the encoder's position and button state, with outputs displayed in the console. 
+In questa lezione, imparerai come collegare e programmare un encoder rotativo con un Raspberry Pi. Ti forniremo istruzioni passo dopo passo su come scrivere uno script Python che monitora la posizione dell'encoder e lo stato del pulsante, con risultati visualizzati nella console.
 
-Required Components
---------------------------
+Componenti Necessari
+---------------------------
 
-In this project, we need the following components. 
+Per questo progetto, abbiamo bisogno dei seguenti componenti.
 
-It's definitely convenient to buy a whole kit, here's the link: 
+È decisamente conveniente acquistare un kit completo, ecco il link:
 
 .. list-table::
     :widths: 20 20 20
     :header-rows: 1
 
-    *   - Name	
-        - ITEMS IN THIS KIT
+    *   - Nome	
+        - ARTICOLI IN QUESTO KIT
         - LINK
-    *   - Universal Maker Sensor Kit
+    *   - Kit Sensori Universale per Makers
         - 94
         - |link_umsk|
 
-You can also buy them separately from the links below.
+Puoi anche acquistarli separatamente dai link qui sotto:
 
 .. list-table::
     :widths: 30 20
     :header-rows: 1
 
-    *   - Component Introduction
-        - Purchase Link
+    *   - Introduzione al Componente
+        - Link Acquisto
 
     *   - Raspberry Pi 5
         - |link_rpi5_buy|
@@ -54,13 +54,13 @@ You can also buy them separately from the links below.
         - |link_breadboard_buy|
 
 
-Wiring
+Cablaggio
 ---------------------------
 
 .. image:: img/Lesson_17_Rotary_encoder_Pi_bb.png
     :width: 100%
 
-Code
+Codice
 ---------------------------
 
 .. code-block:: python
@@ -68,63 +68,63 @@ Code
    from gpiozero import RotaryEncoder, Button  
    from time import sleep  
 
-   # Initialize the rotary encoder on GPIO pins 17(CLK) and 27(DT) with wrap-around at max_steps of 16
+   # Inizializza l'encoder rotativo sui pin GPIO 17 (CLK) e 27 (DT) con wrap-around al massimo di 16 passi
    encoder = RotaryEncoder(a=17, b=27, wrap=True, max_steps=16)
-   # Initialize the rotary encoder's SW pin on GPIO pin 22
+   # Inizializza il pin SW dell'encoder rotativo sul pin GPIO 22
    button = Button(22)
 
-   last_rotary_value = 0  # Variable to store the last value of rotary encoder
+   last_rotary_value = 0  # Variabile per memorizzare l'ultimo valore dell'encoder rotativo
 
    try:
-       while True:  # Infinite loop to continuously monitor the encoder
-           current_rotary_value = encoder.steps  # Read current step count from rotary encoder
+       while True:  # Ciclo infinito per monitorare continuamente l'encoder
+           current_rotary_value = encoder.steps  # Leggi il conteggio dei passi corrente dall'encoder rotativo
 
-           # Check if the rotary encoder value has changed
+           # Controlla se il valore dell'encoder rotativo è cambiato
            if last_rotary_value != current_rotary_value:
-               print("Result =", current_rotary_value)  # Print the current value
-               last_rotary_value = current_rotary_value  # Update the last value
+               print("Result =", current_rotary_value)  # Stampa il valore corrente
+               last_rotary_value = current_rotary_value  # Aggiorna l'ultimo valore
 
-           # Check if the rotary encoder is pressed
+           # Controlla se l'encoder rotativo è premuto
            if button.is_pressed:
-               print("Button pressed!")  # Print message on button press
-               button.wait_for_release()  # Wait until button is released
+               print("Button pressed!")  # Stampa un messaggio alla pressione del pulsante
+               button.wait_for_release()  # Attendi fino al rilascio del pulsante
 
-           sleep(0.1)  # Short delay to prevent excessive CPU usage
+           sleep(0.1)  # Breve pausa per prevenire un uso eccessivo della CPU
 
    except KeyboardInterrupt:
-       print("Program terminated")  # Print message when program is terminated via keyboard interrupt
+       print("Program terminated")  # Stampa un messaggio quando il programma è terminato tramite interruzione da tastiera
 
 
 
-Code Analysis
+Analisi del Codice
 ---------------------------
 
-#. Importing Libraries
+#. Importazione delle Librerie
    
-   The script starts with importing the ``RotaryEncoder`` and ``Button`` classes from gpiozero for interfacing with the rotary encode, respectively, and the ``sleep`` function from the time module for adding delays.
+   Lo script inizia importando le classi ``RotaryEncoder`` e ``Button`` dalla libreria gpiozero per l'interfacciamento con l'encoder rotativo, rispettivamente, e la funzione ``sleep`` dal modulo time per aggiungere ritardi.
 
    .. code-block:: python
 
       from gpiozero import RotaryEncoder, Button  
       from time import sleep  
 
-#. Initializing the Rotary Encoder and Button
+#. Inizializzazione dell'Encoder Rotativo e del Pulsante
    
-   - This line initializes a ``RotaryEncoder`` object from the ``gpiozero`` library. The encoder is connected to GPIO pins 17 and 27. 
-   - The ``wrap=True`` parameter means the encoder's value will reset after reaching ``max_steps`` (16 in this case), mimicking a circular dial behavior.
-   - Here, a ``Button`` object is created, connected to GPIO pin 22. This object will be used to detect when the rotary encoder is pressed.
+   - Questa linea inizializza un oggetto ``RotaryEncoder`` dalla libreria ``gpiozero``. L'encoder è collegato ai pin GPIO 17 e 27.
+   - Il parametro ``wrap=True`` significa che il valore dell'encoder si azzera dopo aver raggiunto ``max_steps`` (16 in questo caso), simulando il comportamento di un quadrante circolare.
+   - Qui, un oggetto ``Button`` è creato, collegato al pin GPIO 22. Questo oggetto sarà utilizzato per rilevare quando l'encoder rotativo è premuto.
 
    .. code-block:: python
 
       encoder = RotaryEncoder(a=17, b=27, wrap=True, max_steps=16)
       button = Button(22)
 
-#. Implementing the Monitoring Loop
+#. Implementazione del Ciclo di Monitoraggio
    
-   - An infinite loop (``while True:``) is used to continuously monitor the rotary encoder.
-   - The current value of the rotary encoder is read and compared with its last recorded value. If there's a change, the new value is printed.
-   - The script checks if the rotary encoder is pressed. On detection of a press, it prints a message and waits until the rotary encoder is released.
-   - A ``sleep(0.1)`` is included to add a brief delay, preventing excessive CPU usage.
+   - Un ciclo infinito (``while True:``) è utilizzato per monitorare continuamente l'encoder rotativo.
+   - Il valore corrente dell'encoder rotativo è letto e confrontato con il suo ultimo valore registrato. Se c'è una modifica, il nuovo valore viene stampato.
+   - Lo script verifica se l'encoder rotativo è premuto. Alla rilevazione di una pressione, stampa un messaggio e attende fino al rilascio dell'encoder rotativo.
+   - Un ``sleep(0.1)`` è incluso per aggiungere un breve ritardo, prevenendo un eccessivo utilizzo della CPU.
 
    .. raw:: html
 

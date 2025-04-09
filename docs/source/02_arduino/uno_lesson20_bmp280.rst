@@ -1,98 +1,98 @@
-.. note::
+.. note:: 
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    Ciao e benvenuto nella Community Facebook degli appassionati di SunFounder Raspberry Pi, Arduino ed ESP32! Approfondisci le tue competenze su Raspberry Pi, Arduino ed ESP32 insieme ad altri maker come te.
 
-    **Why Join?**
+    **Perché unirsi?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Supporto Esperto**: Risolvi problemi post-vendita e affronta sfide tecniche con l’aiuto del nostro team e della nostra community.
+    - **Impara e Condividi**: Scambia consigli e tutorial per migliorare le tue abilità.
+    - **Anteprime Esclusive**: Accedi in anteprima a nuovi annunci di prodotto e contenuti esclusivi.
+    - **Sconti Speciali**: Approfitta di sconti esclusivi sui nostri prodotti più recenti.
+    - **Promozioni Festive e Giveaway**: Partecipa a concorsi e promozioni festive.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 Pronto a esplorare e creare con noi? Clicca su [|link_sf_facebook|] ed entra oggi stesso!
 
 .. _uno_lesson20_bmp280:
 
-Lesson 20: Temperature, Humidity & Pressure Sensor (BMP280)
+Lezione 20: Sensore di Temperatura, Umidità e Pressione (BMP280)
 ====================================================================
 
-In this lesson, you will learn how to use the BMP280 sensor with an Arduino Uno to read atmospheric pressure, temperature, and approximate altitude. We'll cover integrating the sensor with Arduino using the Adafruit BMP280 library and displaying readings on the Serial Monitor. This session is ideal for beginners in electronics and programming who want to understand sensor interfacing and data acquisition on the Arduino platform.
+In questa lezione imparerai a utilizzare il sensore BMP280 con un Arduino Uno per leggere la pressione atmosferica, la temperatura e l'altitudine approssimativa. Vedremo come integrare il sensore con Arduino utilizzando la libreria Adafruit BMP280 e come visualizzare le letture sul Monitor Seriale. Questa sessione è ideale per principianti in elettronica e programmazione che desiderano comprendere l'interfacciamento con i sensori e l'acquisizione dei dati sulla piattaforma Arduino.
 
-Required Components
+Componenti Necessari
 --------------------------
 
-In this project, we need the following components. 
+Per questo progetto sono necessari i seguenti componenti.
 
-It's definitely convenient to buy a whole kit, here's the link: 
+È sicuramente comodo acquistare un kit completo. Ecco il link:
 
 .. list-table::
     :widths: 20 20 20
     :header-rows: 1
 
-    *   - Name	
-        - ITEMS IN THIS KIT
+    *   - Nome	
+        - CONTENUTO DEL KIT
         - LINK
     *   - Universal Maker Sensor Kit
         - 94
         - |link_umsk|
 
-You can also buy them separately from the links below.
+Puoi anche acquistare i singoli componenti dai link seguenti.
 
 .. list-table::
     :widths: 30 20
     :header-rows: 1
 
-    *   - Component Introduction
-        - Purchase Link
+    *   - Descrizione del Componente
+        - Link per l'acquisto
 
-    *   - Arduino UNO R3 or R4
+    *   - Arduino UNO R3 o R4
         - |link_Uno_R3_buy|
     *   - :ref:`cpn_bmp280`
         - |link_bmp280_module_buy|
 
 
-Wiring
+Collegamenti
 ---------------------------
 
 .. image:: img/Lesson_20_bme280_module_circuit_uno_bb.png
     :width: 100%
 
 
-Code
+Codice
 ---------------------------
 
 .. note:: 
-   To install the library, use the Arduino Library Manager and search for **"Adafruit BMP280"** and install it.
+   Per installare la libreria, apri l’Arduino Library Manager, cerca **"Adafruit BMP280"** e installala.
 
 .. raw:: html
 
     <iframe src=https://create.arduino.cc/editor/sunfounder01/96357754-fa67-4a69-82dc-156650454e41/preview?embed style="height:510px;width:100%;margin:10px 0" frameborder=0></iframe>
 
-Code Analysis
+Analisi del Codice
 ---------------------------
 
-1. Including Libraries and Initialization. Necessary libraries are included and the BMP280 sensor is initialized for communication using the I2C interface.
+1. Inclusione delle Librerie e Inizializzazione. Vengono incluse le librerie necessarie e il sensore BMP280 viene inizializzato per la comunicazione tramite interfaccia I2C.
 
    .. note:: 
-      To install the library, use the Arduino Library Manager and search for **"Adafruit BMP280"** and install it. 
+      Per installare la libreria, apri l’Arduino Library Manager, cerca **"Adafruit BMP280"** e installala.
 
-   - Adafruit BMP280 Library: This library provides an easy-to-use interface for the BMP280 sensor, allowing the user to read temperature, pressure, and altitude. 
-   - Wire.h: Used for I2C communication.
+   - Libreria Adafruit BMP280: Fornisce un’interfaccia semplice per il sensore BMP280, consentendo la lettura di temperatura, pressione e altitudine.
+   - Wire.h: Utilizzata per la comunicazione I2C.
 
    .. raw:: html
     
     <br/>
 
    .. code-block:: arduino
-    
+
       #include <Wire.h>
       #include <Adafruit_BMP280.h>
       #define BMP280_ADDRESS 0x76
-      Adafruit_BMP280 bmp;  // use I2C interface
+      Adafruit_BMP280 bmp;  // usa l’interfaccia I2C
 
 
-2. The ``setup()`` function initializes the Serial communication, checks for the BMP280 sensor, and sets up the sensor with default settings.
+2. La funzione ``setup()`` inizializza la comunicazione Serial, verifica la connessione del sensore BMP280 e imposta i parametri predefiniti del sensore.
 
    .. code-block:: arduino
 
@@ -102,13 +102,13 @@ Code Analysis
         Serial.println(F("BMP280 test"));
         unsigned status;
         status = bmp.begin(BMP280_ADDRESS);
-        // ... (rest of the setup code)
+        // ... (resto del codice di setup)
 
-3. The ``loop()`` function reads data from the BMP280 sensor for temperature, pressure, and altitude. This data is printed to the Serial Monitor.
+3. La funzione ``loop()`` legge i dati dal sensore BMP280 relativi a temperatura, pressione e altitudine. I dati vengono poi stampati sul Monitor Seriale.
 
    .. code-block:: arduino
 
       void loop() {
-        // ... (read and print temperature, pressure, and altitude data)
-        delay(2000);  // 2-second delay between readings.
+        // ... (lettura e stampa di temperatura, pressione e altitudine)
+        delay(2000);  // Attesa di 2 secondi tra una lettura e l’altra
       }

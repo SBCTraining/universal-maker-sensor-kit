@@ -1,20 +1,20 @@
-.. note::
+.. note:: 
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    Ciao! Benvenuto nella community Facebook degli appassionati di SunFounder Raspberry Pi, Arduino ed ESP32! Esplora in profondità Raspberry Pi, Arduino ed ESP32 insieme ad altri appassionati.
 
-    **Why Join?**
+    **Perché unirsi?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Supporto esperto**: Risolvi problemi post-vendita e sfide tecniche grazie all'aiuto del nostro team e della community.
+    - **Impara e condividi**: Scambia consigli e tutorial per migliorare le tue competenze.
+    - **Anteprime esclusive**: Ottieni accesso anticipato a nuovi annunci di prodotto e anteprime.
+    - **Sconti speciali**: Approfitta di sconti esclusivi sui nostri prodotti più recenti.
+    - **Promozioni festive e giveaway**: Partecipa a concorsi e iniziative promozionali durante le festività.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 Pronto a esplorare e creare con noi? Clicca su [|link_sf_facebook|] e unisciti subito!
 
 .. _cpn_relay:
 
-5V Relay Module
+Modulo Relè 5V
 ==========================
 
 .. image:: img/30_relay_module.png
@@ -25,35 +25,36 @@
     
     <br/>
 
-5V relay modules are devices that can switch high voltage or high current devices on and off using a 5V signal from Arduino. They can be used to control devices such as lights, fans, motors, solenoids, etc. 5V relay has three high voltage terminals (NC, C, and NO) which connect to the device you want to control. The other side has three low voltage pins (Ground, Vcc, and Signal) which connect to the Arduino.
+I moduli relè da 5V sono dispositivi che permettono di accendere o spegnere dispositivi ad alta tensione o alta corrente utilizzando un segnale a 5V proveniente da Arduino. Possono essere usati per controllare luci, ventole, motori, elettromagneti e altro. Il relè da 5V ha tre terminali ad alta tensione (NC, C e NO) da collegare al dispositivo che si desidera controllare. L'altro lato ha tre pin a bassa tensione (GND, VCC e Segnale) da collegare all'Arduino.
 
 
-Principle
----------------------------
-A relay is a device which is used to provide connection between two or more points or devices in response to the input signal applied. In other words, relays provide isolation between the controller and devices, which may operate on either AC or DC. However, they receive signals from a microcontroller which works on DC hence requiring a relay to bridge the gap. Relay is extremely useful when you need to control a large amount of current or voltage with small electrical signal.
+Principio di funzionamento
+-------------------------------
 
-There are 5 parts in every relay:
+Un relè è un dispositivo che consente di stabilire una connessione tra due o più punti o dispositivi in risposta a un segnale di ingresso. In altre parole, i relè forniscono isolamento tra il controller e i dispositivi, che possono funzionare sia in AC che in DC. Tuttavia, ricevono segnali da un microcontrollore che lavora in DC, quindi è necessario un relè per fare da ponte. Il relè è estremamente utile quando si ha bisogno di controllare una grande quantità di corrente o tensione con un piccolo segnale elettrico.
+
+Ogni relè è composto da 5 parti principali:
 
 .. image:: img/30_relay_2.jpeg
     :width: 500
     :align: center
 
-Electromagnet - It consists of an iron core wounded by coil of wires. When electricity is passed through, it becomes magnetic. Therefore, it is called electromagnet.
+Elettromagnete – Composto da un nucleo di ferro avvolto da una bobina. Quando attraversato da corrente, genera un campo magnetico.
 
-Armature - The movable magnetic strip is known as armature. When current flows through them, the coil gets energized thus producing a magnetic field which is used to make or break the normally open (N/O) or normally close (N/C) points. And the armature can be moved with direct current (DC) as well as alternating current (AC).
+Armatura – Una lamina mobile magnetica che, quando la bobina è eccitata, viene attratta per chiudere o aprire i contatti. Può essere attivata sia in corrente continua (DC) che alternata (AC).
 
-Spring - When no currents flow through the coil on the electromagnet, the spring pulls the armature away so the circuit cannot be completed.
+Molla – Quando non scorre corrente nella bobina, la molla riporta l’armatura nella posizione iniziale, interrompendo il circuito.
 
-Set of electrical contacts - There are two contact points:
+Set di contatti elettrici – Ci sono due tipi:
 
-* Normally open - connected when the relay is activated, and disconnected when it is inactive.
-* Normally closed - not connected when the relay is activated, and connected when it is inactive.
+* Normalmente aperto (NO): connesso quando il relè è attivato.
+* Normalmente chiuso (NC): connesso quando il relè non è attivato.
 
-Molded frame - This is typically made of plastic and provides structural support and protection for the relay.
+Struttura stampata – Solitamente in plastica, serve da supporto e protezione del relè.
 
-The working principle of relay is simple. When power is supplied to the relay, currents start flowing through the control coil; as a result, the electromagnet starts energizing. Then the armature is attracted to the coil, pulling down the moving contact together thus connecting with the normally open contacts. So the circuit with the load is energized. Then breaking the circuit would be a similar case, as the moving contact will be pulled up to the normally closed contacts under the force of the spring. In this way, the switching on and off of the relay can control the state of a load circuit.
+Il funzionamento è semplice: quando si alimenta il relè, la corrente scorre nella bobina e genera un campo magnetico che attira l’armatura. Questa chiude i contatti normalmente aperti e il carico si attiva. Quando si interrompe il segnale, la molla riporta l’armatura nella posizione iniziale, chiudendo i contatti normalmente chiusi.
 
-Schematic diagram
+Schema elettrico
 ---------------------------
 
 .. image:: img/30_relay_module_schematic.png
@@ -64,7 +65,7 @@ Schematic diagram
 
    <br/>
 
-Example
+Esempi
 ---------------------------
 * :ref:`uno_lesson30_relay_module` (Arduino UNO)
 * :ref:`esp32_lesson30_relay_module` (ESP32)

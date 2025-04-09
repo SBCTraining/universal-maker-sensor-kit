@@ -1,114 +1,114 @@
 .. note::
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    Ciao e benvenuto nella community Facebook dedicata agli appassionati di SunFounder Raspberry Pi, Arduino ed ESP32! Approfondisci le tue conoscenze su Raspberry Pi, Arduino ed ESP32 insieme ad altri appassionati come te.
 
-    **Why Join?**
+    **Perché unirsi?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Supporto esperto**: Risolvi problemi post-vendita e sfide tecniche con l’aiuto della nostra community e del nostro team.
+    - **Impara e condividi**: Scambia consigli e tutorial per migliorare le tue competenze.
+    - **Anteprime esclusive**: Ricevi in anteprima gli annunci dei nuovi prodotti e contenuti riservati.
+    - **Sconti speciali**: Approfitta di sconti esclusivi sui nostri prodotti più recenti.
+    - **Promozioni festive e giveaway**: Partecipa a promozioni festive e concorsi a premi.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 Pronto a esplorare e creare con noi? Clicca su [|link_sf_facebook|] e unisciti oggi stesso!
 
 .. _uno_lesson01_button:
 
-Lesson 01: Button Module
+Lezione 01: Modulo Pulsante
 ==================================
 
-In this lesson, you will learn how a button interacts with an LED using Arduino. We'll see how pressing the button lights up the LED and releasing it turns off the LED. This project is ideal for beginners as it provides a practical understanding of input and output operations on the Arduino platform.
+In questa lezione imparerai come un pulsante interagisce con un LED utilizzando Arduino. Vedremo come premere il pulsante accenda il LED e rilasciarlo lo spenga. Questo progetto è perfetto per i principianti, poiché fornisce una comprensione pratica delle operazioni di input e output sulla piattaforma Arduino.
 
-Required Components
+Componenti Necessari
 ---------------------------
 
-In this project, we need the following components. 
+Per questo progetto sono necessari i seguenti componenti.
 
-It's definitely convenient to buy a whole kit, here's the link: 
+È sicuramente comodo acquistare un kit completo, ecco il link:
 
 .. list-table::
     :widths: 20 20 20
     :header-rows: 1
 
-    *   - Name	
-        - ITEMS IN THIS KIT
+    *   - Nome
+        - ELEMENTI INCLUSI NEL KIT
         - LINK
     *   - Universal Maker Sensor Kit
         - 94
         - |link_umsk|
 
-You can also buy them separately from the links below.
+Puoi anche acquistare i componenti singolarmente dai link qui sotto.
 
 .. list-table::
     :widths: 30 20
     :header-rows: 1
 
-    *   - Component Introduction
-        - Purchase Link
+    *   - Descrizione Componente
+        - Link per l'acquisto
 
-    *   - Arduino UNO R3 or R4
+    *   - Arduino UNO R3 o R4
         - |link_Uno_R3_buy|
     *   - :ref:`cpn_button`
         - \-
-        
 
-Wiring
+
+Collegamenti
 ---------------------------
 
 .. image:: img/Lesson_01_Button_Module_uno_bb.png
     :width: 100%
 
 
-Code
+Codice
 ---------------------------
 
 .. raw:: html
 
     <iframe src=https://create.arduino.cc/editor/sunfounder01/2249707e-73aa-400b-8141-15424c291f44/preview?embed style="height:510px;width:100%;margin:10px 0" frameborder=0></iframe>
 
-Code Analysis
+Analisi del Codice
 ---------------------------
 
-#. Initialization of Pins
+#. Inizializzazione dei Pin
 
-   The pins for the button and LED are defined and initialized. The ``buttonPin`` is set as an input to read the button's state, and ``ledPin`` is set as an output to control the LED.
+   I pin per il pulsante e per il LED vengono definiti e inizializzati. Il ``buttonPin`` è impostato come input per leggere lo stato del pulsante, mentre ``ledPin`` è impostato come output per controllare il LED.
 
    .. note::
-      Most Arduino boards have a pin connected to an on-board LED in series with a resistor. The constant ``LED_BUILTIN`` is the number of the pin to which the on-board LED is connected. Most boards have this LED connected to digital pin 13.
-   
+      La maggior parte delle schede Arduino ha un pin collegato a un LED integrato in serie con una resistenza. La costante ``LED_BUILTIN`` rappresenta il numero del pin a cui è collegato il LED. Nella maggior parte delle schede, questo pin corrisponde al digitale 13.
+
    .. code-block:: arduino
 
-      const int buttonPin = 12;        // Pin number for the button
-      const int ledPin = LED_BUILTIN;  // Pin number for the LED
-      int buttonState = 0;  // Variable to hold the current state of the button
+      const int buttonPin = 12;        // Pin del pulsante
+      const int ledPin = LED_BUILTIN;  // Pin del LED
+      int buttonState = 0;  // Variabile per memorizzare lo stato corrente del pulsante
 
-#. Setup Function
+#. Funzione Setup
 
-   This function runs once and sets up the pin modes. ``pinMode(buttonPin, INPUT)`` configures the button pin as an input. ``pinMode(ledPin, OUTPUT)`` sets the LED pin as an output.
-   
+   Questa funzione viene eseguita una sola volta e serve per configurare le modalità dei pin. ``pinMode(buttonPin, INPUT)`` imposta il pin del pulsante come ingresso. ``pinMode(ledPin, OUTPUT)`` imposta il pin del LED come uscita.
+
    .. code-block:: arduino
 
       void setup() {
-        pinMode(buttonPin, INPUT);  // Initialize buttonPin as an input pin
-        pinMode(ledPin, OUTPUT);    // Initialize ledPin as an output pin
+        pinMode(buttonPin, INPUT);  // Imposta buttonPin come ingresso
+        pinMode(ledPin, OUTPUT);    // Imposta ledPin come uscita
       }
 
-#. Main Loop Function
+#. Funzione Principale Loop
 
-   This is the core of the program where the button state is continuously read and the LED state is controlled. ``digitalRead(buttonPin)`` reads the button's state. If the button is pressed (state is LOW), the LED is turned on by ``digitalWrite(ledPin, HIGH)``. If not pressed, the LED is turned off (``digitalWrite(ledPin, LOW)``).
+   Questa è la parte centrale del programma, dove viene letto continuamente lo stato del pulsante e viene controllato il comportamento del LED. ``digitalRead(buttonPin)`` legge lo stato del pulsante. Se il pulsante è premuto (stato LOW), il LED si accende con ``digitalWrite(ledPin, HIGH)``. Se non è premuto, il LED si spegne con ``digitalWrite(ledPin, LOW)``.
 
-   The :ref:`button module<cpn_button>` used in this project has an internal pull-up resistor (see its :ref:`schematic diagram<cpn_button_sch>`), causing the button to be at a low level when pressed and remain at a high level when released.
-   
+   Il :ref:`button module<cpn_button>` utilizzato in questo progetto ha una resistenza di pull-up interna (vedi lo :ref:`schematic diagram<cpn_button_sch>`), per cui il pulsante è a livello basso quando viene premuto e a livello alto quando rilasciato.
+
    .. code-block:: arduino
 
       void loop() {
-        // Read the current state of the button
+        // Legge lo stato corrente del pulsante
         buttonState = digitalRead(buttonPin);
 
-        // Check if the button is pressed (LOW)
+        // Verifica se il pulsante è premuto (LOW)
         if (buttonState == LOW) {
-          digitalWrite(ledPin, HIGH);  // Turn the LED on
+          digitalWrite(ledPin, HIGH);  // Accende il LED
         } else {
-          digitalWrite(ledPin, LOW);  // Turn the LED off
+          digitalWrite(ledPin, LOW);  // Spegne il LED
         }
       }

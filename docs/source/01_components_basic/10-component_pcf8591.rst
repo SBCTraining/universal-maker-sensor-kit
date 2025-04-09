@@ -1,21 +1,21 @@
-.. note::
+.. note:: 
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    Ciao! Benvenuto nella community Facebook dedicata agli appassionati di SunFounder, Raspberry Pi, Arduino ed ESP32! Unisciti a noi per approfondire il mondo di Raspberry Pi, Arduino ed ESP32 insieme ad altri maker ed entusiasti.
 
-    **Why Join?**
+    **Perché unirsi?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Supporto esperto**: Risolvi problemi post-vendita e sfide tecniche con l’aiuto della nostra community e del nostro team.
+    - **Impara e condividi**: Scambia suggerimenti e tutorial per migliorare le tue competenze.
+    - **Anteprime esclusive**: Ricevi in anteprima notizie e anticipazioni sui nuovi prodotti.
+    - **Sconti speciali**: Approfitta di sconti esclusivi sui nostri prodotti più recenti.
+    - **Promozioni festive e giveaway**: Partecipa a omaggi e promozioni speciali durante le festività.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 Pronto a esplorare e creare con noi? Clicca su [|link_sf_facebook|] e unisciti oggi stesso!
 
 .. _cpn_pcf8591:
 
-PCF8591 ADC DAC Converter Module
-=====================================
+Modulo Convertitore ADC/DAC PCF8591
+=======================================
 
 .. image:: img/10_pcf8591_module.png
     :width: 35%
@@ -25,30 +25,30 @@ PCF8591 ADC DAC Converter Module
 
    <br/>
 
-The PCF8591 is a single-chip, single-supply low-power 8-bit CMOS data acquisition device with four analog inputs, one analog output and a serial I2C-bus interface. Three address pins A0, A1 and A2 are used for programming the hardware address, allowing the use of up to eight devices connected to the I2C-bus without additional hardware. Address, control and data to and from the device are transferred serially via the two-line bidirectional I2C-bus.
+Il PCF8591 è un dispositivo integrato a bassa potenza con alimentazione singola, basato su tecnologia CMOS a 8 bit, dotato di quattro ingressi analogici, un’uscita analogica e interfaccia seriale I2C. I tre pin di indirizzo A0, A1 e A2 permettono di configurare l’indirizzo hardware, consentendo l’utilizzo di fino a otto dispositivi collegati al bus I2C senza hardware aggiuntivo. L’indirizzo, i comandi e i dati vengono trasferiti in modo seriale attraverso il bus bidirezionale I2C a due fili.
 
-The functions of the device include analog input multiplexing, on-chip track and hold function, 8-bit analog-to-digital conversion and an 8-bit digital-to-analog conversion. The maximum conversion rate is given by the maximum speed of the I2C-bus.
+Le funzionalità del dispositivo includono il multiplexing degli ingressi analogici, funzione di track-and-hold integrata, conversione analogico-digitale a 8 bit e conversione digitale-analogica a 8 bit. La velocità massima di conversione dipende dalla velocità massima supportata dal bus I2C.
 
-Principle
----------------------------
+Principio di funzionamento
+-----------------------------
 
-**Addressing:**
+**Indirizzamento:**
 
-Each PCF8591 device in an I2C-bus system is activated by sending a valid address to the device. The address consists of a fixed part and a programmable part. The programmable part must be set according to the address pins A0, A1 and A2. The address always has to be sent as the first byte after the start condition in the I2C-bus protocol. The last bit of the address byte is the read/write-bit which sets the direction of the following data transfer (see as below).
+Ogni dispositivo PCF8591 in un sistema I2C viene attivato tramite l’invio di un indirizzo valido. L’indirizzo è composto da una parte fissa e da una parte programmabile. La parte programmabile va impostata in base ai pin di indirizzo A0, A1 e A2. L’indirizzo deve essere inviato sempre come primo byte dopo la condizione di start nel protocollo I2C. L’ultimo bit del byte di indirizzo è il bit di lettura/scrittura che determina la direzione del trasferimento dati (come mostrato di seguito).
 
 .. image:: img/10_pcf8591_addressing.png
    :width: 60%
 
-**Control byte:**
+**Byte di controllo:**
 
-The second byte sent to a PCF8591 device will be stored in its control register and is required to control the device function. The upper nibble of the control register is used for enabling the analog output, and for programming the analog inputs as single-ended or differential inputs. The lower nibble selects one of the analog input channels defined by the upper nibble. If the auto-increment flag is set, the channel number is incremented automatically after each A/D conversion. See the figure below.
+Il secondo byte inviato al dispositivo PCF8591 viene memorizzato nel registro di controllo e serve per gestire il funzionamento del modulo. Il nibble superiore del registro di controllo consente di abilitare l’uscita analogica e di configurare gli ingressi analogici come single-ended o differenziali. Il nibble inferiore seleziona uno degli ingressi analogici definiti dal nibble superiore. Se il flag di auto-incremento è attivo, il numero del canale viene incrementato automaticamente dopo ogni conversione A/D. Vedi figura seguente.
 
 .. image:: img/10_pcf8591_byte.png
    :width: 80%
 
 .. _cpn_pcf8591_sch:
 
-Schematic diagram
+Schema elettrico
 ---------------------------
 
 .. image:: img/10_pcf8591_schematic.png
@@ -59,7 +59,7 @@ Schematic diagram
 
    <br/>
 
-Example
+Esempi
 ---------------------------
 * :ref:`uno_lesson10_pcf8591` (Arduino UNO)
 * :ref:`esp32_lesson10_pcf8591` (ESP32)

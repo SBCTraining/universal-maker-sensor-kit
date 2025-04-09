@@ -1,50 +1,50 @@
-.. note::
+.. note:: 
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    Ciao, benvenuto nella Comunità di appassionati di SunFounder Raspberry Pi & Arduino & ESP32 su Facebook! Approfondisci le tue conoscenze su Raspberry Pi, Arduino e ESP32 insieme ad altri entusiasti.
 
-    **Why Join?**
+    **Perché unirsi?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Supporto esperto**: Risolvi problemi post-vendita e difficoltà tecniche grazie al supporto della nostra community e del nostro team.
+    - **Impara & Condividi**: Scambia suggerimenti e tutorial per migliorare le tue competenze.
+    - **Anteprime esclusive**: Ottieni accesso anticipato a nuovi annunci di prodotto e contenuti esclusivi.
+    - **Sconti speciali**: Approfitta di sconti esclusivi sui nostri prodotti più recenti.
+    - **Promozioni festive e giveaway**: Partecipa a promozioni stagionali e concorsi a premi.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 Pronto a esplorare e creare con noi? Clicca [|link_sf_facebook|] e unisciti subito!
 
 .. _pico_lesson11_photoresistor:
 
-Lesson 11: Photoresistor Module
-==================================
+Lezione 11: Modulo Fotoresistore
+====================================
 
-In this lesson, you'll learn how to connect a photoresistor module to the Raspberry Pi Pico W in order to measure light intensity. By linking the photoresistor to the analog input, you can read different analog values that correspond to varying light levels. This project is ideal for beginners and provides hands-on experience in utilizing analog inputs on the Raspberry Pi Pico W with MicroPython.
+In questa lezione imparerai a collegare un modulo fotoresistore al Raspberry Pi Pico W per misurare l’intensità luminosa. Collegando il fotoresistore all’ingresso analogico, potrai leggere diversi valori che corrispondono a vari livelli di luce. Questo progetto è ideale per chi è alle prime armi e offre un’esperienza pratica nell’uso degli ingressi analogici sul Raspberry Pi Pico W con MicroPython.
 
-Required Components
---------------------------
+Componenti necessari
+-------------------------------
 
-In this project, we need the following components. 
+Per questo progetto sono richiesti i seguenti componenti.
 
-It's definitely convenient to buy a whole kit, here's the link: 
+È sicuramente comodo acquistare un kit completo. Ecco il link:
 
 .. list-table::
     :widths: 20 20 20
     :header-rows: 1
 
-    *   - Name	
-        - ITEMS IN THIS KIT
+    *   - Nome	
+        - ELEMENTI IN QUESTO KIT
         - LINK
-    *   - Universal Maker Sensor Kit
+    *   - Kit Sensori Universali per Maker
         - 94
         - |link_umsk|
 
-You can also buy them separately from the links below.
+Puoi anche acquistare i componenti separatamente dai link qui sotto.
 
 .. list-table::
     :widths: 30 20
     :header-rows: 1
 
-    *   - Component Introduction
-        - Purchase Link
+    *   - Introduzione ai Componenti
+        - Link per l'acquisto
 
     *   - Raspberry Pi Pico W
         - |link_picow_buy|
@@ -54,64 +54,64 @@ You can also buy them separately from the links below.
         - |link_breadboard_buy|
 
 
-Wiring
----------------------------
+Cablaggio
+------------
 
 .. image:: img/Lesson_11_photoresistor_module_bb.png
     :width: 100%
 
 
-Code
----------------------------
+Codice
+--------------
 
 .. code-block:: python
 
-   import machine  # Hardware control library
-   import time  # Time control library
+   import machine  # Libreria per il controllo dell’hardware
+   import time  # Libreria per la gestione del tempo
    
-   photoresistor = machine.ADC(26)  # Initialize ADC on pin 26
+   photoresistor = machine.ADC(26)  # Inizializza l'ADC sul pin 26
    
    while True:
-       value = photoresistor.read_u16()  # Read analog value
-       print(value)  # Print the value
+       value = photoresistor.read_u16()  # Legge il valore analogico
+       print(value)  # Stampa il valore
    
-       time.sleep_ms(200)  # Delay of 200 ms between reads
+       time.sleep_ms(200)  # Ritardo di 200 ms tra una lettura e l'altra
 
 
-Code Analysis
----------------------------
+Analisi del Codice
+-----------------------
 
-1. **Importing Libraries**:
+1. **Importazione delle Librerie**:
 
-   The code begins by importing necessary libraries. The ``machine`` library is used for controlling hardware components, and the ``time`` library is used for managing time-related tasks such as delays.
-
-   .. code-block:: python
-
-      import machine  # Hardware control library
-      import time  # Time control library
-
-2. **Initializing the Photoresistor**:
-
-   Here, we initialize the photoresistor. We use the ``machine.ADC`` class to create an ADC object on pin 26, where the photoresistor is connected. The ADC object will be used to read the analog values from the photoresistor.
+   Il codice inizia importando le librerie necessarie. La libreria ``machine`` viene utilizzata per controllare i componenti hardware, mentre ``time`` gestisce operazioni legate al tempo, come i ritardi.
 
    .. code-block:: python
 
-      photoresistor = machine.ADC(26)  # Initialize ADC on pin 26
+      import machine  # Libreria per il controllo dell’hardware
+      import time  # Libreria per la gestione del tempo
 
-3. **Reading from the Photoresistor**:
+2. **Inizializzazione del Fotoresistore**:
 
-   In this loop, the code continuously reads the analog value from the photoresistor using ``photoresistor.read_u16()``. This method reads the value as a 16-bit unsigned integer. The value is then printed to the console.
+   In questa parte, viene inizializzato il fotoresistore. Utilizziamo la classe ``machine.ADC`` per creare un oggetto ADC sul pin 26, dove è collegato il fotoresistore. Questo oggetto serve a leggere i valori analogici.
+
+   .. code-block:: python
+
+      photoresistor = machine.ADC(26)  # Inizializza l'ADC sul pin 26
+
+3. **Lettura dei Dati dal Fotoresistore**:
+
+   All’interno del ciclo, il codice legge in continuazione il valore analogico proveniente dal fotoresistore tramite ``photoresistor.read_u16()``, che restituisce un intero a 16 bit senza segno. Il valore viene poi stampato sulla console.
 
    .. code-block:: python
 
       while True:
-          value = photoresistor.read_u16()  # Read analog value
-          print(value)  # Print the value
+          value = photoresistor.read_u16()  # Legge il valore analogico
+          print(value)  # Stampa il valore
 
-4. **Adding a Delay**:
+4. **Aggiunta di un Ritardo**:
 
-   To prevent the code from running too quickly and flooding the console with data, a delay of 200 milliseconds is introduced after each read using ``time.sleep_ms(200)``.
+   Per evitare che il codice venga eseguito troppo rapidamente e sovraccarichi la console, viene introdotto un ritardo di 200 millisecondi tra ogni lettura tramite ``time.sleep_ms(200)``.
 
    .. code-block:: python
 
-      time.sleep_ms(200)  # Delay of 200 ms between reads
+      time.sleep_ms(200)  # Ritardo di 200 ms tra una lettura e l'altra

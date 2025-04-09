@@ -1,20 +1,20 @@
-.. note::
+.. note:: 
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    Ciao! Benvenuto nella community Facebook dedicata agli appassionati di SunFounder, Raspberry Pi, Arduino ed ESP32! Unisciti a noi per esplorare più a fondo il mondo di Raspberry Pi, Arduino ed ESP32 insieme ad altri entusiasti.
 
-    **Why Join?**
+    **Perché unirsi?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Supporto esperto**: Risolvi problemi post-vendita e difficoltà tecniche grazie all’aiuto della community e del nostro team.
+    - **Impara e condividi**: Scambia consigli e tutorial per migliorare le tue competenze.
+    - **Anteprime esclusive**: Ottieni accesso anticipato a nuovi annunci e anteprime di prodotto.
+    - **Sconti speciali**: Approfitta di sconti esclusivi sui nostri prodotti più recenti.
+    - **Promozioni festive e omaggi**: Partecipa a giveaway ed eventi promozionali durante le festività.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 Pronto a scoprire e creare con noi? Clicca su [|link_sf_facebook|] e unisciti subito!
 
 .. _cpn_flame:
 
-Flame Sensor Module
+Modulo Sensore di Fiamma
 ==========================
 
 .. image:: img/03_flame_module.png
@@ -26,33 +26,33 @@ Flame Sensor Module
    <br/>
 
 .. tip::
-   Keep a specific distance between the sensor and the flame to prevent damage from high temperatures. 
+   Mantieni una distanza adeguata tra il sensore e la fiamma per evitare danni causati dalle alte temperature. 
 
 .. note::
-   **Notice**: Due to a production error, some of the flame sensors included in our kits may be the 3-pin version, which lacks the AO (Analog Output). This version is suitable for most projects and does not impact general usage. If you still require the 4-pin version, please contact our customer service at service@sunfounder.com. We will provide a free replacement to meet your needs.
+   **Attenzione**: A causa di un errore di produzione, alcuni sensori di fiamma inclusi nei nostri kit potrebbero essere nella versione a 3 pin, priva dell'uscita analogica (AO). Questa versione è comunque adatta alla maggior parte dei progetti e non influisce sull’uso generale. Se hai comunque bisogno della versione a 4 pin, contatta il nostro servizio clienti all’indirizzo service@sunfounder.com. Ti forniremo una sostituzione gratuita per soddisfare le tue esigenze.
 
-The Flame sensor is a sensor that can detect the presence of fire or flames. The flame sensor works based on infrared radiation. The IR photodiode will detect the IR radiation from any hot body. This value is then compared with a set value. Once the radiation reaches the threshold value, the sensor will change its output accordingly. It is widely used in fire detection systems in homes and industries.
+Il sensore di fiamma è un modulo in grado di rilevare la presenza di fuoco o fiamme. Il suo funzionamento si basa sulla rilevazione della radiazione infrarossa. Il fotodiodo IR rileva la radiazione emessa da qualsiasi corpo caldo. Questo valore viene confrontato con una soglia predefinita: se la radiazione supera questa soglia, il sensore modifica il proprio stato di uscita. È ampiamente utilizzato nei sistemi di rilevamento incendi, sia in ambito domestico che industriale.
 
-The Flame sensor works on the principle of infrared (IR) detection. The sensor has an IR receiver that detects the IR radiation emitted by flames. When fire burns it emits a small amount of Infra-red light, this light will be received by the Photodiode (IR receiver) on the sensor module. Then we use an Op-Amp to check for a change in voltage across the IR Receiver, so that if a fire is detected the output pin (DO) will give 0V(LOW), and if the is no fire the output pin will be 5V(HIGH).
+Il principio di funzionamento del sensore di fiamma si basa sulla rilevazione dell’infrarosso (IR). Il sensore è dotato di un ricevitore IR che capta la radiazione emessa dalla fiamma. Quando un fuoco arde, emette una piccola quantità di luce IR che viene rilevata dal fotodiodo (ricevitore IR) presente sul modulo. Un amplificatore operazionale (Op-Amp) rileva la variazione di tensione sul ricevitore IR: se viene rilevato un incendio, il pin di uscita digitale (DO) emetterà 0V (LOW), mentre in assenza di fiamme, il pin emetterà 5V (HIGH).
 
 
-Specification
+Specifiche
 ---------------------------
-* Supply Voltage: 3.3V - 5V
-* PCB Size: 31 x 14mm
-* Output Signal Type: DO and AO
-* Detection Angle: 60 degrees
+* Tensione di alimentazione: 3.3V - 5V
+* Dimensioni PCB: 31 x 14mm
+* Tipo di segnale in uscita: DO e AO
+* Angolo di rilevamento: 60 gradi
 
 
 Pinout
 ---------------------------
-* **VCC**: This is the positive power supply input from the main control. 
-* **GND**: Ground connection.
-* **DO**: Digital output. It indicates the presence of a flame. When the infrared radiation exceeds the threshold value (set by the potentiometer), DO becomes LOW; otherwise, it remains HIGH.
-* **AO**: Analog output. It generates an output voltage that is inversely proportional to the intensity of infrared radiation (flame size). Therefore, higher infrared radiation will result in a lower voltage, while lower infrared radiation will result in a higher voltage.
+* **VCC**: Ingresso di alimentazione positiva dal controllore principale.
+* **GND**: Connessione a massa.
+* **DO**: Uscita digitale. Indica la presenza di una fiamma. Quando la radiazione IR supera il valore di soglia (impostato tramite potenziometro), DO diventa LOW; altrimenti rimane HIGH.
+* **AO**: Uscita analogica. Genera una tensione inversamente proporzionale all’intensità della radiazione infrarossa (dimensione della fiamma). Maggiore è la radiazione, minore sarà la tensione in uscita, e viceversa.
 
 
-Schematic diagram
+Schema elettrico
 ---------------------------
 
 .. image:: img/03_flame_module_schematic.png
@@ -64,7 +64,7 @@ Schematic diagram
    <br/>
 
 
-Example
+Esempi
 ---------------------------
 * :ref:`uno_lesson03_flame` (Arduino UNO)
 * :ref:`esp32_lesson03_flame` (ESP32)

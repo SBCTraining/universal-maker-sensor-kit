@@ -1,50 +1,50 @@
-.. note::
+.. note:: 
+   
+    Ciao, benvenuto nella Community di appassionati di SunFounder Raspberry Pi & Arduino & ESP32 su Facebook! Approfondisci le tue conoscenze su Raspberry Pi, Arduino e ESP32 insieme ad altri appassionati.
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    **Perché unirsi?**
 
-    **Why Join?**
+    - **Supporto esperto**: Risolvi problemi post-vendita e sfide tecniche con l'aiuto della nostra comunità e del nostro team.
+    - **Impara & Condividi**: Scambia consigli e tutorial per migliorare le tue competenze.
+    - **Anteprime esclusive**: Accedi in anteprima alle nuove annunci di prodotti e alle anticipazioni.
+    - **Sconti speciali**: Goditi sconti esclusivi sui nostri prodotti più recenti.
+    - **Promozioni festive e giveaway**: Partecipa ai giveaway e alle promozioni festive.
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
-
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 Pronto a esplorare e creare con noi? Clicca [|link_sf_facebook|] e unisciti oggi!
 
 .. _pico_lesson01_button:
 
-Lesson 01: Button Module
+Lezione 01: Modulo Pulsante
 ==================================
 
-In this lesson, you will learn how to use Raspberry Pi Pico W to interact with the onboard LED using a button. Pressing the button will light up the LED, and releasing the button will turn it off. This project is ideal for beginners as it offers hands-on experience with input and output operations on Raspberry Pi Pico W using MicroPython.
+In questa lezione, imparerai come utilizzare il Raspberry Pi Pico W per interagire con il LED integrato utilizzando un pulsante. Premendo il pulsante, il LED si accenderà e rilasciandolo si spegnerà. Questo progetto è ideale per i principianti poiché offre un'esperienza pratica con le operazioni di input e output sul Raspberry Pi Pico W usando MicroPython.
 
-Required Components
+Componenti necessari
 --------------------------
 
-In this project, we need the following components. 
+Per questo progetto, abbiamo bisogno dei seguenti componenti.
 
-It's definitely convenient to buy a whole kit, here's the link: 
+È decisamente conveniente acquistare un kit completo, ecco il link:
 
 .. list-table::
     :widths: 20 20 20
     :header-rows: 1
 
-    *   - Name	
-        - ITEMS IN THIS KIT
+    *   - Nome	
+        - ELEMENTI IN QUESTO KIT
         - LINK
-    *   - Universal Maker Sensor Kit
+    *   - Kit Sensori Universali per Maker
         - 94
         - |link_umsk|
 
-You can also buy them separately from the links below.
+Puoi anche acquistarli separatamente dai link sottostanti.
 
 .. list-table::
     :widths: 30 20
     :header-rows: 1
 
-    *   - Component Introduction
-        - Purchase Link
+    *   - Introduzione ai Componenti
+        - Link per l'acquisto
 
     *   - Raspberry Pi Pico W
         - |link_picow_buy|
@@ -54,14 +54,14 @@ You can also buy them separately from the links below.
         - |link_breadboard_buy|
 
 
-Wiring
+Cablaggio
 ---------------------------
 
 .. image:: img/Lesson_01_Button_Module_bb.png
     :width: 100%
 
 
-Code
+Codice
 ---------------------------
 
 .. code-block:: python
@@ -69,62 +69,62 @@ Code
    from machine import Pin
    import time
    
-   # Set GPIO 19 as an input pin to read the button state
+   # Imposta il GPIO 19 come pin di input per leggere lo stato del pulsante
    button = Pin(19, Pin.IN)
    
-   # Initialize the onboard LED of the Raspberry Pi Pico W
+   # Inizializza il LED integrato del Raspberry Pi Pico W
    led = Pin('LED', Pin.OUT)
    
    while True:
-       if button.value() == 0:  # Check if the button is pressed
-           led.value(1)  # Turn on the LED
+       if button.value() == 0:  # Verifica se il pulsante è premuto
+           led.value(1)  # Accendi il LED
        else:
-           led.value(0)  # Turn off the LED
+           led.value(0)  # Spegni il LED
    
-       time.sleep(0.1)  # Short delay to reduce CPU usage
+       time.sleep(0.1)  # Breve ritardo per ridurre l'uso della CPU
 
 
-Code Analysis
+Analisi del Codice
 ---------------------------
 
-#. Importing Modules
+#. Importazione dei Moduli
 
-   The ``machine`` module is imported to interact with the GPIO pins, and the ``time`` module is for handling timing.
+   Il modulo ``machine`` è importato per interagire con i pin GPIO e il modulo ``time`` per gestire la temporizzazione.
 
    .. code-block:: python
 
       from machine import Pin
       import time
 
-#. Setting up the Button
+#. Configurazione del Pulsante
 
-   GPIO 19 is configured as an input pin. This will read the state of the push button connected to it.
+   Il GPIO 19 è configurato come un pin di input. Questo leggerà lo stato del pulsante a cui è collegato.
 
    .. code-block:: python
 
       button = Pin(19, Pin.IN)
 
-#. Setting up the LED
+#. Configurazione del LED
 
-   The onboard LED is set up as an output pin, enabling us to turn it on or off programmatically.
+   Il LED integrato è impostato come un pin di output, ciò permette di accenderlo o spegnerlo programmaticamente.
 
    .. code-block:: python
 
       led = Pin('LED', Pin.OUT)
 
-#. Main Loop
+#. Ciclo Principale
 
-   - An infinite loop is used to continuously check the state of the button. 
-   - If the button is pressed (``button.value() == 0``), the LED is turned on. Otherwise, it's turned off.
-   - A short delay of 0.1 seconds is added to reduce CPU usage.
-   
-   The :ref:`button module<cpn_button>` used in this project has an internal pull-up resistor (see its :ref:`schematic diagram<cpn_button_sch>`), causing the button to be at a low level when pressed and remain at a high level when released.
+   - Un loop infinito è utilizzato per controllare continuamente lo stato del pulsante. 
+   - Se il pulsante è premuto (``button.value() == 0``), il LED si accende. Altrimenti, si spegne.
+   - È aggiunto un breve ritardo di 0,1 secondi per ridurre l'uso della CPU.
+
+   Il :ref:`button module<cpn_button>` utilizzato in questo progetto ha una resistenza di pull-up interna (vedi il suo :ref:`schematic diagram<cpn_button_sch>`), che fa sì che il pulsante sia a livello basso quando premuto e rimanga a livello alto quando rilasciato.
 
    .. code-block:: python
 
       while True:
-          if button.value() == 0:  # Check if the button is pressed
-              led.value(1)  # Turn on the LED
+          if button.value() == 0:  # Verifica se il pulsante è premuto
+              led.value(1)  # Accendi il LED
           else:
-              led.value(0)  # Turn off the LED
-          time.sleep(0.1)  # Short delay to reduce CPU usage
+              led.value(0)  # Spegni il LED
+          time.sleep(0.1)  # Breve ritardo per ridurre l'uso della CPU

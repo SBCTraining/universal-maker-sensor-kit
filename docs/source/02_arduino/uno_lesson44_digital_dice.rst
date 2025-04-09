@@ -1,59 +1,59 @@
-
 .. note::
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    Ciao, benvenuto nella Community SunFounder dedicata agli appassionati di Raspberry Pi, Arduino ed ESP32 su Facebook! Approfondisci il mondo di Raspberry Pi, Arduino ed ESP32 insieme ad altri entusiasti.
 
-    **Why Join?**
+    **Perché unirsi?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Supporto Esperto**: Risolvi problemi post-vendita e sfide tecniche grazie al supporto del nostro team e della community.
+    - **Impara e Condividi**: Scambia consigli e tutorial per migliorare le tue competenze.
+    - **Anteprime Esclusive**: Ottieni accesso anticipato a nuovi annunci di prodotto e anteprime.
+    - **Sconti Speciali**: Approfitta di sconti esclusivi sui nostri prodotti più recenti.
+    - **Promozioni e Giveaway Festivi**: Partecipa a concorsi e promozioni durante le festività.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 Pronto a esplorare e creare con noi? Clicca su [|link_sf_facebook|] e unisciti oggi stesso!
 
 .. _uno_lesson44_digital_dice:
 
-Lesson 44: Digital Dice
+Lezione 44: Dado Digitale
 =============================================================
 
 
-This program simulates a dice roll using an OLED display. 
-The simulation is triggered by shaking the vibration switch, causing the display to cycle through numbers 1 to 6, 
-akin to rolling a dice. 
-The display halts after a short duration, revealing a randomly selected number that represents the dice roll outcome.
+Questo progetto simula il lancio di un dado utilizzando un display OLED.  
+La simulazione viene attivata scuotendo l'interruttore a vibrazione, facendo scorrere i numeri da 1 a 6 sul display,  
+proprio come nel lancio di un dado reale.  
+Dopo un breve intervallo, il display si ferma mostrando un numero scelto casualmente che rappresenta il risultato del lancio.
 
 
 
-Required Components
+
+Componenti Necessari
 --------------------------
 
-In this project, we need the following components. 
+Per questo progetto sono richiesti i seguenti componenti.
 
-It's definitely convenient to buy a whole kit, here's the link: 
+È sicuramente conveniente acquistare l'intero kit, ecco il link:
 
 .. list-table::
     :widths: 20 20 20
     :header-rows: 1
 
-    *   - Name	
-        - ITEMS IN THIS KIT
+    *   - Nome
+        - COMPONENTI INCLUSI
         - LINK
     *   - Universal Maker Sensor Kit
         - 94
         - |link_umsk|
 
-You can also buy them separately from the links below.
+Puoi anche acquistare i componenti singolarmente dai link riportati di seguito.
 
 .. list-table::
     :widths: 30 20
     :header-rows: 1
 
-    *   - Component Introduction
-        - Purchase Link
+    *   - Introduzione al Componente
+        - Link Acquisto
 
-    *   - Arduino UNO R3 or R4
+    *   - Arduino UNO R3 o R4
         - |link_Uno_R3_buy|
     *   - :ref:`cpn_vibration`
         - |link_sw420_vibration_module_buy|
@@ -61,53 +61,54 @@ You can also buy them separately from the links below.
         - \-
     *   - :ref:`cpn_breadboard`
         - |link_breadboard_buy|
-        
 
-Wiring
+
+Collegamenti
 ---------------------------
 
 .. image:: img/Lesson_44_Digital_dice_uno_bb.png
     :width: 100%
 
 
-Code
+Codice
 ---------------------------
 
-.. note:: 
-   To install the library, use the Arduino Library Manager and search for **"Adafruit SSD1306"** and **"Adafruit GFX"** and install it. 
+.. note::
+   Per installare la libreria, apri il Library Manager dell'Arduino IDE, cerca **"Adafruit SSD1306"** e **"Adafruit GFX"**, quindi installale.
 
 .. raw:: html
 
     <iframe src=https://create.arduino.cc/editor/sunfounder01/70e73ef9-2968-4845-befd-23185286fd93/preview?embed style="height:510px;width:100%;margin:10px 0" frameborder=0></iframe>
 
 
-Code Analysis
+Analisi del Codice
 ---------------------------
 
-A comprehensive breakdown of the code:
+Una panoramica dettagliata del codice:
 
-1. Initialization of variables:
+1. Inizializzazione delle variabili:
 
-   ``vibPin``: Digital pin connected to the vibration sensor.
+   ``vibPin``: Pin digitale collegato al sensore di vibrazione.
 
-2. Volatile variables:
+2. Variabili volatili:
 
-   ``rolling``: A volatile flag that indicates the dice's rolling status. It is volatile as it is accessed within both the interrupt service routine and the main program.
+   ``rolling``: Flag volatile che indica lo stato del lancio del dado. È dichiarata volatile perché viene utilizzata sia nel programma principale che nella routine di interrupt.
 
 3. ``setup()``:
 
-   Configures the vibration sensor's input mode.
-   Assigns an interrupt to the sensor to trigger the rollDice function upon state change.
-   Initializes the OLED display.
+   Configura il pin del sensore di vibrazione come input.  
+   Assegna un interrupt al sensore per attivare la funzione ``rollDice`` al cambiamento di stato.  
+   Inizializza il display OLED.
 
 4. ``loop()``:
 
-   Continuously checks if ``rolling`` is true, displaying a random number between 1 and 6 during this state. The rolling ceases if the sensor has been shaken for over 500 milliseconds.
+   Controlla continuamente se ``rolling`` è attivo; in tal caso, mostra numeri casuali da 1 a 6.  
+   Il ciclo si ferma se la vibrazione dura più di 500 millisecondi.
 
 5. ``rollDice()``:
 
-   The interrupt service routine for the vibration sensor. It initiates the dice roll when the sensor is shaken by recording the current time.
+   Routine di interrupt del sensore di vibrazione. Avvia il lancio del dado memorizzando il tempo corrente al momento della vibrazione.
 
 6. ``displayNumber()``:
 
-   Displays a selected number on the OLED screen.
+   Visualizza sul display OLED il numero selezionato.

@@ -1,52 +1,52 @@
 .. note::
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    Ciao, benvenuto nella Comunità degli Appassionati di Raspberry Pi, Arduino e ESP32 di SunFounder su Facebook! Approfondisci la tua conoscenza di Raspberry Pi, Arduino e ESP32 insieme ad altri appassionati.
 
     **Why Join?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Expert Support**: Risolvi problemi post-vendita e sfide tecniche con l'aiuto della nostra comunità e del nostro team.
+    - **Learn & Share**: Scambia consigli e tutorial per migliorare le tue competenze.
+    - **Exclusive Previews**: Ottieni accesso anticipato alle nuove annunci di prodotti e anteprime esclusive.
+    - **Special Discounts**: Goditi sconti esclusivi sui nostri prodotti più recenti.
+    - **Festive Promotions and Giveaways**: Partecipa a giveaway e promozioni festive.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 Pronto per esplorare e creare con noi? Clicca [|link_sf_facebook|] e unisciti oggi!
 
 .. _esp32_lesson30_relay_module:
 
-Lesson 30: Relay Module
+Lezione 30: Modulo Relè
 ==================================
 
-In this lesson, you'll learn how to use an ESP32 Development Board to control a one-channel relay module. We'll cover turning the relay on and off in a loop, with a 3-second delay between each state change. This project provides hands-on experience with digital output operations in embedded systems, making it ideal for beginners entering the realm of ESP32 and relay modules.
+In questa lezione, imparerai a utilizzare una scheda di sviluppo ESP32 per controllare un modulo relè a un canale. Tratteremo l'accensione e lo spegnimento del relè in un ciclo, con un ritardo di 3 secondi tra ogni cambio di stato. Questo progetto fornisce esperienza pratica con le operazioni di output digitale nei sistemi embedded, rendendolo ideale per i principianti che entrano nel mondo dell'ESP32 e dei moduli relè.
 
-Required Components
---------------------------
+Componenti Necessari
+----------------------
 
-In this project, we need the following components. 
+In questo progetto, abbiamo bisogno dei seguenti componenti.
 
-It's definitely convenient to buy a whole kit, here's the link: 
+È decisamente conveniente acquistare un kit completo, ecco il link:
 
 .. list-table::
     :widths: 20 20 20
     :header-rows: 1
 
-    *   - Name	
-        - ITEMS IN THIS KIT
+    *   - Nome	
+        - ELEMENTI IN QUESTO KIT
         - LINK
-    *   - Universal Maker Sensor Kit
+    *   - Kit Sensori per Maker Universali
         - 94
         - |link_umsk|
 
-You can also buy them separately from the links below.
+Puoi anche acquistarli separatamente dai link qui sotto.
 
 .. list-table::
     :widths: 30 20
     :header-rows: 1
 
-    *   - Component Introduction
-        - Purchase Link
+    *   - Introduzione al Componente
+        - Link per l'Acquisto
 
-    *   - ESP32 & Development Board (:ref:`cpn_esp32_wroom_32e`)
+    *   - ESP32 & Scheda di Sviluppo (:ref:`cpn_esp32_wroom_32e`)
         - |link_esp32_camera_pro_kit_buy|
     *   - :ref:`cpn_breadboard`
         - |link_breadboard_buy|
@@ -56,26 +56,26 @@ You can also buy them separately from the links below.
         - \-
 
 
-Wiring
----------------------------
+Cablaggio
+-----------
 
 .. image:: img/Lesson_30_Relay_esp32_bb.png
     :width: 100%
 
 
-Code
----------------------------
+Codice
+--------
 
 .. raw:: html
 
     <iframe src=https://create.arduino.cc/editor/sunfounder01/a0035890-76ca-4a85-9f21-9df01717d906/preview?embed style="height:510px;width:100%;margin:10px 0" frameborder=0></iframe>
 
-Code Analysis
----------------------------
+Analisi del Codice
+---------------------
 
-#. Setting up the relay pin:
+#. Configurazione del pin del relè:
 
-   - The relay module is connected to pin 25 of the ESP32 Development Board. This pin is defined as ``relayPin`` for ease of reference in the code.
+   - Il modulo relè è collegato al pin 25 della Scheda di Sviluppo ESP32. Questo pin è definito come ``relayPin`` per facilitare il riferimento nel codice.
 
    .. raw:: html
 
@@ -85,9 +85,9 @@ Code Analysis
     
       const int relayPin = 25;
 
-#. Configuring the relay pin as an output:
+#. Configurazione del pin del relè come output:
 
-   - In the ``setup()`` function, the relay pin is set as an OUTPUT using the ``pinMode()`` function. This means the Arduino will send signals (either HIGH or LOW) to this pin.
+   - Nella funzione ``setup()``, il pin del relè è impostato come OUTPUT usando la funzione ``pinMode()``. Questo significa che l'Arduino invierà segnali (sia HIGH che LOW) a questo pin.
 
    .. raw:: html
 
@@ -99,11 +99,11 @@ Code Analysis
         pinMode(relayPin, OUTPUT);
       }
 
-#. Toggling the relay ON and OFF:
+#. Alternanza del relè ON e OFF:
 
-   - In the ``loop()`` function, the relay is first set to the OFF state using ``digitalWrite(relayPin, LOW)``. It remains in this state for 3 seconds (``delay(3000)``).
-   - Then, the relay is set to the ON state using ``digitalWrite(relayPin, HIGH)``. Again, it remains in this state for 3 seconds.
-   - This cycle repeats indefinitely.
+   - Nella funzione ``loop()``, il relè è inizialmente impostato sullo stato OFF usando ``digitalWrite(relayPin, LOW)``. Rimane in questo stato per 3 secondi (``delay(3000)``).
+   - Poi, il relè è impostato sullo stato ON usando ``digitalWrite(relayPin, HIGH)``. Anche in questo caso, rimane in questo stato per 3 secondi.
+   - Questo ciclo si ripete indefinitamente.
 
    .. raw:: html
 

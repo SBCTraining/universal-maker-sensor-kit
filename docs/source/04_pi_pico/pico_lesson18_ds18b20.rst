@@ -1,50 +1,50 @@
-.. note::
+.. note:: 
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    Ciao, benvenuto nella Comunità di appassionati di SunFounder Raspberry Pi & Arduino & ESP32 su Facebook! Approfondisci le tue conoscenze su Raspberry Pi, Arduino e ESP32 insieme ad altri appassionati.
 
-    **Why Join?**
+    **Perché unirsi?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Supporto esperto**: Risolvi problemi post-vendita e sfide tecniche con l’aiuto della nostra community e del nostro team.
+    - **Impara & Condividi**: Scambia suggerimenti e tutorial per migliorare le tue competenze.
+    - **Anteprime esclusive**: Ottieni accesso anticipato agli annunci dei nuovi prodotti e anteprime esclusive.
+    - **Sconti speciali**: Approfitta di sconti esclusivi sui nostri prodotti più recenti.
+    - **Promozioni festive e concorsi**: Partecipa a concorsi e iniziative promozionali durante le festività.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 Pronto a esplorare e creare con noi? Clicca su [|link_sf_facebook|] e unisciti subito!
 
 .. _pico_lesson18_ds18b20:
 
-Lesson 18: Temperature Sensor Module (DS18B20)
-================================================
+Lezione 18: Modulo Sensore di Temperatura (DS18B20)
+=======================================================
 
-In this lesson, you'll learn how to integrate and read temperature data from DS18B20 sensors using the Raspberry Pi Pico W. You'll begin by setting up a OneWire bus on the GPIO pin and scanning for DS18X20 devices. The main focus of the lesson is continuously reading and displaying temperature measurements from these sensors. 
+In questa lezione imparerai a integrare e leggere i dati di temperatura dai sensori DS18B20 utilizzando il Raspberry Pi Pico W. Inizierai configurando un bus OneWire su un pin GPIO e scandendo i dispositivi DS18X20 collegati. L’obiettivo principale della lezione è leggere e visualizzare continuamente le misurazioni di temperatura da questi sensori.
 
-Required Components
+Componenti necessari
 --------------------------
 
-In this project, we need the following components. 
+Per questo progetto sono necessari i seguenti componenti.
 
-It's definitely convenient to buy a whole kit, here's the link: 
+È sicuramente più pratico acquistare un kit completo. Ecco il link:
 
 .. list-table::
     :widths: 20 20 20
     :header-rows: 1
 
-    *   - Name	
-        - ITEMS IN THIS KIT
+    *   - Nome	
+        - COMPONENTI INCLUSI NEL KIT
         - LINK
-    *   - Universal Maker Sensor Kit
+    *   - Kit Sensori Universale per Maker
         - 94
         - |link_umsk|
 
-You can also buy them separately from the links below.
+Puoi anche acquistare i componenti separatamente dai link sottostanti.
 
 .. list-table::
     :widths: 30 20
     :header-rows: 1
 
-    *   - Component Introduction
-        - Purchase Link
+    *   - Descrizione componente
+        - Link per l’acquisto
 
     *   - Raspberry Pi Pico W
         - |link_picow_buy|
@@ -54,21 +54,21 @@ You can also buy them separately from the links below.
         - |link_breadboard_buy|
 
 
-Wiring
----------------------------
+Collegamenti
+-----------------
 
 .. image:: img/Lesson_18_DS18B20_bb.png
     :width: 100%
 
 
-Code
----------------------------
+Codice
+---------
 
 .. note::
 
-    * Open the ``18_ds18b20_module.py`` file under the path of ``universal-maker-sensor-kit-main/pico/Lesson_18_DS18B20_Module`` or copy this code into Thonny, then click "Run Current Script" or simply press F5 to run it. For detailed tutorials, please refer to :ref:`open_run_code_py`. 
+    * Apri il file ``18_ds18b20_module.py`` nella cartella ``universal-maker-sensor-kit-main/pico/Lesson_18_DS18B20_Module`` oppure copia questo codice in Thonny, quindi clicca su "Run Current Script" o premi F5 per eseguirlo. Per tutorial dettagliati, consulta :ref:`open_run_code_py`. 
 
-    * Don't forget to click on the "MicroPython (Raspberry Pi Pico)" interpreter in the bottom right corner. 
+    * Ricorda di selezionare l’interprete "MicroPython (Raspberry Pi Pico)" nell’angolo in basso a destra.
 
 .. code-block:: python
 
@@ -76,40 +76,40 @@ Code
    import onewire
    import time, ds18x20
    
-   # Initialize the OneWire bus on GPIO pin 12
+   # Inizializza il bus OneWire sul pin GPIO 12
    ow = onewire.OneWire(Pin(12))
    
-   # Create a DS18X20 instance using the OneWire bus
+   # Crea un'istanza DS18X20 utilizzando il bus OneWire
    ds = ds18x20.DS18X20(ow)
    
-   # Scan for DS18X20 devices on the bus and print their addresses
+   # Esegue la scansione dei dispositivi DS18X20 e stampa i loro indirizzi
    roms = ds.scan()
    print('found devices:', roms)
    
-   # Continuously read and print temperature data from the sensors
+   # Legge e stampa continuamente i dati di temperatura dai sensori
    while True:
-       # Start the temperature conversion process
+       # Avvia il processo di conversione della temperatura
        ds.convert_temp()
-       # Wait for the conversion to complete (750 ms for DS18X20)
+       # Attende il completamento della conversione (750 ms per DS18X20)
        time.sleep_ms(750)
        
-       # Read and print the temperature from each sensor found on the bus
+       # Legge e stampa la temperatura da ciascun sensore rilevato sul bus
        for rom in roms:
            print(ds.read_temp(rom))
        
-       # Wait for a short period before the next reading (1000 ms)
+       # Attende un breve periodo prima della prossima lettura (1000 ms)
        time.sleep_ms(1000)
 
 
 
-Code Analysis
+Analisi del Codice
 ---------------------------
 
-#. Importing Libraries
+#. Importazione delle librerie
 
-   The code begins by importing necessary libraries. ``machine`` is used for controlling GPIO pins, ``onewire`` for the OneWire communication protocol, ``ds18x20`` for the specific temperature sensor, and ``time`` for delays.
+   Il codice inizia importando le librerie necessarie. ``machine`` è utilizzata per il controllo dei pin GPIO, ``onewire`` per il protocollo di comunicazione OneWire, ``ds18x20`` per il sensore di temperatura e ``time`` per la gestione dei ritardi.
 
-   Regarding OneWire in MicroPython, you can refer to |link_micropython_onewire_driver|.
+   Per maggiori informazioni su OneWire in MicroPython, consulta |link_micropython_onewire_driver|.
 
    .. code-block:: python
 
@@ -117,37 +117,37 @@ Code Analysis
       import onewire
       import time, ds18x20
 
-#. Initializing OneWire Bus
+#. Inizializzazione del bus OneWire
 
-   A OneWire bus is initialized on GPIO pin 12. This sets up the communication between the Raspberry Pi Pico W and the DS18B20 sensor.
+   Il bus OneWire viene inizializzato sul pin GPIO 12, impostando la comunicazione tra il Pico W e il sensore DS18B20.
 
    .. code-block:: python
 
       ow = onewire.OneWire(Pin(12))
 
-#. Creating DS18X20 Instance
+#. Creazione dell’istanza DS18X20
 
-   A DS18X20 instance is created using the OneWire bus. This instance is used to interact with the temperature sensor.
+   Viene creata un’istanza del sensore DS18X20 utilizzando il bus OneWire, che consente di interagire con i sensori di temperatura.
 
    .. code-block:: python
 
       ds = ds18x20.DS18X20(ow)
 
-#. Scanning for Devices
+#. Scansione dei dispositivi
 
-   The code scans for DS18X20 devices on the OneWire bus and prints their addresses. This is important for identifying the connected sensors.
+   Il codice esegue la scansione del bus OneWire per cercare dispositivi compatibili e ne stampa gli indirizzi. È utile per identificare i sensori collegati.
 
    .. code-block:: python
 
       roms = ds.scan()
       print('found devices:', roms)
 
-#. Reading Temperature Data
+#. Lettura dei dati di temperatura
 
-   - The main loop of the program continuously reads temperature data from the sensor.
-   - It starts the temperature conversion process and waits for it to complete, which takes about 750 milliseconds.
-   - It then reads and prints the temperature from each sensor found on the bus.
-   - The loop pauses for 1000 milliseconds before repeating.
+   - Il ciclo principale legge continuamente i dati di temperatura dai sensori.
+   - Avvia la conversione della temperatura e attende il completamento (circa 750 ms).
+   - Legge e stampa la temperatura da ciascun sensore rilevato.
+   - Il ciclo attende 1000 ms prima di ripetere l’operazione.
 
    .. raw:: html
 

@@ -1,56 +1,56 @@
 
 .. note::
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    Ciao, benvenuto nella Community SunFounder dedicata agli appassionati di Raspberry Pi, Arduino ed ESP32 su Facebook! Approfondisci le tue conoscenze su Raspberry Pi, Arduino ed ESP32 insieme ad altri appassionati.
 
-    **Why Join?**
+    **Perché unirsi?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Supporto Esperto**: Risolvi problemi post-vendita e difficoltà tecniche con il supporto del nostro team e della community.
+    - **Impara e Condividi**: Scambia suggerimenti e tutorial per migliorare le tue competenze.
+    - **Anteprime Esclusive**: Ottieni l'accesso anticipato agli annunci dei nuovi prodotti e alle anteprime.
+    - **Sconti Speciali**: Goditi sconti esclusivi sui nostri prodotti più recenti.
+    - **Promozioni Festive e Giveaway**: Partecipa a estrazioni e promozioni speciali durante le festività.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 Pronto a esplorare e creare con noi? Clicca su [|link_sf_facebook|] e unisciti oggi stesso!
 
 .. _uno_lesson45_plant_monitor:
 
-Lesson 45: Plant Monitor
+Lezione 45: Monitor per Piante
 =============================================================
 
 
-This project intelligently automates plant watering by triggering a water pump whenever the soil's moisture level dips below a predetermined threshold. 
-It also features an LCD display that showcases the temperature, humidity, 
-and soil moisture levels, offering users valuable insights into the plant's environmental conditions.
+Questo progetto automatizza in modo intelligente l’irrigazione delle piante attivando una pompa dell’acqua quando il livello di umidità del terreno scende al di sotto di una soglia predefinita.  
+Include anche un display LCD che mostra temperatura, umidità e livello di umidità del suolo, offrendo all’utente informazioni utili sulle condizioni ambientali della pianta.
 
-Required Components
+
+Componenti Necessari
 --------------------------
 
-In this project, we need the following components. 
+Per questo progetto sono necessari i seguenti componenti.
 
-It's definitely convenient to buy a whole kit, here's the link: 
+È sicuramente comodo acquistare l’intero kit. Ecco il link:
 
 .. list-table::
     :widths: 20 20 20
     :header-rows: 1
 
-    *   - Name	
-        - ITEMS IN THIS KIT
+    *   - Nome
+        - COMPONENTI NEL KIT
         - LINK
     *   - Universal Maker Sensor Kit
         - 94
         - |link_umsk|
 
-You can also buy them separately from the links below.
+In alternativa, puoi acquistare i componenti singolarmente dai link riportati qui sotto.
 
 .. list-table::
     :widths: 30 20
     :header-rows: 1
 
-    *   - Component Introduction
-        - Purchase Link
+    *   - Introduzione al Componente
+        - Link Acquisto
 
-    *   - Arduino UNO R3 or R4
+    *   - Arduino UNO R3 o R4
         - |link_Uno_R3_buy|
     *   - :ref:`cpn_breadboard`
         - |link_breadboard_buy|
@@ -67,11 +67,11 @@ You can also buy them separately from the links below.
     *   - :ref:`cpn_dht11`
         - \-
 
-Wiring
+Collegamenti
 ---------------------------
 
-.. note:: 
-   The kit may contain different versions of the DHT11 module. Please confirm the wiring method according to the module you have.
+.. note::
+   Il kit potrebbe includere versioni differenti del modulo DHT11. Verifica il metodo di collegamento in base al modulo in tuo possesso.
 
 .. image:: img/Lesson_45_Plant_monitor_uno_bb.png
     :width: 100%
@@ -79,7 +79,7 @@ Wiring
 .. image:: img/Lesson_45_Plant_monitor_uno_new_bb.png
     :width: 100%
 
-Code
+Codice
 ---------------------------
 
 .. raw:: html
@@ -88,32 +88,32 @@ Code
 
 
 
-Code Analysis
+Analisi del Codice
 ---------------------------
 
 
 
-The code is structured to seamlessly manage plant watering by monitoring environmental parameters:
+Il codice è strutturato per gestire automaticamente l'irrigazione delle piante monitorando i parametri ambientali:
 
-1. Library Inclusions and Constants/Variables:
+1. Inclusione delle Librerie e Definizione di Costanti/Variabili:
 
-   Incorporate ``Wire.h``, ``LiquidCrystal_I2C.h``, and ``DHT.h`` libraries for functionality.
-   Specify pin assignments and settings for the DHT11 sensor, soil moisture sensor, and water pump.
+   Include le librerie ``Wire.h``, ``LiquidCrystal_I2C.h`` e ``DHT.h``.  
+   Imposta i pin e le configurazioni per il sensore DHT11, il sensore di umidità del suolo e la pompa dell'acqua.
 
 2. ``setup()``:
 
-   Configure pin modes for the moisture sensor and pump.
-   Initially deactivate the pump.
-   Initialize and backlight the LCD.
-   Activate the DHT sensor.
+   Configura i pin per il sensore del terreno e la pompa.  
+   Disattiva inizialmente la pompa.  
+   Inizializza e accende la retroilluminazione del display LCD.  
+   Attiva il sensore DHT.
 
 3. ``loop()``:
 
-   Measure humidity and temperature via the DHT sensor.
-   Gauge soil moisture through the soil moisture sensor.
-   Display the temperature and humidity on the LCD, then show soil moisture levels.
-   Assess soil moisture to decide on water pump activation; if soil moisture is under 500 (adjustable threshold), run the pump for 1 second.
-
+   Misura umidità e temperatura tramite il sensore DHT.  
+   Rileva l’umidità del suolo con il sensore dedicato.  
+   Mostra temperatura e umidità sul display LCD, seguite dal livello di umidità del terreno.  
+   Se l’umidità rilevata è inferiore a 500 (soglia regolabile), attiva la pompa per 1 secondo.
+   
 
 
 

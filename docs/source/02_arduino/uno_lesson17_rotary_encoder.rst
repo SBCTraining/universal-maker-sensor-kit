@@ -1,77 +1,77 @@
-.. note::
+.. note:: 
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    Ciao e benvenuto nella Community Facebook degli appassionati di SunFounder Raspberry Pi, Arduino ed ESP32! Approfondisci le tue competenze su Raspberry Pi, Arduino ed ESP32 insieme ad altri maker come te.
 
-    **Why Join?**
+    **Perché unirsi?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Supporto Esperto**: Risolvi problemi post-vendita e affronta sfide tecniche con l’aiuto del nostro team e della community.
+    - **Impara e Condividi**: Scambia consigli e tutorial per migliorare le tue abilità.
+    - **Anteprime Esclusive**: Accedi in anteprima a nuovi annunci di prodotto e contenuti esclusivi.
+    - **Sconti Speciali**: Approfitta di sconti esclusivi sui nostri prodotti più recenti.
+    - **Promozioni Festive e Giveaway**: Partecipa a concorsi e iniziative promozionali durante le festività.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 Pronto a scoprire e creare con noi? Clicca su [|link_sf_facebook|] ed entra oggi stesso!
 
 .. _uno_lesson17_rotary_encoder:
 
-Lesson 17: Rotary Encoder Module
-==================================
+Lezione 17: Modulo Encoder Rotativo
+=====================================
 
-In this lesson, you will learn how to monitor and control a rotary encoder with an Arduino Uno. We'll cover tracking the rotation direction (clockwise or counterclockwise), counting rotations, and detecting button presses on the encoder module. This project is ideal for those seeking to enhance their understanding of rotary encoders and input/output operations in Arduino, providing practical insight into physical control systems.
+In questa lezione imparerai a monitorare e controllare un encoder rotativo con un Arduino Uno. Vedremo come rilevare la direzione di rotazione (in senso orario o antiorario), contare i giri effettuati e rilevare la pressione del pulsante integrato nel modulo encoder. Questo progetto è ideale per chi vuole approfondire la conoscenza degli encoder rotativi e delle operazioni di input/output su Arduino, offrendo un’esperienza pratica sui sistemi di controllo fisico.
 
-Required Components
---------------------------
+Componenti Necessari
+---------------------------
 
-In this project, we need the following components. 
+Per questo progetto sono richiesti i seguenti componenti.
 
-It's definitely convenient to buy a whole kit, here's the link: 
+È sicuramente comodo acquistare un kit completo. Ecco il link:
 
 .. list-table::
     :widths: 20 20 20
     :header-rows: 1
 
-    *   - Name	
-        - ITEMS IN THIS KIT
+    *   - Nome	
+        - CONTENUTO DEL KIT
         - LINK
     *   - Universal Maker Sensor Kit
         - 94
         - |link_umsk|
 
-You can also buy them separately from the links below.
+Puoi anche acquistare i componenti separatamente dai link seguenti.
 
 .. list-table::
     :widths: 30 20
     :header-rows: 1
 
-    *   - Component Introduction
-        - Purchase Link
+    *   - Descrizione del Componente
+        - Link per l'acquisto
 
-    *   - Arduino UNO R3 or R4
+    *   - Arduino UNO R3 o R4
         - |link_Uno_R3_buy|
     *   - :ref:`cpn_rotary_encoder`
         - \-
 
-* Arduino UNO R3 or R4
+* Arduino UNO R3 o R4
 * :ref:`cpn_rotary_encoder`
 
-Wiring
+Collegamenti
 ---------------------------
 
 .. image:: img/Lesson_17_Rotary_encoder_uno_bb.png
     :width: 100%
 
 
-Code
+Codice
 ---------------------------
 
 .. raw:: html
 
     <iframe src=https://create.arduino.cc/editor/sunfounder01/d72d6a5f-72c7-4f94-ad4e-f7dc83b127de/preview?embed style="height:510px;width:100%;margin:10px 0" frameborder=0></iframe>
 
-Code Analysis
+Analisi del Codice
 ---------------------------
 
-#. **Setup and Initialization**
+#. **Configurazione e Inizializzazione**
 
    .. code-block:: arduino
 
@@ -83,9 +83,9 @@ Code Analysis
         lastStateCLK = digitalRead(CLK);
       }
 
-   In the setup function, the digital pins connected to the encoder's CLK and DT are set as inputs. The SW pin, which is connected to the button, is set as an input with an internal pull-up resistor. This setup prevents the need for an external pull-up resistor. The Serial communication is started at a baud rate of 9600 to enable data visualization on the Serial Monitor. The initial state of the CLK pin is read and stored.
+   Nella funzione di setup, i pin digitali collegati ai segnali CLK e DT dell’encoder vengono impostati come ingressi. Il pin SW, collegato al pulsante, è configurato come ingresso con resistenza di pull-up interna, evitando così l’uso di una resistenza esterna. La comunicazione seriale viene avviata a 9600 baud per consentire la visualizzazione dei dati sul Monitor Seriale. Lo stato iniziale del pin CLK viene letto e memorizzato.
 
-#. **Main Loop: Reading Encoder and Button State**
+#. **Ciclo Principale: Lettura dell’Encoder e dello Stato del Pulsante**
 
    .. code-block:: arduino
 
@@ -115,6 +115,6 @@ Code Analysis
         delay(1);
       }
 
-   In the loop function, the program continually reads the current state of the CLK pin. If there's a change in the state, it implies a rotation has occurred. The direction of rotation is determined by comparing the states of CLK and DT pins. If they are different, it indicates counterclockwise (CCW) rotation; otherwise, it's clockwise (CW). The encoder's count is incremented or decremented accordingly. This information is then sent to the Serial Monitor.
+   Nel ciclo principale, il programma legge costantemente lo stato del pin CLK. Un cambiamento di stato indica che è avvenuta una rotazione. La direzione viene determinata confrontando gli stati dei pin CLK e DT: se sono diversi, la rotazione è in senso antiorario (CCW); se coincidono, è in senso orario (CW). Il contatore viene aggiornato di conseguenza e le informazioni vengono inviate al Monitor Seriale.
 
-   The button state is read from the SW pin. If it's LOW (pressed), a debounce mechanism is implemented by checking the time elapsed since the last button press. If more than 50 milliseconds have passed, it's considered a valid press, and a message is sent to the Serial Monitor. The `delay(1)` at the end helps in debouncing.
+   Lo stato del pulsante viene rilevato tramite il pin SW. Se risulta LOW (pulsante premuto), viene applicato un meccanismo di debounce verificando che siano passati almeno 50 millisecondi dall’ultima pressione. Se la condizione è soddisfatta, viene stampato un messaggio sul Monitor Seriale. Il `delay(1)` finale aiuta nella stabilizzazione del segnale del pulsante.

@@ -1,50 +1,50 @@
-.. note::
+.. note:: 
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    Ciao, benvenuto nella Comunità degli Appassionati di SunFounder Raspberry Pi & Arduino & ESP32 su Facebook! Approfondisci le tue conoscenze su Raspberry Pi, Arduino e ESP32 con altri appassionati.
 
-    **Why Join?**
+    **Perché Unirsi?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Supporto Esperto**: Risolvi problemi post-vendita e sfide tecniche con l'aiuto della nostra comunità e del nostro team.
+    - **Impara & Condividi**: Scambia consigli e tutorial per migliorare le tue competenze.
+    - **Anteprime Esclusive**: Accedi in anteprima alle nuove annunci di prodotti e anteprime esclusive.
+    - **Sconti Speciali**: Goditi sconti esclusivi sui nostri prodotti più recenti.
+    - **Promozioni Festive e Giveaway**: Partecipa a giveaway e promozioni natalizie.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 Pronto a esplorare e creare con noi? Clicca [|link_sf_facebook|] e unisciti oggi!
 
 .. _pi_lesson33_servo:
 
-Lesson 33: Servo Motor (SG90)
+Lezione 33: Motore Servo (SG90)
 ==================================
 
-In this lesson, you will learn how to control a servo motor using a Raspberry Pi. You'll learn how to adjust the servo's pulse width settings for precise control and write a Python script to move the servo to different positions: minimum, middle, and maximum.
+In questa lezione, imparerai a controllare un motore servo utilizzando un Raspberry Pi. Scoprirai come regolare le impostazioni di larghezza degli impulsi del servo per un controllo preciso e come scrivere uno script Python per muovere il servo in diverse posizioni: minima, media e massima.
 
-Required Components
+Componenti Necessari
 --------------------------
 
-In this project, we need the following components. 
+Per questo progetto, abbiamo bisogno dei seguenti componenti.
 
-It's definitely convenient to buy a whole kit, here's the link: 
+È sicuramente conveniente acquistare un kit completo, ecco il link:
 
 .. list-table::
     :widths: 20 20 20
     :header-rows: 1
 
-    *   - Name	
-        - ITEMS IN THIS KIT
+    *   - Nome	
+        - ARTICOLI IN QUESTO KIT
         - LINK
     *   - Universal Maker Sensor Kit
         - 94
         - |link_umsk|
 
-You can also buy them separately from the links below.
+Puoi anche acquistarli separatamente dai link sottostanti.
 
 .. list-table::
     :widths: 30 20
     :header-rows: 1
 
-    *   - Component Introduction
-        - Purchase Link
+    *   - Introduzione ai Componenti
+        - Link Acquisto
 
     *   - Raspberry Pi 5
         - |link_rpi5_buy|
@@ -52,14 +52,14 @@ You can also buy them separately from the links below.
         - |link_servo_buy|
 
 
-Wiring
+Cablaggio
 ---------------------------
 
 .. image:: img/Lesson_33_Servo_Pi_bb.png
     :width: 100%
 
 
-Code
+Codice
 ---------------------------
 
 .. code-block:: python
@@ -67,55 +67,55 @@ Code
    from gpiozero import Servo
    from time import sleep
    
-   # GPIO pin for the servo
+   # Pin GPIO per il servo
    myGPIO = 17
    
-   # Correction factor for the servo
+   # Fattore di correzione per il servo
    myCorrection = 0.45
-   maxPW = (2.0 + myCorrection) / 1000  # Maximum pulse width
-   minPW = (1.0 - myCorrection) / 1000  # Minimum pulse width
+   maxPW = (2.0 + myCorrection) / 1000  # Larghezza massima dell'impulso
+   minPW = (1.0 - myCorrection) / 1000  # Larghezza minima dell'impulso
    
-   # Initialize the servo with adjusted pulse width range
+   # Inizializza il servo con un intervallo di larghezza d'impulso regolato
    servo = Servo(myGPIO, min_pulse_width=minPW, max_pulse_width=maxPW)
    
-   # Continuously move servo between positions
+   # Muove continuamente il servo tra le posizioni
    while True:
-      # Move servo to middle position
+      # Muove il servo in posizione media
       servo.mid()
       print("mid")
       sleep(0.5)
 
-      # Move servo to minimum position
+      # Muove il servo in posizione minima
       servo.min()
       print("min")
       sleep(1)
 
-      # Move servo to middle position
+      # Muove il servo in posizione media
       servo.mid()
       print("mid")
       sleep(0.5)
 
-      # Move servo to maximum position
+      # Muove il servo in posizione massima
       servo.max()
       print("max")
       sleep(1)
 
 
-Code Analysis
+Analisi del Codice
 ---------------------------
 
-#. Import Libraries
+#. Importare le Librerie
    
-   Import the ``Servo`` class from ``gpiozero`` for servo control and ``sleep`` from ``time`` for timing.
+   Importa la classe ``Servo`` da ``gpiozero`` per il controllo del servo e ``sleep`` da ``time`` per il controllo del tempo.
 
    .. code-block:: python
 
       from gpiozero import Servo
       from time import sleep
 
-#. GPIO Pin and Servo Correction Factor
+#. Pin GPIO e Fattore di Correzione del Servo
    
-   Define the GPIO pin connected to the servo and set a correction factor to calibrate the servo's pulse width range.
+   Definisci il pin GPIO collegato al servo e imposta un fattore di correzione per calibrare l'intervallo di larghezza d'impulso del servo.
 
    .. code-block:: python
 
@@ -124,17 +124,17 @@ Code Analysis
       maxPW = (2.0 + myCorrection) / 1000
       minPW = (1.0 - myCorrection) / 1000
 
-#. Initialize the Servo
+#. Inizializzare il Servo
    
-   Create a ``Servo`` object with the specified GPIO pin and adjusted pulse width range.
+   Crea un oggetto ``Servo`` con il pin GPIO specificato e l'intervallo di larghezza d'impulso regolato.
 
    .. code-block:: python
 
       servo = Servo(myGPIO, min_pulse_width=minPW, max_pulse_width=maxPW)
 
-#. Move the Servo Continuously
+#. Muovere il Servo Continuamente
    
-   Use a ``while True`` loop to move the servo between its minimum, middle, and maximum positions, printing the current position and pausing between movements.
+   Usa un ciclo ``while True`` per muovere il servo tra le sue posizioni minima, media e massima, stampando la posizione corrente e facendo pause tra un movimento e l'altro.
 
    .. code-block:: python
 

@@ -1,52 +1,52 @@
 .. note::
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    Ciao, benvenuto nella Comunità degli Appassionati di Raspberry Pi, Arduino e ESP32 di SunFounder su Facebook! Approfondisci la tua conoscenza di Raspberry Pi, Arduino e ESP32 insieme ad altri appassionati.
 
     **Why Join?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Expert Support**: Risolvi problemi post-vendita e sfide tecniche con l'aiuto della nostra comunità e del nostro team.
+    - **Learn & Share**: Scambia consigli e tutorial per migliorare le tue competenze.
+    - **Exclusive Previews**: Ottieni accesso anticipato alle nuove annunci di prodotti e anteprime esclusive.
+    - **Special Discounts**: Goditi sconti esclusivi sui nostri prodotti più recenti.
+    - **Festive Promotions and Giveaways**: Partecipa a giveaway e promozioni festive.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 Pronto per esplorare e creare con noi? Clicca [|link_sf_facebook|] e unisciti oggi!
 
 .. _esp32_lesson32_passive_buzzer:
 
-Lesson 32: Passive Buzzer Module
-==================================
+Lezione 32: Modulo Buzzer Passivo
+====================================
 
-In this lesson, you'll learn to play a melody on a passive buzzer module using an ESP32 Development Board. We'll cover programming the ESP32 to control the buzzer and create musical notes with varying durations. This project is ideal for beginners in electronics and programming, providing hands-on experience in sound generation and basic digital sound principles. You'll develop practical skills in utilizing the ESP32 board and integrating simple components like the passive buzzer.
+In questa lezione, imparerai a suonare una melodia su un modulo buzzer passivo utilizzando una scheda di sviluppo ESP32. Copriremo la programmazione dell'ESP32 per controllare il buzzer e creare note musicali con durate variabili. Questo progetto è ideale per i principianti in elettronica e programmazione, fornendo esperienza pratica nella generazione di suoni e nei principi digitali del suono. Svilupperai competenze pratiche nell'utilizzo della scheda ESP32 e nell'integrazione di componenti semplici come il buzzer passivo.
 
-Required Components
---------------------------
+Componenti Necessari
+------------------------
 
-In this project, we need the following components. 
+In questo progetto, abbiamo bisogno dei seguenti componenti.
 
-It's definitely convenient to buy a whole kit, here's the link: 
+È decisamente conveniente acquistare un kit completo, ecco il link:
 
 .. list-table::
     :widths: 20 20 20
     :header-rows: 1
 
-    *   - Name	
-        - ITEMS IN THIS KIT
+    *   - Nome	
+        - ELEMENTI IN QUESTO KIT
         - LINK
-    *   - Universal Maker Sensor Kit
+    *   - Kit Sensori per Maker Universali
         - 94
         - |link_umsk|
 
-You can also buy them separately from the links below.
+Puoi anche acquistarli separatamente dai link qui sotto.
 
 .. list-table::
     :widths: 30 20
     :header-rows: 1
 
-    *   - Component Introduction
-        - Purchase Link
+    *   - Introduzione al Componente
+        - Link per l'Acquisto
 
-    *   - ESP32 & Development Board (:ref:`cpn_esp32_wroom_32e`)
+    *   - ESP32 & Scheda di Sviluppo (:ref:`cpn_esp32_wroom_32e`)
         - |link_esp32_camera_pro_kit_buy|
     *   - :ref:`cpn_buzzer`
         - |link_passive_buzzer_module_buy|
@@ -54,38 +54,38 @@ You can also buy them separately from the links below.
         - |link_breadboard_buy|
 
 
-Wiring
----------------------------
+Cablaggio
+------------
 
 .. image:: img/Lesson_32_Passive_buzzer_esp32_bb.png
     :width: 100%
 
 
-Code
----------------------------
+Codice
+----------
 
 .. raw:: html
 
     <iframe src=https://create.arduino.cc/editor/sunfounder01/1f3f8514-29eb-491f-b40f-0d808ef0aaac/preview?embed style="height:510px;width:100%;margin:10px 0" frameborder=0></iframe>
 
-Code Analysis
+Analisi del Codice
 ---------------------------
 
-1. Including the pitches library:
+1. Inclusione della libreria delle frequenze:
 
-   This library provides the frequency values for various musical notes, allowing you to use musical notation in your code.
+   Questa libreria fornisce i valori di frequenza per varie note musicali, consentendo di utilizzare la notazione musicale nel tuo codice.
 
    .. code-block:: arduino
        
       #include "pitches.h"
 
-2. Defining constants and arrays:
+2. Definizione di costanti e array:
 
-   * ``buzzerPin`` is the digital pin on the ESP32 Development Board where the buzzer is connected.
+   * ``buzzerPin`` è il pin digitale sulla Scheda di Sviluppo ESP32 dove è collegato il buzzer.
 
-   * ``melody[]`` is an array that stores the sequence of notes to be played.
+   * ``melody[]`` è un array che memorizza la sequenza di note da suonare.
 
-   * ``noteDurations[]`` is an array that stores the duration of each note in the melody.
+   * ``noteDurations[]`` è un array che memorizza la durata di ogni nota nella melodia.
 
    .. raw:: html
       
@@ -101,15 +101,15 @@ Code Analysis
         4, 8, 8, 4, 4, 4, 4, 4
       };
 
-3. Playing the melody:
+3. Esecuzione della melodia:
 
-   * The ``for`` loop iterates over each note in the melody.
+   * Il ciclo ``for`` itera su ogni nota della melodia.
 
-   * The ``tone()`` function plays a note on the buzzer for a specific duration.
+   * La funzione ``tone()`` suona una nota sul buzzer per una durata specifica.
 
-   * A delay is added between notes to distinguish them.
+   * Viene aggiunto un ritardo tra le note per distinguerle.
 
-   * The ``noTone()`` function stops the sound.
+   * La funzione ``noTone()`` interrompe il suono.
 
    .. raw:: html
       
@@ -127,6 +127,6 @@ Code Analysis
         }
       }
 
-4. Empty loop function:
+4. Funzione loop vuota:
 
-   Since the melody is played only once in the setup, there's no code in the loop function.
+   Poiché la melodia viene suonata solo una volta nel setup, non c'è codice nella funzione loop.

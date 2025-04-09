@@ -1,20 +1,20 @@
-.. note::
+.. note:: 
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    Ciao! Benvenuto nella community Facebook dedicata agli appassionati di SunFounder, Raspberry Pi, Arduino ed ESP32! Unisciti a noi per approfondire il mondo di Raspberry Pi, Arduino ed ESP32 insieme ad altri appassionati e maker.
 
-    **Why Join?**
+    **Perché unirsi?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Supporto esperto**: Risolvi problemi post-vendita e difficoltà tecniche con l’aiuto della nostra community e del nostro team.
+    - **Impara e condividi**: Scambia consigli e tutorial per potenziare le tue competenze.
+    - **Anteprime esclusive**: Accedi in anticipo ad annunci e anticipazioni sui nuovi prodotti.
+    - **Sconti speciali**: Approfitta di sconti esclusivi sui nostri prodotti più recenti.
+    - **Promozioni festive e giveaway**: Partecipa a omaggi e promozioni speciali durante le festività.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 Pronto a esplorare e creare con noi? Clicca su [|link_sf_facebook|] e unisciti oggi stesso!
 
 .. _cpn_potentiometer:
 
-Potentiometer Module
+Modulo Potenziometro
 ==========================
 
 .. image:: img/13_potentiomete_module.png
@@ -25,43 +25,43 @@ Potentiometer Module
 
    <br/>
 
-The potentiometer module is an electronic component that changes its resistance depending on the position of the twist knob.It can be used for various purposes, such as controlling the volume of a speaker, the brightness of a LED, or the speed of a motor.
+Il modulo potenziometro è un componente elettronico che modifica la propria resistenza in base alla posizione della manopola rotante. Può essere utilizzato per diversi scopi, come la regolazione del volume di un altoparlante, la luminosità di un LED o la velocità di un motore.
 
 
 Pinout
 ---------------------------
-* **VCC**: This is the positive power supply input from the main control. 
-* **GND**: Ground connection.
-* **AO**: Analog output. 
+* **VCC**: Ingresso di alimentazione positiva dal controllore principale.  
+* **GND**: Collegamento a massa.
+* **AO**: Uscita analogica.
 
-Principle
+Principio di funzionamento
 ---------------------------
-Potentiometer is also a resistance component with 3 terminals and its resistance value can be adjusted according to some regular variation.
+Il potenziometro è un componente resistivo a tre terminali, la cui resistenza può essere regolata secondo una variazione continua e prevedibile.
 
-Potentiometers come in various shapes, sizes, and values, but they all have the following things in common:
+I potenziometri esistono in diverse forme, dimensioni e valori, ma condividono alcune caratteristiche comuni:
 
-- They have three terminals (or connection points).
-- They have a knob, screw, or slider that can be moved to vary the resistance between the middle terminal and either one of the outer terminals.
-- The resistance between the middle terminal and either one of the outer terminals varies from 0 Ω to the maximum resistance of the pot as the knob, screw, or slider is moved.
+- Hanno tre terminali (o punti di connessione).
+- Possiedono una manopola, una vite o un cursore che può essere spostato per variare la resistenza tra il terminale centrale e uno dei terminali esterni.
+- La resistenza tra il terminale centrale e uno dei due terminali esterni varia da 0 Ω al valore massimo del potenziometro, in base alla posizione della manopola o del cursore.
 
-Here is the circuit symbol of potentiometer.
+Ecco il simbolo del potenziometro nei circuiti elettronici:
 
 .. image:: img/13_potentiometer_symbol_2.png
     :width: 200
     :align: center
 
-The functions of the potentiometer in the circuit are as follows:
+Le funzioni del potenziometro in un circuito sono le seguenti:
 
-#. Serving as a voltage divider
-    Potentiometer is a continuously adjustable resistor. When you adjust the shaft or sliding handle of the potentiometer, the movable contact will slide on the resistor. At this point, a voltage can be output depending on the voltage applied onto the potentiometer and the angle the movable arm has rotated to or the travel it has made.
+#. Funzione di partitore di tensione  
+    Il potenziometro può essere usato come un resistore regolabile in continuo. Regolando l’albero o il cursore, il contatto mobile scorre lungo il resistore, permettendo l’uscita di una tensione proporzionale a quella applicata e alla posizione del cursore.
 
-#. Serving as a rheostat
-    When the potentiometer is used as a rheostat, connect the middle pin and one of the other 2 pins in the circuit. Thus you can get a smoothly and continuously changed resistance value within the travel of the moving contact.
+#. Funzione di reostato  
+    Quando utilizzato come reostato, si collegano il terminale centrale e uno dei terminali esterni. In questo modo è possibile ottenere una variazione continua della resistenza lungo la corsa del cursore.
 
-#. Serving as a current controller
-    When the potentiometer acts as a current controller, the sliding contact terminal must be connected as one of the output terminals.
+#. Funzione di regolatore di corrente  
+    In questo caso, il terminale del cursore deve essere utilizzato come uno dei terminali di uscita per controllare il flusso di corrente nel circuito.
 
-Schematic diagram
+Schema elettrico
 ---------------------------
 
 .. image:: img/13_potentiomete_module_schematic.png
@@ -72,7 +72,7 @@ Schematic diagram
 
    <br/>
 
-Example
+Esempi
 ---------------------------
 * :ref:`uno_lesson13_potentiometer` (Arduino UNO)
 * :ref:`esp32_lesson13_potentiometer` (ESP32)

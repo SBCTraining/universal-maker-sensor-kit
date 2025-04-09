@@ -1,50 +1,50 @@
 .. note::
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    Ciao, benvenuto nella Community SunFounder di appassionati di Raspberry Pi, Arduino ed ESP32 su Facebook! Esplora più a fondo Raspberry Pi, Arduino ed ESP32 insieme ad altri entusiasti.
 
-    **Why Join?**
+    **Perché unirsi?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Supporto esperto**: Risolvi problemi post-vendita e difficoltà tecniche con l’aiuto della nostra community e del nostro team.
+    - **Impara e condividi**: Scambia consigli e tutorial per migliorare le tue competenze.
+    - **Anteprime esclusive**: Ottieni accesso anticipato agli annunci dei nuovi prodotti e alle anteprime.
+    - **Sconti speciali**: Approfitta di sconti esclusivi sui nostri prodotti più recenti.
+    - **Promozioni festive e giveaway**: Partecipa a promozioni e omaggi durante le festività.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 Pronto a esplorare e creare con noi? Clicca su [|link_sf_facebook|] ed entra oggi stesso!
 
 .. _pico_lesson22_touch_sensor:
 
-Lesson 22: Touch Sensor Module
-==================================
+Lezione 22: Modulo Sensore Tattile
+=====================================
 
-In this lesson, you'll learn how to connect a touch sensor to the Raspberry Pi Pico W in order to control an onboard LED. By using straightforward Python code, you'll configure the touch sensor as an input device. When the sensor detects a touch, it will send a signal to turn on the LED, providing a visual indication that a touch has been detected. Conversely, when there's no touch, the LED stays off. 
+In questa lezione imparerai a collegare un sensore tattile al Raspberry Pi Pico W per controllare un LED integrato. Utilizzando un semplice codice Python, configurerai il sensore come dispositivo di input. Quando il sensore rileva un tocco, invierà un segnale per accendere il LED, fornendo un’indicazione visiva del rilevamento. In assenza di tocco, il LED resterà spento.
 
-Required Components
---------------------------
+Componenti Necessari
+-----------------------------
 
-In this project, we need the following components. 
+Per questo progetto abbiamo bisogno dei seguenti componenti.
 
-It's definitely convenient to buy a whole kit, here's the link: 
+È sicuramente comodo acquistare un kit completo. Ecco il link:
 
 .. list-table::
     :widths: 20 20 20
     :header-rows: 1
 
-    *   - Name	
-        - ITEMS IN THIS KIT
+    *   - Nome
+        - CONTENUTO DEL KIT
         - LINK
     *   - Universal Maker Sensor Kit
         - 94
         - |link_umsk|
 
-You can also buy them separately from the links below.
+Puoi anche acquistarli singolarmente dai link qui sotto.
 
 .. list-table::
     :widths: 30 20
     :header-rows: 1
 
-    *   - Component Introduction
-        - Purchase Link
+    *   - Introduzione al componente
+        - Link d’acquisto
 
     *   - Raspberry Pi Pico W
         - |link_picow_buy|
@@ -54,44 +54,44 @@ You can also buy them separately from the links below.
         - |link_breadboard_buy|
 
 
-Wiring
+Collegamenti
 ---------------------------
 
 .. image:: img/Lesson_22_touch_bb.png
     :width: 100%
 
 
-Code
+Codice
 ---------------------------
 
 .. code-block:: python
 
    from machine import Pin
    import time
-   
-   # Set GPIO 16 as an input pin to read the touch sensor state
+
+   # Imposta GPIO 16 come pin di input per leggere lo stato del sensore tattile
    touch_sensor = Pin(16, Pin.IN)
-   
-   # Initialize the onboard LED of the Raspberry Pi Pico W
+
+   # Inizializza il LED integrato del Raspberry Pi Pico W
    led = Pin("LED", Pin.OUT)
-   
+
    while True:
        if touch_sensor.value() == 1:
-           led.value(1)  # Turn on the LED
+           led.value(1)  # Accendi il LED
            print("Touch detected!")
        else:
-           led.value(0)  # Turn off the LED
+           led.value(0)  # Spegni il LED
            print("No touch detected")
-   
-       time.sleep(0.1)  # Short delay to reduce CPU usage
+
+       time.sleep(0.1)  # Breve ritardo per ridurre l’uso della CPU
 
 
-Code Analysis
+Analisi del Codice
 ---------------------------
 
-#. **Setting up the pins**:
+#. **Configurazione dei pin**:
 
-   Here, we import necessary libraries and set up GPIO pins. The touch sensor is connected to GPIO 16 as an input, and the onboard LED is configured as an output.
+   In questa sezione importiamo le librerie necessarie e configuriamo i pin GPIO. Il sensore tattile è collegato a GPIO 16 come input, mentre il LED integrato è configurato come output.
 
    .. code-block:: python
 
@@ -101,18 +101,18 @@ Code Analysis
       touch_sensor = Pin(16, Pin.IN)
       led = Pin("LED", Pin.OUT)
 
-#. **Main loop and touch detection**:
+#. **Ciclo principale e rilevamento del tocco**:
 
-   In an infinite loop, the code constantly checks the state of the touch sensor. If a touch is detected (value equals 1), the LED is turned on and a message is printed. Otherwise, the LED remains off, and a different message is printed. A short delay is added to reduce CPU usage.
+   All'interno di un ciclo infinito, il codice controlla costantemente lo stato del sensore. Se viene rilevato un tocco (valore uguale a 1), il LED si accende e viene stampato un messaggio. In caso contrario, il LED resta spento e viene stampato un messaggio diverso. È stato aggiunto un breve ritardo per ridurre l’utilizzo della CPU.
 
    .. code-block:: python
 
       while True:
           if touch_sensor.value() == 1:
-              led.value(1)  # Turn on the LED
+              led.value(1)  # Accendi il LED
               print("Touch detected!")
           else:
-              led.value(0)  # Turn off the LED
+              led.value(0)  # Spegni il LED
               print("No touch detected")
 
-          time.sleep(0.1)  # Short delay to reduce CPU usage
+          time.sleep(0.1)  # Breve ritardo per ridurre l’uso della CPU

@@ -1,54 +1,53 @@
-
 .. note::
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    Ciao, benvenuto nella Community SunFounder dedicata agli appassionati di Raspberry Pi, Arduino ed ESP32 su Facebook! Approfondisci le tue conoscenze su Raspberry Pi, Arduino ed ESP32 insieme ad altri appassionati.
 
-    **Why Join?**
+    **Perché unirsi?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Supporto Esperto**: Risolvi problemi post-vendita e sfide tecniche grazie all’aiuto della nostra community e del nostro team.
+    - **Impara e Condividi**: Scambia suggerimenti e tutorial per migliorare le tue competenze.
+    - **Anteprime Esclusive**: Ottieni accesso anticipato agli annunci di nuovi prodotti e alle anteprime.
+    - **Sconti Speciali**: Approfitta di sconti esclusivi sui nostri prodotti più recenti.
+    - **Promozioni Festive e Giveaway**: Partecipa a concorsi e promozioni festive.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 Pronto a esplorare e creare con noi? Clicca su [|link_sf_facebook|] e unisciti oggi stesso!
 
 .. _uno_lesson46_bluetooth_lcd:
 
-Lesson 46: Bluetooth LCD
+Lezione 46: Display LCD via Bluetooth
 =============================================================
 
 
-This project enables the receipt of messages via a Bluetooth module connected to an Arduino UNO board and displays these messages on an LCD screen.
+Questo progetto permette di ricevere messaggi tramite un modulo Bluetooth collegato a una scheda Arduino UNO e visualizzarli su uno schermo LCD.
 
-Required Components
+Componenti Necessari
 --------------------------
 
-In this project, we need the following components. 
+Per questo progetto sono necessari i seguenti componenti.
 
-It's definitely convenient to buy a whole kit, here's the link: 
+È sicuramente comodo acquistare l’intero kit. Ecco il link:
 
 .. list-table::
     :widths: 20 20 20
     :header-rows: 1
 
-    *   - Name	
-        - ITEMS IN THIS KIT
+    *   - Nome
+        - COMPONENTI NEL KIT
         - LINK
     *   - Universal Maker Sensor Kit
         - 94
         - |link_umsk|
 
-You can also buy them separately from the links below.
+In alternativa, puoi acquistare i componenti singolarmente dai link sottostanti.
 
 .. list-table::
     :widths: 30 20
     :header-rows: 1
 
-    *   - Component Introduction
-        - Purchase Link
+    *   - Introduzione al Componente
+        - Link Acquisto
 
-    *   - Arduino UNO R3 or R4
+    *   - Arduino UNO R3 o R4
         - |link_Uno_R3_buy|
     *   - :ref:`cpn_breadboard`
         - |link_breadboard_buy|
@@ -58,18 +57,18 @@ You can also buy them separately from the links below.
         - \-
 
 
-Wiring
+Collegamenti
 ---------------------------
 
 .. image:: img/Lesson_46_Bluetooth_lcd_uno_bb.png
     :width: 100%
 
 
-Code
+Codice
 ---------------------------
 
-.. note:: 
-   To install the library, use the Arduino Library Manager and search for **"LiquidCrystal I2C"** and install it.  
+.. note::
+   Per installare la libreria, apri l'Arduino Library Manager, cerca **"LiquidCrystal I2C"** e installala.
 
 .. raw:: html
 
@@ -77,45 +76,47 @@ Code
 
 
 
-App and Bluetooth module Connection
+App e Connessione Bluetooth
 -----------------------------------------------
-We can use an app called "Serial Bluetooth Terminal" to send messages from the Bluetooth module to Arduino.
-
-a. **Install Serial Bluetooth Terminal**
-
-   Go to Google Play to download and install |link_serial_bluetooth_terminal| .
 
 
-b. **Connect Bluetooth**
+Possiamo utilizzare un'app chiamata "Serial Bluetooth Terminal" per inviare messaggi dal modulo Bluetooth ad Arduino.
 
-   Initially, turn on **Bluetooth** on your smartphone.
-   
-      .. image:: img/09-app_1_shadow.png
-         :width: 60%
-         :align: center
-   
-   Navigate to the **Bluetooth settings** on your smartphone and look for names like **JDY-31-SPP**.
-   
-      .. image:: img/09-app_2_shadow.png
-         :width: 60%
-         :align: center
-   
-   After clicking it, agree to the **Pair** request in the pop-up window. If prompted for a pairing code, please enter "1234".
-   
-      .. image:: img/09-app_3_shadow.png
-         :width: 60%
-         :align: center
-   
+a. **Installa Serial Bluetooth Terminal**
 
-c. **Communicate with Bluetooth module**
+   Scarica e installa l'app da Google Play: |link_serial_bluetooth_terminal|.
 
-   Open the Serial Bluetooth Terminal. Connect to "JDY-31-SPP".
 
-   .. image:: img/00-bluetooth_serial_4_shadow.png 
+b. **Collega il Bluetooth**
 
-d. **Send command**
+   Attiva il **Bluetooth** sul tuo smartphone.
 
-   Use the Serial Bluetooth Terminal app to send messages to Arduino via Bluetooth. The message sent to Bluetooth will be displayed on the LCD.
+   .. image:: img/09-app_1_shadow.png
+      :width: 60%
+      :align: center
+
+   Vai nelle **impostazioni Bluetooth** del tuo smartphone e cerca nomi come **JDY-31-SPP**.
+
+   .. image:: img/09-app_2_shadow.png
+      :width: 60%
+      :align: center
+
+   Dopo aver cliccato sul dispositivo, accetta la richiesta di **abbinamento** nella finestra pop-up. Se richiesto un codice, inserisci "1234".
+
+   .. image:: img/09-app_3_shadow.png
+      :width: 60%
+      :align: center
+
+
+c. **Comunica con il modulo Bluetooth**
+
+   Apri l'app Serial Bluetooth Terminal. Connettiti a "JDY-31-SPP".
+
+   .. image:: img/00-bluetooth_serial_4_shadow.png
+
+d. **Invia comando**
+
+   Usa l'app Serial Bluetooth Terminal per inviare messaggi via Bluetooth ad Arduino. I messaggi ricevuti verranno visualizzati sul display LCD.
 
    .. image:: img/15-lcd_shadow.png
       :width: 100%
@@ -123,23 +124,23 @@ d. **Send command**
 
 
 
-Code Analysis
+Analisi del Codice
 ---------------------------
 
 
-.. note:: 
-      To install library, use the Arduino Library Manager and search for **"LiquidCrystal I2C"** and install the library.  
+.. note::
+   Per installare la libreria, usa l’Arduino Library Manager e cerca **"LiquidCrystal I2C"**.
 
-#. Setting up the LCD
+#. Inizializzazione del display LCD
 
    .. code-block:: arduino
 
       #include <LiquidCrystal_I2C.h>
       LiquidCrystal_I2C lcd(0x27, 16, 2);
 
-   This segment of code includes the LiquidCrystal_I2C library and initializes the LCD module with the I2C address as ``0x27`` and specifies that the LCD has ``16`` columns and ``2`` rows.
+   Include la libreria LiquidCrystal_I2C e inizializza il modulo LCD all’indirizzo I2C ``0x27``, con ``16`` colonne e ``2`` righe.
 
-#. Setting up Bluetooth communication
+#. Configurazione della comunicazione Bluetooth
 
    .. code-block:: arduino
 
@@ -148,9 +149,9 @@ Code Analysis
       const int bluetoothRx = 4;
       SoftwareSerial bleSerial(bluetoothTx, bluetoothRx);
 
-   Here, the SoftwareSerial library is included to allow the JDY-31 Bluetooth module to communicate with the Arduino using pins 3 (TX) and 4 (RX).
+   Include la libreria SoftwareSerial per permettere la comunicazione del modulo JDY-31 con Arduino utilizzando i pin 3 (TX) e 4 (RX).
 
-#. Initialization
+#. Inizializzazione
 
    .. code-block:: arduino
 
@@ -163,9 +164,9 @@ Code Analysis
          bleSerial.begin(9600);
       }
 
-   The ``setup()`` function initializes the LCD and clears any existing content. It also turns on the backlight for the LCD. Communication is started with the serial monitor and the Bluetooth module, both at a baud rate of ``9600``.
+   La funzione ``setup()`` inizializza il display LCD, lo pulisce, accende la retroilluminazione e avvia la comunicazione con il monitor seriale e il modulo Bluetooth a ``9600`` baud.
 
-#. Main Loop
+#. Ciclo Principale
 
    .. code-block:: arduino
 
@@ -187,4 +188,4 @@ Code Analysis
          }
       }
 
-   This is the main operational loop of the Arduino program. It continually checks for incoming data from both the Bluetooth module and the serial monitor. When data is received from the Bluetooth device, it's processed, displayed on the serial monitor, and shown on the LCD. If data is entered into the serial monitor, this data is sent to the Bluetooth module.
+   Questo è il ciclo operativo principale. Controlla continuamente se ci sono dati in arrivo dal modulo Bluetooth o dal monitor seriale. I dati ricevuti dal Bluetooth vengono elaborati, mostrati sul monitor seriale e visualizzati sull’LCD. I dati immessi dal monitor seriale vengono inviati al modulo Bluetooth.

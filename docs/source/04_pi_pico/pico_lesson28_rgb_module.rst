@@ -1,50 +1,50 @@
 .. note::
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    Ciao, benvenuto nella Community SunFounder su Facebook, dedicata agli appassionati di Raspberry Pi, Arduino ed ESP32! Approfondisci le tue conoscenze su Raspberry Pi, Arduino ed ESP32 insieme ad altri maker entusiasti.
 
-    **Why Join?**
+    **Perché unirsi?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Supporto esperto**: Risolvi problemi post-vendita e affronta sfide tecniche con il supporto del nostro team e della community.
+    - **Impara e condividi**: Scambia consigli e tutorial per migliorare le tue competenze.
+    - **Anteprime esclusive**: Ottieni accesso anticipato agli annunci di nuovi prodotti e alle anteprime.
+    - **Sconti speciali**: Approfitta di sconti esclusivi sui nostri ultimi prodotti.
+    - **Promozioni festive e giveaway**: Partecipa a eventi promozionali e concorsi a premi durante le festività.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 Pronto a esplorare e creare con noi? Clicca su [|link_sf_facebook|] e unisciti subito!
 
 .. _pico_lesson28_rgb_module:
 
-Lesson 28: RGB LED Module
+Lezione 28: Modulo LED RGB
 ==================================
 
-In this lesson, you'll learn how to control an RGB LED using the Raspberry Pi Pico W. You'll discover how to set up PWM (Pulse Width Modulation) on different GPIO pins for each color channel of the RGB LED, allowing you to create various colors by adjusting the intensity of red, green, and blue components. This project offers beginners a great opportunity to gain practical experience with PWM and color mixing on Raspberry Pi Pico W using MicroPython. Additionally, you'll learn how to handle interrupts to safely turn off the LED. This lesson provides a fun and interactive way to explore the basics of electronics and programming.
+In questa lezione imparerai a controllare un LED RGB utilizzando il Raspberry Pi Pico W. Scoprirai come configurare il PWM (modulazione della larghezza d'impulso) su diversi pin GPIO per ciascun canale di colore del LED RGB, consentendoti di creare una varietà di colori regolando l'intensità dei componenti rosso, verde e blu. Questo progetto è perfetto per i principianti che vogliono fare pratica con PWM e la miscelazione dei colori utilizzando MicroPython sul Raspberry Pi Pico W. Inoltre, imparerai a gestire le interruzioni per spegnere il LED in sicurezza. Una lezione divertente e interattiva per esplorare le basi dell’elettronica e della programmazione.
 
-Required Components
+Componenti Necessari
 --------------------------
 
-In this project, we need the following components. 
+Per questo progetto sono richiesti i seguenti componenti.
 
-It's definitely convenient to buy a whole kit, here's the link: 
+È sicuramente comodo acquistare un kit completo. Ecco il link:
 
 .. list-table::
     :widths: 20 20 20
     :header-rows: 1
 
-    *   - Name	
-        - ITEMS IN THIS KIT
+    *   - Nome
+        - COMPONENTI INCLUSI NEL KIT
         - LINK
     *   - Universal Maker Sensor Kit
         - 94
         - |link_umsk|
 
-You can also buy them separately from the links below.
+Puoi anche acquistare i singoli componenti dai link sottostanti.
 
 .. list-table::
     :widths: 30 20
     :header-rows: 1
 
-    *   - Component Introduction
-        - Purchase Link
+    *   - Descrizione del Componente
+        - Link per l'acquisto
 
     *   - Raspberry Pi Pico W
         - |link_picow_buy|
@@ -54,76 +54,75 @@ You can also buy them separately from the links below.
         - |link_breadboard_buy|
 
 
-Wiring
+Collegamenti
 ---------------------------
 
 .. image:: img/Lesson_28_RGB_LED_Module_pico_bb.png
     :width: 100%
 
 
-Code
+Codice
 ---------------------------
 
 .. code-block:: python
 
    from machine import Pin, PWM
    from time import sleep
-   
-   # Initialize PWM for each color channel of an RGB LED
-   red = PWM(Pin(26))  # Red channel on GPIO pin 26
-   green = PWM(Pin(27))  # Green channel on GPIO pin 27
-   blue = PWM(Pin(28))  # Blue channel on GPIO pin 28
-   
-   # Set 1000 Hz frequency for all channels
+
+   # Inizializza PWM per ciascun canale di colore del LED RGB
+   red = PWM(Pin(26))    # Canale rosso sul GPIO 26
+   green = PWM(Pin(27))  # Canale verde sul GPIO 27
+   blue = PWM(Pin(28))   # Canale blu sul GPIO 28
+
+   # Imposta la frequenza a 1000 Hz per tutti i canali
    red.freq(1000)
    green.freq(1000)
    blue.freq(1000)
-   
-   
-   # Function to set RGB LED color
+
+   # Funzione per impostare il colore del LED RGB
    def set_color(r, g, b):
-       red.duty_u16(r)  # Red intensity
-       green.duty_u16(g)  # Green intensity
-       blue.duty_u16(b)  # Blue intensity
-   
-   
+       red.duty_u16(r)     # Intensità del rosso
+       green.duty_u16(g)   # Intensità del verde
+       blue.duty_u16(b)    # Intensità del blu
+
+
    try:
        while True:
-           set_color(65535, 0, 0)  # Red
+           set_color(65535, 0, 0)   # Rosso
            sleep(1)
-           set_color(0, 65535, 0)  # Green
+           set_color(0, 65535, 0)   # Verde
            sleep(1)
-           set_color(0, 0, 65535)  # Blue
+           set_color(0, 0, 65535)   # Blu
            sleep(1)
    except KeyboardInterrupt:
-       set_color(0, 0, 0)  # Turn off RGB LED on interrupt
+       set_color(0, 0, 0)  # Spegne il LED RGB in caso di interruzione
 
 
-Code Analysis
+Analisi del Codice
 ---------------------------
 
-#. Importing Libraries
+#. Importazione delle librerie
 
-   The ``machine`` module is imported to use the PWM class and Pin class. The ``time`` module is imported to use the ``sleep`` function for creating delays.
+   Il modulo ``machine`` viene importato per utilizzare le classi PWM e Pin. Il modulo ``time`` è importato per utilizzare la funzione ``sleep`` per le pause temporali.
 
    .. code-block:: python
 
       from machine import Pin, PWM
       from time import sleep
 
-#. Initializing PWM for RGB LED
+#. Inizializzazione del PWM per il LED RGB
 
-   The RGB LED has three channels (Red, Green, Blue), each controlled by a separate PWM signal. The PWM signals are connected to GPIO pins 26, 27, and 28.
+   Il LED RGB ha tre canali (Rosso, Verde, Blu), ognuno controllato da un segnale PWM. I segnali PWM sono collegati ai pin GPIO 26, 27 e 28.
 
    .. code-block:: python
 
-      red = PWM(Pin(26))  # Red channel on GPIO pin 26
-      green = PWM(Pin(27))  # Green channel on GPIO pin 27
-      blue = PWM(Pin(28))  # Blue channel on GPIO pin 28
+      red = PWM(Pin(26))
+      green = PWM(Pin(27))
+      blue = PWM(Pin(28))
 
-#. Setting Frequency for PWM Signals
+#. Impostazione della frequenza per il PWM
 
-   The frequency of the PWM signals is set to 1000 Hz for all three channels.
+   La frequenza dei segnali PWM è impostata a 1000 Hz per tutti e tre i canali.
 
    .. code-block:: python
 
@@ -131,9 +130,9 @@ Code Analysis
       green.freq(1000)
       blue.freq(1000)
 
-#. Defining the set_color Function
+#. Definizione della funzione set_color
 
-   This function sets the color of the RGB LED. The ``duty_u16`` method is used to set the duty cycle for each color channel, which determines the intensity of that color.
+   Questa funzione imposta il colore del LED RGB. Il metodo ``duty_u16`` definisce il ciclo di lavoro per ogni canale, determinando così l’intensità del colore.
 
    .. code-block:: python
 
@@ -142,19 +141,19 @@ Code Analysis
           green.duty_u16(g)
           blue.duty_u16(b)
 
-#. Main Program Loop
+#. Ciclo principale del programma
 
-   An infinite loop is used to change the color of the LED. The ``set_color`` function is called with different values to display red, green, and blue colors. Each color is displayed for 1 second.
+   Un ciclo infinito cambia continuamente il colore del LED. La funzione ``set_color`` viene chiamata con valori diversi per mostrare rosso, verde e blu. Ogni colore viene visualizzato per 1 secondo.
 
    .. code-block:: python
 
       try:
           while True:
-              set_color(65535, 0, 0)  # Red
+              set_color(65535, 0, 0)
               sleep(1)
-              set_color(0, 65535, 0)  # Green
+              set_color(0, 65535, 0)
               sleep(1)
-              set_color(0, 0, 65535)  # Blue
+              set_color(0, 0, 65535)
               sleep(1)
       except KeyboardInterrupt:
           set_color(0, 0, 0)  # Turn off RGB LED on interrupt

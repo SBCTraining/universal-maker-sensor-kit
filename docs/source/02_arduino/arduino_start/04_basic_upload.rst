@@ -1,76 +1,76 @@
-.. note::
+.. note:: 
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    Ciao, benvenuto nella community Facebook di SunFounder dedicata agli appassionati di Raspberry Pi, Arduino ed ESP32! Approfondisci il mondo di Raspberry Pi, Arduino ed ESP32 insieme ad altri appassionati.
 
-    **Why Join?**
+    **Perché unirsi?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Supporto esperto**: Risolvi problemi post-vendita e sfide tecniche grazie all’aiuto della nostra community e del nostro team.
+    - **Impara e condividi**: Scambia suggerimenti e tutorial per migliorare le tue competenze.
+    - **Anteprime esclusive**: Ottieni accesso anticipato agli annunci dei nuovi prodotti e alle anteprime.
+    - **Sconti esclusivi**: Approfitta di sconti riservati sui nostri prodotti più recenti.
+    - **Promozioni festive e giveaway**: Partecipa a concorsi e promozioni durante le festività.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 Pronto a esplorare e creare con noi? Clicca su [|link_sf_facebook|] e unisciti oggi stesso!
 
-How to upload Sketch to the Board?
+Come caricare uno Sketch sulla scheda?
 =============================================
 
-In this section, you will learn how to upload the sketch created previously to the Arduino board, as well as learn about some considerations.
+In questa sezione imparerai come caricare lo sketch creato precedentemente sulla scheda Arduino, oltre ad alcune considerazioni importanti.
 
-**1. Choose Board and port**
+**1. Seleziona scheda e porta**
 
-Arduino development boards usually come with a USB cable. You can use it to connect the board to your computer.
+Le schede di sviluppo Arduino sono generalmente fornite con un cavo USB. Usalo per collegare la scheda al computer.
 
-Select the correct **Board** and **Port** in the Arduino IDE. Normally, Arduino boards are recognized automatically by the computer and assigned a port, so you can select it here.
+Seleziona la **Scheda** e la **Porta** corrette nell’IDE Arduino. Normalmente, la scheda Arduino viene riconosciuta automaticamente dal computer e viene assegnata una porta che puoi selezionare da qui.
 
     .. image:: img/board_port.png
         :width: 90%
 
 
-If your board is already plugged in, but not recognized, check if the **INSTALLED** logo appears in the **Arduino AVR Boards** section of the **Boards Manager**, if not, please scroll down a bit and click on **INSTALL**.
+Se la scheda è già collegata ma non viene riconosciuta, controlla se appare il logo **INSTALLED** nella sezione **Arduino AVR Boards** del **Gestore Schede**. In caso contrario, scorri verso il basso e clicca su **INSTALLA**.
 
     .. image:: img/upload1.png
         :width: 90%
 
-Specifically, for UNO R4, search **"UNO R4"** in **Boards Manager** and check if the corresponding library is installed.
+In particolare, per UNO R4, cerca **"UNO R4"** nel **Gestore Schede** e verifica che la libreria corrispondente sia installata.
 
     .. image:: img/install_uno_r4_lib.png
         :width: 90%
 
-Reopening the Arduino IDE and re-plugging the Arduino board will fix most of the problems. You can also click **Tools** -> **Board** or **Port** to select them.
+Riavviare l’IDE Arduino e ricollegare la scheda risolve la maggior parte dei problemi. Puoi anche selezionare la scheda e la porta manualmente tramite **Strumenti** -> **Scheda** o **Porta**.
 
 
-**2. Verify the Sketch**
+**2. Verifica dello Sketch**
 
-After clicking the Verify button, the sketch will be compiled to see if there are any errors.
+Cliccando il pulsante Verifica, lo sketch verrà compilato per controllare la presenza di eventuali errori.
 
     .. image:: img/sp221014_174532.png
         :width: 90%
 
-You can use it to find mistakes if you delete some characters or type a few letters by mistake. From the message bar, you can see where and what type of errors occurred. 
+Se elimini o scrivi per errore dei caratteri, puoi usare questa funzione per individuare e correggere gli errori. La barra dei messaggi ti mostrerà dove si è verificato l’errore e di che tipo si tratta.
 
     .. image:: img/sp221014_175307.png
         :width: 90%
 
-If there are no errors, you will see a message like the one below.
+Se non ci sono errori, vedrai un messaggio come questo.
 
     .. image:: img/sp221014_175512.png
         :width: 90%
 
 
-**3. Upload sketch**
+**3. Caricamento dello Sketch**
 
-After completing the above steps, click the **Upload** button to upload this sketch to the board.
+Completati i passaggi precedenti, clicca sul pulsante **Carica** per trasferire lo sketch sulla scheda.
 
     .. image:: img/sp221014_175614.png
         :width: 90%
 
-If successful, you will be able to see the following prompt.
+Se il caricamento è andato a buon fine, vedrai il seguente messaggio di conferma.
 
     .. image:: img/sp221014_175654.png
         :width: 90%
 
-At the same time, the on-board LED blink.
+Allo stesso tempo, vedrai lampeggiare il LED integrato.
 
 .. image:: img/1_led.jpg
     :width: 400
@@ -80,7 +80,7 @@ At the same time, the on-board LED blink.
     
     <br/>
 
-The Arduino board will automatically run the sketch after power is applied after the sketch is uploaded. The running program can be overwritten by uploading a new sketch.
+Una volta caricato lo sketch, la scheda Arduino lo eseguirà automaticamente ogni volta che viene alimentata. Il programma può essere sovrascritto caricandone uno nuovo.
 
 
 

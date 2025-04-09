@@ -1,20 +1,20 @@
-.. note::
+.. note:: 
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    Ciao! Benvenuto nella community Facebook dedicata agli appassionati di SunFounder, Raspberry Pi, Arduino ed ESP32! Unisciti a noi per approfondire l’universo di Raspberry Pi, Arduino ed ESP32 insieme ad altri maker e appassionati.
 
-    **Why Join?**
+    **Perché unirsi?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Supporto esperto**: Risolvi problemi post-vendita e sfide tecniche grazie all’aiuto della nostra community e del nostro team.
+    - **Impara e condividi**: Scambia suggerimenti e tutorial per migliorare le tue competenze.
+    - **Anteprime esclusive**: Ricevi in anteprima annunci e anticipazioni sui nuovi prodotti.
+    - **Sconti speciali**: Goditi sconti esclusivi sui nostri prodotti più recenti.
+    - **Promozioni festive e omaggi**: Partecipa a giveaway e iniziative promozionali durante le festività.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 Pronto a esplorare e creare con noi? Clicca su [|link_sf_facebook|] e unisciti subito!
 
 .. _cpn_mpu6050:
 
-Gyroscope & Accelerometer Module (MPU6050)
+Modulo Giroscopio & Accelerometro (MPU6050)
 ===============================================================
 
 .. image:: img/05_mpu6050_1.png
@@ -25,63 +25,63 @@ Gyroscope & Accelerometer Module (MPU6050)
 
    <br/>
 
-The MPU-6050 is a 6-axis(combines 3-axis Gyroscope, 3-axis Accelerometer) motion tracking devices.Changes in motion, acceleration and rotation can be detected.It is commonly used in robotics, gaming controllers, and other electronic devices that require motion detection. Its high accuracy and cheap cost make it very popular among the DIY community.
+L’MPU-6050 è un dispositivo di tracciamento del movimento a 6 assi (combina un giroscopio a 3 assi e un accelerometro a 3 assi). È in grado di rilevare variazioni di movimento, accelerazione e rotazione. È ampiamente utilizzato in robotica, controller per videogiochi e altri dispositivi elettronici che richiedono il rilevamento del movimento. La sua elevata precisione e il basso costo lo rendono particolarmente popolare tra gli appassionati del fai-da-te.
 
-Principle
----------------------------
-An MPU-6050 sensor module consists of a 3-axis accelerometer and a 3-axis gyroscope.
+Principio di funzionamento
+------------------------------
+Il modulo MPU-6050 è composto da un accelerometro a 3 assi e un giroscopio a 3 assi.
 
-Its three coordinate systems are defined as follows:
+I suoi tre sistemi di coordinate sono definiti come segue:
 
-Put MPU6050 flat on the table, assure that the face with label is upward and a dot on this surface is on the top left corner. Then the upright direction upward is the z-axis of the chip. The direction from left to right is regarded as the X-axis. Accordingly the direction from back to front is defined as the Y-axis.
+Posiziona l'MPU6050 su una superficie piana, con la faccia con l’etichetta rivolta verso l’alto e il punto situato nell’angolo in alto a sinistra. In questa configurazione, la direzione verticale verso l’alto rappresenta l’asse Z del chip. La direzione da sinistra a destra è l’asse X. Di conseguenza, la direzione dal retro verso il fronte è definita come asse Y.
 
 .. image:: img/05_mpu_2.png
     :width: 300
     :align: center
 
-3-axis Accelerometer
-^^^^^^^^^^^^^^^^^^^^
-The accelerometer works on the principle of piezo electric effect, the ability of certain materials to generate an electric charge in response to applied mechanical stress.
+Accelerometro a 3 assi
+^^^^^^^^^^^^^^^^^^^^^^^^
+L’accelerometro funziona secondo il principio dell’effetto piezoelettrico, ovvero la capacità di alcuni materiali di generare una carica elettrica in risposta a uno stress meccanico.
 
-Here, imagine a cuboidal box, having a small ball inside it, like in the picture above. The walls of this box are made with piezo electric crystals. Whenever you tilt the box, the ball is forced to move in the direction of the inclination, due to gravity. The wall with which the ball collides, creates tiny piezo electric currents. There are totally, three pairs of opposite walls in a cuboid. Each pair corresponds to an axis in 3D space: X, Y and Z axes. Depending on the current produced from the piezo electric walls, we can determine the direction of inclination and its magnitude.
+Immagina una scatola cuboidale contenente una piccola sfera, come mostrato nell’immagine sopra. Le pareti della scatola sono fatte di cristalli piezoelettrici. Quando inclini la scatola, la gravità spinge la sfera a muoversi nella direzione dell'inclinazione. La parete contro cui urta la sfera genera una debole corrente piezoelettrica. Esistono tre coppie di pareti opposte nella scatola, ciascuna delle quali corrisponde a un asse nello spazio tridimensionale: X, Y e Z. In base alla corrente generata dalle pareti piezoelettriche, possiamo determinare la direzione e l'entità dell’inclinazione.
 
 .. image:: img/05_mpu_3.png
     :width: 800
     :align: center
 
-We can use the MPU6050 to detect its acceleration on each coordinate axis (in the stationary desktop state, the Z-axis acceleration is 1 gravity unit, and the X and Y axes are 0). If it is tilted or in a weightless/overweight condition, the corresponding reading will change.
+Possiamo usare l’MPU6050 per rilevare l’accelerazione lungo ciascun asse (in stato statico su una scrivania, l’accelerazione sull’asse Z è pari a 1 unità gravitazionale, mentre sugli assi X e Y è 0). In caso di inclinazione o condizioni di microgravità/sovrappeso, i valori cambieranno di conseguenza.
 
-There are four kinds of measuring ranges that can be selected programmatically: +/-2g, +/-4g, +/-8g, and +/-16g (2g by default) corresponding to each precision. Values range from -32768 to 32767.
+È possibile selezionare quattro intervalli di misura via software: +/-2g, +/-4g, +/-8g e +/-16g (predefinito: 2g), ognuno con la propria precisione. I valori letti variano tra -32768 e 32767.
 
-The reading of accelerometer is converted to an acceleration value by mapping the reading from the reading range to the measuring range.
+La lettura dell’accelerometro viene convertita in un valore di accelerazione mappando il valore letto all’intervallo selezionato.
 
-Acceleration = (Accelerometer axis raw data / 65536 * full scale Acceleration range) g
+Accelerazione = (Dati grezzi dell’accelerometro / 65536 * Intervallo scala piena) g
 
-Take the X-axis as an example, when Accelerometer X axis raw data is 16384 and the range is selected as +/-2g:
+Ad esempio, se i dati grezzi dell’accelerometro sull’asse X sono 16384 e l’intervallo è +/-2g:
 
-Acceleration along the X axis = (16384 / 65536 * 4) g =1g
+Accelerazione lungo l’asse X = (16384 / 65536 * 4) g = 1g
 
-3-axis Gyroscope
-^^^^^^^^^^^^^^^^^^^^
-Gyroscopes work on the principle of Coriolis acceleration. Imagine that there is a fork like structure, that is in constant back and forth motion. It is held in place using piezo electric crystals. Whenever, you try to tilt this arrangement, the crystals experience a force in the direction of inclination. This is caused as a result of the inertia of the moving fork. The crystals thus produce a current in consensus with the piezo electric effect, and this current is amplified.
+Giroscopio a 3 assi
+^^^^^^^^^^^^^^^^^^^^^^^
+I giroscopi si basano sul principio dell’accelerazione di Coriolis. Immagina una struttura a forma di forcella in movimento oscillante costante, tenuta in posizione da cristalli piezoelettrici. Quando si cerca di inclinare questa struttura, i cristalli sperimentano una forza nella direzione dell’inclinazione, dovuta all’inerzia del movimento. Di conseguenza, i cristalli generano una corrente secondo l’effetto piezoelettrico, che viene poi amplificata.
 
 .. image:: img/05_mpu_4.png
     :width: 800
     :align: center
 
-The Gyroscope also has four kinds of measuring ranges: +/- 250, +/- 500, +/- 1000, +/- 2000. The calculation method and Acceleration are basically consistent.
+Anche il giroscopio offre quattro intervalli di misura: +/-250, +/-500, +/-1000, +/-2000. Il metodo di calcolo è sostanzialmente simile a quello dell’accelerazione.
 
-The formula for converting the reading into angular velocity is as follows:
+La formula per convertire la lettura in velocità angolare è:
 
-Angular velocity = (Gyroscope axis raw data / 65536 * full scale Gyroscope range) °/s
+Velocità angolare = (Dati grezzi del giroscopio / 65536 * Intervallo scala piena) °/s
 
-The X axis, for example, the Accelerometer X axis raw data is 16384 and ranges + / - 250°/ s:
+Ad esempio, se i dati grezzi del giroscopio sull’asse X sono 16384 e l’intervallo selezionato è +/-250°/s:
 
-Angular velocity along the X axis = (16384 / 65536 * 500)°/s =125°/s
+Velocità angolare sull’asse X = (16384 / 65536 * 500)°/s = 125°/s
 
 
 
-Example
+Esempi
 ---------------------------
 * :ref:`uno_lesson05_mpu6050` (Arduino UNO)
 * :ref:`esp32_lesson05_mpu6050` (ESP32)

@@ -1,50 +1,50 @@
-.. note::
+.. note:: 
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    Ciao, benvenuto nella Comunità di appassionati di SunFounder Raspberry Pi & Arduino & ESP32 su Facebook! Approfondisci le tue conoscenze su Raspberry Pi, Arduino e ESP32 insieme ad altri entusiasti.
 
-    **Why Join?**
+    **Perché unirsi?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Supporto esperto**: Risolvi problemi post-vendita e sfide tecniche con l’aiuto della nostra community e del nostro team.
+    - **Impara & Condividi**: Scambia suggerimenti e tutorial per migliorare le tue competenze.
+    - **Anteprime esclusive**: Accedi in anteprima a nuovi annunci di prodotti e contenuti esclusivi.
+    - **Sconti speciali**: Approfitta di sconti esclusivi sui nostri prodotti più recenti.
+    - **Promozioni festive e giveaway**: Partecipa a promozioni stagionali e concorsi a premi.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 Pronto a esplorare e creare con noi? Clicca [|link_sf_facebook|] e unisciti subito!
 
 .. _pico_lesson07_speed:
 
-Lesson 07: Infrared Speed Sensor Module
-==========================================
+Lezione 07: Modulo Sensore di Velocità a Infrarossi
+======================================================
 
-In this lesson, you will learn how to use the Raspberry Pi Pico W to interface with an infrared speed sensor module. By connecting the sensor to GPIO 16, you will detect obstructions in real-time. The program monitors the sensor output, and when an obstruction is detected, it prints "Obstruction detected" to the console. If there's no obstruction, it prints "Unobstructed."
+In questa lezione imparerai a utilizzare il Raspberry Pi Pico W per interfacciarti con un modulo sensore di velocità a infrarossi. Collegando il sensore al GPIO 16, potrai rilevare ostacoli in tempo reale. Il programma monitora l’uscita del sensore e, quando rileva un’ostruzione, stampa "Obstruction detected" sulla console. Se non vi è alcun ostacolo, viene stampato "Unobstructed".
 
-Required Components
---------------------------
+Componenti necessari
+------------------------
 
-In this project, we need the following components. 
+Per questo progetto sono necessari i seguenti componenti.
 
-It's definitely convenient to buy a whole kit, here's the link: 
+È sicuramente comodo acquistare un kit completo. Ecco il link:
 
 .. list-table::
     :widths: 20 20 20
     :header-rows: 1
 
-    *   - Name	
-        - ITEMS IN THIS KIT
+    *   - Nome	
+        - ELEMENTI IN QUESTO KIT
         - LINK
-    *   - Universal Maker Sensor Kit
+    *   - Kit Sensori Universali per Maker
         - 94
         - |link_umsk|
 
-You can also buy them separately from the links below.
+Puoi anche acquistare i componenti separatamente dai link sottostanti.
 
 .. list-table::
     :widths: 30 20
     :header-rows: 1
 
-    *   - Component Introduction
-        - Purchase Link
+    *   - Introduzione ai Componenti
+        - Link per l'acquisto
 
     *   - Raspberry Pi Pico W
         - |link_picow_buy|
@@ -54,22 +54,22 @@ You can also buy them separately from the links below.
         - |link_breadboard_buy|
 
 
-Wiring
----------------------------
+Cablaggio
+-------------
 
 .. image:: img/Lesson_07_Speed_pico_bb.png
     :width: 100%
 
 
-Code
----------------------------
+Codice
+--------------
 
 .. code-block:: python
 
    from machine import Pin
    import time
    
-   # Set GPIO 16 as an input pin to read the speed sensor
+   # Imposta il GPIO 16 come pin di input per leggere il sensore di velocità
    speed_sensor = Pin(16, Pin.IN)
    
    while True:
@@ -78,34 +78,34 @@ Code
        else:
            print("Unobstructed")
    
-       time.sleep(0.1)  # Short delay to reduce CPU usage
+       time.sleep(0.1)  # Breve ritardo per ridurre l’utilizzo della CPU
 
 
-Code Analysis
----------------------------
+Analisi del Codice
+-------------------
 
-#. **Import Libraries**:
+#. **Importazione delle Librerie**:
 
-   This code begins by importing necessary libraries. The ``machine`` library is used to interact with the GPIO pins, and the ``time`` library is for adding delays in the program.
+   Il codice inizia importando le librerie necessarie. La libreria ``machine`` serve per interagire con i pin GPIO, mentre ``time`` è utilizzata per inserire ritardi nel programma.
 
    .. code-block:: python
 
       from machine import Pin
       import time
 
-#. **Sensor Configuration**:
+#. **Configurazione del Sensore**:
 
-   The infrared speed sensor is connected to GPIO 16. It's set as an input, meaning the Pi Pico W will read data from this pin.
+   Il sensore di velocità a infrarossi è collegato al GPIO 16. È configurato come input, quindi il Pico W leggerà i dati da questo pin.
 
    .. code-block:: python
 
       speed_sensor = Pin(16, Pin.IN)
 
-#. **Main Loop**:
+#. **Ciclo Principale**:
 
-   The ``while True:`` loop creates an infinite loop. Inside this loop, the program continuously checks the sensor's value.
+   Il ciclo ``while True:`` crea un loop infinito. All’interno di questo ciclo, il programma controlla costantemente il valore restituito dal sensore.
    
-   If ``speed_sensor.value()`` is 1, it means the sensor detects an obstruction. If it is 0, then there is no obstruction.
+   Se ``speed_sensor.value()`` restituisce 1, significa che è stata rilevata un’ostruzione. Se invece il valore è 0, non ci sono ostacoli.
 
    .. code-block:: python
 
@@ -115,17 +115,17 @@ Code Analysis
           else:
               print("Unobstructed")
 
-#. **Delay to Reduce CPU Usage**:
+#. **Ritardo per Ridurre l’Uso della CPU**:
 
-   A short delay of 0.1 seconds is introduced in each iteration of the loop. This reduces the CPU usage by preventing the loop from running too rapidly.
+   Ogni iterazione del ciclo include un breve ritardo di 0,1 secondi. Questo aiuta a evitare che il loop venga eseguito troppo rapidamente, riducendo il carico sulla CPU.
 
    .. code-block:: python
      
       time.sleep(0.1)
 
-#. **More**
+#. **Ulteriori Applicazioni**:
 
-   If an encoder is mounted on the motor, the rotational speed of the motor can be calculated by counting the number of times an obstruction passes the sensor within a specific period.
+   Se viene montato un encoder sul motore, è possibile calcolare la velocità di rotazione del motore contando il numero di volte in cui un’ostruzione passa davanti al sensore in un intervallo di tempo definito.
 
    .. image:: img/Lesson_07_Encoder_Disk.png
       :align: center

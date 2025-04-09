@@ -1,50 +1,50 @@
-.. note::
+.. note:: 
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    Ciao, benvenuto nella Comunità di appassionati di SunFounder Raspberry Pi & Arduino & ESP32 su Facebook! Approfondisci le tue conoscenze su Raspberry Pi, Arduino e ESP32 insieme ad altri entusiasti.
 
-    **Why Join?**
+    **Perché unirsi?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Supporto esperto**: Risolvi problemi post-vendita e difficoltà tecniche grazie al supporto della nostra community e del nostro team.
+    - **Impara & Condividi**: Scambia consigli e tutorial per migliorare le tue competenze.
+    - **Anteprime esclusive**: Accedi in anteprima a nuovi annunci di prodotto e contenuti esclusivi.
+    - **Sconti speciali**: Approfitta di sconti riservati sui nostri prodotti più recenti.
+    - **Promozioni festive e giveaway**: Partecipa a giveaway e promozioni in occasione delle festività.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 Pronto a esplorare e creare con noi? Clicca [|link_sf_facebook|] e unisciti subito!
 
 .. _pico_lesson09_joystick:
 
-Lesson 09: Joystick Module
-==================================
+Lezione 09: Modulo Joystick
+====================================
 
-In this lesson, you'll learn how to interface with and read data from a joystick module using the Raspberry Pi Pico W. You'll explore initializing and reading analog values from the X and Y axes of the joystick, as well as handling digital input from its switch using MicroPython. This lesson is ideal for beginners, offering practical experience in reading and interpreting analog and digital inputs on the Raspberry Pi Pico W.
+In questa lezione imparerai a interfacciarti e leggere i dati da un modulo joystick utilizzando il Raspberry Pi Pico W. Esplorerai l'inizializzazione e la lettura dei valori analogici degli assi X e Y del joystick, oltre alla gestione dell'ingresso digitale del suo pulsante tramite MicroPython. Questa lezione è perfetta per i principianti e offre esperienza pratica nella lettura e interpretazione di ingressi analogici e digitali con il Raspberry Pi Pico W.
 
-Required Components
---------------------------
+Componenti necessari
+----------------------------
 
-In this project, we need the following components. 
+Per questo progetto sono necessari i seguenti componenti.
 
-It's definitely convenient to buy a whole kit, here's the link: 
+È sicuramente comodo acquistare un kit completo. Ecco il link:
 
 .. list-table::
     :widths: 20 20 20
     :header-rows: 1
 
-    *   - Name	
-        - ITEMS IN THIS KIT
+    *   - Nome	
+        - ELEMENTI IN QUESTO KIT
         - LINK
-    *   - Universal Maker Sensor Kit
+    *   - Kit Sensori Universali per Maker
         - 94
         - |link_umsk|
 
-You can also buy them separately from the links below.
+Puoi anche acquistare i componenti separatamente dai link riportati qui sotto.
 
 .. list-table::
     :widths: 30 20
     :header-rows: 1
 
-    *   - Component Introduction
-        - Purchase Link
+    *   - Introduzione ai Componenti
+        - Link per l'acquisto
 
     *   - Raspberry Pi Pico W
         - |link_picow_buy|
@@ -54,75 +54,75 @@ You can also buy them separately from the links below.
         - |link_breadboard_buy|
 
 
-Wiring
----------------------------
+Cablaggio
+--------------
 
 .. image:: img/Lesson_09_Jostick_Module_bb.png
     :width: 100%
 
 
-Code
----------------------------
+Codice
+---------------
 
 .. code-block:: python
 
-   import machine  # Import hardware control module
-   import time  # Import time module
+   import machine  # Importa il modulo per il controllo hardware
+   import time  # Importa il modulo per la gestione del tempo
    
-   # Initialize X and Y axes of the joystick
+   # Inizializza gli assi X e Y del joystick
    x_joystick = machine.ADC(27)
    y_joystick = machine.ADC(26)
    
-   # Initialize joystick switch with pull-up resistor
+   # Inizializza il pulsante del joystick con resistenza di pull-up
    z_switch = machine.Pin(22, machine.Pin.IN, machine.Pin.PULL_UP)
    
-   while True:  # Continuous reading loop
-       x_value = x_joystick.read_u16()  # Read X-axis value
-       y_value = y_joystick.read_u16()  # Read Y-axis value
-       z_value = z_switch.value()  # Read switch state
+   while True:  # Ciclo di lettura continua
+       x_value = x_joystick.read_u16()  # Legge il valore dell'asse X
+       y_value = y_joystick.read_u16()  # Legge il valore dell'asse Y
+       z_value = z_switch.value()  # Legge lo stato del pulsante
    
-       # Print joystick values and switch state
+       # Stampa i valori del joystick e lo stato del pulsante
        print("X: ", x_value, " Y: ", y_value)
        print("SW: ", z_value)
    
-       time.sleep_ms(200)  # Loop every 200 milliseconds
+       time.sleep_ms(200)  # Ritardo di 200 millisecondi tra le letture
 
 
-Code Analysis
----------------------------
+Analisi del Codice
+-------------------------
 
-#. Import Libraries
+#. Importazione delle Librerie
 
-   The ``machine`` and ``time`` modules are imported for hardware control and time functions.
+   I moduli ``machine`` e ``time`` vengono importati per gestire l’hardware e i ritardi temporali.
 
    .. code-block:: python
 
-      import machine  # Import hardware control module
-      import time  # Import time module
+      import machine  # Importa il modulo per il controllo hardware
+      import time  # Importa il modulo per la gestione del tempo
 
-#. Initialize Joystick Axes
+#. Inizializzazione degli Assi del Joystick
 
-   The joystick's X and Y axes are connected to analog pins (27 and 26 respectively). These pins are initialized as ADC (Analog to Digital Converter) objects.
+   Gli assi X e Y del joystick sono collegati ai pin analogici 27 e 26. I pin sono configurati come oggetti ADC (Analog-to-Digital Converter).
 
    .. code-block:: python
 
       x_joystick = machine.ADC(27)
       y_joystick = machine.ADC(26)
 
-#. Initialize Joystick Switch
+#. Inizializzazione del Pulsante del Joystick
 
-   The joystick's switch is connected to pin 22. It's set as an input with a pull-up resistor. When the button is not pressed, it reads high (1), and when pressed, it reads low (0).
+   Il pulsante del joystick è collegato al pin 22, configurato come input con resistenza di pull-up. Quando il pulsante non è premuto, il valore letto è alto (1); quando viene premuto, il valore è basso (0).
 
    .. code-block:: python
 
       z_switch = machine.Pin(22, machine.Pin.IN, machine.Pin.PULL_UP)
 
-#. Main Loop
+#. Ciclo Principale
 
-   - An infinite loop continuously reads values from the joystick. 
-   - ``read_u16`` method is used to read 16-bit values from the X and Y axes.
-   - ``value()`` method is used to read the state of the switch.
-   - The values are then printed, and the loop pauses for 200 milliseconds.
+   - Un ciclo infinito legge continuamente i valori dal joystick.
+   - Il metodo ``read_u16`` legge i valori a 16 bit degli assi X e Y.
+   - Il metodo ``value()`` legge lo stato del pulsante.
+   - I valori vengono stampati e il ciclo si ripete ogni 200 millisecondi.
 
    .. raw:: html
 
@@ -130,13 +130,13 @@ Code Analysis
 
    .. code-block:: python
 
-      while True:  # Continuous reading loop
-          x_value = x_joystick.read_u16()  # Read X-axis value
-          y_value = y_joystick.read_u16()  # Read Y-axis value
-          z_value = z_switch.value()  # Read switch state
+      while True:  # Ciclo di lettura continua
+          x_value = x_joystick.read_u16()  # Legge il valore dell'asse X
+          y_value = y_joystick.read_u16()  # Legge il valore dell'asse Y
+          z_value = z_switch.value()  # Legge lo stato del pulsante
 
-          # Print joystick values and switch state
+          # Stampa i valori del joystick e lo stato del pulsante
           print("X: ", x_value, " Y: ", y_value)
           print("SW: ", z_value)
 
-          time.sleep_ms(200)  # Loop every 200 milliseconds
+          time.sleep_ms(200)  # Ritardo di 200 millisecondi tra le letture

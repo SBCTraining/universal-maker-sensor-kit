@@ -1,50 +1,50 @@
 .. note::
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    Ciao, benvenuto nella Community di appassionati di Raspberry Pi, Arduino ed ESP32 di SunFounder su Facebook! Esplora più a fondo il mondo di Raspberry Pi, Arduino ed ESP32 insieme ad altri maker.
 
-    **Why Join?**
+    **Perché unirsi?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Supporto esperto**: Risolvi problemi post-vendita e sfide tecniche grazie all’aiuto della nostra community e del nostro team.
+    - **Impara e condividi**: Scambia suggerimenti e tutorial per migliorare le tue competenze.
+    - **Anteprime esclusive**: Ottieni accesso anticipato agli annunci e alle anteprime dei nuovi prodotti.
+    - **Sconti speciali**: Approfitta di sconti esclusivi sui nostri ultimi prodotti.
+    - **Promozioni festive e giveaway**: Partecipa a promozioni e omaggi durante le festività.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 Pronto a esplorare e creare con noi? Clicca su [|link_sf_facebook|] ed entra a far parte della community oggi stesso!
 
 .. _pico_lesson23_ultrasonic:
 
-Lesson 23: Ultrasonic Sensor Module (HC-SR04)
-================================================
+Lezione 23: Modulo Sensore a Ultrasuoni (HC-SR04)
+====================================================
 
-In this lesson, you will learn how to measure distances using the Raspberry Pi Pico W and an HC-SR04 ultrasonic sensor. You'll find out how to connect the sensor to the Pico W and write a MicroPython script to control it. The lesson will cover calculating distances based on the time it takes for ultrasonic waves to reflect back from objects. This practical project provides insights into working with sensors, handling digital signals, and basic calculations in MicroPython, suitable for those interested in hardware interfacing with the Raspberry Pi Pico W.
+In questa lezione imparerai a misurare le distanze utilizzando il Raspberry Pi Pico W e un sensore a ultrasuoni HC-SR04. Vedrai come collegare il sensore al Pico W e scrivere uno script in MicroPython per controllarlo. La lezione include il calcolo delle distanze basato sul tempo impiegato dalle onde ultrasoniche per riflettersi sugli oggetti. Questo progetto pratico ti fornirà competenze sull’uso dei sensori, sulla gestione dei segnali digitali e sui calcoli base in MicroPython, perfetto per chi è interessato all’interfacciamento hardware con il Raspberry Pi Pico W.
 
-Required Components
+Componenti Necessari
 --------------------------
 
-In this project, we need the following components. 
+Per questo progetto servono i seguenti componenti.
 
-It's definitely convenient to buy a whole kit, here's the link: 
+È sicuramente comodo acquistare un kit completo. Ecco il link:
 
 .. list-table::
     :widths: 20 20 20
     :header-rows: 1
 
-    *   - Name	
-        - ITEMS IN THIS KIT
+    *   - Nome
+        - CONTENUTO DEL KIT
         - LINK
     *   - Universal Maker Sensor Kit
         - 94
         - |link_umsk|
 
-You can also buy them separately from the links below.
+Puoi anche acquistare i singoli componenti dai link sottostanti.
 
 .. list-table::
     :widths: 30 20
     :header-rows: 1
 
-    *   - Component Introduction
-        - Purchase Link
+    *   - Introduzione al componente
+        - Link d'acquisto
 
     *   - Raspberry Pi Pico W
         - |link_picow_buy|
@@ -54,86 +54,85 @@ You can also buy them separately from the links below.
         - |link_breadboard_buy|
 
 
-Wiring
+Collegamenti
 ---------------------------
 
 .. image:: img/Lesson_23_ultrasonic_sensor_bb.png
     :width: 100%
 
 
-Code
+Codice
 ---------------------------
 
 .. code-block:: python
 
-   import machine  # Import machine module for hardware control
-   import time  # Import time module for delays
-   
-   # Define pin numbers for ultrasonic sensor's TRIG and ECHO pins
-   TRIG = machine.Pin(17, machine.Pin.OUT)  # TRIG pin set as output
-   ECHO = machine.Pin(16, machine.Pin.IN)  # ECHO pin set as input
-   
-   
+   import machine  # Importa il modulo machine per il controllo dell'hardware
+   import time  # Importa il modulo time per i ritardi temporali
+
+   # Definisci i pin TRIG e ECHO del sensore a ultrasuoni
+   TRIG = machine.Pin(17, machine.Pin.OUT)  # TRIG come uscita
+   ECHO = machine.Pin(16, machine.Pin.IN)   # ECHO come ingresso
+
    def distance():
-       # Function to calculate distance in centimeters
-       TRIG.low()  # Set TRIG low
-       time.sleep_us(2)  # Wait for 2 microseconds
-       TRIG.high()  # Set TRIG high
-       time.sleep_us(10)  # Wait for 10 microseconds
-       TRIG.low()  # Set TRIG low again
-   
-       # Wait for ECHO pin to go high
+       # Funzione per calcolare la distanza in centimetri
+       TRIG.low()
+       time.sleep_us(2)
+       TRIG.high()
+       time.sleep_us(10)
+       TRIG.low()
+
+       # Aspetta che ECHO vada alto
        while not ECHO.value():
            pass
-   
-       time1 = time.ticks_us()  # Record time when ECHO goes high
-   
-       # Wait for ECHO pin to go low
+    
+       time1 = time.ticks_us()
+
+       # Aspetta che ECHO torni basso
        while ECHO.value():
            pass
-   
-       time2 = time.ticks_us()  # Record time when ECHO goes low
-   
-       # Calculate the duration of the ECHO pin being high
+    
+       time2 = time.ticks_us()
+
+       # Calcola la durata del segnale ECHO
        during = time.ticks_diff(time2, time1)
-   
-       # Return the calculated distance (using speed of sound)
-       return during * 340 / 2 / 10000  # Distance in centimeters
-   
-   
-   # Main loop
+
+       # Restituisce la distanza calcolata (in cm)
+       return during * 340 / 2 / 10000
+
+
+   # Ciclo principale
    while True:
-       dis = distance()  # Get distance from sensor
-       print("Distance: %.2f cm" % dis)  # Print distance
-       time.sleep_ms(300)  # Wait for 300 milliseconds before next measurement
+       dis = distance()  # Legge la distanza dal sensore
+       print("Distanza: %.2f cm" % dis)  # Stampa la distanza
+       time.sleep_ms(300)  # Attende 300 ms prima della misurazione successiva
 
 
-Code Analysis
+Analisi del Codice
 ---------------------------
 
-#. **Importing libraries**
+#. **Importazione delle librerie**
 
-   The ``machine`` and ``time`` modules are imported for accessing hardware-specific functions and time-related functions, respectively.
+   Si importano i moduli ``machine`` e ``time`` per accedere a funzioni hardware-specifiche e temporali.
 
    .. code-block:: python
 
       import machine
       import time
 
-#. **Pin setup for HC-SR04**
+#. **Configurazione dei pin per l’HC-SR04**
 
-   Two GPIO pins are defined for the HC-SR04 sensor: ``TRIG`` is an output pin to trigger the ultrasonic pulse, and ``ECHO`` is an input pin to receive the reflected pulse.
+   Due pin GPIO sono assegnati: ``TRIG`` come uscita per generare l’impulso ultrasonico e ``ECHO`` come ingresso per rilevare l’eco riflessa.
 
    .. code-block:: python
 
       TRIG = machine.Pin(17, machine.Pin.OUT)
       ECHO = machine.Pin(16, machine.Pin.IN)
 
-#. **Distance measurement function**
+#. **Funzione di misurazione della distanza**
 
-   The ``distance`` function triggers the ultrasonic pulse and calculates the distance based on the time taken for the echo to return. It uses time-based functions to measure the duration of the echo.
+   La funzione ``distance`` attiva l’impulso ultrasonico e calcola la distanza in base al tempo di ritorno dell’eco, usando la velocità del suono.
 
-   For more details, please refer to the working :ref:`principle <cpn_ultrasonic_principle>` of the ultrasonic sensor module.
+   Per ulteriori dettagli, consulta il principio di funzionamento del modulo sensore a ultrasuoni :ref:`principle <cpn_ultrasonic_principle>`.
 
    .. code-block:: python
 
@@ -156,12 +155,12 @@ Code Analysis
           during = time.ticks_diff(time2, time1)
           return during * 340 / 2 / 10000
 
-#. **Main loop**
+#. **Ciclo principale**
 
-   The main loop continuously calls the ``distance`` function and prints the measured distance. It waits for 300 milliseconds between each measurement to prevent sensor saturation.
+   Il ciclo principale richiama continuamente la funzione ``distance`` e stampa la distanza misurata. Una pausa di 300 ms evita letture troppo frequenti che potrebbero saturare il sensore.
 
    .. code-block:: python
-    
+
       while True:
           dis = distance()
           print("Distance: %.2f cm" % dis)

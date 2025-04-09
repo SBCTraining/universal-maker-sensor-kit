@@ -1,20 +1,20 @@
-.. note::
+.. note:: 
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    Ciao! Benvenuto nella community Facebook dedicata agli appassionati di SunFounder, Raspberry Pi, Arduino ed ESP32! Unisciti a noi per approfondire il mondo di Raspberry Pi, Arduino ed ESP32 insieme ad altri appassionati e maker.
 
-    **Why Join?**
+    **Perché unirsi?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Supporto esperto**: Risolvi problemi post-vendita e difficoltà tecniche con l’aiuto della nostra community e del nostro team.
+    - **Impara e condividi**: Scambia consigli e tutorial per migliorare le tue competenze.
+    - **Anteprime esclusive**: Ottieni accesso anticipato a novità e anteprime sui nuovi prodotti.
+    - **Sconti speciali**: Approfitta di sconti esclusivi sui nostri prodotti più recenti.
+    - **Promozioni festive e giveaway**: Partecipa a omaggi e promozioni speciali durante le festività.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 Pronto a esplorare e creare con noi? Clicca su [|link_sf_facebook|] e unisciti oggi stesso!
 
 .. _cpn_dht11:
 
-Temperature and Humidity Sensor Module (DHT11)
+Modulo Sensore di Temperatura e Umidità (DHT11)
 ================================================
 
 .. image:: img/19_dht11_module.png
@@ -25,26 +25,26 @@ Temperature and Humidity Sensor Module (DHT11)
 
    <br/>
 
-The digital temperature and humidity sensor DHT11 is a composite sensor that contains a calibrated digital signal output of temperature and humidity. The technology of a dedicated digital modules collection and the temperature and humidity sensing technology are applied to ensure that the product has high reliability and excellent long-term stability.
+Il DHT11 è un sensore digitale combinato che misura temperatura e umidità, fornendo un’uscita a segnale digitale calibrata. Combina un modulo digitale dedicato con tecnologia di rilevamento della temperatura e dell’umidità, garantendo elevata affidabilità e un’ottima stabilità a lungo termine.
 
-Specification
+Specifiche
 ---------------------------
-* Supply Voltage: 3.3V - 5V
-* Output Signal Type: Digital output
-* Temperature Measurement Range: 0-50℃ ± 2℃
-* Humidity Measurement Range: 20-90%RH ± 5%RH
-* Temperature Accuracy: ±2°C
-* Humidity Accuracy: ±5% RH
+* Tensione di alimentazione: 3.3V - 5V  
+* Tipo di segnale in uscita: Digitale  
+* Intervallo di misura della temperatura: 0-50℃ ± 2℃  
+* Intervallo di misura dell’umidità: 20-90%RH ± 5%RH  
+* Precisione temperatura: ±2°C  
+* Precisione umidità: ±5% RH
 
 Pinout
 ---------------------------
-* **VCC**: This is the positive power supply input from the main control. 
-* **GND**: Ground connection.
-* **S**: This pin is used for transmitting temperature and humidity data to the microcontroller using a single-wire bi-directional protocol.
+* **VCC**: Ingresso di alimentazione positiva dal controllore principale.  
+* **GND**: Collegamento a massa.  
+* **S**: Questo pin trasmette i dati di temperatura e umidità al microcontrollore utilizzando un protocollo unidirezionale su singolo filo.
 
-Principle
----------------------------
-Only three pins are available for use: VCC, GND, and DATA. The communication process begins with the DATA line sending start signals to DHT11, and DHT11 receives the signals and returns an answer signal. Then the host receives the answer signal and begins to receive 40-bit humidity and temperature data (8-bit humidity integer + 8-bit humidity decimal + 8-bit temperature integer + 8-bit temperature decimal + 8-bit checksum).
+Principio di funzionamento
+-----------------------------
+Il modulo utilizza solo tre pin: VCC, GND e DATA. La comunicazione inizia con l’invio di un segnale di start sulla linea DATA verso il DHT11. Il DHT11 risponde con un segnale di conferma e successivamente invia 40 bit di dati relativi a umidità e temperatura (8 bit interi umidità + 8 bit decimali umidità + 8 bit interi temperatura + 8 bit decimali temperatura + 8 bit checksum).
 
 .. image:: img/19_dht11_module_2.png
     :width: 300
@@ -54,32 +54,32 @@ Only three pins are available for use: VCC, GND, and DATA. The communication pro
     
     <br/>
 
-Schematic diagram
+Schema elettrico
 ---------------------------
 
 .. csv-table:: 
    :widths: 30, 70
 
-   |dht11_module|, |dht11_module_schematic|
-   |dht11_module_withLED|, |dht11_module_withLED_schematic|
+   |dht11_module|, |dht11_module_schematic|  
+   |dht11_module_withLED|, |dht11_module_withLED_schematic|  
 
-.. |dht11_module| image:: img/19_dht11_module.png
-   :width: 100px
-.. |dht11_module_withLED| image:: img/19_dht11_module_withLED.png
-   :width: 150px
-.. |dht11_module_schematic| image:: img/19_dht11_module_schematic.png
-   :width: 360px
-.. |dht11_module_withLED_schematic| image:: img/19_dht11_module_withLED_schematic.png
-   :width: 360px
+.. |dht11_module| image:: img/19_dht11_module.png  
+   :width: 100px  
+.. |dht11_module_withLED| image:: img/19_dht11_module_withLED.png  
+   :width: 150px  
+.. |dht11_module_schematic| image:: img/19_dht11_module_schematic.png  
+   :width: 360px  
+.. |dht11_module_withLED_schematic| image:: img/19_dht11_module_withLED_schematic.png  
+   :width: 360px  
 
 
-Example
+Esempi
 ---------------------------
-* :ref:`uno_lesson19_dht11` (Arduino UNO)
-* :ref:`esp32_lesson19_dht11` (ESP32)
-* :ref:`pico_lesson19_dht11` (Raspberry Pi Pico)
-* :ref:`pi_lesson19_dht11` (Raspberry Pi)
+* :ref:`uno_lesson19_dht11` (Arduino UNO)  
+* :ref:`esp32_lesson19_dht11` (ESP32)  
+* :ref:`pico_lesson19_dht11` (Raspberry Pi Pico)  
+* :ref:`pi_lesson19_dht11` (Raspberry Pi)  
 
-* :ref:`uno_lesson45_plant_monitor` (Arduino UNO)
-* :ref:`esp32_plant_monitor` (ESP32)
+* :ref:`uno_lesson45_plant_monitor` (Arduino UNO)  
+* :ref:`esp32_plant_monitor` (ESP32)  
 * :ref:`esp32_adafruit_io` (ESP32)

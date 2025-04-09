@@ -1,20 +1,20 @@
-.. note::
+.. note:: 
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    Ciao! Benvenuto nella community Facebook dedicata agli appassionati di SunFounder, Raspberry Pi, Arduino ed ESP32! Unisciti a noi per approfondire il mondo di Raspberry Pi, Arduino ed ESP32 insieme ad altri maker ed entusiasti.
 
-    **Why Join?**
+    **Perché unirsi?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Supporto esperto**: Risolvi problemi post-vendita e sfide tecniche con l’aiuto della nostra community e del nostro team.
+    - **Impara e condividi**: Scambia consigli e tutorial per migliorare le tue competenze.
+    - **Anteprime esclusive**: Ottieni accesso anticipato a novità e anteprime sui nuovi prodotti.
+    - **Sconti speciali**: Approfitta di sconti esclusivi sui nostri prodotti più recenti.
+    - **Promozioni festive e giveaway**: Partecipa a omaggi e promozioni speciali durante le festività.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 Pronto a esplorare e creare con noi? Clicca su [|link_sf_facebook|] e unisciti oggi stesso!
 
 .. _cpn_rotary_encoder:
 
-Rotary Encoder Module
+Modulo Encoder Rotativo
 =====================================
 
 .. image:: img/17_rotary_encoder.png
@@ -25,31 +25,31 @@ Rotary Encoder Module
 
    <br/>
 
-A rotary encoder is a position sensor that converts the rotation of a knob into an output signal, indicating the direction in which the knob is turned.
+Un encoder rotativo è un sensore di posizione che converte la rotazione di una manopola in un segnale di uscita, indicando la direzione del movimento.
 
-Rotary encoders are digital versions of potentiometers, offering greater versatility. They can rotate continuously, while potentiometers have limited rotation. Potentiometers indicate exact knob position, while rotary encoders show changes in position.
+Gli encoder rotativi sono una versione digitale dei potenziometri e offrono una maggiore versatilità. A differenza dei potenziometri, che hanno una rotazione limitata, gli encoder rotativi possono ruotare indefinitamente. I potenziometri forniscono la posizione assoluta della manopola, mentre gli encoder indicano solo le variazioni di posizione.
 
 Pinout
 ---------------------------
-* **VCC**: This is the positive power supply input from the main control. 
-* **GND**: Ground connection.
-* **SW**: Digital output. 
-* **CLK**: is similar to CLK output, but it lags behind CLK by a 90° phase shift. This output is used to determine the direction of rotation.
-* **DT**: is the primary output pulse used to determine the amount of rotation. Each time the knob is turned in either direction by just one detent (click), the ‘CLK’ output goes through one cycle of going HIGH and then LOW.
+* **VCC**: Ingresso di alimentazione positiva dal controllore principale.  
+* **GND**: Collegamento a massa.  
+* **SW**: Uscita digitale (pulsante integrato).  
+* **CLK**: Segnale in quadratura (fase principale).  
+* **DT**: Segnale in quadratura (sfasato di 90° rispetto a CLK), usato per determinare la direzione di rotazione.
 
-Principle
----------------------------
+Principio di funzionamento
+-------------------------------
 
-Incremental encoders produce two-phase square waves, with a 90-degree phase difference commonly referred to as the A and B channels.
+Gli encoder incrementali generano due onde quadre sfasate di 90 gradi, note come canale A e canale B.
 
-As illustrated below, when channel A transitions from a high level to a low level, if channel B is at a high level, it indicates that the rotary encoder is rotating clockwise (CW); if at that moment channel B is at a low level, it means the rotation is counterclockwise (CCW). Therefore, by reading the value of channel B when channel A is at a low level, we can determine the direction in which the rotary encoder rotates.
+Come illustrato di seguito, quando il canale A passa da livello alto a livello basso, se in quel momento il canale B è alto, l’encoder sta ruotando in senso orario (CW); se invece il canale B è basso, sta ruotando in senso antiorario (CCW). Quindi, leggendo il valore del canale B nel momento in cui A è basso, possiamo determinare la direzione della rotazione dell’encoder.
 
 .. image:: img/17_rotary_encoder_wave.png
     :width: 60%
     :align: center
 
 
-Schematic diagram
+Schema elettrico
 ---------------------------
 
 .. image:: img/17_rotary_encoder_schematic.png
@@ -60,7 +60,7 @@ Schematic diagram
 
    <br/>
 
-Example
+Esempi
 ---------------------------
 * :ref:`uno_lesson17_rotary_encoder` (Arduino UNO)
 * :ref:`esp32_lesson17_rotary_encoder` (ESP32)

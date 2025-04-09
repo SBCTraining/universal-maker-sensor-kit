@@ -1,50 +1,50 @@
 .. note::
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    Ciao, benvenuto nella Community SunFounder dedicata agli appassionati di Raspberry Pi, Arduino ed ESP32 su Facebook! Approfondisci le tue conoscenze su Raspberry Pi, Arduino ed ESP32 insieme ad altri appassionati.
 
-    **Why Join?**
+    **Perché unirsi?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Supporto esperto**: Risolvi problemi post-vendita e sfide tecniche con l’aiuto del nostro team e della community.
+    - **Impara e condividi**: Scambia consigli e tutorial per migliorare le tue competenze.
+    - **Anteprime esclusive**: Accedi in anteprima agli annunci di nuovi prodotti e alle anteprime.
+    - **Sconti speciali**: Goditi sconti esclusivi sui nostri prodotti più recenti.
+    - **Promozioni festive e giveaway**: Partecipa a promozioni stagionali e concorsi a premi.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 Pronto per esplorare e creare con noi? Clicca su [|link_sf_facebook|] e unisciti subito!
 
 .. _pico_lesson27_oled:
 
-Lesson 27: OLED Display Module (SSD1306)
+Lezione 27: Modulo Display OLED (SSD1306)
 ============================================
 
-In this lesson, you will learn how to connect and display text and graphics on an OLED display module (SSD1306) using the Raspberry Pi Pico W. You'll set up the I2C communication, use MicroPython to program the Pico W to control the OLED display, and practice displaying simple text messages.
+In questa lezione imparerai a collegare e visualizzare testi e grafica su un modulo display OLED SSD1306 utilizzando il Raspberry Pi Pico W. Configurerai la comunicazione I2C, utilizzerai MicroPython per programmare il Pico W e visualizzerai semplici messaggi di testo.
 
-Required Components
+Componenti Necessari
 --------------------------
 
-In this project, we need the following components. 
+Per questo progetto servono i seguenti componenti.
 
-It's definitely convenient to buy a whole kit, here's the link: 
+È sicuramente conveniente acquistare un kit completo, ecco il link:
 
 .. list-table::
     :widths: 20 20 20
     :header-rows: 1
 
-    *   - Name	
-        - ITEMS IN THIS KIT
+    *   - Nome
+        - COMPONENTI INCLUSI NEL KIT
         - LINK
     *   - Universal Maker Sensor Kit
         - 94
         - |link_umsk|
 
-You can also buy them separately from the links below.
+Puoi anche acquistare i componenti singolarmente dai link seguenti.
 
 .. list-table::
     :widths: 30 20
     :header-rows: 1
 
-    *   - Component Introduction
-        - Purchase Link
+    *   - Introduzione al Componente
+        - Link per l’acquisto
 
     *   - Raspberry Pi Pico W
         - |link_picow_buy|
@@ -54,89 +54,89 @@ You can also buy them separately from the links below.
         - |link_breadboard_buy|
 
 
-Wiring
+Collegamenti
 ---------------------------
 
-.. note:: 
-   To ensure the OLED module operates normally, please power it using the VBUS pin on the Pico.
+.. note::
+   Per garantire il corretto funzionamento del modulo OLED, alimentalo tramite il pin VBUS del Pico.
 
 .. image:: img/Lesson_27_oled_pico_bb.png
     :width: 100%
 
 
-Code
+Codice
 ---------------------------
 
 .. note::
 
-    * Open the ``27_ssd1306_oled_module.py`` file under the path of ``universal-maker-sensor-kit-main/pico/Lesson_27_SSD1306_OLED_Module`` or copy this code into Thonny, then click "Run Current Script" or simply press F5 to run it. For detailed tutorials, please refer to :ref:`open_run_code_py`. 
+    * Apri il file ``27_ssd1306_oled_module.py`` nella directory ``universal-maker-sensor-kit-main/pico/Lesson_27_SSD1306_OLED_Module`` oppure copia questo codice in Thonny e clicca su "Run Current Script" o premi F5 per eseguirlo. Per maggiori dettagli, vedi :ref:`open_run_code_py`.
 
-    * Here you need to use the ``ssd1306.py``, please check if it has been uploaded to Pico W, for a detailed tutorial refer to :ref:`add_libraries_py`.
+    * Assicurati di aver caricato il file ``ssd1306.py`` su Pico W; per il tutorial dettagliato vedi :ref:`add_libraries_py`.
 
-    * Don't forget to click on the "MicroPython (Raspberry Pi Pico)" interpreter in the bottom right corner. 
+    * Non dimenticare di selezionare "MicroPython (Raspberry Pi Pico)" come interprete in basso a destra.
 
 .. code-block:: python
 
    from machine import Pin, I2C
    import ssd1306
    import time
-   
-   # setup the I2C communication
+
+   # Configura la comunicazione I2C
    i2c = I2C(0, sda=Pin(20), scl=Pin(21))
-   
-   # Set up the OLED display (128x64 pixels) on the I2C bus
-   # SSD1306_I2C is a subclass of FrameBuffer. FrameBuffer provides support for graphics primitives.
+
+   # Inizializza il display OLED (128x64 pixel) tramite I2C
+   # SSD1306_I2C è una sottoclasse di FrameBuffer. FrameBuffer supporta le primitive grafiche.
    # http://docs.micropython.org/en/latest/pyboard/library/framebuf.html
    oled = ssd1306.SSD1306_I2C(128, 64, i2c)
-   
-   # Clear the display by filling it with white and then showing the update
+
+   # Pulisce il display riempiendolo di bianco e aggiorna lo schermo
    oled.fill(1)
    oled.show()
-   time.sleep(1)  # Wait for 1 second
-   
-   # Clear the display again by filling it with black
+   time.sleep(1)  # Attende 1 secondo
+
+   # Pulisce nuovamente lo schermo riempiendolo di nero
    oled.fill(0)
    oled.show()
-   time.sleep(1)  # Wait for another second
-   
-   # Display text on the OLED screen
-   oled.text('Hello,', 0, 0)  # Display "Hello," at position (0, 0)
-   oled.text('sunfounder.com', 0, 16)  # Display "sunfounder.com" at position (0, 16)
-   
-   # The following line sends what to show to the display
+   time.sleep(1)  # Attende un altro secondo
+
+   # Visualizza testo sullo schermo OLED
+   oled.text('Hello,', 0, 0)  # Mostra "Hello," alla posizione (0, 0)
+   oled.text('sunfounder.com', 0, 16)  # Mostra "sunfounder.com" alla posizione (0, 16)
+
+   # Aggiorna il display con il contenuto
    oled.show()
 
-Code Analysis
+Analisi del Codice
 ---------------------------
 
-#. Initializing the I2C communication:
+#. Inizializzazione della comunicazione I2C:
 
-   This code segment sets up the I2C communication protocol. I2C is a standard protocol for communication between devices. It uses two lines: SDA (data line) and SCL (clock line).
-   
+   Questo segmento imposta il protocollo di comunicazione I2C. I2C è uno standard per la comunicazione tra dispositivi. Utilizza due linee: SDA (linea dati) e SCL (linea di clock).
+
    .. code-block:: python
 
       from machine import Pin, I2C
       i2c = I2C(0, sda=Pin(20), scl=Pin(21))
 
-#. Setting up the OLED display:
+#. Configurazione del display OLED:
 
-   Here, we initialize the SSD1306 OLED display with the I2C protocol. The parameters 128 and 64 define the width and height of the display in pixels, respectively.
+   In questa parte, il display OLED SSD1306 viene inizializzato con il protocollo I2C. I parametri 128 e 64 definiscono larghezza e altezza del display in pixel.
 
-   For more information about the ``ssd1306`` library, please visit |link_micropython_ssd1306_driver|.
+   Per maggiori informazioni sulla libreria ``ssd1306``, consulta |link_micropython_ssd1306_driver|.
 
    .. code-block:: python
 
       import ssd1306
       oled = ssd1306.SSD1306_I2C(128, 64, i2c)
 
-#. Clearing the display:
+#. Pulizia del display:
 
-   The display is cleared by filling it with white (1) and then updating the display with ``oled.show()``. The ``time.sleep(1)`` command adds a one-second delay. Then, the display is cleared again by filling it with black (0).
+   Il display viene inizialmente riempito di bianco (1) e aggiornato con ``oled.show()``. Dopo una pausa di un secondo, viene riempito di nero (0) e aggiornato di nuovo.
 
-   SSD1306_I2C is a subclass of FrameBuffer, which supports graphics primitives. If you want to display other patterns, please refer to |link_FrameBuffer_doc|.
+   SSD1306_I2C è una sottoclasse di FrameBuffer, che supporta funzioni grafiche di base. Per visualizzare altri tipi di grafica, consulta |link_FrameBuffer_doc|.
 
    .. code-block:: python
-      
+
       oled.fill(1)
       oled.show()
       time.sleep(1)
@@ -144,9 +144,9 @@ Code Analysis
       oled.show()
       time.sleep(1)
 
-#. Displaying text:
+#. Visualizzazione di testo:
 
-   The ``oled.text`` method is used to display text on the screen. The parameters are the text to display and the x, y coordinates on the screen. Finally, ``oled.show()`` updates the display to show the text.
+   Il metodo ``oled.text`` serve per mostrare testo sul display. I parametri sono il testo da visualizzare e le coordinate x, y. Infine, ``oled.show()`` aggiorna il display.
 
    .. code-block:: python
 

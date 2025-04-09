@@ -1,50 +1,50 @@
 .. note::
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    Ciao, benvenuto nella Community Facebook degli appassionati di SunFounder Raspberry Pi, Arduino e ESP32! Approfondisci Raspberry Pi, Arduino ed ESP32 insieme ad altri appassionati.
 
-    **Why Join?**
+    **Perché unirsi?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Supporto Esperto**: Risolvi problemi post-vendita e sfide tecniche con il supporto della nostra community e del nostro team.
+    - **Impara e Condividi**: Scambia consigli e tutorial per migliorare le tue competenze.
+    - **Anteprime Esclusive**: Ottieni accesso anticipato agli annunci dei nuovi prodotti e anteprime esclusive.
+    - **Sconti Speciali**: Approfitta di sconti esclusivi sui nostri prodotti più recenti.
+    - **Promozioni e Giveaway Festivi**: Partecipa a promozioni festive e giveaway.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 Pronto a esplorare e creare con noi? Clicca su [|link_sf_facebook|] ed entra a far parte della community oggi stesso!
 
 .. _pico_lesson33_servo:
 
-Lesson 33: Servo Motor (SG90)
+Lezione 33: Servomotore (SG90)
 ==================================
 
-In this lesson, you will learn how to control a servo motor (SG90) using the Raspberry Pi Pico W. You will be introduced to the concepts of Pulse Width Modulation (PWM) for controlling the angle of the servo motor. The lesson includes writing a MicroPython script to make the servo sweep smoothly through its entire range of motion, from 0 to 180 degrees and back. 
+In questa lezione imparerai a controllare un servomotore (SG90) utilizzando il Raspberry Pi Pico W. Verranno introdotti i concetti di modulazione della larghezza di impulso (PWM) per gestire l’angolo del servomotore. La lezione include la scrittura di uno script in MicroPython per far compiere al servo un movimento fluido lungo tutto il suo intervallo, da 0 a 180 gradi e ritorno.
 
-Required Components
+Componenti Necessari
 --------------------------
 
-In this project, we need the following components. 
+Per questo progetto, avrai bisogno dei seguenti componenti.
 
-It's definitely convenient to buy a whole kit, here's the link: 
+Acquistare un kit completo è sicuramente comodo, ecco il link:
 
 .. list-table::
     :widths: 20 20 20
     :header-rows: 1
 
-    *   - Name	
-        - ITEMS IN THIS KIT
+    *   - Nome	
+        - COMPONENTI INCLUSI
         - LINK
     *   - Universal Maker Sensor Kit
         - 94
         - |link_umsk|
 
-You can also buy them separately from the links below.
+Puoi anche acquistare i componenti singolarmente dai link qui sotto.
 
 .. list-table::
     :widths: 30 20
     :header-rows: 1
 
-    *   - Component Introduction
-        - Purchase Link
+    *   - Descrizione Componente
+        - Link Acquisto
 
     *   - Raspberry Pi Pico W
         - |link_picow_buy|
@@ -54,14 +54,14 @@ You can also buy them separately from the links below.
         - |link_breadboard_buy|
 
 
-Wiring
+Collegamenti
 ---------------------------
 
 .. image:: img/Lesson_33_Servo_pico_bb.png
     :width: 100%
 
 
-Code
+Codice
 ---------------------------
 
 .. code-block:: python
@@ -69,19 +69,19 @@ Code
    import machine
    import time
    
-   # Initialize PWM on pin 16 for servo control
+   # Inizializza il PWM sul pin 16 per il controllo del servo
    servo = machine.PWM(machine.Pin(16))
-   servo.freq(50)  # Set PWM frequency to 50Hz, common for servo motors
-   
-   
+   servo.freq(50)  # Imposta la frequenza PWM a 50Hz, comune per i servo
+
+
    def interval_mapping(x, in_min, in_max, out_min, out_max):
        """
        Maps a value from one range to another.
        This function is useful for converting servo angle to pulse width.
        """
        return (x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min
-   
-   
+
+
    def servo_write(pin, angle):
        """
        Moves the servo to a specific angle.
@@ -94,27 +94,26 @@ Code
            interval_mapping(pulse_width, 0, 20, 0, 65535)
        )  # Map pulse width to duty cycle
        pin.duty_u16(duty)  # Set PWM duty cycle
-   
-   
-   # Main loop to continuously move the servo
+
+   # Ciclo principale per il movimento continuo del servo
    while True:
-       # Sweep the servo from 0 to 180 degrees
+       # Movimento da 0 a 180 gradi
        for angle in range(180):
            servo_write(servo, angle)
            time.sleep_ms(20)  # Short delay for smooth movement
-   
-       # Sweep the servo back from 180 to 0 degrees
+
+       # Movimento da 180 a 0 gradi
        for angle in range(180, -1, -1):
            servo_write(servo, angle)
            time.sleep_ms(20)  # Short delay for smooth movement
 
 
-Code Analysis
+Analisi del Codice
 ---------------------------
 
-#. Importing Modules and Initializing Servo:
+#. Importazione dei Moduli e Inizializzazione del Servo:
 
-   The ``machine`` module is crucial for accessing the PWM functionality needed to control the servo, and ``time`` is used for implementing delays. The servo is initialized on pin 16 of the Raspberry Pi Pico W, setting its frequency to 50Hz, a typical value for servo control.
+   Il modulo ``machine`` è essenziale per accedere alle funzionalità PWM necessarie al controllo del servo, mentre ``time`` serve per i ritardi temporali. Il servo è inizializzato sul pin 16 con frequenza di 50Hz, tipica per questo tipo di motori.
 
    .. code-block:: python
 
@@ -123,11 +122,11 @@ Code Analysis
       servo = machine.PWM(machine.Pin(16))
       servo.freq(50)
 
-#. Mapping and Servo Control Functions:
+#. Funzioni di Mappatura e Controllo del Servo:
 
-   The ``interval_mapping`` function translates the desired servo angle into a PWM pulse width. The ``servo_write`` function then converts this pulse width into a duty cycle, which is used to set the servo's position. These functions are central to converting the angular position into an appropriate PWM signal.
+   La funzione ``interval_mapping`` converte l’angolo desiderato in una larghezza d’impulso PWM. ``servo_write`` trasforma questa larghezza in duty cycle per posizionare il servo. Queste funzioni sono fondamentali per convertire un angolo in segnale PWM.
 
-   Please refer to :ref:`Work Pulse <cpn_servo_pulse>` for information about the work pulse of the servo.
+   Consulta :ref:`Work Pulse <cpn_servo_pulse>` per dettagli sul funzionamento degli impulsi del servo.
 
    .. code-block:: python
 
@@ -139,9 +138,9 @@ Code Analysis
           duty = int(interval_mapping(pulse_width, 0, 20, 0, 65535))
           pin.duty_u16(duty)
 
-#. Main Loop for Continuous Movement:
+#. Ciclo Principale per il Movimento Continuo:
 
-   The main loop is where the servo is controlled to sweep from 0 to 180 degrees and back. This is achieved by looping through the range of angles and calling ``servo_write`` for each angle, with a short delay to ensure smooth movement.
+   Il ciclo principale comanda il servo affinché oscilli da 0 a 180 gradi e ritorno, con piccoli ritardi per assicurare un movimento fluido.
 
    .. code-block:: python
 

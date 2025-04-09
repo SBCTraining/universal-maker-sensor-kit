@@ -1,84 +1,84 @@
-.. note::
+.. note:: 
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    Ciao e benvenuto nella Community Facebook degli appassionati di SunFounder Raspberry Pi, Arduino ed ESP32! Approfondisci le tue competenze su Raspberry Pi, Arduino ed ESP32 insieme ad altri appassionati.
 
-    **Why Join?**
+    **Perché unirsi?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Supporto Esperto**: Risolvi problemi post-vendita e sfide tecniche grazie al supporto della nostra community e del nostro team.
+    - **Impara e Condividi**: Scambia suggerimenti e tutorial per migliorare le tue abilità.
+    - **Anteprime Esclusive**: Accedi in anticipo alle novità sui prodotti e ad anteprime riservate.
+    - **Sconti Speciali**: Approfitta di sconti esclusivi sui nostri ultimi prodotti.
+    - **Promozioni Festive e Giveaway**: Partecipa a giveaway e promozioni speciali durante le festività.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 Pronto a esplorare e creare con noi? Clicca su [|link_sf_facebook|] ed entra a far parte del gruppo!
 
 .. _uno_lesson08_ir_obstacle_avoidance:
 
-Lesson 08: IR Obstacle Avoidance Sensor Module
-====================================================
+Lezione 08: Modulo Sensore IR per Evitare Ostacoli
+=======================================================
 
-In this lesson, you will learn how to use an Infrared obstacle avoidance sensor with an Arduino Uno. We will explore how to read digital signals from the sensor to detect obstacles. You'll see how the sensor's red indicator light illuminates in the presence of obstacles and how it sends a low-level signal to the Arduino. This lesson is perfect for beginners, providing hands-on experience with reading digital inputs and practicing serial communication on the Arduino platform.
+In questa lezione imparerai a utilizzare un sensore a infrarossi per l’evitamento ostacoli con Arduino Uno. Vedremo come leggere segnali digitali dal sensore per rilevare la presenza di ostacoli. Osserverai come il LED rosso del sensore si accende quando rileva un ostacolo e come viene inviato un segnale di basso livello all’Arduino. Questa lezione è perfetta per i principianti, offrendo un'esperienza pratica nella lettura di ingressi digitali e nella comunicazione seriale con Arduino.
 
-Required Components
+Componenti Necessari
 --------------------------
 
-In this project, we need the following components. 
+Per questo progetto sono necessari i seguenti componenti.
 
-It's definitely convenient to buy a whole kit, here's the link: 
+È sicuramente comodo acquistare un kit completo, ecco il link:
 
 .. list-table::
     :widths: 20 20 20
     :header-rows: 1
 
-    *   - Name	
-        - ITEMS IN THIS KIT
+    *   - Nome	
+        - CONTENUTO DEL KIT
         - LINK
     *   - Universal Maker Sensor Kit
         - 94
         - |link_umsk|
 
-You can also buy them separately from the links below.
+Puoi anche acquistare i componenti separatamente dai link qui sotto.
 
 .. list-table::
     :widths: 30 20
     :header-rows: 1
 
-    *   - Component Introduction
-        - Purchase Link
+    *   - Descrizione del Componente
+        - Link per l'acquisto
 
-    *   - Arduino UNO R3 or R4
+    *   - Arduino UNO R3 o R4
         - |link_Uno_R3_buy|
     *   - :ref:`cpn_ir_obstacle`
         - |link_obstacle_avoidance_module_buy|
 
 
 
-Wiring
+Collegamenti
 ---------------------------
 
 .. image:: img/Lesson_08_IR_obstacle_module_uno_bb.png
     :width: 100%
 
 
-Code
+Codice
 ---------------------------
 
 .. raw:: html
 
     <iframe src=https://create.arduino.cc/editor/sunfounder01/be83e63b-959c-4d9c-a27b-0be46291c1f8/preview?embed style="height:510px;width:100%;margin:10px 0" frameborder=0></iframe>
 
-Code Analysis
+Analisi del Codice
 ---------------------------
 
-1. Define pin number for sensor connection:
+1. Definizione del pin di collegamento del sensore:
 
    .. code-block:: arduino
 
      const int sensorPin = 2;
 
-   Connect the sensor's output pin to Arduino pin 2.
+   Collega il pin di uscita del sensore al pin 2 di Arduino.
 
-2. Setup serial communication and define sensor pin as input:
+2. Inizializzazione della comunicazione seriale e configurazione del pin del sensore come ingresso:
 
    .. code-block:: arduino
 
@@ -87,10 +87,10 @@ Code Analysis
        Serial.begin(9600);
      }
 
-   Initialize serial communication at 9600 baud rate to print to serial monitor.
-   Set sensor pin as input to read input signal.
+   Inizializza la comunicazione seriale a 9600 baud per stampare i dati sul monitor seriale.
+   Imposta il pin del sensore come ingresso per leggere il segnale.
 
-3. Read sensor value and print to serial monitor:
+3. Lettura del valore del sensore e stampa sul monitor seriale:
 
    .. code-block:: arduino
 
@@ -99,9 +99,9 @@ Code Analysis
        delay(50); 
      }
    
-   Continuously read digital value from sensor pin using ``digitalRead()`` and print value to serial monitor using ``Serial.println()``.
-   Add 50ms delay between prints for better viewing.
+   Legge continuamente il valore digitale dal pin del sensore usando ``digitalRead()`` e lo stampa nel monitor seriale con ``Serial.println()``.
+   Aggiunge un ritardo di 50 ms tra una stampa e l'altra per una lettura più chiara.
 
    .. note:: 
    
-      If the sensor is not working properly, adjust the IR transmitter and receiver to make them parallel. Additionally, you can adjust the detection range using the built-in potentiometer.
+      Se il sensore non funziona correttamente, regola il trasmettitore e il ricevitore a infrarossi in modo che siano paralleli. Puoi anche regolare la distanza di rilevamento utilizzando il potenziometro integrato.

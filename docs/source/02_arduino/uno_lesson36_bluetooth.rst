@@ -1,54 +1,54 @@
 .. note::
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    Ciao, benvenuto nella community Facebook di SunFounder dedicata agli appassionati di Raspberry Pi, Arduino ed ESP32! Approfondisci le tue conoscenze su Raspberry Pi, Arduino ed ESP32 insieme ad altri entusiasti.
 
-    **Why Join?**
+    **Perché unirti?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Supporto Esperto**: Risolvi problemi post-vendita e sfide tecniche con l’aiuto della nostra community e del nostro team.
+    - **Impara e Condividi**: Scambia consigli e tutorial per migliorare le tue competenze.
+    - **Anteprime Esclusive**: Ricevi in anteprima annunci di nuovi prodotti e anticipazioni.
+    - **Sconti Speciali**: Approfitta di sconti esclusivi sui nostri ultimi prodotti.
+    - **Promozioni e Giveaway Festivi**: Partecipa a concorsi e promozioni durante le festività.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 Pronto a esplorare e creare con noi? Clicca su [|link_sf_facebook|] e unisciti subito!
 
 .. _uno_lesson36_bluetooth:
 
-Lesson 36: Get Started with Bluetooth Module
+Lezione 36: Introduzione al modulo Bluetooth
 ===================================================
 
-In this project, we demonstrate how to communicate with a Bluetooth module through Arduino. 
+In questo progetto, mostriamo come comunicare con un modulo Bluetooth tramite Arduino.
 
-Firstly, we need to set up the circuit and use software serial communication. Connect the TX pin of the Bluetooth module to pin 3 of the Uno board, and connect the RX pin of the Bluetooth module to pin 4 of the Uno board.
+Per prima cosa, dobbiamo configurare il circuito e utilizzare la comunicazione seriale software. Collega il pin TX del modulo Bluetooth al pin 3 della scheda Uno e il pin RX al pin 4.
 
-Required Components
+Componenti Necessari
 --------------------------
 
-In this project, we need the following components. 
+In questo progetto abbiamo bisogno dei seguenti componenti.
 
-It's definitely convenient to buy a whole kit, here's the link: 
+È decisamente comodo acquistare un kit completo, ecco il link:
 
 .. list-table::
     :widths: 20 20 20
     :header-rows: 1
 
-    *   - Name	
-        - ITEMS IN THIS KIT
+    *   - Nome	
+        - COMPONENTI INCLUSI NEL KIT
         - LINK
     *   - Universal Maker Sensor Kit
         - 94
         - |link_umsk|
 
-You can also buy them separately from the links below.
+Puoi anche acquistarli singolarmente dai link qui sotto.
 
 .. list-table::
     :widths: 30 20
     :header-rows: 1
 
-    *   - Component Introduction
-        - Purchase Link
+    *   - Descrizione Componente
+        - Link per l'acquisto
 
-    *   - Arduino UNO R3 or R4
+    *   - Arduino UNO R3 o R4
         - |link_Uno_R3_buy|
     *   - :ref:`cpn_jdy31`
         - |link_jdy31_bluetooth_module_buy|
@@ -56,43 +56,43 @@ You can also buy them separately from the links below.
         - |link_breadboard_buy|
 
 
-1. Build the Circuit
+1. Costruzione del circuito
 -----------------------------
 
 .. image:: img/Lesson_36_Bluetooth_uno_bb.png
     :width: 100%
 
-2. Upload the code
+2. Caricamento del codice
 -----------------------------
 
-The code establishes a software serial communication using Arduino’s SoftwareSerial library, allowing the Arduino to communicate with the JDY-31 Bluetooth module through its digital pins 3 and 4 (as Rx and Tx). It checks for data transfer between them, forwarding received messages from one to the other at a baud rate of 9600. **With this code, you can use the Arduino’s serial monitor to send AT commands to the JDY-31 Bluetooth module and receive its responses**.
+Il codice stabilisce una comunicazione seriale software usando la libreria SoftwareSerial di Arduino, permettendo ad Arduino di comunicare con il modulo JDY-31 attraverso i pin digitali 3 e 4 (come Rx e Tx). Controlla il trasferimento dati tra i due, inoltrando i messaggi ricevuti a una velocità di 9600 baud. **Con questo codice puoi utilizzare il monitor seriale di Arduino per inviare comandi AT al modulo Bluetooth JDY-31 e riceverne le risposte.**
 
 .. raw:: html
-    
+
     <iframe src=https://create.arduino.cc/editor/sunfounder01/ae75dbe4-f50d-41a4-915a-b2a30b0f4ebe/preview?embed style="height:510px;width:100%;margin:10px 0" frameborder=0></iframe>
 
 
-3. Configuring the Bluetooth module
------------------------------------------
+3. Configurazione del modulo Bluetooth
+--------------------------------------------
 
-Click the magnifying glass icon (Serial Monitor) in the upper right corner and set the baud rate to ``9600``. Then, select ``both NL & CR`` from the drop-down option of the ``New Line`` dropdown box.
+Clicca sull’icona della lente d’ingrandimento (Monitor Seriale) in alto a destra e imposta il baud rate su ``9600``. Poi seleziona ``both NL & CR`` dal menu a tendina accanto a ``New Line``.
 
 .. image:: img/Lesson_36_bluetooth_serial_1_shadow.png 
 
-The following are some examples of using AT commands to configure Bluetooth modules: Enter ``AT+NAME`` to obtain the name of the Bluetooth device. If you want to modify the Bluetooth name, please add a new name after ``AT+NAME``.
+Ecco alcuni esempi di comandi AT per configurare i moduli Bluetooth: inserisci ``AT+NAME`` per ottenere il nome del dispositivo Bluetooth. Se vuoi modificarlo, aggiungi il nuovo nome dopo ``AT+NAME``.
 
-* **Query the name of a Bluetooth device:** ``AT+NAME`` 
+* **Controllare il nome del dispositivo Bluetooth:** ``AT+NAME`` 
 
   .. image:: img/Lesson_36_bluetooth_serial_2.gif
 
-* **Set Bluetooth device name:** ``AT+NAME`` (following by the new name). ``+OK`` means the setting was successful. You can send ``AT+NAME`` again to verify.
+* **Impostare il nome del dispositivo Bluetooth:** ``AT+NAME`` (seguito dal nuovo nome). ``+OK`` indica che l’impostazione è andata a buon fine. Puoi inviare di nuovo ``AT+NAME`` per verificare.
 
   .. image:: img/Lesson_36_bluetooth_serial_3.gif 
 
 .. note::
-   To ensure consistency in the learning experience, it is recommended not to modify the default baud rate of the Bluetooth module and **keep it at its default value of 4 (i.e. 9600 baud rate)**. In relevant courses, we communicate with Bluetooth using a baud rate of 9600.
+   Per garantire coerenza nell’esperienza di apprendimento, si consiglia di **non modificare il baud rate predefinito** del modulo Bluetooth e mantenerlo sul valore di default pari a 4 (ossia 9600 baud).
 
-* **Set Bluetooth baudrate:** ``AT+BAUD`` (followed by the number indicating the baudrate). 
+* **Impostare il baud rate Bluetooth:** ``AT+BAUD`` (seguito dal numero corrispondente alla velocità desiderata).
 
     * 4 == 9600
     * 5 == 19200
@@ -101,79 +101,79 @@ The following are some examples of using AT commands to configure Bluetooth modu
     * 8 == 115200
     * 9 == 128000
 
-Please refer to the table below for more AT commands.
+Consulta la tabella seguente per ulteriori comandi AT.
 
 +------------+-------------------------------------+-------------+
-|   Command  |               Function              |   Default   |
+|   Comando  |               Funzione              |   Default   |
 +============+=====================================+=============+
-| AT+VERSION | Version Number                      | JDY-31-V1.2 |
+| AT+VERSION | Numero versione                     | JDY-31-V1.2 |
 +------------+-------------------------------------+-------------+
-| AT+RESET   | Soft reset                          |             |
+| AT+RESET   | Reset software                      |             |
 +------------+-------------------------------------+-------------+
-| AT+DISC    | Disconnect (valid when connected)   |             |
+| AT+DISC    | Disconnessione (se connesso)        |             |
 +------------+-------------------------------------+-------------+
-| AT+LADDR   | Query the MAC address of the module |             |
+| AT+LADDR   | Interroga indirizzo MAC del modulo  |             |
 +------------+-------------------------------------+-------------+
-| AT+PIN     | Set or query connection password    | 1234        |
+| AT+PIN     | Imposta o interroga la password     | 1234        |
 +------------+-------------------------------------+-------------+
-| AT+BAUD    | Set or query baud rate              | 9600        |
+| AT+BAUD    | Imposta o interroga baud rate       | 9600        |
 +------------+-------------------------------------+-------------+
-| AT+NAME    | Set or query broadcast name         | JDY-31-SPP  |
+| AT+NAME    | Imposta o interroga nome broadcast  | JDY-31-SPP  |
 +------------+-------------------------------------+-------------+
-| AT+DEFAULT | Factory reset                       |             |
+| AT+DEFAULT | Ripristino impostazioni di fabbrica |             |
 +------------+-------------------------------------+-------------+
-| AT+ENLOG   | Serial port status output           | 1           |
+| AT+ENLOG   | Stato uscita seriale                | 1           |
 +------------+-------------------------------------+-------------+
 
-4. Communicating through Bluetooth debugging tools on mobile phones
+4. Comunicazione tramite app Bluetooth da smartphone
 -----------------------------------------------------------------------------------
 
-We can use an app called "Serial Bluetooth Terminal" to send messages from the Bluetooth module to Arduino, simulating the process of Bluetooth interaction. The Bluetooth module will send received messages to Arduino through serial port, and similarly, Arduino can also send messages to bluetooth module through serial port.
+Possiamo usare un'app chiamata "Serial Bluetooth Terminal" per inviare messaggi dal modulo Bluetooth ad Arduino, simulando un'interazione Bluetooth. Il modulo Bluetooth invierà i messaggi ricevuti ad Arduino tramite porta seriale, e viceversa.
 
-a. **Install Serial Bluetooth Terminal**
+a. **Installa l’app Serial Bluetooth Terminal**
 
-   Go to Google Play to download and install |link_serial_bluetooth_terminal| .
+   Vai su Google Play, scarica e installa |link_serial_bluetooth_terminal| .
 
 
-b. **Connect Bluetooth**
+b. **Connetti Bluetooth**
 
-   Initially, turn on **Bluetooth** on your smartphone.
-   
-      .. image:: img/Lesson_36_app_1_shadow.png
-         :width: 60%
-         :align: center
-   
-   Navigate to the **Bluetooth settings** on your smartphone and look for names like **JDY-31-SPP**.
-   
-      .. image:: img/Lesson_36_app_2_shadow.png
-         :width: 60%
-         :align: center
-   
-   After clicking it, agree to the **Pair** request in the pop-up window. If prompted for a pairing code, please enter "1234".
-   
-      .. image:: img/Lesson_36_app_3_shadow.png
-         :width: 60%
-         :align: center
-   
+   Attiva **Bluetooth** sul tuo smartphone.
 
-c. **Communicate with Bluetooth module**
+   .. image:: img/Lesson_36_app_1_shadow.png
+      :width: 60%
+      :align: center
 
-   Open the Serial Bluetooth Terminal. Connect to "JDY-31-SPP".
+   Vai alle **impostazioni Bluetooth** del tuo smartphone e cerca nomi come **JDY-31-SPP**.
+
+   .. image:: img/Lesson_36_app_2_shadow.png
+      :width: 60%
+      :align: center
+
+   Dopo aver cliccato, accetta la richiesta di **accoppiamento** nella finestra popup. Se richiesto, inserisci il codice "1234".
+
+   .. image:: img/Lesson_36_app_3_shadow.png
+      :width: 60%
+      :align: center
+
+
+c. **Comunicazione con il modulo Bluetooth**
+
+   Apri l’app Serial Bluetooth Terminal. Connettiti a "JDY-31-SPP".
 
    .. image:: img/Lesson_36_bluetooth_serial_4_shadow.png 
 
-   After successful connection, you can see the prompt of successful connection in the serial port monitor.
+   Dopo una connessione riuscita, vedrai il messaggio di conferma nel monitor seriale.
 
    .. image:: img/Lesson_36_bluetooth_serial_5_shadow.png 
 
-   Input the message in the serial monitor and send it to the Bluetooth module.
+   Inserisci un messaggio nel monitor seriale e invialo al modulo Bluetooth.
 
    .. image:: img/Lesson_36_bluetooth_serial_6_shadow.png 
 
-   After sending, you can see this message in the Serial Bluetooth Terminal APP. Similarly, data can be sent to Arduino via Bluetooth in **Serial Bluetooth Terminal** APP.
+   Dopo l’invio, vedrai il messaggio anche nell’app Serial Bluetooth Terminal. Allo stesso modo, è possibile inviare dati da Bluetooth verso Arduino tramite l’app.
 
    .. image:: img/Lesson_36_bluetooth_serial_7_shadow.png
 
-   You can see this message from Bluetooth in the serial monitor.
+   Il messaggio inviato dal modulo Bluetooth sarà visibile nel monitor seriale.
 
-   .. image:: img/Lesson_36_bluetooth_serial_8_shadow.png  
+   .. image:: img/Lesson_36_bluetooth_serial_8_shadow.png

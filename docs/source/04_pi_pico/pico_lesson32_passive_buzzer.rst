@@ -1,50 +1,50 @@
 .. note::
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    Ciao, benvenuto nella Community SunFounder su Facebook dedicata agli appassionati di Raspberry Pi, Arduino ed ESP32! Approfondisci la tua conoscenza di Raspberry Pi, Arduino ed ESP32 insieme ad altri appassionati.
 
-    **Why Join?**
+    **Perché unirsi?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Supporto esperto**: Risolvi problemi post-vendita e difficoltà tecniche con l'aiuto della nostra community e del nostro team.
+    - **Impara e condividi**: Scambia suggerimenti e tutorial per migliorare le tue competenze.
+    - **Anteprime esclusive**: Accedi in anticipo agli annunci dei nuovi prodotti e alle anteprime.
+    - **Sconti speciali**: Goditi sconti esclusivi sui nostri prodotti più recenti.
+    - **Promozioni festive e giveaway**: Partecipa a concorsi e iniziative promozionali durante le festività.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 Pronto a esplorare e creare con noi? Clicca su [|link_sf_facebook|] e unisciti oggi stesso!
 
 .. _pico_lesson32_passive_buzzer:
 
-Lesson 32: Passive Buzzer Module
-==================================
+Lezione 32: Modulo Buzzer Passivo
+====================================
 
-In this lesson, you will learn how to use the passive buzzer on Raspberry Pi Pico W to play single notes and perform music. You will understand how to use PWM (Pulse Width Modulation) to set up the buzzer on GPIO 16 and use the music class in the buzzer_music library to play complete songs. This course will guide you step by step through playing single notes, and then further execute full melodies such as "Happy Birthday". This project is very suitable for beginners, providing a practical way to understand musical tones and integrate external libraries in MicroPython on Raspberry Pi Pico W.
+In questa lezione imparerai a utilizzare un buzzer passivo con Raspberry Pi Pico W per riprodurre singole note e brani musicali. Scoprirai come configurare il buzzer sul GPIO 16 tramite PWM (Pulse Width Modulation) e come usare la classe music della libreria buzzer_music per eseguire canzoni complete. Il corso ti guiderà passo dopo passo nella riproduzione di note singole, fino ad arrivare a melodie complete come "Tanti auguri a te". Questo progetto è ideale per i principianti e offre un approccio pratico per comprendere i toni musicali e l'integrazione di librerie esterne in MicroPython su Raspberry Pi Pico W.
 
-Required Components
+Componenti Necessari
 --------------------------
 
-In this project, we need the following components. 
+Per questo progetto, abbiamo bisogno dei seguenti componenti.
 
-It's definitely convenient to buy a whole kit, here's the link: 
+È sicuramente conveniente acquistare un kit completo. Ecco il link:
 
 .. list-table::
     :widths: 20 20 20
     :header-rows: 1
 
-    *   - Name	
-        - ITEMS IN THIS KIT
+    *   - Nome
+        - COMPONENTI INCLUSI
         - LINK
     *   - Universal Maker Sensor Kit
         - 94
         - |link_umsk|
 
-You can also buy them separately from the links below.
+Puoi anche acquistarli separatamente dai link seguenti.
 
 .. list-table::
     :widths: 30 20
     :header-rows: 1
 
-    *   - Component Introduction
-        - Purchase Link
+    *   - Introduzione al Componente
+        - Link per l'acquisto
 
     *   - Raspberry Pi Pico W
         - |link_picow_buy|
@@ -54,77 +54,76 @@ You can also buy them separately from the links below.
         - |link_breadboard_buy|
 
 
-Wiring
+Collegamenti
 ---------------------------
 
 .. image:: img/Lesson_32_Passive_buzzer_pico_bb.png
     :width: 100%
 
 
-Code
+Codice
 ---------------------------
 
 .. code-block:: python
 
    import machine
    import time
-   
-   # Initialize the PWM on GPIO 16 for the buzzer
+
+   # Inizializza il PWM sul GPIO 16 per il buzzer
    buzzer = machine.PWM(machine.Pin(16))
-   
+
    def tone(pin, frequency, duration):
        """Play a tone on the given pin at the specified frequency and duration."""
        pin.freq(frequency)
        pin.duty_u16(30000)
        time.sleep_ms(duration)
        pin.duty_u16(0)
-   
-   # Play individual notes
+
+   # Riproduzione di note singole
    tone(buzzer, 440, 250)  # A4
    time.sleep(0.5)
    tone(buzzer, 494, 250)  # B4
    time.sleep(0.5)
    tone(buzzer, 523, 250)  # C5
    time.sleep(1)
-   
-   
-   
-   # Import the music class from the buzzer_music module for easy song playback.
+
+
+   # Importa la classe music dal modulo buzzer_music per riprodurre canzoni
    from buzzer_music import music
-   
-   # Find some music on onlinesequencer.net, click edit, select all notes with CTRL + A and then copy them with CTRL + C
-   # Paste the string to song, making sure to remove the "Online Sequencer:120233:" from the start and the ";:" from the end
-   # https://onlinesequencer.net/2474257 Happy Birthday (by Sudirth)
+
+   # Trova musica su onlinesequencer.net, clicca su "edit", seleziona tutte le note con CTRL+A, copia con CTRL+C,
+   # incolla la stringa nella variabile song, rimuovendo "Online Sequencer:120233:" all'inizio e ";:" alla fine.
+   # https://onlinesequencer.net/2474257 Happy Birthday (di Sudirth)
    song = "0 G4 3 0;3 G4 1 0;4 A4 4 0;8 G4 4 0;12 C5 4 0;16 B4 8 0;24 G4 3 0;27 G4 1 0;28 A4 4 0;32 G4 4 0;36 D5 4 0;40 C5 8 0;48 G4 3 0;51 G4 1 0;52 G5 4 0;56 E5 4 0;60 C5 4 0;64 B4 4 0;68 A4 4 0;72 F5 3 0;75 F5 1 0;76 E5 4 0;80 C5 4 0;84 D5 4 0;88 C5 8 0"
-   
-   # Initialize the music class with the song and set the buzzer pin
+
+   # Inizializza la classe music con la canzone e il pin del buzzer
    mySong = music(song, pins=[machine.Pin(16)])
-   
-   # Play music using the music class.
-   while True:
+
+   # Riproduci la musica usando il metodo tick
+      while True:
        print(mySong.tick())
        time.sleep(0.04)
 
 
 
-Code Analysis
+Analisi del Codice
 ---------------------------
 
-#. Initialization
+#. Inizializzazione
 
-   Import necessary modules and initialize the PWM on a specific GPIO pin to control the buzzer.
+   Importa i moduli necessari e inizializza il PWM su un pin GPIO specifico per controllare il buzzer.
 
    .. code-block:: python
 
        import machine
        import time
 
-       # Initialize the PWM on GPIO 16 for the buzzer
+       # Inizializza il PWM sul GPIO 16 per il buzzer
        buzzer = machine.PWM(machine.Pin(16))
 
-#. Defining the tone function
+#. Definizione della funzione tone
 
-   This function allows playing a single tone at a specified frequency and duration. It sets the frequency and duty cycle (volume) of the PWM signal.
+   Questa funzione consente di riprodurre un tono singolo a una frequenza e durata specifiche. Imposta la frequenza e il duty cycle (volume) del segnale PWM.
 
    .. code-block:: python
 
@@ -135,13 +134,13 @@ Code Analysis
            time.sleep_ms(duration)
            pin.duty_u16(0)
 
-#. Playing individual notes
+#. Riproduzione di note singole
 
-   Here, the ``tone`` function is used to play individual notes. The parameters include the note's frequency (in Hz) and its duration (in milliseconds).
+   Qui viene utilizzata la funzione ``tone`` per riprodurre note musicali individuali. I parametri includono la frequenza della nota (in Hz) e la durata (in millisecondi).
 
    .. code-block:: python
 
-       # Play individual notes
+       # Riproduzione di note singole
        tone(buzzer, 440, 250)  # A4
        time.sleep(0.5)
        tone(buzzer, 494, 250)  # B4
@@ -149,32 +148,32 @@ Code Analysis
        tone(buzzer, 523, 250)  # C5
        time.sleep(1)
 
-#. Using the buzzer_music library
+#. Utilizzo della libreria buzzer_music
 
-   The ``buzzer_music`` library is imported, and a song string is prepared. 
+   Viene importata la libreria ``buzzer_music`` e viene preparata una stringa contenente la canzone.
 
-   You can find some music on onlinesequencer.net, click edit, select all notes with CTRL + A and then copy them with CTRL + C. Paste the string to ``song``, making sure to remove the "Online Sequencer:120233:" from the start and the ";:" from the end.
+   Puoi trovare delle melodie su onlinesequencer.net, cliccare su "edit", selezionare tutte le note con CTRL + A e copiarle con CTRL + C. Incolla poi la stringa nella variabile ``song``, ricordandoti di rimuovere "Online Sequencer:120233:" all'inizio e ";:" alla fine.
 
-   For more information about the ``buzzer_music`` library, please visit |link_buzzer_music|.
+   Per maggiori informazioni sulla libreria ``buzzer_music``, visita |link_buzzer_music|.
 
    .. code-block:: python
 
-       # Import the music class from the buzzer_music module for easy song playback.
+       # Importa la classe music dal modulo buzzer_music per una facile riproduzione di canzoni
        from buzzer_music import music
 
-       # https://onlinesequencer.net/2474257 Happy Birthday (by Sudirth)
+       # https://onlinesequencer.net/2474257 Happy Birthday (di Sudirth)
        song = "0 G4 3 0;3 G4 1 0;4 A4 4 0;8 G4 4 0;12 C5 4 0;16 B4 8 0;24 G4 3 0;27 G4 1 0;28 A4 4 0;32 G4 4 0;36 D5 4 0;40 C5 8 0;48 G4 3 0;51 G4 1 0;52 G5 4 0;56 E5 4 0;60 C5 4 0;64 B4 4 0;68 A4 4 0;72 F5 3 0;75 F5 1 0;76 E5 4 0;80 C5 4 0;84 D5 4 0;88 C5 8 0"
 
-#. Initializing and playing the song
+#. Inizializzazione e riproduzione della canzone
 
-   The ``music`` class is initialized with the song string and the GPIO pin for the buzzer. The music is played in a loop using the ``tick`` method of the ``music`` class.
+   La classe ``music`` viene inizializzata con la stringa della canzone e il pin GPIO del buzzer. La musica viene riprodotta in un ciclo utilizzando il metodo ``tick`` della classe ``music``.
 
    .. code-block:: python
 
-       # Initialize the music class with the song and set the buzzer pin
+       # Inizializza la classe music con la canzone e imposta il pin del buzzer
        mySong = music(song, pins=[machine.Pin(16)])
 
-       # Play music using the music class.
+       # Riproduce la musica utilizzando la classe music
        while True:
            print(mySong.tick())
            time.sleep(0.04)

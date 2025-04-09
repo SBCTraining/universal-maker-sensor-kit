@@ -1,58 +1,57 @@
-
 .. note::
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    Ciao, benvenuto nella Community SunFounder dedicata agli appassionati di Raspberry Pi, Arduino ed ESP32 su Facebook! Approfondisci il mondo di Raspberry Pi, Arduino ed ESP32 insieme ad altri appassionati.
 
-    **Why Join?**
+    **Perché unirti?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Supporto Esperto**: Risolvi problemi post-vendita e difficoltà tecniche grazie al supporto della nostra community e del nostro team.
+    - **Impara e Condividi**: Scambia suggerimenti e tutorial per migliorare le tue competenze.
+    - **Anteprime Esclusive**: Accedi in anteprima agli annunci dei nuovi prodotti e alle anticipazioni.
+    - **Sconti Speciali**: Approfitta di sconti esclusivi sui nostri prodotti più recenti.
+    - **Promozioni Festive e Giveaway**: Partecipa a concorsi e promozioni durante le festività.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 Pronto a esplorare e creare con noi? Clicca su [|link_sf_facebook|] e unisciti subito!
 
 .. _uno_lesson43_potentiometer_scale_value:
 
-Lesson 43: Potentiometer scale value
+Lezione 43: Valore del potenziometro in scala
 =============================================================
 
 
-This project focuses on reading a potentiometer's value and displaying it on an LCD 1620 equipped with an I2C interface. 
-Additionally, the value is transmitted to the serial monitor for live monitoring. 
-A distinctive aspect of this project is the graphical representation of the potentiometer's value on the LCD, 
-which is depicted as a variable-length bar proportional to the potentiometer's reading.
+Questo progetto è focalizzato sulla lettura del valore di un potenziometro e sulla sua visualizzazione su un display LCD 1602 dotato di interfaccia I2C. 
+Inoltre, il valore viene trasmesso al monitor seriale per un monitoraggio in tempo reale. 
+Una particolarità del progetto è la rappresentazione grafica del valore sul display LCD, 
+mostrato come una barra a lunghezza variabile proporzionale alla lettura del potenziometro.
 
 
-Required Components
+Componenti Necessari
 --------------------------
 
-In this project, we need the following components. 
+Per questo progetto servono i seguenti componenti.
 
-It's definitely convenient to buy a whole kit, here's the link: 
+È sicuramente comodo acquistare il kit completo, ecco il link:
 
 .. list-table::
     :widths: 20 20 20
     :header-rows: 1
 
-    *   - Name	
-        - ITEMS IN THIS KIT
+    *   - Nome
+        - COMPONENTI INCLUSI
         - LINK
     *   - Universal Maker Sensor Kit
         - 94
         - |link_umsk|
 
-You can also buy them separately from the links below.
+Puoi anche acquistare i componenti singolarmente dai link qui sotto.
 
 .. list-table::
     :widths: 30 20
     :header-rows: 1
 
-    *   - Component Introduction
-        - Purchase Link
+    *   - Introduzione al Componente
+        - Link Acquisto
 
-    *   - Arduino UNO R3 or R4
+    *   - Arduino UNO R3 o R4
         - |link_Uno_R3_buy|
     *   - :ref:`cpn_potentiometer`
         - \-
@@ -60,62 +59,62 @@ You can also buy them separately from the links below.
         - \-
     *   - :ref:`cpn_breadboard`
         - |link_breadboard_buy|
-        
 
-Wiring
+
+Collegamenti
 ---------------------------
 
 .. image:: img/Lesson_43_Potentiometer_scale_value_uno_bb.png
     :width: 100%
 
 
-Code
+Codice
 ---------------------------
 
 .. raw:: html
 
    <iframe src=https://create.arduino.cc/editor/sunfounder01/b51d7dac-b89b-4785-8620-907914fe983c/preview?embed style="height:510px;width:100%;margin:10px 0" frameborder=0></iframe>
 
-Code Analysis
+Analisi del Codice
 ---------------------------
 
-The core functionality of this project is to consistently read the potentiometer's value, map it to a scaled range (0-16), and display the result both numerically and graphically on the LCD. The implementation minimizes jitter by updating the display only when significant changes in the reading occur, thus maintaining a smooth visual experience.
+La funzionalità principale di questo progetto è quella di leggere costantemente il valore del potenziometro, scalarlo in un intervallo da 0 a 16, e visualizzarne il risultato sia numericamente che graficamente sul display LCD. Per mantenere una visualizzazione fluida, l’aggiornamento dello schermo avviene solo quando viene rilevata una variazione significativa del valore.
 
-1. **Library Inclusion and Initialization**:
+1. **Inclusione delle librerie e inizializzazione**:
 
    .. code-block:: arduino
-   
+
       #include <Wire.h>
       #include <LiquidCrystal_I2C.h>
       LiquidCrystal_I2C lcd(0x27, 16, 2);
 
-   This segment incorporates the necessary libraries for I2C communication and LCD control. It then initializes an LCD instance with the I2C address of ``0x27``, specifying its dimensions as ``16 columns`` and ``2 rows``.
+   Questa sezione include le librerie necessarie per la comunicazione I2C e il controllo del display LCD, e inizializza un’istanza del display con indirizzo ``0x27``, specificando 16 colonne e 2 righe.
 
-2. **Variable Declaration**:
-
-   .. code-block:: arduino
-   
-      int lastRead = 0;     // Stores the last read value from the potentiometer
-      int currentRead = 0;  // Holds the current read value from the potentiometer
-
-   Variables ``lastRead`` and ``currentRead`` are used to keep track of the potentiometer's readings across different moments.
-
-3. **setup() Function**:
+2. **Dichiarazione delle variabili**:
 
    .. code-block:: arduino
-   
+
+      int lastRead = 0;     // Memorizza l'ultima lettura del potenziometro
+      int currentRead = 0;  // Memorizza la lettura attuale
+
+   Le variabili ``lastRead`` e ``currentRead`` tengono traccia delle letture del potenziometro nel tempo.
+
+3. **Funzione setup()**:
+
+   .. code-block:: arduino
+
       void setup() {
-        lcd.init();          // Initiates the LCD
-        lcd.backlight();     // Activates the LCD's backlight
-        Serial.begin(9600);  // Commences serial communication at 9600 baud
+        lcd.init();          // Inizializza il display LCD
+        lcd.backlight();     // Attiva la retroilluminazione
+        Serial.begin(9600);  // Avvia la comunicazione seriale a 9600 baud
       }
 
-   This function prepares the LCD and starts serial communication, setting up the environment for the project's operation.
+   Questa funzione prepara l’ambiente di esecuzione inizializzando il display LCD e la comunicazione seriale.
 
-4. **Main Loop**:
+4. **Ciclo principale**:
 
    .. code-block:: arduino
-   
+
       void loop() {
         currentRead = analogRead(A0);
         int barLength = map(currentRead, 0, 1023, 0, 16);
@@ -135,8 +134,8 @@ The core functionality of this project is to consistently read the potentiometer
         delay(200);
       }
 
-   * Reads the potentiometer and converts its value to a scale suitable for visual representation.
-   * Updates the LCD only when a meaningful change is detected, displaying the numeric value and a corresponding bar graph.
-   * Also sends the reading to the serial monitor for external observation.
-   * Ensures stability and responsiveness by introducing a brief delay between iterations.
+   * Legge il valore del potenziometro e lo converte in un valore adatto alla rappresentazione grafica.
+   * Aggiorna il display solo in caso di variazioni significative, mostrando sia il valore numerico che la barra grafica.
+   * Invia il valore anche al monitor seriale per l’osservazione esterna.
+   * Introduce un breve ritardo tra le iterazioni per garantire stabilità e reattività.
 

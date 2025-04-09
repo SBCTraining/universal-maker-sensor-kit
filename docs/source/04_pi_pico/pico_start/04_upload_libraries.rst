@@ -1,46 +1,46 @@
 
 .. note::
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    Ciao, benvenuto nella Comunità degli appassionati di SunFounder Raspberry Pi, Arduino e ESP32 su Facebook! Immergiti più a fondo in Raspberry Pi, Arduino e ESP32 con altri appassionati.
 
-    **Why Join?**
+    **Perché unirsi?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Supporto Esperto**: Risolvi problemi post-vendita e sfide tecniche con l'aiuto della nostra comunità e del nostro team.
+    - **Impara & Condividi**: Scambia consigli e tutorial per potenziare le tue competenze.
+    - **Anteprime Esclusive**: Accedi in anteprima ai nuovi annunci di prodotti e anteprime esclusive.
+    - **Sconti Speciali**: Goditi sconti esclusivi sui nostri prodotti più recenti.
+    - **Promozioni Festive e Giveaway**: Partecipa ai giveaway e alle promozioni festive.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 Pronto per esplorare e creare con noi? Clicca [|link_sf_facebook|] e unisciti oggi!
 
 .. _add_libraries_py:
 
-Upload the Libraries to Pico
+Caricare le Librerie su Pico
 ===================================
 
-In some projects, you will need additional libraries. So here we upload these libraries to Raspberry Pi Pico W first, and then we can run the code directly later.
+In alcuni progetti, avrai bisogno di librerie aggiuntive. Quindi, qui carichiamo prima queste librerie sul Raspberry Pi Pico W, per poter eseguire direttamente il codice in seguito.
 
-#. Download the relevant code from the link below.
+#. Scarica il codice pertinente dal link sottostante.
 
    * :download:`SunFounder Universal Maker Sensor Kit <https://codeload.github.com/sunfounder/universal-maker-sensor-kit/zip/refs/heads/main>`
 
 
-#. Open Thonny IDE and plug the Pico into your computer with a micro USB cable and click on the "MicroPython (Raspberry Pi Pico).COMXX" interpreter in the bottom right corner.
+#. Apri l'IDE Thonny e collega il Pico al tuo computer con un cavo micro USB, quindi clicca sull'interprete "MicroPython (Raspberry Pi Pico).COMXX" nell'angolo in basso a destra.
 
    .. image:: img/sec_inter.png
 
-#. In the top navigation bar, click **View** -> **Files**.
+#. Nella barra di navigazione superiore, clicca su **Visualizza** -> **File**.
 
    .. image:: img/th_files.png
 
-#. Switch the path to the folder where you downloaded the `code package <https://codeload.github.com/sunfounder/universal-maker-sensor-kit/zip/refs/heads/main>`_ before, and then go to the ``universal-maker-sensor-kit-main/pico/libs`` folder.
+#. Cambia il percorso alla cartella dove hai scaricato il `pacchetto di codici <https://codeload.github.com/sunfounder/universal-maker-sensor-kit/zip/refs/heads/main>`_ prima, e poi vai alla cartella ``universal-maker-sensor-kit-main/pico/libs``.
 
    .. image:: img/th_path.png
 
-#. Select all the files or folders in the "libs/" folder (by holding down Shift and clicking on the first and last file in the folder), then right-click and select **Upload to /**, it will take a while to upload.
+#. Seleziona tutti i file o le cartelle nella cartella "libs/" (tenendo premuto Shift e cliccando sul primo e ultimo file nella cartella), poi clicca con il tasto destro e seleziona **Carica in /**, ci vorrà un po' per caricare.
 
    .. image:: img/th_upload.png
 
-#. Now you will see the files you just uploaded inside your drive ``Raspberry Pi Pico``.
+#. Ora vedrai i file che hai appena caricato all'interno del tuo drive ``Raspberry Pi Pico``.
 
    .. image:: img/th_done.png

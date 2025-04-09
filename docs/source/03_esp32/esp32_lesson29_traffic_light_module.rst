@@ -1,52 +1,52 @@
 .. note::
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    Ciao, benvenuto nella Comunità degli Appassionati di Raspberry Pi, Arduino e ESP32 di SunFounder su Facebook! Approfondisci la tua conoscenza di Raspberry Pi, Arduino e ESP32 insieme ad altri appassionati.
 
     **Why Join?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Expert Support**: Risolvi problemi post-vendita e sfide tecniche con l'aiuto della nostra comunità e del nostro team.
+    - **Learn & Share**: Scambia consigli e tutorial per migliorare le tue competenze.
+    - **Exclusive Previews**: Ottieni accesso anticipato alle nuove annunci di prodotti e anteprime esclusive.
+    - **Special Discounts**: Goditi sconti esclusivi sui nostri prodotti più recenti.
+    - **Festive Promotions and Giveaways**: Partecipa a giveaway e promozioni festive.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 Pronto per esplorare e creare con noi? Clicca [|link_sf_facebook|] e unisciti oggi!
 
 .. _esp32_lesson29_traffic_light_module:
 
-Lesson 29: Traffic Light Module
+Lezione 29: Modulo Semaforo
 ==================================
 
-In this lesson, you'll learn how to use an ESP32 Development Board to control a Mini Traffic Light Module. We'll cover setting up the board and writing code to create a traffic light sequence: 5 seconds of green light, blinking yellow light for 1.5 seconds, and 5 seconds of red light. This project is ideal for beginners in electronics and programming as it provides practical experience with output operations and basic timing control using the ESP32.
+In questa lezione, imparerai a utilizzare una scheda di sviluppo ESP32 per controllare un Modulo Mini Semaforo. Tratteremo la configurazione della scheda e la scrittura del codice per creare una sequenza semaforica: 5 secondi di luce verde, luce gialla lampeggiante per 1,5 secondi e 5 secondi di luce rossa. Questo progetto è ideale per i principianti in elettronica e programmazione, poiché fornisce esperienza pratica con le operazioni di output e il controllo base dei tempi usando l'ESP32.
 
-Required Components
---------------------------
+Componenti Necessari
+------------------------
 
-In this project, we need the following components. 
+In questo progetto, abbiamo bisogno dei seguenti componenti.
 
-It's definitely convenient to buy a whole kit, here's the link: 
+È decisamente conveniente acquistare un kit completo, ecco il link:
 
 .. list-table::
     :widths: 20 20 20
     :header-rows: 1
 
-    *   - Name	
-        - ITEMS IN THIS KIT
+    *   - Nome	
+        - ELEMENTI IN QUESTO KIT
         - LINK
-    *   - Universal Maker Sensor Kit
+    *   - Kit Sensori per Maker Universali
         - 94
         - |link_umsk|
 
-You can also buy them separately from the links below.
+Puoi anche acquistarli separatamente dai link qui sotto.
 
 .. list-table::
     :widths: 30 20
     :header-rows: 1
 
-    *   - Component Introduction
-        - Purchase Link
+    *   - Introduzione al Componente
+        - Link per l'Acquisto
 
-    *   - ESP32 & Development Board (:ref:`cpn_esp32_wroom_32e`)
+    *   - ESP32 & Scheda di Sviluppo (:ref:`cpn_esp32_wroom_32e`)
         - |link_esp32_camera_pro_kit_buy|
     *   - :ref:`cpn_traffic`
         - |link_traffic_light_module_buy|
@@ -54,32 +54,32 @@ You can also buy them separately from the links below.
         - |link_breadboard_buy|
 
 
-Wiring
----------------------------
+Cablaggio
+------------
 
 .. image:: img/Lesson_29_Traffic_Light_Module_esp32_bb.png
     :width: 100%
 
 
-Code
----------------------------
+Codice
+---------
 
 .. raw:: html
 
     <iframe src=https://create.arduino.cc/editor/sunfounder01/df3260e8-4f79-4dca-aa47-c3a684867ca1/preview?embed style="height:510px;width:100%;margin:10px 0" frameborder=0></iframe>
 
-Code Analysis
----------------------------
+Analisi del Codice
+----------------------
 
-1. Before any operations, we define constants for the pins where LEDs are connected. This makes our code easier to read and modify.
+1. Prima di qualsiasi operazione, definiamo costanti per i pin dove sono collegati i LED. Questo rende il nostro codice più facile da leggere e modificare.
 
   .. code-block:: arduino
 
-     const int rledPin = 25;  //red
-     const int yledPin = 26;  //yellow
-     const int gledPin = 27;  //green
+     const int rledPin = 25;  //rosso
+     const int yledPin = 26;  //giallo
+     const int gledPin = 27;  //verde
 
-2. Here, we specify the pin modes for our LED pins. They are all set to ``OUTPUT`` because we intend to send voltage to them.
+2. Qui, specifichiamo le modalità dei pin per i nostri pin LED. Sono tutti impostati su ``OUTPUT`` perché intendiamo inviare tensione a loro.
 
   .. code-block:: arduino
 
@@ -89,11 +89,11 @@ Code Analysis
        pinMode(gledPin, OUTPUT);
      }
 
-3. This is where our traffic light cycle logic is implemented. The sequence of operations is:
+3. Qui è dove è implementata la nostra logica del ciclo semaforico. La sequenza delle operazioni è:
 
-    * Turn the green LED on for 5 seconds.
-    * Blink the yellow LED three times (each blink lasts for 0.5 seconds).
-    * Turn the red LED on for 5 seconds.
+    * Accendere il LED verde per 5 secondi.
+    * Lampeggiare il LED giallo tre volte (ogni lampeggio dura 0,5 secondi).
+    * Accendere il LED rosso per 5 secondi.
     
   .. code-block:: arduino
 

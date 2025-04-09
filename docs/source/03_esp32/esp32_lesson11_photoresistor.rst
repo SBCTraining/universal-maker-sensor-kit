@@ -1,52 +1,52 @@
 .. note::
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    Ciao, benvenuto nella Comunità di Appassionati di Raspberry Pi, Arduino e ESP32 di SunFounder su Facebook! Approfondisci le tue conoscenze su Raspberry Pi, Arduino e ESP32 con altri appassionati.
 
     **Why Join?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Expert Support**: Risolvi problemi post-vendita e sfide tecniche con il supporto della nostra comunità e del nostro team.
+    - **Learn & Share**: Scambia consigli e tutorial per migliorare le tue competenze.
+    - **Exclusive Previews**: Ottieni accesso anticipato ad annunci di nuovi prodotti e anteprime esclusive.
+    - **Special Discounts**: Godi di sconti esclusivi sui nostri prodotti più recenti.
+    - **Festive Promotions and Giveaways**: Partecipa a giveaway e promozioni festive.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 Pronto a esplorare e creare con noi? Clicca [|link_sf_facebook|] e unisciti oggi!
 
 .. _esp32_lesson11_photoresistor:
 
-Lesson 11: Photoresistor Module
+Lezione 11: Modulo Fotoresistore
 ==================================
 
-In this lesson, you will learn how to use a photoresistance sensor with an ESP32 Development Board to measure light intensity. We'll explore how the sensor detects different light levels and processes and displays these readings on the serial monitor. This project is ideal for beginners as it provides hands-on experience with analog sensors and real-time data handling in Arduino programming.
+In questa lezione, imparerai come utilizzare un sensore di fotoresistenza con una Scheda di Sviluppo ESP32 per misurare l'intensità luminosa. Esploreremo come il sensore rileva diversi livelli di luce e come elabora e visualizza queste letture sul monitor seriale. Questo progetto è ideale per i principianti in quanto fornisce esperienza pratica con sensori analogici e gestione dei dati in tempo reale nella programmazione Arduino.
 
-Required Components
+Componenti Necessari
 --------------------------
 
-In this project, we need the following components. 
+Per questo progetto, abbiamo bisogno dei seguenti componenti.
 
-It's definitely convenient to buy a whole kit, here's the link: 
+È decisamente conveniente acquistare un kit completo, ecco il link:
 
 .. list-table::
     :widths: 20 20 20
     :header-rows: 1
 
-    *   - Name	
-        - ITEMS IN THIS KIT
+    *   - Nome	
+        - ELEMENTI IN QUESTO KIT
         - LINK
-    *   - Universal Maker Sensor Kit
+    *   - Kit Sensori Universale Maker
         - 94
         - |link_umsk|
 
-You can also buy them separately from the links below.
+Puoi anche acquistarli separatamente dai link qui sotto.
 
 .. list-table::
     :widths: 30 20
     :header-rows: 1
 
-    *   - Component Introduction
-        - Purchase Link
+    *   - Introduzione al Componente
+        - Link d'acquisto
 
-    *   - ESP32 & Development Board (:ref:`cpn_esp32_wroom_32e`)
+    *   - ESP32 & Scheda di Sviluppo (:ref:`cpn_esp32_wroom_32e`)
         - |link_esp32_camera_pro_kit_buy|
     *   - :ref:`cpn_photoresistor`
         - |link_photoresistor_sensor_module_buy|
@@ -54,44 +54,44 @@ You can also buy them separately from the links below.
         - |link_breadboard_buy|
 
 
-Wiring
+Cablaggio
 ---------------------------
 
 .. image:: img/Lesson_11_Photoresistance_Module_esp32_bb.png
     :width: 100%
 
 
-Code
+Codice
 ---------------------------
 
 .. raw:: html
 
     <iframe src=https://create.arduino.cc/editor/sunfounder01/d66fd803-df3b-4afd-9986-b335e0739241/preview?embed style="height:510px;width:100%;margin:10px 0" frameborder=0></iframe>
 
-Code Analysis
+Analisi del Codice
 ---------------------------
 
-#. **Setting Up the Sensor Pin and Serial Communication**
+#. **Impostazione del Pin del Sensore e Comunicazione Seriale**
 
-   We start by defining the sensor pin and initializing serial communication in the setup function. The photoresistor is connected to the pin 25.
+   Iniziamo definendo il pin del sensore e inizializzando la comunicazione seriale nella funzione setup. Il fotoresistore è collegato al pin 25.
 
    .. code-block:: arduino
 
-      const int sensorPin = 25;  // Pin connected to the photoresistor
+      const int sensorPin = 25;  // Pin collegato al fotoresistore
 
       void setup() {
-        Serial.begin(9600);  // Start serial communication at 9600 baud rate
+        Serial.begin(9600);  // Avvia la comunicazione seriale a 9600 baud
       }
 
-#. **Reading and Displaying Sensor Data**
+#. **Lettura e Visualizzazione dei Dati del Sensore**
 
-   In the loop function, we continuously read the analog value from the sensor and print it to the Serial Monitor. We also add a short delay to stabilize the readings.
+   Nella funzione loop, leggiamo continuamente il valore analogico dal sensore e lo stampiamo sul Monitor Seriale. Aggiungiamo anche un breve ritardo per stabilizzare le letture.
 
    .. code-block:: arduino
 
       void loop() {
-        Serial.println(analogRead(sensorPin));  // Read and print the analog value
-        delay(50);                              // Short delay to stabilize readings
+        Serial.println(analogRead(sensorPin));  // Leggi e stampa il valore analogico
+        delay(50);                              // Breve ritardo per stabilizzare le letture
       }
 
 

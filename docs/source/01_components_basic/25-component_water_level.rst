@@ -1,21 +1,21 @@
-.. note::
+.. note:: 
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    Ciao! Benvenuto nella community Facebook dedicata agli appassionati di SunFounder, Raspberry Pi, Arduino ed ESP32! Unisciti a noi per approfondire il mondo di Raspberry Pi, Arduino ed ESP32 insieme ad altri maker ed entusiasti.
 
-    **Why Join?**
+    **Perché unirsi?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Supporto esperto**: Risolvi problemi post-vendita e sfide tecniche con l’aiuto della nostra community e del nostro team.
+    - **Impara e condividi**: Scambia consigli e tutorial per migliorare le tue competenze.
+    - **Anteprime esclusive**: Ottieni accesso anticipato a novità e anteprime sui nuovi prodotti.
+    - **Sconti speciali**: Approfitta di sconti esclusivi sui nostri prodotti più recenti.
+    - **Promozioni festive e giveaway**: Partecipa a omaggi e promozioni speciali durante le festività.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 Pronto a esplorare e creare con noi? Clicca su [|link_sf_facebook|] e unisciti oggi stesso!
 
 .. _cpn_water_level:
 
-Water Level Sensor Module
-=====================================
+Modulo Sensore di Livello dell’Acqua
+========================================
 
 .. image:: img/25_water_leve_module.png
     :width: 450
@@ -25,22 +25,22 @@ Water Level Sensor Module
 
    <br/>
 
-The water level sensor is an affordable, user-friendly device that is compact and lightweight. It uses exposed parallel wire traces to measure the size of water droplets or volume, thus determining the water level. This sensor effortlessly converts water levels into analog signals, which can be readily utilized by program functions for triggering water level alarms. Its low power consumption and high sensitivity are also notable features.
+Il sensore di livello dell’acqua è un dispositivo economico, compatto e facile da usare. Utilizza delle tracce conduttive parallele esposte per misurare la quantità di gocce o il volume d'acqua, determinando così il livello dell'acqua. Questo sensore converte facilmente il livello dell'acqua in un segnale analogico che può essere utilizzato dai programmi per attivare allarmi di livello. Tra le sue caratteristiche spiccano il basso consumo energetico e l'elevata sensibilità.
 
-Specification
+Specifiche
 ---------------------------
-* Supply Voltage: 3.3V or 5V
-* PCB size: 22 x 60mm
-* Working temperature range: 10℃ - 30℃
-* Working humidity range: 10% - 90%
+* Tensione di alimentazione: 3.3V o 5V  
+* Dimensioni PCB: 22 x 60 mm  
+* Intervallo di temperatura operativa: 10℃ - 30℃  
+* Intervallo di umidità operativa: 10% - 90%
 
 Pinout
 ---------------------------
-* **V**: This is the positive power supply input from the main control. 
-* **G**: Ground connection.
-* **A**: Analog output. The higher the water level, the greater the output voltage.
+* **V**: Ingresso di alimentazione positiva dal controllore principale.  
+* **G**: Collegamento a massa.  
+* **A**: Uscita analogica. Maggiore è il livello dell'acqua, maggiore sarà la tensione di uscita.
 
-Schematic diagram
+Schema elettrico
 ---------------------------
 
 .. image:: img/25_water_leve_module_schematic.png
@@ -51,9 +51,9 @@ Schematic diagram
 
    <br/>
 
-Example
+Esempi
 ---------------------------
-* :ref:`uno_lesson25_water_level` (Arduino UNO)
-* :ref:`esp32_lesson25_water_level` (ESP32)
-* :ref:`pico_lesson25_water_level` (Raspberry Pi Pico)
+* :ref:`uno_lesson25_water_level` (Arduino UNO)  
+* :ref:`esp32_lesson25_water_level` (ESP32)  
+* :ref:`pico_lesson25_water_level` (Raspberry Pi Pico)  
 * :ref:`pi_lesson25_water_level` (Raspberry Pi)

@@ -1,52 +1,52 @@
 .. note::
 
-    Hello, welcome to the SunFounder Raspberry Pi & Arduino & ESP32 Enthusiasts Community on Facebook! Dive deeper into Raspberry Pi, Arduino, and ESP32 with fellow enthusiasts.
+    Ciao, benvenuto nella Comunità di Appassionati di Raspberry Pi, Arduino e ESP32 di SunFounder su Facebook! Approfondisci le tue conoscenze su Raspberry Pi, Arduino e ESP32 con altri appassionati.
 
     **Why Join?**
 
-    - **Expert Support**: Solve post-sale issues and technical challenges with help from our community and team.
-    - **Learn & Share**: Exchange tips and tutorials to enhance your skills.
-    - **Exclusive Previews**: Get early access to new product announcements and sneak peeks.
-    - **Special Discounts**: Enjoy exclusive discounts on our newest products.
-    - **Festive Promotions and Giveaways**: Take part in giveaways and holiday promotions.
+    - **Expert Support**: Risolvi problemi post-vendita e sfide tecniche con il supporto della nostra comunità e del nostro team.
+    - **Learn & Share**: Scambia consigli e tutorial per migliorare le tue competenze.
+    - **Exclusive Previews**: Ottieni accesso anticipato ad annunci di nuovi prodotti e anteprime esclusive.
+    - **Special Discounts**: Godi di sconti esclusivi sui nostri prodotti più recenti.
+    - **Festive Promotions and Giveaways**: Partecipa a giveaway e promozioni festive.
 
-    👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
+    👉 Pronto a esplorare e creare con noi? Clicca [|link_sf_facebook|] e unisciti oggi!
 
 .. _esp32_lesson03_flame:
 
-Lesson 03: Flame Sensor Module
-==================================
+Lezione 03: Modulo Sensore di Fiamma
+=======================================
 
-In this lesson, you will learn how to connect a flame sensor to an ESP32 Development Board for fire detection. We'll examine the sensor's response to fire and how it triggers a warning message. This project is ideal for beginners working with sensors and ESP32, providing hands-on experience in monitoring environmental factors using basic electronic components.
+In questa lezione, imparerai come collegare un sensore di fiamma a una scheda di sviluppo ESP32 per il rilevamento degli incendi. Esamineremo la risposta del sensore al fuoco e come esso attiva un messaggio di avviso. Questo progetto è ideale per i principianti che lavorano con sensori e ESP32, offrendo esperienza pratica nel monitoraggio di fattori ambientali usando componenti elettronici di base.
 
-Required Components
+Componenti Necessari
 --------------------------
 
-In this project, we need the following components. 
+Per questo progetto, abbiamo bisogno dei seguenti componenti.
 
-It's definitely convenient to buy a whole kit, here's the link: 
+È decisamente conveniente acquistare un kit completo, ecco il link:
 
 .. list-table::
     :widths: 20 20 20
     :header-rows: 1
 
-    *   - Name	
-        - ITEMS IN THIS KIT
+    *   - Nome	
+        - ELEMENTI IN QUESTO KIT
         - LINK
-    *   - Universal Maker Sensor Kit
+    *   - Kit Sensori Universale Maker
         - 94
         - |link_umsk|
 
-You can also buy them separately from the links below.
+Puoi anche acquistarli separatamente dai link qui sotto.
 
 .. list-table::
     :widths: 30 20
     :header-rows: 1
 
-    *   - Component Introduction
-        - Purchase Link
+    *   - Introduzione al Componente
+        - Link d'acquisto
 
-    *   - ESP32 & Development Board (:ref:`cpn_esp32_wroom_32e`)
+    *   - ESP32 & Scheda di Sviluppo (:ref:`cpn_esp32_wroom_32e`)
         - |link_esp32_camera_pro_kit_buy|
     *   - :ref:`cpn_flame`
         - |link_flame_sensor_module_buy|
@@ -54,35 +54,35 @@ You can also buy them separately from the links below.
         - |link_breadboard_buy|
 
 
-Wiring
+Cablaggio
 ---------------------------
 
 .. image:: img/Lesson_03_Flame_Sensor_Module_esp32_bb.png
     :width: 100%
 
 
-Code
+Codice
 ---------------------------
 
 .. raw:: html
 
     <iframe src=https://create.arduino.cc/editor/sunfounder01/82f965f6-4213-4c23-88db-4257cf12d920/preview?embed style="height:510px;width:100%;margin:10px 0" frameborder=0></iframe>
 
-Code Analysis
+Analisi del Codice
 ---------------------------
 
-#. **Defining the Sensor Pin**:
+#. **Definizione del Pin del Sensore**:
 
-   The pin to which the flame sensor is connected is defined as an integer constant.
- 
+   Il pin a cui è collegato il sensore di fiamma è definito come una costante intera.
+
    .. code-block:: arduino
 
       const int sensorPin = 25;
 
-#. **Setup Function**:
+#. **Funzione Setup**:
 
-   This function runs once when the ESP32 starts. It initializes the sensor pin as an input and begins serial communication at 9600 baud rate for output.
- 
+   Questa funzione si esegue una volta all'avvio dell'ESP32. Inizializza il pin del sensore come input e inizia la comunicazione seriale a 9600 baud per l'output.
+
    .. code-block:: arduino
 
       void setup() {
@@ -90,10 +90,10 @@ Code Analysis
         Serial.begin(9600);
       }
 
-#. **Loop Function**:
+#. **Funzione Loop**:
 
-   The core of the program, it continuously checks the state of the flame sensor. If the sensor detects a flame (returns 0), it prints a fire alert message. Otherwise, it indicates no fire is detected. The check happens every 100 milliseconds.
- 
+   Il nucleo del programma, verifica continuamente lo stato del sensore di fiamma. Se il sensore rileva una fiamma (ritorna 0), stampa un messaggio di allarme incendio. Altrimenti, indica che non è stato rilevato nessun incendio. Il controllo avviene ogni 100 millisecondi.
+
    .. code-block:: arduino
 
       void loop() {
