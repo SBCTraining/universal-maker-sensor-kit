@@ -21,8 +21,9 @@ Table of contents
 
     About This Course <self>
     05_raspberry_pi/raspberry_pi
-    08_advanced_sensors/advanced_sensors
     01_components_basic/00-component_list
+    08_advanced_sensors/advanced_sensors
+    09_advanced_components/advanced_components
     06_faq/00_faq
     07_appendix/appendix
     thank-learning
