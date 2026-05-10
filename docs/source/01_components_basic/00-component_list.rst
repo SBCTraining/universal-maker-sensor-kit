@@ -12,19 +12,17 @@
 
     👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
 
-Learn about the Components in Your Kit
+Component Reference
 ============================================
 
+This section is a reference guide for every component in the SunFounder Universal Maker Sensor Kit. Each page covers the component's working principle, pinout, and a simple code example to help you get started.
 
-After opening the package, please check whether the quantity of components is compliance with product description and whether all components are in good condition.
+Use this as a reference while working through the core lessons, or browse it on your own to learn about components not covered in the main curriculum.
 
 * :download:`SunFounder Universal Maker Sensor Kit Components List </_static/pdf/sunfounder_universal_maker_sensor_components_list.pdf>`
 
 .. image:: img/universal-maker-sensor-kit-list.png
     :width: 100%
-
-
-The following is an introduction to each component, including its working principle and corresponding project. **Each component has a simple code example to help you get started quickly.**
 
 **Basic**
 
