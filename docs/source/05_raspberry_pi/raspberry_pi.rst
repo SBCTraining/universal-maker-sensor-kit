@@ -31,9 +31,6 @@ The ``GPIO Zero`` library is a remarkable tool in Python designed for interfacin
     :maxdepth: 1
 
     pi_lesson01_button
-    pi_lesson02_soil_moisture
-    pi_lesson03_flame_sensor
-    pi_lesson04_mq2
     pi_lesson05_mpu6050
     pi_lesson06_hall_sensor
     pi_lesson07_speed
@@ -44,7 +41,6 @@ The ``GPIO Zero`` library is a remarkable tool in Python designed for interfacin
     pi_lesson12_pir_motion
     pi_lesson13_potentiometer
     pi_lesson14_max30102
-    pi_lesson15_raindrop
     pi_lesson17_rotary_encoder
     pi_lesson18_ds18b20
     pi_lesson19_dht11
@@ -53,7 +49,6 @@ The ``GPIO Zero`` library is a remarkable tool in Python designed for interfacin
     pi_lesson22_touch_sensor
     pi_lesson23_ultrasonic
     pi_lesson24_vibration_sensor
-    pi_lesson25_water_level
     pi_lesson26_lcd
     pi_lesson27_oled
     pi_lesson28_rgb_module
