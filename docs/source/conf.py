@@ -19,9 +19,9 @@
 import sphinx_rtd_theme
 import time
 
-project = 'SunFounder Universal Maker Sensor Kit'
-copyright = f'{time.localtime().tm_year}, SunFounder'
-author = 'www.sunfounder.com'
+project = 'Pi Camp — Intro to Electronics & Coding with Raspberry Pi'
+copyright = f'{time.localtime().tm_year}, SBC Training'
+author = 'SBC Training'
 
 # -- sphinx_rtd_theme Theme options -----------------------------------------------------
 html_theme_options = {
@@ -32,9 +32,9 @@ html_theme_options = {
 
 html_context = {
     "display_github": True, # Integrate GitHub
-    "github_user": "sunfounder", # Username
+    "github_user": "SBCTraining", # Username
     "github_repo": "universal-maker-sensor-kit", # Repo name
-    "github_version": "docs", # Version
+    "github_version": "main", # Version
     "conf_py_path": "/docs/source/", # Path in the checkout to the docs root
 }
 
@@ -68,13 +68,8 @@ html_theme = 'sphinx_rtd_theme'
 
 # SunFounder logo
 
-html_js_files = [
-    'https://ezblock.cc/readDocFile/custom.js',
-    './lang.js',
-]
-html_css_files = [
-    'https://ezblock.cc/readDocFile/custom.css',
-]
+html_js_files = []
+html_css_files = []
 
 
 # Multi-language
