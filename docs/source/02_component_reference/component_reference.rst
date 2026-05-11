@@ -17,7 +17,7 @@ Component Reference
 
 This section is a reference guide for the components covered in the core camp lessons. Each page covers the component's working principle, pinout, and a simple code example to help you get started.
 
-For components not covered in the core curriculum, see the :doc:`Advanced Component Reference </09_advanced_components/advanced_components>`.
+For components not covered in the core curriculum, see the :doc:`Advanced Component Reference </04_advanced_components/advanced_components>`.
 
 * :download:`SunFounder Universal Maker Sensor Kit Components List </_static/pdf/sunfounder_universal_maker_sensor_components_list.pdf>`
 

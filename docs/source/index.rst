@@ -1,5 +1,7 @@
-Pi Camp — Intro to Electronics & Coding with Raspberry Pi
+Weber State University — Pi Camp
 ==========================================================
+
+Intro to Electronics & Coding with Raspberry Pi
 
 Welcome to Pi Camp! In this course you'll learn the fundamentals of electronics and Python programming using the **Raspberry Pi**, **GPIO Zero**, and **CircuitPython** with the SunFounder Universal Maker Sensor Kit.
 
@@ -20,12 +22,12 @@ Table of contents
     :maxdepth: 2
 
     About This Course <self>
-    05_raspberry_pi/raspberry_pi
-    01_components_basic/00-component_list
-    08_advanced_sensors/advanced_sensors
-    09_advanced_components/advanced_components
-    06_faq/00_faq
-    07_appendix/appendix
+    01_camp_lessons/camp_lessons
+    02_component_reference/component_reference
+    03_advanced_lessons/advanced_lessons
+    04_advanced_components/advanced_components
+    05_faq/faq
+    06_appendix/appendix
     thank-learning
 
 Copyright Notice

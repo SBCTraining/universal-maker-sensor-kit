@@ -19,7 +19,7 @@
 import sphinx_rtd_theme
 import time
 
-project = 'Pi Camp — Intro to Electronics & Coding with Raspberry Pi'
+project = 'Weber State University — Pi Camp'
 copyright = f'{time.localtime().tm_year}, SBC Training'
 author = 'SBC Training'
 
@@ -69,7 +69,7 @@ html_theme = 'sphinx_rtd_theme'
 # SunFounder logo
 
 html_js_files = []
-html_css_files = []
+html_css_files = ['custom.css']
 
 
 # Multi-language

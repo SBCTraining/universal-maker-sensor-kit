@@ -5,7 +5,7 @@ These are additional Raspberry Pi lessons from the SunFounder kit that go beyond
 
 Each lesson includes wiring diagrams, code examples, and explanations to help you work independently.
 
-For reference information on the components used in these lessons, see the :doc:`Advanced Component Reference </09_advanced_components/advanced_components>`.
+For reference information on the components used in these lessons, see the :doc:`Advanced Component Reference </04_advanced_components/advanced_components>`.
 
 **Sensors**
 

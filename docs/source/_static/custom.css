@@ -1,0 +1,49 @@
+/* Weber State University — Pi Camp custom theme colors */
+/* Wildcat Purple: #492365 */
+
+.wy-side-nav-search {
+    background-color: #492365;
+}
+
+.wy-side-nav-search input[type="text"] {
+    border-color: #70569e;
+}
+
+.wy-nav-top {
+    background-color: #492365;
+}
+
+.wy-menu-vertical header,
+.wy-menu-vertical p.caption {
+    color: #cbc3dc;
+}
+
+a {
+    color: #492365;
+}
+
+a:hover {
+    color: #70569e;
+}
+
+.wy-menu-vertical a:hover {
+    background-color: #3a1c51;
+}
+
+.wy-menu-vertical li.current a {
+    border-right-color: #492365;
+}
+
+.wy-menu-vertical li.toctree-l2.current > a,
+.wy-menu-vertical li.toctree-l2.current li.toctree-l3 > a {
+    background-color: #f3eff6;
+}
+
+.btn-neutral {
+    background-color: #f3eff6 !important;
+    color: #492365 !important;
+}
+
+.btn-neutral:hover {
+    background-color: #cbc3dc !important;
+}
