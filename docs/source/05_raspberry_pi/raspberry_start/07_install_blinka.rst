@@ -14,7 +14,7 @@
 
 .. _install_blinka:
 
-Insatll ``Adafruit_Blinka`` (CircuitPython) - Optional
+Install ``Adafruit_Blinka`` (CircuitPython) - Optional
 =======================================================
 
 For an enhanced experience with advanced modules, we recommend using the ``Adafruit_Blinka`` library, a key component of the CircuitPython environment. The unique feature of Blinka is its ability to enable code written for CircuitPython to run seamlessly and effortlessly on Linux computers like the Raspberry Pi.
