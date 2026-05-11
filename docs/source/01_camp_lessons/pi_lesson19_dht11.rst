@@ -82,11 +82,11 @@ Code
   
         source ~/env/bin/activate
 
-   - Find the code for this lesson in ``universal-maker-sensor-kit-main/pi/`` directory, or directly copy and paste the code below. Execute the code by running the following commands in terminal:
+   - Find the code for this lesson in the ``pi-camp-labs/Lesson_10_DHT11_Module/`` directory, or directly copy and paste the code below. Execute the code by running the following commands in terminal:
 
      .. code-block:: bash
-  
-        python 19_dht11_module.py
+
+        python 10_dht11_module.py
 
 
 .. code-block:: python

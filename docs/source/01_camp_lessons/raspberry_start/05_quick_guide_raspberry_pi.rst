@@ -28,11 +28,11 @@ If you're not accessing your Raspberry Pi with a direct screen connection, consi
 
    .. code-block:: bash
 
-      git clone https://github.com/SBCTraining/universal-maker-sensor-kit.git
+      git clone https://github.com/SBCTraining/pi-camp-labs.git
 
    .. image:: img/quick_guide_02.png
        :width: 100%
-   
+
    .. raw:: html
 
       <br/><br/>
@@ -44,7 +44,7 @@ If you're not accessing your Raspberry Pi with a direct screen connection, consi
 
 **Method 2: Downloading Code Directly from GitHub**
 
-1. Open a web browser and go to https://github.com/SBCTraining/universal-maker-sensor-kit, then click on the download button.
+1. Open a web browser and go to https://github.com/SBCTraining/pi-camp-labs, then click on the download button.
 
    .. image:: img/quick_guide_04.png
 
@@ -60,7 +60,7 @@ If you're not accessing your Raspberry Pi with a direct screen connection, consi
 Opening and Running Code
 ------------------------
 
-You can find the code for each project in its respective code section. Alternatively, you can locate the code in the provided code directory. For instance, in ``universal-maker-sensor-kit/raspberry_pi/``, you will find Lesson 1's code named ``01_traffic_light_module.py``.
+You can find the code for each project in its respective code section. Alternatively, you can locate the code in the provided code directory. For instance, in ``pi-camp-labs/``, you will find Lesson 1's code named ``01_traffic_light_module.py``.
 
 There are two ways to run Python code below：
 
@@ -83,20 +83,20 @@ There are two ways to run Python code below：
    .. image:: img/quick_guide_10.png
 
 2. Click **Run** in the window and the following contents will appear.
-   
+
    .. image:: img/quick_guide_11.png
 
 3. To stop it from running, just click the X button in the top right corner to close it and you'll return to the code. Alternatively, you can terminate the program by typing ctrl+c.
-   
+
    .. image:: img/quick_guide_12.png
 
 **Method 2: Using Terminal**
 
-1. Log into your Raspberry Pi, open Terminal, and navigate to the home directory (``~``). (You can also access the terminal using SSH.)
+1. Log into your Raspberry Pi, open Terminal, and navigate to the lab code directory. (You can also access the terminal using SSH.)
 
    .. code-block::
 
-      cd ~/universal-maker-sensor-kit/raspberry_pi/
+      cd ~/pi-camp-labs/
 
    .. image:: img/quick_guide_13.png
 
@@ -125,7 +125,7 @@ There are two ways to run Python code below：
    .. image:: img/quick_guide_16.png
 
 
-5. ``nano`` is a text editor. This command opens ``nano Lesson_01_Traffic_Light_Module/01_traffic_light_module.py`` for editing.
+5. ``nano`` is a text editor. This command opens ``Lesson_01_Traffic_Light_Module/01_traffic_light_module.py`` for editing.
 
    .. image:: img/quick_guide_17.png
 

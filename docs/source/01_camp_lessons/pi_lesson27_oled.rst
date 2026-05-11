@@ -76,11 +76,11 @@ Run the Code
   
         source ~/env/bin/activate
 
-   - Find the code for this lesson in ``universal-maker-sensor-kit-main/pi/`` directory, or directly copy and paste the code below. Execute the code by running the following commands in terminal:
+   - Find the code for this lesson in the ``pi-camp-labs/Lesson_12_SSD1306_OLED_Module/`` directory, or directly copy and paste the code below. Execute the code by running the following commands in terminal:
 
      .. code-block:: bash
-  
-        python 27_ssd1306_oled_module.py
+
+        python 12_ssd1306_oled_module.py
 
 .. code-block:: python
 

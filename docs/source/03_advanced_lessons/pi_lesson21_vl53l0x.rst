@@ -77,11 +77,11 @@ Code
   
         source ~/env/bin/activate
 
-   - Find the code for this lesson in ``universal-maker-sensor-kit-main/pi/`` directory, or directly copy and paste the code below. Execute the code by running the following commands in terminal:
+   - Find the code for this lesson in the ``pi-camp-labs/Lesson_26_VL53L0X_Module/`` directory, or directly copy and paste the code below. Execute the code by running the following commands in terminal:
 
      .. code-block:: bash
-  
-        python 21_vl53l0x_module.py
+
+        python 26_vl53l0x_module.py
 
 
 .. code-block:: python

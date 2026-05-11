@@ -3,7 +3,7 @@ Download the Code
 
 Download the relevant code from the link below.
 
-* :download:`SunFounder Universal Maker Sensor Kit Code <https://codeload.github.com/SBCTraining/universal-maker-sensor-kit/zip/refs/heads/main>`
+* :download:`Pi Camp Labs Code <https://codeload.github.com/SBCTraining/pi-camp-labs/zip/refs/heads/main>`
 
-* Or check out the code at `SunFounder Universal Maker Sensor Kit - GitHub <https://github.com/SBCTraining/universal-maker-sensor-kit>`_
+* Or check out the code at `Pi Camp Labs - GitHub <https://github.com/SBCTraining/pi-camp-labs>`_
 
