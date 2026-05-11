@@ -12,49 +12,78 @@
 
     👉 Ready to explore and create with us? Click [|link_sf_facebook|] and join today!
 
-For Raspberry Pi
+Camp Lessons
 ==================================================
 
-Raspberry Pi users, please refer to the following tutorial. This tutorial is based on Raspberry Pi 5 as an example and has been verified on Raspberry Pi 4 and Raspberry Pi 5, but may also be applicable to other versions of Raspberry Pi (not guaranteed).
+These lessons follow the two-week Pi Camp curriculum. Each day builds on the previous one, starting with outputs (LEDs, buzzers, motors) and progressing to inputs (buttons, sensors) before combining them into projects.
 
-We will program the Raspberry Pi using the ``GPIO Zero`` library in Python, providing simple code examples for each component to help you get started quickly.
+We program the Raspberry Pi using the ``GPIO Zero`` library in Python, with simple code examples for each component.
 
-The ``GPIO Zero`` library is a remarkable tool in Python designed for interfacing with the GPIO (General Purpose Input/Output) pins on a Raspberry Pi. It offers a straightforward and intuitive API, making it exceptionally accessible for beginners in electronics and programming. The library simplifies tasks such as reading sensors, controlling motors, and activating LEDs, allowing for seamless interaction with a wide array of hardware components. Its user-friendly nature encourages experimentation and learning, making it a popular choice in educational environments and DIY projects.
-
+**Day 1 — Setup & First Boot**
 
 .. toctree::
     :maxdepth: 1
 
     raspberry_start/00_raspberyy_start
 
+**Day 2 — Digital Output: LEDs**
+
+.. toctree::
+    :maxdepth: 1
+
+    pi_lesson29_traffic_light_module
+    pi_lesson28_rgb_module
+
+**Day 3 — PWM Output: Sound & Motion**
+
+.. toctree::
+    :maxdepth: 1
+
+    pi_lesson32_passive_buzzer
+    pi_lesson33_servo
+
+**Day 4 — Digital Input: Buttons & Touch**
+
 .. toctree::
     :maxdepth: 1
 
     pi_lesson01_button
-    pi_lesson05_mpu6050
-    pi_lesson06_hall_sensor
-    pi_lesson07_speed
-    pi_lesson08_ir_obstacle_avoidance
-    pi_lesson09_joystick
-    pi_lesson10_pcf8591
-    pi_lesson11_photoresistor
-    pi_lesson12_pir_motion
-    pi_lesson13_potentiometer
-    pi_lesson14_max30102
-    pi_lesson17_rotary_encoder
-    pi_lesson18_ds18b20
-    pi_lesson19_dht11
-    pi_lesson20_bmp280
-    pi_lesson21_vl53l0x
     pi_lesson22_touch_sensor
+
+**Day 5 — Sensors: Distance & Motion**
+
+.. toctree::
+    :maxdepth: 1
+
     pi_lesson23_ultrasonic
-    pi_lesson24_vibration_sensor
+    pi_lesson12_pir_motion
+
+**Day 6 — Analog & Environmental Sensors**
+
+.. toctree::
+    :maxdepth: 1
+
+    pi_lesson13_potentiometer
+    pi_lesson19_dht11
+
+**Day 7 — LCD Display**
+
+.. toctree::
+    :maxdepth: 1
+
     pi_lesson26_lcd
+
+**Day 8 — OLED Display & CircuitPython**
+
+.. toctree::
+    :maxdepth: 1
+
     pi_lesson27_oled
-    pi_lesson28_rgb_module
-    pi_lesson29_traffic_light_module
+
+**Bonus: Relay & Pump**
+
+.. toctree::
+    :maxdepth: 1
+
     pi_lesson30_relay_module
     pi_lesson31_pump
-    pi_lesson32_passive_buzzer
-    pi_lesson33_servo
-    pi_lesson34_motor

@@ -37,24 +37,11 @@ For components not covered in the core curriculum, see the :doc:`Advanced Compon
     :maxdepth: 1
 
     01-component_button
-    05-component_mpu6050
-    06-component_hall_sensor
-    07-component_speed
-    08-component_ir_obstacle
-    09-component_joystick
-    10-component_pcf8591
-    11-component_photoresistor
     12-component_pir_motion
     13-component_potentiometer
-    14-component_max30102
-    17-component_rotary_encoder
-    18-component_ds18b20
     19-component_dht11
-    20-component_bmp280
-    21-component_VL53L0X
     22-component_touch
     23-component_ultrasonic
-    24-component_vibration
 
 **Display**
 
@@ -75,7 +62,6 @@ For components not covered in the core curriculum, see the :doc:`Advanced Compon
     31-component_pump
     32-component_buzzer
     33-component_servo
-    34-component_ttmotor
 
 **Power**
 
