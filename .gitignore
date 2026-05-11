@@ -1,3 +1,10 @@
 build*
 *demo.rst
 deprecateddocs/build/
+
+# Python virtual environment
+Lib/
+Scripts/
+pyvenv.cfg
+__pycache__/
+*.pyc
