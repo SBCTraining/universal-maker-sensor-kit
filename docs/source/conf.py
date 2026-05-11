@@ -19,7 +19,7 @@
 import sphinx_rtd_theme
 import time
 
-project = 'Weber State University — Pi Camp'
+project = 'Weber State University — Intro to Electronics & Coding'
 copyright = f'{time.localtime().tm_year}, SBC Training'
 author = 'SBC Training'
 

@@ -1,4 +1,4 @@
-Weber State University — Pi Camp
+Weber State University
 ==========================================================
 
 Intro to Electronics & Coding with Raspberry Pi
