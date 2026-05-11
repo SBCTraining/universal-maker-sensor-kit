@@ -60,7 +60,7 @@ If you're not accessing your Raspberry Pi with a direct screen connection, consi
 Opening and Running Code
 ------------------------
 
-You can find the code for each project in its respective code section. Alternatively, you can locate the code in the provided code directory. For instance, in ``universal-maker-sensor-kit/raspberry_pi/``, you will find Lesson 1's code named ``01_button_module.py``.
+You can find the code for each project in its respective code section. Alternatively, you can locate the code in the provided code directory. For instance, in ``universal-maker-sensor-kit/raspberry_pi/``, you will find Lesson 1's code named ``01_traffic_light_module.py``.
 
 There are two ways to run Python code below：
 
@@ -107,28 +107,28 @@ There are two ways to run Python code below：
 
    .. code-block::
 
-      python3 Lesson_01_Button_Module/01_button_module.py
+      python3 Lesson_01_Traffic_Light_Module/01_traffic_light_module.py
 
    .. image:: img/quick_guide_14.png
 
 
-3. Upon running the code, the output will indicate whether the Button is pressed or not.
+3. Upon running the code, the traffic light sequence will begin.
 
    .. image:: img/quick_guide_15.png
 
-4. To edit the ``Lesson_01_Button_Module/01_button_module.py`` file, stop the code by pressing ``Ctrl + C``. Then, open the file with:
+4. To edit the ``Lesson_01_Traffic_Light_Module/01_traffic_light_module.py`` file, stop the code by pressing ``Ctrl + C``. Then, open the file with:
 
    .. code-block::
 
-      nano Lesson_01_Button_Module/01_button_module.py
+      nano Lesson_01_Traffic_Light_Module/01_traffic_light_module.py
 
    .. image:: img/quick_guide_16.png
 
 
-5. ``nano`` is a text editor. This command opens ``nano Lesson_01_Button_Module/01_button_module.py`` for editing.
+5. ``nano`` is a text editor. This command opens ``nano Lesson_01_Traffic_Light_Module/01_traffic_light_module.py`` for editing.
 
    .. image:: img/quick_guide_17.png
 
-6. To exit nano, press ``Ctrl+X``. If you've made changes, a prompt will ask whether to save them. Respond with ``Y`` (yes) to save or ``N`` (no) to discard. Press ``Enter`` to confirm and exit. Reopen the file with ``nano Lesson_01_Button_Module/nano 01_button_module.py`` to view your changes.
+6. To exit nano, press ``Ctrl+X``. If you've made changes, a prompt will ask whether to save them. Respond with ``Y`` (yes) to save or ``N`` (no) to discard. Press ``Enter`` to confirm and exit. Reopen the file with ``nano Lesson_05_Button_Module/05_button_module.py`` to view your changes.
 
    .. image:: img/quick_guide_18.png
