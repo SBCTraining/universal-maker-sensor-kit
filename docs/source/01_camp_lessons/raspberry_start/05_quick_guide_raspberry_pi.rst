@@ -4,12 +4,9 @@ How to download and run the Code
 Downloading Code to Your Raspberry Pi
 -------------------------------------
 
-Before downloading the code, please be aware that the example code has been tested **ONLY** on the latest version of **Raspberry Pi OS**. We offer two download methods:
+Before downloading the code, please be aware that the example code has been tested **ONLY** on the latest version of **Raspberry Pi OS**.
 
 If you're not accessing your Raspberry Pi with a direct screen connection, consider utilizing remote access options. For detailed guidance, refer to the instructions in :ref:`no_screen`.
-
-
-**Method 1: Using Git Clone (Recommended)**
 
 1. Log into your Raspberry Pi, open Terminal, and navigate to the home directory (``~``). (You can also access the terminal using SSH.)
 
@@ -41,20 +38,6 @@ If you're not accessing your Raspberry Pi with a direct screen connection, consi
 
    .. image:: img/quick_guide_03.png
        :width: 100%
-
-**Method 2: Downloading Code Directly from GitHub**
-
-1. Open a web browser and go to https://github.com/SBCTraining/pi-camp-labs, then click on the download button.
-
-   .. image:: img/quick_guide_04.png
-
-2. Once downloaded, locate the code file in ``File Manager > Downloads`` and unzip it into the ``/home/pi`` directory.
-
-   .. image:: img/quick_guide_05.png
-
-3. Navigate to the ``/home/pi`` directory to access the extracted code files.
-
-   .. image:: img/quick_guide_06.png
 
 
 Opening and Running Code
