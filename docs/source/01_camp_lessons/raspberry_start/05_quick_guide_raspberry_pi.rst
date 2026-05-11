@@ -28,7 +28,7 @@ If you're not accessing your Raspberry Pi with a direct screen connection, consi
 
    .. code-block:: bash
 
-      git clone https://github.com/sunfounder/universal-maker-sensor-kit.git
+      git clone https://github.com/SBCTraining/universal-maker-sensor-kit.git
 
    .. image:: img/quick_guide_02.png
        :width: 100%
@@ -44,7 +44,7 @@ If you're not accessing your Raspberry Pi with a direct screen connection, consi
 
 **Method 2: Downloading Code Directly from GitHub**
 
-1. Open a web browser and go to https://github.com/sunfounder/universal-maker-sensor-kit, then click on the download button.
+1. Open a web browser and go to https://github.com/SBCTraining/universal-maker-sensor-kit, then click on the download button.
 
    .. image:: img/quick_guide_04.png
 
