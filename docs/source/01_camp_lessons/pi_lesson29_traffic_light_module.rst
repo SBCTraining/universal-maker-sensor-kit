@@ -14,7 +14,7 @@
 
 .. _pi_lesson29_traffic_light_module:
 
-Lesson 29: Traffic Light Module
+Lesson 1: Traffic Light Module
 ==================================
 
 In this lesson, you will learn to simulate traffic lights using a Raspberry Pi. You'll program the Raspberry Pi to control these LEDs in a sequence that resembles traffic lights: the red LED will be active for 3 seconds, the yellow LED will blink in a specific pattern, and then the green LED will turn on for 3 seconds. This project is a practical way to get started with GPIO interfacing and Python programming, suitable for those new to combining hardware and software with the Raspberry Pi.

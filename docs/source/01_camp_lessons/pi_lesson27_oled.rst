@@ -14,7 +14,7 @@
 
 .. _pi_lesson27_oled:
 
-Lesson 27: OLED Display Module (SSD1306)
+Lesson 12: OLED Display Module (SSD1306)
 ============================================
 
 In this lesson, you will learn how to connect a Raspberry Pi with an OLED Display Module (SSD1306) using Python. You'll learn how to establish I2C communication between the Raspberry Pi and the OLED display, and use the Python Imaging Library (PIL) for creating graphics and text. The lesson will guide you through drawing shapes and text on the OLED screen, providing a practical example with the message "Hello World!".

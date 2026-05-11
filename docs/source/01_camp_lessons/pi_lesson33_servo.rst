@@ -14,7 +14,7 @@
 
 .. _pi_lesson33_servo:
 
-Lesson 33: Servo Motor (SG90)
+Lesson 4: Servo Motor (SG90)
 ==================================
 
 In this lesson, you will learn how to control a servo motor using a Raspberry Pi. You'll learn how to adjust the servo's pulse width settings for precise control and write a Python script to move the servo to different positions: minimum, middle, and maximum.

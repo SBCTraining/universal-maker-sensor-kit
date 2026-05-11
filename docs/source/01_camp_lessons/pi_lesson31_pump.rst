@@ -14,7 +14,7 @@
 
 .. _pi_lesson31_pump:
 
-Lesson 31: Centrifugal Pump
+Lesson 14: Centrifugal Pump
 ==================================
 
 In this lesson, you will learn how to control a pump using a Raspberry Pi. You'll learn how to write a Python script to activate the pump, control its speed, and then stop it after a set period. This project provides a basic understanding of pump control through GPIO interfacing and Python programming, making it a suitable starting point for beginners interested in Raspberry Pi and simple pump applications.

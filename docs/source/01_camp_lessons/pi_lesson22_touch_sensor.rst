@@ -14,7 +14,7 @@
 
 .. _pi_lesson22_touch_sensor:
 
-Lesson 22: Touch Sensor Module
+Lesson 6: Touch Sensor Module
 ==================================
 
 In this lesson, you will learn how to connect and program a touch sensor with the Raspberry Pi using Python. The focus will be on setting up the sensor on GPIO pin 17 and writing a simple script to detect and respond to touch and release events. This practical session is aimed at teaching the basics of sensor integration and event handling in Python, providing you with the skills needed for more advanced sensor-based projects. It's an ideal starting point for those new to working with electronics and the Raspberry Pi.

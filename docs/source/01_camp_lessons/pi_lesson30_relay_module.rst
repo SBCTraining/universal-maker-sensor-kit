@@ -14,7 +14,7 @@
 
 .. _pi_lesson30_relay_module:
 
-Lesson 30: Relay Module
+Lesson 13: Relay Module
 ==================================
 
 In this lesson, you will learn how to control a relay module using a Raspberry Pi. You'll learn how to write a simple Python script to turn the relay on and off at one-second intervals. This project is a practical introduction to using GPIO pins for controlling external devices, providing a basic understanding of how relays work in electronic circuits. It's a straightforward and informative exercise, well-suited for beginners starting with Raspberry Pi and hardware control.

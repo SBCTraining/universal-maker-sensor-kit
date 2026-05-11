@@ -14,7 +14,7 @@
 
 .. _pi_lesson26_lcd:
 
-Lesson 26: I2C LCD 1602
+Lesson 11: I2C LCD 1602
 ==================================
 
 In this lesson, you will learn the basics of displaying text on an LCD screen using a Raspberry Pi. We'll start by showing you how to connect a standard LCD to the Raspberry Pi using the I2C interface. You'll learn how to set up the LCD with simple parameters like the Raspberry Pi model and I2C address. Then, we'll walk you through writing a basic Python script to display messages like "Hello World!" on the screen. This straightforward project is aimed at beginners, offering a foundational introduction to interfacing hardware with the Raspberry Pi and basic Python programming.

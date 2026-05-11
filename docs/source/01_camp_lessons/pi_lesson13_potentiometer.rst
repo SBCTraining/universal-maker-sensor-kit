@@ -14,7 +14,7 @@
 
 .. _pi_lesson13_potentiometer:
 
-Lesson 13: Potentiometer Module
+Lesson 9: Potentiometer Module
 ==================================
 
 .. note::

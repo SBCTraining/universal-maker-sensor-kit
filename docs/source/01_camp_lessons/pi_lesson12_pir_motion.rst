@@ -14,7 +14,7 @@
 
 .. _pi_lesson12_pir_motion:
 
-Lesson 12: PIR Motion Module (HC-SR501)
+Lesson 8: PIR Motion Module (HC-SR501)
 ============================================
 
 In this lesson, you will learn how to set up and use a motion sensor with the Raspberry Pi. We'll walk you through connecting a digital motion sensor to GPIO pin 17. You'll write a Python script to continually check the sensor's state, printing a message when motion is detected and another when the area is clear. This hands-on tutorial is focused on practical skills in electronic circuitry and Python programming, making it perfect for beginners who want to explore real-world applications of the Raspberry Pi in monitoring and automation projects.

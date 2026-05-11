@@ -14,7 +14,7 @@
 
 .. _pi_lesson19_dht11:
 
-Lesson 19: Temperature and Humidity Sensor Module (DHT11)
+Lesson 10: Temperature and Humidity Sensor Module (DHT11)
 ====================================================================
 
 In this lesson, you will learn how to connect and read data from a DHT11 temperature and humidity sensor using a Raspberry Pi. You will learn how to set up the sensor, read temperature in both Celsius and Fahrenheit, and obtain humidity readings. This project introduces you to working with external sensors, handling real-time data, and basic exception handling in Python. 

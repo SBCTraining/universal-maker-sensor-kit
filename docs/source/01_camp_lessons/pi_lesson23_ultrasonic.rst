@@ -14,7 +14,7 @@
 
 .. _pi_lesson23_ultrasonic:
 
-Lesson 23: Ultrasonic Sensor Module (HC-SR04)
+Lesson 7: Ultrasonic Sensor Module (HC-SR04)
 ================================================
 
 In this lesson, you'll learn how to connect an ultrasonic distance sensor to a Raspberry Pi and write a Python script for reading distance measurements. We'll guide you through the process of wiring the sensor's trigger pin to GPIO 17 and the echo pin to GPIO 27. The provided Python code will assist you in measuring distances and displaying them in centimeters. 
