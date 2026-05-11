@@ -14,7 +14,7 @@
 
 .. _pi_lesson10_pcf8591:
 
-Lesson 10: PCF8591 ADC DAC Converter Module
+Lesson 20: PCF8591 ADC DAC Converter Module
 ==============================================
 
 .. note::

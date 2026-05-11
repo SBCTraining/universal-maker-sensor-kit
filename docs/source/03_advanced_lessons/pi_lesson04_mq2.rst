@@ -14,7 +14,7 @@
 
 .. _pi_lesson04_mq2:
 
-Lesson 04: Gas Sensor Module (MQ-2)
+Lesson 30: Gas Sensor Module (MQ-2)
 ============================================
 
 In this lesson, you will learn to use the MQ2 gas sensor with Raspberry Pi for gas detection. The course covers connecting the MQ2 sensor to the GPIO17 pin and programming the Raspberry Pi in Python to read the sensor output. You'll understand how to detect gas presence, with a low signal from the sensor indicating the detection of gas. This project offers a practical introduction to sensor usage and Python scripting on the Raspberry Pi, ideal for beginners interested in environmental monitoring and safety applications.

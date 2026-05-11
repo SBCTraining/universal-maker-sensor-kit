@@ -14,7 +14,7 @@
 
 .. _pi_lesson11_photoresistor:
 
-Lesson 11: Photoresistor Module
+Lesson 21: Photoresistor Module
 ==================================
 
 .. note::

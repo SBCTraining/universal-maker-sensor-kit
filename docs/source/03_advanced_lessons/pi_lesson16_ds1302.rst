@@ -14,7 +14,7 @@
 
 .. _pi_lesson16_ds1306:
 
-Lesson 16: Real Time Clock Module (DS1302)
+Lesson 32: Real Time Clock Module (DS1302)
 ==================================================
 
 .. todo

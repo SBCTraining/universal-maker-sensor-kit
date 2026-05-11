@@ -14,7 +14,7 @@
 
 .. _pi_lesson05_mpu6050:
 
-Lesson 05: Gyroscope & Accelerometer Module (MPU6050)
+Lesson 15: Gyroscope & Accelerometer Module (MPU6050)
 ==========================================================
 
 In this lesson, you'll learn how to interface the Raspberry Pi with the MPU6050, a sensor that integrates a 3-axis gyroscope and accelerometer. You'll explore how to measure acceleration, orientation, and rotation. This project offers hands-on experience with reading sensor data, utilizing Python for hardware interaction, and grasping I2C communication fundamentals. You will also learn to continuously capture acceleration in three axes, rotational speed, and temperature from the sensor. It's an ideal starting point for beginners eager to delve into sensors and motion tracking using the Raspberry Pi.

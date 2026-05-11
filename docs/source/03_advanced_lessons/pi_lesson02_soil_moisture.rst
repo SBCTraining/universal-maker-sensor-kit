@@ -14,7 +14,7 @@
 
 .. _pi_lesson02_soil_moisture:
 
-Lesson 02: Capacitive Soil Moisture Module
+Lesson 28: Capacitive Soil Moisture Module
 ============================================
 
 .. note::

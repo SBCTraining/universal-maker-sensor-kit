@@ -14,7 +14,7 @@
 
 .. _pi_lesson21_vl53l0x:
 
-Lesson 21: Time of Flight Micro-LIDAR Distance Sensor (VL53L0X)
+Lesson 26: Time of Flight Micro-LIDAR Distance Sensor (VL53L0X)
 ====================================================================
 
 In this lesson, you'll learn how to use the Raspberry Pi to connect with a Time of Flight Micro-LIDAR Distance Sensor (VL53L0X). You'll be guided through setting up the sensor, initializing I2C communication, and measuring distances in real-time. This project will enhance your comprehension of connecting hardware with the Raspberry Pi and utilizing Python for practical applications. Additionally, you'll delve into adjusting measurement parameters to meet varying accuracy and speed needs.

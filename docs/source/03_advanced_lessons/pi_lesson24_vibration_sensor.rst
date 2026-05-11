@@ -14,7 +14,7 @@
 
 .. _pi_lesson24_vibration_sensor:
 
-Lesson 24: Vibration Sensor Module (SW-420)
+Lesson 27: Vibration Sensor Module (SW-420)
 ==============================================
 
 In this lesson, you will learn how to use a vibration sensor with the Raspberry Pi. We'll help you connect the sensor to GPIO pin 17 and guide you through writing a simple Python script. This script will monitor the sensor and print a message whenever vibration is detected. This lesson is focused on giving beginners a hands-on experience in connecting a simple sensor to the Raspberry Pi and writing a straightforward script to interact with it. 

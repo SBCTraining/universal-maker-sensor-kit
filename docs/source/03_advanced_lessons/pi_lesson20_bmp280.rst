@@ -14,7 +14,7 @@
 
 .. _pi_lesson20_bmp280:
 
-Lesson 20: Temperature, Humidity & Pressure Sensor (BMP280)
+Lesson 25: Temperature, Humidity & Pressure Sensor (BMP280)
 ====================================================================
 
 In this lesson, you will learn how to connect and read data from a BMP280 sensor that measures temperature, humidity, and pressure using a Raspberry Pi. You'll set up the sensor and write a Python script to measure environmental data including temperature, atmospheric pressure, and altitude.

@@ -14,7 +14,7 @@
 
 .. _pi_lesson03_flame:
 
-Lesson 03: Flame Sensor Module
+Lesson 29: Flame Sensor Module
 ==================================
 
 

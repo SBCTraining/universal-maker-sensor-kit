@@ -14,7 +14,7 @@
 
 .. _pi_lesson08_ir_obstacle_avoidance:
 
-Lesson 08: IR Obstacle Avoidance Sensor Module
+Lesson 18: IR Obstacle Avoidance Sensor Module
 ====================================================
 
 In this lesson, you will learn how to detect obstacles using a sensor with the Raspberry Pi. We will guide you through connecting a digital input sensor to GPIO pin 17. You'll learn how to write a Python script that continuously monitors the sensor to determine the presence of an obstacle. The program will output a message indicating whether an obstacle is detected or not. This straightforward yet practical project is an excellent way to get started with GPIO interfacing and Python programming, making it ideal for beginners interested in exploring sensor integration with the Raspberry Pi.

@@ -14,7 +14,7 @@
 
 .. _pi_lesson06_hall_sensor:
 
-Lesson 06: Hall Sensor Module
+Lesson 16: Hall Sensor Module
 ==================================
 
 .. note::

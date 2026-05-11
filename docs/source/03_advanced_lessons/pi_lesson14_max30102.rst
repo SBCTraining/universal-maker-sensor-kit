@@ -14,7 +14,7 @@
 
 .. _pi_lesson14_max30102:
 
-Lesson 14: Pulse Oximeter and Heart Rate Sensor Module (MAX30102)
+Lesson 22: Pulse Oximeter and Heart Rate Sensor Module (MAX30102)
 ====================================================================
 
 In this tutorial, you'll learn to operate the MAX30102 sensor using a Raspberry Pi, streamlined through the use of the open-source MAX30102 Python driver available on GitHub. This approach makes it easier to interface with the module, allowing you to focus on understanding the basics of sensor data collection and analysis. Ideal for novices, the project provides hands-on experience with sensor implementation and Python coding on the Raspberry Pi platform.

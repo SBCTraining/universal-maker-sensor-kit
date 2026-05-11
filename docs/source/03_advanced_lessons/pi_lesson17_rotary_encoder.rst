@@ -14,7 +14,7 @@
 
 .. _pi_lesson17_rotary_encoder:
 
-Lesson 17: Rotary Encoder Module
+Lesson 23: Rotary Encoder Module
 ==================================
 
 In this lesson, you will learn how to connect and program a rotary encoder with a Raspberry Pi. We will provide step-by-step instructions on writing a Python script that monitors the encoder's position and button state, with outputs displayed in the console. 

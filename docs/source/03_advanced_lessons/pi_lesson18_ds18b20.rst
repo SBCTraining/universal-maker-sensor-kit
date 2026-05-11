@@ -14,7 +14,7 @@
 
 .. _pi_lesson18_ds18b20:
 
-Lesson 18: Temperature Sensor Module (DS18B20)
+Lesson 24: Temperature Sensor Module (DS18B20)
 ================================================
 
 In this lesson, you will learn how to use a Raspberry Pi to read temperature data from a DS18B20 temperature sensor. You will understand how to locate the sensor's device file, read and parse its raw data, and convert this data into Celsius and Fahrenheit readings. 

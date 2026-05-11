@@ -14,7 +14,7 @@
 
 .. _pi_lesson09_joystick:
 
-Lesson 09: Joystick Module
+Lesson 19: Joystick Module
 ==================================
 
 .. note::

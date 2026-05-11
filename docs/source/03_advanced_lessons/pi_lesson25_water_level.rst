@@ -14,7 +14,7 @@
 
 .. _pi_lesson25_water_level:
 
-Lesson 25: Water Level Sensor Module
+Lesson 33: Water Level Sensor Module
 =========================================
 
 .. note::
